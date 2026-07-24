@@ -1,0 +1,1132 @@
+[
+  {
+    "index": 0,
+    "text": "Here's a tricky one.",
+    "line_index": 0,
+    "start": 0.34,
+    "end": 1.25,
+    "duration": 0.91,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 0.34,
+        "end": 0.46
+      },
+      {
+        "word": "a",
+        "start": 0.46,
+        "end": 0.58
+      },
+      {
+        "word": "tricky",
+        "start": 0.62,
+        "end": 0.8
+      },
+      {
+        "word": "one.",
+        "start": 0.8,
+        "end": 1.25
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "The letters OO make two different sounds.",
+    "line_index": 1,
+    "start": 1.92,
+    "end": 5.06,
+    "duration": 3.14,
+    "words": [
+      {
+        "word": "The",
+        "start": 1.92,
+        "end": 1.92
+      },
+      {
+        "word": "letters",
+        "start": 1.92,
+        "end": 2.32
+      },
+      {
+        "word": "OO",
+        "start": 2.32,
+        "end": 2.92
+      },
+      {
+        "word": "make",
+        "start": 2.92,
+        "end": 3.38
+      },
+      {
+        "word": "two",
+        "start": 3.38,
+        "end": 3.86
+      },
+      {
+        "word": "different",
+        "start": 3.86,
+        "end": 4.36
+      },
+      {
+        "word": "sounds.",
+        "start": 4.36,
+        "end": 5.06
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Most of the time, OO makes a long sound.",
+    "line_index": 2,
+    "start": 6.32,
+    "end": 9.77,
+    "duration": 3.45,
+    "words": [
+      {
+        "word": "Most",
+        "start": 6.32,
+        "end": 6.64
+      },
+      {
+        "word": "of",
+        "start": 6.64,
+        "end": 6.86
+      },
+      {
+        "word": "the",
+        "start": 6.86,
+        "end": 6.96
+      },
+      {
+        "word": "time,",
+        "start": 6.96,
+        "end": 7.96
+      },
+      {
+        "word": "OO",
+        "start": 8.08,
+        "end": 8.22
+      },
+      {
+        "word": "makes",
+        "start": 8.22,
+        "end": 8.48
+      },
+      {
+        "word": "a",
+        "start": 8.48,
+        "end": 8.7
+      },
+      {
+        "word": "long",
+        "start": 8.7,
+        "end": 9.12
+      },
+      {
+        "word": "sound.",
+        "start": 9.12,
+        "end": 9.77
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "OO, like in moon, zoo and food.",
+    "line_index": 3,
+    "start": 10.68,
+    "end": 15.74,
+    "duration": 5.06,
+    "words": [
+      {
+        "word": "OO,",
+        "start": 10.68,
+        "end": 11.94
+      },
+      {
+        "word": "like",
+        "start": 12.32,
+        "end": 12.56
+      },
+      {
+        "word": "in",
+        "start": 12.56,
+        "end": 12.84
+      },
+      {
+        "word": "moon,",
+        "start": 12.84,
+        "end": 13.54
+      },
+      {
+        "word": "zoo",
+        "start": 14.06,
+        "end": 14.32
+      },
+      {
+        "word": "and",
+        "start": 14.32,
+        "end": 15.1
+      },
+      {
+        "word": "food.",
+        "start": 15.1,
+        "end": 15.74
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "But some words use a short OO sound.",
+    "line_index": 4,
+    "start": 17.0,
+    "end": 20.4,
+    "duration": 3.4,
+    "words": [
+      {
+        "word": "But",
+        "start": 17.0,
+        "end": 17.16
+      },
+      {
+        "word": "some",
+        "start": 17.16,
+        "end": 17.44
+      },
+      {
+        "word": "words",
+        "start": 17.44,
+        "end": 17.9
+      },
+      {
+        "word": "use",
+        "start": 17.9,
+        "end": 18.28
+      },
+      {
+        "word": "a",
+        "start": 18.28,
+        "end": 18.44
+      },
+      {
+        "word": "short",
+        "start": 18.44,
+        "end": 18.9
+      },
+      {
+        "word": "OO",
+        "start": 18.9,
+        "end": 19.78
+      },
+      {
+        "word": "sound.",
+        "start": 19.78,
+        "end": 20.4
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "OO, like in book, good and foot.",
+    "line_index": 5,
+    "start": 21.0,
+    "end": 25.52,
+    "duration": 4.52,
+    "words": [
+      {
+        "word": "OO,",
+        "start": 21.0,
+        "end": 21.26
+      },
+      {
+        "word": "like",
+        "start": 22.06,
+        "end": 22.26
+      },
+      {
+        "word": "in",
+        "start": 22.26,
+        "end": 22.56
+      },
+      {
+        "word": "book,",
+        "start": 22.56,
+        "end": 22.9
+      },
+      {
+        "word": "good",
+        "start": 23.78,
+        "end": 23.98
+      },
+      {
+        "word": "and",
+        "start": 23.98,
+        "end": 24.84
+      },
+      {
+        "word": "foot.",
+        "start": 24.84,
+        "end": 25.52
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Here's the tricky part.",
+    "line_index": 6,
+    "start": 26.9,
+    "end": 28.08,
+    "duration": 1.18,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 26.9,
+        "end": 27.26
+      },
+      {
+        "word": "the",
+        "start": 27.26,
+        "end": 27.36
+      },
+      {
+        "word": "tricky",
+        "start": 27.36,
+        "end": 27.6
+      },
+      {
+        "word": "part.",
+        "start": 27.6,
+        "end": 28.08
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "OO doesn't always sound the same.",
+    "line_index": 6,
+    "start": 28.88,
+    "end": 31.58,
+    "duration": 2.7,
+    "words": [
+      {
+        "word": "OO",
+        "start": 28.88,
+        "end": 29.28
+      },
+      {
+        "word": "doesn't",
+        "start": 29.28,
+        "end": 29.8
+      },
+      {
+        "word": "always",
+        "start": 29.98,
+        "end": 30.4
+      },
+      {
+        "word": "sound",
+        "start": 30.4,
+        "end": 30.76
+      },
+      {
+        "word": "the",
+        "start": 30.76,
+        "end": 30.98
+      },
+      {
+        "word": "same.",
+        "start": 30.98,
+        "end": 31.58
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "So when you're reading, try the long sound first.",
+    "line_index": 7,
+    "start": 32.5,
+    "end": 35.52,
+    "duration": 3.02,
+    "words": [
+      {
+        "word": "So",
+        "start": 32.5,
+        "end": 32.5
+      },
+      {
+        "word": "when",
+        "start": 32.5,
+        "end": 32.72
+      },
+      {
+        "word": "you're",
+        "start": 32.72,
+        "end": 32.94
+      },
+      {
+        "word": "reading,",
+        "start": 32.94,
+        "end": 33.49
+      },
+      {
+        "word": "try",
+        "start": 34.06,
+        "end": 34.06
+      },
+      {
+        "word": "the",
+        "start": 34.06,
+        "end": 34.3
+      },
+      {
+        "word": "long",
+        "start": 34.3,
+        "end": 34.6
+      },
+      {
+        "word": "sound",
+        "start": 34.6,
+        "end": 35.02
+      },
+      {
+        "word": "first.",
+        "start": 35.02,
+        "end": 35.52
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "If it doesn't sound right, try the short sound.",
+    "line_index": 8,
+    "start": 36.44,
+    "end": 39.48,
+    "duration": 3.04,
+    "words": [
+      {
+        "word": "If",
+        "start": 36.44,
+        "end": 36.6
+      },
+      {
+        "word": "it",
+        "start": 36.6,
+        "end": 36.72
+      },
+      {
+        "word": "doesn't",
+        "start": 36.72,
+        "end": 37.08
+      },
+      {
+        "word": "sound",
+        "start": 37.08,
+        "end": 37.38
+      },
+      {
+        "word": "right,",
+        "start": 37.38,
+        "end": 37.84
+      },
+      {
+        "word": "try",
+        "start": 38.3,
+        "end": 38.46
+      },
+      {
+        "word": "the",
+        "start": 38.46,
+        "end": 38.64
+      },
+      {
+        "word": "short",
+        "start": 38.64,
+        "end": 38.92
+      },
+      {
+        "word": "sound.",
+        "start": 38.92,
+        "end": 39.48
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Here's a helpful hint.",
+    "line_index": 9,
+    "start": 40.82,
+    "end": 41.94,
+    "duration": 1.12,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 40.82,
+        "end": 41.08
+      },
+      {
+        "word": "a",
+        "start": 41.08,
+        "end": 41.18
+      },
+      {
+        "word": "helpful",
+        "start": 41.18,
+        "end": 41.46
+      },
+      {
+        "word": "hint.",
+        "start": 41.46,
+        "end": 41.94
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "OO before K is often short.",
+    "line_index": 9,
+    "start": 42.9,
+    "end": 45.5,
+    "duration": 2.6,
+    "words": [
+      {
+        "word": "OO",
+        "start": 42.9,
+        "end": 43.22
+      },
+      {
+        "word": "before",
+        "start": 43.22,
+        "end": 43.6
+      },
+      {
+        "word": "K",
+        "start": 43.6,
+        "end": 44.04
+      },
+      {
+        "word": "is",
+        "start": 44.04,
+        "end": 44.64
+      },
+      {
+        "word": "often",
+        "start": 44.64,
+        "end": 44.98
+      },
+      {
+        "word": "short.",
+        "start": 44.98,
+        "end": 45.5
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Book, look, cook.",
+    "line_index": 10,
+    "start": 46.6,
+    "end": 49.72,
+    "duration": 3.12,
+    "words": [
+      {
+        "word": "Book,",
+        "start": 46.6,
+        "end": 46.8
+      },
+      {
+        "word": "look,",
+        "start": 48.0,
+        "end": 48.22
+      },
+      {
+        "word": "cook.",
+        "start": 49.46,
+        "end": 49.72
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "But that's not always true.",
+    "line_index": 11,
+    "start": 50.98,
+    "end": 52.82,
+    "duration": 1.84,
+    "words": [
+      {
+        "word": "But",
+        "start": 50.98,
+        "end": 51.1
+      },
+      {
+        "word": "that's",
+        "start": 51.1,
+        "end": 51.5
+      },
+      {
+        "word": "not",
+        "start": 51.5,
+        "end": 51.62
+      },
+      {
+        "word": "always",
+        "start": 51.62,
+        "end": 52.16
+      },
+      {
+        "word": "true.",
+        "start": 52.16,
+        "end": 52.82
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Good and foot are short too.",
+    "line_index": 11,
+    "start": 53.64,
+    "end": 55.84,
+    "duration": 2.2,
+    "words": [
+      {
+        "word": "Good",
+        "start": 53.64,
+        "end": 53.88
+      },
+      {
+        "word": "and",
+        "start": 53.88,
+        "end": 54.22
+      },
+      {
+        "word": "foot",
+        "start": 54.22,
+        "end": 54.58
+      },
+      {
+        "word": "are",
+        "start": 54.58,
+        "end": 54.92
+      },
+      {
+        "word": "short",
+        "start": 54.92,
+        "end": 55.26
+      },
+      {
+        "word": "too.",
+        "start": 55.26,
+        "end": 55.84
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "So keep practising and trust your ears.",
+    "line_index": 12,
+    "start": 56.8,
+    "end": 59.56,
+    "duration": 2.76,
+    "words": [
+      {
+        "word": "So",
+        "start": 56.8,
+        "end": 56.9
+      },
+      {
+        "word": "keep",
+        "start": 56.9,
+        "end": 57.2
+      },
+      {
+        "word": "practising",
+        "start": 57.2,
+        "end": 57.92
+      },
+      {
+        "word": "and",
+        "start": 57.92,
+        "end": 58.4
+      },
+      {
+        "word": "trust",
+        "start": 58.4,
+        "end": 58.78
+      },
+      {
+        "word": "your",
+        "start": 58.78,
+        "end": 59.08
+      },
+      {
+        "word": "ears.",
+        "start": 59.08,
+        "end": 59.56
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Here are some examples.",
+    "line_index": 13,
+    "start": 61.14,
+    "end": 62.0,
+    "duration": 0.86,
+    "words": [
+      {
+        "word": "Here",
+        "start": 61.14,
+        "end": 61.14
+      },
+      {
+        "word": "are",
+        "start": 61.14,
+        "end": 61.34
+      },
+      {
+        "word": "some",
+        "start": 61.34,
+        "end": 61.5
+      },
+      {
+        "word": "examples.",
+        "start": 61.5,
+        "end": 62.0
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Long OO, moon, food, zoo, spoon.",
+    "line_index": 14,
+    "start": 63.86,
+    "end": 70.76,
+    "duration": 6.9,
+    "words": [
+      {
+        "word": "Long",
+        "start": 63.86,
+        "end": 63.86
+      },
+      {
+        "word": "OO,",
+        "start": 63.86,
+        "end": 64.56
+      },
+      {
+        "word": "moon,",
+        "start": 65.38,
+        "end": 66.26
+      },
+      {
+        "word": "food,",
+        "start": 67.08,
+        "end": 67.62
+      },
+      {
+        "word": "zoo,",
+        "start": 68.58,
+        "end": 69.16
+      },
+      {
+        "word": "spoon.",
+        "start": 69.92,
+        "end": 70.76
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Short OO, book, good, foot, wood.",
+    "line_index": 15,
+    "start": 72.34,
+    "end": 79.34,
+    "duration": 7.0,
+    "words": [
+      {
+        "word": "Short",
+        "start": 72.34,
+        "end": 72.64
+      },
+      {
+        "word": "OO,",
+        "start": 72.64,
+        "end": 73.34
+      },
+      {
+        "word": "book,",
+        "start": 74.24,
+        "end": 74.46
+      },
+      {
+        "word": "good,",
+        "start": 75.6,
+        "end": 76.22
+      },
+      {
+        "word": "foot,",
+        "start": 77.22,
+        "end": 77.52
+      },
+      {
+        "word": "wood.",
+        "start": 78.9,
+        "end": 79.34
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Now it's your turn.",
+    "line_index": 16,
+    "start": 80.86,
+    "end": 82.06,
+    "duration": 1.2,
+    "words": [
+      {
+        "word": "Now",
+        "start": 80.86,
+        "end": 81.08
+      },
+      {
+        "word": "it's",
+        "start": 81.08,
+        "end": 81.34
+      },
+      {
+        "word": "your",
+        "start": 81.34,
+        "end": 81.48
+      },
+      {
+        "word": "turn.",
+        "start": 81.48,
+        "end": 82.06
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Good, long or short?",
+    "line_index": 17,
+    "start": 83.14,
+    "end": 85.72,
+    "duration": 2.58,
+    "words": [
+      {
+        "word": "Good,",
+        "start": 83.14,
+        "end": 83.6
+      },
+      {
+        "word": "long",
+        "start": 84.36,
+        "end": 84.74
+      },
+      {
+        "word": "or",
+        "start": 84.74,
+        "end": 85.3
+      },
+      {
+        "word": "short?",
+        "start": 85.3,
+        "end": 85.72
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "It's short, good.",
+    "line_index": 18,
+    "start": 87.6,
+    "end": 89.22,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "It's",
+        "start": 87.6,
+        "end": 87.92
+      },
+      {
+        "word": "short,",
+        "start": 87.92,
+        "end": 88.68
+      },
+      {
+        "word": "good.",
+        "start": 88.82,
+        "end": 89.22
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "No K but it's still short.",
+    "line_index": 18,
+    "start": 90.32,
+    "end": 92.56,
+    "duration": 2.24,
+    "words": [
+      {
+        "word": "No",
+        "start": 90.32,
+        "end": 90.32
+      },
+      {
+        "word": "K",
+        "start": 90.32,
+        "end": 90.68
+      },
+      {
+        "word": "but",
+        "start": 90.68,
+        "end": 91.38
+      },
+      {
+        "word": "it's",
+        "start": 91.38,
+        "end": 91.72
+      },
+      {
+        "word": "still",
+        "start": 91.78,
+        "end": 92.0
+      },
+      {
+        "word": "short.",
+        "start": 92.0,
+        "end": 92.56
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "Remember, OO is long most of the time, like moon.",
+    "line_index": 19,
+    "start": 93.92,
+    "end": 97.92,
+    "duration": 4.0,
+    "words": [
+      {
+        "word": "Remember,",
+        "start": 93.92,
+        "end": 94.64
+      },
+      {
+        "word": "OO",
+        "start": 95.36,
+        "end": 95.52
+      },
+      {
+        "word": "is",
+        "start": 95.52,
+        "end": 95.76
+      },
+      {
+        "word": "long",
+        "start": 95.76,
+        "end": 96.16
+      },
+      {
+        "word": "most",
+        "start": 96.16,
+        "end": 96.6
+      },
+      {
+        "word": "of",
+        "start": 96.6,
+        "end": 96.84
+      },
+      {
+        "word": "the",
+        "start": 96.84,
+        "end": 96.94
+      },
+      {
+        "word": "time,",
+        "start": 96.94,
+        "end": 97.42
+      },
+      {
+        "word": "like",
+        "start": 97.56,
+        "end": 97.82
+      },
+      {
+        "word": "moon.",
+        "start": 97.82,
+        "end": 97.92
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "But some words are short, like book.",
+    "line_index": 20,
+    "start": 99.26,
+    "end": 101.68,
+    "duration": 2.42,
+    "words": [
+      {
+        "word": "But",
+        "start": 99.26,
+        "end": 99.42
+      },
+      {
+        "word": "some",
+        "start": 99.56,
+        "end": 99.78
+      },
+      {
+        "word": "words",
+        "start": 99.78,
+        "end": 100.16
+      },
+      {
+        "word": "are",
+        "start": 100.16,
+        "end": 100.44
+      },
+      {
+        "word": "short,",
+        "start": 100.44,
+        "end": 100.96
+      },
+      {
+        "word": "like",
+        "start": 101.38,
+        "end": 101.58
+      },
+      {
+        "word": "book.",
+        "start": 101.58,
+        "end": 101.68
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "The more you read, the easier it gets.",
+    "line_index": 21,
+    "start": 103.4,
+    "end": 105.86,
+    "duration": 2.46,
+    "words": [
+      {
+        "word": "The",
+        "start": 103.4,
+        "end": 103.56
+      },
+      {
+        "word": "more",
+        "start": 103.56,
+        "end": 103.78
+      },
+      {
+        "word": "you",
+        "start": 103.78,
+        "end": 104.0
+      },
+      {
+        "word": "read,",
+        "start": 104.0,
+        "end": 104.48
+      },
+      {
+        "word": "the",
+        "start": 104.78,
+        "end": 104.8
+      },
+      {
+        "word": "easier",
+        "start": 104.8,
+        "end": 105.26
+      },
+      {
+        "word": "it",
+        "start": 105.26,
+        "end": 105.56
+      },
+      {
+        "word": "gets.",
+        "start": 105.56,
+        "end": 105.86
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Read more tricky words in the English learning app.",
+    "line_index": 22,
+    "start": 106.96,
+    "end": 110.14,
+    "duration": 3.18,
+    "words": [
+      {
+        "word": "Read",
+        "start": 106.96,
+        "end": 107.28
+      },
+      {
+        "word": "more",
+        "start": 107.28,
+        "end": 107.64
+      },
+      {
+        "word": "tricky",
+        "start": 107.64,
+        "end": 108.0
+      },
+      {
+        "word": "words",
+        "start": 108.0,
+        "end": 108.46
+      },
+      {
+        "word": "in",
+        "start": 108.46,
+        "end": 108.8
+      },
+      {
+        "word": "the",
+        "start": 108.8,
+        "end": 108.92
+      },
+      {
+        "word": "English",
+        "start": 108.92,
+        "end": 109.26
+      },
+      {
+        "word": "learning",
+        "start": 109.26,
+        "end": 109.72
+      },
+      {
+        "word": "app.",
+        "start": 109.72,
+        "end": 110.14
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Listen, try.",
+    "line_index": 23,
+    "start": 110.88,
+    "end": 112.36,
+    "duration": 1.48,
+    "words": [
+      {
+        "word": "Listen,",
+        "start": 110.88,
+        "end": 111.5
+      },
+      {
+        "word": "try.",
+        "start": 111.86,
+        "end": 112.36
+      }
+    ]
+  }
+]

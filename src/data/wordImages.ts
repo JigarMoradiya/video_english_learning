@@ -52,6 +52,22 @@ export const wordEmojis: Record<string, string> = {
   join: "🤝",
   chain: "⛓️",
   tail: "🐕",
+  // oo set — long 🌙 and short 📖
+  moon: "🌙",
+  food: "🍔",
+  zoo: "🦁",
+  spoon: "🥄",
+  pool: "🏊",
+  room: "🛏️",
+  tooth: "🦷",
+  school: "🏫",
+  book: "📖",
+  good: "👍",
+  foot: "🦶",
+  wood: "🪵",
+  cook: "👨‍🍳",
+  look: "👀",
+  hook: "🪝",
 };
 
 export type Illustration = { kind: "image"; src: string } | { kind: "emoji"; char: string } | null;

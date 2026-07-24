@@ -131,4 +131,41 @@ export const comparisons: Record<string, PhonicsComparison> = {
       { word: "neck", blanked: "ne__", answerTeam: 2 },
     ],
   },
+
+  // "Which SOUND?" — one spelling (oo), TWO sounds. NO reliable rule (see
+  // feedback_no_false_rules): teach "try both + learn by sight". team0 = long 🌙,
+  // team1 = short 📖. Mirrors ComparisonData.swift oo_two (L13). Cool moon vs warm book.
+  oo: {
+    id: "oo",
+    cardTitle: "oo 🌙 ⚡ 📖",
+    shortTitle: "oo — moon or book?",
+    rule: "oo is usually LONG like the moon… but a small family is SHORT like a book!",
+    explanation:
+      "The same two letters make two sounds!\n• Most **oo** words are **long** — moon, zoo, food.\n• A small family is **short** — book, good, foot.\nThere's no strict rule — try both sounds and pick the real word. (Hint: **oo** before **k** is often short.)",
+    example: "moon · book",
+    group: "sound",
+    hueShift: 235, // deep indigo/night mood
+    teams: [
+      { marker: "oo", colorHex: "5E35B1", zoneEmoji: "🌙", zoneHint: "long /oo/", markerAudio: "oo" },
+      { marker: "oo", colorHex: "E65100", zoneEmoji: "📖", zoneHint: "short /u/", markerAudio: "oo2" },
+    ],
+    quiz: [
+      { word: "moon", blanked: "moon", answerTeam: 0 },
+      { word: "food", blanked: "food", answerTeam: 0 },
+      { word: "zoo", blanked: "zoo", answerTeam: 0 },
+      { word: "spoon", blanked: "spoon", answerTeam: 0 },
+      { word: "pool", blanked: "pool", answerTeam: 0 },
+      { word: "room", blanked: "room", answerTeam: 0 },
+      { word: "tooth", blanked: "tooth", answerTeam: 0 },
+      { word: "school", blanked: "school", answerTeam: 0 },
+      { word: "book", blanked: "book", answerTeam: 1 },
+      { word: "good", blanked: "good", answerTeam: 1 },
+      { word: "foot", blanked: "foot", answerTeam: 1 },
+      { word: "wood", blanked: "wood", answerTeam: 1 },
+      { word: "cook", blanked: "cook", answerTeam: 1 },
+      { word: "look", blanked: "look", answerTeam: 1 },
+      { word: "hook", blanked: "hook", answerTeam: 1 },
+      { word: "took", blanked: "took", answerTeam: 1 },
+    ],
+  },
 };

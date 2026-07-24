@@ -9,7 +9,8 @@
     "render:ai_ay": "remotion render ai-ay out/ai_ay.mp4",
     "render:oi_oy": "remotion render oi-oy out/oi_oy.mp4",
     "render:oa_ow": "remotion render oa-ow out/oa_ow.mp4",
-    "render:c_k_ck": "remotion render c-k-ck out/c_k_ck.mp4"
+    "render:c_k_ck": "remotion render c-k-ck out/c_k_ck.mp4",
+    "render:oo": "remotion render oo out/oo.mp4"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
