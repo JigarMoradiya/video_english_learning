@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phonics Video Scripts</title>
+<style>
+  :root {
+    --bg: #FBFAF6; --surface: #FFFFFF; --surface-2: #F6F4EE;
+    --ink: #1F2434; --soft: #626B80; --faint: #8B92A4; --border: #E7E3D9;
+    --accent: #5B6CF0;
+    --shadow: 0 1px 2px rgba(31,36,52,.05), 0 8px 24px rgba(31,36,52,.06);
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --body: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --round: "SF Pro Rounded", ui-rounded, "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12141C; --surface: #1B1E29; --surface-2: #212531;
+      --ink: #ECEEF4; --soft: #9AA2B4; --faint: #767E92; --border: #2B2F3D;
+      --accent: #8A97FF;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 56px 24px 96px; }
+
+  header.page { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 40px; }
+  .kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  h1 { font-family: var(--round); font-weight: 800; font-size: clamp(30px, 5vw, 44px); letter-spacing: -.02em; margin: 10px 0 6px; text-wrap: balance; }
+  .lede { color: var(--soft); max-width: 60ch; margin: 0; }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; margin-top: 22px; }
+  .progress { display: flex; align-items: center; gap: 12px; }
+  .bar { width: 190px; height: 9px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); overflow: hidden; }
+  .bar > i { display: block; height: 100%; width: calc(5 / 16 * 100%); background: var(--accent); border-radius: 999px; }
+  .progress b { font-family: var(--round); font-weight: 800; }
+  .progress span { color: var(--soft); font-size: 14px; }
+  .legend { display: flex; gap: 16px; font-size: 13px; color: var(--soft); margin-left: auto; }
+
+  .tag { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); white-space: nowrap; }
+  .tag.reel { color: #0E7C68; background: color-mix(in srgb, #0E7C68 12%, transparent); border-color: color-mix(in srgb, #0E7C68 30%, transparent); }
+  .tag.video { color: #B4530A; background: color-mix(in srgb, #B4530A 12%, transparent); border-color: color-mix(in srgb, #B4530A 30%, transparent); }
+  .tag.level { color: var(--soft); }
+  .tag.dur { color: var(--faint); font-variant-numeric: tabular-nums; }
+  .legend .tag { margin-right: 6px; }
+
+  section.card { background: var(--surface); border: 1px solid var(--border); border-left: 5px solid var(--card); border-radius: 16px; box-shadow: var(--shadow); padding: 26px 30px 30px; margin-bottom: 26px; }
+  .card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 18px; margin-bottom: 6px; }
+  .glyph { font-family: var(--round); font-weight: 800; font-size: 30px; letter-spacing: -.01em; color: var(--card); }
+  .title-en { color: var(--soft); font-size: 15px; font-weight: 500; }
+  .badges { display: flex; gap: 8px; margin-left: auto; align-items: center; }
+
+  ol.script { list-style: none; counter-reset: line; margin: 18px 0 0; padding: 0; }
+  ol.script > li { counter-increment: line; display: grid; grid-template-columns: 2.2em 1fr; gap: 14px; padding: 7px 0; border-top: 1px solid var(--border); }
+  ol.script > li:first-child { border-top: none; }
+  ol.script > li::before { content: counter(line, decimal-leading-zero); font-family: var(--mono); font-size: 12px; color: var(--faint); padding-top: .28em; font-variant-numeric: tabular-nums; }
+  .line { color: var(--ink); }
+  .line .cue { color: var(--faint); font-style: italic; }
+
+  h2.pending-h { font-family: var(--round); font-weight: 800; font-size: 22px; margin: 52px 0 4px; }
+  .pending-sub { color: var(--soft); margin: 0 0 20px; font-size: 15px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+  .pend { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .pend .p-glyph { font-family: var(--round); font-weight: 800; font-size: 18px; }
+  .pend .p-desc { color: var(--soft); font-size: 13px; }
+  .pend .p-level { font-family: var(--mono); font-size: 10.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); margin-top: 2px; }
+  .pend.next { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+  .pend.next .p-tag { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+
+  footer.page { margin-top: 46px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--faint); font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between; }
+  footer.page .powered { font-family: var(--round); }
+  footer.page .powered b { color: var(--accent); font-weight: 800; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <div class="kicker">English Learning &middot; Phonics</div>
+    <h1>Phonics Video Scripts</h1>
+    <p class="lede">Narration scripts for every phonics teaching video produced from the app's comparison cards. Each is tagged with its curriculum level and format. New scripts get added here as they're made.</p>
+    <div class="meta">
+      <div class="progress">
+        <span class="bar"><i></i></span>
+        <b>5</b><span>of 16 cards done</span>
+      </div>
+      <div class="legend">
+        <span><span class="tag reel">Reel</span>9:16 short (~75s)</span>
+        <span><span class="tag video">Video</span>16:9 YouTube (2 min+)</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="card" style="--card:#1565C0">
+    <div class="card-head">
+      <span class="glyph">ai &#9889; ay</span>
+      <span class="title-en">same sound, different spelling</span>
+      <span class="badges"><span class="tag level">L13 &middot; Vowel Teams</span><span class="tag dur">&#9201; 1:13</span><span class="tag reel">Reel</span></span>
+    </div>
+    <ol class="script">
+      <li><span class="line">Meet ai and ay &mdash; two best friends who make the same sound!</span></li>
+      <li><span class="line">They both say&hellip; ayyy! Like in rain&hellip; and play!</span></li>
+      <li><span class="line">But if they sound the same&hellip; how do you know which one to use?</span></li>
+      <li><span class="line">Here's the secret &mdash; little i is very shy. She never sits at the end of a word, so ai stays in the middle.</span></li>
+      <li><span class="line">But y is brave &mdash; y loves being last! So ay goes at the end of a word.</span></li>
+      <li><span class="line">Let's try some more words! Snail&hellip; train&hellip; ai is in the middle. Play&hellip; stay&hellip; ay is at the end!</span></li>
+      <li><span class="line">Now it's your turn! Here's the word&hellip; ai or ay? <span class="cue">(pause)</span></span></li>
+      <li><span class="line">It's ai &mdash; because it's in the middle!</span></li>
+      <li><span class="line">Remember: ai in the middle, ay at the end. Easy, right?</span></li>
+      <li><span class="line">Get the English Learning app &mdash; where kids learn English the fun way!</span></li>
+    </ol>
+  </section>
+
+  <section class="card" style="--card:#7B1FA2">
+    <div class="card-head">
+      <span class="glyph">oi &#9889; oy</span>
+      <span class="title-en">the noisy twins</span>
+      <span class="badges"><span class="tag level">L14 &middot; Diphthongs</span><span class="tag dur">&#9201; 1:19</span><span class="tag reel">Reel</span></span>
+    </div>
+    <ol class="script">
+      <li><span class="line"><span class="cue">[excited]</span> Oy! Did you hear that sound? Oiii! That's the sound oi and oy both make!</span></li>
+      <li><span class="line">You hear it in coin&hellip; and in toy. Same sound&hellip; different spelling!</span></li>
+      <li><span class="line"><span class="cue">[thoughtful]</span> So&hellip; how do we know which one to use?</span></li>
+      <li><span class="line"><span class="cue">[chuckles]</span> Here's a simple trick! oi likes to stay in the middle of a word. That's why we write c-o-i-n&hellip; coin!</span></li>
+      <li><span class="line">But oy likes to be at the end of a word. That's why we write t-o-y&hellip; toy!</span></li>
+      <li><span class="line"><span class="cue">[excited]</span> Let's try some more! Soil&hellip; point&hellip; foil&hellip; oi is in the middle. Boy&hellip; joy&hellip; coy&hellip; oy is at the end!</span></li>
+      <li><span class="line">Now it's your turn! Which one goes here? enj__&hellip; oi or oy? <span class="cue">[short pause]</span></span></li>
+      <li><span class="line"><span class="cue">[surprised]</span> It's oy! Because it's at the end!</span></li>
+      <li><span class="line"><span class="cue">[happy]</span> Now you know! oi goes in the middle, oy goes at the end!</span></li>
+      <li><span class="line">Want more fun phonics? Get the English Learning app today!</span></li>
+    </ol>
+  </section>
+
+  <section class="card" style="--card:#00897B">
+    <div class="card-head">
+      <span class="glyph">oa &#9889; ow</span>
+      <span class="title-en">the long-O boat &amp; wave</span>
+      <span class="badges"><span class="tag level">L13 &middot; Vowel Teams</span><span class="tag dur">&#9201; 1:17</span><span class="tag reel">Reel</span></span>
+    </div>
+    <ol class="script">
+      <li><span class="line">Ohhh! Meet oa and ow &mdash; two friends who both make the long O sound&hellip; oooh!</span></li>
+      <li><span class="line">You hear that sound in boat&hellip; and in snow! Same sound&hellip; different spelling!</span></li>
+      <li><span class="line">But how do we know which one to use?</span></li>
+      <li><span class="line">Here's an easy way to remember! Think of a little boat. oa loves to sail in the middle of a word. b-o-a-t&hellip; boat!</span></li>
+      <li><span class="line">Now think of a big wave. ow loves the end of a word. s-n-o-w&hellip; snow!</span></li>
+      <li><span class="line">Let's try some more words! Coat&hellip; goat&hellip; toast&hellip; oa is in the middle. Grow&hellip; blow&hellip; yellow&hellip; ow is at the end!</span></li>
+      <li><span class="line">Now it's your turn! Which one goes here? road&hellip; oa or ow?</span></li>
+      <li><span class="line">It's oa &mdash; because it's in the middle!</span></li>
+      <li><span class="line">oa sails in the middle, and ow rolls to the end. Easy, right?</span></li>
+      <li><span class="line">Get the English Learning app &mdash; where kids learn to read the fun way!</span></li>
+    </ol>
+  </section>
+
+  <section class="card" style="--card:#F57C00">
+    <div class="card-head">
+      <span class="glyph">c &#9889; k &#9889; ck</span>
+      <span class="title-en">meet the /k/ crew &mdash; one sound, three spellings</span>
+      <span class="badges"><span class="tag level">L5 &middot; Spelling Rules</span><span class="tag dur">&#9201; 2:19</span><span class="tag video">Video</span></span>
+    </div>
+    <ol class="script">
+      <li><span class="line">Here's something cool! c, k, and ck all make the same /k/ sound!</span></li>
+      <li><span class="line">Three spellings&hellip; one sound! Let's see how!</span></li>
+      <li><span class="line">Listen: c-at&hellip; k-ite&hellip; du-ck. /k/, /k/, /k/! Same sound, three different spellings.</span></li>
+      <li><span class="line">So how do we choose? It depends on where the sound is in the word!</span></li>
+      <li><span class="line">We use c most of the time. At the start of a word, before a, o, or u, we use c &mdash; c-at, c-ot, c-up!</span></li>
+      <li><span class="line">But there's one special rule! Before e and i, c says /s/, like in city. So when we hear /k/ instead of /s/, before e or i, we write k &mdash; k-ey, k-it, k-ing!</span></li>
+      <li><span class="line">And at the end of a word, right after one short vowel, we use ck &mdash; two letters, but just one /k/ sound! du-ck, ro-ck, ki-ck!</span></li>
+      <li><span class="line">Let's try some words! c: cat, cup, cot. k: key, kit, king. ck: duck, rock, kick!</span></li>
+      <li><span class="line">Now it's your turn! How do we spell duck? c, k, or ck? <span class="cue">(pause)</span></span></li>
+      <li><span class="line">It's ck &mdash; because there's a short vowel right before it! &#127881;</span></li>
+      <li><span class="line">Remember: c before a, o, and u&hellip; k before e and i&hellip; and ck after a short vowel at the end. Easy trick, right?</span></li>
+      <li><span class="line">Learn every spelling rule in the English Learning app &mdash; tap, listen, and play along!</span></li>
+    </ol>
+  </section>
+
+  <section class="card" style="--card:#5E35B1">
+    <div class="card-head">
+      <span class="glyph">oo &#127769; &#9889; &#128214;</span>
+      <span class="title-en">one spelling, two sounds &mdash; moon or book?</span>
+      <span class="badges"><span class="tag level">L13 &middot; Vowel Teams</span><span class="tag dur">&#9201; 1:54</span><span class="tag video">Video</span></span>
+    </div>
+    <ol class="script">
+      <li><span class="line">Here's a tricky one &mdash; the letters oo make two different sounds!</span></li>
+      <li><span class="line">Most of the time, oo makes a long sound&hellip; ooooo! Like in moon, zoo, and food. &#127769;</span></li>
+      <li><span class="line">But some words use a short oo sound&hellip; /u/! Like in book, good, and foot. &#128214;</span></li>
+      <li><span class="line">Here's the tricky part! oo doesn't always sound the same. So when you're reading, try the long sound first. If it doesn't sound right, try the short sound!</span></li>
+      <li><span class="line">Here's a helpful hint! oo before k is often short&hellip; book, look, cook. But that's not always true. Good and foot are short too! So keep practicing, and trust your ears.</span></li>
+      <li><span class="line">Here are some examples!</span></li>
+      <li><span class="line">Long oo &#127769;: moon, food, zoo, spoon.</span></li>
+      <li><span class="line">Short oo &#128214;: book, good, foot, wood.</span></li>
+      <li><span class="line">Now it's your turn! good&hellip; long or short? <span class="cue">(pause)</span></span></li>
+      <li><span class="line">It's short &mdash; good! &#128214; No k&hellip; but it's still short!</span></li>
+      <li><span class="line">Remember! oo is long most of the time, like moon. But some words are short, like book.</span></li>
+      <li><span class="line">The more you read, the easier it gets!</span></li>
+      <li><span class="line">Read more tricky words in the English Learning app &mdash; listen, try, and learn by heart! &#128218;</span></li>
+    </ol>
+  </section>
+
+  <h2 class="pending-h">Still to make &mdash; 11 cards</h2>
+  <p class="pending-sub">Each should feel different from the last. "Which SOUND?" cards (same spelling, two sounds) have no strict rule &mdash; they teach reading strategy.</p>
+  <div class="grid">
+    <div class="pend next">
+      <span class="p-tag">&rarr; next</span>
+      <span class="p-glyph">th &#128100; &#9889; &#128029;</span>
+      <span class="p-desc">thin or that &mdash; soft air vs buzzy throat</span>
+      <span class="p-level">L9 &middot; Digraphs &middot; sound</span>
+    </div>
+    <div class="pend"><span class="p-glyph">ea &#127807; &#9889; &#127838;</span><span class="p-desc">read or bread</span><span class="p-level">L13 &middot; Vowel Teams &middot; sound</span></div>
+    <div class="pend"><span class="p-glyph">ow &#10052;&#65039; &#9889; &#128046;</span><span class="p-desc">snow or cow</span><span class="p-level">L13 &middot; Vowel Teams &middot; sound</span></div>
+    <div class="pend"><span class="p-glyph">ed &#129406;&middot;&#128276;&middot;&#127793;</span><span class="p-desc">/t/, /d/ or /id/</span><span class="p-level">L21 &middot; Word Endings &middot; sound</span></div>
+    <div class="pend"><span class="p-glyph">c &#128049; &#9889; &#127961;&#65039;</span><span class="p-desc">cat or city (soft c)</span><span class="p-level">L19 &middot; Soft C &amp; G &middot; sound</span></div>
+    <div class="pend"><span class="p-glyph">g &#128016; &#9889; &#128142;</span><span class="p-desc">goat or gem (soft g)</span><span class="p-level">L19 &middot; Soft C &amp; G &middot; sound</span></div>
+    <div class="pend"><span class="p-glyph">ou &#9889; ow</span><span class="p-desc">cloud or cow</span><span class="p-level">L14 &middot; Diphthongs &middot; spelling</span></div>
+    <div class="pend"><span class="p-glyph">au &#9889; aw</span><span class="p-desc">pause or saw</span><span class="p-level">L14 &middot; Diphthongs &middot; spelling</span></div>
+    <div class="pend"><span class="p-glyph">ch &#9889; tch</span><span class="p-desc">chip or catch</span><span class="p-level">L10 &middot; Special Endings &middot; spelling</span></div>
+    <div class="pend"><span class="p-glyph">ge &#9889; dge</span><span class="p-desc">cage or bridge</span><span class="p-level">L10 &middot; Special Endings &middot; spelling</span></div>
+    <div class="pend"><span class="p-glyph">tion &#9889; sion</span><span class="p-desc">action or vision</span><span class="p-level">L23 &middot; Suffixes &middot; spelling</span></div>
+  </div>
+
+  <footer class="page">
+    <span>English Learning &middot; phonics video pipeline &middot; 5 of 16 cards produced.</span>
+    <span class="powered">Powered by <b>Vedaavi Apps</b></span>
+  </footer>
+</div>
+</body>
+</html>
