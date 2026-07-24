@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Rendered output — videos + verification stills (regenerate via `npm run render:*`)
+out/
+
+# Python virtualenv + caches (tools/ — faster-whisper models are huge)
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Remotion cache
+.remotion/
+
+# OS / editor / logs
+.DS_Store
+*.log
+npm-debug.log*
+yarn-error.log*

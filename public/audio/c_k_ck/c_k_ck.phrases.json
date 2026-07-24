@@ -1,0 +1,1377 @@
+[
+  {
+    "index": 0,
+    "text": "Here's something cool!",
+    "line_index": 0,
+    "start": 0.1,
+    "end": 1.92,
+    "duration": 1.82,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 0.1,
+        "end": 0.38
+      },
+      {
+        "word": "something",
+        "start": 0.38,
+        "end": 0.64
+      },
+      {
+        "word": "cool!",
+        "start": 0.64,
+        "end": 1.92
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "c, k, and ck all make the same /k/ sound!",
+    "line_index": 0,
+    "start": 2.0,
+    "end": 6.56,
+    "duration": 4.56,
+    "words": [
+      {
+        "word": "c,",
+        "start": 2.0,
+        "end": 2.56
+      },
+      {
+        "word": "k,",
+        "start": 2.66,
+        "end": 3.1
+      },
+      {
+        "word": "and",
+        "start": 3.1,
+        "end": 3.22
+      },
+      {
+        "word": "ck",
+        "start": 3.22,
+        "end": 3.86
+      },
+      {
+        "word": "all",
+        "start": 3.86,
+        "end": 4.54
+      },
+      {
+        "word": "make",
+        "start": 4.54,
+        "end": 4.9
+      },
+      {
+        "word": "the",
+        "start": 4.9,
+        "end": 5.16
+      },
+      {
+        "word": "same",
+        "start": 5.16,
+        "end": 5.58
+      },
+      {
+        "word": "/k/",
+        "start": 5.58,
+        "end": 6.0
+      },
+      {
+        "word": "sound!",
+        "start": 6.0,
+        "end": 6.56
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Three spellings...",
+    "line_index": 1,
+    "start": 7.52,
+    "end": 8.32,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "Three",
+        "start": 7.52,
+        "end": 7.52
+      },
+      {
+        "word": "spellings...",
+        "start": 7.52,
+        "end": 8.32
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "one sound!",
+    "line_index": 1,
+    "start": 8.8,
+    "end": 9.68,
+    "duration": 0.88,
+    "words": [
+      {
+        "word": "one",
+        "start": 8.8,
+        "end": 8.9
+      },
+      {
+        "word": "sound!",
+        "start": 8.9,
+        "end": 9.68
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Let's see how!",
+    "line_index": 1,
+    "start": 10.14,
+    "end": 12.48,
+    "duration": 2.34,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 10.14,
+        "end": 10.5
+      },
+      {
+        "word": "see",
+        "start": 10.52,
+        "end": 10.64
+      },
+      {
+        "word": "how!",
+        "start": 10.64,
+        "end": 12.48
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Listen: c-at...",
+    "line_index": 2,
+    "start": 12.54,
+    "end": 14.48,
+    "duration": 1.94,
+    "words": [
+      {
+        "word": "Listen:",
+        "start": 12.54,
+        "end": 12.88
+      },
+      {
+        "word": "c-at...",
+        "start": 13.96,
+        "end": 14.48
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "k-ite...",
+    "line_index": 2,
+    "start": 16.06,
+    "end": 16.82,
+    "duration": 0.76,
+    "words": [
+      {
+        "word": "k-ite...",
+        "start": 16.06,
+        "end": 16.82
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "du-ck.",
+    "line_index": 2,
+    "start": 18.3,
+    "end": 19.44,
+    "duration": 1.14,
+    "words": [
+      {
+        "word": "du-ck.",
+        "start": 18.3,
+        "end": 19.44
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "/k/, /k/, /k/!",
+    "line_index": 2,
+    "start": 20.25,
+    "end": 21.94,
+    "duration": 1.69,
+    "words": [
+      {
+        "word": "/k/,",
+        "start": 20.25,
+        "end": 20.8
+      },
+      {
+        "word": "/k/,",
+        "start": 21.22,
+        "end": 21.36
+      },
+      {
+        "word": "/k/!",
+        "start": 21.72,
+        "end": 21.94
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Same sound, three different spellings.",
+    "line_index": 2,
+    "start": 22.94,
+    "end": 25.44,
+    "duration": 2.5,
+    "words": [
+      {
+        "word": "Same",
+        "start": 22.94,
+        "end": 23.06
+      },
+      {
+        "word": "sound,",
+        "start": 23.06,
+        "end": 23.78
+      },
+      {
+        "word": "three",
+        "start": 24.2,
+        "end": 24.36
+      },
+      {
+        "word": "different",
+        "start": 24.36,
+        "end": 24.74
+      },
+      {
+        "word": "spellings.",
+        "start": 24.74,
+        "end": 25.44
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "So how do we choose?",
+    "line_index": 3,
+    "start": 26.82,
+    "end": 27.77,
+    "duration": 0.95,
+    "words": [
+      {
+        "word": "So",
+        "start": 26.82,
+        "end": 26.94
+      },
+      {
+        "word": "how",
+        "start": 26.94,
+        "end": 27.14
+      },
+      {
+        "word": "do",
+        "start": 27.14,
+        "end": 27.28
+      },
+      {
+        "word": "we",
+        "start": 27.28,
+        "end": 27.42
+      },
+      {
+        "word": "choose?",
+        "start": 27.42,
+        "end": 27.77
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "It depends on where the sound is in the word!",
+    "line_index": 3,
+    "start": 28.96,
+    "end": 31.58,
+    "duration": 2.62,
+    "words": [
+      {
+        "word": "It",
+        "start": 28.96,
+        "end": 29.06
+      },
+      {
+        "word": "depends",
+        "start": 29.06,
+        "end": 29.38
+      },
+      {
+        "word": "on",
+        "start": 29.38,
+        "end": 29.68
+      },
+      {
+        "word": "where",
+        "start": 29.68,
+        "end": 29.94
+      },
+      {
+        "word": "the",
+        "start": 29.98,
+        "end": 30.1
+      },
+      {
+        "word": "sound",
+        "start": 30.1,
+        "end": 30.42
+      },
+      {
+        "word": "is",
+        "start": 30.42,
+        "end": 30.7
+      },
+      {
+        "word": "in",
+        "start": 30.7,
+        "end": 30.96
+      },
+      {
+        "word": "the",
+        "start": 30.96,
+        "end": 31.1
+      },
+      {
+        "word": "word!",
+        "start": 31.1,
+        "end": 31.58
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "We use c most of the time.",
+    "line_index": 4,
+    "start": 32.96,
+    "end": 34.94,
+    "duration": 1.98,
+    "words": [
+      {
+        "word": "We",
+        "start": 32.96,
+        "end": 32.96
+      },
+      {
+        "word": "use",
+        "start": 32.96,
+        "end": 33.18
+      },
+      {
+        "word": "c",
+        "start": 33.18,
+        "end": 33.54
+      },
+      {
+        "word": "most",
+        "start": 33.54,
+        "end": 33.98
+      },
+      {
+        "word": "of",
+        "start": 33.98,
+        "end": 34.24
+      },
+      {
+        "word": "the",
+        "start": 34.24,
+        "end": 34.36
+      },
+      {
+        "word": "time.",
+        "start": 34.36,
+        "end": 34.94
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "At the start of a word, before a, o, or u, we use c — c-at, c-ot, c-up!",
+    "line_index": 4,
+    "start": 35.44,
+    "end": 44.76,
+    "duration": 9.32,
+    "words": [
+      {
+        "word": "At",
+        "start": 35.44,
+        "end": 35.44
+      },
+      {
+        "word": "the",
+        "start": 35.44,
+        "end": 35.58
+      },
+      {
+        "word": "start",
+        "start": 35.58,
+        "end": 35.86
+      },
+      {
+        "word": "of",
+        "start": 35.86,
+        "end": 36.1
+      },
+      {
+        "word": "a",
+        "start": 36.1,
+        "end": 36.2
+      },
+      {
+        "word": "word,",
+        "start": 36.2,
+        "end": 36.62
+      },
+      {
+        "word": "before",
+        "start": 37.1,
+        "end": 37.1
+      },
+      {
+        "word": "a,",
+        "start": 37.1,
+        "end": 37.76
+      },
+      {
+        "word": "o,",
+        "start": 38.0,
+        "end": 38.4
+      },
+      {
+        "word": "or",
+        "start": 38.42,
+        "end": 38.5
+      },
+      {
+        "word": "u,",
+        "start": 38.5,
+        "end": 39.08
+      },
+      {
+        "word": "we",
+        "start": 39.4,
+        "end": 39.44
+      },
+      {
+        "word": "use",
+        "start": 39.44,
+        "end": 39.64
+      },
+      {
+        "word": "c",
+        "start": 39.64,
+        "end": 40.18
+      },
+      {
+        "word": "—",
+        "start": 40.18,
+        "end": 40.76
+      },
+      {
+        "word": "c-at,",
+        "start": 40.76,
+        "end": 41.56
+      },
+      {
+        "word": "c-ot,",
+        "start": 42.56,
+        "end": 43.24
+      },
+      {
+        "word": "c-up!",
+        "start": 44.16,
+        "end": 44.76
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "But there's one special rule!",
+    "line_index": 5,
+    "start": 46.12,
+    "end": 48.84,
+    "duration": 2.72,
+    "words": [
+      {
+        "word": "But",
+        "start": 46.12,
+        "end": 46.26
+      },
+      {
+        "word": "there's",
+        "start": 46.26,
+        "end": 46.56
+      },
+      {
+        "word": "one",
+        "start": 46.56,
+        "end": 46.84
+      },
+      {
+        "word": "special",
+        "start": 46.84,
+        "end": 47.44
+      },
+      {
+        "word": "rule!",
+        "start": 47.44,
+        "end": 48.84
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Before e and i, c says /s/, like in city.",
+    "line_index": 5,
+    "start": 48.84,
+    "end": 53.94,
+    "duration": 5.1,
+    "words": [
+      {
+        "word": "Before",
+        "start": 48.84,
+        "end": 49.06
+      },
+      {
+        "word": "e",
+        "start": 49.06,
+        "end": 49.44
+      },
+      {
+        "word": "and",
+        "start": 49.44,
+        "end": 49.78
+      },
+      {
+        "word": "i,",
+        "start": 49.78,
+        "end": 50.38
+      },
+      {
+        "word": "c",
+        "start": 50.78,
+        "end": 50.84
+      },
+      {
+        "word": "says",
+        "start": 50.84,
+        "end": 51.3
+      },
+      {
+        "word": "/s/,",
+        "start": 51.3,
+        "end": 52.12
+      },
+      {
+        "word": "like",
+        "start": 52.68,
+        "end": 52.82
+      },
+      {
+        "word": "in",
+        "start": 52.82,
+        "end": 53.14
+      },
+      {
+        "word": "city.",
+        "start": 53.14,
+        "end": 53.94
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "So when we hear /k/ instead of /s/, before e or i, we write k — k-ey, k-it, k-ing!",
+    "line_index": 5,
+    "start": 54.92,
+    "end": 67.62,
+    "duration": 12.7,
+    "words": [
+      {
+        "word": "So",
+        "start": 54.92,
+        "end": 55.02
+      },
+      {
+        "word": "when",
+        "start": 55.02,
+        "end": 55.2
+      },
+      {
+        "word": "we",
+        "start": 55.2,
+        "end": 55.36
+      },
+      {
+        "word": "hear",
+        "start": 55.36,
+        "end": 55.66
+      },
+      {
+        "word": "/k/",
+        "start": 55.66,
+        "end": 56.24
+      },
+      {
+        "word": "instead",
+        "start": 56.48,
+        "end": 56.78
+      },
+      {
+        "word": "of",
+        "start": 56.78,
+        "end": 57.06
+      },
+      {
+        "word": "/s/,",
+        "start": 57.06,
+        "end": 57.74
+      },
+      {
+        "word": "before",
+        "start": 58.16,
+        "end": 58.4
+      },
+      {
+        "word": "e",
+        "start": 58.4,
+        "end": 58.86
+      },
+      {
+        "word": "or",
+        "start": 58.86,
+        "end": 59.2
+      },
+      {
+        "word": "i,",
+        "start": 59.2,
+        "end": 59.78
+      },
+      {
+        "word": "we",
+        "start": 60.26,
+        "end": 60.26
+      },
+      {
+        "word": "write",
+        "start": 60.26,
+        "end": 60.52
+      },
+      {
+        "word": "k",
+        "start": 60.52,
+        "end": 61.08
+      },
+      {
+        "word": "—",
+        "start": 61.08,
+        "end": 61.58
+      },
+      {
+        "word": "k-ey,",
+        "start": 61.58,
+        "end": 62.83
+      },
+      {
+        "word": "k-it,",
+        "start": 64.44,
+        "end": 65.12
+      },
+      {
+        "word": "k-ing!",
+        "start": 66.44,
+        "end": 67.62
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "And at the end of a word, right after one short vowel, we use ck — two letters, but just one /k/ sound!",
+    "line_index": 6,
+    "start": 69.22,
+    "end": 79.08,
+    "duration": 9.86,
+    "words": [
+      {
+        "word": "And",
+        "start": 69.22,
+        "end": 69.32
+      },
+      {
+        "word": "at",
+        "start": 69.32,
+        "end": 69.46
+      },
+      {
+        "word": "the",
+        "start": 69.46,
+        "end": 69.6
+      },
+      {
+        "word": "end",
+        "start": 69.6,
+        "end": 69.88
+      },
+      {
+        "word": "of",
+        "start": 69.88,
+        "end": 70.1
+      },
+      {
+        "word": "a",
+        "start": 70.1,
+        "end": 70.2
+      },
+      {
+        "word": "word,",
+        "start": 70.2,
+        "end": 70.55
+      },
+      {
+        "word": "right",
+        "start": 71.18,
+        "end": 71.18
+      },
+      {
+        "word": "after",
+        "start": 71.18,
+        "end": 71.58
+      },
+      {
+        "word": "one",
+        "start": 71.58,
+        "end": 71.88
+      },
+      {
+        "word": "short",
+        "start": 71.88,
+        "end": 72.26
+      },
+      {
+        "word": "vowel,",
+        "start": 72.26,
+        "end": 73.14
+      },
+      {
+        "word": "we",
+        "start": 73.14,
+        "end": 73.22
+      },
+      {
+        "word": "use",
+        "start": 73.22,
+        "end": 73.56
+      },
+      {
+        "word": "ck",
+        "start": 73.56,
+        "end": 74.16
+      },
+      {
+        "word": "—",
+        "start": 74.16,
+        "end": 74.62
+      },
+      {
+        "word": "two",
+        "start": 74.94,
+        "end": 75.12
+      },
+      {
+        "word": "letters,",
+        "start": 75.12,
+        "end": 75.74
+      },
+      {
+        "word": "but",
+        "start": 76.06,
+        "end": 76.14
+      },
+      {
+        "word": "just",
+        "start": 76.14,
+        "end": 76.32
+      },
+      {
+        "word": "one",
+        "start": 76.32,
+        "end": 76.8
+      },
+      {
+        "word": "/k/",
+        "start": 76.8,
+        "end": 77.32
+      },
+      {
+        "word": "sound!",
+        "start": 77.32,
+        "end": 79.08
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "du-ck, ro-ck, ki-ck!",
+    "line_index": 6,
+    "start": 79.08,
+    "end": 83.96,
+    "duration": 4.88,
+    "words": [
+      {
+        "word": "du-ck,",
+        "start": 79.08,
+        "end": 79.92
+      },
+      {
+        "word": "ro-ck,",
+        "start": 80.78,
+        "end": 81.92
+      },
+      {
+        "word": "ki-ck!",
+        "start": 82.96,
+        "end": 83.96
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Let's try some words!",
+    "line_index": 7,
+    "start": 85.4,
+    "end": 86.7,
+    "duration": 1.3,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 85.4,
+        "end": 85.72
+      },
+      {
+        "word": "try",
+        "start": 85.72,
+        "end": 85.9
+      },
+      {
+        "word": "some",
+        "start": 85.9,
+        "end": 86.16
+      },
+      {
+        "word": "words!",
+        "start": 86.16,
+        "end": 86.7
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "c: cat, cup, cot.",
+    "line_index": 7,
+    "start": 87.9,
+    "end": 92.54,
+    "duration": 4.64,
+    "words": [
+      {
+        "word": "c:",
+        "start": 87.9,
+        "end": 88.2
+      },
+      {
+        "word": "cat,",
+        "start": 89.38,
+        "end": 89.6
+      },
+      {
+        "word": "cup,",
+        "start": 90.44,
+        "end": 90.64
+      },
+      {
+        "word": "cot.",
+        "start": 92.12,
+        "end": 92.54
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "k: key, kit, king.",
+    "line_index": 7,
+    "start": 93.64,
+    "end": 97.84,
+    "duration": 4.2,
+    "words": [
+      {
+        "word": "k:",
+        "start": 93.64,
+        "end": 93.88
+      },
+      {
+        "word": "key,",
+        "start": 95.04,
+        "end": 95.2
+      },
+      {
+        "word": "kit,",
+        "start": 96.3,
+        "end": 96.6
+      },
+      {
+        "word": "king.",
+        "start": 97.08,
+        "end": 97.84
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "ck: duck, rock, kick!",
+    "line_index": 7,
+    "start": 99.2,
+    "end": 103.48,
+    "duration": 4.28,
+    "words": [
+      {
+        "word": "ck:",
+        "start": 99.2,
+        "end": 99.48
+      },
+      {
+        "word": "duck,",
+        "start": 100.78,
+        "end": 100.88
+      },
+      {
+        "word": "rock,",
+        "start": 101.7,
+        "end": 102.2
+      },
+      {
+        "word": "kick!",
+        "start": 103.06,
+        "end": 103.48
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "Now it's your turn!",
+    "line_index": 8,
+    "start": 105.24,
+    "end": 106.52,
+    "duration": 1.28,
+    "words": [
+      {
+        "word": "Now",
+        "start": 105.24,
+        "end": 105.42
+      },
+      {
+        "word": "it's",
+        "start": 105.42,
+        "end": 105.7
+      },
+      {
+        "word": "your",
+        "start": 105.7,
+        "end": 105.84
+      },
+      {
+        "word": "turn!",
+        "start": 105.84,
+        "end": 106.52
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "How do we spell duck?",
+    "line_index": 8,
+    "start": 107.22,
+    "end": 108.26,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "How",
+        "start": 107.22,
+        "end": 107.24
+      },
+      {
+        "word": "do",
+        "start": 107.24,
+        "end": 107.4
+      },
+      {
+        "word": "we",
+        "start": 107.4,
+        "end": 107.54
+      },
+      {
+        "word": "spell",
+        "start": 107.54,
+        "end": 107.88
+      },
+      {
+        "word": "duck?",
+        "start": 107.88,
+        "end": 108.26
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "c, k, or ck?",
+    "line_index": 8,
+    "start": 109.34,
+    "end": 112.2,
+    "duration": 2.86,
+    "words": [
+      {
+        "word": "c,",
+        "start": 109.34,
+        "end": 109.76
+      },
+      {
+        "word": "k,",
+        "start": 110.42,
+        "end": 110.88
+      },
+      {
+        "word": "or",
+        "start": 111.26,
+        "end": 111.36
+      },
+      {
+        "word": "ck?",
+        "start": 111.36,
+        "end": 112.2
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "It's ck — because there's a short vowel right before it!",
+    "line_index": 9,
+    "start": 114.06,
+    "end": 117.9,
+    "duration": 3.84,
+    "words": [
+      {
+        "word": "It's",
+        "start": 114.06,
+        "end": 114.38
+      },
+      {
+        "word": "ck",
+        "start": 114.5,
+        "end": 114.82
+      },
+      {
+        "word": "—",
+        "start": 114.82,
+        "end": 115.26
+      },
+      {
+        "word": "because",
+        "start": 115.46,
+        "end": 115.7
+      },
+      {
+        "word": "there's",
+        "start": 115.7,
+        "end": 116.0
+      },
+      {
+        "word": "a",
+        "start": 116.0,
+        "end": 116.1
+      },
+      {
+        "word": "short",
+        "start": 116.1,
+        "end": 116.42
+      },
+      {
+        "word": "vowel",
+        "start": 116.42,
+        "end": 116.74
+      },
+      {
+        "word": "right",
+        "start": 116.74,
+        "end": 117.18
+      },
+      {
+        "word": "before",
+        "start": 117.18,
+        "end": 117.56
+      },
+      {
+        "word": "it!",
+        "start": 117.56,
+        "end": 117.9
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Remember: c before a, o, and u...",
+    "line_index": 10,
+    "start": 119.42,
+    "end": 122.74,
+    "duration": 3.32,
+    "words": [
+      {
+        "word": "Remember:",
+        "start": 119.42,
+        "end": 119.74
+      },
+      {
+        "word": "c",
+        "start": 120.48,
+        "end": 120.48
+      },
+      {
+        "word": "before",
+        "start": 120.48,
+        "end": 120.98
+      },
+      {
+        "word": "a,",
+        "start": 120.98,
+        "end": 121.72
+      },
+      {
+        "word": "o,",
+        "start": 121.88,
+        "end": 122.1
+      },
+      {
+        "word": "and",
+        "start": 122.2,
+        "end": 122.2
+      },
+      {
+        "word": "u...",
+        "start": 122.2,
+        "end": 122.74
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "k before e and i...",
+    "line_index": 10,
+    "start": 123.56,
+    "end": 125.52,
+    "duration": 1.96,
+    "words": [
+      {
+        "word": "k",
+        "start": 123.56,
+        "end": 123.68
+      },
+      {
+        "word": "before",
+        "start": 123.68,
+        "end": 124.24
+      },
+      {
+        "word": "e",
+        "start": 124.24,
+        "end": 124.58
+      },
+      {
+        "word": "and",
+        "start": 124.58,
+        "end": 124.92
+      },
+      {
+        "word": "i...",
+        "start": 124.92,
+        "end": 125.52
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "and ck after a short vowel at the end.",
+    "line_index": 10,
+    "start": 126.22,
+    "end": 129.42,
+    "duration": 3.2,
+    "words": [
+      {
+        "word": "and",
+        "start": 126.22,
+        "end": 126.38
+      },
+      {
+        "word": "ck",
+        "start": 126.38,
+        "end": 127.06
+      },
+      {
+        "word": "after",
+        "start": 127.06,
+        "end": 127.58
+      },
+      {
+        "word": "a",
+        "start": 127.58,
+        "end": 127.76
+      },
+      {
+        "word": "short",
+        "start": 127.76,
+        "end": 128.06
+      },
+      {
+        "word": "vowel",
+        "start": 128.06,
+        "end": 128.38
+      },
+      {
+        "word": "at",
+        "start": 128.38,
+        "end": 128.74
+      },
+      {
+        "word": "the",
+        "start": 128.74,
+        "end": 128.9
+      },
+      {
+        "word": "end.",
+        "start": 128.9,
+        "end": 129.42
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Easy trick, right?",
+    "line_index": 10,
+    "start": 130.12,
+    "end": 131.42,
+    "duration": 1.3,
+    "words": [
+      {
+        "word": "Easy",
+        "start": 130.12,
+        "end": 130.42
+      },
+      {
+        "word": "trick,",
+        "start": 130.42,
+        "end": 131.04
+      },
+      {
+        "word": "right?",
+        "start": 131.12,
+        "end": 131.42
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Learn every spelling rule in the English Learning app — tap, listen, and play along!",
+    "line_index": 11,
+    "start": 132.72,
+    "end": 138.91,
+    "duration": 6.19,
+    "words": [
+      {
+        "word": "Learn",
+        "start": 132.72,
+        "end": 132.94
+      },
+      {
+        "word": "every",
+        "start": 132.94,
+        "end": 133.44
+      },
+      {
+        "word": "spelling",
+        "start": 133.44,
+        "end": 133.86
+      },
+      {
+        "word": "rule",
+        "start": 133.86,
+        "end": 134.24
+      },
+      {
+        "word": "in",
+        "start": 134.24,
+        "end": 134.52
+      },
+      {
+        "word": "the",
+        "start": 134.52,
+        "end": 134.66
+      },
+      {
+        "word": "English",
+        "start": 134.66,
+        "end": 135.02
+      },
+      {
+        "word": "Learning",
+        "start": 135.02,
+        "end": 135.48
+      },
+      {
+        "word": "app",
+        "start": 135.48,
+        "end": 135.82
+      },
+      {
+        "word": "—",
+        "start": 135.82,
+        "end": 136.38
+      },
+      {
+        "word": "tap,",
+        "start": 136.38,
+        "end": 137.16
+      },
+      {
+        "word": "listen,",
+        "start": 137.16,
+        "end": 137.72
+      },
+      {
+        "word": "and",
+        "start": 137.9,
+        "end": 138.0
+      },
+      {
+        "word": "play",
+        "start": 138.0,
+        "end": 138.26
+      },
+      {
+        "word": "along!",
+        "start": 138.26,
+        "end": 138.91
+      }
+    ]
+  }
+]

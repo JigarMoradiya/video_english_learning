@@ -1,0 +1,27 @@
+{
+  "name": "phonics-video-pipeline",
+  "version": "0.1.0",
+  "description": "Automated phonics teaching reels (9:16) generated from the app's comparison-card data.",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render",
+    "render:ai_ay": "remotion render ai-ay out/ai_ay.mp4",
+    "render:oi_oy": "remotion render oi-oy out/oi_oy.mp4",
+    "render:oa_ow": "remotion render oa-ow out/oa_ow.mp4",
+    "render:c_k_ck": "remotion render c-k-ck out/c_k_ck.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.496",
+    "@remotion/paths": "^4.0.496",
+    "hersheytext": "^2.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "typescript": "^5.4.0"
+  }
+}

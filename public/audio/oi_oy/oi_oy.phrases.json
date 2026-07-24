@@ -1,0 +1,1037 @@
+[
+  {
+    "index": 0,
+    "text": "Oy!",
+    "line_index": 0,
+    "start": 0.32,
+    "end": 0.42,
+    "duration": 0.1,
+    "words": [
+      {
+        "word": "Oy!",
+        "start": 0.32,
+        "end": 0.42
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Did you hear that sound?",
+    "line_index": 0,
+    "start": 0.72,
+    "end": 1.88,
+    "duration": 1.16,
+    "words": [
+      {
+        "word": "Did",
+        "start": 0.72,
+        "end": 0.78
+      },
+      {
+        "word": "you",
+        "start": 0.78,
+        "end": 0.98
+      },
+      {
+        "word": "hear",
+        "start": 0.98,
+        "end": 1.18
+      },
+      {
+        "word": "that",
+        "start": 1.18,
+        "end": 1.38
+      },
+      {
+        "word": "sound?",
+        "start": 1.38,
+        "end": 1.88
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Oiii!",
+    "line_index": 0,
+    "start": 2.67,
+    "end": 3.52,
+    "duration": 0.85,
+    "words": [
+      {
+        "word": "Oiii!",
+        "start": 2.67,
+        "end": 3.52
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "That's the sound oi and oy both make!",
+    "line_index": 0,
+    "start": 3.54,
+    "end": 7.92,
+    "duration": 4.38,
+    "words": [
+      {
+        "word": "That's",
+        "start": 3.54,
+        "end": 3.84
+      },
+      {
+        "word": "the",
+        "start": 3.86,
+        "end": 3.98
+      },
+      {
+        "word": "sound",
+        "start": 3.98,
+        "end": 4.38
+      },
+      {
+        "word": "oi",
+        "start": 4.38,
+        "end": 5.08
+      },
+      {
+        "word": "and",
+        "start": 5.08,
+        "end": 5.42
+      },
+      {
+        "word": "oy",
+        "start": 5.42,
+        "end": 5.74
+      },
+      {
+        "word": "both",
+        "start": 5.74,
+        "end": 6.3
+      },
+      {
+        "word": "make!",
+        "start": 6.3,
+        "end": 7.92
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "You hear it in coin...",
+    "line_index": 1,
+    "start": 7.94,
+    "end": 9.22,
+    "duration": 1.28,
+    "words": [
+      {
+        "word": "You",
+        "start": 7.94,
+        "end": 8.0
+      },
+      {
+        "word": "hear",
+        "start": 8.0,
+        "end": 8.3
+      },
+      {
+        "word": "it",
+        "start": 8.3,
+        "end": 8.54
+      },
+      {
+        "word": "in",
+        "start": 8.54,
+        "end": 8.68
+      },
+      {
+        "word": "coin...",
+        "start": 8.68,
+        "end": 9.22
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "and in toy.",
+    "line_index": 1,
+    "start": 9.86,
+    "end": 10.79,
+    "duration": 0.93,
+    "words": [
+      {
+        "word": "and",
+        "start": 9.86,
+        "end": 10.08
+      },
+      {
+        "word": "in",
+        "start": 10.08,
+        "end": 10.24
+      },
+      {
+        "word": "toy.",
+        "start": 10.24,
+        "end": 10.79
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Same sound...",
+    "line_index": 1,
+    "start": 11.72,
+    "end": 12.76,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "Same",
+        "start": 11.72,
+        "end": 11.74
+      },
+      {
+        "word": "sound...",
+        "start": 11.74,
+        "end": 12.76
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "different spelling!",
+    "line_index": 1,
+    "start": 12.86,
+    "end": 13.78,
+    "duration": 0.92,
+    "words": [
+      {
+        "word": "different",
+        "start": 12.86,
+        "end": 13.0
+      },
+      {
+        "word": "spelling!",
+        "start": 13.0,
+        "end": 13.78
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "So...",
+    "line_index": 2,
+    "start": 15.29,
+    "end": 15.74,
+    "duration": 0.45,
+    "words": [
+      {
+        "word": "So...",
+        "start": 15.29,
+        "end": 15.74
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "how do we know which one to use?",
+    "line_index": 2,
+    "start": 15.96,
+    "end": 17.67,
+    "duration": 1.71,
+    "words": [
+      {
+        "word": "how",
+        "start": 15.96,
+        "end": 16.08
+      },
+      {
+        "word": "do",
+        "start": 16.08,
+        "end": 16.24
+      },
+      {
+        "word": "we",
+        "start": 16.24,
+        "end": 16.4
+      },
+      {
+        "word": "know",
+        "start": 16.4,
+        "end": 16.6
+      },
+      {
+        "word": "which",
+        "start": 16.6,
+        "end": 16.86
+      },
+      {
+        "word": "one",
+        "start": 16.86,
+        "end": 17.04
+      },
+      {
+        "word": "to",
+        "start": 17.04,
+        "end": 17.22
+      },
+      {
+        "word": "use?",
+        "start": 17.22,
+        "end": 17.67
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Here's a simple trick!",
+    "line_index": 3,
+    "start": 18.76,
+    "end": 19.78,
+    "duration": 1.02,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 18.76,
+        "end": 19.0
+      },
+      {
+        "word": "a",
+        "start": 19.0,
+        "end": 19.08
+      },
+      {
+        "word": "simple",
+        "start": 19.08,
+        "end": 19.36
+      },
+      {
+        "word": "trick!",
+        "start": 19.36,
+        "end": 19.78
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "oi likes to stay in the middle of a word.",
+    "line_index": 3,
+    "start": 20.68,
+    "end": 22.94,
+    "duration": 2.26,
+    "words": [
+      {
+        "word": "oi",
+        "start": 20.68,
+        "end": 20.88
+      },
+      {
+        "word": "likes",
+        "start": 20.88,
+        "end": 21.1
+      },
+      {
+        "word": "to",
+        "start": 21.1,
+        "end": 21.38
+      },
+      {
+        "word": "stay",
+        "start": 21.38,
+        "end": 21.68
+      },
+      {
+        "word": "in",
+        "start": 21.68,
+        "end": 21.92
+      },
+      {
+        "word": "the",
+        "start": 21.92,
+        "end": 22.04
+      },
+      {
+        "word": "middle",
+        "start": 22.04,
+        "end": 22.26
+      },
+      {
+        "word": "of",
+        "start": 22.26,
+        "end": 22.48
+      },
+      {
+        "word": "a",
+        "start": 22.48,
+        "end": 22.62
+      },
+      {
+        "word": "word.",
+        "start": 22.62,
+        "end": 22.94
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "That's why we write c-o-i-n...",
+    "line_index": 3,
+    "start": 23.58,
+    "end": 25.82,
+    "duration": 2.24,
+    "words": [
+      {
+        "word": "That's",
+        "start": 23.58,
+        "end": 23.94
+      },
+      {
+        "word": "why",
+        "start": 24.02,
+        "end": 24.14
+      },
+      {
+        "word": "we",
+        "start": 24.14,
+        "end": 24.5
+      },
+      {
+        "word": "write",
+        "start": 24.5,
+        "end": 24.78
+      },
+      {
+        "word": "c-o-i-n...",
+        "start": 24.92,
+        "end": 25.82
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "coin!",
+    "line_index": 3,
+    "start": 27.98,
+    "end": 28.5,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "coin!",
+        "start": 27.98,
+        "end": 28.5
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "But oy likes to be at the end of a word.",
+    "line_index": 4,
+    "start": 29.74,
+    "end": 32.38,
+    "duration": 2.64,
+    "words": [
+      {
+        "word": "But",
+        "start": 29.74,
+        "end": 29.86
+      },
+      {
+        "word": "oy",
+        "start": 29.86,
+        "end": 30.2
+      },
+      {
+        "word": "likes",
+        "start": 30.2,
+        "end": 30.58
+      },
+      {
+        "word": "to",
+        "start": 30.68,
+        "end": 30.78
+      },
+      {
+        "word": "be",
+        "start": 30.78,
+        "end": 30.94
+      },
+      {
+        "word": "at",
+        "start": 30.94,
+        "end": 31.18
+      },
+      {
+        "word": "the",
+        "start": 31.18,
+        "end": 31.36
+      },
+      {
+        "word": "end",
+        "start": 31.36,
+        "end": 31.58
+      },
+      {
+        "word": "of",
+        "start": 31.58,
+        "end": 31.78
+      },
+      {
+        "word": "a",
+        "start": 31.78,
+        "end": 31.88
+      },
+      {
+        "word": "word.",
+        "start": 31.88,
+        "end": 32.38
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "That's why we write t-o-y...",
+    "line_index": 4,
+    "start": 32.9,
+    "end": 34.75,
+    "duration": 1.85,
+    "words": [
+      {
+        "word": "That's",
+        "start": 32.9,
+        "end": 33.2
+      },
+      {
+        "word": "why",
+        "start": 33.2,
+        "end": 33.4
+      },
+      {
+        "word": "we",
+        "start": 33.4,
+        "end": 33.7
+      },
+      {
+        "word": "write",
+        "start": 33.7,
+        "end": 34.0
+      },
+      {
+        "word": "t-o-y...",
+        "start": 34.0,
+        "end": 34.75
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "toy!",
+    "line_index": 4,
+    "start": 36.82,
+    "end": 37.26,
+    "duration": 0.44,
+    "words": [
+      {
+        "word": "toy!",
+        "start": 36.82,
+        "end": 37.26
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Let's try some more!",
+    "line_index": 5,
+    "start": 38.4,
+    "end": 39.54,
+    "duration": 1.14,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 38.4,
+        "end": 38.68
+      },
+      {
+        "word": "try",
+        "start": 38.68,
+        "end": 38.86
+      },
+      {
+        "word": "some",
+        "start": 38.86,
+        "end": 39.08
+      },
+      {
+        "word": "more!",
+        "start": 39.08,
+        "end": 39.54
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Soil...",
+    "line_index": 5,
+    "start": 40.88,
+    "end": 41.24,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "Soil...",
+        "start": 40.88,
+        "end": 41.24
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "point...",
+    "line_index": 5,
+    "start": 42.3,
+    "end": 42.76,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "point...",
+        "start": 42.3,
+        "end": 42.76
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "foil…",
+    "line_index": 5,
+    "start": 44.53,
+    "end": 45.28,
+    "duration": 0.75,
+    "words": [
+      {
+        "word": "foil…",
+        "start": 44.53,
+        "end": 45.28
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "oi is in the middle.",
+    "line_index": 5,
+    "start": 45.4,
+    "end": 46.7,
+    "duration": 1.3,
+    "words": [
+      {
+        "word": "oi",
+        "start": 45.4,
+        "end": 45.7
+      },
+      {
+        "word": "is",
+        "start": 45.7,
+        "end": 45.98
+      },
+      {
+        "word": "in",
+        "start": 45.98,
+        "end": 46.1
+      },
+      {
+        "word": "the",
+        "start": 46.1,
+        "end": 46.22
+      },
+      {
+        "word": "middle.",
+        "start": 46.22,
+        "end": 46.7
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "Boy...",
+    "line_index": 5,
+    "start": 47.94,
+    "end": 48.4,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "Boy...",
+        "start": 47.94,
+        "end": 48.4
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "joy...",
+    "line_index": 5,
+    "start": 49.46,
+    "end": 50.0,
+    "duration": 0.54,
+    "words": [
+      {
+        "word": "joy...",
+        "start": 49.46,
+        "end": 50.0
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "coy…",
+    "line_index": 5,
+    "start": 51.14,
+    "end": 51.94,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "coy…",
+        "start": 51.14,
+        "end": 51.94
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "oy is at the end!",
+    "line_index": 5,
+    "start": 52.26,
+    "end": 53.6,
+    "duration": 1.34,
+    "words": [
+      {
+        "word": "oy",
+        "start": 52.26,
+        "end": 52.54
+      },
+      {
+        "word": "is",
+        "start": 52.54,
+        "end": 52.86
+      },
+      {
+        "word": "at",
+        "start": 52.86,
+        "end": 52.98
+      },
+      {
+        "word": "the",
+        "start": 52.98,
+        "end": 53.18
+      },
+      {
+        "word": "end!",
+        "start": 53.18,
+        "end": 53.6
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Now it's your turn!",
+    "line_index": 6,
+    "start": 55.0,
+    "end": 55.92,
+    "duration": 0.92,
+    "words": [
+      {
+        "word": "Now",
+        "start": 55.0,
+        "end": 55.0
+      },
+      {
+        "word": "it's",
+        "start": 55.0,
+        "end": 55.28
+      },
+      {
+        "word": "your",
+        "start": 55.28,
+        "end": 55.4
+      },
+      {
+        "word": "turn!",
+        "start": 55.4,
+        "end": 55.92
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Which one goes here?",
+    "line_index": 6,
+    "start": 56.62,
+    "end": 57.83,
+    "duration": 1.21,
+    "words": [
+      {
+        "word": "Which",
+        "start": 56.62,
+        "end": 56.74
+      },
+      {
+        "word": "one",
+        "start": 56.74,
+        "end": 56.92
+      },
+      {
+        "word": "goes",
+        "start": 56.92,
+        "end": 57.18
+      },
+      {
+        "word": "here?",
+        "start": 57.18,
+        "end": 57.83
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "enj__...",
+    "line_index": 6,
+    "start": 58.64,
+    "end": 59.38,
+    "duration": 0.74,
+    "words": [
+      {
+        "word": "enj__...",
+        "start": 58.64,
+        "end": 59.38
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "oi or oy?",
+    "line_index": 6,
+    "start": 60.3,
+    "end": 61.8,
+    "duration": 1.5,
+    "words": [
+      {
+        "word": "oi",
+        "start": 60.3,
+        "end": 60.64
+      },
+      {
+        "word": "or",
+        "start": 60.64,
+        "end": 61.2
+      },
+      {
+        "word": "oy?",
+        "start": 61.2,
+        "end": 61.8
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "It's oy!",
+    "line_index": 7,
+    "start": 64.16,
+    "end": 65.34,
+    "duration": 1.18,
+    "words": [
+      {
+        "word": "It's",
+        "start": 64.16,
+        "end": 64.44
+      },
+      {
+        "word": "oy!",
+        "start": 64.44,
+        "end": 65.34
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Because it's at the end!",
+    "line_index": 7,
+    "start": 65.36,
+    "end": 66.74,
+    "duration": 1.38,
+    "words": [
+      {
+        "word": "Because",
+        "start": 65.36,
+        "end": 65.6
+      },
+      {
+        "word": "it's",
+        "start": 65.6,
+        "end": 66.0
+      },
+      {
+        "word": "at",
+        "start": 66.0,
+        "end": 66.1
+      },
+      {
+        "word": "the",
+        "start": 66.1,
+        "end": 66.32
+      },
+      {
+        "word": "end!",
+        "start": 66.32,
+        "end": 66.74
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "Now you know!",
+    "line_index": 8,
+    "start": 68.04,
+    "end": 69.46,
+    "duration": 1.42,
+    "words": [
+      {
+        "word": "Now",
+        "start": 68.04,
+        "end": 68.24
+      },
+      {
+        "word": "you",
+        "start": 68.24,
+        "end": 68.48
+      },
+      {
+        "word": "know!",
+        "start": 68.48,
+        "end": 69.46
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "oi goes in the middle, oy goes at the end!",
+    "line_index": 8,
+    "start": 69.46,
+    "end": 72.82,
+    "duration": 3.36,
+    "words": [
+      {
+        "word": "oi",
+        "start": 69.46,
+        "end": 69.66
+      },
+      {
+        "word": "goes",
+        "start": 69.66,
+        "end": 69.86
+      },
+      {
+        "word": "in",
+        "start": 69.86,
+        "end": 70.08
+      },
+      {
+        "word": "the",
+        "start": 70.08,
+        "end": 70.22
+      },
+      {
+        "word": "middle,",
+        "start": 70.22,
+        "end": 70.72
+      },
+      {
+        "word": "oy",
+        "start": 71.32,
+        "end": 71.64
+      },
+      {
+        "word": "goes",
+        "start": 71.64,
+        "end": 71.96
+      },
+      {
+        "word": "at",
+        "start": 71.96,
+        "end": 72.18
+      },
+      {
+        "word": "the",
+        "start": 72.18,
+        "end": 72.4
+      },
+      {
+        "word": "end!",
+        "start": 72.4,
+        "end": 72.82
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Want more fun phonics?",
+    "line_index": 9,
+    "start": 74.4,
+    "end": 76.07,
+    "duration": 1.67,
+    "words": [
+      {
+        "word": "Want",
+        "start": 74.4,
+        "end": 74.6
+      },
+      {
+        "word": "more",
+        "start": 74.6,
+        "end": 74.88
+      },
+      {
+        "word": "fun",
+        "start": 74.88,
+        "end": 75.22
+      },
+      {
+        "word": "phonics?",
+        "start": 75.22,
+        "end": 76.07
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Get the English Learning app today!",
+    "line_index": 9,
+    "start": 76.36,
+    "end": 78.32,
+    "duration": 1.96,
+    "words": [
+      {
+        "word": "Get",
+        "start": 76.36,
+        "end": 76.48
+      },
+      {
+        "word": "the",
+        "start": 76.48,
+        "end": 76.68
+      },
+      {
+        "word": "English",
+        "start": 76.68,
+        "end": 77.0
+      },
+      {
+        "word": "Learning",
+        "start": 77.0,
+        "end": 77.44
+      },
+      {
+        "word": "app",
+        "start": 77.44,
+        "end": 77.76
+      },
+      {
+        "word": "today!",
+        "start": 77.76,
+        "end": 78.32
+      }
+    ]
+  }
+]
