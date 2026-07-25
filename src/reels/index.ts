@@ -4,6 +4,8 @@ import { OiOyReel, OI_OY_DURATION } from "./oi_oy";
 import { OaOwReel, OA_OW_DURATION } from "./oa_ow";
 import { CkCkReel, C_K_CK_DURATION } from "./c_k_ck";
 import { OoReel, OO_DURATION } from "./oo";
+import { LettersReel, LETTERS_DURATION } from "./letters";
+import { RecognitionReel, RECOGNITION_DURATION } from "./recognition";
 
 // Registry of all reels. Add a new card here (one line) after creating its
 // reel module in src/reels/<id>.tsx — each stays fully independent.
@@ -24,4 +26,8 @@ export const REELS: ReelEntry[] = [
   { id: "c-k-ck", component: CkCkReel, durationInFrames: C_K_CK_DURATION, width: 1920, height: 1080 },
   // L13 · "Which SOUND?" oo (moon/book) — long-form YouTube lesson (16:9).
   { id: "oo", component: OoReel, durationInFrames: OO_DURATION, width: 1920, height: 1080 },
+  // A→Z Letter Phonics Sound — long-form 16:9 video ("A says a-a-a, A for Ant").
+  { id: "letters-phonics", component: LettersReel, durationInFrames: LETTERS_DURATION, width: 1920, height: 1080 },
+  // A→Z Letter Recognition — 16:9 "game-board" video ("A says a"), grid fills up.
+  { id: "letter-recognition", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1920, height: 1080 },
 ];

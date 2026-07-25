@@ -1,0 +1,231 @@
+import React from "react";
+import { AbsoluteFill, Audio, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { REC_LETTERS } from "../data/recognition";
+import { LetterGrid, GRID, cellCenter } from "../components/LetterGrid";
+import { RecognitionPanel } from "../components/RecognitionPanel";
+import { sec } from "../lib/timing";
+import { font, palette } from "../data/tokens";
+import { Mascot } from "../components/Mascot";
+import { Confetti } from "../components/Confetti";
+import { bob, wiggle } from "../lib/motion";
+
+// ── A→Z "Letter Recognition" video (16:9) ───────────────────────────────────
+// Recreates the app's MainLetterRecognitionView ("A says a"). The 26-letter GRID is the
+// star: a spotlight hops tile→tile, each picked tile flies into the right panel (letter →
+// says → sound, synced to the trio clip), celebrates, and locks in with a ✓ — the board
+// fills up A→Z (grid = progress). Distinct from video #1 (no self-drawing letters).
+const FPS = 30;
+const INTRO_F = 75;
+const OUTRO_F = 96;
+const T_MOVE = 12; // spotlight sweep + letter fly-in
+const LEAD = 8; // tile locks before audio
+const PAD = 8; // let the sound tail ring out
+const CELEB = 24; // confetti + tile→done hold
+const FINALE_F = 108; // 3.6s "you found all 26!" celebration before the outro
+
+const audioRel = LEAD + T_MOVE; // audio start within a letter sequence
+const budget = (r: (typeof REC_LETTERS)[number]) => T_MOVE + LEAD + sec(r.d0 + r.d1 + r.d2, FPS) + PAD + CELEB;
+
+let cursor = INTRO_F;
+const SEGS = REC_LETTERS.map((it, i) => {
+  const from = cursor;
+  const dur = budget(it);
+  const soundEndAbs = from + audioRel + sec(it.d0 + it.d1 + it.d2, FPS);
+  cursor += dur;
+  return { it, i, from, dur, soundEndAbs };
+});
+const FINALE_FROM = cursor; // completed-board celebration
+const OUTRO_FROM = FINALE_FROM + FINALE_F;
+export const RECOGNITION_DURATION = OUTRO_FROM + OUTRO_F;
+
+// current letter index at a composition frame (-1 during the intro, 26 = all done in finale)
+const activeIndexAt = (f: number): number => {
+  if (f >= FINALE_FROM) return 26;
+  if (f < SEGS[0].from) return -1;
+  let a = 0;
+  for (let i = 0; i < SEGS.length; i++) if (f >= SEGS[i].from) a = i;
+  return a;
+};
+
+type Cue = { from: number; name: string; vol: number };
+const SFX: Cue[] = [
+  { from: 8, name: "chime_soft", vol: 0.34 }, // gentle warm start (was harsh drumroll)
+  ...SEGS.flatMap((s) => [
+    { from: s.from, name: "swoosh_soft", vol: 0.24 }, // smooth spotlight sweep (was whoosh)
+    { from: s.from + T_MOVE, name: "pop", vol: 0.3 }, // soft tile select
+    { from: s.soundEndAbs, name: "correct", vol: 0.4 }, // celebrate
+  ]),
+  { from: FINALE_FROM + 4, name: "sparkle", vol: 0.5 }, // finale fanfare
+  { from: FINALE_FROM + 46, name: "twinkle", vol: 0.4 },
+  { from: OUTRO_FROM + 8, name: "chime_soft", vol: 0.34 },
+];
+
+// ── background (bespoke landscape sky-lavender, matches app .skyLavender) ─────
+const Bg: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps, width, height } = useVideoConfig();
+  return (
+    <AbsoluteFill style={{ background: "linear-gradient(160deg, #EDE9FF 0%, #F3F0FF 45%, #FFF6EC 100%)" }}>
+      <svg width={width} height={height} style={{ position: "absolute" }}>
+        {[[0.9, 0.14, 150], [0.95, 0.7, 120], [0.5, 0.92, 110], [0.72, 0.4, 90]].map((o, k) => {
+          const cx = (o[0] as number) * width + Math.sin(frame / fps + k) * 20;
+          const cy = (o[1] as number) * height + Math.cos(frame / fps + k) * 16;
+          return <circle key={k} cx={cx} cy={cy} r={o[2] as number} fill="#8E7BE8" opacity={0.06} />;
+        })}
+      </svg>
+    </AbsoluteFill>
+  );
+};
+
+// ── persistent grid + moving spotlight (composition frame) ───────────────────
+const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+const GridLayer: React.FC = () => {
+  const frame = useCurrentFrame();
+  if (frame >= OUTRO_FROM) return null;
+  const active = activeIndexAt(frame);
+  const seg = active >= 0 ? SEGS[active] : null;
+  const activeDone = seg ? frame >= seg.soundEndAbs : false;
+
+  // soft warm spotlight glow travels from the previous cell to the current cell over T_MOVE
+  // (behind the tiles — no clashing hard ring)
+  let glow: React.ReactNode = null;
+  if (seg) {
+    const mv = easeOut(interpolate(frame - seg.from, [0, T_MOVE], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
+    const from = active > 0 ? cellCenter(active - 1) : cellCenter(active);
+    const to = cellCenter(active);
+    const x = from.x + (to.x - from.x) * mv;
+    const y = from.y + (to.y - from.y) * mv;
+    const r = GRID.cell * 1.15;
+    glow = (
+      <div style={{ position: "absolute", left: x - r, top: y - r, width: r * 2, height: r * 2, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,159,67,0.55) 0%, rgba(255,159,67,0.22) 45%, rgba(255,159,67,0) 72%)", opacity: activeDone ? 0.3 : 1 }} />
+    );
+  }
+
+  return (
+    <>
+      {glow}
+      <LetterGrid active={active} activeDone={activeDone} />
+    </>
+  );
+};
+
+// Persistent title (pill) + live progress counter — whole video, minus intro/outro cards
+const Header: React.FC = () => {
+  const frame = useCurrentFrame();
+  if (frame < INTRO_F || frame >= OUTRO_FROM) return null;
+  const op = interpolate(frame, [INTRO_F, INTRO_F + 8, OUTRO_FROM - 12, OUTRO_FROM], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const done = SEGS.filter((s) => frame >= s.soundEndAbs).length;
+  return (
+    <>
+      <div style={{ position: "absolute", top: 30, left: 0, width: "100%", display: "flex", justifyContent: "center", opacity: op }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 14, background: "rgba(255,255,255,0.78)", borderRadius: 999, padding: "12px 36px", boxShadow: "0 8px 22px rgba(30,36,56,0.1)", fontFamily: font.family }}>
+          <span style={{ fontSize: 42, fontWeight: 800, color: "#8E24AA" }}>Phonics</span>
+          <span style={{ fontSize: 42, fontWeight: 800, color: palette.ink }}>Letter Sounds</span>
+        </div>
+      </div>
+      <div style={{ position: "absolute", top: 38, right: 56, opacity: op }}>
+        <div style={{ background: "rgba(142,36,170,0.12)", color: "#8E24AA", borderRadius: 999, padding: "8px 22px", fontSize: 34, fontWeight: 800, fontFamily: font.family }}>{done} / 26</div>
+      </div>
+    </>
+  );
+};
+
+const Intro: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const s = spring({ frame, fps, config: { damping: 12 } });
+  const sub = spring({ frame: frame - 10, fps, config: { damping: 11 } });
+  // right-side title (grid assembles on the left via GridLayer)
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family }}>
+      <div style={{ position: "absolute", left: 1000, top: 0, width: 860, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16 }}>
+        <div style={{ textAlign: "center", lineHeight: 1.05, transform: `scale(${s}) translateY(${bob(frame, fps, 8, 2.6)}px)` }}>
+          <div style={{ fontSize: 96, fontWeight: 800, color: "#8E24AA" }}>Phonics</div>
+          <div style={{ fontSize: 96, fontWeight: 800, color: palette.ink }}>Letter Sounds</div>
+        </div>
+        <div style={{ fontSize: 50, fontWeight: 700, color: palette.inkSoft, opacity: sub }}>26 Letters · 26 Sounds</div>
+        <div style={{ transform: `scale(${sub})` }}><Mascot size={172} /></div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// "You found all 26!" celebration — the completed board (left, via GridLayer) + cheer (right) + confetti
+const Finale: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps, width } = useVideoConfig();
+  const s = spring({ frame, fps, config: { damping: 12 } });
+  const sub = spring({ frame: frame - 12, fps, config: { damping: 11 } });
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family }}>
+      <div style={{ position: "absolute", left: 1000, top: 0, width: 860, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18 }}>
+        <div style={{ fontSize: 96, fontWeight: 800, color: "#8E24AA", transform: `scale(${s}) translateY(${bob(frame, fps, 9, 2.4)}px)` }}>You found</div>
+        <div style={{ fontSize: 108, fontWeight: 800, color: palette.ink, transform: `scale(${s})` }}>all 26! 🎉</div>
+        <div style={{ transform: `scale(${sub})` }}><Mascot size={200} /></div>
+        <div style={{ fontSize: 46, fontWeight: 700, color: "#FF9F43", opacity: sub }}>Great job! ⭐</div>
+      </div>
+      {[[0, width * 0.28, 300], [16, width * 0.5, 240], [30, width * 0.72, 300], [46, width * 0.35, 260]].map(([bf, ox, oy], k) => (
+        <Confetti key={k} frame={frame} fps={fps} burstFrame={bf as number} origin={{ x: ox as number, y: oy as number }} colors={["#FF9F43", "#8E24AA", "#4FC3F7", "#FFD54F", "#66BB6A", "#EC407A"]} count={34} seed={k + 1} />
+      ))}
+    </AbsoluteFill>
+  );
+};
+
+const Outro: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const logoIn = spring({ frame: frame - 8, fps, config: { damping: 12 } });
+  const play = spring({ frame: frame - 46, fps, config: { damping: 10 } });
+  const apple = spring({ frame: frame - 58, fps, config: { damping: 10 } });
+  return (
+    <AbsoluteFill style={{ background: "linear-gradient(155deg, #EDE9FF 0%, #FFFFFF 70%)", alignItems: "center", justifyContent: "center", fontFamily: font.family }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 30 }}>
+        <Img src={staticFile("logo.png")} style={{ width: 540, height: "auto", transform: `scale(${logoIn}) translateY(${bob(frame, fps, 9, 2.6)}px) rotate(${wiggle(frame, fps, 1.4, 2.4)}deg)`, filter: "drop-shadow(0 16px 30px rgba(30,36,56,0.2))" }} />
+        <div style={{ opacity: logoIn, fontSize: 50, fontWeight: 700, color: palette.ink }}>Play every letter — free! 👇</div>
+        <div style={{ display: "flex", gap: 30 }}>
+          <Img src={staticFile("playstore.png")} style={{ width: 320, height: "auto", transform: `scale(${play})` }} />
+          <Img src={staticFile("appstore.png")} style={{ width: 320, height: "auto", transform: `scale(${apple})` }} />
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+export const RecognitionReel: React.FC = () => {
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family, background: "#FFFFFF" }}>
+      <Bg />
+      <Audio src={staticFile("music_bed.mp3")} loop volume={(f) => interpolate(f, [0, 20, RECOGNITION_DURATION - 40, RECOGNITION_DURATION], [0, 0.09, 0.09, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
+      {SFX.map((s, i) => (
+        <Sequence key={i} from={s.from} durationInFrames={45}>
+          <Audio src={staticFile(`sfx/${s.name}.mp3`)} volume={s.vol} />
+        </Sequence>
+      ))}
+
+      <Sequence from={0} durationInFrames={INTRO_F}>
+        <Intro />
+      </Sequence>
+
+      {SEGS.map((s) => (
+        <Sequence key={s.it.letter} from={s.from} durationInFrames={s.dur}>
+          <Sequence from={audioRel} durationInFrames={s.dur - audioRel}>
+            <Audio src={staticFile(`audio/recognition/${s.it.trio}.mp3`)} />
+          </Sequence>
+          <RecognitionPanel item={s.it} audioStart={audioRel} flyFrom={cellCenter(s.i)} />
+        </Sequence>
+      ))}
+
+      {/* persistent grid + spotlight (paints over the left; panels live on the right) */}
+      <GridLayer />
+      <Header />
+
+      <Sequence from={FINALE_FROM} durationInFrames={FINALE_F}>
+        <Finale />
+      </Sequence>
+
+      <Sequence from={OUTRO_FROM} durationInFrames={OUTRO_F}>
+        <Outro />
+      </Sequence>
+    </AbsoluteFill>
+  );
+};
