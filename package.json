@@ -12,7 +12,9 @@
     "render:c_k_ck": "remotion render c-k-ck out/c_k_ck.mp4",
     "render:oo": "remotion render oo out/oo.mp4",
     "render:letters_phonics": "remotion render letters-phonics out/letters_phonics.mp4",
-    "render:letter_recognition": "remotion render letter-recognition out/letter_recognition.mp4"
+    "render:letter_recognition": "remotion render letter-recognition out/letter_recognition.mp4",
+    "render:short_vowels": "remotion render short-vowels out/short_vowels.mp4",
+    "render:short_vowels_9x16": "remotion render short-vowels-9x16 out/short_vowels_9x16.mp4"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

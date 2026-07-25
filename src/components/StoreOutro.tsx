@@ -12,10 +12,11 @@ import { sec } from "../lib/timing";
 export const STORE_OUTRO_F = 344; // ~11.5s (CTA voiceover 9.64s + tail)
 const CTA_DUR = 9.64;
 
-// silent  = no CTA voiceover (the video already narrates the CTA — e.g. lesson wraps)
-// compact = detail-page-only store flow (fits short beats)
-// total   = the outro/beat length in frames (used to time the store-badge reveal)
-export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?: number }> = ({ silent = false, compact = false, total = STORE_OUTRO_F }) => {
+// silent   = no CTA voiceover (the video already narrates the CTA — e.g. lesson wraps)
+// compact  = detail-page-only store flow (fits short beats)
+// total    = the outro/beat length in frames (used to time the store-badge reveal)
+// audioSrc = custom CTA voiceover (each video keeps a UNIQUE closing line); dur = its seconds
+export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?: number; audioSrc?: string; audioDur?: number }> = ({ silent = false, compact = false, total = STORE_OUTRO_F, audioSrc = "audio/recognition/practice_letter_rules_download_app.mp3", audioDur = CTA_DUR }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const logoIn = spring({ frame: frame - 10, fps, config: { damping: 12 } });
@@ -26,8 +27,8 @@ export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?:
   return (
     <AbsoluteFill style={{ background: "linear-gradient(155deg, #EDE9FF 0%, #FFF6EC 75%)", fontFamily: font.family }}>
       {!silent && (
-        <Sequence from={10} durationInFrames={sec(CTA_DUR, fps) + 10}>
-          <Audio src={staticFile("audio/recognition/practice_letter_rules_download_app.mp3")} />
+        <Sequence from={10} durationInFrames={sec(audioDur, fps) + 10}>
+          <Audio src={staticFile(audioSrc)} />
         </Sequence>
       )}
 

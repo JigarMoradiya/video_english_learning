@@ -6,6 +6,8 @@ import { CkCkReel, C_K_CK_DURATION } from "./c_k_ck";
 import { OoReel, OO_DURATION } from "./oo";
 import { LettersReel, LETTERS_DURATION } from "./letters";
 import { RecognitionReel, RECOGNITION_DURATION } from "./recognition";
+import { ShortVowelsReel, SHORT_VOWELS_DURATION } from "./shortvowels";
+import { ShortVowelsPortraitReel, SHORT_VOWELS_PORTRAIT_DURATION } from "./shortvowels_portrait";
 
 // Registry of all reels. Add a new card here (one line) after creating its
 // reel module in src/reels/<id>.tsx — each stays fully independent.
@@ -30,4 +32,8 @@ export const REELS: ReelEntry[] = [
   { id: "letters-phonics", component: LettersReel, durationInFrames: LETTERS_DURATION, width: 1920, height: 1080 },
   // A→Z Letter Recognition — 16:9 "game-board" video ("A says a"), grid fills up.
   { id: "letter-recognition", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1920, height: 1080 },
+  // L2 · Short Vowels — 16:9 lesson: learn (talking mouths) → practice → listen → download.
+  { id: "short-vowels", component: ShortVowelsReel, durationInFrames: SHORT_VOWELS_DURATION, width: 1920, height: 1080 },
+  // L2 · Short Vowels — 9:16 reel: SAME content, DISTINCT bold full-colour vertical theme.
+  { id: "short-vowels-9x16", component: ShortVowelsPortraitReel, durationInFrames: SHORT_VOWELS_PORTRAIT_DURATION, width: 1080, height: 1920 },
 ];

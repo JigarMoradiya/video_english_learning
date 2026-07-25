@@ -54,6 +54,15 @@ export const lum = (h: string): number => {
   return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 };
 
+// Contrast-safe card stroke from an image's dominant colour: darkens light colours
+// (egg, pig, sun…) so the border always reads against a white card. Falls back to
+// `fallback` (the scene/theme colour) when no image colour is supplied.
+export const cardStroke = (imgHex: string, fallback: string): string => {
+  if (!imgHex) return fallback;
+  const l = lum(imgHex);
+  return l > 0.72 ? shade(imgHex, 0.42) : l > 0.56 ? shade(imgHex, 0.26) : imgHex;
+};
+
 const hslToHex = (h: number, s: number, l: number): string => {
   const c = (1 - Math.abs(2 * l - 1)) * s;
   const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
