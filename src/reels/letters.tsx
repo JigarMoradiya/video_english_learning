@@ -1,11 +1,12 @@
 import React from "react";
-import { AbsoluteFill, Audio, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { LETTERS } from "../data/letters";
 import { LetterScene } from "../components/LetterScene";
+import { StoreOutro, STORE_OUTRO_F } from "../components/StoreOutro";
 import { sec } from "../lib/timing";
 import { font, palette, tint, hex, letterColorFor } from "../data/tokens";
 import { Mascot } from "../components/Mascot";
-import { bob, pulse, wiggle } from "../lib/motion";
+import { bob } from "../lib/motion";
 
 // ── A→Z "Letter Phonics Sound" video (16:9) ─────────────────────────────────
 // Recreates the app's LetterPhonicsSoundView flow for all 26 letters, reusing the
@@ -14,7 +15,7 @@ import { bob, pulse, wiggle } from "../lib/motion";
 // and a persistent alphabet strip tracks progress A→Z.
 const FPS = 30;
 const INTRO_F = 75; // 2.5s
-const OUTRO_F = 96; // 3.2s
+const OUTRO_F = STORE_OUTRO_F; // shared store-download outro + CTA voiceover
 const PAD = 10; // frames after the FULL clip plays out (each clip has a closing line — never trim)
 const DIVIDER_F = 66; // 2.2s section divider
 
@@ -167,25 +168,6 @@ const Intro: React.FC = () => {
   );
 };
 
-const Outro: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const logoIn = spring({ frame: frame - 8, fps, config: { damping: 12 } });
-  const play = spring({ frame: frame - 46, fps, config: { damping: 10 } });
-  const apple = spring({ frame: frame - 58, fps, config: { damping: 10 } });
-  return (
-    <AbsoluteFill style={{ background: "linear-gradient(155deg, #E8F5FF 0%, #FFFFFF 70%)", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 30 }}>
-        <Img src={staticFile("logo.png")} style={{ width: 540, height: "auto", transform: `scale(${logoIn}) translateY(${bob(frame, fps, 9, 2.6)}px) rotate(${wiggle(frame, fps, 1.4, 2.4)}deg)`, filter: "drop-shadow(0 16px 30px rgba(30,36,56,0.2))" }} />
-        <div style={{ opacity: logoIn, fontSize: 50, fontWeight: 700, color: palette.ink }}>Learn every letter — download free 👇</div>
-        <div style={{ display: "flex", gap: 30 }}>
-          <Img src={staticFile("playstore.png")} style={{ width: 320, height: "auto", transform: `scale(${play})` }} />
-          <Img src={staticFile("appstore.png")} style={{ width: 320, height: "auto", transform: `scale(${apple})` }} />
-        </div>
-      </div>
-    </AbsoluteFill>
-  );
-};
 
 export const LettersReel: React.FC = () => {
   return (
@@ -223,7 +205,7 @@ export const LettersReel: React.FC = () => {
       <Header />
 
       <Sequence from={OUTRO_FROM} durationInFrames={OUTRO_F}>
-        <Outro />
+        <StoreOutro />
       </Sequence>
     </AbsoluteFill>
   );

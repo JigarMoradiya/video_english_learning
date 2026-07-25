@@ -5,6 +5,7 @@ import { ReelBase, SfxCue } from "./ReelBase";
 import { CkBackground } from "../components/CkBackground";
 import { OoWorld } from "../components/OoWorld";
 import { Captions } from "../components/Captions";
+import { StoreOutro } from "../components/StoreOutro";
 import { makeTrack, planBeats, BeatSpec, Beat, TPhrase } from "../lib/timing";
 import ooPhrases from "../data/oo.timing.json";
 import { Hook, Tricky, Strategy, Hint, Caveat, Quiz2, Remember2, Wrap2 } from "./oo_beats";
@@ -99,6 +100,14 @@ export const OoReel: React.FC = () => {
 
       {beats.map((b) => {
         if (b.id === "reveal") return null; // folded into the quiz span
+        if (b.id === "wrap") {
+          // download visual over the existing narrated CTA line (no new audio)
+          return (
+            <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames}>
+              <StoreOutro silent compact total={b.durationInFrames} />
+            </Sequence>
+          );
+        }
         if (b.id === "quizQ") {
           return (
             <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames + reveal.durationInFrames}>

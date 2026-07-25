@@ -5,6 +5,7 @@ import { ReelBase, SfxCue } from "./ReelBase";
 import { CkBackground } from "../components/CkBackground";
 import { WordStreet } from "../components/WordStreet";
 import { Captions } from "../components/Captions";
+import { StoreOutro } from "../components/StoreOutro";
 import { makeTrack, planBeats, BeatSpec, Beat } from "../lib/timing";
 
 // c/k/ck keeps its richer caption palette (adds the /k/ and /s/ phoneme colours + city),
@@ -122,6 +123,14 @@ export const CkCkReel: React.FC = () => {
       {/* per-beat foreground overlays */}
       {beats.map((b) => {
         if (b.id === "reveal") return null; // folded into the quiz span
+        if (b.id === "wrap") {
+          // download visual over the existing narrated CTA line (no new audio)
+          return (
+            <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames}>
+              <StoreOutro silent compact total={b.durationInFrames} />
+            </Sequence>
+          );
+        }
         if (b.id === "quizQ") {
           return (
             <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames + reveal.durationInFrames}>
