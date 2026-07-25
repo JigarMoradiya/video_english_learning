@@ -5,6 +5,7 @@ import { sec } from "../lib/timing";
 import { hex, shade, lum, palette, font, letterColorFor } from "../data/tokens";
 import { pulse } from "../lib/motion";
 import { Confetti } from "./Confetti";
+import { CardBadge, letterHasBadge } from "./BrandMarks";
 
 // Right-hand detail panel for one letter. The big letter flies in from its grid cell,
 // then letter → "says" → sound highlight PURPLE + scale (app parity) synced to the trio
@@ -81,6 +82,8 @@ export const RecognitionPanel: React.FC<{
         }}
       >
         <Img src={staticFile(`letters/${item.image}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+        {/* brand badge on only a handful of the 26 letters (its own set, distinct from video #1) */}
+        {letterHasBadge(item.letter, "recognition") && <CardBadge size={62} corner="br" />}
       </div>
 
       {/* word name */}

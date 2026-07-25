@@ -11,6 +11,7 @@ import { PracticeRound } from "../components/PracticeRound";
 import { StoreOutro, STORE_OUTRO_F } from "../components/StoreOutro";
 import { PRACTICE, PROMPTS, PRAISES, roundPlan, PRACTICE_INTRO_DUR } from "../data/practice";
 import { bob } from "../lib/motion";
+import { HeaderLogo } from "../components/BrandMarks";
 
 // ── A→Z "Letter Recognition" video (16:9) ───────────────────────────────────
 // Recreates the app's MainLetterRecognitionView ("A says a"). The 26-letter GRID is the
@@ -147,7 +148,8 @@ const Header: React.FC = () => {
   return (
     <>
       <div style={{ position: "absolute", top: 30, left: 0, width: "100%", display: "flex", justifyContent: "center", opacity: op }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 14, background: "rgba(255,255,255,0.78)", borderRadius: 999, padding: "12px 36px", boxShadow: "0 8px 22px rgba(30,36,56,0.1)", fontFamily: font.family }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,0.78)", borderRadius: 999, padding: "8px 36px 8px 16px", boxShadow: "0 8px 22px rgba(30,36,56,0.1)", fontFamily: font.family }}>
+          <HeaderLogo height={58} />
           <span style={{ fontSize: 42, fontWeight: 800, color: "#8E24AA" }}>Phonics</span>
           <span style={{ fontSize: 42, fontWeight: 800, color: palette.ink }}>Letter Sounds</span>
         </div>

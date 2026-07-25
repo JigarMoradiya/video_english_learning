@@ -7,6 +7,7 @@ import { bob, pulse } from "../lib/motion";
 import { TraceGlyph } from "./TraceGlyph";
 import { Confetti } from "./Confetti";
 import imageColors from "../data/imageColors.json";
+import { CardBadge, letterHasBadge } from "./BrandMarks";
 
 const COLORS = imageColors as Record<string, string>;
 const normKey = (w: string) => w.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -108,6 +109,7 @@ export const LetterScene: React.FC<{ item: LetterItem }> = ({ item }) => {
           </div>
           <div
             style={{
+              position: "relative",
               width: 300,
               height: 300,
               transform: `scale(${imgIn * imgPulse}) translateY(${bob(frame, fps, 7, 2.4, 1)}px)`,
@@ -122,6 +124,8 @@ export const LetterScene: React.FC<{ item: LetterItem }> = ({ item }) => {
             }}
           >
             <Img src={staticFile(`letters/${item.image}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+            {/* brand badge on only a handful of the 26 letters (A→Z would be too busy) */}
+            {letterHasBadge(item.letter) && <CardBadge size={66} corner="br" />}
           </div>
         </div>
 

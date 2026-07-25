@@ -15,7 +15,10 @@ import { WATERMARK_ENABLED } from "./Watermark";
 export const LOGO_GRADIENT = "linear-gradient(135deg, #E0EEFF 0%, #EDE0FF 100%)"; // iOS .skyLavender
 
 // the badge itself: logo on the app gradient, rounded, soft shadow
-export const LogoBadge: React.FC<{ size?: number; opacity?: number; style?: React.CSSProperties }> = ({ size = 62, opacity = 1, style }) => {
+// One size for every standalone badge, so the brand never changes scale between cards.
+export const LOGO_BADGE_SIZE = 200;
+
+export const LogoBadge: React.FC<{ size?: number; opacity?: number; style?: React.CSSProperties }> = ({ size = LOGO_BADGE_SIZE, opacity = 1, style }) => {
   if (!WATERMARK_ENABLED) return null;
   const pad = Math.round(size * 0.13);
   return (
@@ -24,6 +27,23 @@ export const LogoBadge: React.FC<{ size?: number; opacity?: number; style?: Reac
     </div>
   );
 };
+
+// Plain logo for a title/header pill — NO gradient plate behind it, so it sits inside the
+// pill as part of the title rather than looking like a stuck-on badge.
+export const HeaderLogo: React.FC<{ height?: number }> = ({ height = 56 }) => {
+  if (!WATERMARK_ENABLED) return null;
+  return <Img src={staticFile("logo.png")} style={{ height, width: "auto" }} />;
+};
+
+// The A→Z videos run all 26 letters, so badging every word card would be far too busy.
+// Only 7 per video carry a card badge — spread evenly across the alphabet, and a DIFFERENT
+// set per video so the two don't badge the same letters.
+const BADGED: Record<BadgeSet, Set<string>> = {
+  phonics: new Set(["C", "F", "J", "M", "P", "T", "X"]),
+  recognition: new Set(["E", "H", "K", "N", "R", "V", "Z"]),
+};
+export type BadgeSet = "phonics" | "recognition";
+export const letterHasBadge = (letter: string, set: BadgeSet = "phonics"): boolean => BADGED[set].has(letter.toUpperCase());
 
 export type BadgeCorner = "tl" | "tr" | "bl" | "br";
 

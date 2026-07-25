@@ -12,6 +12,12 @@ const APP_NAME = "Kids English Learning";
 const DEVELOPER = "Vedaavi Learning Apps";
 const SHOTS = ["11", "12", "13", "14", "15"]; // real store screenshots (public/store/)
 
+// Reviews shown on the detail page (avatar letter + name over 5 stars, description below).
+const REVIEWS = [
+  { name: "Aarav's Mum", color: "#7E57C2", text: "He learnt every letter sound in two weeks and asks for it every single day." },
+  { name: "Sneha P.", color: "#00897B", text: "Completely ad-free and safe — I never worry when she plays on her own." },
+];
+
 // phone geometry (frame coords)
 const PX = 226, PY = 88, PW = 500, PH = 912, BEZ = 16;
 const SX = PX + BEZ, SY = PY + BEZ, SW = PW - 2 * BEZ; // screen = 468 wide
@@ -57,6 +63,8 @@ export const StoreFlow: React.FC<{ compact?: boolean }> = ({ compact = false }) 
   const visW = SW - 40;
   const scrollX = interpolate(d, [22, 150], [0, -Math.max(0, stripW - visW)], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const aboutIn = interpolate(d, [18, 40], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  // page scrolls down near the end to reveal the Reviews section
+  const detailScroll = interpolate(d, [128, 178], [0, -286], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <div style={{ transform: `translateY(${(1 - slide) * 60}px)`, opacity: slide, fontFamily: font.family }}>
@@ -100,7 +108,8 @@ export const StoreFlow: React.FC<{ compact?: boolean }> = ({ compact = false }) 
             })}
           </>
         ) : (
-          <>
+          // the detail page SCROLLS down near the end to reveal the Reviews section
+          <div style={{ position: "absolute", inset: 0, transform: `translateY(${detailScroll}px)` }}>
             {/* detail header */}
             <div style={{ position: "absolute", top: 40, left: 24, right: 24, display: "flex", gap: 20, alignItems: "center" }}>
               <AppIcon size={112} radius={26} />
@@ -138,7 +147,27 @@ export const StoreFlow: React.FC<{ compact?: boolean }> = ({ compact = false }) 
                 <div style={{ fontSize: 23, fontWeight: 800, color: palette.ink }}>Education</div>
               </div>
             </div>
-          </>
+
+            {/* ── Reviews (revealed by the page scroll) ────────────────────── */}
+            <div style={{ position: "absolute", top: 828, left: 24, right: 24 }}>
+              <div style={{ fontSize: 25, fontWeight: 800, color: palette.ink }}>Reviews</div>
+              <div style={{ fontSize: 18, fontWeight: 600, color: palette.inkSoft, marginBottom: 16 }}>Loved by Parents &amp; Kids</div>
+              {REVIEWS.map((r, i) => (
+                <div key={r.name} style={{ marginBottom: 18, opacity: interpolate(d, [136 + i * 12, 156 + i * 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                  {/* avatar + (name over stars) side by side */}
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <div style={{ width: 46, height: 46, borderRadius: 23, background: r.color, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, fontWeight: 800, flexShrink: 0 }}>{r.name[0]}</div>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontSize: 19, fontWeight: 800, color: palette.ink, whiteSpace: "nowrap" }}>{r.name}</div>
+                      <div style={{ fontSize: 15, color: "#FF9F0A", letterSpacing: 1 }}>★★★★★</div>
+                    </div>
+                  </div>
+                  {/* description below, full width */}
+                  <div style={{ fontSize: 16, fontWeight: 500, color: palette.inkSoft, lineHeight: 1.34, marginTop: 7 }}>{r.text}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
       </div>
 

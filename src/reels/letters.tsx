@@ -7,6 +7,7 @@ import { sec } from "../lib/timing";
 import { font, palette, tint, hex, letterColorFor } from "../data/tokens";
 import { Mascot } from "../components/Mascot";
 import { bob } from "../lib/motion";
+import { HeaderLogo } from "../components/BrandMarks";
 
 // ── A→Z "Letter Phonics Sound" video (16:9) ─────────────────────────────────
 // Recreates the app's LetterPhonicsSoundView flow for all 26 letters, reusing the
@@ -144,7 +145,8 @@ const Header: React.FC = () => {
   const op = interpolate(frame, [STRIP_START, STRIP_START + 8, STRIP_END - 8, STRIP_END], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <div style={{ position: "absolute", top: 30, left: 0, width: "100%", display: "flex", justifyContent: "center", opacity: op }}>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 14, background: "rgba(255,255,255,0.78)", borderRadius: 999, padding: "12px 36px", boxShadow: "0 8px 22px rgba(30,36,56,0.1)", fontFamily: font.family }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,0.78)", borderRadius: 999, padding: "8px 36px 8px 16px", boxShadow: "0 8px 22px rgba(30,36,56,0.1)", fontFamily: font.family }}>
+        <HeaderLogo height={58} />
         <span style={{ fontSize: 42, fontWeight: 800, color: "#5B6CF0" }}>Letter Sounds</span>
         <span style={{ fontSize: 34, fontWeight: 800, color: palette.inkSoft, letterSpacing: 2 }}>A–Z</span>
       </div>

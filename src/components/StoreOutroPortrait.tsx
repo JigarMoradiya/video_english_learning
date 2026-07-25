@@ -9,14 +9,14 @@ export const STORE_OUTRO_PORTRAIT_F = 344;
 // Portrait download outro — SAME device mockup as the 16:9 (StoreFlow: detail page, tap GET →
 // downloading → OPEN, real screenshots) fitted into the portrait frame, with the CTA + both
 // store badges below. Reuses the shared store assets + a custom CTA voiceover.
-export const StoreOutroPortrait: React.FC<{ audioSrc: string; audioDur: number }> = ({ audioSrc, audioDur }) => {
+export const StoreOutroPortrait: React.FC<{ audioSrc: string; audioDur: number; bg?: string }> = ({ audioSrc, audioDur, bg }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const cta = spring({ frame: frame - 26, fps, config: { damping: 12 } });
   const apple = spring({ frame: frame - 40, fps, config: { damping: 11 } });
   const play = spring({ frame: frame - 52, fps, config: { damping: 11 } });
   return (
-    <AbsoluteFill style={{ fontFamily: font.family }}>
+    <AbsoluteFill style={{ fontFamily: font.family, background: bg }}>
       <Sequence from={10} durationInFrames={Math.round(audioDur * fps) + 10}><Audio src={staticFile(audioSrc)} /></Sequence>
 
       {/* the full app-store phone (search "Kids English Learning" → our app → detail → GET →
