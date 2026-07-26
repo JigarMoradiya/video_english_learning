@@ -23,7 +23,7 @@ export const StoreOutroPortrait: React.FC<{ audioSrc: string; audioDur: number; 
           download → OPEN), same as the 16:9. transform makes the wrapper the containing block
           for StoreFlow's absolute coords → phone lands at 290,110. */}
       <div style={{ position: "absolute", inset: 0, transform: "translate(64px, 22px)" }}>
-        <StoreFlow />
+        <StoreFlow hideReviews />
       </div>
 
       <div style={{ position: "absolute", top: 1120, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 26 }}>

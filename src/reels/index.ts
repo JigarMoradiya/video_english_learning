@@ -10,9 +10,12 @@ import { ShortVowelsReel, SHORT_VOWELS_DURATION } from "./shortvowels";
 import { ShortVowelsPortraitReel, SHORT_VOWELS_PORTRAIT_DURATION } from "./shortvowels_portrait";
 import { LettersP1Reel, LETTERS_P1_DURATION } from "./letters_p1";
 import { LettersP2Reel, LETTERS_P2_DURATION } from "./letters_p2";
+import { letterShortEntry } from "./letter_short";
+import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
 import { PostQuizQ } from "../thumbs/quiz_post";
 import { LETTER_TILE_ENTRIES } from "../thumbs/poll_options";
+import { MouthChart } from "../thumbs/mouth_chart";
 
 // Registry of all reels. Add a new card here (one line) after creating its
 // reel module in src/reels/<id>.tsx — each stays fully independent.
@@ -44,6 +47,13 @@ export const REELS: ReelEntry[] = [
   // A→Z Letter Sounds, split into two 9:16 parts (pink world, sibling of the purple Short Vowels).
   { id: "letters-p1-9x16", component: LettersP1Reel, durationInFrames: LETTERS_P1_DURATION, width: 1080, height: 1920 },
   { id: "letters-p2-9x16", component: LettersP2Reel, durationInFrames: LETTERS_P2_DURATION, width: 1080, height: 1920 },
+  // ── A–Z Letter Shorts (series) — one 9:16 Short per letter, ~25s each ───────
+  // "Paper Craft Daylight" world. Fully data-driven: all 26 come from one
+  // template, so an episode is a LETTERS row, not a build.
+  //   npm run render:letter_shorts   -> out/letter_shorts/A.mp4 … Z.mp4
+  ...LETTERS.map(letterShortEntry),
+  // Review sheet for the phonics mouth shapes (not part of any video).
+  { id: "mouth-chart", component: MouthChart, durationInFrames: 1, width: 1500, height: 1180 },
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
   //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)

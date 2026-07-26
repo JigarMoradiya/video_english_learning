@@ -30,7 +30,11 @@ const AppIcon: React.FC<{ size: number; radius?: number }> = ({ size, radius }) 
 
 // compact = skip the search phase and open straight on the detail page (for short beats
 // that already narrate the CTA, e.g. the c/k/ck & oo lesson wraps).
-export const StoreFlow: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
+// hideReviews = drop the Reviews block entirely. A review panel is meaningless in a
+// kids' download outro, and it sits at the FOOT of the detail page so it is visible even
+// before any scrolling — it has to be removed, not scrolled past. With it gone the page
+// scroll is pointless too (it existed only to reveal the reviews), so that is pinned at 0.
+export const StoreFlow: React.FC<{ compact?: boolean; hideReviews?: boolean }> = ({ compact = false, hideReviews = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const slide = spring({ frame, fps, config: { damping: 14 } });
@@ -64,7 +68,7 @@ export const StoreFlow: React.FC<{ compact?: boolean }> = ({ compact = false }) 
   const scrollX = interpolate(d, [22, 150], [0, -Math.max(0, stripW - visW)], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const aboutIn = interpolate(d, [18, 40], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   // page scrolls down near the end to reveal the Reviews section
-  const detailScroll = interpolate(d, [128, 178], [0, -286], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const detailScroll = hideReviews ? 0 : interpolate(d, [128, 178], [0, -286], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <div style={{ transform: `translateY(${(1 - slide) * 60}px)`, opacity: slide, fontFamily: font.family }}>
@@ -149,6 +153,7 @@ export const StoreFlow: React.FC<{ compact?: boolean }> = ({ compact = false }) 
             </div>
 
             {/* ── Reviews (revealed by the page scroll) ────────────────────── */}
+            {!hideReviews && (
             <div style={{ position: "absolute", top: 828, left: 24, right: 24 }}>
               <div style={{ fontSize: 25, fontWeight: 800, color: palette.ink }}>Reviews</div>
               <div style={{ fontSize: 18, fontWeight: 600, color: palette.inkSoft, marginBottom: 16 }}>Loved by Parents &amp; Kids</div>
@@ -167,6 +172,7 @@ export const StoreFlow: React.FC<{ compact?: boolean }> = ({ compact = false }) 
                 </div>
               ))}
             </div>
+            )}
           </div>
         )}
       </div>

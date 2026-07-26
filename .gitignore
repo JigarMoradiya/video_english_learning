@@ -19,3 +19,13 @@ __pycache__/
 *.log
 npm-debug.log*
 yarn-error.log*
+# Forced-alignment intermediates written next to the audio by tools/align_audio.py.
+# The word timings we actually use are extracted into src/data/letterPhrases.json;
+# these are re-derivable (tools/build_letter_phrases.py) and would otherwise be
+# bundled into public/ on every render.
+# Scoped to letters/ only — the older comparison reels (ai_ay, oi_oy, oa_ow,
+# c_k_ck, oo) have their alignment files committed deliberately.
+public/audio/letters/*.phrases.json
+public/audio/letters/*.words.json
+public/audio/letters/*.lines.json
+public/audio/letters/*.srt

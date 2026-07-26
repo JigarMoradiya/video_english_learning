@@ -4,8 +4,11 @@
 // - image: the app's mainWord illustration (public/letters/<image>.png)
 // - timings: the app's 8 hand-tuned highlight offsets (seconds into the clip), one per spoken token:
 //     [ letter · "says" · sound₁ · sound₂ · sound₃ · letter · "for" · word ]
-// - durSec: full clip length (measured by tools/prep_letters.sh). Scenes TRIM trailing silence
-//   to ~last-timing + tail (see letters.tsx) so the A→Z video stays well paced.
+// - durSec: full clip length (measured by tools/prep_letters.sh).
+//   NOTE: what follows the 8th timing is NOT trailing silence — every clip ends with a spoken
+//   EXAMPLE PHRASE ("A tiny ant walks fast", "Squawk, squawk", "A big juicy watermelon"),
+//   roughly 2.5–4s of real narration. Never trim it; give it a visual beat instead.
+//   The phrase text + start time per letter live in src/data/letterShorts.ts.
 // - accent: a distinct per-letter theme colour (readable on the light kids background).
 
 export interface LetterItem {

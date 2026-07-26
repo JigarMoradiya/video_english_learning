@@ -53,7 +53,9 @@ const BADGE_CORNER: Record<string, BadgeCorner> = {
   ant: "tr", egg: "tr", ox: "tr",
   fox: "tr", dog: "tl",
 };
-export const badgeCorner = (word: string): BadgeCorner => BADGE_CORNER[word] ?? "br";
+// Case-insensitive: the word lists store "Ant"/"Dog" capitalised, and an exact-case
+// lookup silently fell through to "br" and put the badge on top of the subject.
+export const badgeCorner = (word: string): BadgeCorner => BADGE_CORNER[word.toLowerCase()] ?? "br";
 
 // Badge STRADDLING an image card's corner — part inside, part outside (like a count badge),
 // so it reads as a deliberate badge and never overlays the picture. The parent must be
