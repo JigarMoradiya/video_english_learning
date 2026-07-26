@@ -14,6 +14,7 @@
     "render:letters_phonics": "remotion render letters-phonics out/letters_phonics.mp4",
     "render:letter_recognition": "remotion render letter-recognition out/letter_recognition.mp4",
     "render:short_vowels": "remotion render short-vowels out/short_vowels.mp4",
+    "render:poll_letters": "mkdir -p out/poll_letters && for L in A B C D E F G H I J K L M N O P Q R S T U V W X Y Z; do l=$(echo $L | tr A-Z a-z); npx remotion still poll-letter-$l out/poll_letters/$L.png; done",
     "render:short_vowels_9x16": "remotion render short-vowels-9x16 out/short_vowels_9x16.mp4",
     "render:letters_p1_9x16": "remotion render letters-p1-9x16 out/letters_p1_9x16.mp4",
     "render:letters_p2_9x16": "remotion render letters-p2-9x16 out/letters_p2_9x16.mp4"

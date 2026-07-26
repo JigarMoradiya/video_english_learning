@@ -12,7 +12,7 @@ import { LettersP1Reel, LETTERS_P1_DURATION } from "./letters_p1";
 import { LettersP2Reel, LETTERS_P2_DURATION } from "./letters_p2";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
 import { PostQuizQ } from "../thumbs/quiz_post";
-import { PollOptQ, PollOptK, PollOptG, PollOptP } from "../thumbs/poll_options";
+import { LETTER_TILE_ENTRIES } from "../thumbs/poll_options";
 
 // Registry of all reels. Add a new card here (one line) after creating its
 // reel module in src/reels/<id>.tsx — each stays fully independent.
@@ -52,9 +52,7 @@ export const REELS: ReelEntry[] = [
   { id: "thumb-phonics-c", component: ThumbPhonicsC, durationInFrames: 1, width: 1280, height: 720 },
   // Community poll image (square) — the sound is on the image, the letters are the poll options
   { id: "post-quiz-q", component: PostQuizQ, durationInFrames: 1, width: 1080, height: 1080 },
-  // Image-poll option tiles — the poll's QUESTION text carries the sound, these are the letters
-  { id: "poll-opt-q", component: PollOptQ, durationInFrames: 1, width: 1080, height: 1080 },
-  { id: "poll-opt-k", component: PollOptK, durationInFrames: 1, width: 1080, height: 1080 },
-  { id: "poll-opt-g", component: PollOptG, durationInFrames: 1, width: 1080, height: 1080 },
-  { id: "poll-opt-p", component: PollOptP, durationInFrames: 1, width: 1080, height: 1080 },
+  // Image-poll option tiles, A→Z — the poll's QUESTION text carries the sound, these are the
+  // letters. `npm run render:poll_letters` writes all 26 to out/poll_letters/.
+  ...LETTER_TILE_ENTRIES.map((e) => ({ ...e, durationInFrames: 1, width: 1080, height: 1080 })),
 ];
