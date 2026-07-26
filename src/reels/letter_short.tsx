@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Freeze, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { LetterItem } from "../data/letters";
 import { REC_LETTERS } from "../data/recognition";
-import { LETTER_SHORT_EXTRAS, SHARED, Z_FINALE, nextLetterOf, phraseStartOf, praiseFor, SPOKEN_MORE, SPOKEN_WORDS, WORD_GAP, letterNameSrc } from "../data/letterShorts";
+import { LETTER_SHORT_EXTRAS, SHARED, Z_FINALE, nextLetterOf, phraseStartOf, praiseFor, ctaFor, SPOKEN_MORE, SPOKEN_WORDS, WORD_GAP, letterNameSrc } from "../data/letterShorts";
 import { paperBgFor, PaperMotes, PaperClouds, LetterRail, PaperTitle, paperCard, ContactShadow } from "../components/PaperSky";
 import { TraceGlyph } from "../components/TraceGlyph";
 import { CollapseRow } from "../components/LettersPinkFx";
@@ -103,7 +103,7 @@ export const planShort = (it: LetterItem): ShortPlan => {
   const zNarr = 8 + Z_FINALE.reduce((a, c) => a + sec(c.dur + 0.12, FPS), 0);
   const ctaF = isLast
     ? Math.max(zNarr + 30, 320) // the full store flow AND the four-part narration
-    : Math.max(sec(SHARED.cta.dur, FPS) + 34, 140);
+    : Math.max(sec(ctaFor(it.letter).dur, FPS) + 34, 140);
 
   let c = 0;
   const hookFrom = c; c += hookF;
@@ -604,15 +604,17 @@ const NextUp: React.FC<{ p: ShortPlan }> = ({ p }) => {
   const { fps } = useVideoConfig();
   const { it, accent } = p;
   const nxt = nextLetterOf(it.letter);
+  const cta_ = ctaFor(it.letter);
   const inn = spring({ frame, fps, config: { damping: 12 } });
   const nxtIn = spring({ frame: frame - 16, fps, config: { damping: 11 } });
   const ctaIn = spring({ frame: frame - 26, fps, config: { damping: 12 } });
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
-      {SHARED.cta.src && (
-        <Sequence from={8} durationInFrames={sec(SHARED.cta.dur, FPS) + 10}><Audio src={staticFile(SHARED.cta.src)} /></Sequence>
-      )}
+      {/* this letter's closing take — one of four, rotated */}
+      <Sequence from={8} durationInFrames={sec(cta_.dur, FPS) + 10}>
+        <Audio src={staticFile(cta_.src)} />
+      </Sequence>
 
       <div style={{ position: "absolute", top: BAND_TOP, left: 0, width: 1080, height: BAND_H, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 30, padding: `0 ${SIDE}px`, boxSizing: "border-box" }}>
         <div style={{ transform: `scale(${inn})` }}><LogoBadge /></div>

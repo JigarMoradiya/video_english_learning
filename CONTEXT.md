@@ -3,6 +3,7 @@
 Handoff doc. Everything needed to pick this up in a fresh session.
 See also `REEL_PLAYBOOK.md` (per-beat reel structure) and `CREATING_A_REEL.md` (step-by-step
 for the 9:16 comparison reels).
+**Next series is planned and parked on assets — read `docs/vocab_series_plan.md`.**
 
 ---
 
@@ -55,6 +56,8 @@ Run `npx remotion compositions` for the live list. Render with `npm run render:<
 | `short-vowels-9x16` | 1080×1920 | 2:45 | same content, **distinct purple theme** |
 | `letters-p1-9x16` | 1080×1920 | 2:04 | Letter Sounds A→Z, **part 1** (pink) |
 | `letters-p2-9x16` | 1080×1920 | 1:36 | Letter practice, **part 2** (pink) |
+| `letter-a-short` … `letter-z-short` | 1080×1920 | ~30–42s | **A–Z Letter Shorts** — 26-episode daily series, one template. `npm run render:letter_shorts` |
+| `mouth-chart` | 1500×1180 | still | review sheet for the 13 phonics mouth shapes |
 
 ### Stills (thumbnails / social)
 
@@ -78,6 +81,16 @@ Run `npx remotion compositions` for the live list. Render with `npm run render:<
 - `src/data/tokens.ts` — `font`, `palette`, `hex/tint/shade/lum`, `letterColorFor`,
   `cardStroke(imgHex, fallback)` (contrast-safe card borders from an image's dominant colour).
 
+### The A–Z Letter Shorts series (26 episodes, one template)
+`src/reels/letter_short.tsx` renders all 26 — an episode is a row in `src/data/letters.ts`,
+not a module. Everything per-letter is DERIVED: accent colour and sky tint
+(`letterColorFor` → `paperBgFor`), cloud silhouette, mouth articulation, confetti seed,
+example phrase, praise take, next letter. Z branches to a store-download finale instead
+of "Tomorrow".
+Beats: cover → letter draws itself (`TraceGlyph`) with its mouth shape → "More \<letter\>
+words" spoken one at a time with the card highlighted, then all cards reset and hold →
+"Now it's your turn!" + a silent answer gap → "Tomorrow: \<next\>".
+
 ### Per-video isolation
 Each video is its own module in `src/reels/<id>.tsx`. Editing one never touches another.
 Shared pieces live in `src/components/`.
@@ -86,7 +99,12 @@ Shared pieces live in `src/components/`.
 `Mascot`, `Confetti` (seeded/deterministic), `StoreFlow` (the app-store phone mock),
 `StoreOutro` / `StoreOutroPortrait`, `TraceGlyph` (self-drawing letters), `LetterGrid`,
 `RecognitionPanel`, `Mouth`/`VowelFace` (talking mouths), `BrandMarks`, `Watermark`,
-`LettersPinkFx` (incl. **`CollapseRow`** — see below).
+`LettersPinkFx` (incl. **`CollapseRow`** — see below),
+**`PaperSky`** (the light "Paper Craft Daylight" world: `paperBgFor`, `PaperMotes`,
+`PaperClouds`, `paperCard`, `ContactShadow`, `LetterRail`),
+**`PhonicsMouth`** (13 real articulations — `Mouth.tsx` has only 5 open-vowel ellipses,
+which would put a wide-open mouth on /b/; consonants need lips-shut, teeth-on-lip,
+tongue-tip, etc. Kept separate so Short Vowels can't regress).
 
 ---
 
@@ -154,7 +172,29 @@ These each cost multiple review rounds. Don't rediscover them.
 - Durations are **measured with ffprobe and hardcoded** in the data files, so composition
   length is known at module-eval.
 - Word-level timing: `faster-whisper` (installed at `~/Library/Python/3.9`), see
-  `tools/transcribe.py`. Used to place beats on phrases.
+  `tools/transcribe.py`. Used to place beats on phrases. For a known script use
+  `tools/align_audio.py <audio> <script.txt>` (forced alignment → phrases/words/srt).
+- **Whisper cannot time REPEATED identical words** — it collapses them. C's "meow meow
+  meow" came out 0.6s wrong. `tools/refine_phrase_onsets.py` re-times from the RMS
+  envelope's syllable peaks (with a prominence test, because the gap between two meows
+  only DIPS, never reaches silence). 13 of 26 letters were mistimed before this existed.
+- **Every A–Z clip ends with a spoken EXAMPLE PHRASE** after "\<Letter\> for \<Word\>"
+  ("A tiny ant walks fast", "Squawk squawk", "Rrrrr") — 2.5–4s of real narration, not
+  trailing silence. Text + word times in `src/data/letterPhrases.json`, reviewed source
+  text in `tools/scripts/tails.json`, built by `tools/build_letter_phrases.py`.
+- **A wrong `staticFile` path renders SILENT, not an error.** After any audio path change,
+  measure energy in each expected window — that check is the only thing standing between
+  you and 26 mute videos.
+
+### Audio layout
+- `public/audio/common/` — **shared framing lines** (more, words, now_its_your_turn, 7
+  praise takes, 4 Z-finale takes). All shared lines go here.
+- `public/audio/words/` — 102 per-word clips for the vocabulary tiles, with durations in
+  `src/data/extraWordAudio.json` (`tools/prep_extra_words.py`). A word with no clip still
+  takes its turn silently, so episodes ship before every clip lands.
+- `public/audio/letters/` — the app's 26 letter sentences · `letter_names/` — the 26 bare
+  letter names (`tools/prep_letter_names.sh`; `prep_recognition.sh` only ever built these
+  into a scratch dir).
 - SFX in `public/sfx/`: pop, sparkle, twinkle, whoosh, correct, drumroll + the softer
   `chime_soft` / `swoosh_soft` (the user found the originals harsh).
 - Shared assets in `public/`: `mascot.png`, `logo.png`, `app_icon.png`, `music_bed.mp3`,
@@ -191,12 +231,29 @@ are the options.
 
 ## 8. Open / next
 
+**Series #2 — Themed Vocabulary Shorts: PLANNED, parked on assets.**
+Read `docs/vocab_series_plan.md`. Asset checklist `docs/vocab_assets_needed.md`
+(125 words ready · 152 images + 130 audio clips needed to complete all 16 episodes;
+10 episodes are buildable today with zero new assets). Regenerate the checklist after
+adding files. Theme lists in `tools/vocab_themes.py`.
+
+Owed from the A–Z series:
+- **`cta.mp3`** — the "Tomorrow: \<next\>" card is SILENT on all 25 non-Z episodes until
+  this is recorded into `public/audio/common/`. 3–4 takes would let it rotate per letter
+  the way `PRAISE_POOL` does.
+- Optional: the 26 cover frames as uploadable thumbnails.
+
+Older, still open:
 - **9:16 cuts** of `c-k-ck` and `oo` (both currently 16:9 only).
 - **11 comparison cards** remain of 16. Next agreed: **th (thin/that)** — script first.
 - Answer-reveal images for the A–Z community quizzes (offered, not built).
 - Thumbnails for the two 9:16 Letter parts and Short Vowels.
-- Permanent git auth fix (SSH or `gh auth login`).
-- The exposed PAT in chat history should be revoked.
+- The three 16:9 videos still show the store mock's Reviews block — they go through
+  `StoreOutro.tsx`, which hasn't been given `hideReviews` yet (the portrait ones have).
+- Permanent git auth fix (SSH or `gh auth login`). **Two PATs have now been exposed in
+  chat and should be revoked** — this keeps recurring because the machine's stored
+  credential is a different account (`jigar-moradiya-medical-circle`), so plain
+  `git push` 403s.
 
 ---
 

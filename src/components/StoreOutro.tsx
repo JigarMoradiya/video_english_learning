@@ -32,7 +32,9 @@ export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?:
         </Sequence>
       )}
 
-      <StoreFlow compact={compact} />
+      {/* hideReviews: a review panel has no place in a kids' download outro, and it
+          sits at the foot of the detail page so it shows even unscrolled */}
+      <StoreFlow compact={compact} hideReviews />
 
       <div style={{ position: "absolute", left: 770, top: 0, width: 1120, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 22 }}>
         <Img src={staticFile("app_icon.png")} style={{ width: 224, height: 224, borderRadius: 50, transform: `scale(${logoIn}) translateY(${bob(frame, fps, 8, 2.6)}px) rotate(${wiggle(frame, fps, 1.2, 2.4)}deg)`, boxShadow: "0 18px 40px rgba(30,36,56,0.25)" }} />

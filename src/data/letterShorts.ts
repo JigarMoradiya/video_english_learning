@@ -53,10 +53,24 @@ export interface SharedLine {
 
 // Recorded once, reused by all 26 episodes. ALL shared framing lines live in
 // public/audio/common/ — per-letter content lives elsewhere (letters/, words/).
-export const SHARED: Record<"yourTurn" | "cta", SharedLine> = {
+export const SHARED: Record<"yourTurn", SharedLine> = {
   yourTurn: { src: "audio/common/now_its_your_turn.mp3", dur: 1.881 }, // "Now it's your turn!"
-  cta: { src: null, dur: 0 }, // "A new letter every day — follow so you don't miss tomorrow's!"
 };
+
+// ── the "Tomorrow: <next>" closing line ──────────────────────────────────────
+// Four takes rotated by letter, same reasoning as PRAISE_POOL: this plays on 25
+// episodes and one line 25 times is grating. 4 and 7 are coprime, so every letter
+// gets a unique (praise, cta) pairing across the series.
+// Z never uses these — it ends on Z_FINALE instead.
+export const CTA_POOL: { src: string; dur: number }[] = [
+  { src: "audio/common/cta_1.mp3", dur: 4.8 },   // "A new letter every day — follow so you don't miss tomorrow's!"
+  { src: "audio/common/cta_2.mp3", dur: 2.21 },  // "Come back tomorrow for the next letter!"
+  { src: "audio/common/cta_3.mp3", dur: 3.33 },  // "Follow to learn a new letter every day!"
+  { src: "audio/common/cta_4.mp3", dur: 3.349 }, // "See you tomorrow — there's a new letter waiting!"
+];
+
+export const ctaFor = (letter: string) =>
+  CTA_POOL[(letter.toUpperCase().charCodeAt(0) - 65) % CTA_POOL.length];
 
 // ── praise after the child answers ───────────────────────────────────────────
 // Seven takes so a viewer bingeing the series doesn't hear one line 26 times.
