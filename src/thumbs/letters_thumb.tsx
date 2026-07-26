@@ -107,16 +107,17 @@ export const ThumbPhonicsA: React.FC = () => (
 export const ThumbPhonicsB: React.FC = () => (
   <Ground bg="linear-gradient(145deg, #10214F 0%, #1E4FA8 52%, #2F86D6 100%)">
     <Sparkles seed={8} />
-    {/* raised and trimmed so it clears the card row completely — it used to sit on top of it */}
-    <Img src={staticFile("mascot.png")} style={{ position: "absolute", left: 6, bottom: 264, width: 322, height: "auto", filter: "drop-shadow(0 16px 30px rgba(0,0,0,0.46))" }} />
-    <div style={{ position: "absolute", left: 252, top: 26, background: "#fff", borderRadius: 38, padding: "10px 38px", boxShadow: "0 14px 32px rgba(0,0,0,0.36)" }}>
-      <span style={{ fontSize: 80, fontWeight: 800, color: "#2B3A9E", lineHeight: 1.05 }}>“aaa!”</span>
+    {/* the whole group sits to the RIGHT of the ALL-26 badge — the mascot's ear used to run
+        underneath it — and high enough to clear the card row below */}
+    <Img src={staticFile("mascot.png")} style={{ position: "absolute", left: 238, bottom: 252, width: 318, height: "auto", filter: "drop-shadow(0 16px 30px rgba(0,0,0,0.46))" }} />
+    <div style={{ position: "absolute", left: 566, top: 22, background: "#fff", borderRadius: 38, padding: "10px 38px", boxShadow: "0 14px 32px rgba(0,0,0,0.36)" }}>
+      <span style={{ fontSize: 78, fontWeight: 800, color: "#2B3A9E", lineHeight: 1.05 }}>“aaa!”</span>
     </div>
-    <svg width={62} height={52} style={{ position: "absolute", left: 268, top: 132 }}><polygon points="56,0 0,50 52,20" fill="#fff" /></svg>
+    <svg width={72} height={58} style={{ position: "absolute", left: 502, top: 118 }}><polygon points="70,0 0,56 66,24" fill="#fff" /></svg>
     {/* PHONICS + the gold bar are one block — the bar matches the headline width exactly */}
-    <div style={{ position: "absolute", left: 424, top: 150, display: "inline-flex", flexDirection: "column", alignItems: "stretch" }}>
-      <div style={{ fontSize: 100, fontWeight: 800, color: "#fff", lineHeight: 1.02, letterSpacing: 4, textAlign: "center", textShadow: "0 8px 22px rgba(0,0,0,0.44)" }}>PHONICS</div>
-      <div style={{ marginTop: 10, background: GOLD, color: INK, borderRadius: 24, padding: "8px 0", fontSize: 80, fontWeight: 800, letterSpacing: 10, textAlign: "center", boxShadow: "0 12px 26px rgba(0,0,0,0.32)" }}>A – Z</div>
+    <div style={{ position: "absolute", left: 636, top: 186, display: "inline-flex", flexDirection: "column", alignItems: "stretch" }}>
+      <div style={{ fontSize: 88, fontWeight: 800, color: "#fff", lineHeight: 1.02, letterSpacing: 4, textAlign: "center", textShadow: "0 8px 22px rgba(0,0,0,0.44)" }}>PHONICS</div>
+      <div style={{ marginTop: 10, background: GOLD, color: INK, borderRadius: 24, padding: "8px 0", fontSize: 74, fontWeight: 800, letterSpacing: 10, textAlign: "center", boxShadow: "0 12px 26px rgba(0,0,0,0.32)" }}>A – Z</div>
     </div>
     {/* seven cards, evenly and TIGHTLY spaced (space-between left huge holes between them) */}
     <div style={{ position: "absolute", left: 0, bottom: 14, width: 1280, display: "flex", justifyContent: "center", gap: 13 }}>
@@ -143,10 +144,17 @@ export const ThumbPhonicsC: React.FC = () => (
         </div>
       ))}
     </div>
-    <Img src={staticFile("mascot.png")} style={{ position: "absolute", left: 30, bottom: 10, width: 262, height: "auto", filter: "drop-shadow(0 14px 28px rgba(0,0,0,0.46))" }} />
-    <div style={{ position: "absolute", right: 48, bottom: 78, textAlign: "right" }}>
-      <div style={{ fontSize: 88, fontWeight: 800, color: GOLD, lineHeight: 1, textShadow: "0 10px 26px rgba(0,0,0,0.44)" }}>+ 23 MORE</div>
-      <div style={{ fontSize: 52, fontWeight: 800, color: "#fff", letterSpacing: 6, marginTop: 6 }}>A – Z</div>
+    <Img src={staticFile("mascot.png")} style={{ position: "absolute", left: 26, bottom: 8, width: 274, height: "auto", filter: "drop-shadow(0 14px 28px rgba(0,0,0,0.46))" }} />
+    {/* the next few letters, carrying the eye from the mascot across to "+ 23 MORE" */}
+    <div style={{ position: "absolute", left: 316, bottom: 92, display: "flex", alignItems: "center", gap: 14 }}>
+      {["Dd", "Ee", "Ff", "Gg"].map((pair) => (
+        <span key={pair} style={{ width: 96, height: 96, borderRadius: 22, background: "rgba(255,255,255,0.9)", color: INK, fontSize: 46, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 18px rgba(0,0,0,0.26)" }}>{pair}</span>
+      ))}
+      <span style={{ fontSize: 58, fontWeight: 800, color: "rgba(255,255,255,0.85)", letterSpacing: 4 }}>…</span>
+    </div>
+    <div style={{ position: "absolute", right: 44, bottom: 88, textAlign: "right" }}>
+      <div style={{ fontSize: 76, fontWeight: 800, color: GOLD, lineHeight: 1, textShadow: "0 10px 26px rgba(0,0,0,0.44)" }}>+ 23 MORE</div>
+      <div style={{ fontSize: 46, fontWeight: 800, color: "#fff", letterSpacing: 6, marginTop: 4 }}>A – Z</div>
     </div>
     <Badge />
     <Logo />
