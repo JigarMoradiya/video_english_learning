@@ -10,7 +10,7 @@ import { ShortVowelsReel, SHORT_VOWELS_DURATION } from "./shortvowels";
 import { ShortVowelsPortraitReel, SHORT_VOWELS_PORTRAIT_DURATION } from "./shortvowels_portrait";
 import { LettersP1Reel, LETTERS_P1_DURATION } from "./letters_p1";
 import { LettersP2Reel, LETTERS_P2_DURATION } from "./letters_p2";
-import { ThumbLettersA, ThumbLettersB, ThumbLettersC } from "../thumbs/letters_thumb";
+import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
 
 // Registry of all reels. Add a new card here (one line) after creating its
 // reel module in src/reels/<id>.tsx — each stays fully independent.
@@ -43,8 +43,9 @@ export const REELS: ReelEntry[] = [
   { id: "letters-p1-9x16", component: LettersP1Reel, durationInFrames: LETTERS_P1_DURATION, width: 1080, height: 1920 },
   { id: "letters-p2-9x16", component: LettersP2Reel, durationInFrames: LETTERS_P2_DURATION, width: 1080, height: 1920 },
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
-  //   npx remotion still thumb-letters-a out/thumb_letters_a.png
-  { id: "thumb-letters-a", component: ThumbLettersA, durationInFrames: 1, width: 1280, height: 720 },
-  { id: "thumb-letters-b", component: ThumbLettersB, durationInFrames: 1, width: 1280, height: 720 },
-  { id: "thumb-letters-c", component: ThumbLettersC, durationInFrames: 1, width: 1280, height: 720 },
+  //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png
+  // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)
+  { id: "thumb-phonics-a", component: ThumbPhonicsA, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-phonics-b", component: ThumbPhonicsB, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-phonics-c", component: ThumbPhonicsC, durationInFrames: 1, width: 1280, height: 720 },
 ];
