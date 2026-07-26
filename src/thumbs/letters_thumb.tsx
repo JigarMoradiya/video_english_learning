@@ -54,13 +54,13 @@ const Logo: React.FC<{ right?: number; top?: number }> = ({ right = 24, top = 20
 
 // full-width band of all 26 letters — anchors the bottom edge so no corner is left empty
 const LetterBand: React.FC = () => {
-  const pad = 24, gap = 5;
-  const cell = (1280 - pad * 2 - gap * 25) / 26; // ≈ 43
+  const pad = 150, gap = 4; // narrower + smaller: a quiet strip, not a second headline
+  const cell = (1280 - pad * 2 - gap * 25) / 26; // ≈ 34
   return (
-    <div style={{ position: "absolute", left: pad, bottom: 20, display: "flex", gap }}>
+    <div style={{ position: "absolute", left: pad, bottom: 16, display: "flex", gap }}>
       {AZ.map((ch) => {
         const v = "AEIOU".includes(ch);
-        return <span key={ch} style={{ width: cell, height: 54, borderRadius: 11, background: v ? "#FF8A2B" : "rgba(255,255,255,0.94)", color: v ? "#fff" : INK, fontSize: 29, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: v ? "0 5px 14px rgba(255,138,43,0.55)" : "0 4px 10px rgba(0,0,0,0.2)" }}>{ch}</span>;
+        return <span key={ch} style={{ width: cell, height: 40, borderRadius: 9, background: v ? "#FF8A2B" : "rgba(255,255,255,0.94)", color: v ? "#fff" : INK, fontSize: 22, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: v ? "0 5px 14px rgba(255,138,43,0.55)" : "0 4px 10px rgba(0,0,0,0.2)" }}>{ch}</span>;
       })}
     </div>
   );
@@ -69,6 +69,17 @@ const LetterBand: React.FC = () => {
 const WordCard: React.FC<{ w: string; size?: number }> = ({ w, size = 122 }) => (
   <div style={{ width: size, height: size, background: "#fff", borderRadius: 24, boxShadow: "0 10px 24px rgba(0,0,0,0.28)", display: "flex", alignItems: "center", justifyContent: "center", padding: 10 }}>
     <Img src={staticFile(`letters/${w}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+  </div>
+);
+
+// picture + its word, first letter in gold — names the image AND ties it to that letter's sound
+const WordCardNamed: React.FC<{ w: string; size?: number; label?: number }> = ({ w, size = 150, label = 38 }) => (
+  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+    <WordCard w={w} size={size} />
+    <span style={{ fontSize: label, fontWeight: 800, lineHeight: 1, textShadow: "0 4px 12px rgba(0,0,0,0.5)" }}>
+      <span style={{ color: GOLD }}>{w[0].toUpperCase()}</span>
+      <span style={{ color: "#fff" }}>{w.slice(1)}</span>
+    </span>
   </div>
 );
 
@@ -85,8 +96,8 @@ export const ThumbPhonicsA: React.FC = () => (
         <span style={{ fontSize: 100, fontWeight: 800, color: "#fff", letterSpacing: 6, paddingBottom: 22, textShadow: "0 10px 24px rgba(0,0,0,0.42)" }}>A–Z</span>
       </div>
       {/* five picture words span the column, filling what used to be dead space */}
-      <div style={{ display: "flex", gap: 17, marginTop: 4 }}>
-        {["ant", "apple", "ball", "cat", "drum"].map((w) => <WordCard key={w} w={w} size={148} />)}
+      <div style={{ display: "flex", gap: 22, marginTop: 2 }}>
+        {["ant", "ball", "cat", "drum"].map((w) => <WordCardNamed key={w} w={w} size={140} label={38} />)}
       </div>
     </div>
     <Badge />
@@ -106,13 +117,15 @@ export const ThumbPhonicsB: React.FC = () => (
     </div>
     <svg width={68} height={56} style={{ position: "absolute", left: 304, top: 152 }}><polygon points="60,0 0,54 56,22" fill="#fff" /></svg>
     {/* headline sits in what used to be the empty centre-right */}
-    <div style={{ position: "absolute", left: 400, top: 196, width: 856, display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
-      <div style={{ fontSize: 104, fontWeight: 800, color: "#fff", lineHeight: 1.02, letterSpacing: 2, textShadow: "0 8px 22px rgba(0,0,0,0.44)" }}>PHONICS</div>
-      <div style={{ background: GOLD, color: INK, borderRadius: 26, padding: "10px 40px", fontSize: 92, fontWeight: 800, letterSpacing: 8, boxShadow: "0 12px 26px rgba(0,0,0,0.32)" }}>A – Z</div>
+    {/* one solid block: the gold bar is exactly as wide as PHONICS, so there is no
+        left/right gap between the two lines */}
+    <div style={{ position: "absolute", left: 430, top: 176, display: "inline-flex", flexDirection: "column", alignItems: "stretch" }}>
+      <div style={{ fontSize: 112, fontWeight: 800, color: "#fff", lineHeight: 1.02, letterSpacing: 4, textAlign: "center", textShadow: "0 8px 22px rgba(0,0,0,0.44)" }}>PHONICS</div>
+      <div style={{ marginTop: 12, background: GOLD, color: INK, borderRadius: 26, padding: "10px 0", fontSize: 92, fontWeight: 800, letterSpacing: 10, textAlign: "center", boxShadow: "0 12px 26px rgba(0,0,0,0.32)" }}>A – Z</div>
     </div>
     {/* seven picture words span the FULL width — both bottom corners are filled */}
-    <div style={{ position: "absolute", left: 24, bottom: 22, width: 1232, display: "flex", justifyContent: "space-between" }}>
-      {["ant", "ball", "cat", "drum", "elephant", "fish", "goat"].map((w) => <WordCard key={w} w={w} size={150} />)}
+    <div style={{ position: "absolute", left: 24, bottom: 18, width: 1232, display: "flex", justifyContent: "space-between" }}>
+      {["ant", "ball", "cat", "drum", "elephant", "fish"].map((w) => <WordCardNamed key={w} w={w} size={144} label={34} />)}
     </div>
     <Badge />
     <Logo />
@@ -128,7 +141,7 @@ export const ThumbPhonicsC: React.FC = () => {
   return (
     <Ground bg="linear-gradient(145deg, #141C4A 0%, #2B3A9E 100%)">
       {/* the wall runs edge to edge, so the frame is never empty */}
-      <div style={{ position: "absolute", inset: 0, padding: pad, display: "flex", flexWrap: "wrap", gap, alignContent: "center", justifyContent: "center" }}>
+      <div style={{ position: "absolute", inset: 0, padding: pad, display: "flex", flexWrap: "wrap", gap, alignContent: "center", justifyContent: "center", opacity: 0.42 }}>
         {/* 26 letters + 2 star tiles = a complete 7×4 grid, so no corner is left dark */}
         {[...AZ, "★", "★"].map((ch, i) => {
           const v = "AEIOU".includes(ch);
@@ -137,7 +150,7 @@ export const ThumbPhonicsC: React.FC = () => {
         })}
       </div>
       {/* light scrim keeps the wall bright; the solid panel below carries legibility */}
-      <AbsoluteFill style={{ background: "linear-gradient(115deg, rgba(20,28,74,0.34) 0%, rgba(20,28,74,0.20) 52%, rgba(20,28,74,0.30) 100%)" }} />
+      <AbsoluteFill style={{ background: "linear-gradient(115deg, rgba(20,28,74,0.18) 0%, rgba(20,28,74,0.10) 52%, rgba(20,28,74,0.16) 100%)" }} />
       <Sparkles seed={12} n={9} />
       <Img src={staticFile("mascot.png")} style={{ position: "absolute", left: 16, bottom: 10, width: 386, height: "auto", filter: "drop-shadow(0 16px 32px rgba(0,0,0,0.52))" }} />
       {/* solid panel → the headline is readable whatever tile happens to be behind it */}
