@@ -267,21 +267,20 @@ Read `docs/vocab_series_plan.md`. Asset checklist `docs/vocab_assets_needed.md`
 adding files. Theme lists in `tools/vocab_themes.py`.
 
 Owed from the A–Z series:
-- **`cta.mp3`** — the "Tomorrow: \<next\>" card is SILENT on all 25 non-Z episodes until
-  this is recorded into `public/audio/common/`. 3–4 takes would let it rotate per letter
-  the way `PRAISE_POOL` does.
+- ~~`cta.mp3`~~ **DONE** — `cta_1..4.mp3` are in `public/audio/common/` and rotate per
+  letter via `CTA_POOL`/`ctaFor()`; 4 and 7 are coprime with `PRAISE_POOL` so no two
+  episodes share a (praise, closing) pair.
 - Optional: the 26 cover frames as uploadable thumbnails.
 
 Older, still open:
-- **9:16 cut of `oo`** (16:9 only). `c-k-ck-9x16` now exists and, per user instruction,
+- ~~9:16 cut of `oo`~~ **DONE** — `oo-9x16` is registered and renders (1:58).
+  `c-k-ck-9x16` also exists and, per user instruction,
   is the SAME design as the 16:9 cut re-laid out for portrait — `WordStreetPortrait.tsx`
   mirrors `WordStreet.tsx`'s content state machine, and `c_k_ck_portrait_beats.tsx`
   mirrors `c_k_ck_beats.tsx`. Keep them in step: a change to one belongs in both.
 - **11 comparison cards** remain of 16. Next agreed: **th (thin/that)** — script first.
 - Answer-reveal images for the A–Z community quizzes (offered, not built).
 - Thumbnails for the two 9:16 Letter parts and Short Vowels.
-- The three 16:9 videos still show the store mock's Reviews block — they go through
-  `StoreOutro.tsx`, which hasn't been given `hideReviews` yet (the portrait ones have).
 - Permanent git auth fix (SSH or `gh auth login`). **Two PATs have now been exposed in
   chat and should be revoked** — this keeps recurring because the machine's stored
   credential is a different account (`jigar-moradiya-medical-circle`), so plain
