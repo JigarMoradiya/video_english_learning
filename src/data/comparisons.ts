@@ -123,6 +123,32 @@ export const comparisons: Record<string, PhonicsComparison> = {
       { word: "owl", blanked: "__l", answerTeam: 1 },
     ],
   },
+  au_aw: {
+    id: "au_aw",
+    cardTitle: "au ⚡ aw",
+    shortTitle: "au vs aw",
+    rule: "AU sleeps INSIDE… AW stays at the END, or right before the last letter!",
+    explanation:
+      "Both teams say the /aw/ sound you hear in author and saw.\n• **At the start or inside** → write **au** (au-tumn, s-au-ce).\n• At the **end**, or right before a final letter → write **aw** (s-aw, y-aw-n).",
+    example: "author · saw",
+    group: "spelling",
+    // dusk indigo → dawn gold; nothing like the other four
+    hueShift: 250,
+    teams: [
+      { marker: "au", colorHex: "5E35B1", zoneEmoji: "🌙", zoneHint: "middle", zonePhrase: "inside the word", markerAudio: "au" },
+      { marker: "aw", colorHex: "EF6C00", zoneEmoji: "🌅", zoneHint: "end", zonePhrase: "at the end", markerAudio: "aw" },
+    ],
+    quiz: [
+      { word: "autumn", blanked: "__tumn", answerTeam: 0 },
+      { word: "sauce", blanked: "s__ce", answerTeam: 0 },
+      { word: "pause", blanked: "p__se", answerTeam: 0 },
+      { word: "launch", blanked: "l__nch", answerTeam: 0 },
+      { word: "saw", blanked: "s__", answerTeam: 1 },
+      { word: "paw", blanked: "p__", answerTeam: 1 },
+      { word: "yawn", blanked: "y__n", answerTeam: 1 },
+      { word: "crawl", blanked: "cr__l", answerTeam: 1 },
+    ],
+  },
   c_k_ck: {
     id: "c_k_ck",
     cardTitle: "c ⚡ k ⚡ ck",

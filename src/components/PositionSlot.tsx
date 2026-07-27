@@ -52,6 +52,22 @@ export const hopInfo = (stateFor: (f: number) => SlotState, f: number, hopFrames
   return { cur, prev: prev < 0 ? cur : prev, t };
 };
 
+// A marker keeps its OWN team colour wherever it happens to stand. On ou/ow and au/aw the
+// end spelling turns up in the MIDDLE slot during the bonus beat (br-ow-n, d-aw-n), and
+// colouring it by the position made "aw" render in au's purple — i.e. as the wrong team.
+export const markerAwareColor = (
+  slot: Slot | null,
+  i: number,
+  data: PhonicsComparison,
+  positionColor: (i: number) => string
+) => {
+  if (slot?.kind === "marker") {
+    const t = data.teams.find((x) => x.marker === slot.text);
+    if (t) return t.colorHex;
+  }
+  return positionColor(i);
+};
+
 // ── what sits inside a slot ──────────────────────────────────────────────────
 // A slot with nothing to show holds a dashed ghost frame, never a bare hole: empty
 // slots for 15s is the dead-screen failure every one of these sets has to avoid.

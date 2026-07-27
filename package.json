@@ -25,7 +25,8 @@
     "render:letter_shorts": "sh tools/preflight.sh && mkdir -p out/letter_shorts && for L in A B C D E F G H I J K L M N O P Q R S T U V W X Y Z; do l=$(echo $L | tr A-Z a-z); npx remotion render letter-$l-short out/letter_shorts/$L.mp4 || exit 1; done",
     "render:oi_oy_16x9": "remotion render oi-oy-16x9 out/oi_oy_16x9.mp4",
     "render:oa_ow_16x9": "remotion render oa-ow-16x9 out/oa_ow_16x9.mp4",
-    "render:ou_ow_16x9": "remotion render ou-ow-16x9 out/ou_ow_16x9.mp4"
+    "render:ou_ow_16x9": "remotion render ou-ow-16x9 out/ou_ow_16x9.mp4",
+    "render:au_aw_16x9": "remotion render au-aw-16x9 out/au_aw_16x9.mp4"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

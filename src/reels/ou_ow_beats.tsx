@@ -12,31 +12,6 @@ import { bob, pulse } from "../lib/motion";
 // Nothing here may enter the caption band (y 880…1080), and while the circus set is up
 // nothing may enter the stage (y 300…860) either.
 
-// ── the bonus rule — ow also guards a final n or l ───────────────────────────
-// The plain "ow finishes the word" is false and this card's own word list disproves it
-// (brown, town, clown, crown, frown, gown, owl). This beat is where the honest version
-// gets taught, so it is a beat and not a footnote.
-export const OuBonus: React.FC<{ data: PhonicsComparison; beat: Beat; ruleAt: number }> = ({ data, beat, ruleAt }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const c = hex(data.teams[1].colorHex);
-  const s = spring({ frame: frame - ruleAt, fps, config: { damping: 12 } });
-  return (
-    <Band top={84}>
-      {frame < ruleAt ? (
-        <Pill size={56}>And here's a bonus &#127873;</Pill>
-      ) : (
-        <div style={{ transform: `scale(${0.9 + 0.1 * s})` }}>
-          <Pill color={palette.ink} size={48}>
-            <span style={{ color: c }}>ow</span> also guards a final{" "}
-            <span style={{ color: c }}>n</span> or <span style={{ color: c }}>l</span> &nbsp;·&nbsp; br<span style={{ color: c }}>ow</span>n · <span style={{ color: c }}>ow</span>l
-          </Pill>
-        </div>
-      )}
-    </Band>
-  );
-};
-
 // ── the two-sound centrepiece ────────────────────────────────────────────────
 // 85 seconds, the longest beat in any of these videos, and the reason the card is a
 // TWO-RING circus: one performer, two acts. It runs as four screens so no layout is ever

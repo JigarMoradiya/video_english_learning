@@ -132,6 +132,45 @@ export const PairNotThis: React.FC<{ data: PhonicsComparison; beat: Beat; copy: 
   );
 };
 
+// ── the bonus rule — the end-spelling also guards a final letter ─────────────
+// Plain "ow/aw finishes the word" is false and each card's own word list disproves it
+// (brown, town, clown, owl · yawn, dawn, crawl, hawk). This is where the honest version is
+// taught, so it is a beat, not a footnote. Driven by the card: it announced "ow … brown ·
+// owl" on the au/aw video when it was hard-coded.
+export const PairBonus: React.FC<{
+  data: PhonicsComparison; beat: Beat; ruleAt: number; guards: string; examples: [string, string];
+}> = ({ data, ruleAt, guards, examples }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const team = data.teams[1];
+  const c = hex(team.colorHex);
+  const s = spring({ frame: frame - ruleAt, fps, config: { damping: 12 } });
+  const tint2 = (w: string) => {
+    const i = w.indexOf(team.marker);
+    if (i < 0) return <>{w}</>;
+    return (
+      <>
+        {w.slice(0, i)}
+        <span style={{ color: c }}>{team.marker}</span>
+        {w.slice(i + team.marker.length)}
+      </>
+    );
+  };
+  return (
+    <Band top={84}>
+      {frame < ruleAt ? (
+        <Pill size={56}>And here's a bonus &#127873;</Pill>
+      ) : (
+        <div style={{ transform: `scale(${0.9 + 0.1 * s})` }}>
+          <Pill color={palette.ink} size={48}>
+            <span style={{ color: c }}>{team.marker}</span> also guards {guards} &nbsp;·&nbsp; {tint2(examples[0])} · {tint2(examples[1])}
+          </Pill>
+        </div>
+      )}
+    </Band>
+  );
+};
+
 // ── seeIt — the train leaves, two boards of six words slide in ───────────────
 // Card sizing (CkWordChip law): card width ≈ size × 1.8, a spoken card pulses 1.32×.
 // 3 per row in an 844 board: 844 / (1.8 × (3 + 2×0.16)) = 141 max. 128 with gap 46 fits.

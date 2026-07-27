@@ -7,8 +7,8 @@ import { Captions, keywordColorFor } from "../components/Captions";
 import { StoreOutro } from "../components/StoreOutro";
 import { CircusSky, WordCircus } from "../components/WordCircus";
 import { Slot, SlotState } from "../components/PositionSlot";
-import { PairCopy, PairHook, PairQuiz, PairRecap, PairRule, PairSame, PairSeeIt, PairWhere } from "./pair_16x9_beats";
-import { OuBonus, OuTwoSounds, TwoSoundCues } from "./ou_ow_beats";
+import { PairBonus, PairCopy, PairHook, PairQuiz, PairRecap, PairRule, PairSame, PairSeeIt, PairWhere } from "./pair_16x9_beats";
+import { OuTwoSounds, TwoSoundCues } from "./ou_ow_beats";
 import phrases from "../data/ou_ow_16x9.timing.json";
 import { FPS } from "../data/tokens";
 
@@ -187,7 +187,7 @@ const overlayFor = (b: Beat) => {
     case "where": return <PairWhere data={data} beat={b} />;
     case "ruleMid": return <PairRule data={data} beat={b} teamIdx={0} />;
     case "ruleEnd": return <PairRule data={data} beat={b} teamIdx={1} />;
-    case "bonus": return <OuBonus data={data} beat={b} ruleAt={P(26) - b.from} />;
+    case "bonus": return <PairBonus data={data} beat={b} ruleAt={P(26) - b.from} guards="a final n or l" examples={["brown", "owl"]} />;
     case "twoSounds": return <OuTwoSounds data={data} beat={b} cues={TWO_SOUND_CUES} />;
     case "seeIt": return <PairSeeIt data={data} beat={b} wordsMid={WORDS_MID} wordsEnd={WORDS_END} />;
     case "quiz": return <PairQuiz data={data} beat={b} copy={COPY} word="brown" blanked="br__n" answer={1} />;

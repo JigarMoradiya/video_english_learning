@@ -14,6 +14,7 @@ import { AiAy16x9Reel, AI_AY_16X9_DURATION } from "./ai_ay_16x9";
 import { OiOy16x9Reel, OI_OY_16X9_DURATION } from "./oi_oy_16x9";
 import { OaOw16x9Reel, OA_OW_16X9_DURATION } from "./oa_ow_16x9";
 import { OuOw16x9Reel, OU_OW_16X9_DURATION } from "./ou_ow_16x9";
+import { AuAw16x9Reel, AU_AW_16X9_DURATION } from "./au_aw_16x9";
 import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
 import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
 import { letterShortEntry } from "./letter_short";
@@ -72,6 +73,8 @@ export const REELS: ReelEntry[] = [
   { id: "oa-ow-16x9", component: OaOw16x9Reel, durationInFrames: OA_OW_16X9_DURATION, width: 1920, height: 1080 },
   // L14 · ou/ow — long-form 16:9 lesson. The Two-Ring Circus: one ow, two sounds.
   { id: "ou-ow-16x9", component: OuOw16x9Reel, durationInFrames: OU_OW_16X9_DURATION, width: 1920, height: 1080 },
+  // L14 · au/aw — long-form 16:9 lesson. The Sleepy Lawn: the sky runs night → dawn.
+  { id: "au-aw-16x9", component: AuAw16x9Reel, durationInFrames: AU_AW_16X9_DURATION, width: 1920, height: 1080 },
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
   //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)

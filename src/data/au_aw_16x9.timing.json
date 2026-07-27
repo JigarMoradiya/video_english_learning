@@ -1,0 +1,1932 @@
+[
+  {
+    "index": 0,
+    "text": "Yaaawn.",
+    "line_index": 0,
+    "start": 0.98,
+    "end": 1.78,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "Yaaawn.",
+        "start": 0.98,
+        "end": 1.78
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Do you hear that sound?",
+    "line_index": 0,
+    "start": 1.88,
+    "end": 2.87,
+    "duration": 0.99,
+    "words": [
+      {
+        "word": "Do",
+        "start": 1.88,
+        "end": 1.88
+      },
+      {
+        "word": "you",
+        "start": 1.88,
+        "end": 2.06
+      },
+      {
+        "word": "hear",
+        "start": 2.06,
+        "end": 2.24
+      },
+      {
+        "word": "that",
+        "start": 2.24,
+        "end": 2.42
+      },
+      {
+        "word": "sound?",
+        "start": 2.42,
+        "end": 2.87
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Aw!",
+    "line_index": 1,
+    "start": 4.36,
+    "end": 4.76,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Aw!",
+        "start": 4.36,
+        "end": 4.76
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Two spellings make it.",
+    "line_index": 1,
+    "start": 5.2,
+    "end": 7.06,
+    "duration": 1.86,
+    "words": [
+      {
+        "word": "Two",
+        "start": 5.2,
+        "end": 5.34
+      },
+      {
+        "word": "spellings",
+        "start": 5.34,
+        "end": 5.86
+      },
+      {
+        "word": "make",
+        "start": 5.86,
+        "end": 6.06
+      },
+      {
+        "word": "it.",
+        "start": 6.06,
+        "end": 7.06
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Au, and aw.",
+    "line_index": 1,
+    "start": 7.2,
+    "end": 9.24,
+    "duration": 2.04,
+    "words": [
+      {
+        "word": "Au,",
+        "start": 7.2,
+        "end": 7.6
+      },
+      {
+        "word": "and",
+        "start": 7.96,
+        "end": 8.24
+      },
+      {
+        "word": "aw.",
+        "start": 8.24,
+        "end": 9.24
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Say it with me.",
+    "line_index": 2,
+    "start": 10.26,
+    "end": 10.9,
+    "duration": 0.64,
+    "words": [
+      {
+        "word": "Say",
+        "start": 10.26,
+        "end": 10.36
+      },
+      {
+        "word": "it",
+        "start": 10.36,
+        "end": 10.48
+      },
+      {
+        "word": "with",
+        "start": 10.48,
+        "end": 10.6
+      },
+      {
+        "word": "me.",
+        "start": 10.6,
+        "end": 10.9
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Aw!",
+    "line_index": 2,
+    "start": 11.82,
+    "end": 12.4,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Aw!",
+        "start": 11.82,
+        "end": 12.4
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "You hear it in author.",
+    "line_index": 3,
+    "start": 13.22,
+    "end": 14.75,
+    "duration": 1.53,
+    "words": [
+      {
+        "word": "You",
+        "start": 13.22,
+        "end": 13.32
+      },
+      {
+        "word": "hear",
+        "start": 13.32,
+        "end": 13.58
+      },
+      {
+        "word": "it",
+        "start": 13.58,
+        "end": 13.82
+      },
+      {
+        "word": "in",
+        "start": 13.82,
+        "end": 14.1
+      },
+      {
+        "word": "author.",
+        "start": 14.1,
+        "end": 14.75
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "And in saw.",
+    "line_index": 3,
+    "start": 16.26,
+    "end": 17.65,
+    "duration": 1.39,
+    "words": [
+      {
+        "word": "And",
+        "start": 16.26,
+        "end": 16.46
+      },
+      {
+        "word": "in",
+        "start": 16.46,
+        "end": 16.8
+      },
+      {
+        "word": "saw.",
+        "start": 16.8,
+        "end": 17.65
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Same sound, different spelling.",
+    "line_index": 4,
+    "start": 18.86,
+    "end": 20.78,
+    "duration": 1.92,
+    "words": [
+      {
+        "word": "Same",
+        "start": 18.86,
+        "end": 18.98
+      },
+      {
+        "word": "sound,",
+        "start": 18.98,
+        "end": 19.58
+      },
+      {
+        "word": "different",
+        "start": 19.96,
+        "end": 20.08
+      },
+      {
+        "word": "spelling.",
+        "start": 20.08,
+        "end": 20.78
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "So which one do we write?",
+    "line_index": 5,
+    "start": 21.24,
+    "end": 22.62,
+    "duration": 1.38,
+    "words": [
+      {
+        "word": "So",
+        "start": 21.24,
+        "end": 21.34
+      },
+      {
+        "word": "which",
+        "start": 21.34,
+        "end": 21.58
+      },
+      {
+        "word": "one",
+        "start": 21.58,
+        "end": 21.92
+      },
+      {
+        "word": "do",
+        "start": 21.92,
+        "end": 22.08
+      },
+      {
+        "word": "we",
+        "start": 22.08,
+        "end": 22.24
+      },
+      {
+        "word": "write?",
+        "start": 22.24,
+        "end": 22.62
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Ask the same question.",
+    "line_index": 5,
+    "start": 24.02,
+    "end": 25.19,
+    "duration": 1.17,
+    "words": [
+      {
+        "word": "Ask",
+        "start": 24.02,
+        "end": 24.22
+      },
+      {
+        "word": "the",
+        "start": 24.22,
+        "end": 24.42
+      },
+      {
+        "word": "same",
+        "start": 24.42,
+        "end": 24.64
+      },
+      {
+        "word": "question.",
+        "start": 24.64,
+        "end": 25.19
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "WHERE is the sound in the word?",
+    "line_index": 6,
+    "start": 25.82,
+    "end": 27.86,
+    "duration": 2.04,
+    "words": [
+      {
+        "word": "WHERE",
+        "start": 25.82,
+        "end": 26.12
+      },
+      {
+        "word": "is",
+        "start": 26.12,
+        "end": 26.42
+      },
+      {
+        "word": "the",
+        "start": 26.42,
+        "end": 26.58
+      },
+      {
+        "word": "sound",
+        "start": 26.58,
+        "end": 26.96
+      },
+      {
+        "word": "in",
+        "start": 26.96,
+        "end": 27.28
+      },
+      {
+        "word": "the",
+        "start": 27.28,
+        "end": 27.46
+      },
+      {
+        "word": "word?",
+        "start": 27.46,
+        "end": 27.86
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Au likes the beginning and the middle.",
+    "line_index": 7,
+    "start": 28.64,
+    "end": 31.06,
+    "duration": 2.42,
+    "words": [
+      {
+        "word": "Au",
+        "start": 28.64,
+        "end": 28.82
+      },
+      {
+        "word": "likes",
+        "start": 28.82,
+        "end": 29.12
+      },
+      {
+        "word": "the",
+        "start": 29.12,
+        "end": 29.36
+      },
+      {
+        "word": "beginning",
+        "start": 29.36,
+        "end": 29.72
+      },
+      {
+        "word": "and",
+        "start": 30.2,
+        "end": 30.42
+      },
+      {
+        "word": "the",
+        "start": 30.42,
+        "end": 30.64
+      },
+      {
+        "word": "middle.",
+        "start": 30.64,
+        "end": 31.06
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Never the end.",
+    "line_index": 7,
+    "start": 31.62,
+    "end": 32.66,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "Never",
+        "start": 31.62,
+        "end": 31.86
+      },
+      {
+        "word": "the",
+        "start": 31.86,
+        "end": 32.2
+      },
+      {
+        "word": "end.",
+        "start": 32.2,
+        "end": 32.66
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Listen.",
+    "line_index": 8,
+    "start": 33.34,
+    "end": 33.84,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Listen.",
+        "start": 33.34,
+        "end": 33.84
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Au-tumn.",
+    "line_index": 8,
+    "start": 34.92,
+    "end": 36.34,
+    "duration": 1.42,
+    "words": [
+      {
+        "word": "Au-tumn.",
+        "start": 34.92,
+        "end": 36.34
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "S-au-ce.",
+    "line_index": 8,
+    "start": 37.64,
+    "end": 38.14,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "S-au-ce.",
+        "start": 37.64,
+        "end": 38.14
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "P-au-se.",
+    "line_index": 8,
+    "start": 39.74,
+    "end": 40.44,
+    "duration": 0.7,
+    "words": [
+      {
+        "word": "P-au-se.",
+        "start": 39.74,
+        "end": 40.44
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Au stays tucked inside the word.",
+    "line_index": 9,
+    "start": 41.54,
+    "end": 43.9,
+    "duration": 2.36,
+    "words": [
+      {
+        "word": "Au",
+        "start": 41.54,
+        "end": 41.7
+      },
+      {
+        "word": "stays",
+        "start": 41.7,
+        "end": 42.26
+      },
+      {
+        "word": "tucked",
+        "start": 42.26,
+        "end": 42.6
+      },
+      {
+        "word": "inside",
+        "start": 42.6,
+        "end": 43.2
+      },
+      {
+        "word": "the",
+        "start": 43.2,
+        "end": 43.52
+      },
+      {
+        "word": "word.",
+        "start": 43.52,
+        "end": 43.9
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Aw takes the END of the word.",
+    "line_index": 10,
+    "start": 44.88,
+    "end": 46.94,
+    "duration": 2.06,
+    "words": [
+      {
+        "word": "Aw",
+        "start": 44.88,
+        "end": 45.06
+      },
+      {
+        "word": "takes",
+        "start": 45.06,
+        "end": 45.34
+      },
+      {
+        "word": "the",
+        "start": 45.34,
+        "end": 45.62
+      },
+      {
+        "word": "END",
+        "start": 45.62,
+        "end": 46.22
+      },
+      {
+        "word": "of",
+        "start": 46.22,
+        "end": 46.44
+      },
+      {
+        "word": "the",
+        "start": 46.44,
+        "end": 46.62
+      },
+      {
+        "word": "word.",
+        "start": 46.62,
+        "end": 46.94
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "S-aw.",
+    "line_index": 11,
+    "start": 47.7,
+    "end": 49.08,
+    "duration": 1.38,
+    "words": [
+      {
+        "word": "S-aw.",
+        "start": 47.7,
+        "end": 49.08
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "P-aw.",
+    "line_index": 11,
+    "start": 49.88,
+    "end": 51.56,
+    "duration": 1.68,
+    "words": [
+      {
+        "word": "P-aw.",
+        "start": 49.88,
+        "end": 51.56
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "Dr-aw.",
+    "line_index": 11,
+    "start": 52.44,
+    "end": 53.98,
+    "duration": 1.54,
+    "words": [
+      {
+        "word": "Dr-aw.",
+        "start": 52.44,
+        "end": 53.98
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Nothing comes after it.",
+    "line_index": 12,
+    "start": 54.78,
+    "end": 55.9,
+    "duration": 1.12,
+    "words": [
+      {
+        "word": "Nothing",
+        "start": 54.78,
+        "end": 54.9
+      },
+      {
+        "word": "comes",
+        "start": 54.9,
+        "end": 55.18
+      },
+      {
+        "word": "after",
+        "start": 55.18,
+        "end": 55.64
+      },
+      {
+        "word": "it.",
+        "start": 55.64,
+        "end": 55.9
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "And aw does one more job.",
+    "line_index": 13,
+    "start": 56.76,
+    "end": 58.68,
+    "duration": 1.92,
+    "words": [
+      {
+        "word": "And",
+        "start": 56.76,
+        "end": 56.9
+      },
+      {
+        "word": "aw",
+        "start": 56.9,
+        "end": 57.24
+      },
+      {
+        "word": "does",
+        "start": 57.24,
+        "end": 57.52
+      },
+      {
+        "word": "one",
+        "start": 57.52,
+        "end": 57.88
+      },
+      {
+        "word": "more",
+        "start": 57.88,
+        "end": 58.22
+      },
+      {
+        "word": "job.",
+        "start": 58.22,
+        "end": 58.68
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "It sits right before a final letter too.",
+    "line_index": 13,
+    "start": 59.3,
+    "end": 62.06,
+    "duration": 2.76,
+    "words": [
+      {
+        "word": "It",
+        "start": 59.3,
+        "end": 59.4
+      },
+      {
+        "word": "sits",
+        "start": 59.4,
+        "end": 59.62
+      },
+      {
+        "word": "right",
+        "start": 59.76,
+        "end": 59.96
+      },
+      {
+        "word": "before",
+        "start": 59.96,
+        "end": 60.38
+      },
+      {
+        "word": "a",
+        "start": 60.38,
+        "end": 60.7
+      },
+      {
+        "word": "final",
+        "start": 60.7,
+        "end": 61.12
+      },
+      {
+        "word": "letter",
+        "start": 61.12,
+        "end": 61.46
+      },
+      {
+        "word": "too.",
+        "start": 61.46,
+        "end": 62.06
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Y-aw-n.",
+    "line_index": 14,
+    "start": 63.02,
+    "end": 63.74,
+    "duration": 0.72,
+    "words": [
+      {
+        "word": "Y-aw-n.",
+        "start": 63.02,
+        "end": 63.74
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "D-aw-n.",
+    "line_index": 14,
+    "start": 64.7,
+    "end": 66.42,
+    "duration": 1.72,
+    "words": [
+      {
+        "word": "D-aw-n.",
+        "start": 64.7,
+        "end": 66.42
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "Cr-aw-l.",
+    "line_index": 14,
+    "start": 67.24,
+    "end": 69.02,
+    "duration": 1.78,
+    "words": [
+      {
+        "word": "Cr-aw-l.",
+        "start": 67.24,
+        "end": 69.02
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "See?",
+    "line_index": 15,
+    "start": 69.98,
+    "end": 70.34,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "See?",
+        "start": 69.98,
+        "end": 70.34
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "The aw is still almost last.",
+    "line_index": 15,
+    "start": 70.94,
+    "end": 72.88,
+    "duration": 1.94,
+    "words": [
+      {
+        "word": "The",
+        "start": 70.94,
+        "end": 71.0
+      },
+      {
+        "word": "aw",
+        "start": 71.0,
+        "end": 71.3
+      },
+      {
+        "word": "is",
+        "start": 71.3,
+        "end": 71.52
+      },
+      {
+        "word": "still",
+        "start": 71.52,
+        "end": 71.78
+      },
+      {
+        "word": "almost",
+        "start": 71.78,
+        "end": 72.3
+      },
+      {
+        "word": "last.",
+        "start": 72.3,
+        "end": 72.88
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "So we never write sau.",
+    "line_index": 16,
+    "start": 73.58,
+    "end": 75.32,
+    "duration": 1.74,
+    "words": [
+      {
+        "word": "So",
+        "start": 73.58,
+        "end": 73.66
+      },
+      {
+        "word": "we",
+        "start": 73.66,
+        "end": 73.82
+      },
+      {
+        "word": "never",
+        "start": 73.82,
+        "end": 74.14
+      },
+      {
+        "word": "write",
+        "start": 74.14,
+        "end": 74.52
+      },
+      {
+        "word": "sau.",
+        "start": 74.52,
+        "end": 75.32
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "And we never write awtumn.",
+    "line_index": 16,
+    "start": 76.42,
+    "end": 78.16,
+    "duration": 1.74,
+    "words": [
+      {
+        "word": "And",
+        "start": 76.42,
+        "end": 76.52
+      },
+      {
+        "word": "we",
+        "start": 76.52,
+        "end": 76.64
+      },
+      {
+        "word": "never",
+        "start": 76.64,
+        "end": 76.96
+      },
+      {
+        "word": "write",
+        "start": 76.96,
+        "end": 77.36
+      },
+      {
+        "word": "awtumn.",
+        "start": 77.36,
+        "end": 78.16
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Au inside.",
+    "line_index": 17,
+    "start": 79.7,
+    "end": 80.64,
+    "duration": 0.94,
+    "words": [
+      {
+        "word": "Au",
+        "start": 79.7,
+        "end": 79.9
+      },
+      {
+        "word": "inside.",
+        "start": 79.9,
+        "end": 80.64
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Aw at the end.",
+    "line_index": 17,
+    "start": 81.36,
+    "end": 82.6,
+    "duration": 1.24,
+    "words": [
+      {
+        "word": "Aw",
+        "start": 81.36,
+        "end": 81.54
+      },
+      {
+        "word": "at",
+        "start": 81.54,
+        "end": 81.96
+      },
+      {
+        "word": "the",
+        "start": 81.96,
+        "end": 82.18
+      },
+      {
+        "word": "end.",
+        "start": 82.18,
+        "end": 82.6
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "Now here's some good news.",
+    "line_index": 18,
+    "start": 83.2,
+    "end": 84.41,
+    "duration": 1.21,
+    "words": [
+      {
+        "word": "Now",
+        "start": 83.2,
+        "end": 83.26
+      },
+      {
+        "word": "here's",
+        "start": 83.56,
+        "end": 83.66
+      },
+      {
+        "word": "some",
+        "start": 83.66,
+        "end": 83.8
+      },
+      {
+        "word": "good",
+        "start": 83.8,
+        "end": 84.06
+      },
+      {
+        "word": "news.",
+        "start": 84.06,
+        "end": 84.41
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Remember ow, with its two different sounds?",
+    "line_index": 19,
+    "start": 85.26,
+    "end": 87.9,
+    "duration": 2.64,
+    "words": [
+      {
+        "word": "Remember",
+        "start": 85.26,
+        "end": 85.62
+      },
+      {
+        "word": "ow,",
+        "start": 85.62,
+        "end": 86.4
+      },
+      {
+        "word": "with",
+        "start": 86.58,
+        "end": 86.58
+      },
+      {
+        "word": "its",
+        "start": 86.58,
+        "end": 86.76
+      },
+      {
+        "word": "two",
+        "start": 86.88,
+        "end": 87.0
+      },
+      {
+        "word": "different",
+        "start": 87.0,
+        "end": 87.3
+      },
+      {
+        "word": "sounds?",
+        "start": 87.3,
+        "end": 87.9
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "Aw is not like that.",
+    "line_index": 20,
+    "start": 88.74,
+    "end": 90.53,
+    "duration": 1.79,
+    "words": [
+      {
+        "word": "Aw",
+        "start": 88.74,
+        "end": 88.94
+      },
+      {
+        "word": "is",
+        "start": 88.94,
+        "end": 89.3
+      },
+      {
+        "word": "not",
+        "start": 89.38,
+        "end": 89.62
+      },
+      {
+        "word": "like",
+        "start": 89.62,
+        "end": 89.88
+      },
+      {
+        "word": "that.",
+        "start": 89.88,
+        "end": 90.53
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "Aw only ever says one sound.",
+    "line_index": 20,
+    "start": 91.32,
+    "end": 94.05,
+    "duration": 2.73,
+    "words": [
+      {
+        "word": "Aw",
+        "start": 91.32,
+        "end": 91.32
+      },
+      {
+        "word": "only",
+        "start": 91.32,
+        "end": 91.74
+      },
+      {
+        "word": "ever",
+        "start": 91.74,
+        "end": 92.14
+      },
+      {
+        "word": "says",
+        "start": 92.14,
+        "end": 92.44
+      },
+      {
+        "word": "one",
+        "start": 92.44,
+        "end": 93.0
+      },
+      {
+        "word": "sound.",
+        "start": 93.0,
+        "end": 94.05
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "Aw.",
+    "line_index": 21,
+    "start": 94.54,
+    "end": 94.94,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Aw.",
+        "start": 94.54,
+        "end": 94.94
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "Always aw.",
+    "line_index": 21,
+    "start": 95.9,
+    "end": 96.84,
+    "duration": 0.94,
+    "words": [
+      {
+        "word": "Always",
+        "start": 95.9,
+        "end": 96.04
+      },
+      {
+        "word": "aw.",
+        "start": 96.04,
+        "end": 96.84
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "You can trust it every single time.",
+    "line_index": 21,
+    "start": 97.6,
+    "end": 100.24,
+    "duration": 2.64,
+    "words": [
+      {
+        "word": "You",
+        "start": 97.6,
+        "end": 97.6
+      },
+      {
+        "word": "can",
+        "start": 97.6,
+        "end": 97.76
+      },
+      {
+        "word": "trust",
+        "start": 97.76,
+        "end": 98.2
+      },
+      {
+        "word": "it",
+        "start": 98.22,
+        "end": 98.36
+      },
+      {
+        "word": "every",
+        "start": 98.36,
+        "end": 98.84
+      },
+      {
+        "word": "single",
+        "start": 98.84,
+        "end": 99.24
+      },
+      {
+        "word": "time.",
+        "start": 99.24,
+        "end": 100.24
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "Let's see them.",
+    "line_index": 22,
+    "start": 100.72,
+    "end": 101.47,
+    "duration": 0.75,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 100.72,
+        "end": 100.9
+      },
+      {
+        "word": "see",
+        "start": 100.9,
+        "end": 101.02
+      },
+      {
+        "word": "them.",
+        "start": 101.02,
+        "end": 101.47
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "Author.",
+    "line_index": 22,
+    "start": 102.4,
+    "end": 102.96,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Author.",
+        "start": 102.4,
+        "end": 102.96
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "Autumn.",
+    "line_index": 22,
+    "start": 104.04,
+    "end": 104.74,
+    "duration": 0.7,
+    "words": [
+      {
+        "word": "Autumn.",
+        "start": 104.04,
+        "end": 104.74
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "Sauce.",
+    "line_index": 22,
+    "start": 105.86,
+    "end": 106.22,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "Sauce.",
+        "start": 105.86,
+        "end": 106.22
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "Launch.",
+    "line_index": 22,
+    "start": 107.76,
+    "end": 108.2,
+    "duration": 0.44,
+    "words": [
+      {
+        "word": "Launch.",
+        "start": 107.76,
+        "end": 108.2
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "Pause.",
+    "line_index": 22,
+    "start": 109.64,
+    "end": 110.26,
+    "duration": 0.62,
+    "words": [
+      {
+        "word": "Pause.",
+        "start": 109.64,
+        "end": 110.26
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "Because.",
+    "line_index": 22,
+    "start": 111.6,
+    "end": 112.18,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Because.",
+        "start": 111.6,
+        "end": 112.18
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "Every one has au inside.",
+    "line_index": 23,
+    "start": 113.62,
+    "end": 115.46,
+    "duration": 1.84,
+    "words": [
+      {
+        "word": "Every",
+        "start": 113.62,
+        "end": 113.66
+      },
+      {
+        "word": "one",
+        "start": 113.66,
+        "end": 113.98
+      },
+      {
+        "word": "has",
+        "start": 113.98,
+        "end": 114.28
+      },
+      {
+        "word": "au",
+        "start": 114.28,
+        "end": 114.66
+      },
+      {
+        "word": "inside.",
+        "start": 114.66,
+        "end": 115.46
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "Now the aw words.",
+    "line_index": 24,
+    "start": 116.54,
+    "end": 117.58,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "Now",
+        "start": 116.54,
+        "end": 116.54
+      },
+      {
+        "word": "the",
+        "start": 116.54,
+        "end": 116.78
+      },
+      {
+        "word": "aw",
+        "start": 116.78,
+        "end": 117.12
+      },
+      {
+        "word": "words.",
+        "start": 117.12,
+        "end": 117.58
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "text": "Saw.",
+    "line_index": 24,
+    "start": 119.02,
+    "end": 119.28,
+    "duration": 0.26,
+    "words": [
+      {
+        "word": "Saw.",
+        "start": 119.02,
+        "end": 119.28
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "text": "Paw.",
+    "line_index": 24,
+    "start": 120.54,
+    "end": 121.28,
+    "duration": 0.74,
+    "words": [
+      {
+        "word": "Paw.",
+        "start": 120.54,
+        "end": 121.28
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "text": "Draw.",
+    "line_index": 24,
+    "start": 122.76,
+    "end": 123.22,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "Draw.",
+        "start": 122.76,
+        "end": 123.22
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "text": "Yawn.",
+    "line_index": 24,
+    "start": 124.52,
+    "end": 125.18,
+    "duration": 0.66,
+    "words": [
+      {
+        "word": "Yawn.",
+        "start": 124.52,
+        "end": 125.18
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "text": "Dawn.",
+    "line_index": 24,
+    "start": 126.58,
+    "end": 127.22,
+    "duration": 0.64,
+    "words": [
+      {
+        "word": "Dawn.",
+        "start": 126.58,
+        "end": 127.22
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "text": "Crawl.",
+    "line_index": 24,
+    "start": 128.64,
+    "end": 129.24,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "Crawl.",
+        "start": 128.64,
+        "end": 129.24
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "text": "Aw at the end, or right before the final letter.",
+    "line_index": 25,
+    "start": 130.34,
+    "end": 133.68,
+    "duration": 3.34,
+    "words": [
+      {
+        "word": "Aw",
+        "start": 130.34,
+        "end": 130.46
+      },
+      {
+        "word": "at",
+        "start": 130.46,
+        "end": 130.7
+      },
+      {
+        "word": "the",
+        "start": 130.7,
+        "end": 130.94
+      },
+      {
+        "word": "end,",
+        "start": 130.94,
+        "end": 131.3
+      },
+      {
+        "word": "or",
+        "start": 131.72,
+        "end": 131.76
+      },
+      {
+        "word": "right",
+        "start": 131.76,
+        "end": 132.04
+      },
+      {
+        "word": "before",
+        "start": 132.04,
+        "end": 132.42
+      },
+      {
+        "word": "the",
+        "start": 132.42,
+        "end": 132.66
+      },
+      {
+        "word": "final",
+        "start": 132.66,
+        "end": 132.98
+      },
+      {
+        "word": "letter.",
+        "start": 132.98,
+        "end": 133.68
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "text": "Your turn!",
+    "line_index": 26,
+    "start": 134.62,
+    "end": 135.42,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "Your",
+        "start": 134.62,
+        "end": 134.7
+      },
+      {
+        "word": "turn!",
+        "start": 134.7,
+        "end": 135.42
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "text": "Here's the word.",
+    "line_index": 26,
+    "start": 135.82,
+    "end": 137.06,
+    "duration": 1.24,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 135.82,
+        "end": 136.14
+      },
+      {
+        "word": "the",
+        "start": 136.14,
+        "end": 136.26
+      },
+      {
+        "word": "word.",
+        "start": 136.26,
+        "end": 137.06
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "text": "Yawn.",
+    "line_index": 26,
+    "start": 137.76,
+    "end": 138.58,
+    "duration": 0.82,
+    "words": [
+      {
+        "word": "Yawn.",
+        "start": 137.76,
+        "end": 138.58
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "text": "Is it au, or aw?",
+    "line_index": 27,
+    "start": 139.16,
+    "end": 141.3,
+    "duration": 2.14,
+    "words": [
+      {
+        "word": "Is",
+        "start": 139.16,
+        "end": 139.28
+      },
+      {
+        "word": "it",
+        "start": 139.28,
+        "end": 139.52
+      },
+      {
+        "word": "au,",
+        "start": 139.52,
+        "end": 140.1
+      },
+      {
+        "word": "or",
+        "start": 140.5,
+        "end": 140.7
+      },
+      {
+        "word": "aw?",
+        "start": 140.7,
+        "end": 141.3
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "text": "It's aw!",
+    "line_index": 28,
+    "start": 142.78,
+    "end": 143.78,
+    "duration": 1.0,
+    "words": [
+      {
+        "word": "It's",
+        "start": 142.78,
+        "end": 143.2
+      },
+      {
+        "word": "aw!",
+        "start": 143.2,
+        "end": 143.78
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "text": "Because aw can sit right before a final n.",
+    "line_index": 28,
+    "start": 144.22,
+    "end": 147.64,
+    "duration": 3.42,
+    "words": [
+      {
+        "word": "Because",
+        "start": 144.22,
+        "end": 144.46
+      },
+      {
+        "word": "aw",
+        "start": 144.46,
+        "end": 144.92
+      },
+      {
+        "word": "can",
+        "start": 144.92,
+        "end": 145.26
+      },
+      {
+        "word": "sit",
+        "start": 145.26,
+        "end": 145.5
+      },
+      {
+        "word": "right",
+        "start": 145.5,
+        "end": 145.8
+      },
+      {
+        "word": "before",
+        "start": 145.8,
+        "end": 146.2
+      },
+      {
+        "word": "a",
+        "start": 146.2,
+        "end": 146.44
+      },
+      {
+        "word": "final",
+        "start": 146.44,
+        "end": 146.84
+      },
+      {
+        "word": "n.",
+        "start": 146.84,
+        "end": 147.64
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "text": "So remember.",
+    "line_index": 29,
+    "start": 148.36,
+    "end": 149.86,
+    "duration": 1.5,
+    "words": [
+      {
+        "word": "So",
+        "start": 148.36,
+        "end": 148.44
+      },
+      {
+        "word": "remember.",
+        "start": 148.52,
+        "end": 149.86
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "text": "Au sleeps inside the word.",
+    "line_index": 29,
+    "start": 149.86,
+    "end": 152.2,
+    "duration": 2.34,
+    "words": [
+      {
+        "word": "Au",
+        "start": 149.86,
+        "end": 149.98
+      },
+      {
+        "word": "sleeps",
+        "start": 149.98,
+        "end": 150.34
+      },
+      {
+        "word": "inside",
+        "start": 150.34,
+        "end": 150.94
+      },
+      {
+        "word": "the",
+        "start": 150.94,
+        "end": 151.3
+      },
+      {
+        "word": "word.",
+        "start": 151.3,
+        "end": 152.2
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "text": "Aw stays at the end, or right before the last letter.",
+    "line_index": 29,
+    "start": 152.52,
+    "end": 156.08,
+    "duration": 3.56,
+    "words": [
+      {
+        "word": "Aw",
+        "start": 152.52,
+        "end": 152.68
+      },
+      {
+        "word": "stays",
+        "start": 152.68,
+        "end": 153.0
+      },
+      {
+        "word": "at",
+        "start": 153.0,
+        "end": 153.24
+      },
+      {
+        "word": "the",
+        "start": 153.24,
+        "end": 153.38
+      },
+      {
+        "word": "end,",
+        "start": 153.38,
+        "end": 153.82
+      },
+      {
+        "word": "or",
+        "start": 154.16,
+        "end": 154.26
+      },
+      {
+        "word": "right",
+        "start": 154.26,
+        "end": 154.54
+      },
+      {
+        "word": "before",
+        "start": 154.54,
+        "end": 154.88
+      },
+      {
+        "word": "the",
+        "start": 154.88,
+        "end": 155.14
+      },
+      {
+        "word": "last",
+        "start": 155.14,
+        "end": 155.44
+      },
+      {
+        "word": "letter.",
+        "start": 155.44,
+        "end": 156.08
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "text": "Ready for the next sound?",
+    "line_index": 30,
+    "start": 156.92,
+    "end": 157.91,
+    "duration": 0.99,
+    "words": [
+      {
+        "word": "Ready",
+        "start": 156.92,
+        "end": 157.06
+      },
+      {
+        "word": "for",
+        "start": 157.06,
+        "end": 157.28
+      },
+      {
+        "word": "the",
+        "start": 157.28,
+        "end": 157.42
+      },
+      {
+        "word": "next",
+        "start": 157.42,
+        "end": 157.56
+      },
+      {
+        "word": "sound?",
+        "start": 157.56,
+        "end": 157.91
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "text": "Open the English Learning app and keep going.",
+    "line_index": 30,
+    "start": 158.66,
+    "end": 161.52,
+    "duration": 2.86,
+    "words": [
+      {
+        "word": "Open",
+        "start": 158.66,
+        "end": 158.88
+      },
+      {
+        "word": "the",
+        "start": 158.88,
+        "end": 159.1
+      },
+      {
+        "word": "English",
+        "start": 159.1,
+        "end": 159.44
+      },
+      {
+        "word": "Learning",
+        "start": 159.44,
+        "end": 159.82
+      },
+      {
+        "word": "app",
+        "start": 159.82,
+        "end": 160.18
+      },
+      {
+        "word": "and",
+        "start": 160.18,
+        "end": 160.48
+      },
+      {
+        "word": "keep",
+        "start": 160.48,
+        "end": 160.78
+      },
+      {
+        "word": "going.",
+        "start": 160.78,
+        "end": 161.52
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "text": "It's free!",
+    "line_index": 30,
+    "start": 161.86,
+    "end": 162.78,
+    "duration": 0.92,
+    "words": [
+      {
+        "word": "It's",
+        "start": 161.86,
+        "end": 162.18
+      },
+      {
+        "word": "free!",
+        "start": 162.18,
+        "end": 162.78
+      }
+    ]
+  }
+]

@@ -4,7 +4,7 @@ import { PhonicsComparison } from "../data/types";
 import { hex, tint, font } from "../data/tokens";
 import { bob, wiggle } from "../lib/motion";
 import { STAGE_TOP, safeX } from "./LandscapeBeatKit";
-import { PositionPlate, Slot, SlotContent, SlotState, TagChip, hopInfo, slotColor } from "./PositionSlot";
+import { PositionPlate, Slot, SlotContent, SlotState, TagChip, hopInfo, markerAwareColor, slotColor } from "./PositionSlot";
 
 // ── The Two-Ring Circus — the ou/ow set ──────────────────────────────────────
 // Fourth show, fourth world. Two reasons the circus is the right one for this card:
@@ -287,7 +287,7 @@ export const WordCircus: React.FC<{
           label={f >= showLabelsFrom}
           labelLit={f >= labelLitAt[i]}
           slot={cars[i]}
-          color={(colorFor ?? ((k: number) => slotColor(k, data)))(i)}
+          color={markerAwareColor(cars[i], i, data, colorFor ?? ((k: number) => slotColor(k, data)))}
           lit={litIdx === i}
         />
       ))}
