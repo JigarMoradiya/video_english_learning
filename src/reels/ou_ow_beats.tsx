@@ -47,6 +47,8 @@ export const OuBonus: React.FC<{ data: PhonicsComparison; beat: Beat; ruleAt: nu
 //   D  WRITE vs READ          — the spelling rule still stands; only the sound is tested
 export type TwoSoundCues = {
   longO: number;
+  callback: number;
+  longLabel: number;
   longWords: [number, number, number];
   owSound: number;
   owWords: [number, number, number];
@@ -64,6 +66,9 @@ export type TwoSoundCues = {
   test2Ok: number;
   trick: number;
   writeRead: number;
+  writeStamp: number;
+  writeRule: number;
+  readFocus: number;
 };
 
 const LONG_O = "00897B"; // the oa/ow video's own colour — the callback has to LOOK like it
@@ -73,8 +78,12 @@ const RING_H = 462;
 
 const Ring: React.FC<{
   label: string; sub: string; colorHex: string; words: string[]; marker: string;
-  side: "left" | "right"; enterAt: number; wordAt: [number, number, number]; dim: boolean; badge?: string;
-}> = ({ label, sub, colorHex, words, marker, side, enterAt, wordAt, dim, badge }) => {
+  side: "left" | "right"; enterAt: number; wordAt: [number, number, number]; dim: boolean;
+  badge?: string; badgeAt?: number; subAt?: number;
+  // A ring whose act hasn't started keeps its CURTAIN down: the half-screen stays occupied
+  // (never a hole) and the reveal becomes an event instead of a panel appearing from nowhere.
+  curtainUntil?: number;
+}> = ({ label, sub, colorHex, words, marker, side, enterAt, wordAt, dim, badge, badgeAt = 0, subAt = 0, curtainUntil = -1 }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   const c = hex(colorHex);
@@ -94,12 +103,14 @@ const Ring: React.FC<{
       >
         <div style={{ position: "absolute", top: 16, left: "50%", transform: `translateX(-50%) translateY(${bob(frame, fps, 3, 2.6)}px)`, background: c, color: "#fff", borderRadius: 999, padding: "8px 30px", display: "flex", alignItems: "center", gap: 12, whiteSpace: "nowrap", boxShadow: `0 10px 26px ${c}66` }}>
           <span style={{ fontSize: 40, fontWeight: 700 }}>{label}</span>
-          <span style={{ fontSize: 26, fontWeight: 600, opacity: 0.92 }}>· {sub}</span>
+          {frame >= subAt && (
+            <span style={{ fontSize: 26, fontWeight: 600, opacity: 0.92, display: "inline-block", transform: `scale(${spring({ frame: frame - subAt, fps, config: { damping: 10 } })})` }}>· {sub}</span>
+          )}
         </div>
 
         {/* "as seen in oa ⚡ ow" — the reminder the callback is built around */}
-        {badge && (
-          <div style={{ position: "absolute", top: 86, left: "50%", transform: "translateX(-50%)", background: "#FFFFFF", border: `3px solid ${c}`, color: c, borderRadius: 999, padding: "3px 18px", fontSize: 22, fontWeight: 700, whiteSpace: "nowrap" }}>
+        {badge && frame >= badgeAt && (
+          <div style={{ position: "absolute", top: 86, left: "50%", transform: `translateX(-50%) scale(${spring({ frame: frame - badgeAt, fps, config: { damping: 9 } })})`, background: "#FFFFFF", border: `3px solid ${c}`, color: c, borderRadius: 999, padding: "3px 18px", fontSize: 22, fontWeight: 700, whiteSpace: "nowrap" }}>
             {badge}
           </div>
         )}
@@ -119,6 +130,31 @@ const Ring: React.FC<{
             </div>
           ))}
         </div>
+        {/* the curtain — two halves sweeping apart as the act begins */}
+        {curtainUntil > 0 && frame < curtainUntil + 26 && (() => {
+          const open = interpolate(frame, [curtainUntil, curtainUntil + 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+          return (
+            <>
+              {[0, 1].map((h) => (
+                <div
+                  key={h}
+                  style={{
+                    position: "absolute", top: 0, bottom: 0, width: "50.5%", ...(h ? { right: 0 } : { left: 0 }),
+                    background: `repeating-linear-gradient(90deg, ${c} 0 26px, #A31545 26px 52px)`,
+                    borderRadius: h ? "0 36px 36px 0" : "36px 0 0 36px",
+                    transform: `translateX(${(h ? 1 : -1) * open * 102}%)`,
+                  }}
+                />
+              ))}
+              {open < 0.12 && (
+                <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10, color: "#fff" }}>
+                  <span style={{ fontSize: 92, fontWeight: 700 }}>?</span>
+                  <span style={{ fontSize: 30, fontWeight: 700, letterSpacing: 2 }}>NEXT ACT</span>
+                </div>
+              )}
+            </>
+          );
+        })()}
       </div>
     </>
   );
@@ -159,8 +195,8 @@ export const OuTwoSounds: React.FC<{ data: PhonicsComparison; beat: Beat; cues: 
   if (frame >= cues.writeRead) {
     const s = spring({ frame: frame - cues.writeRead, fps, config: { damping: 13 } });
     const panels = [
-      { k: "WRITE", icon: "✏️", line: "use the rule", sub: "ou inside · ow at the end", c: data.teams[0].colorHex },
-      { k: "READ", icon: "👀", line: "test the sound", sub: "try long O, then ow", c: owC },
+      { k: "WRITE", icon: "✏️", line: "use the rule", sub: "ou inside · ow at the end", c: data.teams[0].colorHex, at: cues.writeRule, focus: frame < cues.readFocus },
+      { k: "READ", icon: "👀", line: "test the sound", sub: "try long O, then ow", c: owC, at: cues.readFocus, focus: frame >= cues.readFocus },
     ];
     return (
       <>
@@ -171,11 +207,23 @@ export const OuTwoSounds: React.FC<{ data: PhonicsComparison; beat: Beat; cues: 
               const c = hex(p.c);
               const e = spring({ frame: frame - cues.writeRead - i * 12, fps, config: { damping: 12 } });
               return (
-                <div key={p.k} style={{ width: 640, background: "#fff", border: `8px solid ${c}`, borderRadius: 40, padding: "30px 40px", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, fontFamily: font.family, transform: `scale(${0.86 + 0.14 * e}) translateY(${bob(frame, fps, 7, 2.6, i)}px)`, boxShadow: `0 20px 48px ${c}55` }}>
+                <div key={p.k} style={{ position: "relative", width: 640, background: "#fff", border: `8px solid ${p.focus ? c : tint(p.c, 0.5)}`, borderRadius: 40, padding: "30px 40px", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, fontFamily: font.family, transform: `scale(${(0.86 + 0.14 * e) * (p.focus ? 1 + 0.02 * Math.sin((frame / fps) * 5) : 0.97)}) translateY(${bob(frame, fps, 7, 2.6, i)}px)`, boxShadow: p.focus ? `0 20px 48px ${c}66` : "0 12px 30px rgba(20,10,26,0.25)" }}>
+                  {/* "our spelling rule still works perfectly" — stamped on the WRITE panel */}
+                  {i === 0 && frame >= cues.writeStamp && (
+                    <div style={{ position: "absolute", top: -26, right: -18, background: "#2E7D32", color: "#fff", borderRadius: 999, padding: "6px 22px", fontSize: 28, fontWeight: 700, whiteSpace: "nowrap", transform: `rotate(-8deg) scale(${spring({ frame: frame - cues.writeStamp, fps, config: { damping: 8 } })})`, boxShadow: "0 10px 24px rgba(46,125,50,0.45)" }}>
+                      ✓ still works!
+                    </div>
+                  )}
+                  {/* the card stays opaque — only its CONTENT dims, or the tent shows through */}
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, opacity: p.focus ? 1 : 0.5 }}>
                   <span style={{ fontSize: 62 }}>{p.icon}</span>
                   <span style={{ fontSize: 66, fontWeight: 700, color: c, letterSpacing: 2 }}>{p.k}</span>
                   <span style={{ fontSize: 40, fontWeight: 700, color: palette.ink }}>{p.line}</span>
-                  <span style={{ fontSize: 30, fontWeight: 600, color: palette.inkSoft, textAlign: "center" }}>{p.sub}</span>
+                  {/* the detail line lands on its own narration line, not with the panel */}
+                  {frame >= p.at && (
+                    <span style={{ fontSize: 30, fontWeight: 600, color: palette.inkSoft, textAlign: "center", display: "inline-block", transform: `scale(${spring({ frame: frame - p.at, fps, config: { damping: 11 } })})` }}>{p.sub}</span>
+                  )}
+                  </div>
                 </div>
               );
             })}
@@ -304,12 +352,12 @@ export const OuTwoSounds: React.FC<{ data: PhonicsComparison; beat: Beat; cues: 
           label="ow" sub="long O" colorHex={LONG_O} marker="ow" side="left"
           words={["snow", "grow", "show"]} enterAt={0} wordAt={cues.longWords}
           dim={!sameL && !leftFocus}
-          badge="as seen in oa ⚡ ow"
+          badge="as seen in oa ⚡ ow" badgeAt={cues.callback} subAt={cues.longLabel}
         />
         <Ring
           label="ow" sub="ow!" colorHex={owC} marker="ow" side="right"
           words={["cow", "brown", "owl"]} enterAt={8} wordAt={cues.owWords}
-          dim={!sameL && leftFocus}
+          dim={false} subAt={cues.owSound} curtainUntil={cues.owSound}
         />
       </AbsoluteFill>
     </>

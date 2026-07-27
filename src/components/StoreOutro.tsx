@@ -29,26 +29,12 @@ export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?:
     // keep running underneath, otherwise the download beat is a hard jump cut to a
     // different world — see the "never paint an opaque background inside a scene" rule.
     <AbsoluteFill style={{ fontFamily: font.family }}>
-      {/* Opt-in backdrop. The default is still transparent so the video's own ambient layer
-          carries through — but a busy set (the ou/ow big top) makes the store card hard to
-          read, so a card may hand the outro a calm gradient of its own. It keeps drifting
-          shapes so the ending never goes static. */}
+      {/* Opt-in VEIL, not a replacement background. The store card was competing with the
+          ou/ow big top, but cutting to a different background made the world jump at the
+          seam — so a card may pass a translucent wash instead: its own set keeps moving
+          underneath (stripes, bunting, confetti), just calmed down behind the card. */}
       {bg && (
-        <AbsoluteFill style={{ background: bg, opacity: interpolate(frame, [0, 14], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
-          {Array.from({ length: 7 }).map((_, i) => {
-            const t = (frame * (0.22 + i * 0.05) + i * 260) % 2200;
-            return (
-              <div
-                key={i}
-                style={{
-                  position: "absolute", left: (i * 317) % 1700, top: 980 - (t / 2200) * 1180,
-                  width: 90 + (i % 3) * 54, height: 90 + (i % 3) * 54, borderRadius: "50%",
-                  background: ["#FFFFFF", "#FFE0B2", "#B3E5FC", "#F8BBD0"][i % 4], opacity: 0.30,
-                }}
-              />
-            );
-          })}
-        </AbsoluteFill>
+        <AbsoluteFill style={{ background: bg, opacity: interpolate(frame, [0, 18], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }} />
       )}
       {!silent && (
         <Sequence from={10} durationInFrames={sec(audioDur, fps) + 10}>

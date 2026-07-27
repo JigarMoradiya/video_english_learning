@@ -71,6 +71,8 @@ const COPY: PairCopy = {
 const R = (i: number) => P(i) - P(30);
 const TWO_SOUND_CUES: TwoSoundCues = {
   longO: R(32),                              // "ow was saying the long O"
+  callback: R(31),                           // "Do you remember our oa and ow video?"
+  longLabel: R(32),                          // the "· long O" label lands here
   longWords: [R(33), R(34), R(35)],          // Snow. Grow. Show.
   owSound: R(36),                            // "But here, ow is saying ow!"
   owWords: [R(37), R(38), R(39)],            // Cow. Brown. Owl.
@@ -87,7 +89,10 @@ const TWO_SOUND_CUES: TwoSoundCues = {
   test2Bad: R(55),                           // "Coe is not a word."
   test2Ok: R(58),                            // "Cow!"
   trick: R(60),                              // "That's the trick."
-  writeRead: R(63),                          // "And don't worry…"
+  writeRead: R(63),                          // "And don't worry."
+  writeStamp: R(64),                         // "Our spelling rule still works perfectly."
+  writeRule: R(65),                          // "When you WRITE, ou goes inside…"
+  readFocus: R(66),                          // "It is only the SOUND you have to test."
 };
 
 // ── the circus's content, per absolute frame ─────────────────────────────────
@@ -187,8 +192,9 @@ const overlayFor = (b: Beat) => {
     case "seeIt": return <PairSeeIt data={data} beat={b} wordsMid={WORDS_MID} wordsEnd={WORDS_END} />;
     case "quiz": return <PairQuiz data={data} beat={b} copy={COPY} word="brown" blanked="br__n" answer={1} />;
     case "recap": return <PairRecap data={data} beat={b} />;
-    // the big top is far too busy behind the store card — this beat gets calm sky
-    case "wrap": return <StoreOutro silent compact total={b.durationInFrames} bg="linear-gradient(180deg, #E0EEFF 0%, #EDE0FF 100%)" />;
+    // the big top competes with the store card, but cutting away from it made the world
+    // jump — so the tent stays and is washed back behind the card instead
+    case "wrap": return <StoreOutro silent compact total={b.durationInFrames} bg="rgba(255,252,248,0.76)" />;
     default: return null;
   }
 };
