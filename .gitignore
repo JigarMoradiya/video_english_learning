@@ -29,3 +29,6 @@ public/audio/letters/*.phrases.json
 public/audio/letters/*.words.json
 public/audio/letters/*.lines.json
 public/audio/letters/*.srt
+
+# local venv for tools/align_audio.py (stable-ts + torch, ~3GB)
+.venv-align/

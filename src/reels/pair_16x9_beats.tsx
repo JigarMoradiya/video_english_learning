@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Audio, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { PhonicsComparison } from "../data/types";
 import { Beat, sec } from "../lib/timing";
 import { Band, Center, Pill, STAGE_TOP, safeX } from "../components/LandscapeBeatKit";
@@ -7,26 +7,44 @@ import { CkWordChip } from "../components/CkWordChip";
 import { LogoBadge } from "../components/BrandMarks";
 import { hex, palette, tint, font } from "../data/tokens";
 import { bob, pulse } from "../lib/motion";
+import { illustrationFor } from "../data/wordImages";
 import extraWordAudio from "../data/extraWordAudio.json";
 
-// Beat overlays for ai-ay-16x9. The WordTrain carries the teaching beats; these are the
-// headline-band pills plus the two full-stage beats that replace the train (see-it, quiz).
-// Nothing here may enter y 300…860 while the train is up, or y 880…1080 ever.
+// Beat overlays shared by ALL THREE pair lessons (ai/ay · oi/oy · oa/ow). The set — train,
+// lily pads, rafts — carries the teaching beats; these are the headline-band pills plus the
+// two full-stage beats that replace the set (see-it, quiz).
+// Nothing here may enter y 300…860 while the set is up, or y 880…1080 ever.
+//
+// Everything is driven off the card's own PhonicsComparison plus a small PairCopy, so a new
+// pair card is data, not another copy of this file.
+
+export type PairCopy = {
+  // the sound itself, said out loud in the `same` beat — e.g. /ā/ — "ayyy"
+  soundLabel: string;
+  // the two ❌ misspellings, in the order the narration says them
+  wrong: [{ bad: string; good: string }, { bad: string; good: string }];
+  // Which "it's" in the quiz beat is the REVEAL. ai/ay opens "Now IT'S your turn!" so its
+  // answer is the second one; oi/oy and oa/ow open with a plain "Your turn!", so it is the
+  // first. NOTE nth is ZERO-INDEXED (timing.ts compares `seen === nth`) — an out-of-range
+  // nth returns −1 and silently falls back to a guessed 8.8s, which is how this shipped
+  // looking right on ai/ay by luck and 2.6s late on the other two.
+  reveal: { needle: string; nth: number };
+};
 
 const DUR: Record<string, number> = extraWordAudio as Record<string, number>;
 const wordSrc = (w: string) => `audio/words/${w}.mp3`;
 
 // ── hook · same · where · rules · notThis — headline pills only ──────────────
-export const AaHook: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data, beat }) => (
+export const PairHook: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data }) => (
   <Band>
     <Pill color={palette.ink} still>
-      <span style={{ color: hex(data.teams[0].colorHex) }}>ai</span> &amp;{" "}
-      <span style={{ color: hex(data.teams[1].colorHex) }}>ay</span> — two spellings, one sound!
+      <span style={{ color: hex(data.teams[0].colorHex) }}>{data.teams[0].marker}</span> &amp;{" "}
+      <span style={{ color: hex(data.teams[1].colorHex) }}>{data.teams[1].marker}</span> — two spellings, one sound!
     </Pill>
   </Band>
 );
 
-export const AaSame: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data, beat }) => {
+export const PairSame: React.FC<{ data: PhonicsComparison; beat: Beat; copy: PairCopy }> = ({ data, copy }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   // the sound itself, ringing while "Ayyy!" / "Same sound" are spoken
@@ -35,13 +53,13 @@ export const AaSame: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data
     <Band top={70}>
       <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
         <div style={{ position: "absolute", inset: -18 - ring * 26, borderRadius: 999, border: `6px solid ${hex(data.teams[0].colorHex)}`, opacity: (1 - ring) * 0.5 }} />
-        <Pill size={72} color={hex(data.teams[0].colorHex)}>/ā/ — “ayyy”</Pill>
+        <Pill size={72} color={hex(data.teams[0].colorHex)}>{copy.soundLabel}</Pill>
       </div>
     </Band>
   );
 };
 
-export const AaWhere: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data, beat }) => {
+export const PairWhere: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ beat }) => {
   const frame = useCurrentFrame();
   const swap = beat.word("where") >= 0 ? beat.word("where") : 999;
   return (
@@ -57,7 +75,7 @@ export const AaWhere: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ dat
   );
 };
 
-export const AaRule: React.FC<{ data: PhonicsComparison; beat: Beat; teamIdx: number }> = ({ data, beat, teamIdx }) => {
+export const PairRule: React.FC<{ data: PhonicsComparison; beat: Beat; teamIdx: number }> = ({ data, teamIdx }) => {
   const team = data.teams[teamIdx];
   const c = hex(team.colorHex);
   return (
@@ -70,20 +88,19 @@ export const AaRule: React.FC<{ data: PhonicsComparison; beat: Beat; teamIdx: nu
 };
 
 // ── notThis — the ❌ contrast, in the headline band above the train ──────────
-export const AaNotThis: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data, beat }) => {
+export const PairNotThis: React.FC<{ data: PhonicsComparison; beat: Beat; copy: PairCopy }> = ({ data, beat, copy }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const second = beat.word("dai") >= 0 ? beat.word("dai") - 18 : sec(2.8, fps);
+  const second = beat.word(copy.wrong[1].bad) >= 0 ? beat.word(copy.wrong[1].bad) - 18 : sec(2.8, fps);
   const recap = beat.word("middle") >= 0 ? beat.word("middle") - 24 : sec(6.0, fps);
-  const bad = frame < second ? "rayn" : "dai";
-  const good = frame < second ? "rain" : "day";
+  const { bad, good } = frame < second ? copy.wrong[0] : copy.wrong[1];
   const s = spring({ frame: frame - (frame < second ? 0 : second), fps, config: { damping: 12 } });
   if (frame >= recap) {
     return (
       <Band>
         <Pill color={palette.ink} size={50}>
-          <span style={{ color: hex(data.teams[0].colorHex) }}>ai</span> in the middle 🏠 &nbsp;·&nbsp;{" "}
-          <span style={{ color: hex(data.teams[1].colorHex) }}>ay</span> at the end 🏁
+          <span style={{ color: hex(data.teams[0].colorHex) }}>{data.teams[0].marker}</span> in the middle {data.teams[0].zoneEmoji} &nbsp;·&nbsp;{" "}
+          <span style={{ color: hex(data.teams[1].colorHex) }}>{data.teams[1].marker}</span> at the end {data.teams[1].zoneEmoji}
         </Pill>
       </Band>
     );
@@ -140,6 +157,17 @@ const WordBoard: React.FC<{
   const slide = (1 - inn) * (side === "left" ? -80 : 80);
   const myTurn = frame >= headAt;
   return (
+    <>
+    {/* An opaque sheet UNDER the board. The waiting board is dimmed to 0.55, and on the pond
+        and the sea that let the water line and the reeds show straight through the cards.
+        The dim has to sit on something solid. */}
+    <div
+      style={{
+        position: "absolute", left: x, top: STAGE_TOP, width: BOARD_W, height: 560,
+        transform: `translateX(${slide}px) scale(${myTurn ? 1 : 0.97})`,
+        background: "#FFFFFF", borderRadius: 40, boxShadow: "0 18px 46px rgba(30,36,56,0.16)",
+      }}
+    />
     <div
       style={{
         position: "absolute", left: x, top: STAGE_TOP, width: BOARD_W, height: 560,
@@ -184,6 +212,7 @@ const WordBoard: React.FC<{
         ))}
       </div>
     </div>
+    </>
   );
 };
 
@@ -194,7 +223,7 @@ const blankFor = (word: string, marker: string) => {
   return word.slice(0, i) + "_".repeat(marker.length) + word.slice(i + marker.length);
 };
 
-export const AaSeeIt: React.FC<{ data: PhonicsComparison; beat: Beat; wordsMid: string[]; wordsEnd: string[] }> = ({ data, beat, wordsMid, wordsEnd }) => {
+export const PairSeeIt: React.FC<{ data: PhonicsComparison; beat: Beat; wordsMid: string[]; wordsEnd: string[] }> = ({ data, beat, wordsMid, wordsEnd }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const midHead = 0;
@@ -223,12 +252,15 @@ export const AaSeeIt: React.FC<{ data: PhonicsComparison; beat: Beat; wordsMid: 
 };
 
 // ── quiz — the word with a gap, then the answer ─────────────────────────────
-export const AaQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; word: string; blanked: string; answer: number }> = ({ data, beat, word, blanked, answer }) => {
+export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: PairCopy; word: string; blanked: string; answer: number }> = ({ data, beat, copy, word, blanked, answer }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  // nth=2: the beat opens with "Now IT'S your turn!", so the first "it's" is 8s before the
-  // answer — keying the reveal to it gave the answer away immediately.
-  const revealAt = beat.word("it's", 2) >= 0 ? beat.word("it's", 2) : sec(8.8, fps);
+  // see PairCopy.reveal — which "it's" is the answer differs per card, and keying the wrong
+  // one gave the answer away the moment the beat opened.
+  const cue = beat.word(copy.reveal.needle, copy.reveal.nth);
+  // no silent fallback: a missed cue used to look plausible and be seconds off
+  if (cue < 0) throw new Error(`PairQuiz: reveal cue "${copy.reveal.needle}"#${copy.reveal.nth} not spoken in beat "${beat.id}"`);
+  const revealAt = cue;
   const askAt = beat.word("Is") >= 0 ? beat.word("Is") : sec(5, fps);
   const revealed = frame >= revealAt;
   const team = data.teams[answer];
@@ -246,8 +278,8 @@ export const AaQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; word: strin
           everything in a tall column, which ran the word into the choice cards */}
       <Center top={392}>
         <div style={{ display: "flex", alignItems: "center", gap: 84 }}>
-          <div style={{ width: 300, height: 300, background: palette.card, border: `9px solid ${c}`, borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 168, boxShadow: `0 18px 44px ${c}44`, transform: `translateY(${bob(frame, fps, 8, 2.6)}px)` }}>
-            🎨
+          <div style={{ width: 300, height: 300, background: palette.card, border: `9px solid ${c}`, borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 168, boxShadow: `0 18px 44px ${c}44`, transform: `translateY(${bob(frame, fps, 8, 2.6)}px)`, overflow: "hidden", padding: 18 }}>
+            <QuizIllo word={word} />
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 40 }}>
             {/* baseline-aligned: a block child's baseline is its bottom edge, so the gap
@@ -306,8 +338,17 @@ export const AaQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; word: strin
   );
 };
 
+// The quiz picture. illustrationFor returns null for a word with no entry at all, which
+// would draw an empty box — every quiz word must have art or an emoji in wordImages.ts.
+const QuizIllo: React.FC<{ word: string }> = ({ word }) => {
+  const illo = illustrationFor(word);
+  if (!illo) return null;
+  if (illo.kind === "image") return <Img src={staticFile(illo.src)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />;
+  return <span>{illo.char}</span>;
+};
+
 // ── recap ────────────────────────────────────────────────────────────────────
-export const AaRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data, beat }) => {
+export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   return (

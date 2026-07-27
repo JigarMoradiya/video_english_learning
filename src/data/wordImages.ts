@@ -26,6 +26,14 @@ export const wordEmojis: Record<string, string> = {
   joy: "😄",
   coy: "😊",
   enjoy: "🥳",
+  // oa/ow + oi/oy fills — illustrationFor returns null with no entry, which draws an
+  // EMPTY picture box (the CkWordChip bug class), so every example word needs one.
+  oil: "🛢️",
+  boil: "♨️",
+  annoy: "😤",
+  soap: "🧼",
+  slow: "🐌",
+  show: "🎪",
   // c/k/ck set
   cat: "🐱",
   cot: "🛏️",

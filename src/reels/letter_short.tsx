@@ -343,6 +343,7 @@ const MoreWords: React.FC<{ p: ShortPlan }> = ({ p }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { it, accent, moreLead, nameAt, wordsAt } = p;
+  const tiles = it.extras.slice(0, 6);
 
   // "More" + the app's own letter-name clip + "words" — three clips, so the pair
   // of shared takes works for every letter.
@@ -395,9 +396,13 @@ const MoreWords: React.FC<{ p: ShortPlan }> = ({ p }) => {
         </div>
 
         {/* 2 columns x up to 3 rows. Tiles are smaller than the old 2x2 so six fit
-            between the reference card and the captions. */}
+            between the reference card and the captions.
+            An ODD last tile (a 5-word letter: X, Z) would otherwise sit alone in
+            the LEFT column and read as a mistake, so it spans both columns and
+            centres instead — 2x2 with a centred 5th underneath. */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 22 }}>
-          {it.extras.slice(0, 6).map((w, i) => {
+          {tiles.map((w, i) => {
+            const centredLast = tiles.length === 5 && i === 4;
             const key = imgKey(w);
             const tint = hex(IMG_COLORS[key] ?? it.imageColor);
             // start once "More <letter> words" has been said, then a tight
@@ -416,6 +421,7 @@ const MoreWords: React.FC<{ p: ShortPlan }> = ({ p }) => {
                 style={{
                   ...paperCard(tint, 38),
                   position: "relative",
+                  ...(centredLast ? { gridColumn: "1 / -1", justifySelf: "center" } : null),
                   width: 390,
                   height: 340,
                   display: "flex",

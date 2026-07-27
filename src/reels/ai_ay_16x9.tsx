@@ -6,7 +6,7 @@ import { Beat, BeatSpec, makeTrack, planBeats, sec } from "../lib/timing";
 import { Captions, keywordColorFor } from "../components/Captions";
 import { StoreOutro } from "../components/StoreOutro";
 import { RailwaySky, WordTrain, TrainState, Car } from "../components/WordTrain";
-import { AaHook, AaSame, AaWhere, AaRule, AaNotThis, AaSeeIt, AaQuiz, AaRecap } from "./ai_ay_16x9_beats";
+import { PairCopy, PairHook, PairNotThis, PairQuiz, PairRecap, PairRule, PairSame, PairSeeIt, PairWhere } from "./pair_16x9_beats";
 import aiayPhrases from "../data/ai_ay_16x9.timing.json";
 import { FPS } from "../data/tokens";
 
@@ -41,6 +41,14 @@ export const AI_AY_16X9_DURATION = track.totalFrames;
 
 const WORDS_MID = ["rain", "snail", "train", "paint", "tail", "chain"];
 const WORDS_END = ["day", "play", "say", "stay", "tray", "hay"];
+
+const COPY: PairCopy = {
+  soundLabel: "/ā/ — “ayyy”",
+  // the narration says "rayn" first, then "dai"
+  wrong: [{ bad: "rayn", good: "rain" }, { bad: "dai", good: "day" }],
+  // "Now IT'S your turn!" opens this beat, so the SECOND "it's" is the answer (0-based)
+  reveal: { needle: "it's", nth: 1 },
+};
 
 // ── the train's content, per absolute frame ──────────────────────────────────
 // Cars load RIGHT-ALIGNED: a 2-part word uses the last two carriages, so the
@@ -127,15 +135,15 @@ const SFX: Cue[] = [
 
 const overlayFor = (b: Beat) => {
   switch (b.id) {
-    case "hook": return <AaHook data={data} beat={b} />;
-    case "same": return <AaSame data={data} beat={b} />;
-    case "where": return <AaWhere data={data} beat={b} />;
-    case "ruleMid": return <AaRule data={data} beat={b} teamIdx={0} />;
-    case "ruleEnd": return <AaRule data={data} beat={b} teamIdx={1} />;
-    case "notThis": return <AaNotThis data={data} beat={b} />;
-    case "seeIt": return <AaSeeIt data={data} beat={b} wordsMid={WORDS_MID} wordsEnd={WORDS_END} />;
-    case "quiz": return <AaQuiz data={data} beat={b} word="paint" blanked="p__nt" answer={0} />;
-    case "recap": return <AaRecap data={data} beat={b} />;
+    case "hook": return <PairHook data={data} beat={b} />;
+    case "same": return <PairSame data={data} beat={b} copy={COPY} />;
+    case "where": return <PairWhere data={data} beat={b} />;
+    case "ruleMid": return <PairRule data={data} beat={b} teamIdx={0} />;
+    case "ruleEnd": return <PairRule data={data} beat={b} teamIdx={1} />;
+    case "notThis": return <PairNotThis data={data} beat={b} copy={COPY} />;
+    case "seeIt": return <PairSeeIt data={data} beat={b} wordsMid={WORDS_MID} wordsEnd={WORDS_END} />;
+    case "quiz": return <PairQuiz data={data} beat={b} copy={COPY} word="paint" blanked="p__nt" answer={0} />;
+    case "recap": return <PairRecap data={data} beat={b} />;
     case "wrap": return <StoreOutro silent compact total={b.durationInFrames} />;
     default: return null;
   }

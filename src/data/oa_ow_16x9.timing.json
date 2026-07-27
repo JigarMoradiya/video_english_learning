@@ -1,0 +1,1377 @@
+[
+  {
+    "index": 0,
+    "text": "Ohhh!",
+    "line_index": 0,
+    "start": 1.17,
+    "end": 1.82,
+    "duration": 0.65,
+    "words": [
+      {
+        "word": "Ohhh!",
+        "start": 1.17,
+        "end": 1.82
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Meet oa and ow.",
+    "line_index": 0,
+    "start": 2.54,
+    "end": 4.22,
+    "duration": 1.68,
+    "words": [
+      {
+        "word": "Meet",
+        "start": 2.54,
+        "end": 2.8
+      },
+      {
+        "word": "oa",
+        "start": 2.8,
+        "end": 3.46
+      },
+      {
+        "word": "and",
+        "start": 3.6,
+        "end": 3.82
+      },
+      {
+        "word": "ow.",
+        "start": 3.82,
+        "end": 4.22
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Two spellings, one long O sound.",
+    "line_index": 1,
+    "start": 5.02,
+    "end": 8.05,
+    "duration": 3.03,
+    "words": [
+      {
+        "word": "Two",
+        "start": 5.02,
+        "end": 5.02
+      },
+      {
+        "word": "spellings,",
+        "start": 5.02,
+        "end": 6.12
+      },
+      {
+        "word": "one",
+        "start": 6.42,
+        "end": 6.42
+      },
+      {
+        "word": "long",
+        "start": 6.42,
+        "end": 6.72
+      },
+      {
+        "word": "O",
+        "start": 6.72,
+        "end": 7.1
+      },
+      {
+        "word": "sound.",
+        "start": 7.1,
+        "end": 8.05
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "You hear it in boat.",
+    "line_index": 2,
+    "start": 8.28,
+    "end": 9.5,
+    "duration": 1.22,
+    "words": [
+      {
+        "word": "You",
+        "start": 8.28,
+        "end": 8.34
+      },
+      {
+        "word": "hear",
+        "start": 8.34,
+        "end": 8.54
+      },
+      {
+        "word": "it",
+        "start": 8.54,
+        "end": 8.76
+      },
+      {
+        "word": "in",
+        "start": 8.76,
+        "end": 9.0
+      },
+      {
+        "word": "boat.",
+        "start": 9.0,
+        "end": 9.5
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "And in snow.",
+    "line_index": 2,
+    "start": 10.26,
+    "end": 10.85,
+    "duration": 0.59,
+    "words": [
+      {
+        "word": "And",
+        "start": 10.26,
+        "end": 10.36
+      },
+      {
+        "word": "in",
+        "start": 10.36,
+        "end": 10.5
+      },
+      {
+        "word": "snow.",
+        "start": 10.5,
+        "end": 10.85
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Same sound, different spelling.",
+    "line_index": 3,
+    "start": 12.4,
+    "end": 14.4,
+    "duration": 2.0,
+    "words": [
+      {
+        "word": "Same",
+        "start": 12.4,
+        "end": 12.42
+      },
+      {
+        "word": "sound,",
+        "start": 12.42,
+        "end": 13.06
+      },
+      {
+        "word": "different",
+        "start": 13.58,
+        "end": 13.74
+      },
+      {
+        "word": "spelling.",
+        "start": 13.74,
+        "end": 14.4
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "So which one do we write?",
+    "line_index": 4,
+    "start": 15.04,
+    "end": 16.42,
+    "duration": 1.38,
+    "words": [
+      {
+        "word": "So",
+        "start": 15.04,
+        "end": 15.14
+      },
+      {
+        "word": "which",
+        "start": 15.14,
+        "end": 15.38
+      },
+      {
+        "word": "one",
+        "start": 15.38,
+        "end": 15.68
+      },
+      {
+        "word": "do",
+        "start": 15.68,
+        "end": 15.86
+      },
+      {
+        "word": "we",
+        "start": 15.86,
+        "end": 16.0
+      },
+      {
+        "word": "write?",
+        "start": 16.0,
+        "end": 16.42
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Ask the same question.",
+    "line_index": 5,
+    "start": 17.58,
+    "end": 18.88,
+    "duration": 1.3,
+    "words": [
+      {
+        "word": "Ask",
+        "start": 17.58,
+        "end": 17.82
+      },
+      {
+        "word": "the",
+        "start": 17.82,
+        "end": 18.04
+      },
+      {
+        "word": "same",
+        "start": 18.04,
+        "end": 18.28
+      },
+      {
+        "word": "question.",
+        "start": 18.28,
+        "end": 18.88
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "WHERE is the sound?",
+    "line_index": 5,
+    "start": 19.66,
+    "end": 21.06,
+    "duration": 1.4,
+    "words": [
+      {
+        "word": "WHERE",
+        "start": 19.66,
+        "end": 20.0
+      },
+      {
+        "word": "is",
+        "start": 20.0,
+        "end": 20.26
+      },
+      {
+        "word": "the",
+        "start": 20.26,
+        "end": 20.44
+      },
+      {
+        "word": "sound?",
+        "start": 20.44,
+        "end": 21.06
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "At the beginning, in the middle, or at the end?",
+    "line_index": 6,
+    "start": 21.86,
+    "end": 25.19,
+    "duration": 3.33,
+    "words": [
+      {
+        "word": "At",
+        "start": 21.86,
+        "end": 21.96
+      },
+      {
+        "word": "the",
+        "start": 21.96,
+        "end": 22.08
+      },
+      {
+        "word": "beginning,",
+        "start": 22.08,
+        "end": 22.68
+      },
+      {
+        "word": "in",
+        "start": 23.18,
+        "end": 23.28
+      },
+      {
+        "word": "the",
+        "start": 23.28,
+        "end": 23.42
+      },
+      {
+        "word": "middle,",
+        "start": 23.42,
+        "end": 23.94
+      },
+      {
+        "word": "or",
+        "start": 24.42,
+        "end": 24.52
+      },
+      {
+        "word": "at",
+        "start": 24.52,
+        "end": 24.7
+      },
+      {
+        "word": "the",
+        "start": 24.7,
+        "end": 24.84
+      },
+      {
+        "word": "end?",
+        "start": 24.84,
+        "end": 25.19
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "In the MIDDLE, we write oa.",
+    "line_index": 7,
+    "start": 26.64,
+    "end": 28.92,
+    "duration": 2.28,
+    "words": [
+      {
+        "word": "In",
+        "start": 26.64,
+        "end": 26.78
+      },
+      {
+        "word": "the",
+        "start": 26.78,
+        "end": 26.98
+      },
+      {
+        "word": "MIDDLE,",
+        "start": 26.98,
+        "end": 27.82
+      },
+      {
+        "word": "we",
+        "start": 28.0,
+        "end": 28.08
+      },
+      {
+        "word": "write",
+        "start": 28.08,
+        "end": 28.32
+      },
+      {
+        "word": "oa.",
+        "start": 28.32,
+        "end": 28.92
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "B.",
+    "line_index": 8,
+    "start": 29.66,
+    "end": 29.9,
+    "duration": 0.24,
+    "words": [
+      {
+        "word": "B.",
+        "start": 29.66,
+        "end": 29.9
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Oa.",
+    "line_index": 8,
+    "start": 29.92,
+    "end": 29.98,
+    "duration": 0.06,
+    "words": [
+      {
+        "word": "Oa.",
+        "start": 29.92,
+        "end": 29.98
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "T.",
+    "line_index": 8,
+    "start": 30.28,
+    "end": 31.4,
+    "duration": 1.12,
+    "words": [
+      {
+        "word": "T.",
+        "start": 30.28,
+        "end": 31.4
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Boat!",
+    "line_index": 8,
+    "start": 32.92,
+    "end": 33.18,
+    "duration": 0.26,
+    "words": [
+      {
+        "word": "Boat!",
+        "start": 32.92,
+        "end": 33.18
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Letters on both sides of it.",
+    "line_index": 9,
+    "start": 34.48,
+    "end": 35.96,
+    "duration": 1.48,
+    "words": [
+      {
+        "word": "Letters",
+        "start": 34.48,
+        "end": 34.74
+      },
+      {
+        "word": "on",
+        "start": 34.74,
+        "end": 34.96
+      },
+      {
+        "word": "both",
+        "start": 34.96,
+        "end": 35.28
+      },
+      {
+        "word": "sides",
+        "start": 35.28,
+        "end": 35.62
+      },
+      {
+        "word": "of",
+        "start": 35.62,
+        "end": 35.8
+      },
+      {
+        "word": "it.",
+        "start": 35.8,
+        "end": 35.96
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "At the END, we write ow.",
+    "line_index": 10,
+    "start": 37.14,
+    "end": 38.91,
+    "duration": 1.77,
+    "words": [
+      {
+        "word": "At",
+        "start": 37.14,
+        "end": 37.14
+      },
+      {
+        "word": "the",
+        "start": 37.14,
+        "end": 37.34
+      },
+      {
+        "word": "END,",
+        "start": 37.34,
+        "end": 38.08
+      },
+      {
+        "word": "we",
+        "start": 38.14,
+        "end": 38.14
+      },
+      {
+        "word": "write",
+        "start": 38.14,
+        "end": 38.36
+      },
+      {
+        "word": "ow.",
+        "start": 38.36,
+        "end": 38.91
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Sn.",
+    "line_index": 11,
+    "start": 40.34,
+    "end": 40.9,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Sn.",
+        "start": 40.34,
+        "end": 40.9
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Ow.",
+    "line_index": 11,
+    "start": 41.4,
+    "end": 42.26,
+    "duration": 0.86,
+    "words": [
+      {
+        "word": "Ow.",
+        "start": 41.4,
+        "end": 42.26
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Snow!",
+    "line_index": 11,
+    "start": 43.16,
+    "end": 43.74,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Snow!",
+        "start": 43.16,
+        "end": 43.74
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Nothing after it.",
+    "line_index": 12,
+    "start": 44.64,
+    "end": 45.66,
+    "duration": 1.02,
+    "words": [
+      {
+        "word": "Nothing",
+        "start": 44.64,
+        "end": 44.96
+      },
+      {
+        "word": "after",
+        "start": 44.96,
+        "end": 45.4
+      },
+      {
+        "word": "it.",
+        "start": 45.4,
+        "end": 45.66
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "So we use ow.",
+    "line_index": 12,
+    "start": 46.14,
+    "end": 46.88,
+    "duration": 0.74,
+    "words": [
+      {
+        "word": "So",
+        "start": 46.14,
+        "end": 46.22
+      },
+      {
+        "word": "we",
+        "start": 46.22,
+        "end": 46.42
+      },
+      {
+        "word": "use",
+        "start": 46.42,
+        "end": 46.78
+      },
+      {
+        "word": "ow.",
+        "start": 46.78,
+        "end": 46.88
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "We never write bowt.",
+    "line_index": 13,
+    "start": 48.34,
+    "end": 49.96,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "We",
+        "start": 48.34,
+        "end": 48.44
+      },
+      {
+        "word": "never",
+        "start": 48.44,
+        "end": 48.8
+      },
+      {
+        "word": "write",
+        "start": 48.8,
+        "end": 49.16
+      },
+      {
+        "word": "bowt.",
+        "start": 49.16,
+        "end": 49.96
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "And we never write snoa.",
+    "line_index": 13,
+    "start": 51.3,
+    "end": 52.34,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "And",
+        "start": 51.3,
+        "end": 51.4
+      },
+      {
+        "word": "we",
+        "start": 51.4,
+        "end": 51.52
+      },
+      {
+        "word": "never",
+        "start": 51.52,
+        "end": 51.82
+      },
+      {
+        "word": "write",
+        "start": 51.82,
+        "end": 52.24
+      },
+      {
+        "word": "snoa.",
+        "start": 52.24,
+        "end": 52.34
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Oa in the middle.",
+    "line_index": 14,
+    "start": 54.74,
+    "end": 55.62,
+    "duration": 0.88,
+    "words": [
+      {
+        "word": "Oa",
+        "start": 54.74,
+        "end": 54.92
+      },
+      {
+        "word": "in",
+        "start": 54.92,
+        "end": 55.12
+      },
+      {
+        "word": "the",
+        "start": 55.12,
+        "end": 55.22
+      },
+      {
+        "word": "middle.",
+        "start": 55.22,
+        "end": 55.62
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "Ow at the end.",
+    "line_index": 14,
+    "start": 56.42,
+    "end": 57.74,
+    "duration": 1.32,
+    "words": [
+      {
+        "word": "Ow",
+        "start": 56.42,
+        "end": 56.66
+      },
+      {
+        "word": "at",
+        "start": 56.66,
+        "end": 57.12
+      },
+      {
+        "word": "the",
+        "start": 57.12,
+        "end": 57.3
+      },
+      {
+        "word": "end.",
+        "start": 57.3,
+        "end": 57.74
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Let's see it.",
+    "line_index": 15,
+    "start": 58.5,
+    "end": 59.12,
+    "duration": 0.62,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 58.5,
+        "end": 58.8
+      },
+      {
+        "word": "see",
+        "start": 58.82,
+        "end": 58.94
+      },
+      {
+        "word": "it.",
+        "start": 58.94,
+        "end": 59.12
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Boat.",
+    "line_index": 16,
+    "start": 59.88,
+    "end": 59.96,
+    "duration": 0.08,
+    "words": [
+      {
+        "word": "Boat.",
+        "start": 59.88,
+        "end": 59.96
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Coat.",
+    "line_index": 16,
+    "start": 61.3,
+    "end": 61.82,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "Coat.",
+        "start": 61.3,
+        "end": 61.82
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "Goat.",
+    "line_index": 16,
+    "start": 62.96,
+    "end": 63.3,
+    "duration": 0.34,
+    "words": [
+      {
+        "word": "Goat.",
+        "start": 62.96,
+        "end": 63.3
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Road.",
+    "line_index": 16,
+    "start": 64.46,
+    "end": 65.02,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Road.",
+        "start": 64.46,
+        "end": 65.02
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Toast.",
+    "line_index": 16,
+    "start": 65.94,
+    "end": 66.52,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Toast.",
+        "start": 65.94,
+        "end": 66.52
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "Soap.",
+    "line_index": 16,
+    "start": 67.9,
+    "end": 68.1,
+    "duration": 0.2,
+    "words": [
+      {
+        "word": "Soap.",
+        "start": 67.9,
+        "end": 68.1
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "All oa, all in the middle.",
+    "line_index": 17,
+    "start": 69.24,
+    "end": 71.56,
+    "duration": 2.32,
+    "words": [
+      {
+        "word": "All",
+        "start": 69.24,
+        "end": 69.4
+      },
+      {
+        "word": "oa,",
+        "start": 69.4,
+        "end": 69.96
+      },
+      {
+        "word": "all",
+        "start": 70.72,
+        "end": 70.72
+      },
+      {
+        "word": "in",
+        "start": 70.72,
+        "end": 70.96
+      },
+      {
+        "word": "the",
+        "start": 70.96,
+        "end": 71.1
+      },
+      {
+        "word": "middle.",
+        "start": 71.1,
+        "end": 71.56
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Now the end.",
+    "line_index": 18,
+    "start": 72.58,
+    "end": 73.28,
+    "duration": 0.7,
+    "words": [
+      {
+        "word": "Now",
+        "start": 72.58,
+        "end": 72.58
+      },
+      {
+        "word": "the",
+        "start": 72.58,
+        "end": 72.8
+      },
+      {
+        "word": "end.",
+        "start": 72.8,
+        "end": 73.28
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Snow.",
+    "line_index": 19,
+    "start": 74.34,
+    "end": 74.78,
+    "duration": 0.44,
+    "words": [
+      {
+        "word": "Snow.",
+        "start": 74.34,
+        "end": 74.78
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "Grow.",
+    "line_index": 19,
+    "start": 76.04,
+    "end": 76.52,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Grow.",
+        "start": 76.04,
+        "end": 76.52
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Blow.",
+    "line_index": 19,
+    "start": 77.42,
+    "end": 78.2,
+    "duration": 0.78,
+    "words": [
+      {
+        "word": "Blow.",
+        "start": 77.42,
+        "end": 78.2
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "Slow.",
+    "line_index": 19,
+    "start": 79.38,
+    "end": 80.08,
+    "duration": 0.7,
+    "words": [
+      {
+        "word": "Slow.",
+        "start": 79.38,
+        "end": 80.08
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "Show.",
+    "line_index": 19,
+    "start": 81.22,
+    "end": 82.08,
+    "duration": 0.86,
+    "words": [
+      {
+        "word": "Show.",
+        "start": 81.22,
+        "end": 82.08
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "Yellow.",
+    "line_index": 19,
+    "start": 83.38,
+    "end": 83.94,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Yellow.",
+        "start": 83.38,
+        "end": 83.94
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "All ow, all at the end.",
+    "line_index": 20,
+    "start": 84.76,
+    "end": 87.2,
+    "duration": 2.44,
+    "words": [
+      {
+        "word": "All",
+        "start": 84.76,
+        "end": 84.9
+      },
+      {
+        "word": "ow,",
+        "start": 84.9,
+        "end": 85.52
+      },
+      {
+        "word": "all",
+        "start": 86.02,
+        "end": 86.26
+      },
+      {
+        "word": "at",
+        "start": 86.26,
+        "end": 86.58
+      },
+      {
+        "word": "the",
+        "start": 86.58,
+        "end": 86.76
+      },
+      {
+        "word": "end.",
+        "start": 86.76,
+        "end": 87.2
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "Your turn!",
+    "line_index": 21,
+    "start": 88.14,
+    "end": 88.76,
+    "duration": 0.62,
+    "words": [
+      {
+        "word": "Your",
+        "start": 88.14,
+        "end": 88.18
+      },
+      {
+        "word": "turn!",
+        "start": 88.18,
+        "end": 88.76
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "Here's the word.",
+    "line_index": 21,
+    "start": 89.52,
+    "end": 90.27,
+    "duration": 0.75,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 89.52,
+        "end": 89.7
+      },
+      {
+        "word": "the",
+        "start": 89.72,
+        "end": 89.82
+      },
+      {
+        "word": "word.",
+        "start": 89.82,
+        "end": 90.27
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "Road.",
+    "line_index": 21,
+    "start": 91.4,
+    "end": 91.96,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Road.",
+        "start": 91.4,
+        "end": 91.96
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "Is it oa, or ow?",
+    "line_index": 22,
+    "start": 91.96,
+    "end": 93.98,
+    "duration": 2.02,
+    "words": [
+      {
+        "word": "Is",
+        "start": 91.96,
+        "end": 92.08
+      },
+      {
+        "word": "it",
+        "start": 92.08,
+        "end": 92.32
+      },
+      {
+        "word": "oa,",
+        "start": 92.32,
+        "end": 92.82
+      },
+      {
+        "word": "or",
+        "start": 93.26,
+        "end": 93.38
+      },
+      {
+        "word": "ow?",
+        "start": 93.38,
+        "end": 93.98
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "It's oa!",
+    "line_index": 23,
+    "start": 94.3,
+    "end": 94.88,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "It's",
+        "start": 94.3,
+        "end": 94.4
+      },
+      {
+        "word": "oa!",
+        "start": 94.4,
+        "end": 94.88
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "The sound is in the middle.",
+    "line_index": 23,
+    "start": 95.46,
+    "end": 97.36,
+    "duration": 1.9,
+    "words": [
+      {
+        "word": "The",
+        "start": 95.46,
+        "end": 95.98
+      },
+      {
+        "word": "sound",
+        "start": 95.98,
+        "end": 96.38
+      },
+      {
+        "word": "is",
+        "start": 96.38,
+        "end": 96.56
+      },
+      {
+        "word": "in",
+        "start": 96.56,
+        "end": 96.76
+      },
+      {
+        "word": "the",
+        "start": 96.76,
+        "end": 96.92
+      },
+      {
+        "word": "middle.",
+        "start": 96.92,
+        "end": 97.36
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "So remember.",
+    "line_index": 24,
+    "start": 98.0,
+    "end": 98.78,
+    "duration": 0.78,
+    "words": [
+      {
+        "word": "So",
+        "start": 98.0,
+        "end": 98.06
+      },
+      {
+        "word": "remember.",
+        "start": 98.06,
+        "end": 98.78
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "Oa sails in the middle, ow rolls to the end.",
+    "line_index": 24,
+    "start": 99.48,
+    "end": 103.94,
+    "duration": 4.46,
+    "words": [
+      {
+        "word": "Oa",
+        "start": 99.48,
+        "end": 99.8
+      },
+      {
+        "word": "sails",
+        "start": 99.8,
+        "end": 100.34
+      },
+      {
+        "word": "in",
+        "start": 100.34,
+        "end": 100.54
+      },
+      {
+        "word": "the",
+        "start": 100.54,
+        "end": 100.66
+      },
+      {
+        "word": "middle,",
+        "start": 100.66,
+        "end": 101.2
+      },
+      {
+        "word": "ow",
+        "start": 101.98,
+        "end": 102.24
+      },
+      {
+        "word": "rolls",
+        "start": 102.24,
+        "end": 102.96
+      },
+      {
+        "word": "to",
+        "start": 102.96,
+        "end": 103.28
+      },
+      {
+        "word": "the",
+        "start": 103.28,
+        "end": 103.44
+      },
+      {
+        "word": "end.",
+        "start": 103.44,
+        "end": 103.94
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "Read more words like these in the English Learning app.",
+    "line_index": 25,
+    "start": 104.9,
+    "end": 107.92,
+    "duration": 3.02,
+    "words": [
+      {
+        "word": "Read",
+        "start": 104.9,
+        "end": 105.04
+      },
+      {
+        "word": "more",
+        "start": 105.04,
+        "end": 105.36
+      },
+      {
+        "word": "words",
+        "start": 105.36,
+        "end": 105.7
+      },
+      {
+        "word": "like",
+        "start": 105.7,
+        "end": 105.96
+      },
+      {
+        "word": "these",
+        "start": 105.96,
+        "end": 106.24
+      },
+      {
+        "word": "in",
+        "start": 106.24,
+        "end": 106.62
+      },
+      {
+        "word": "the",
+        "start": 106.62,
+        "end": 106.74
+      },
+      {
+        "word": "English",
+        "start": 106.74,
+        "end": 107.08
+      },
+      {
+        "word": "Learning",
+        "start": 107.08,
+        "end": 107.56
+      },
+      {
+        "word": "app.",
+        "start": 107.56,
+        "end": 107.92
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "Free to download today!",
+    "line_index": 25,
+    "start": 108.34,
+    "end": 109.75,
+    "duration": 1.41,
+    "words": [
+      {
+        "word": "Free",
+        "start": 108.34,
+        "end": 108.5
+      },
+      {
+        "word": "to",
+        "start": 108.5,
+        "end": 108.7
+      },
+      {
+        "word": "download",
+        "start": 108.7,
+        "end": 109.1
+      },
+      {
+        "word": "today!",
+        "start": 109.1,
+        "end": 109.75
+      }
+    ]
+  }
+]

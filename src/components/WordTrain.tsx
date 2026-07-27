@@ -1,10 +1,11 @@
 import React from "react";
-import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { PhonicsComparison } from "../data/types";
 import { Beat } from "../lib/timing";
-import { hex, palette, tint, font } from "../data/tokens";
+import { hex, tint, font } from "../data/tokens";
 import { bob, wiggle } from "../lib/motion";
 import { STAGE_TOP, safeX } from "./LandscapeBeatKit";
+import { NEUTRAL, PositionPlate, Slot, SlotContent, SlotState, TagChip } from "./PositionSlot";
 
 // ── The Word Train ───────────────────────────────────────────────────────────
 // The teaching set for the pair cards (ai/ay · oi/oy · oa/ow). Three carriages ARE
@@ -24,15 +25,13 @@ import { STAGE_TOP, safeX } from "./LandscapeBeatKit";
 // ghost slot, never a bare window. Empty carriages for 15s is the failure this
 // mirrors WordStreet.tsx to avoid.
 
-export type Car = { text: string; kind: "marker" | "letter" | "ghost" | "cross"; tag?: string };
-export type TrainState = { cars: [Car | null, Car | null, Car | null]; litIdx?: number };
+export type Car = Slot;
+export type TrainState = SlotState;
 
 const RAIL_Y = 782; // top of the wheels; wheels end 842, inside the stage band (860)
 const WHEEL_R = 30;
 const BODY_TOP = STAGE_TOP + 60; // 360
 const BODY_H = 424; // 360 → 784, i.e. the body sits ON the wheels
-const LABEL = ["BEGINNING", "MIDDLE", "END"];
-const NEUTRAL = "78909C"; // the beginning carriage belongs to neither spelling
 
 // ── the sky/hills the whole video sits on (persistent, absolute frame) ───────
 export const RailwaySky: React.FC = () => {
@@ -113,78 +112,24 @@ const Carriage: React.FC<{
           fontFamily: font.family, overflow: "hidden",
         }}
       >
-        <CarContent car={car} color={color} />
+        <SlotContent slot={car} color={color} />
       </div>
       {/* side tag ("before" / "after") — the narration names them, so show them */}
       {car?.tag && (
-        <div
-          style={{
-            position: "absolute", bottom: 12, left: "50%", transform: `translateX(-50%) scale(${1 + 0.06 * Math.sin((frame / fps) * 5)})`,
-            background: "#FFF3E0", border: "4px solid #EF6C00", color: "#EF6C00",
-            borderRadius: 999, padding: "3px 20px", fontSize: 28, fontWeight: 700,
-            fontFamily: font.family, whiteSpace: "nowrap",
-          }}
-        >
-          {car.tag}
+        <div style={{ position: "absolute", bottom: 12, left: "50%", transform: "translateX(-50%)" }}>
+          <TagChip text={car.tag} />
         </div>
       )}
       {/* position plate, ON the roof — never in the headline band */}
       {label && (
-        <div
-          style={{
-            position: "absolute", top: 6, left: "50%", transform: "translateX(-50%)",
-            background: labelLit ? "#FFFFFF" : "#FFFFFF99",
-            color: labelLit ? c : "#8FA0B8",
-            borderRadius: 999, padding: "5px 20px", fontSize: 24, fontWeight: 700, letterSpacing: 2,
-            fontFamily: font.family, whiteSpace: "nowrap",
-            boxShadow: labelLit ? "0 6px 16px rgba(0,0,0,0.18)" : "none",
-          }}
-        >
-          {LABEL[idx]}
+        <div style={{ position: "absolute", top: 6, left: "50%", transform: "translateX(-50%)" }}>
+          <PositionPlate idx={idx} lit={labelLit} color={color} />
         </div>
       )}
     </div>
   );
 };
 
-const CarContent: React.FC<{ car: Car | null; color: string }> = ({ car, color }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const c = hex(color);
-  if (!car) {
-    // ghost slot — holds the space so the carriage is never a bare window
-    return <div style={{ width: "62%", height: "58%", borderRadius: 22, border: "6px dashed #C9D4E4", opacity: 0.75 }} />;
-  }
-  const s = spring({ frame, fps, config: { damping: 11 } });
-  if (car.kind === "ghost") {
-    return <span style={{ fontSize: 116, fontWeight: 700, color: "#B9C4D6", opacity: 0.7 }}>{car.text}</span>;
-  }
-  if (car.kind === "cross") {
-    return (
-      <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ fontSize: 132, fontWeight: 700, color: "#C62828" }}>{car.text}</span>
-        <svg width={210} height={130} style={{ position: "absolute", pointerEvents: "none" }}>
-          <line x1={16} y1={16} x2={194} y2={114} stroke="#C62828" strokeWidth={13} strokeLinecap="round" />
-        </svg>
-      </div>
-    );
-  }
-  const isMarker = car.kind === "marker";
-  return (
-    <span
-      style={{
-        fontSize: isMarker ? 150 : 128,
-        fontWeight: 700,
-        color: isMarker ? c : palette.ink,
-        lineHeight: 1,
-        transform: `scale(${0.7 + 0.3 * s})`,
-        textShadow: isMarker ? `0 10px 26px ${c}44` : "none",
-      }}
-    >
-      {car.text}
-    </span>
-  );
-};
 
 // ── the train ────────────────────────────────────────────────────────────────
 export const WordTrain: React.FC<{
