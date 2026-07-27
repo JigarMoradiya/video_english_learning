@@ -1,857 +1,857 @@
 [
   {
     "word": "Ohhh!",
-    "start": 1.17,
-    "end": 1.82
+    "start": 1.2,
+    "end": 1.7
   },
   {
     "word": "Meet",
-    "start": 2.54,
-    "end": 2.8
+    "start": 1.78,
+    "end": 1.82
   },
   {
     "word": "oa",
-    "start": 2.8,
-    "end": 3.46
+    "start": 1.82,
+    "end": 2.28
   },
   {
     "word": "and",
-    "start": 3.6,
-    "end": 3.82
+    "start": 2.28,
+    "end": 2.48
   },
   {
     "word": "ow.",
-    "start": 3.82,
-    "end": 4.22
+    "start": 2.48,
+    "end": 2.58
   },
   {
     "word": "Two",
-    "start": 5.02,
-    "end": 5.02
+    "start": 3.72,
+    "end": 3.72
   },
   {
     "word": "spellings,",
-    "start": 5.02,
-    "end": 6.12
+    "start": 3.72,
+    "end": 4.48
   },
   {
     "word": "one",
-    "start": 6.42,
-    "end": 6.42
+    "start": 5.08,
+    "end": 5.08
   },
   {
     "word": "long",
-    "start": 6.42,
-    "end": 6.72
+    "start": 5.08,
+    "end": 5.42
   },
   {
     "word": "O",
-    "start": 6.72,
-    "end": 7.1
+    "start": 5.42,
+    "end": 5.76
   },
   {
     "word": "sound.",
-    "start": 7.1,
-    "end": 8.05
+    "start": 5.76,
+    "end": 6.34
   },
   {
     "word": "You",
-    "start": 8.28,
-    "end": 8.34
+    "start": 7.02,
+    "end": 7.1
   },
   {
     "word": "hear",
-    "start": 8.34,
-    "end": 8.54
+    "start": 7.1,
+    "end": 7.4
   },
   {
     "word": "it",
-    "start": 8.54,
-    "end": 8.76
+    "start": 7.4,
+    "end": 7.62
   },
   {
     "word": "in",
-    "start": 8.76,
-    "end": 9.0
+    "start": 7.68,
+    "end": 7.86
   },
   {
     "word": "boat.",
-    "start": 9.0,
-    "end": 9.5
+    "start": 7.86,
+    "end": 8.32
   },
   {
     "word": "And",
-    "start": 10.26,
-    "end": 10.36
+    "start": 9.32,
+    "end": 9.64
   },
   {
     "word": "in",
-    "start": 10.36,
-    "end": 10.5
+    "start": 9.64,
+    "end": 9.88
   },
   {
     "word": "snow.",
-    "start": 10.5,
-    "end": 10.85
+    "start": 9.88,
+    "end": 10.68
   },
   {
     "word": "Same",
-    "start": 12.4,
-    "end": 12.42
+    "start": 11.98,
+    "end": 11.98
   },
   {
     "word": "sound,",
-    "start": 12.42,
-    "end": 13.06
+    "start": 11.98,
+    "end": 12.88
   },
   {
     "word": "different",
-    "start": 13.58,
-    "end": 13.74
+    "start": 13.04,
+    "end": 13.14
   },
   {
     "word": "spelling.",
-    "start": 13.74,
-    "end": 14.4
+    "start": 13.14,
+    "end": 13.92
   },
   {
     "word": "So",
-    "start": 15.04,
-    "end": 15.14
+    "start": 14.44,
+    "end": 14.5
   },
   {
     "word": "which",
-    "start": 15.14,
-    "end": 15.38
+    "start": 14.5,
+    "end": 14.76
   },
   {
     "word": "one",
-    "start": 15.38,
-    "end": 15.68
+    "start": 14.76,
+    "end": 15.0
   },
   {
     "word": "do",
-    "start": 15.68,
-    "end": 15.86
+    "start": 15.0,
+    "end": 15.16
   },
   {
     "word": "we",
-    "start": 15.86,
-    "end": 16.0
+    "start": 15.16,
+    "end": 15.28
   },
   {
     "word": "write?",
-    "start": 16.0,
-    "end": 16.42
+    "start": 15.28,
+    "end": 15.64
   },
   {
     "word": "Ask",
-    "start": 17.58,
-    "end": 17.82
+    "start": 16.76,
+    "end": 17.0
   },
   {
     "word": "the",
-    "start": 17.82,
-    "end": 18.04
+    "start": 17.14,
+    "end": 17.24
   },
   {
     "word": "same",
-    "start": 18.04,
-    "end": 18.28
+    "start": 17.24,
+    "end": 17.46
   },
   {
     "word": "question.",
-    "start": 18.28,
-    "end": 18.88
+    "start": 17.46,
+    "end": 18.06
   },
   {
     "word": "WHERE",
-    "start": 19.66,
-    "end": 20.0
+    "start": 18.94,
+    "end": 19.22
   },
   {
     "word": "is",
-    "start": 20.0,
-    "end": 20.26
+    "start": 19.22,
+    "end": 19.42
   },
   {
     "word": "the",
-    "start": 20.26,
-    "end": 20.44
+    "start": 19.42,
+    "end": 19.62
   },
   {
     "word": "sound?",
-    "start": 20.44,
-    "end": 21.06
+    "start": 19.62,
+    "end": 20.18
   },
   {
     "word": "At",
-    "start": 21.86,
-    "end": 21.96
+    "start": 21.02,
+    "end": 21.12
   },
   {
     "word": "the",
-    "start": 21.96,
-    "end": 22.08
+    "start": 21.12,
+    "end": 21.28
   },
   {
     "word": "beginning,",
-    "start": 22.08,
-    "end": 22.68
+    "start": 21.28,
+    "end": 21.68
   },
   {
     "word": "in",
-    "start": 23.18,
-    "end": 23.28
+    "start": 22.52,
+    "end": 22.62
   },
   {
     "word": "the",
-    "start": 23.28,
-    "end": 23.42
+    "start": 22.62,
+    "end": 22.78
   },
   {
     "word": "middle,",
-    "start": 23.42,
-    "end": 23.94
+    "start": 22.78,
+    "end": 23.28
   },
   {
     "word": "or",
-    "start": 24.42,
-    "end": 24.52
+    "start": 23.6,
+    "end": 23.7
   },
   {
     "word": "at",
-    "start": 24.52,
-    "end": 24.7
+    "start": 23.7,
+    "end": 23.92
   },
   {
     "word": "the",
-    "start": 24.7,
-    "end": 24.84
+    "start": 23.92,
+    "end": 24.12
   },
   {
     "word": "end?",
-    "start": 24.84,
-    "end": 25.19
+    "start": 24.12,
+    "end": 24.54
   },
   {
     "word": "In",
-    "start": 26.64,
-    "end": 26.78
+    "start": 25.86,
+    "end": 26.0
   },
   {
     "word": "the",
-    "start": 26.78,
-    "end": 26.98
+    "start": 26.0,
+    "end": 26.16
   },
   {
     "word": "MIDDLE,",
-    "start": 26.98,
-    "end": 27.82
+    "start": 26.16,
+    "end": 26.8
   },
   {
     "word": "we",
-    "start": 28.0,
-    "end": 28.08
+    "start": 27.08,
+    "end": 27.18
   },
   {
     "word": "write",
-    "start": 28.08,
-    "end": 28.32
+    "start": 27.18,
+    "end": 27.42
   },
   {
     "word": "oa.",
-    "start": 28.32,
-    "end": 28.92
+    "start": 27.42,
+    "end": 28.02
   },
   {
     "word": "B.",
-    "start": 29.66,
-    "end": 29.9
+    "start": 29.2,
+    "end": 29.44
   },
   {
     "word": "Oa.",
-    "start": 29.92,
+    "start": 29.98,
     "end": 29.98
   },
   {
     "word": "T.",
-    "start": 30.28,
-    "end": 31.4
+    "start": 30.88,
+    "end": 31.68
   },
   {
     "word": "Boat!",
-    "start": 32.92,
-    "end": 33.18
+    "start": 31.8,
+    "end": 32.46
   },
   {
     "word": "Letters",
-    "start": 34.48,
-    "end": 34.74
+    "start": 33.18,
+    "end": 33.62
   },
   {
     "word": "on",
-    "start": 34.74,
-    "end": 34.96
+    "start": 33.62,
+    "end": 33.84
   },
   {
     "word": "both",
-    "start": 34.96,
-    "end": 35.28
+    "start": 33.84,
+    "end": 34.1
   },
   {
     "word": "sides",
-    "start": 35.28,
-    "end": 35.62
+    "start": 34.1,
+    "end": 34.4
   },
   {
     "word": "of",
-    "start": 35.62,
-    "end": 35.8
+    "start": 34.4,
+    "end": 34.64
   },
   {
     "word": "it.",
-    "start": 35.8,
-    "end": 35.96
+    "start": 34.64,
+    "end": 34.86
   },
   {
     "word": "At",
-    "start": 37.14,
-    "end": 37.14
+    "start": 35.94,
+    "end": 36.06
   },
   {
     "word": "the",
-    "start": 37.14,
-    "end": 37.34
+    "start": 36.06,
+    "end": 36.24
   },
   {
     "word": "END,",
-    "start": 37.34,
-    "end": 38.08
+    "start": 36.24,
+    "end": 37.02
   },
   {
     "word": "we",
-    "start": 38.14,
-    "end": 38.14
+    "start": 37.1,
+    "end": 37.1
   },
   {
     "word": "write",
-    "start": 38.14,
-    "end": 38.36
+    "start": 37.1,
+    "end": 37.34
   },
   {
     "word": "ow.",
-    "start": 38.36,
-    "end": 38.91
+    "start": 37.34,
+    "end": 37.94
   },
   {
     "word": "Sn.",
-    "start": 40.34,
-    "end": 40.9
+    "start": 39.34,
+    "end": 39.78
   },
   {
     "word": "Ow.",
-    "start": 41.4,
-    "end": 42.26
+    "start": 40.18,
+    "end": 40.8
   },
   {
     "word": "Snow!",
-    "start": 43.16,
-    "end": 43.74
+    "start": 41.78,
+    "end": 42.38
   },
   {
     "word": "Nothing",
-    "start": 44.64,
-    "end": 44.96
+    "start": 42.86,
+    "end": 43.22
   },
   {
     "word": "after",
-    "start": 44.96,
-    "end": 45.4
+    "start": 43.22,
+    "end": 43.68
   },
   {
     "word": "it.",
-    "start": 45.4,
-    "end": 45.66
+    "start": 43.68,
+    "end": 43.9
   },
   {
     "word": "So",
-    "start": 46.14,
-    "end": 46.22
+    "start": 44.54,
+    "end": 44.64
   },
   {
     "word": "we",
-    "start": 46.22,
-    "end": 46.42
+    "start": 44.64,
+    "end": 44.9
   },
   {
     "word": "use",
-    "start": 46.42,
-    "end": 46.78
+    "start": 44.9,
+    "end": 45.24
   },
   {
     "word": "ow.",
-    "start": 46.78,
-    "end": 46.88
+    "start": 45.24,
+    "end": 46.08
   },
   {
     "word": "We",
-    "start": 48.34,
-    "end": 48.44
+    "start": 46.88,
+    "end": 47.02
   },
   {
     "word": "never",
-    "start": 48.44,
-    "end": 48.8
+    "start": 47.02,
+    "end": 47.44
   },
   {
     "word": "write",
-    "start": 48.8,
-    "end": 49.16
+    "start": 47.44,
+    "end": 47.82
   },
   {
     "word": "bowt.",
-    "start": 49.16,
-    "end": 49.96
+    "start": 47.82,
+    "end": 48.78
   },
   {
     "word": "And",
-    "start": 51.3,
-    "end": 51.4
+    "start": 49.7,
+    "end": 49.84
   },
   {
     "word": "we",
-    "start": 51.4,
-    "end": 51.52
+    "start": 49.84,
+    "end": 49.98
   },
   {
     "word": "never",
-    "start": 51.52,
-    "end": 51.82
+    "start": 49.98,
+    "end": 50.26
   },
   {
     "word": "write",
-    "start": 51.82,
-    "end": 52.24
+    "start": 50.26,
+    "end": 50.76
   },
   {
     "word": "snoa.",
-    "start": 52.24,
-    "end": 52.34
+    "start": 50.76,
+    "end": 51.46
   },
   {
     "word": "Oa",
-    "start": 54.74,
-    "end": 54.92
+    "start": 53.0,
+    "end": 53.22
   },
   {
     "word": "in",
-    "start": 54.92,
-    "end": 55.12
+    "start": 53.22,
+    "end": 53.36
   },
   {
     "word": "the",
-    "start": 55.12,
-    "end": 55.22
+    "start": 53.36,
+    "end": 53.46
   },
   {
     "word": "middle.",
-    "start": 55.22,
-    "end": 55.62
+    "start": 53.46,
+    "end": 54.0
   },
   {
     "word": "Ow",
-    "start": 56.42,
-    "end": 56.66
+    "start": 54.68,
+    "end": 54.88
   },
   {
     "word": "at",
-    "start": 56.66,
-    "end": 57.12
+    "start": 54.88,
+    "end": 55.18
   },
   {
     "word": "the",
-    "start": 57.12,
-    "end": 57.3
+    "start": 55.18,
+    "end": 55.38
   },
   {
     "word": "end.",
-    "start": 57.3,
-    "end": 57.74
+    "start": 55.38,
+    "end": 55.8
   },
   {
     "word": "Let's",
-    "start": 58.5,
-    "end": 58.8
+    "start": 56.4,
+    "end": 56.74
   },
   {
     "word": "see",
-    "start": 58.82,
-    "end": 58.94
+    "start": 56.76,
+    "end": 56.9
   },
   {
     "word": "it.",
-    "start": 58.94,
-    "end": 59.12
+    "start": 56.9,
+    "end": 57.08
   },
   {
     "word": "Boat.",
-    "start": 59.88,
-    "end": 59.96
+    "start": 58.2,
+    "end": 58.52
   },
   {
     "word": "Coat.",
-    "start": 61.3,
-    "end": 61.82
+    "start": 61.32,
+    "end": 61.78
   },
   {
     "word": "Goat.",
-    "start": 62.96,
-    "end": 63.3
+    "start": 63.3,
+    "end": 63.74
   },
   {
     "word": "Road.",
-    "start": 64.46,
-    "end": 65.02
+    "start": 63.74,
+    "end": 64.82
   },
   {
     "word": "Toast.",
-    "start": 65.94,
-    "end": 66.52
+    "start": 64.88,
+    "end": 65.32
   },
   {
     "word": "Soap.",
-    "start": 67.9,
-    "end": 68.1
+    "start": 66.9,
+    "end": 67.14
   },
   {
     "word": "All",
-    "start": 69.24,
-    "end": 69.4
+    "start": 68.5,
+    "end": 68.7
   },
   {
     "word": "oa,",
-    "start": 69.4,
-    "end": 69.96
+    "start": 68.7,
+    "end": 69.28
   },
   {
     "word": "all",
-    "start": 70.72,
-    "end": 70.72
+    "start": 69.84,
+    "end": 69.84
   },
   {
     "word": "in",
-    "start": 70.72,
-    "end": 70.96
+    "start": 69.84,
+    "end": 70.0
   },
   {
     "word": "the",
-    "start": 70.96,
-    "end": 71.1
+    "start": 70.0,
+    "end": 70.12
   },
   {
     "word": "middle.",
-    "start": 71.1,
-    "end": 71.56
+    "start": 70.12,
+    "end": 70.52
   },
   {
     "word": "Now",
-    "start": 72.58,
-    "end": 72.58
+    "start": 71.56,
+    "end": 71.56
   },
   {
     "word": "the",
-    "start": 72.58,
-    "end": 72.8
+    "start": 71.56,
+    "end": 71.8
   },
   {
     "word": "end.",
-    "start": 72.8,
-    "end": 73.28
+    "start": 71.8,
+    "end": 72.2
   },
   {
     "word": "Snow.",
-    "start": 74.34,
-    "end": 74.78
+    "start": 73.66,
+    "end": 74.12
   },
   {
     "word": "Grow.",
-    "start": 76.04,
-    "end": 76.52
+    "start": 75.2,
+    "end": 75.84
   },
   {
     "word": "Blow.",
-    "start": 77.42,
-    "end": 78.2
+    "start": 77.14,
+    "end": 77.66
   },
   {
     "word": "Slow.",
-    "start": 79.38,
-    "end": 80.08
+    "start": 78.8,
+    "end": 79.64
   },
   {
     "word": "Show.",
-    "start": 81.22,
-    "end": 82.08
+    "start": 80.86,
+    "end": 81.62
   },
   {
     "word": "Yellow.",
-    "start": 83.38,
-    "end": 83.94
+    "start": 83.06,
+    "end": 83.58
   },
   {
     "word": "All",
-    "start": 84.76,
-    "end": 84.9
+    "start": 84.66,
+    "end": 84.82
   },
   {
     "word": "ow,",
-    "start": 84.9,
-    "end": 85.52
+    "start": 84.82,
+    "end": 85.48
   },
   {
     "word": "all",
-    "start": 86.02,
-    "end": 86.26
+    "start": 85.86,
+    "end": 86.06
   },
   {
     "word": "at",
-    "start": 86.26,
-    "end": 86.58
+    "start": 86.06,
+    "end": 86.3
   },
   {
     "word": "the",
-    "start": 86.58,
-    "end": 86.76
+    "start": 86.34,
+    "end": 86.46
   },
   {
     "word": "end.",
-    "start": 86.76,
-    "end": 87.2
+    "start": 86.46,
+    "end": 86.84
   },
   {
     "word": "Your",
-    "start": 88.14,
-    "end": 88.18
+    "start": 87.76,
+    "end": 87.82
   },
   {
     "word": "turn!",
-    "start": 88.18,
-    "end": 88.76
+    "start": 87.82,
+    "end": 88.48
   },
   {
     "word": "Here's",
-    "start": 89.52,
-    "end": 89.7
+    "start": 88.9,
+    "end": 88.98
   },
   {
     "word": "the",
-    "start": 89.72,
-    "end": 89.82
+    "start": 88.98,
+    "end": 89.0
   },
   {
     "word": "word.",
-    "start": 89.82,
-    "end": 90.27
+    "start": 90.32,
+    "end": 91.48
   },
   {
     "word": "Road.",
-    "start": 91.4,
-    "end": 91.96
+    "start": 91.48,
+    "end": 91.98
   },
   {
     "word": "Is",
-    "start": 91.96,
-    "end": 92.08
+    "start": 92.86,
+    "end": 92.98
   },
   {
     "word": "it",
-    "start": 92.08,
-    "end": 92.32
+    "start": 92.98,
+    "end": 93.22
   },
   {
     "word": "oa,",
-    "start": 92.32,
-    "end": 92.82
+    "start": 93.22,
+    "end": 94.3
   },
   {
     "word": "or",
-    "start": 93.26,
-    "end": 93.38
+    "start": 94.3,
+    "end": 94.3
   },
   {
     "word": "ow?",
-    "start": 93.38,
-    "end": 93.98
+    "start": 94.3,
+    "end": 94.74
   },
   {
     "word": "It's",
-    "start": 94.3,
-    "end": 94.4
+    "start": 96.72,
+    "end": 97.02
   },
   {
     "word": "oa!",
-    "start": 94.4,
-    "end": 94.88
+    "start": 97.02,
+    "end": 97.82
   },
   {
     "word": "The",
-    "start": 95.46,
-    "end": 95.98
+    "start": 98.26,
+    "end": 98.34
   },
   {
     "word": "sound",
-    "start": 95.98,
-    "end": 96.38
+    "start": 98.34,
+    "end": 98.72
   },
   {
     "word": "is",
-    "start": 96.38,
-    "end": 96.56
+    "start": 98.72,
+    "end": 98.94
   },
   {
     "word": "in",
-    "start": 96.56,
-    "end": 96.76
+    "start": 98.94,
+    "end": 99.06
   },
   {
     "word": "the",
-    "start": 96.76,
-    "end": 96.92
+    "start": 99.06,
+    "end": 99.16
   },
   {
     "word": "middle.",
-    "start": 96.92,
-    "end": 97.36
+    "start": 99.16,
+    "end": 99.68
   },
   {
     "word": "So",
-    "start": 98.0,
-    "end": 98.06
-  },
-  {
-    "word": "remember.",
-    "start": 98.06,
-    "end": 98.78
-  },
-  {
-    "word": "Oa",
-    "start": 99.48,
-    "end": 99.8
-  },
-  {
-    "word": "sails",
-    "start": 99.8,
+    "start": 100.28,
     "end": 100.34
   },
   {
-    "word": "in",
+    "word": "remember.",
     "start": 100.34,
-    "end": 100.54
+    "end": 101.14
+  },
+  {
+    "word": "Oa",
+    "start": 101.64,
+    "end": 101.84
+  },
+  {
+    "word": "sails",
+    "start": 101.84,
+    "end": 102.4
+  },
+  {
+    "word": "in",
+    "start": 102.4,
+    "end": 102.54
   },
   {
     "word": "the",
-    "start": 100.54,
-    "end": 100.66
+    "start": 102.54,
+    "end": 102.66
   },
   {
     "word": "middle,",
-    "start": 100.66,
-    "end": 101.2
+    "start": 102.66,
+    "end": 103.16
   },
   {
     "word": "ow",
-    "start": 101.98,
-    "end": 102.24
+    "start": 103.74,
+    "end": 103.96
   },
   {
     "word": "rolls",
-    "start": 102.24,
-    "end": 102.96
+    "start": 103.96,
+    "end": 104.34
   },
   {
     "word": "to",
-    "start": 102.96,
-    "end": 103.28
+    "start": 104.34,
+    "end": 104.72
   },
   {
     "word": "the",
-    "start": 103.28,
-    "end": 103.44
+    "start": 104.72,
+    "end": 104.88
   },
   {
     "word": "end.",
-    "start": 103.44,
-    "end": 103.94
+    "start": 104.88,
+    "end": 105.32
   },
   {
     "word": "Read",
-    "start": 104.9,
-    "end": 105.04
+    "start": 106.64,
+    "end": 106.66
   },
   {
     "word": "more",
-    "start": 105.04,
-    "end": 105.36
+    "start": 106.66,
+    "end": 106.98
   },
   {
     "word": "words",
-    "start": 105.36,
-    "end": 105.7
+    "start": 106.98,
+    "end": 107.38
   },
   {
     "word": "like",
-    "start": 105.7,
-    "end": 105.96
+    "start": 107.38,
+    "end": 107.62
   },
   {
     "word": "these",
-    "start": 105.96,
-    "end": 106.24
+    "start": 107.62,
+    "end": 107.94
   },
   {
     "word": "in",
-    "start": 106.24,
-    "end": 106.62
+    "start": 107.94,
+    "end": 108.22
   },
   {
     "word": "the",
-    "start": 106.62,
-    "end": 106.74
+    "start": 108.22,
+    "end": 108.34
   },
   {
     "word": "English",
-    "start": 106.74,
-    "end": 107.08
+    "start": 108.34,
+    "end": 108.74
   },
   {
     "word": "Learning",
-    "start": 107.08,
-    "end": 107.56
+    "start": 108.74,
+    "end": 109.26
   },
   {
     "word": "app.",
-    "start": 107.56,
-    "end": 107.92
+    "start": 109.26,
+    "end": 109.64
   },
   {
     "word": "Free",
-    "start": 108.34,
-    "end": 108.5
+    "start": 110.4,
+    "end": 110.52
   },
   {
     "word": "to",
-    "start": 108.5,
-    "end": 108.7
+    "start": 110.52,
+    "end": 110.72
   },
   {
     "word": "download",
-    "start": 108.7,
-    "end": 109.1
+    "start": 110.72,
+    "end": 111.04
   },
   {
     "word": "today!",
-    "start": 109.1,
-    "end": 109.75
+    "start": 111.04,
+    "end": 111.69
   }
 ]

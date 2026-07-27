@@ -818,14 +818,14 @@
     "index": 30,
     "text": "Soil.",
     "line_index": 16,
-    "start": 67.46,
-    "end": 68.18,
-    "duration": 0.72,
+    "start": 67.71,
+    "end": 68.11,
+    "duration": 0.4,
     "words": [
       {
         "word": "Soil.",
-        "start": 67.46,
-        "end": 68.18
+        "start": 67.71,
+        "end": 68.11
       }
     ]
   },
@@ -833,14 +833,14 @@
     "index": 31,
     "text": "Point.",
     "line_index": 16,
-    "start": 69.24,
-    "end": 69.86,
-    "duration": 0.62,
+    "start": 69.44,
+    "end": 69.95,
+    "duration": 0.51,
     "words": [
       {
         "word": "Point.",
-        "start": 69.24,
-        "end": 69.86
+        "start": 69.44,
+        "end": 69.95
       }
     ]
   },
@@ -848,14 +848,14 @@
     "index": 32,
     "text": "Oil.",
     "line_index": 16,
-    "start": 71.2,
-    "end": 71.86,
-    "duration": 0.66,
+    "start": 71.38,
+    "end": 71.8,
+    "duration": 0.42,
     "words": [
       {
         "word": "Oil.",
-        "start": 71.2,
-        "end": 71.86
+        "start": 71.38,
+        "end": 71.8
       }
     ]
   },
@@ -863,14 +863,14 @@
     "index": 33,
     "text": "Join.",
     "line_index": 16,
-    "start": 73.56,
-    "end": 74.06,
-    "duration": 0.5,
+    "start": 73.41,
+    "end": 74.0,
+    "duration": 0.59,
     "words": [
       {
         "word": "Join.",
-        "start": 73.56,
-        "end": 74.06
+        "start": 73.41,
+        "end": 74.0
       }
     ]
   },
@@ -878,14 +878,14 @@
     "index": 34,
     "text": "Boil.",
     "line_index": 16,
-    "start": 75.54,
-    "end": 75.96,
-    "duration": 0.42,
+    "start": 75.4,
+    "end": 75.89,
+    "duration": 0.49,
     "words": [
       {
         "word": "Boil.",
-        "start": 75.54,
-        "end": 75.96
+        "start": 75.4,
+        "end": 75.89
       }
     ]
   },
@@ -958,14 +958,14 @@
     "index": 37,
     "text": "Boy.",
     "line_index": 19,
-    "start": 82.26,
-    "end": 82.64,
-    "duration": 0.38,
+    "start": 82.11,
+    "end": 82.58,
+    "duration": 0.47,
     "words": [
       {
         "word": "Boy.",
-        "start": 82.26,
-        "end": 82.64
+        "start": 82.11,
+        "end": 82.58
       }
     ]
   },
@@ -988,14 +988,14 @@
     "index": 39,
     "text": "Joy.",
     "line_index": 19,
-    "start": 86.24,
-    "end": 86.72,
-    "duration": 0.48,
+    "start": 86.1,
+    "end": 86.65,
+    "duration": 0.55,
     "words": [
       {
         "word": "Joy.",
-        "start": 86.24,
-        "end": 86.72
+        "start": 86.1,
+        "end": 86.65
       }
     ]
   },

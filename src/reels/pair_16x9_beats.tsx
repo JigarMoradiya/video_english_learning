@@ -307,26 +307,53 @@ export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pai
                 const isAns = i === answer;
                 const lit = revealed && isAns;
                 const dim = revealed && !isAns;
+                // The child gets ~6s to think here. Two motionless cards made that read as a
+                // stalled video, so before the answer the pair take TURNS leaning forward —
+                // out of phase, each with a ring breathing out of it: "pick one of us".
+                const ph = (frame / fps) * 2.6 + i * Math.PI;
+                const nudge = Math.max(0, Math.sin(ph));
+                const invite = revealed ? 1 : 1 + 0.07 * nudge;
+                const tilt = revealed ? 0 : Math.sin(ph) * 2.6;
+                const winPulse = lit ? 1 + 0.05 * Math.sin((frame / fps) * 7) : 1;
                 return (
-                  <div
-                    key={t.marker}
-                    style={{
-                      background: lit ? tc : "#fff",
-                      border: `8px solid ${tc}`,
-                      borderRadius: 30,
-                      padding: "14px 52px",
-                      fontSize: 82,
-                      fontWeight: 700,
-                      fontFamily: font.family,
-                      color: lit ? "#fff" : tc,
-                      opacity: dim ? 0.34 : 1,
-                      transform: `scale(${lit ? 1 + 0.12 * s : 1}) translateY(${bob(frame, fps, lit ? 8 : 4, 2.2, i)}px)`,
-                      boxShadow: lit ? `0 18px 46px ${tc}66` : "0 10px 26px rgba(30,36,56,0.14)",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {t.marker}
-                    {lit && <span style={{ fontSize: 46, marginLeft: 12 }}>🎉</span>}
+                  <div key={t.marker} style={{ position: "relative", display: "flex" }}>
+                    {/* waiting: a ring breathes out of each card in turn */}
+                    {!revealed && (
+                      <div
+                        style={{
+                          position: "absolute", inset: -12 - 14 * nudge, borderRadius: 42,
+                          border: `6px solid ${tc}`, opacity: 0.5 * (1 - nudge), pointerEvents: "none",
+                        }}
+                      />
+                    )}
+                    {/* the answer: one ring bursts outward and fades */}
+                    {lit && (
+                      <div
+                        style={{
+                          position: "absolute", inset: -10 - 34 * Math.min(1, s), borderRadius: 48,
+                          border: `9px solid ${tc}`, opacity: 0.65 * (1 - Math.min(1, s)), pointerEvents: "none",
+                        }}
+                      />
+                    )}
+                    <div
+                      style={{
+                        background: lit ? tc : "#fff",
+                        border: `8px solid ${tc}`,
+                        borderRadius: 30,
+                        padding: "14px 52px",
+                        fontSize: 82,
+                        fontWeight: 700,
+                        fontFamily: font.family,
+                        color: lit ? "#fff" : tc,
+                        opacity: dim ? 0.34 : 1,
+                        transform: `scale(${(lit ? 1 + 0.12 * s : invite) * winPulse}) rotate(${tilt}deg) translateY(${bob(frame, fps, lit ? 8 : 4, 2.2, i)}px)`,
+                        boxShadow: lit ? `0 18px 46px ${tc}66` : `0 10px 26px rgba(30,36,56,0.14), 0 0 ${26 * nudge}px ${tc}${revealed ? "00" : "55"}`,
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {t.marker}
+                      {lit && <span style={{ fontSize: 46, marginLeft: 12 }}>🎉</span>}
+                    </div>
                   </div>
                 );
               })}
@@ -348,7 +375,7 @@ const QuizIllo: React.FC<{ word: string }> = ({ word }) => {
 };
 
 // ── recap ────────────────────────────────────────────────────────────────────
-export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data }) => {
+export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data, beat }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   return (
@@ -358,22 +385,43 @@ export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ d
         <div style={{ display: "flex", gap: 56 }}>
           {data.teams.map((t, i) => {
             const c = hex(t.colorHex);
-            const at = i * 34;
-            const s = spring({ frame: frame - at, fps, config: { damping: 12 } });
+            // The rule line names each spelling in turn — "OA sails in the middle, OW rolls
+            // to the end" — so each card lights ON ITS OWN WORD instead of both just sitting
+            // there. Both are present from the start; being named is a highlight, not an entrance.
+            const cue = beat.word(t.marker);
+            const litAt = cue >= 0 ? cue : 24 + i * 44;
+            const lit = frame >= litAt;
+            const enter = spring({ frame: frame - i * 8, fps, config: { damping: 13 } });
+            const kick = lit ? 1 + 0.16 * Math.max(0, 1 - (frame - litAt) / 20) : 1;
+            const glow = lit ? 1 + 0.035 * Math.sin((frame / fps) * 6.5) : 1;
+            const emojiPop = lit ? 1 + 0.18 * Math.max(0, Math.sin((frame - litAt) / 6)) * Math.max(0, 1 - (frame - litAt) / 30) : 1;
             return (
-              <div
-                key={t.marker}
-                style={{
-                  background: "#fff", border: `8px solid ${c}`, borderRadius: 40, padding: "30px 56px",
-                  display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
-                  fontFamily: font.family, minWidth: 420,
-                  transform: `scale(${0.8 + 0.2 * s}) translateY(${bob(frame, fps, 7, 2.6, i)}px)`,
-                  boxShadow: `0 18px 44px ${c}44`,
-                }}
-              >
-                <span style={{ fontSize: 60 }}>{t.zoneEmoji}</span>
-                <span style={{ fontSize: 108, fontWeight: 700, color: c, lineHeight: 1 }}>{t.marker}</span>
-                <span style={{ fontSize: 40, fontWeight: 600, color: palette.inkSoft }}>{t.zoneHint === "middle" ? "in the middle" : "at the end"}</span>
+              <div key={t.marker} style={{ position: "relative", display: "flex" }}>
+                {/* a ring bursts off the card as its name is spoken */}
+                {lit && (
+                  <div
+                    style={{
+                      position: "absolute", inset: -8 - 30 * Math.min(1, (frame - litAt) / 18), borderRadius: 52,
+                      border: `8px solid ${c}`, opacity: 0.6 * Math.max(0, 1 - (frame - litAt) / 18), pointerEvents: "none",
+                    }}
+                  />
+                )}
+                <div
+                  style={{
+                    background: lit ? tint(t.colorHex, 0.88) : "#fff",
+                    border: `8px solid ${lit ? c : tint(t.colorHex, 0.5)}`,
+                    borderRadius: 40, padding: "30px 56px",
+                    display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
+                    fontFamily: font.family, minWidth: 420,
+                    opacity: lit ? 1 : 0.72,
+                    transform: `scale(${(0.86 + 0.14 * enter) * kick * glow}) translateY(${bob(frame, fps, lit ? 8 : 5, 2.6, i)}px)`,
+                    boxShadow: lit ? `0 22px 54px ${c}66` : "0 12px 30px rgba(30,36,56,0.12)",
+                  }}
+                >
+                  <span style={{ fontSize: 60, display: "inline-block", transform: `scale(${emojiPop})` }}>{t.zoneEmoji}</span>
+                  <span style={{ fontSize: 108, fontWeight: 700, color: c, lineHeight: 1, textShadow: lit ? `0 10px 26px ${c}55` : "none" }}>{t.marker}</span>
+                  <span style={{ fontSize: 40, fontWeight: 600, color: lit ? c : palette.inkSoft }}>{t.zoneHint === "middle" ? "in the middle" : "at the end"}</span>
+                </div>
               </div>
             );
           })}
