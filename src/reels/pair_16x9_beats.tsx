@@ -1,14 +1,14 @@
 import React from "react";
-import { AbsoluteFill, Audio, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { PhonicsComparison } from "../data/types";
 import { Beat, sec } from "../lib/timing";
 import { Band, Center, Pill, STAGE_TOP, safeX } from "../components/LandscapeBeatKit";
 import { CkWordChip } from "../components/CkWordChip";
 import { LogoBadge } from "../components/BrandMarks";
+import { Confetti } from "../components/Confetti";
 import { hex, palette, tint, font } from "../data/tokens";
-import { bob, pulse } from "../lib/motion";
+import { bob, pulse, wiggle } from "../lib/motion";
 import { illustrationFor } from "../data/wordImages";
-import extraWordAudio from "../data/extraWordAudio.json";
 
 // Beat overlays shared by ALL THREE pair lessons (ai/ay · oi/oy · oa/ow). The set — train,
 // lily pads, rafts — carries the teaching beats; these are the headline-band pills plus the
@@ -30,9 +30,6 @@ export type PairCopy = {
   // looking right on ai/ay by luck and 2.6s late on the other two.
   reveal: { needle: string; nth: number };
 };
-
-const DUR: Record<string, number> = extraWordAudio as Record<string, number>;
-const wordSrc = (w: string) => `audio/words/${w}.mp3`;
 
 // ── hook · same · where · rules · notThis — headline pills only ──────────────
 export const PairHook: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data }) => (
@@ -230,16 +227,9 @@ export const PairSeeIt: React.FC<{ data: PhonicsComparison; beat: Beat; wordsMid
   const endHead = beat.word("Now") >= 0 ? beat.word("Now") - 20 : sec(16, fps);
   return (
     <>
-      {/* per-word audio, on each spoken cue */}
-      {[...wordsMid, ...wordsEnd].map((w) => {
-        const at = beat.word(w);
-        if (at < 0 || !DUR[w]) return null;
-        return (
-          <Sequence key={w} from={at} durationInFrames={sec(DUR[w], fps) + 6}>
-            <Audio src={staticFile(wordSrc(w))} volume={0.9} />
-          </Sequence>
-        );
-      })}
+      {/* NO per-word audio here. The narration already says every word out loud — "Boat.
+          Coat. Goat. …" — so playing the app's word clip on the same cue doubled the voice.
+          (The letter videos DO need their clips; those beats have no narration of their own.) */}
       <AbsoluteFill>
         <WordBoard team={data.teams[0]} words={wordsMid} beat={beat} headAt={midHead} side="left" />
         <WordBoard team={data.teams[1]} words={wordsEnd} beat={beat} headAt={endHead} side="right" />
@@ -266,8 +256,21 @@ export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pai
   const team = data.teams[answer];
   const c = hex(team.colorHex);
   const s = spring({ frame: frame - revealAt, fps, config: { damping: 10 } });
-  const suspense = !revealed && frame > askAt ? 1 + 0.4 * Math.sin((frame / fps) * 8) : 1;
   const cut = word.indexOf(team.marker);
+
+  // Animated like c_k_ck's Quiz3, which is the version that works:
+  //   · the word is HELD ghosted until it is named, then springs in
+  //   · a 👇 hops onto each option as the narrator names it ("Is it oa, or ow?")
+  //   · the cards wiggle FASTER and tighter as the reveal approaches
+  //   · the answer pops, the other dims, and confetti fires
+  const wordAt = beat.word(word) >= 0 ? beat.word(word) : askAt - sec(1.4, fps);
+  const wordIn = spring({ frame: frame - wordAt, fps, config: { damping: 12 } });
+  const optionAt = data.teams.map((t) => beat.word(t.marker)); // "oa" then "ow" in the question
+  let pointed = -1;
+  for (let j = 0; j < optionAt.length; j++) if (!revealed && optionAt[j] >= 0 && frame >= optionAt[j]) pointed = j;
+  // 1 → 3 over the last ~1.8s: the wiggle speeds up while the answer is coming
+  const tension = interpolate(frame, [revealAt - 55, revealAt], [1, 3], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const suspense = tension;
 
   return (
     <>
@@ -281,10 +284,19 @@ export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pai
           <div style={{ width: 300, height: 300, background: palette.card, border: `9px solid ${c}`, borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 168, boxShadow: `0 18px 44px ${c}44`, transform: `translateY(${bob(frame, fps, 8, 2.6)}px)`, overflow: "hidden", padding: 18 }}>
             <QuizIllo word={word} />
           </div>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 40 }}>
+          {/* gap 92: the 👇 pointer hangs 72px above the cards and was drawing through the word */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 92 }}>
             {/* baseline-aligned: a block child's baseline is its bottom edge, so the gap
                 bars sit ON the writing line instead of floating mid-letter */}
-            <div style={{ display: "flex", alignItems: "baseline", gap: 6, fontFamily: font.family, fontSize: 150, fontWeight: 700, color: palette.ink, lineHeight: 1.1 }}>
+            <div
+              style={{
+                display: "flex", alignItems: "baseline", gap: 6, fontFamily: font.family,
+                fontSize: 150, fontWeight: 700, color: palette.ink, lineHeight: 1.1,
+                // held ghosted before it is named, so the wait is not a hole
+                opacity: frame >= wordAt ? 1 : 0.22,
+                transform: `scale(${(frame >= wordAt ? 0.9 + 0.1 * wordIn : 0.92) * (revealed ? pulse(frame - revealAt, fps, 0.05, 0.8) : 1)})`,
+              }}
+            >
               {revealed ? (
                 <>
                   <span>{word.slice(0, cut)}</span>
@@ -307,33 +319,21 @@ export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pai
                 const isAns = i === answer;
                 const lit = revealed && isAns;
                 const dim = revealed && !isAns;
-                // The child gets ~6s to think here. Two motionless cards made that read as a
-                // stalled video, so before the answer the pair take TURNS leaning forward —
-                // out of phase, each with a ring breathing out of it: "pick one of us".
-                const ph = (frame / fps) * 2.6 + i * Math.PI;
-                const nudge = Math.max(0, Math.sin(ph));
-                const invite = revealed ? 1 : 1 + 0.07 * nudge;
-                const tilt = revealed ? 0 : Math.sin(ph) * 2.6;
-                const winPulse = lit ? 1 + 0.05 * Math.sin((frame / fps) * 7) : 1;
+                const isPointed = pointed === i;
+                const pointS = isPointed && optionAt[i] >= 0 ? spring({ frame: frame - optionAt[i], fps, config: { damping: 9 } }) : 0;
+                const pop = lit ? spring({ frame: frame - revealAt, fps, config: { damping: 8 } }) : 0;
                 return (
-                  <div key={t.marker} style={{ position: "relative", display: "flex" }}>
-                    {/* waiting: a ring breathes out of each card in turn */}
-                    {!revealed && (
+                  <div key={t.marker} style={{ position: "relative" }}>
+                    {/* the pointer hops onto each option as it is named */}
+                    {isPointed && (
                       <div
                         style={{
-                          position: "absolute", inset: -12 - 14 * nudge, borderRadius: 42,
-                          border: `6px solid ${tc}`, opacity: 0.5 * (1 - nudge), pointerEvents: "none",
+                          position: "absolute", top: -72, left: "50%", fontSize: 56,
+                          transform: `translateX(-50%) scale(${pointS}) translateY(${bob(frame, fps, 9, 3.4)}px)`,
                         }}
-                      />
-                    )}
-                    {/* the answer: one ring bursts outward and fades */}
-                    {lit && (
-                      <div
-                        style={{
-                          position: "absolute", inset: -10 - 34 * Math.min(1, s), borderRadius: 48,
-                          border: `9px solid ${tc}`, opacity: 0.65 * (1 - Math.min(1, s)), pointerEvents: "none",
-                        }}
-                      />
+                      >
+                        👇
+                      </div>
                     )}
                     <div
                       style={{
@@ -345,9 +345,9 @@ export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pai
                         fontWeight: 700,
                         fontFamily: font.family,
                         color: lit ? "#fff" : tc,
-                        opacity: dim ? 0.34 : 1,
-                        transform: `scale(${(lit ? 1 + 0.12 * s : invite) * winPulse}) rotate(${tilt}deg) translateY(${bob(frame, fps, lit ? 8 : 4, 2.2, i)}px)`,
-                        boxShadow: lit ? `0 18px 46px ${tc}66` : `0 10px 26px rgba(30,36,56,0.14), 0 0 ${26 * nudge}px ${tc}${revealed ? "00" : "55"}`,
+                        opacity: dim ? 0.3 : 1,
+                        transform: `scale(${(lit ? 1 + pop * 0.16 : 1) * (1 + pointS * 0.1)}) rotate(${lit ? 0 : wiggle(frame, fps, 2 * tension, 1.6 / tension, i)}deg)`,
+                        boxShadow: lit || isPointed ? `0 16px 48px ${tc}88` : "0 10px 26px rgba(30,36,56,0.14)",
                         whiteSpace: "nowrap",
                       }}
                     >
@@ -361,6 +361,7 @@ export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pai
           </div>
         </div>
       </Center>
+      <Confetti frame={frame} fps={fps} burstFrame={revealAt} origin={{ x: 1180, y: 640 }} colors={[c, "#FFD54F", "#4FC3F7", "#81C784", "#FF8A65"]} count={34} />
     </>
   );
 };
