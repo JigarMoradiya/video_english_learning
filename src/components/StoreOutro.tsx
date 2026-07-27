@@ -16,7 +16,7 @@ const CTA_DUR = 9.64;
 // compact  = detail-page-only store flow (fits short beats)
 // total    = the outro/beat length in frames (used to time the store-badge reveal)
 // audioSrc = custom CTA voiceover (each video keeps a UNIQUE closing line); dur = its seconds
-export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?: number; audioSrc?: string; audioDur?: number }> = ({ silent = false, compact = false, total = STORE_OUTRO_F, audioSrc = "audio/recognition/practice_letter_rules_download_app.mp3", audioDur = CTA_DUR }) => {
+export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?: number; audioSrc?: string; audioDur?: number; bg?: string }> = ({ silent = false, compact = false, total = STORE_OUTRO_F, audioSrc = "audio/recognition/practice_letter_rules_download_app.mp3", audioDur = CTA_DUR, bg }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const logoIn = spring({ frame: frame - 10, fps, config: { damping: 12 } });
@@ -29,6 +29,27 @@ export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?:
     // keep running underneath, otherwise the download beat is a hard jump cut to a
     // different world — see the "never paint an opaque background inside a scene" rule.
     <AbsoluteFill style={{ fontFamily: font.family }}>
+      {/* Opt-in backdrop. The default is still transparent so the video's own ambient layer
+          carries through — but a busy set (the ou/ow big top) makes the store card hard to
+          read, so a card may hand the outro a calm gradient of its own. It keeps drifting
+          shapes so the ending never goes static. */}
+      {bg && (
+        <AbsoluteFill style={{ background: bg, opacity: interpolate(frame, [0, 14], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+          {Array.from({ length: 7 }).map((_, i) => {
+            const t = (frame * (0.22 + i * 0.05) + i * 260) % 2200;
+            return (
+              <div
+                key={i}
+                style={{
+                  position: "absolute", left: (i * 317) % 1700, top: 980 - (t / 2200) * 1180,
+                  width: 90 + (i % 3) * 54, height: 90 + (i % 3) * 54, borderRadius: "50%",
+                  background: ["#FFFFFF", "#FFE0B2", "#B3E5FC", "#F8BBD0"][i % 4], opacity: 0.30,
+                }}
+              />
+            );
+          })}
+        </AbsoluteFill>
+      )}
       {!silent && (
         <Sequence from={10} durationInFrames={sec(audioDur, fps) + 10}>
           <Audio src={staticFile(audioSrc)} />

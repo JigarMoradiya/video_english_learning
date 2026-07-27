@@ -95,6 +95,34 @@ export const comparisons: Record<string, PhonicsComparison> = {
   // c_k_ck, but the three colorHex use the in-app L5 LESSON palette (C blue / K purple /
   // CK orange) rather than the comparison-card greens — so the video matches the Level 5
   // lesson its narration + CTA point at. Team order [c, k, ck] = Word Street left→mid→end.
+  ou_ow: {
+    id: "ou_ow",
+    cardTitle: "ou ⚡ ow",
+    shortTitle: "ou vs ow",
+    rule: "OU works INSIDE… OW finishes the word, or guards the last letter!",
+    explanation:
+      "Both teams shout the /ow!/ sound you hear in cloud and cow.\n• **At the start or inside** → write **ou** (out, cl-ou-d).\n• At the **end**, or right before a final letter → write **ow** (c-ow, br-ow-n).",
+    example: "cloud · cow",
+    group: "spelling",
+    // circus magenta + gold — distinct from ai/ay blue, oi/oy purple, oa/ow teal
+    hueShift: 320,
+    teams: [
+      // 🎪 not 🏠: "house" is one of this card's own example words, and a house badge next to
+      // a house card reads as a mistake
+      { marker: "ou", colorHex: "C2185B", zoneEmoji: "🎪", zoneHint: "middle", zonePhrase: "inside the word", markerAudio: "ou" },
+      { marker: "ow", colorHex: "F57F17", zoneEmoji: "🏁", zoneHint: "end", zonePhrase: "at the end", markerAudio: "ow" },
+    ],
+    quiz: [
+      { word: "cloud", blanked: "cl__d", answerTeam: 0 },
+      { word: "house", blanked: "h__se", answerTeam: 0 },
+      { word: "mouth", blanked: "m__th", answerTeam: 0 },
+      { word: "round", blanked: "r__nd", answerTeam: 0 },
+      { word: "cow", blanked: "c__", answerTeam: 1 },
+      { word: "now", blanked: "n__", answerTeam: 1 },
+      { word: "brown", blanked: "br__n", answerTeam: 1 },
+      { word: "owl", blanked: "__l", answerTeam: 1 },
+    ],
+  },
   c_k_ck: {
     id: "c_k_ck",
     cardTitle: "c ⚡ k ⚡ ck",

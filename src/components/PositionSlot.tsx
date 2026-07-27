@@ -31,6 +31,27 @@ export const NEUTRAL = "78909C";
 export const slotColor = (i: number, data: PhonicsComparison) =>
   i === 0 ? NEUTRAL : i === 1 ? data.teams[0].colorHex : data.teams[1].colorHex;
 
+// ── which slot is lit, and how long ago it changed ────────────────────────────
+// Remotion renders one frame at a time with no state, so a character that JUMPS between
+// slots derives its motion by walking stateFor backwards to the frame the lit slot last
+// changed. stateFor is pure comparisons, so this is cheap, and the jump can never drift
+// out of sync with the narration.
+export const litOf = (stateFor: (f: number) => SlotState, f: number) => stateFor(f).litIdx ?? -1;
+
+export const hopInfo = (stateFor: (f: number) => SlotState, f: number, hopFrames: number, look = 150) => {
+  const cur = litOf(stateFor, f);
+  let changedAt = f - look;
+  for (let k = 1; k <= look; k++) {
+    if (litOf(stateFor, f - k) !== cur) {
+      changedAt = f - k + 1;
+      break;
+    }
+  }
+  const prev = litOf(stateFor, changedAt - 1);
+  const t = Math.min(1, Math.max(0, (f - changedAt) / hopFrames));
+  return { cur, prev: prev < 0 ? cur : prev, t };
+};
+
 // ── what sits inside a slot ──────────────────────────────────────────────────
 // A slot with nothing to show holds a dashed ghost frame, never a bare hole: empty
 // slots for 15s is the dead-screen failure every one of these sets has to avoid.

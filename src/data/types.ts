@@ -7,6 +7,9 @@ export interface ComparisonTeam {
   colorHex: string; // "1565C0"
   zoneEmoji: string; // 🏠 / 🏁
   zoneHint: string; // "middle" / "end"
+  // Optional long form for the rule pill and recap card. ou/ow needs it: the sound sits at
+  // the BEGINNING as well as the middle ("out", "ouch"), so "in the middle" would be wrong.
+  zonePhrase?: string;
   markerAudio?: string; // blend sound file stem ("ai")
 }
 

@@ -1,0 +1,2767 @@
+[
+  {
+    "index": 0,
+    "text": "Ouch!",
+    "line_index": 0,
+    "start": 0.34,
+    "end": 0.84,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Ouch!",
+        "start": 0.34,
+        "end": 0.84
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "That sound.",
+    "line_index": 0,
+    "start": 1.28,
+    "end": 2.7,
+    "duration": 1.42,
+    "words": [
+      {
+        "word": "That",
+        "start": 1.28,
+        "end": 1.48
+      },
+      {
+        "word": "sound.",
+        "start": 1.48,
+        "end": 2.7
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Ow!",
+    "line_index": 1,
+    "start": 2.78,
+    "end": 3.38,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "Ow!",
+        "start": 2.78,
+        "end": 3.38
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Two spellings make it.",
+    "line_index": 1,
+    "start": 4.38,
+    "end": 5.52,
+    "duration": 1.14,
+    "words": [
+      {
+        "word": "Two",
+        "start": 4.38,
+        "end": 4.5
+      },
+      {
+        "word": "spellings",
+        "start": 4.5,
+        "end": 4.96
+      },
+      {
+        "word": "make",
+        "start": 4.96,
+        "end": 5.24
+      },
+      {
+        "word": "it.",
+        "start": 5.24,
+        "end": 5.52
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Ou, and ow.",
+    "line_index": 1,
+    "start": 6.3,
+    "end": 8.24,
+    "duration": 1.94,
+    "words": [
+      {
+        "word": "Ou,",
+        "start": 6.3,
+        "end": 6.68
+      },
+      {
+        "word": "and",
+        "start": 7.06,
+        "end": 7.4
+      },
+      {
+        "word": "ow.",
+        "start": 7.4,
+        "end": 8.24
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Say it with me.",
+    "line_index": 2,
+    "start": 9.16,
+    "end": 9.76,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "Say",
+        "start": 9.16,
+        "end": 9.2
+      },
+      {
+        "word": "it",
+        "start": 9.2,
+        "end": 9.34
+      },
+      {
+        "word": "with",
+        "start": 9.34,
+        "end": 9.44
+      },
+      {
+        "word": "me.",
+        "start": 9.44,
+        "end": 9.76
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Ow!",
+    "line_index": 2,
+    "start": 10.82,
+    "end": 11.26,
+    "duration": 0.44,
+    "words": [
+      {
+        "word": "Ow!",
+        "start": 10.82,
+        "end": 11.26
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "You hear it in cloud.",
+    "line_index": 3,
+    "start": 12.6,
+    "end": 13.93,
+    "duration": 1.33,
+    "words": [
+      {
+        "word": "You",
+        "start": 12.6,
+        "end": 12.74
+      },
+      {
+        "word": "hear",
+        "start": 12.74,
+        "end": 13.02
+      },
+      {
+        "word": "it",
+        "start": 13.02,
+        "end": 13.24
+      },
+      {
+        "word": "in",
+        "start": 13.24,
+        "end": 13.38
+      },
+      {
+        "word": "cloud.",
+        "start": 13.38,
+        "end": 13.93
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "And in cow.",
+    "line_index": 3,
+    "start": 14.78,
+    "end": 16.12,
+    "duration": 1.34,
+    "words": [
+      {
+        "word": "And",
+        "start": 14.78,
+        "end": 15.14
+      },
+      {
+        "word": "in",
+        "start": 15.14,
+        "end": 15.58
+      },
+      {
+        "word": "cow.",
+        "start": 15.58,
+        "end": 16.12
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Same sound, different spelling.",
+    "line_index": 4,
+    "start": 17.08,
+    "end": 18.84,
+    "duration": 1.76,
+    "words": [
+      {
+        "word": "Same",
+        "start": 17.08,
+        "end": 17.16
+      },
+      {
+        "word": "sound,",
+        "start": 17.16,
+        "end": 17.76
+      },
+      {
+        "word": "different",
+        "start": 18.16,
+        "end": 18.3
+      },
+      {
+        "word": "spelling.",
+        "start": 18.3,
+        "end": 18.84
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "So which one do we write?",
+    "line_index": 5,
+    "start": 19.74,
+    "end": 21.0,
+    "duration": 1.26,
+    "words": [
+      {
+        "word": "So",
+        "start": 19.74,
+        "end": 19.84
+      },
+      {
+        "word": "which",
+        "start": 19.84,
+        "end": 20.08
+      },
+      {
+        "word": "one",
+        "start": 20.08,
+        "end": 20.38
+      },
+      {
+        "word": "do",
+        "start": 20.38,
+        "end": 20.52
+      },
+      {
+        "word": "we",
+        "start": 20.52,
+        "end": 20.64
+      },
+      {
+        "word": "write?",
+        "start": 20.64,
+        "end": 21.0
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "It's the same secret as always.",
+    "line_index": 5,
+    "start": 22.08,
+    "end": 24.0,
+    "duration": 1.92,
+    "words": [
+      {
+        "word": "It's",
+        "start": 22.08,
+        "end": 22.26
+      },
+      {
+        "word": "the",
+        "start": 22.28,
+        "end": 22.38
+      },
+      {
+        "word": "same",
+        "start": 22.38,
+        "end": 22.66
+      },
+      {
+        "word": "secret",
+        "start": 22.66,
+        "end": 23.1
+      },
+      {
+        "word": "as",
+        "start": 23.1,
+        "end": 23.36
+      },
+      {
+        "word": "always.",
+        "start": 23.36,
+        "end": 24.0
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "WHERE the sound sits in the word.",
+    "line_index": 6,
+    "start": 24.78,
+    "end": 26.84,
+    "duration": 2.06,
+    "words": [
+      {
+        "word": "WHERE",
+        "start": 24.78,
+        "end": 25.08
+      },
+      {
+        "word": "the",
+        "start": 25.08,
+        "end": 25.48
+      },
+      {
+        "word": "sound",
+        "start": 25.48,
+        "end": 25.78
+      },
+      {
+        "word": "sits",
+        "start": 25.78,
+        "end": 26.04
+      },
+      {
+        "word": "in",
+        "start": 26.04,
+        "end": 26.3
+      },
+      {
+        "word": "the",
+        "start": 26.3,
+        "end": 26.42
+      },
+      {
+        "word": "word.",
+        "start": 26.42,
+        "end": 26.84
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Ou likes the beginning and the middle.",
+    "line_index": 7,
+    "start": 27.6,
+    "end": 29.84,
+    "duration": 2.24,
+    "words": [
+      {
+        "word": "Ou",
+        "start": 27.6,
+        "end": 27.76
+      },
+      {
+        "word": "likes",
+        "start": 27.76,
+        "end": 28.02
+      },
+      {
+        "word": "the",
+        "start": 28.02,
+        "end": 28.26
+      },
+      {
+        "word": "beginning",
+        "start": 28.26,
+        "end": 28.66
+      },
+      {
+        "word": "and",
+        "start": 28.66,
+        "end": 29.24
+      },
+      {
+        "word": "the",
+        "start": 29.24,
+        "end": 29.4
+      },
+      {
+        "word": "middle.",
+        "start": 29.4,
+        "end": 29.84
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Never the end.",
+    "line_index": 7,
+    "start": 30.3,
+    "end": 31.06,
+    "duration": 0.76,
+    "words": [
+      {
+        "word": "Never",
+        "start": 30.3,
+        "end": 30.46
+      },
+      {
+        "word": "the",
+        "start": 30.46,
+        "end": 30.76
+      },
+      {
+        "word": "end.",
+        "start": 30.76,
+        "end": 31.06
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Look.",
+    "line_index": 8,
+    "start": 31.92,
+    "end": 32.06,
+    "duration": 0.14,
+    "words": [
+      {
+        "word": "Look.",
+        "start": 31.92,
+        "end": 32.06
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Out.",
+    "line_index": 8,
+    "start": 33.32,
+    "end": 33.48,
+    "duration": 0.16,
+    "words": [
+      {
+        "word": "Out.",
+        "start": 33.32,
+        "end": 33.48
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Cl-ou-d.",
+    "line_index": 8,
+    "start": 34.62,
+    "end": 36.98,
+    "duration": 2.36,
+    "words": [
+      {
+        "word": "Cl-ou-d.",
+        "start": 34.62,
+        "end": 36.98
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "H-ou-se.",
+    "line_index": 8,
+    "start": 38.22,
+    "end": 39.84,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "H-ou-se.",
+        "start": 38.22,
+        "end": 39.84
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Ou stays tucked inside the word.",
+    "line_index": 9,
+    "start": 40.86,
+    "end": 42.88,
+    "duration": 2.02,
+    "words": [
+      {
+        "word": "Ou",
+        "start": 40.86,
+        "end": 41.02
+      },
+      {
+        "word": "stays",
+        "start": 41.02,
+        "end": 41.34
+      },
+      {
+        "word": "tucked",
+        "start": 41.34,
+        "end": 41.78
+      },
+      {
+        "word": "inside",
+        "start": 41.78,
+        "end": 42.2
+      },
+      {
+        "word": "the",
+        "start": 42.2,
+        "end": 42.46
+      },
+      {
+        "word": "word.",
+        "start": 42.46,
+        "end": 42.88
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Ow takes the END of the word.",
+    "line_index": 10,
+    "start": 43.68,
+    "end": 45.62,
+    "duration": 1.94,
+    "words": [
+      {
+        "word": "Ow",
+        "start": 43.68,
+        "end": 43.8
+      },
+      {
+        "word": "takes",
+        "start": 43.8,
+        "end": 44.1
+      },
+      {
+        "word": "the",
+        "start": 44.1,
+        "end": 44.38
+      },
+      {
+        "word": "END",
+        "start": 44.38,
+        "end": 44.92
+      },
+      {
+        "word": "of",
+        "start": 44.92,
+        "end": 45.0
+      },
+      {
+        "word": "the",
+        "start": 45.0,
+        "end": 45.14
+      },
+      {
+        "word": "word.",
+        "start": 45.14,
+        "end": 45.62
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "C-ow.",
+    "line_index": 11,
+    "start": 46.58,
+    "end": 48.18,
+    "duration": 1.6,
+    "words": [
+      {
+        "word": "C-ow.",
+        "start": 46.58,
+        "end": 48.18
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "N-ow.",
+    "line_index": 11,
+    "start": 49.0,
+    "end": 50.6,
+    "duration": 1.6,
+    "words": [
+      {
+        "word": "N-ow.",
+        "start": 49.0,
+        "end": 50.6
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "H-ow.",
+    "line_index": 11,
+    "start": 51.32,
+    "end": 52.82,
+    "duration": 1.5,
+    "words": [
+      {
+        "word": "H-ow.",
+        "start": 51.32,
+        "end": 52.82
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Nothing comes after it.",
+    "line_index": 12,
+    "start": 53.84,
+    "end": 55.06,
+    "duration": 1.22,
+    "words": [
+      {
+        "word": "Nothing",
+        "start": 53.84,
+        "end": 54.04
+      },
+      {
+        "word": "comes",
+        "start": 54.04,
+        "end": 54.34
+      },
+      {
+        "word": "after",
+        "start": 54.34,
+        "end": 54.78
+      },
+      {
+        "word": "it.",
+        "start": 54.78,
+        "end": 55.06
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "And here's a bonus.",
+    "line_index": 13,
+    "start": 55.98,
+    "end": 57.06,
+    "duration": 1.08,
+    "words": [
+      {
+        "word": "And",
+        "start": 55.98,
+        "end": 56.1
+      },
+      {
+        "word": "here's",
+        "start": 56.1,
+        "end": 56.5
+      },
+      {
+        "word": "a",
+        "start": 56.5,
+        "end": 56.6
+      },
+      {
+        "word": "bonus.",
+        "start": 56.6,
+        "end": 57.06
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Ow also works right before a final n or l.",
+    "line_index": 13,
+    "start": 57.88,
+    "end": 62.27,
+    "duration": 4.39,
+    "words": [
+      {
+        "word": "Ow",
+        "start": 57.88,
+        "end": 58.0
+      },
+      {
+        "word": "also",
+        "start": 58.0,
+        "end": 58.46
+      },
+      {
+        "word": "works",
+        "start": 58.46,
+        "end": 58.8
+      },
+      {
+        "word": "right",
+        "start": 58.8,
+        "end": 59.22
+      },
+      {
+        "word": "before",
+        "start": 59.22,
+        "end": 59.62
+      },
+      {
+        "word": "a",
+        "start": 59.62,
+        "end": 59.88
+      },
+      {
+        "word": "final",
+        "start": 60.0,
+        "end": 60.22
+      },
+      {
+        "word": "n",
+        "start": 60.22,
+        "end": 60.76
+      },
+      {
+        "word": "or",
+        "start": 60.76,
+        "end": 61.22
+      },
+      {
+        "word": "l.",
+        "start": 61.22,
+        "end": 62.27
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Br-ow-n.",
+    "line_index": 14,
+    "start": 62.78,
+    "end": 64.66,
+    "duration": 1.88,
+    "words": [
+      {
+        "word": "Br-ow-n.",
+        "start": 62.78,
+        "end": 64.66
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "T-ow-n.",
+    "line_index": 14,
+    "start": 65.38,
+    "end": 67.4,
+    "duration": 2.02,
+    "words": [
+      {
+        "word": "T-ow-n.",
+        "start": 65.38,
+        "end": 67.4
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "Ow-l.",
+    "line_index": 14,
+    "start": 68.16,
+    "end": 68.96,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "Ow-l.",
+        "start": 68.16,
+        "end": 68.96
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Now, one important thing about ow.",
+    "line_index": 15,
+    "start": 70.1,
+    "end": 72.08,
+    "duration": 1.98,
+    "words": [
+      {
+        "word": "Now,",
+        "start": 70.1,
+        "end": 70.18
+      },
+      {
+        "word": "one",
+        "start": 70.42,
+        "end": 70.42
+      },
+      {
+        "word": "important",
+        "start": 70.42,
+        "end": 70.9
+      },
+      {
+        "word": "thing",
+        "start": 70.9,
+        "end": 71.18
+      },
+      {
+        "word": "about",
+        "start": 71.18,
+        "end": 71.52
+      },
+      {
+        "word": "ow.",
+        "start": 71.52,
+        "end": 72.08
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Do you remember our oa and ow video?",
+    "line_index": 16,
+    "start": 72.94,
+    "end": 75.48,
+    "duration": 2.54,
+    "words": [
+      {
+        "word": "Do",
+        "start": 72.94,
+        "end": 72.98
+      },
+      {
+        "word": "you",
+        "start": 72.98,
+        "end": 73.12
+      },
+      {
+        "word": "remember",
+        "start": 73.12,
+        "end": 73.6
+      },
+      {
+        "word": "our",
+        "start": 73.6,
+        "end": 74.02
+      },
+      {
+        "word": "oa",
+        "start": 74.02,
+        "end": 74.62
+      },
+      {
+        "word": "and",
+        "start": 74.62,
+        "end": 74.76
+      },
+      {
+        "word": "ow",
+        "start": 74.76,
+        "end": 74.98
+      },
+      {
+        "word": "video?",
+        "start": 74.98,
+        "end": 75.48
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "In that one, ow was saying the long O.",
+    "line_index": 17,
+    "start": 76.26,
+    "end": 79.56,
+    "duration": 3.3,
+    "words": [
+      {
+        "word": "In",
+        "start": 76.26,
+        "end": 76.38
+      },
+      {
+        "word": "that",
+        "start": 76.38,
+        "end": 76.58
+      },
+      {
+        "word": "one,",
+        "start": 76.58,
+        "end": 77.44
+      },
+      {
+        "word": "ow",
+        "start": 77.56,
+        "end": 77.56
+      },
+      {
+        "word": "was",
+        "start": 77.56,
+        "end": 78.2
+      },
+      {
+        "word": "saying",
+        "start": 78.2,
+        "end": 78.5
+      },
+      {
+        "word": "the",
+        "start": 78.5,
+        "end": 78.74
+      },
+      {
+        "word": "long",
+        "start": 78.74,
+        "end": 79.1
+      },
+      {
+        "word": "O.",
+        "start": 79.1,
+        "end": 79.56
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "Snow.",
+    "line_index": 17,
+    "start": 80.6,
+    "end": 81.04,
+    "duration": 0.44,
+    "words": [
+      {
+        "word": "Snow.",
+        "start": 80.6,
+        "end": 81.04
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Grow.",
+    "line_index": 17,
+    "start": 81.82,
+    "end": 82.38,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Grow.",
+        "start": 81.82,
+        "end": 82.38
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Show.",
+    "line_index": 17,
+    "start": 83.4,
+    "end": 83.82,
+    "duration": 0.42,
+    "words": [
+      {
+        "word": "Show.",
+        "start": 83.4,
+        "end": 83.82
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "But here, ow is saying ow!",
+    "line_index": 18,
+    "start": 84.58,
+    "end": 88.08,
+    "duration": 3.5,
+    "words": [
+      {
+        "word": "But",
+        "start": 84.58,
+        "end": 84.78
+      },
+      {
+        "word": "here,",
+        "start": 84.78,
+        "end": 85.22
+      },
+      {
+        "word": "ow",
+        "start": 85.78,
+        "end": 85.8
+      },
+      {
+        "word": "is",
+        "start": 85.8,
+        "end": 86.4
+      },
+      {
+        "word": "saying",
+        "start": 86.4,
+        "end": 86.78
+      },
+      {
+        "word": "ow!",
+        "start": 86.78,
+        "end": 88.08
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Cow.",
+    "line_index": 18,
+    "start": 89.28,
+    "end": 89.72,
+    "duration": 0.44,
+    "words": [
+      {
+        "word": "Cow.",
+        "start": 89.28,
+        "end": 89.72
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "Brown.",
+    "line_index": 18,
+    "start": 90.5,
+    "end": 91.24,
+    "duration": 0.74,
+    "words": [
+      {
+        "word": "Brown.",
+        "start": 90.5,
+        "end": 91.24
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "Owl.",
+    "line_index": 18,
+    "start": 92.04,
+    "end": 92.56,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "Owl.",
+        "start": 92.04,
+        "end": 92.56
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "Same two letters.",
+    "line_index": 19,
+    "start": 93.7,
+    "end": 94.98,
+    "duration": 1.28,
+    "words": [
+      {
+        "word": "Same",
+        "start": 93.7,
+        "end": 93.72
+      },
+      {
+        "word": "two",
+        "start": 93.72,
+        "end": 93.98
+      },
+      {
+        "word": "letters.",
+        "start": 93.98,
+        "end": 94.98
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "Two completely different sounds!",
+    "line_index": 19,
+    "start": 95.04,
+    "end": 96.88,
+    "duration": 1.84,
+    "words": [
+      {
+        "word": "Two",
+        "start": 95.04,
+        "end": 95.08
+      },
+      {
+        "word": "completely",
+        "start": 95.08,
+        "end": 95.66
+      },
+      {
+        "word": "different",
+        "start": 95.66,
+        "end": 96.2
+      },
+      {
+        "word": "sounds!",
+        "start": 96.2,
+        "end": 96.88
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "So how do you know which sound to say?",
+    "line_index": 20,
+    "start": 97.78,
+    "end": 99.82,
+    "duration": 2.04,
+    "words": [
+      {
+        "word": "So",
+        "start": 97.78,
+        "end": 97.88
+      },
+      {
+        "word": "how",
+        "start": 97.88,
+        "end": 98.12
+      },
+      {
+        "word": "do",
+        "start": 98.12,
+        "end": 98.3
+      },
+      {
+        "word": "you",
+        "start": 98.3,
+        "end": 98.42
+      },
+      {
+        "word": "know",
+        "start": 98.42,
+        "end": 98.62
+      },
+      {
+        "word": "which",
+        "start": 98.62,
+        "end": 98.88
+      },
+      {
+        "word": "sound",
+        "start": 98.88,
+        "end": 99.18
+      },
+      {
+        "word": "to",
+        "start": 99.18,
+        "end": 99.4
+      },
+      {
+        "word": "say?",
+        "start": 99.4,
+        "end": 99.82
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "Here's the honest answer.",
+    "line_index": 21,
+    "start": 100.72,
+    "end": 102.04,
+    "duration": 1.32,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 100.72,
+        "end": 101.0
+      },
+      {
+        "word": "the",
+        "start": 101.0,
+        "end": 101.1
+      },
+      {
+        "word": "honest",
+        "start": 101.1,
+        "end": 101.42
+      },
+      {
+        "word": "answer.",
+        "start": 101.42,
+        "end": 102.04
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "The letters don't tell you.",
+    "line_index": 21,
+    "start": 102.54,
+    "end": 104.2,
+    "duration": 1.66,
+    "words": [
+      {
+        "word": "The",
+        "start": 102.54,
+        "end": 102.58
+      },
+      {
+        "word": "letters",
+        "start": 102.58,
+        "end": 102.98
+      },
+      {
+        "word": "don't",
+        "start": 102.98,
+        "end": 103.58
+      },
+      {
+        "word": "tell",
+        "start": 103.58,
+        "end": 103.84
+      },
+      {
+        "word": "you.",
+        "start": 103.84,
+        "end": 104.2
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "There is no rule for this one.",
+    "line_index": 22,
+    "start": 104.86,
+    "end": 106.52,
+    "duration": 1.66,
+    "words": [
+      {
+        "word": "There",
+        "start": 104.86,
+        "end": 104.92
+      },
+      {
+        "word": "is",
+        "start": 104.92,
+        "end": 105.1
+      },
+      {
+        "word": "no",
+        "start": 105.1,
+        "end": 105.28
+      },
+      {
+        "word": "rule",
+        "start": 105.28,
+        "end": 105.52
+      },
+      {
+        "word": "for",
+        "start": 105.52,
+        "end": 105.74
+      },
+      {
+        "word": "this",
+        "start": 105.74,
+        "end": 106.0
+      },
+      {
+        "word": "one.",
+        "start": 106.0,
+        "end": 106.52
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "You have to test it.",
+    "line_index": 22,
+    "start": 106.64,
+    "end": 107.54,
+    "duration": 0.9,
+    "words": [
+      {
+        "word": "You",
+        "start": 106.64,
+        "end": 106.64
+      },
+      {
+        "word": "have",
+        "start": 106.64,
+        "end": 106.88
+      },
+      {
+        "word": "to",
+        "start": 106.88,
+        "end": 107.1
+      },
+      {
+        "word": "test",
+        "start": 107.1,
+        "end": 107.44
+      },
+      {
+        "word": "it.",
+        "start": 107.44,
+        "end": 107.54
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "Watch me.",
+    "line_index": 23,
+    "start": 108.62,
+    "end": 109.12,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Watch",
+        "start": 108.62,
+        "end": 108.76
+      },
+      {
+        "word": "me.",
+        "start": 108.76,
+        "end": 109.12
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "Sn-ow.",
+    "line_index": 23,
+    "start": 110.5,
+    "end": 111.06,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Sn-ow.",
+        "start": 110.5,
+        "end": 111.06
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "With the long O, that gives me snow.",
+    "line_index": 23,
+    "start": 111.92,
+    "end": 114.55,
+    "duration": 2.63,
+    "words": [
+      {
+        "word": "With",
+        "start": 111.92,
+        "end": 112.04
+      },
+      {
+        "word": "the",
+        "start": 112.04,
+        "end": 112.18
+      },
+      {
+        "word": "long",
+        "start": 112.18,
+        "end": 112.42
+      },
+      {
+        "word": "O,",
+        "start": 112.42,
+        "end": 112.86
+      },
+      {
+        "word": "that",
+        "start": 113.24,
+        "end": 113.32
+      },
+      {
+        "word": "gives",
+        "start": 113.32,
+        "end": 113.58
+      },
+      {
+        "word": "me",
+        "start": 113.58,
+        "end": 113.9
+      },
+      {
+        "word": "snow.",
+        "start": 113.9,
+        "end": 114.55
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "Snow is a real word!",
+    "line_index": 24,
+    "start": 115.7,
+    "end": 117.32,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "Snow",
+        "start": 115.7,
+        "end": 115.92
+      },
+      {
+        "word": "is",
+        "start": 115.92,
+        "end": 116.22
+      },
+      {
+        "word": "a",
+        "start": 116.22,
+        "end": 116.34
+      },
+      {
+        "word": "real",
+        "start": 116.34,
+        "end": 116.64
+      },
+      {
+        "word": "word!",
+        "start": 116.64,
+        "end": 117.32
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "So that one is right.",
+    "line_index": 24,
+    "start": 117.56,
+    "end": 118.72,
+    "duration": 1.16,
+    "words": [
+      {
+        "word": "So",
+        "start": 117.56,
+        "end": 117.66
+      },
+      {
+        "word": "that",
+        "start": 117.66,
+        "end": 117.88
+      },
+      {
+        "word": "one",
+        "start": 117.88,
+        "end": 118.12
+      },
+      {
+        "word": "is",
+        "start": 118.2,
+        "end": 118.34
+      },
+      {
+        "word": "right.",
+        "start": 118.34,
+        "end": 118.72
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "text": "Now this one.",
+    "line_index": 25,
+    "start": 119.58,
+    "end": 120.22,
+    "duration": 0.64,
+    "words": [
+      {
+        "word": "Now",
+        "start": 119.58,
+        "end": 119.58
+      },
+      {
+        "word": "this",
+        "start": 119.58,
+        "end": 119.8
+      },
+      {
+        "word": "one.",
+        "start": 119.8,
+        "end": 120.22
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "text": "C-ow.",
+    "line_index": 25,
+    "start": 120.86,
+    "end": 122.8,
+    "duration": 1.94,
+    "words": [
+      {
+        "word": "C-ow.",
+        "start": 120.86,
+        "end": 122.8
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "text": "With the long O, that gives me coe.",
+    "line_index": 25,
+    "start": 123.72,
+    "end": 126.39,
+    "duration": 2.67,
+    "words": [
+      {
+        "word": "With",
+        "start": 123.72,
+        "end": 123.82
+      },
+      {
+        "word": "the",
+        "start": 123.82,
+        "end": 123.98
+      },
+      {
+        "word": "long",
+        "start": 123.98,
+        "end": 124.24
+      },
+      {
+        "word": "O,",
+        "start": 124.24,
+        "end": 124.84
+      },
+      {
+        "word": "that",
+        "start": 125.2,
+        "end": 125.2
+      },
+      {
+        "word": "gives",
+        "start": 125.2,
+        "end": 125.44
+      },
+      {
+        "word": "me",
+        "start": 125.44,
+        "end": 125.74
+      },
+      {
+        "word": "coe.",
+        "start": 125.74,
+        "end": 126.39
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "text": "Coe is not a word.",
+    "line_index": 26,
+    "start": 127.48,
+    "end": 128.78,
+    "duration": 1.3,
+    "words": [
+      {
+        "word": "Coe",
+        "start": 127.48,
+        "end": 127.74
+      },
+      {
+        "word": "is",
+        "start": 127.74,
+        "end": 127.9
+      },
+      {
+        "word": "not",
+        "start": 127.9,
+        "end": 128.16
+      },
+      {
+        "word": "a",
+        "start": 128.16,
+        "end": 128.36
+      },
+      {
+        "word": "word.",
+        "start": 128.36,
+        "end": 128.78
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "text": "So I switch to the other sound.",
+    "line_index": 26,
+    "start": 129.08,
+    "end": 130.5,
+    "duration": 1.42,
+    "words": [
+      {
+        "word": "So",
+        "start": 129.08,
+        "end": 129.16
+      },
+      {
+        "word": "I",
+        "start": 129.16,
+        "end": 129.28
+      },
+      {
+        "word": "switch",
+        "start": 129.28,
+        "end": 129.54
+      },
+      {
+        "word": "to",
+        "start": 129.54,
+        "end": 129.78
+      },
+      {
+        "word": "the",
+        "start": 129.78,
+        "end": 129.94
+      },
+      {
+        "word": "other",
+        "start": 129.94,
+        "end": 130.1
+      },
+      {
+        "word": "sound.",
+        "start": 130.1,
+        "end": 130.5
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "text": "C-ow.",
+    "line_index": 27,
+    "start": 131.62,
+    "end": 131.72,
+    "duration": 0.1,
+    "words": [
+      {
+        "word": "C-ow.",
+        "start": 131.62,
+        "end": 131.72
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "text": "Cow!",
+    "line_index": 27,
+    "start": 133.86,
+    "end": 134.5,
+    "duration": 0.64,
+    "words": [
+      {
+        "word": "Cow!",
+        "start": 133.86,
+        "end": 134.5
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "text": "There it is.",
+    "line_index": 27,
+    "start": 134.86,
+    "end": 135.66,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "There",
+        "start": 134.86,
+        "end": 135.14
+      },
+      {
+        "word": "it",
+        "start": 135.14,
+        "end": 135.38
+      },
+      {
+        "word": "is.",
+        "start": 135.38,
+        "end": 135.66
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "text": "That's the trick.",
+    "line_index": 28,
+    "start": 136.4,
+    "end": 137.1,
+    "duration": 0.7,
+    "words": [
+      {
+        "word": "That's",
+        "start": 136.4,
+        "end": 136.66
+      },
+      {
+        "word": "the",
+        "start": 136.7,
+        "end": 136.8
+      },
+      {
+        "word": "trick.",
+        "start": 136.8,
+        "end": 137.1
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "text": "Try one sound, then try the other.",
+    "line_index": 28,
+    "start": 137.7,
+    "end": 139.98,
+    "duration": 2.28,
+    "words": [
+      {
+        "word": "Try",
+        "start": 137.7,
+        "end": 137.78
+      },
+      {
+        "word": "one",
+        "start": 137.78,
+        "end": 138.06
+      },
+      {
+        "word": "sound,",
+        "start": 138.06,
+        "end": 138.8
+      },
+      {
+        "word": "then",
+        "start": 138.9,
+        "end": 138.98
+      },
+      {
+        "word": "try",
+        "start": 138.98,
+        "end": 139.28
+      },
+      {
+        "word": "the",
+        "start": 139.28,
+        "end": 139.54
+      },
+      {
+        "word": "other.",
+        "start": 139.54,
+        "end": 139.98
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "text": "Keep the one that makes a real word.",
+    "line_index": 29,
+    "start": 140.56,
+    "end": 142.6,
+    "duration": 2.04,
+    "words": [
+      {
+        "word": "Keep",
+        "start": 140.56,
+        "end": 140.66
+      },
+      {
+        "word": "the",
+        "start": 140.66,
+        "end": 140.88
+      },
+      {
+        "word": "one",
+        "start": 140.88,
+        "end": 141.04
+      },
+      {
+        "word": "that",
+        "start": 141.04,
+        "end": 141.26
+      },
+      {
+        "word": "makes",
+        "start": 141.26,
+        "end": 141.5
+      },
+      {
+        "word": "a",
+        "start": 141.5,
+        "end": 141.76
+      },
+      {
+        "word": "real",
+        "start": 141.76,
+        "end": 142.0
+      },
+      {
+        "word": "word.",
+        "start": 142.0,
+        "end": 142.6
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "text": "And don't worry.",
+    "line_index": 30,
+    "start": 143.32,
+    "end": 144.53,
+    "duration": 1.21,
+    "words": [
+      {
+        "word": "And",
+        "start": 143.32,
+        "end": 143.48
+      },
+      {
+        "word": "don't",
+        "start": 143.48,
+        "end": 143.78
+      },
+      {
+        "word": "worry.",
+        "start": 143.78,
+        "end": 144.53
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "text": "Our spelling rule still works perfectly.",
+    "line_index": 30,
+    "start": 144.54,
+    "end": 146.85,
+    "duration": 2.31,
+    "words": [
+      {
+        "word": "Our",
+        "start": 144.54,
+        "end": 144.62
+      },
+      {
+        "word": "spelling",
+        "start": 144.62,
+        "end": 144.96
+      },
+      {
+        "word": "rule",
+        "start": 144.96,
+        "end": 145.26
+      },
+      {
+        "word": "still",
+        "start": 145.26,
+        "end": 145.66
+      },
+      {
+        "word": "works",
+        "start": 145.66,
+        "end": 146.0
+      },
+      {
+        "word": "perfectly.",
+        "start": 146.0,
+        "end": 146.85
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "text": "When you WRITE, ou goes inside, and ow goes at the end.",
+    "line_index": 31,
+    "start": 147.52,
+    "end": 152.06,
+    "duration": 4.54,
+    "words": [
+      {
+        "word": "When",
+        "start": 147.52,
+        "end": 147.68
+      },
+      {
+        "word": "you",
+        "start": 147.68,
+        "end": 147.86
+      },
+      {
+        "word": "WRITE,",
+        "start": 147.86,
+        "end": 148.28
+      },
+      {
+        "word": "ou",
+        "start": 148.92,
+        "end": 149.0
+      },
+      {
+        "word": "goes",
+        "start": 149.0,
+        "end": 149.26
+      },
+      {
+        "word": "inside,",
+        "start": 149.26,
+        "end": 150.06
+      },
+      {
+        "word": "and",
+        "start": 150.52,
+        "end": 150.52
+      },
+      {
+        "word": "ow",
+        "start": 150.52,
+        "end": 150.8
+      },
+      {
+        "word": "goes",
+        "start": 150.8,
+        "end": 151.08
+      },
+      {
+        "word": "at",
+        "start": 151.08,
+        "end": 151.48
+      },
+      {
+        "word": "the",
+        "start": 151.48,
+        "end": 151.7
+      },
+      {
+        "word": "end.",
+        "start": 151.7,
+        "end": 152.06
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "text": "It is only the SOUND you have to test.",
+    "line_index": 32,
+    "start": 152.68,
+    "end": 154.72,
+    "duration": 2.04,
+    "words": [
+      {
+        "word": "It",
+        "start": 152.68,
+        "end": 152.78
+      },
+      {
+        "word": "is",
+        "start": 152.78,
+        "end": 152.92
+      },
+      {
+        "word": "only",
+        "start": 152.92,
+        "end": 153.2
+      },
+      {
+        "word": "the",
+        "start": 153.2,
+        "end": 153.38
+      },
+      {
+        "word": "SOUND",
+        "start": 153.38,
+        "end": 153.78
+      },
+      {
+        "word": "you",
+        "start": 153.78,
+        "end": 154.08
+      },
+      {
+        "word": "have",
+        "start": 154.08,
+        "end": 154.24
+      },
+      {
+        "word": "to",
+        "start": 154.24,
+        "end": 154.44
+      },
+      {
+        "word": "test.",
+        "start": 154.44,
+        "end": 154.72
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "text": "Let's see them.",
+    "line_index": 33,
+    "start": 155.66,
+    "end": 156.48,
+    "duration": 0.82,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 155.66,
+        "end": 155.86
+      },
+      {
+        "word": "see",
+        "start": 155.86,
+        "end": 155.98
+      },
+      {
+        "word": "them.",
+        "start": 155.98,
+        "end": 156.48
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "text": "Out.",
+    "line_index": 33,
+    "start": 157.52,
+    "end": 157.62,
+    "duration": 0.1,
+    "words": [
+      {
+        "word": "Out.",
+        "start": 157.52,
+        "end": 157.62
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "text": "Cloud.",
+    "line_index": 33,
+    "start": 158.8,
+    "end": 159.28,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Cloud.",
+        "start": 158.8,
+        "end": 159.28
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "text": "House.",
+    "line_index": 33,
+    "start": 160.16,
+    "end": 160.7,
+    "duration": 0.54,
+    "words": [
+      {
+        "word": "House.",
+        "start": 160.16,
+        "end": 160.7
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "text": "Mouth.",
+    "line_index": 33,
+    "start": 161.68,
+    "end": 162.02,
+    "duration": 0.34,
+    "words": [
+      {
+        "word": "Mouth.",
+        "start": 161.68,
+        "end": 162.02
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "text": "Round.",
+    "line_index": 33,
+    "start": 163.2,
+    "end": 163.7,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Round.",
+        "start": 163.2,
+        "end": 163.7
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "text": "Shout.",
+    "line_index": 33,
+    "start": 164.8,
+    "end": 165.18,
+    "duration": 0.38,
+    "words": [
+      {
+        "word": "Shout.",
+        "start": 164.8,
+        "end": 165.18
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "text": "Every one has ou inside.",
+    "line_index": 34,
+    "start": 166.4,
+    "end": 168.35,
+    "duration": 1.95,
+    "words": [
+      {
+        "word": "Every",
+        "start": 166.4,
+        "end": 166.44
+      },
+      {
+        "word": "one",
+        "start": 166.44,
+        "end": 166.78
+      },
+      {
+        "word": "has",
+        "start": 166.78,
+        "end": 167.16
+      },
+      {
+        "word": "ou",
+        "start": 167.16,
+        "end": 167.5
+      },
+      {
+        "word": "inside.",
+        "start": 167.5,
+        "end": 168.35
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "text": "Now the ow words.",
+    "line_index": 35,
+    "start": 169.06,
+    "end": 170.04,
+    "duration": 0.98,
+    "words": [
+      {
+        "word": "Now",
+        "start": 169.06,
+        "end": 169.06
+      },
+      {
+        "word": "the",
+        "start": 169.06,
+        "end": 169.26
+      },
+      {
+        "word": "ow",
+        "start": 169.26,
+        "end": 169.54
+      },
+      {
+        "word": "words.",
+        "start": 169.54,
+        "end": 170.04
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "text": "Cow.",
+    "line_index": 35,
+    "start": 170.96,
+    "end": 171.44,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Cow.",
+        "start": 170.96,
+        "end": 171.44
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "text": "Now.",
+    "line_index": 35,
+    "start": 172.44,
+    "end": 172.98,
+    "duration": 0.54,
+    "words": [
+      {
+        "word": "Now.",
+        "start": 172.44,
+        "end": 172.98
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "text": "How.",
+    "line_index": 35,
+    "start": 173.98,
+    "end": 174.5,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "How.",
+        "start": 173.98,
+        "end": 174.5
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "text": "Wow.",
+    "line_index": 35,
+    "start": 175.5,
+    "end": 176.26,
+    "duration": 0.76,
+    "words": [
+      {
+        "word": "Wow.",
+        "start": 175.5,
+        "end": 176.26
+      }
+    ]
+  },
+  {
+    "index": 80,
+    "text": "Brown.",
+    "line_index": 35,
+    "start": 177.22,
+    "end": 177.84,
+    "duration": 0.62,
+    "words": [
+      {
+        "word": "Brown.",
+        "start": 177.22,
+        "end": 177.84
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "text": "Owl.",
+    "line_index": 35,
+    "start": 178.9,
+    "end": 179.42,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "Owl.",
+        "start": 178.9,
+        "end": 179.42
+      }
+    ]
+  },
+  {
+    "index": 82,
+    "text": "Ow at the end, or guarding that final letter.",
+    "line_index": 36,
+    "start": 180.5,
+    "end": 183.32,
+    "duration": 2.82,
+    "words": [
+      {
+        "word": "Ow",
+        "start": 180.5,
+        "end": 180.64
+      },
+      {
+        "word": "at",
+        "start": 180.64,
+        "end": 180.76
+      },
+      {
+        "word": "the",
+        "start": 180.76,
+        "end": 180.98
+      },
+      {
+        "word": "end,",
+        "start": 180.98,
+        "end": 181.32
+      },
+      {
+        "word": "or",
+        "start": 181.7,
+        "end": 181.72
+      },
+      {
+        "word": "guarding",
+        "start": 181.72,
+        "end": 182.12
+      },
+      {
+        "word": "that",
+        "start": 182.12,
+        "end": 182.38
+      },
+      {
+        "word": "final",
+        "start": 182.38,
+        "end": 182.76
+      },
+      {
+        "word": "letter.",
+        "start": 182.76,
+        "end": 183.32
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "text": "Your turn!",
+    "line_index": 37,
+    "start": 184.44,
+    "end": 184.92,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Your",
+        "start": 184.44,
+        "end": 184.46
+      },
+      {
+        "word": "turn!",
+        "start": 184.46,
+        "end": 184.92
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "text": "Here's the word.",
+    "line_index": 37,
+    "start": 185.9,
+    "end": 186.93,
+    "duration": 1.03,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 185.9,
+        "end": 186.16
+      },
+      {
+        "word": "the",
+        "start": 186.16,
+        "end": 186.28
+      },
+      {
+        "word": "word.",
+        "start": 186.28,
+        "end": 186.93
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "text": "Brown.",
+    "line_index": 37,
+    "start": 187.64,
+    "end": 188.18,
+    "duration": 0.54,
+    "words": [
+      {
+        "word": "Brown.",
+        "start": 187.64,
+        "end": 188.18
+      }
+    ]
+  },
+  {
+    "index": 86,
+    "text": "Is it ou, or ow?",
+    "line_index": 38,
+    "start": 188.92,
+    "end": 190.91,
+    "duration": 1.99,
+    "words": [
+      {
+        "word": "Is",
+        "start": 188.92,
+        "end": 189.08
+      },
+      {
+        "word": "it",
+        "start": 189.08,
+        "end": 189.24
+      },
+      {
+        "word": "ou,",
+        "start": 189.24,
+        "end": 189.78
+      },
+      {
+        "word": "or",
+        "start": 190.14,
+        "end": 190.36
+      },
+      {
+        "word": "ow?",
+        "start": 190.36,
+        "end": 190.91
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "text": "It's ow!",
+    "line_index": 39,
+    "start": 192.02,
+    "end": 192.8,
+    "duration": 0.78,
+    "words": [
+      {
+        "word": "It's",
+        "start": 192.02,
+        "end": 192.3
+      },
+      {
+        "word": "ow!",
+        "start": 192.3,
+        "end": 192.8
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "text": "Because ow can sit right before a final n.",
+    "line_index": 39,
+    "start": 193.2,
+    "end": 196.36,
+    "duration": 3.16,
+    "words": [
+      {
+        "word": "Because",
+        "start": 193.2,
+        "end": 193.38
+      },
+      {
+        "word": "ow",
+        "start": 193.38,
+        "end": 193.7
+      },
+      {
+        "word": "can",
+        "start": 193.7,
+        "end": 193.94
+      },
+      {
+        "word": "sit",
+        "start": 193.94,
+        "end": 194.24
+      },
+      {
+        "word": "right",
+        "start": 194.24,
+        "end": 194.58
+      },
+      {
+        "word": "before",
+        "start": 194.58,
+        "end": 195.04
+      },
+      {
+        "word": "a",
+        "start": 195.04,
+        "end": 195.32
+      },
+      {
+        "word": "final",
+        "start": 195.32,
+        "end": 195.72
+      },
+      {
+        "word": "n.",
+        "start": 195.72,
+        "end": 196.36
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "text": "So remember.",
+    "line_index": 40,
+    "start": 197.12,
+    "end": 197.86,
+    "duration": 0.74,
+    "words": [
+      {
+        "word": "So",
+        "start": 197.12,
+        "end": 197.18
+      },
+      {
+        "word": "remember.",
+        "start": 197.18,
+        "end": 197.86
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "text": "Ou hides inside.",
+    "line_index": 40,
+    "start": 198.32,
+    "end": 199.64,
+    "duration": 1.32,
+    "words": [
+      {
+        "word": "Ou",
+        "start": 198.32,
+        "end": 198.42
+      },
+      {
+        "word": "hides",
+        "start": 198.42,
+        "end": 198.8
+      },
+      {
+        "word": "inside.",
+        "start": 198.8,
+        "end": 199.64
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "text": "Ow finishes the word, or guards the last letter.",
+    "line_index": 40,
+    "start": 200.2,
+    "end": 203.14,
+    "duration": 2.94,
+    "words": [
+      {
+        "word": "Ow",
+        "start": 200.2,
+        "end": 200.32
+      },
+      {
+        "word": "finishes",
+        "start": 200.32,
+        "end": 200.66
+      },
+      {
+        "word": "the",
+        "start": 200.66,
+        "end": 201.02
+      },
+      {
+        "word": "word,",
+        "start": 201.02,
+        "end": 201.38
+      },
+      {
+        "word": "or",
+        "start": 201.62,
+        "end": 201.7
+      },
+      {
+        "word": "guards",
+        "start": 201.7,
+        "end": 202.06
+      },
+      {
+        "word": "the",
+        "start": 202.06,
+        "end": 202.28
+      },
+      {
+        "word": "last",
+        "start": 202.28,
+        "end": 202.54
+      },
+      {
+        "word": "letter.",
+        "start": 202.54,
+        "end": 203.14
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "text": "And ow always has two sounds to try.",
+    "line_index": 41,
+    "start": 203.78,
+    "end": 206.14,
+    "duration": 2.36,
+    "words": [
+      {
+        "word": "And",
+        "start": 203.78,
+        "end": 203.96
+      },
+      {
+        "word": "ow",
+        "start": 203.96,
+        "end": 204.26
+      },
+      {
+        "word": "always",
+        "start": 204.26,
+        "end": 204.76
+      },
+      {
+        "word": "has",
+        "start": 204.76,
+        "end": 205.08
+      },
+      {
+        "word": "two",
+        "start": 205.08,
+        "end": 205.44
+      },
+      {
+        "word": "sounds",
+        "start": 205.44,
+        "end": 205.74
+      },
+      {
+        "word": "to",
+        "start": 205.74,
+        "end": 206.04
+      },
+      {
+        "word": "try.",
+        "start": 206.04,
+        "end": 206.14
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "text": "Want to hear every sound like this?",
+    "line_index": 42,
+    "start": 207.66,
+    "end": 209.54,
+    "duration": 1.88,
+    "words": [
+      {
+        "word": "Want",
+        "start": 207.66,
+        "end": 207.78
+      },
+      {
+        "word": "to",
+        "start": 207.78,
+        "end": 207.98
+      },
+      {
+        "word": "hear",
+        "start": 207.98,
+        "end": 208.12
+      },
+      {
+        "word": "every",
+        "start": 208.12,
+        "end": 208.6
+      },
+      {
+        "word": "sound",
+        "start": 208.6,
+        "end": 208.92
+      },
+      {
+        "word": "like",
+        "start": 208.92,
+        "end": 209.18
+      },
+      {
+        "word": "this?",
+        "start": 209.18,
+        "end": 209.54
+      }
+    ]
+  },
+  {
+    "index": 94,
+    "text": "The English Learning app is free.",
+    "line_index": 42,
+    "start": 210.24,
+    "end": 212.16,
+    "duration": 1.92,
+    "words": [
+      {
+        "word": "The",
+        "start": 210.24,
+        "end": 210.36
+      },
+      {
+        "word": "English",
+        "start": 210.36,
+        "end": 210.62
+      },
+      {
+        "word": "Learning",
+        "start": 210.62,
+        "end": 211.04
+      },
+      {
+        "word": "app",
+        "start": 211.04,
+        "end": 211.34
+      },
+      {
+        "word": "is",
+        "start": 211.34,
+        "end": 211.6
+      },
+      {
+        "word": "free.",
+        "start": 211.6,
+        "end": 212.16
+      }
+    ]
+  },
+  {
+    "index": 95,
+    "text": "Go and explore!",
+    "line_index": 42,
+    "start": 212.58,
+    "end": 213.42,
+    "duration": 0.84,
+    "words": [
+      {
+        "word": "Go",
+        "start": 212.58,
+        "end": 212.72
+      },
+      {
+        "word": "and",
+        "start": 212.72,
+        "end": 212.92
+      },
+      {
+        "word": "explore!",
+        "start": 212.92,
+        "end": 213.42
+      }
+    ]
+  }
+]

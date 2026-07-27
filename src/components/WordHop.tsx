@@ -4,7 +4,7 @@ import { PhonicsComparison } from "../data/types";
 import { hex, tint, font } from "../data/tokens";
 import { bob, wiggle } from "../lib/motion";
 import { STAGE_TOP, safeX } from "./LandscapeBeatKit";
-import { PositionPlate, Slot, SlotContent, SlotState, TagChip, slotColor } from "./PositionSlot";
+import { PositionPlate, Slot, SlotContent, SlotState, TagChip, hopInfo, slotColor } from "./PositionSlot";
 
 // ── The Lily Pond — the oi/oy set ────────────────────────────────────────────
 // Same lesson as ai/ay (position decides the spelling), deliberately NOT the same show.
@@ -103,26 +103,6 @@ export const PondSky: React.FC = () => {
           ripples, drifting leaves, the lily flowers and the frog itself. */}
     </AbsoluteFill>
   );
-};
-
-// ── which pad is lit, and how long ago it changed ────────────────────────────
-// Remotion renders one frame at a time with no state, so the hop is derived by walking
-// stateFor backwards to the frame the lit pad last changed. Cheap (stateFor is pure
-// comparisons) and it means the hop is never out of sync with the narration.
-const litOf = (stateFor: (f: number) => SlotState, f: number) => stateFor(f).litIdx ?? -1;
-
-const hopInfo = (stateFor: (f: number) => SlotState, f: number, look = 150) => {
-  const cur = litOf(stateFor, f);
-  let changedAt = f - look;
-  for (let k = 1; k <= look; k++) {
-    if (litOf(stateFor, f - k) !== cur) {
-      changedAt = f - k + 1;
-      break;
-    }
-  }
-  const prev = litOf(stateFor, changedAt - 1);
-  const t = Math.min(1, Math.max(0, (f - changedAt) / HOP_FRAMES));
-  return { cur, prev: prev < 0 ? cur : prev, t };
 };
 
 // ── one lily pad ─────────────────────────────────────────────────────────────
@@ -252,7 +232,7 @@ export const WordHop: React.FC<{
   const cxOf = (i: number) => SAFE + BANK_W + GAP + i * (padW + GAP) + padW / 2;
 
   const { cars, litIdx } = stateFor(f);
-  const { cur, prev, t } = hopInfo(stateFor, f);
+  const { cur, prev, t } = hopInfo(stateFor, f, HOP_FRAMES);
   const sweeping = !!sweep && f >= sweep.from && f < sweep.to;
 
   // the hop: horizontal ease with a parabolic arc, squashing on take-off and landing

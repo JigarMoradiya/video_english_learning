@@ -78,7 +78,17 @@ export const PairRule: React.FC<{ data: PhonicsComparison; beat: Beat; teamIdx: 
   return (
     <Band>
       <Pill color={palette.ink}>
-        Sound in the <span style={{ color: c }}>{team.zoneHint.toUpperCase()}</span> {team.zoneEmoji} → write <span style={{ color: c }}>{team.marker}</span>
+        {/* ou/ow sets zonePhrase because its sound also opens the word ("out"), so calling
+            that position "the MIDDLE" would be plainly wrong */}
+        {team.zonePhrase ? (
+          <>
+            Sound <span style={{ color: c }}>{team.zonePhrase.toUpperCase()}</span> {team.zoneEmoji} → write <span style={{ color: c }}>{team.marker}</span>
+          </>
+        ) : (
+          <>
+            Sound in the <span style={{ color: c }}>{team.zoneHint.toUpperCase()}</span> {team.zoneEmoji} → write <span style={{ color: c }}>{team.marker}</span>
+          </>
+        )}
       </Pill>
     </Band>
   );
@@ -177,7 +187,9 @@ const WordBoard: React.FC<{
       <div style={{ position: "absolute", top: 14, left: "50%", transform: `translateX(-50%) translateY(${bob(frame, fps, 3, 2.8)}px)`, background: c, color: "#fff", borderRadius: 999, padding: "8px 30px", display: "flex", alignItems: "center", gap: 14, boxShadow: `0 10px 26px ${c}55`, whiteSpace: "nowrap" }}>
         <span style={{ fontSize: 32 }}>{team.zoneEmoji}</span>
         <span style={{ fontSize: 44, fontWeight: 700 }}>{team.marker}</span>
-        <span style={{ fontSize: 26, fontWeight: 600, opacity: 0.9 }}>· {team.zoneHint}</span>
+        {/* short form of zonePhrase when the card has one — "out" sits on the ou board,
+            so calling that board "middle" contradicts its own first card */}
+        <span style={{ fontSize: 26, fontWeight: 600, opacity: 0.9 }}>· {team.zonePhrase ? team.zonePhrase.replace(" the word", "") : team.zoneHint}</span>
       </div>
       {/* two rows of three */}
       <div style={{ position: "absolute", left: 0, right: 0, top: CARDS_TOP, bottom: CARDS_BOTTOM, display: "flex", flexDirection: "column", justifyContent: "center", gap: ROW_GAP }}>
@@ -185,7 +197,7 @@ const WordBoard: React.FC<{
           <div key={r} style={{ display: "flex", justifyContent: "center", gap: CARD_GAP }}>
             {row.map((w) => {
               const i = words.indexOf(w);
-              const at = beat.word(w); // beat-relative frame the word is spoken
+              const at = lastSpoken(beat, w); // beat-relative frame the word is spoken
               // All six cards are present from the board's entrance — the board is never
               // half-empty. Being spoken is a LIT pulse, not an entrance.
               const spoken = at >= 0 && frame >= at;
@@ -211,6 +223,19 @@ const WordBoard: React.FC<{
     </div>
     </>
   );
+};
+
+// The header line of a see-it group can contain one of the example words — ou/ow's
+// "NOW the ow words." comes 3.4s before the example "Now." — and beat.word() returns the
+// FIRST hit, which lit the wrong card early. The example is always the last utterance.
+const lastSpoken = (beat: Beat, w: string) => {
+  let at = -1;
+  for (let n = 0; n < 8; n++) {
+    const f = beat.word(w, n);
+    if (f < 0) break;
+    at = f;
+  }
+  return at;
 };
 
 // "rain" + marker "ai" → "r__n" so CkWordChip tints the digraph
@@ -421,7 +446,7 @@ export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ d
                 >
                   <span style={{ fontSize: 60, display: "inline-block", transform: `scale(${emojiPop})` }}>{t.zoneEmoji}</span>
                   <span style={{ fontSize: 108, fontWeight: 700, color: c, lineHeight: 1, textShadow: lit ? `0 10px 26px ${c}55` : "none" }}>{t.marker}</span>
-                  <span style={{ fontSize: 40, fontWeight: 600, color: lit ? c : palette.inkSoft }}>{t.zoneHint === "middle" ? "in the middle" : "at the end"}</span>
+                  <span style={{ fontSize: 40, fontWeight: 600, color: lit ? c : palette.inkSoft }}>{t.zonePhrase ?? (t.zoneHint === "middle" ? "in the middle" : "at the end")}</span>
                 </div>
               </div>
             );
