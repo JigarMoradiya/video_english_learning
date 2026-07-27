@@ -28,6 +28,10 @@ os.makedirs(OUT, exist_ok=True)
 
 key = lambda w: re.sub(r"[^a-z0-9]", "", w.lower())
 
+# The tile key strips punctuation (Xmas-tree -> xmastree) but a few bank clips keep a
+# separator (xmas_tree.opus). Map tile key -> the bank's own stem for those.
+ALIASES = {"xmastree": "xmas_tree"}
+
 
 def dur(p):
     r = subprocess.run(
@@ -50,7 +54,7 @@ for k in wanted:
     if os.path.exists(dst):
         already += 1
         continue
-    srcf = os.path.join(BANK, f"{k}.opus")
+    srcf = os.path.join(BANK, f"{ALIASES.get(k, k)}.opus")
     if not os.path.exists(srcf):
         missing.append(k)
         continue

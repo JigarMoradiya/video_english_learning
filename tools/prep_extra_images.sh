@@ -12,7 +12,8 @@ igloo insect iron ice jam jug jacket jeep kite key king koala leaf lamp lemon lo
 mango map nose net neck nurse octopus ostrich owl onion pig pen panda pear quilt quail quill \
 qtip rabbit rainbow robot rocket snake star spoon snail train tomato tree turtle unicorn ufo \
 uniform utensil violin vase volcano vulture wolf watch wand wheel x-ray taxi yak yarn yacht \
-yo-yo zip zoo zero zucchini"
+yo-yo zip zoo zero zucchini elbow nail notebook \
+umpire unicycle vacuum vest volleyball yogurt yolk zinnia"
 
 missing=""
 for name in $WORDS; do
