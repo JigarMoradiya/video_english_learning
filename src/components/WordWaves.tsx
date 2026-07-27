@@ -44,8 +44,8 @@ export const OceanSky: React.FC = () => {
   };
   return (
     <AbsoluteFill style={{ background: "linear-gradient(180deg, #B3E5FC 0%, #E1F5FE 40%, #FFF8E1 66%, #FFECB3 100%)" }}>
-      {/* sun low over the water */}
-      <svg width={280} height={280} style={{ position: "absolute", left: width - 330, top: 48 }}>
+      {/* sun low over the water — top-LEFT, clear of the top-right brand mark */}
+      <svg width={280} height={280} style={{ position: "absolute", left: 36, top: 44 }}>
         <g transform="translate(140 140)">
           {Array.from({ length: 12 }).map((_, i) => {
             const a = (i * 30 - frame * 0.22) * (Math.PI / 180);

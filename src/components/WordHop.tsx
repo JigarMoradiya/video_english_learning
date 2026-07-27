@@ -38,8 +38,8 @@ export const PondSky: React.FC = () => {
   const drift = (speed: number, span: number, phase: number) => ((frame * speed + phase) % (width + span)) - span;
   return (
     <AbsoluteFill style={{ background: "linear-gradient(180deg, #FFE0B2 0%, #FFF3E0 34%, #FFEBC4 62%, #FFD59E 100%)" }}>
-      {/* low evening sun */}
-      <svg width={300} height={300} style={{ position: "absolute", left: width - 340, top: 56 }}>
+      {/* low evening sun — top-LEFT, clear of the top-right brand mark */}
+      <svg width={300} height={300} style={{ position: "absolute", left: 26, top: 52 }}>
         <g transform="translate(150 150)">
           {Array.from({ length: 14 }).map((_, i) => {
             const a = (i * (360 / 14) + frame * 0.2) * (Math.PI / 180);

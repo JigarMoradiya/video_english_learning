@@ -40,8 +40,8 @@ export const RailwaySky: React.FC = () => {
   const drift = (speed: number, span: number, phase: number) => ((frame * speed + phase) % (width + span)) - span;
   return (
     <AbsoluteFill style={{ background: "linear-gradient(180deg, #BFE6FF 0%, #DFF3FF 46%, #FBF6E9 100%)" }}>
-      {/* sun */}
-      <svg width={260} height={260} style={{ position: "absolute", left: width - 300, top: 40 }}>
+      {/* sun — top-LEFT: the brand mark is pinned top-right and the rays behind it looked like a mess */}
+      <svg width={260} height={260} style={{ position: "absolute", left: 44, top: 40 }}>
         <g transform="translate(130 130)">
           {Array.from({ length: 12 }).map((_, i) => {
             const a = (i * 30 + frame * 0.25) * (Math.PI / 180);
