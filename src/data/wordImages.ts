@@ -52,6 +52,10 @@ export const wordEmojis: Record<string, string> = {
   join: "🤝",
   chain: "⛓️",
   tail: "🐕",
+  // ai/ay 16:9 example boards — the app has no art for these three
+  say: "💬",
+  tray: "🍽️",
+  hay: "🌾",
   // oo set — long 🌙 and short 📖
   moon: "🌙",
   food: "🍔",

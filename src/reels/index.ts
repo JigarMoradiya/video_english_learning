@@ -10,6 +10,7 @@ import { ShortVowelsReel, SHORT_VOWELS_DURATION } from "./shortvowels";
 import { ShortVowelsPortraitReel, SHORT_VOWELS_PORTRAIT_DURATION } from "./shortvowels_portrait";
 import { LettersP1Reel, LETTERS_P1_DURATION } from "./letters_p1";
 import { LettersP2Reel, LETTERS_P2_DURATION } from "./letters_p2";
+import { AiAy16x9Reel, AI_AY_16X9_DURATION } from "./ai_ay_16x9";
 import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
 import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
 import { letterShortEntry } from "./letter_short";
@@ -60,6 +61,8 @@ export const REELS: ReelEntry[] = [
   ...LETTERS.map(letterShortEntry),
   // Review sheet for the phonics mouth shapes (not part of any video).
   { id: "mouth-chart", component: MouthChart, durationInFrames: 1, width: 1500, height: 1180 },
+  // L13 · ai/ay — long-form 16:9 lesson. The Word Train: carriages ARE word positions.
+  { id: "ai-ay-16x9", component: AiAy16x9Reel, durationInFrames: AI_AY_16X9_DURATION, width: 1920, height: 1080 },
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
   //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)

@@ -19,6 +19,7 @@
     "render:letters_p1_9x16": "sh tools/preflight.sh && remotion render letters-p1-9x16 out/letters_p1_9x16.mp4",
     "render:letters_p2_9x16": "sh tools/preflight.sh && remotion render letters-p2-9x16 out/letters_p2_9x16.mp4",
     "render:c_k_ck_9x16": "sh tools/preflight.sh && remotion render c-k-ck-9x16 out/c_k_ck_9x16.mp4",
+    "render:ai_ay_16x9": "remotion render ai-ay-16x9 out/ai_ay_16x9.mp4",
     "render:oo_9x16": "sh tools/preflight.sh && remotion render oo-9x16 out/oo_9x16.mp4",
     "render:letter_a_short": "sh tools/preflight.sh && mkdir -p out/letter_shorts && remotion render letter-a-short out/letter_shorts/A.mp4",
     "render:letter_shorts": "sh tools/preflight.sh && mkdir -p out/letter_shorts && for L in A B C D E F G H I J K L M N O P Q R S T U V W X Y Z; do l=$(echo $L | tr A-Z a-z); npx remotion render letter-$l-short out/letter_shorts/$L.mp4 || exit 1; done"

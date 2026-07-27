@@ -1,5 +1,5 @@
 import React from "react";
-import { spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { Img, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { bob } from "../lib/motion";
 import { hex, palette, tint } from "../data/tokens";
 import { illustrationFor } from "../data/wordImages";
@@ -67,6 +67,13 @@ export const CkWordChip: React.FC<{
       {/* fixed-height emoji area so single- and multi-emoji cards keep the SAME
           baseline: the emoji is always vertically centred, the word always aligned. */}
       <div style={{ height: size * 0.82, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        {/* A real PNG cutout when the word has one. Without this branch an image-backed
+            word (rain/snail/train/day/play) rendered an EMPTY box — the chip only ever
+            handled the emoji case because c/k/ck and oo happen to use emoji for every
+            word. */}
+        {illo && illo.kind === "image" && (
+          <Img src={staticFile(illo.src)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+        )}
         {emoji && (
           <span style={{ fontSize: emojiSize, lineHeight: 1, whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: size * 0.03 }}>
             {[...emoji].map((ch, k) => (
