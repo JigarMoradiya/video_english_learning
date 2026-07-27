@@ -59,7 +59,7 @@ export const OaOwReel: React.FC = () => {
   const data = comparisons.oa_ow;
   const at = beatTimeline();
   return (
-    <ReelBase audio="audio/oa_ow/oa_ow.mp3" hueShift={data.hueShift} sfx={SFX} total={OA_OW_DURATION} floater="wave" scene="ocean">
+    <ReelBase audio="audio/oa_ow/oa_ow.mp3" hueShift={data.hueShift} sfx={SFX} total={OA_OW_DURATION} floater="wave" scene="ocean" logoUntil={OA_OW_DURATION - BEATS.wrap} logoCorner="tr">
       <Sequence {...at(BEATS.hook)}>
         <OaHook data={data} />
       </Sequence>

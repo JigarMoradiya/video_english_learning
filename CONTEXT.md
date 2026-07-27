@@ -120,7 +120,31 @@ These each cost multiple review rounds. Don't rediscover them.
   Two earlier attempts failed: opacity-only left a 487px hole; fixed pixel heights +
   `overflow:hidden` sliced the mascot's feet.
 - **NEVER overlap content.** This is the single most-repeated piece of feedback.
+- **Reserve zones with named constants, don't eyeball them.** The 16:9 c/k/ck shipped with
+  panels starting at y=205 while the beat overlays rendered from y=40 down — the /k/ badge,
+  the c-k-ck chip row and the lightbulb all landed ON the middle zone's street sign. Fixed
+  by declaring the bands (`BAND_H` / `PANEL_TOP` in `WordStreet.tsx`): headline 0–290,
+  stage 300–860, caption 880–1080, and nothing crosses. Any new overlay must fit its band.
+- **A held container must never be empty.** Panels/slots that stay on screen across beats
+  need content in EVERY beat, including a resting state (dimmed word, ghost `?` slot). The
+  c/k/ck panels were 630px tall with a 168px face and nothing else for most of the video.
 - **Never clip content.** Check mid-transition frames, not just the resting state.
+- **`CkWordChip` sizing rule.** Card width ≈ `size × 1.8`, and a SPOKEN card pulses to
+  1.32× (grows `0.16 × width` into each neighbour). Max size for n cards in a container:
+  `container / (1.8 × (n + (n−1) × 0.16))`, gap ≥ `0.16 × size × 1.8`. The chip renders in
+  SIX places (WordStreet ×2, SeeIt ×2, OoWorld ×2) — when resizing, re-derive ALL of them;
+  fixing one by eye is how the same overflow shipped four times.
+- **`transform: scale()` does NOT reserve layout space.** Scaling a target grapheme inside
+  a word card made "kick"'s enlarged `ck` render outside the card border while "duck"/"rock"
+  (which had slack) looked fine. Pulse the whole CARD, not a child of it.
+- **Bound `<Captions>` to the wrap beat** (`<Sequence from={0} durationInFrames={wrap.from}>`).
+  Left unbounded it keeps rendering through the outro and sits behind the store phone mock.
+- **A 9:16 cut must use the same background component as its 16:9 sibling.** `CkBackground`
+  is fractional/dimension-aware and fills any size; the portrait c/k/ck shipped with a flat
+  static gradient and read as a different video.
+- **Verify at FULL RESOLUTION.** A 250px-wide contact sheet is for finding dead screens and
+  nothing else — card overflow, caption collisions and safe-area breaches are all invisible
+  at that scale. Crop the real frame at 1:1 before calling anything done.
 - **Never paint an opaque background inside a scene** — the global background + ambient
   particles live behind every scene and must keep running. An opaque outro background made
   the download beat go flat.
@@ -134,6 +158,11 @@ These each cost multiple review rounds. Don't rediscover them.
 ### Content
 - **Long narration lines need staged visuals.** Transcribe with whisper for word-level times
   and land a new visual on every phrase. A static card over a 10–14s line is an instant reject.
+- **A changing caption is NOT a changing screen.** Explicit user rule: no empty screen, no
+  audio-only stretch, and "only the caption moved" counts as empty. Every spoken phrase must
+  move something in the stage. Audit a finished render with
+  `ffmpeg -i out/x.mp4 -vf "fps=1,scale=470:-1,tile=4x4" sheet_%02d.png` and LOOK at every
+  second before shipping — the c/k/ck 16:9 had 6 dead stretches that a spot-check missed.
 - **Mirror the app's real flow and word lists** — read the actual module first, never invent
   generic phonics content.
 - **Every video needs a DIFFERENT closing CTA line.** The app is called "English Learning",
@@ -244,7 +273,10 @@ Owed from the A–Z series:
 - Optional: the 26 cover frames as uploadable thumbnails.
 
 Older, still open:
-- **9:16 cuts** of `c-k-ck` and `oo` (both currently 16:9 only).
+- **9:16 cut of `oo`** (16:9 only). `c-k-ck-9x16` now exists and, per user instruction,
+  is the SAME design as the 16:9 cut re-laid out for portrait — `WordStreetPortrait.tsx`
+  mirrors `WordStreet.tsx`'s content state machine, and `c_k_ck_portrait_beats.tsx`
+  mirrors `c_k_ck_beats.tsx`. Keep them in step: a change to one belongs in both.
 - **11 comparison cards** remain of 16. Next agreed: **th (thin/that)** — script first.
 - Answer-reveal images for the A–Z community quizzes (offered, not built).
 - Thumbnails for the two 9:16 Letter parts and Short Vowels.

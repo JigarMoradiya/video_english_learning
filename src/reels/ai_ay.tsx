@@ -62,7 +62,7 @@ export const AiAyReel: React.FC = () => {
   const data = comparisons.ai_ay;
   const at = beatTimeline();
   return (
-    <ReelBase audio="audio/ai_ay/ai_ay.mp3" hueShift={data.hueShift} sfx={SFX} total={AI_AY_DURATION} scene="sky">
+    <ReelBase audio="audio/ai_ay/ai_ay.mp3" hueShift={data.hueShift} sfx={SFX} total={AI_AY_DURATION} scene="sky" logoUntil={AI_AY_DURATION - BEATS.wrap} logoCorner="tr">
       <Sequence {...at(BEATS.hook)}>
         <Hook data={data} />
       </Sequence>

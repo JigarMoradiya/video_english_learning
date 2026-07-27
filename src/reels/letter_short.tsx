@@ -83,7 +83,7 @@ export const planShort = (it: LetterItem): ShortPlan => {
   // into public/audio/words/ and it picks it up automatically.
   const SILENT_SLOT = 0.5;
   let wcur = moreSpeechEnd + 22; // let all four land before the first highlight
-  const tileCues = it.extras.slice(0, 4).map((w) => {
+  const tileCues = it.extras.slice(0, 6).map((w) => {
     const k = imgKey(w);
     const d = EXTRA_WORD_AUDIO[k] ?? null;
     const at = wcur;
@@ -373,7 +373,7 @@ const MoreWords: React.FC<{ p: ShortPlan }> = ({ p }) => {
         )
       )}
 
-      <div style={{ position: "absolute", top: BAND_TOP, left: 0, width: 1080, height: BAND_H, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 26, padding: `0 ${SIDE}px`, boxSizing: "border-box" }}>
+      <div style={{ position: "absolute", top: BAND_TOP, left: 0, width: 1080, height: BAND_H, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18, padding: `0 ${SIDE}px`, boxSizing: "border-box" }}>
         {/* the letter's own word, small — keeps "A / Ant" anchored while the
             extra words come in, so the sound stays attached to something known */}
         <div style={{ display: "flex", alignItems: "center", gap: 28, transform: `scale(${spring({ frame, fps, config: { damping: 12 } })})` }}>
@@ -394,8 +394,10 @@ const MoreWords: React.FC<{ p: ShortPlan }> = ({ p }) => {
           <span style={tok(wordsAt)}>words!</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
-          {it.extras.slice(0, 4).map((w, i) => {
+        {/* 2 columns x up to 3 rows. Tiles are smaller than the old 2x2 so six fit
+            between the reference card and the captions. */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 22 }}>
+          {it.extras.slice(0, 6).map((w, i) => {
             const key = imgKey(w);
             const tint = hex(IMG_COLORS[key] ?? it.imageColor);
             // start once "More <letter> words" has been said, then a tight
@@ -431,11 +433,11 @@ const MoreWords: React.FC<{ p: ShortPlan }> = ({ p }) => {
               >
                 {/* badge straddles the top-right corner — clear of the subject and
                     of the label underneath (the parent must stay unclipped) */}
-                <CardBadge size={66} corner="tr" />
-                <Img src={staticFile(`letters/${key}.png`)} style={{ width: 208, height: 208, objectFit: "contain" }} />
+                <CardBadge size={54} corner="tr" />
+                <Img src={staticFile(`letters/${key}.png`)} style={{ width: 186, height: 186, objectFit: "contain" }} />
                 {/* pale images (ambulance, axe) give a pale tint — darken those far
                     harder or the label washes out against the white card */}
-                <div style={{ fontSize: 46, fontWeight: 800, color: shade(tint, lum(tint) > 0.55 ? 0.58 : 0.32) }}>{w}</div>
+                <div style={{ fontSize: 40, fontWeight: 800, color: shade(tint, lum(tint) > 0.55 ? 0.58 : 0.32), whiteSpace: "nowrap" }}>{w}</div>
               </div>
             );
           })}

@@ -5,6 +5,7 @@ import { Beat } from "../lib/timing";
 import { CkWordChip } from "../components/CkWordChip";
 import { bob, pulse, wiggle } from "../lib/motion";
 import { palette } from "../data/tokens";
+import { illustrationFor } from "../data/wordImages";
 
 const MOON = "#5E35B1"; // long
 const BOOK = "#E65100"; // short
@@ -115,62 +116,120 @@ export const Strategy: React.FC<BP> = ({ beat }) => {
   );
 };
 
-// ── ⑥ Hint — oo before k is often short (book/look/cook) ─────────────────────
+// ── ⑥ Hint — oo before k is OFTEN short (book/look/cook) ─────────────────────
+// The narration says "often short" and the very next beat says "but that's not always
+// true", so the card must NOT read as an absolute rule (see feedback_no_false_rules).
+// "often" carries its own amber tag, and the formula is a built card, not a text pill.
+export const HintFormula: React.FC<{ struck?: boolean }> = ({ struck = false }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const box = (bg: string, color: string, text: React.ReactNode, size = 62) => (
+    <div style={{ background: bg, color, border: `5px solid ${bg === "#fff" ? BOOK : bg}`, borderRadius: 20, padding: "8px 26px", fontSize: size, fontWeight: 700, lineHeight: 1.15 }}>{text}</div>
+  );
+  return (
+    <div
+      style={{
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        gap: 18,
+        background: "#ffffffee",
+        border: `6px solid ${BOOK}`,
+        borderRadius: 34,
+        padding: "18px 34px",
+        boxShadow: `0 16px 38px ${BOOK}44`,
+        transform: `translateY(${bob(frame, fps, 5, 2.6)}px)`,
+        opacity: struck ? 0.62 : 1,
+      }}
+    >
+      {box("#fff", palette.ink, "oo")}
+      <span style={{ fontSize: 52, fontWeight: 700, color: palette.inkSoft }}>+</span>
+      {box("#fff", BOOK, "k")}
+      <span style={{ fontSize: 52, fontWeight: 700, color: palette.inkSoft }}>→</span>
+      {/* the hedge, visually separated so it can never be read as "always" */}
+      <div style={{ background: "#FFF3E0", border: "4px solid #FB8C00", borderRadius: 16, padding: "6px 18px", fontSize: 38, fontWeight: 800, color: "#E65100", letterSpacing: 1 }}>OFTEN</div>
+      {box(BOOK, "#fff", <>short 📖</>)}
+      {/* red strike — the Caveat beat reuses this card and cancels it */}
+      {struck && (
+        <>
+          <div style={{ position: "absolute", left: 16, right: 16, top: "50%", height: 10, borderRadius: 6, background: "#E53935", transform: "translateY(-50%) rotate(-4deg)", boxShadow: "0 4px 12px rgba(229,57,53,0.4)" }} />
+          <div style={{ position: "absolute", right: -34, top: -34, fontSize: 78, transform: `rotate(${wiggle(frame, fps, 6, 2.2)}deg)` }}>❌</div>
+        </>
+      )}
+    </div>
+  );
+};
 const HintChip: React.FC<{ word: string; at: number }> = ({ word, at }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   if (frame < at) return null;
   const s = spring({ frame: frame - at, fps, config: { damping: 10 } });
   const body = word.slice(0, -1);
+  // each word gets its OWN picture (book 📖 · look 👀 · cook 👨‍🍳) — all three used to
+  // render as bare text under one shared 📖, so they read as the same card
+  const illo = illustrationFor(word);
+  const emoji = illo && illo.kind === "emoji" ? illo.char : "";
   return (
-    <div style={{ transform: `scale(${s}) translateY(${bob(frame, fps, 5, 2.2)}px)`, background: "#fff", border: `6px solid ${BOOK}`, borderRadius: 24, padding: "14px 34px", fontSize: 76, fontWeight: 700, letterSpacing: 2, boxShadow: `0 14px 30px ${BOOK}44` }}>
-      <span style={{ color: palette.ink }}>{body}</span>
-      <span style={{ color: BOOK }}>k</span>
+    <div style={{ transform: `scale(${s}) translateY(${bob(frame, fps, 5, 2.2)}px)`, background: "#fff", border: `6px solid ${BOOK}`, borderRadius: 26, padding: "16px 34px 14px", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, boxShadow: `0 14px 30px ${BOOK}44` }}>
+      <span style={{ fontSize: 68, lineHeight: 1 }}>{emoji}</span>
+      <span style={{ fontSize: 68, fontWeight: 700, letterSpacing: 2, lineHeight: 1 }}>
+        <span style={{ color: palette.ink }}>{body}</span>
+        <span style={{ color: BOOK }}>k</span>
+      </span>
     </div>
   );
 };
-export const Hint: React.FC<BP> = ({ beat }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  return (
-    <Lower>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 26 }}>
-        <div style={{ fontSize: 54, fontWeight: 700, color: palette.ink, background: "#ffffffe8", borderRadius: 999, padding: "10px 42px", boxShadow: `0 12px 30px ${palette.cardShadow}`, transform: `translateY(${bob(frame, fps, 5, 2.6)}px)` }}>
-          oo + {kw("k", BOOK)} → {kw("short 📖", BOOK)}
-        </div>
-        <div style={{ display: "flex", gap: 36 }}>
-          <HintChip word="book" at={Math.max(0, beat.word("book"))} />
-          <HintChip word="look" at={Math.max(0, beat.word("look"))} />
-          <HintChip word="cook" at={Math.max(0, beat.word("cook"))} />
-        </div>
+export const Hint: React.FC<BP> = ({ beat }) => (
+  <Lower>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 26 }}>
+      <HintFormula />
+      <div style={{ display: "flex", gap: 36 }}>
+        <HintChip word="book" at={Math.max(0, beat.word("book"))} />
+        <HintChip word="look" at={Math.max(0, beat.word("look"))} />
+        <HintChip word="cook" at={Math.max(0, beat.word("cook"))} />
       </div>
-    </Lower>
-  );
-};
+    </div>
+  </Lower>
+);
 
-// ── ⑦ Caveat — but not a rule (good/foot have no k) ──────────────────────────
+// ── ⑦ Caveat — "But that's not always true" ──────────────────────────────────
+// The negative is now SHOWN, not just said: the hint card from the previous beat is
+// still on screen and gets struck through with a red bar + ❌. Then good/foot come in
+// carrying a "no k" tag and their own pictures (👍 🦶 — both used to show 📖).
 export const Caveat: React.FC<BP> = ({ beat }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const gAt = Math.max(0, beat.word("good"));
-  const chip = (word: string, at: number) => {
+  const earsAt = Math.max(0, beat.fRel(56.8)); // "trust your ears"
+  const chip = (word: string, at: number, ph: number) => {
     if (frame < at) return null;
     const s = spring({ frame: frame - at, fps, config: { damping: 10 } });
+    const illo = illustrationFor(word);
+    const emoji = illo && illo.kind === "emoji" ? illo.char : "";
     return (
-      <div style={{ transform: `scale(${s}) translateY(${bob(frame, fps, 5, 2.2)}px)`, background: "#fff", border: `6px solid ${BOOK}`, borderRadius: 24, padding: "12px 30px", fontSize: 72, fontWeight: 700, color: palette.ink, boxShadow: `0 14px 30px ${BOOK}44` }}>
-        {word} <span style={{ fontSize: 40, color: BOOK }}>📖</span>
+      <div style={{ position: "relative", transform: `scale(${s}) translateY(${bob(frame, fps, 5, 2.2, ph)}px)` }}>
+        {/* the point of these two words: NO k, still short */}
+        <div style={{ position: "absolute", top: -18, right: -22, background: "#E53935", color: "#fff", borderRadius: 999, padding: "4px 16px", fontSize: 28, fontWeight: 800, boxShadow: "0 8px 18px rgba(229,57,53,0.4)", zIndex: 2 }}>no k</div>
+        <div style={{ background: "#fff", border: `6px solid ${BOOK}`, borderRadius: 26, padding: "16px 34px 14px", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, boxShadow: `0 14px 30px ${BOOK}44` }}>
+          <span style={{ fontSize: 68, lineHeight: 1 }}>{emoji}</span>
+          <span style={{ fontSize: 68, fontWeight: 700, color: palette.ink, letterSpacing: 2, lineHeight: 1 }}>{word}</span>
+        </div>
       </div>
     );
   };
   return (
     <Lower>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
-        <div style={{ fontSize: 54, fontWeight: 700, color: palette.ink, background: "#ffffffe8", borderRadius: 999, padding: "10px 42px", boxShadow: `0 12px 30px ${palette.cardShadow}`, transform: `translateY(${bob(frame, fps, 5, 2.6)}px)` }}>
-          {kw("not a rule!", "#E53935")} no {kw("k", BOOK)} — still 📖
-        </div>
-        <div style={{ display: "flex", gap: 44 }}>
-          {chip("good", gAt)}
-          {chip("foot", Math.max(0, beat.word("foot")))}
+        <HintFormula struck />
+        <div style={{ display: "flex", gap: 44, alignItems: "center" }}>
+          {chip("good", Math.max(0, beat.word("good")), 0)}
+          {chip("foot", Math.max(0, beat.word("foot")), 1)}
+          {frame >= earsAt && (
+            <div style={{ transform: `scale(${spring({ frame: frame - earsAt, fps, config: { damping: 10 } })}) translateY(${bob(frame, fps, 6, 2.4)}px)`, background: MOON, color: "#fff", borderRadius: 26, padding: "20px 32px", fontSize: 44, fontWeight: 800, boxShadow: `0 14px 30px ${MOON}55`, textAlign: "center" }}>
+              trust your
+              <br />
+              ears 👂
+            </div>
+          )}
         </div>
       </div>
     </Lower>

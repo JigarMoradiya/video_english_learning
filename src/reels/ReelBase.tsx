@@ -1,10 +1,19 @@
 import React from "react";
-import { AbsoluteFill, Audio, interpolate, Sequence, staticFile } from "remotion";
+import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useVideoConfig } from "remotion";
 import { font } from "../data/tokens";
 import { KidsBackground } from "../components/KidsBackground";
 import { Scene, SceneKind } from "../components/Scene";
+import { Watermark } from "../components/Watermark";
 
 export type SfxCue = { from: number; name: string; vol: number; dur?: number };
+
+// One watermark look per aspect, so every video matches its siblings:
+// portrait = oo_9x16's 13% / 0.6 · landscape = the restrained 10% / 0.55.
+const BrandMark: React.FC<{ corner: "tl" | "tr" | "bl" | "br" }> = ({ corner }) => {
+  const { width, height } = useVideoConfig();
+  const portrait = height > width;
+  return <Watermark corner={corner} widthFrac={portrait ? 0.13 : 0.1} opacity={portrait ? 0.6 : 0.55} />;
+};
 
 // Shared shell for every reel: home-style background, the card's narration, the
 // soft music bed, and its SFX cues. The per-card <Sequence> beats go in children.
@@ -17,12 +26,18 @@ export const ReelBase: React.FC<{
   floater?: "sparkle" | "bubble" | "wave";
   scene?: SceneKind;
   background?: React.ReactNode; // opt-in override (e.g. landscape CkBackground); default = KidsBackground
+  // Frame at which the store/download outro begins. The brand watermark runs from 0 up
+  // to here and then gets out of the way, because that outro shows the app icon full
+  // size and two logos on screen at once is forbidden. Omit for no watermark.
+  logoUntil?: number;
+  logoCorner?: "tl" | "tr" | "bl" | "br";
   children: React.ReactNode;
-}> = ({ audio, hueShift, sfx, total, floater = "sparkle", scene = "none", background, children }) => {
+}> = ({ audio, hueShift, sfx, total, floater = "sparkle", scene = "none", background, logoUntil, logoCorner = "tl", children }) => {
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
       {background ?? <KidsBackground hueShift={hueShift} floater={floater} />}
       <Scene kind={scene} />
+
       <Audio src={staticFile(audio)} />
 
       {/* soft ambient music bed, far under the narration */}
@@ -45,6 +60,14 @@ export const ReelBase: React.FC<{
       ))}
 
       {children}
+
+      {/* LAST, so the scene content can't paint over it — OoWorld/WordStreet are
+          full-frame layers and buried an earlier attempt completely. */}
+      {logoUntil !== undefined && logoUntil > 0 && (
+        <Sequence from={0} durationInFrames={logoUntil}>
+          <BrandMark corner={logoCorner} />
+        </Sequence>
+      )}
     </AbsoluteFill>
   );
 };

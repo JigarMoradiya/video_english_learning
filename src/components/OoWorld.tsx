@@ -13,8 +13,8 @@ import { bob, pulse } from "../lib/motion";
 // other dims. Example words dock into their world during the long/short intros + see-it.
 // The set fades out at the quiz so those beats get clean screens.
 
-const MOON = "#5E35B1"; // long
-const BOOK = "#E65100"; // short
+export const MOON = "#5E35B1"; // long
+export const BOOK = "#E65100"; // short
 
 interface Ex { word: string; blanked: string }
 const LONG_INTRO: Ex[] = [{ word: "moon", blanked: "moon" }, { word: "zoo", blanked: "zoo" }, { word: "food", blanked: "food" }];
@@ -23,7 +23,7 @@ const LONG_SEE: Ex[] = [{ word: "moon", blanked: "moon" }, { word: "food", blank
 const SHORT_SEE: Ex[] = [{ word: "book", blanked: "book" }, { word: "good", blanked: "good" }, { word: "foot", blanked: "foot" }, { word: "wood", blanked: "wood" }];
 
 // ── code-drawn characters ────────────────────────────────────────────────────
-const Moon: React.FC<{ size: number; active: boolean; frame: number; fps: number }> = ({ size, active, frame, fps }) => {
+export const Moon: React.FC<{ size: number; active: boolean; frame: number; fps: number }> = ({ size, active, frame, fps }) => {
   const howl = active ? pulse(frame, fps, 0.05, 0.9) : 1;
   const mouthOpen = active ? 0.5 + 0.5 * Math.abs(Math.sin((frame / fps) * Math.PI * 1.4)) : 0.18;
   const r = size / 2;
@@ -50,7 +50,7 @@ const Moon: React.FC<{ size: number; active: boolean; frame: number; fps: number
   );
 };
 
-const Book: React.FC<{ size: number; active: boolean; frame: number; fps: number }> = ({ size, active, frame, fps }) => {
+export const Book: React.FC<{ size: number; active: boolean; frame: number; fps: number }> = ({ size, active, frame, fps }) => {
   const bobY = active ? bob(frame, fps, size * 0.03, 2.2) : 0;
   const w = size;
   const h = size * 0.78;
@@ -114,10 +114,14 @@ export const OoWorld: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = ({ 
   const moonDim = focusBook ? 0.32 : 1;
   const bookDim = focusMoon ? 0.32 : 1;
 
-  // words docked in each world (spoken so far)
+  // Words docked in each world. The WHOLE list is returned from the beat start —
+  // a word that hasn't been spoken yet renders as a dashed ghost slot rather than
+  // being filtered out. Without this, "Here are some examples." (61.1→63.9s) and the
+  // two intro lines played over an empty lower half: the first card only lands when
+  // its word is spoken, ~2.7s after the beat begins.
   const docked = (list: Ex[], beat: Beat | undefined): (Ex & { at: number })[] => {
     if (!beat || f < beat.from) return [];
-    return list.map((w) => ({ ...w, at: beat.from + beat.word(w.word) })).filter((x) => x.at >= beat.from && f >= x.at);
+    return list.map((w) => ({ ...w, at: beat.from + beat.word(w.word) })).filter((x) => x.at >= beat.from);
   };
   const moonWords = beatId === "seeIt" ? docked(LONG_SEE, B.seeIt) : beatId === "long" ? docked(LONG_INTRO, B.long) : [];
   const bookWords = beatId === "seeIt" ? docked(SHORT_SEE, B.seeIt) : beatId === "short" ? docked(SHORT_INTRO, B.short) : [];
@@ -145,10 +149,35 @@ export const OoWorld: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = ({ 
         </div>
       )}
       {/* docked example words (raised above the caption band) */}
-      <div style={{ position: "absolute", bottom: 210, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 20, flexWrap: "wrap", justifyContent: "center", width: halfW * 0.9 }}>
-        {words.map((w) => (
-          <CkWordChip key={w.word} word={w.word} blanked={w.blanked} colorHex={side === "moon" ? "5E35B1" : "E65100"} enterFrame={w.at} size={118} />
-        ))}
+      <div style={{ position: "absolute", bottom: 210, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 31, flexWrap: "wrap", justifyContent: "center", width: halfW * 0.9 }}>
+        {words.map((w) =>
+          f >= w.at ? (
+            <CkWordChip key={w.word} word={w.word} blanked={w.blanked} colorHex={side === "moon" ? "5E35B1" : "E65100"} enterFrame={w.at} size={104} />
+          ) : (
+            // Ghost slot — holds the space so the row is prepared, never a bare screen.
+            // The night side needs a LIGHT ghost: a #5E35B1 dashed border on the #2A2350
+            // sky is invisible, which just puts the empty screen back.
+            <div
+              key={w.word}
+              style={{
+                width: 168,
+                height: 176,
+                borderRadius: 34,
+                border: `5px dashed ${side === "moon" ? "#FFFFFF66" : `${color}66`}`,
+                background: side === "moon" ? "#FFFFFF1F" : "#ffffff55",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 56,
+                fontWeight: 700,
+                color: side === "moon" ? "#FFFFFFAA" : `${color}99`,
+                transform: `translateY(${bob(frame, fps, 5, 2.2, w.word.length)}px)`,
+              }}
+            >
+              ?
+            </div>
+          )
+        )}
       </div>
     </div>
   );

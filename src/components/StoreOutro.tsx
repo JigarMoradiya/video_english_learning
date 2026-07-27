@@ -25,7 +25,10 @@ export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?:
   const play = spring({ frame: frame - badgeAt, fps, config: { damping: 10 } });
   const apple = spring({ frame: frame - (badgeAt + 14), fps, config: { damping: 10 } });
   return (
-    <AbsoluteFill style={{ background: "linear-gradient(155deg, #EDE9FF 0%, #FFF6EC 75%)", fontFamily: font.family }}>
+    // NO background here. The video's global background (+ its ambient particles) must
+    // keep running underneath, otherwise the download beat is a hard jump cut to a
+    // different world — see the "never paint an opaque background inside a scene" rule.
+    <AbsoluteFill style={{ fontFamily: font.family }}>
       {!silent && (
         <Sequence from={10} durationInFrames={sec(audioDur, fps) + 10}>
           <Audio src={staticFile(audioSrc)} />
@@ -39,7 +42,23 @@ export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?:
       <div style={{ position: "absolute", left: 770, top: 0, width: 1120, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 22 }}>
         <Img src={staticFile("app_icon.png")} style={{ width: 224, height: 224, borderRadius: 50, transform: `scale(${logoIn}) translateY(${bob(frame, fps, 8, 2.6)}px) rotate(${wiggle(frame, fps, 1.2, 2.4)}deg)`, boxShadow: "0 18px 40px rgba(30,36,56,0.25)" }} />
         <div style={{ opacity: line, fontSize: 58, fontWeight: 800, color: palette.ink, textAlign: "center" }}>Kids English Learning</div>
-        <div style={{ opacity: line, fontSize: 42, fontWeight: 700, color: "#8E24AA", textAlign: "center" }}>Download the app — it's FREE!</div>
+        {/* CTA reads as a BUTTON, not a line of purple text. #8E24AA on the pale
+            lavender gradient had weak contrast and fought the dark title above it. */}
+        <div
+          style={{
+            opacity: line,
+            fontSize: 42,
+            fontWeight: 800,
+            color: "#FFFFFF",
+            background: "#2E7D32",
+            borderRadius: 999,
+            padding: "16px 44px",
+            textAlign: "center",
+            boxShadow: "0 14px 32px rgba(46,125,50,0.38)",
+          }}
+        >
+          Download the app — it's FREE!
+        </div>
         <div style={{ display: "flex", gap: 28 }}>
           <Img src={staticFile("appstore.png")} style={{ width: 300, height: "auto", transform: `scale(${apple})` }} />
           <Img src={staticFile("playstore.png")} style={{ width: 300, height: "auto", transform: `scale(${play})` }} />
@@ -47,7 +66,8 @@ export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?:
       </div>
 
       {/* subtle fade in at the start */}
-      <AbsoluteFill style={{ background: "#FFF6EC", opacity: interpolate(frame, [0, 8, total - 8, total], [1, 0, 0, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), pointerEvents: "none" }} />
+      {/* a short soft veil on entry only — a transition, not a new background */}
+      <AbsoluteFill style={{ background: "#FFFFFF", opacity: interpolate(frame, [0, 12], [0.5, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), pointerEvents: "none" }} />
     </AbsoluteFill>
   );
 };

@@ -115,10 +115,14 @@ export const CkCkReel: React.FC = () => {
       sfx={SFX}
       total={C_K_CK_DURATION}
       background={<CkBackground hueShift={data.hueShift} />}
+      logoUntil={byId.wrap.from}
+      logoCorner="tr"
     >
       {/* persistent set + captions — top-level children read the absolute frame */}
       <WordStreet data={data} beats={beats} />
-      <Captions track={track} keywordColor={ckKeywordColor} maxWidth={1360} fontSize={40} bottom={70} />
+      <Sequence from={0} durationInFrames={byId.wrap.from}>
+        <Captions track={track} keywordColor={ckKeywordColor} maxWidth={1360} fontSize={40} bottom={70} />
+      </Sequence>
 
       {/* per-beat foreground overlays */}
       {beats.map((b) => {

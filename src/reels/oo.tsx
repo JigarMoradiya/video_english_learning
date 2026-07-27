@@ -93,10 +93,12 @@ export const OoReel: React.FC = () => {
   const quizRevealAt = reveal.from - quiz.from;
 
   return (
-    <ReelBase audio="audio/oo/oo.mp3" hueShift={data.hueShift} sfx={SFX} total={OO_DURATION} background={<CkBackground hueShift={data.hueShift} />}>
+    <ReelBase audio="audio/oo/oo.mp3" hueShift={data.hueShift} sfx={SFX} total={OO_DURATION} background={<CkBackground hueShift={data.hueShift} />} logoUntil={byId.wrap.from} logoCorner="bl">
       {/* persistent split moon/book world + captions (top-level = absolute frame) */}
       <OoWorld data={data} beats={beats} />
-      <Captions track={track} keywordColor={ooKeywordColor} maxWidth={1360} fontSize={40} bottom={70} />
+      <Sequence from={0} durationInFrames={byId.wrap.from}>
+        <Captions track={track} keywordColor={ooKeywordColor} maxWidth={1360} fontSize={40} bottom={70} />
+      </Sequence>
 
       {beats.map((b) => {
         if (b.id === "reveal") return null; // folded into the quiz span

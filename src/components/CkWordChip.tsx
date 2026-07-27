@@ -45,12 +45,18 @@ export const CkWordChip: React.FC<{
   return (
     <div
       style={{
-        transform: `scale(${s}) translateY(${bob(frame, fps, 4, 2.4, phase)}px)`,
+        // hl scales the WHOLE card. It used to scale only the target grapheme, and a
+        // transform doesn't affect layout — so "kick"'s enlarged "ck" rendered outside
+        // the card border (duck/rock had slack, kick didn't).
+        transform: `scale(${s * hl}) translateY(${bob(frame, fps, 4, 2.4, phase)}px)`,
         opacity: Math.min(1, s + 0.001),
+        // never let a flex parent squeeze the card below its word: "kick" is wider than
+        // "duck"/"rock", so it was the one whose letters spilled past the border
+        flexShrink: 0,
         background: palette.card,
         border: `${size * 0.05}px solid ${c}`,
         borderRadius: size * 0.28,
-        padding: `${size * 0.12}px ${size * 0.16}px ${size * 0.1}px`,
+        padding: `${size * 0.12}px ${size * 0.19}px ${size * 0.1}px`,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -88,7 +94,7 @@ export const CkWordChip: React.FC<{
           style={{
             color: c,
             display: "inline-block",
-            transform: `scale(${hl})`,
+            // colour + glow only — the scale lives on the card so nothing can overflow
             textShadow: hl > 1.02 ? `0 0 ${(hl - 1) * 70}px ${c}` : undefined,
           }}
         >

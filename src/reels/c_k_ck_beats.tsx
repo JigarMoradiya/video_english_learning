@@ -7,8 +7,47 @@ import { CkWordChip } from "../components/CkWordChip";
 import { illustrationFor } from "../data/wordImages";
 import { bob, pulse, wiggle } from "../lib/motion";
 import { hex, palette } from "../data/tokens";
+import { Mascot } from "../components/Mascot";
 
 type BeatProps = { data: PhonicsComparison; beat: Beat };
+
+// 16:9 centre beats: the mascot sits on the LEFT, and only a big EMOJI heads the
+// title. Stacking the mascot above the title made the column taller than the lifted
+// Center could hold, so his head was clipped by the top of the frame.
+const BeatEmoji: React.FC<{ char: string }> = ({ char }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (
+    <span
+      style={{
+        fontSize: 104,
+        lineHeight: 1,
+        display: "inline-block",
+        transform: `scale(${pulse(frame, fps, 0.05, 1.5)}) translateY(${bob(frame, fps, 7, 2.4)}px) rotate(${wiggle(frame, fps, 4, 2.2)}deg)`,
+      }}
+    >
+      {char}
+    </span>
+  );
+};
+
+// Mascot parked on the left of the centre stage, clear of every card row.
+const SideMascot: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 96,
+        top: "50%",
+        transform: `translateY(calc(-50% + ${bob(frame, fps, 10, 2.3)}px))`,
+      }}
+    >
+      <Mascot size={190} />
+    </div>
+  );
+};
 
 // ── shared bits ──────────────────────────────────────────────────────────────
 
@@ -44,49 +83,35 @@ const Pill: React.FC<{ from?: number; color?: string; children: React.ReactNode 
 
 const kw = (text: string, color: string) => <span style={{ color, fontWeight: 700 }}>{text}</span>;
 
-// top-band container
-const Band: React.FC<{ children: React.ReactNode; top?: number }> = ({ children, top = 54 }) => (
+// top-band container. `top` defaults to 100: the 5% title-safe inset on a 1080-tall
+// frame is 54px, and the pills used to start at 36–54, i.e. inside the unsafe band.
+const Band: React.FC<{ children: React.ReactNode; top?: number }> = ({ children, top = 100 }) => (
   <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", paddingTop: top, pointerEvents: "none" }}>
     {children}
   </AbsoluteFill>
 );
 
-// center-stage container (lifted above the caption band)
+// Centre stage, ANCHORED FROM THE TOP at a known-safe y. It used to centre the
+// column inside a bottom-padded box: when the column grew taller than that box,
+// flexbox overflowed it equally at both ends and clipped the header off the top of
+// the frame. Growing downward from paddingTop can only ever eat into the slack
+// above the caption band, which is harmless.
+const STAGE_TOP = 110; // just clear of the 96px title-safe line
 const Center: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", paddingBottom: 210, pointerEvents: "none" }}>
+  <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", paddingTop: STAGE_TOP, pointerEvents: "none" }}>
     {children}
   </AbsoluteFill>
 );
 
-// ── ① Hook — big /k/ badge pops when "sound" is said ─────────────────────────
-export const Hook: React.FC<BeatProps> = ({ beat }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const at = Math.max(0, beat.word("sound"));
-  const s = spring({ frame: frame - at, fps, config: { damping: 9 } });
-  return (
-    <Band top={40}>
-      <Pill from={0}>3 ways to spell /k/! 🔑</Pill>
-      {frame >= at && (
-        <div
-          style={{
-            marginTop: 40,
-            transform: `scale(${s * pulse(frame, fps, 0.05, 1.1)})`,
-            fontSize: 150,
-            fontWeight: 700,
-            color: palette.ink,
-            background: "#fff",
-            borderRadius: 40,
-            padding: "10px 60px",
-            boxShadow: `0 20px 50px ${palette.cardShadow}`,
-          }}
-        >
-          /k/
-        </div>
-      )}
-    </Band>
-  );
-};
+// ── ① Hook — title pill only ──────────────────────────────────────────────────
+// The big /k/ badge used to drop here at marginTop 40 and land on top of the middle
+// zone's street sign. The /k/ moment now lives INSIDE the three panels (WordStreet's
+// SoundCard), which also fills the slot that used to be empty for the first 12s.
+export const Hook: React.FC<BeatProps> = () => (
+  <Band>
+    <Pill from={0}>3 ways to spell /k/! 🔑</Pill>
+  </Band>
+);
 
 // ── ② Three spellings, one sound — c/k/ck badges → one /k/ ───────────────────
 export const ThreeOne: React.FC<BeatProps> = ({ data, beat }) => {
@@ -96,7 +121,7 @@ export const ThreeOne: React.FC<BeatProps> = ({ data, beat }) => {
   const titleS = spring({ frame, fps, config: { damping: 12 } });
   const chipAt = [8, 18, 28];
   return (
-    <Band top={36}>
+    <Band>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
         <div
           style={{
@@ -175,15 +200,17 @@ export const Puzzle: React.FC<BeatProps> = ({ beat }) => {
   const at = Math.max(0, beat.fRel(28.96));
   const s = spring({ frame: frame - at, fps, config: { damping: 10 } });
   return (
-    <Band top={40}>
+    <Band>
+      {/* bulb INLINE with the pill — stacked it pushed past the band and onto the
+          middle zone's street sign */}
+      <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
       <Pill from={0}>which one do we use? 🤔</Pill>
       {frame >= at && (
         <div
           style={{
-            marginTop: 30,
             transform: `scale(${s})`,
-            width: 240,
-            height: 240,
+            width: 130,
+            height: 130,
             borderRadius: "50%",
             background: "#fff",
             display: "flex",
@@ -192,9 +219,10 @@ export const Puzzle: React.FC<BeatProps> = ({ beat }) => {
             boxShadow: `0 18px 44px ${palette.cardShadow}`,
           }}
         >
-          <Lightbulb size={150} />
+          <Lightbulb size={86} />
         </div>
       )}
+      </div>
     </Band>
   );
 };
@@ -218,7 +246,7 @@ export const RuleK: React.FC<BeatProps> = ({ data, beat }) => {
   const kCol = hex(data.teams[1].colorHex);
   const cityS = spring({ frame: frame - (cityAt - 20), fps, config: { damping: 11 } });
   return (
-    <Band top={40}>
+    <Band>
       {/* the special-rule callout: c goes soft /s/ before e/i (city) */}
       {frame >= cityAt - 20 && frame < kAt + 10 && (
         <div
@@ -270,40 +298,40 @@ export const SeeIt3: React.FC<BeatProps> = ({ data, beat }) => {
   // switch group when its LABEL is spoken ("c:" 87.9 · "k:" 93.64 · "ck:" 99.2),
   // so the previous group's cards clear the moment the new label is announced.
   const labelAt = [Math.max(0, beat.word("c")), Math.max(0, beat.word("k")), Math.max(0, beat.word("ck"))];
-  const started = frame >= labelAt[0] - 6;
   let gi = 0;
   for (let j = 0; j < 3; j++) if (frame >= labelAt[j]) gi = j;
-  const labelPop = spring({ frame: frame - labelAt[gi], fps, config: { damping: 10 } });
+  // the first group's label is present from the BEAT start — keyed to labelAt[0]
+  // (87.9s) it spent the beat's first ~2.5s at scale 0, so the row had a heading-
+  // shaped hole above it while the narration was already running
+  const labelPop = spring({ frame: frame - (gi === 0 ? 0 : labelAt[gi]), fps, config: { damping: 10 } });
   const group = groups[gi];
-  const appeared = group.words.filter((w) => frame >= w.at);
-  const n = appeared.length;
-
-  // sliding centred row: as each word appears the row slides so it stays centred
-  const cardW = 250;
-  const gap = 30;
-  const rowW = (k: number) => (k > 0 ? k * cardW + (k - 1) * gap : 0);
-  const lastAt = n > 0 ? appeared[n - 1].at : labelAt[gi];
-  const offset = interpolate(frame, [lastAt, lastAt + 14], [-rowW(Math.max(0, n - 1)) / 2, -rowW(n) / 2], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
   const c = hex(data.teams[gi].colorHex);
+
+  // THREE FIXED SLOTS, always on screen. Before its word is spoken a slot shows a
+  // dashed ghost card, so the stage is never blank — the old build left ~2.5s of
+  // empty screen at "Let's try some words!" and ~1.4s at each new group label.
+  // No fixed-width slot: at size 230 a card is ~414px, so a 300px slot made adjacent
+  // cards overlap. Natural width + a real gap can never touch.
+  const gap = 84; // pulse-proof: a spoken card grows 0.16×width each side
 
   return (
     <Center>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 30 }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
+        <BeatEmoji char="👀" />
         <div style={{ fontSize: 66, fontWeight: 700, color: palette.ink, transform: `translateY(${bob(frame, fps, 6, 2.6)}px)` }}>
-          Let's try some words! 👀
+          Let's try some words!
         </div>
 
-        {/* the group letter */}
+        {/* the group letter — breathing room below it so the label reads as a
+            heading for the row rather than sitting on top of the first card */}
         <div
           style={{
+            marginBottom: 30,
             background: c,
             color: "#fff",
             border: `5px solid ${c}`,
             borderRadius: 24,
-            padding: "8px 40px",
+            padding: "10px 46px",
             fontSize: 64,
             fontWeight: 700,
             boxShadow: `0 12px 30px ${c}66`,
@@ -313,19 +341,40 @@ export const SeeIt3: React.FC<BeatProps> = ({ data, beat }) => {
           {group.g === 0 ? "c" : group.g === 1 ? "k" : "ck"}
         </div>
 
-        {/* sliding row of that group's words */}
-        <div style={{ position: "relative", width: 1500, height: 330 }}>
-          {started && (
-            <div style={{ position: "absolute", left: "50%", top: "50%", transform: `translate(${offset}px, -50%)`, display: "flex", gap }}>
-              {appeared.map((w) => (
-                <div key={`${gi}-${w.word}`} style={{ width: cardW, display: "flex", justifyContent: "center" }}>
-                  <CkWordChip word={w.word} blanked={w.blanked} colorHex={data.teams[gi].colorHex} enterFrame={w.at} size={190} />
-                </div>
-              ))}
-            </div>
-          )}
+        {/* fixed three-slot row: ghost → filled as each word is spoken */}
+        <div style={{ display: "flex", gap, alignItems: "center", justifyContent: "center" }}>
+          {group.words.map((w, k) => {
+            const on = frame >= w.at;
+            return (
+              <div key={`${gi}-${w.word}`} style={{ height: 320, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {on ? (
+                  <CkWordChip word={w.word} blanked={w.blanked} colorHex={data.teams[gi].colorHex} enterFrame={w.at} size={230} />
+                ) : (
+                  <div
+                    style={{
+                      width: 300,
+                      height: 250,
+                      borderRadius: 60,
+                      border: `6px dashed ${c}55`,
+                      background: "#ffffff55",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 84,
+                      fontWeight: 700,
+                      color: `${c}55`,
+                      transform: `translateY(${bob(frame, fps, 6, 2.2, k)}px)`,
+                    }}
+                  >
+                    ?
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
+      <SideMascot />
     </Center>
   );
 };
@@ -374,29 +423,47 @@ const Confetti: React.FC<{ start: number }> = ({ start }) => {
 };
 
 // ── ⑨+⑩ Quiz3 — 3-way "how do we spell duck?" + reveal (spans quiz+reveal) ────
-export const Quiz3: React.FC<BeatProps & { revealAt: number; underlineAt: number }> = ({ data, revealAt, underlineAt }) => {
+export const Quiz3: React.FC<BeatProps & { revealAt: number; underlineAt: number }> = ({ data, beat, revealAt, underlineAt }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const word = "duck";
-  const blanked = "du__";
   const answer = 2;
   const revealed = frame >= revealAt;
   const underlined = frame >= underlineAt; // "u" underline waits for "short vowel"
   const aCol = hex(data.teams[answer].colorHex);
   const suspense = interpolate(frame, [revealAt - 55, revealAt], [1, 3], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const wordIn = spring({ frame, fps, config: { damping: 12 } });
   const before = "du";
+
+  // The quiz used to hold ONE static picture for the whole 9s before the reveal —
+  // only the caption moved. Now every spoken beat lands a visual:
+  //   107.22 "How do we spell duck?" → the du__ word drops in
+  //   109.34 / 110.42 / 111.36 "c, k, or ck?" → a pointer hops onto each option
+  const wordAt = Math.max(0, beat.fRel(107.22));
+  const optionAt = [beat.fRel(109.34), beat.fRel(110.42), beat.fRel(111.36)];
+  const wordIn = spring({ frame: frame - wordAt, fps, config: { damping: 12 } });
+  let pointed = -1;
+  for (let j = 0; j < 3; j++) if (!revealed && frame >= optionAt[j]) pointed = j;
 
   return (
     <Center>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 44 }}>
+        <BeatEmoji char="🤔" />
         <div style={{ fontSize: 70, fontWeight: 700, color: palette.ink, transform: `translateY(${bob(frame, fps, 6, 2.4)}px)` }}>
-          Your turn! 🤔  How do we spell…
+          Your turn! How do we spell…
         </div>
 
         {/* the word: du__ → duck. The short-vowel "u" underline appears ONLY after the
             reveal ("It's ck — because there's a short vowel right before it!"). */}
-        <div style={{ fontSize: 168, fontWeight: 700, letterSpacing: 6, transform: `scale(${wordIn * (revealed ? pulse(frame - revealAt, fps, 0.05, 0.8) : 1)})` }}>
+        {/* the word slot is HELD from the beat start (ghosted) so the 2s before
+            "How do we spell duck?" isn't a hole where the word will be */}
+        <div
+          style={{
+            fontSize: 168,
+            fontWeight: 700,
+            letterSpacing: 6,
+            opacity: frame >= wordAt ? 1 : 0.22,
+            transform: `scale(${(frame >= wordAt ? wordIn : 0.92) * (revealed ? pulse(frame - revealAt, fps, 0.05, 0.8) : 1)})`,
+          }}
+        >
           {revealed ? (
             <>
               <span style={{ color: palette.ink }}>{before.slice(0, -1)}</span>
@@ -434,28 +501,46 @@ export const Quiz3: React.FC<BeatProps & { revealAt: number; underlineAt: number
             const pop = lit ? spring({ frame: frame - revealAt, fps, config: { damping: 8 } }) : 1;
             const scale = lit ? 1 + pop * 0.16 : 1;
             const c = hex(team.colorHex);
+            const isPointed = pointed === i;
+            const pointS = isPointed ? spring({ frame: frame - optionAt[i], fps, config: { damping: 9 } }) : 0;
             return (
-              <div
-                key={team.marker}
-                style={{
-                  transform: `scale(${scale}) rotate(${lit ? 0 : wiggle(frame, fps, 2 * suspense, 1.6 / suspense, i)}deg)`,
-                  opacity: dim ? 0.3 : 1,
-                  background: lit ? c : palette.card,
-                  color: lit ? "#fff" : c,
-                  border: `8px solid ${c}`,
-                  borderRadius: 34,
-                  padding: "26px 70px",
-                  fontSize: 96,
-                  fontWeight: 700,
-                  boxShadow: lit ? `0 16px 48px ${c}88` : `0 16px 40px ${palette.cardShadow}`,
-                }}
-              >
-                {team.marker} {lit ? "🎉" : ""}
+              <div key={team.marker} style={{ position: "relative" }}>
+                {/* hopping pointer while "c, k, or ck?" is spoken */}
+                {isPointed && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: -74,
+                      left: "50%",
+                      transform: `translateX(-50%) scale(${pointS}) translateY(${bob(frame, fps, 9, 3.4)}px)`,
+                      fontSize: 58,
+                    }}
+                  >
+                    👇
+                  </div>
+                )}
+                <div
+                  style={{
+                    transform: `scale(${scale * (1 + pointS * 0.1)}) rotate(${lit ? 0 : wiggle(frame, fps, 2 * suspense, 1.6 / suspense, i)}deg)`,
+                    opacity: dim ? 0.3 : 1,
+                    background: lit ? c : palette.card,
+                    color: lit ? "#fff" : c,
+                    border: `8px solid ${c}`,
+                    borderRadius: 34,
+                    padding: "26px 70px",
+                    fontSize: 96,
+                    fontWeight: 700,
+                    boxShadow: lit || isPointed ? `0 16px 48px ${c}88` : `0 16px 40px ${palette.cardShadow}`,
+                  }}
+                >
+                  {team.marker} {lit ? "🎉" : ""}
+                </div>
               </div>
             );
           })}
         </div>
       </div>
+      <SideMascot />
       <Confetti start={revealAt} />
     </Center>
   );
@@ -498,14 +583,17 @@ const TintWord: React.FC<{ word: string; blanked: string; color: string; size: n
 export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const ats = [beat.fRel(120.0), beat.fRel(123.56), beat.fRel(126.22)];
+  // first card lands on "Remember:" (the beat start), not 0.6s later — the old 120.0
+  // left three empty ghost boxes on screen while the line had already begun
+  const ats = [0, beat.fRel(123.56), beat.fRel(126.22)];
   return (
     <Center>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 44 }}>
+        <BeatEmoji char="🧠" />
         <div style={{ fontSize: 72, fontWeight: 700, color: palette.ink, transform: `translateY(${bob(frame, fps, 5, 2.6)}px)` }}>
-          Remember! 🧠
+          Remember!
         </div>
-        <div style={{ display: "flex", gap: 44, alignItems: "stretch" }}>
+        <div style={{ display: "flex", gap: 40, alignItems: "stretch" }}>
           {RECAP.map((r, idx) => {
             const at = Math.max(0, ats[idx]);
             const on = frame >= at;
@@ -524,13 +612,13 @@ export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
               <div
                 key={r.i}
                 style={{
-                  width: 470,
+                  width: 420,
                   transform: `scale(${(on ? cardS : 0.9) * (1 + glow * 0.03)}) translateY(${bob(frame, fps, 5, 2.4, idx)}px)`,
                   opacity: on ? 1 : 0.25,
                   background: palette.card,
                   border: `8px solid ${c}`,
                   borderRadius: 40,
-                  padding: "34px 24px 40px",
+                  padding: "26px 20px 30px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -541,8 +629,8 @@ export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
                 <div style={{ fontSize: 120, fontWeight: 700, color: c, lineHeight: 1, transform: `scale(${letterS})`, textShadow: glow > 0.1 ? `0 0 ${glow * 44}px ${c}` : undefined }}>
                   {team.marker}
                 </div>
-                <div style={{ fontSize: 42, fontWeight: 700, color: c, opacity: ruleS, transform: `translateY(${(1 - ruleS) * 14}px)` }}>{r.rule}</div>
-                <span style={{ fontSize: 92, marginTop: 10, display: "inline-block", transform: `scale(${emojiS}) translateY(${bob(frame, fps, 5, 2, idx)}px)` }}>{emoji}</span>
+                <div style={{ fontSize: 34, fontWeight: 700, color: c, whiteSpace: "nowrap", opacity: ruleS, transform: `translateY(${(1 - ruleS) * 14}px)` }}>{r.rule}</div>
+                <span style={{ fontSize: 78, marginTop: 6, display: "inline-block", transform: `scale(${emojiS}) translateY(${bob(frame, fps, 5, 2, idx)}px)` }}>{emoji}</span>
                 <div style={{ transform: `scale(${wordS})` }}>
                   <TintWord word={r.word} blanked={r.blanked} color={c} size={72} markVowel={r.i === 2} />
                 </div>
@@ -551,6 +639,7 @@ export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
           })}
         </div>
       </div>
+      <SideMascot />
     </Center>
   );
 };

@@ -9,15 +9,21 @@ export const STORE_OUTRO_PORTRAIT_F = 344;
 // Portrait download outro — SAME device mockup as the 16:9 (StoreFlow: detail page, tap GET →
 // downloading → OPEN, real screenshots) fitted into the portrait frame, with the CTA + both
 // store badges below. Reuses the shared store assets + a custom CTA voiceover.
-export const StoreOutroPortrait: React.FC<{ audioSrc: string; audioDur: number; bg?: string }> = ({ audioSrc, audioDur, bg }) => {
+// audioSrc empty => silent: the reel's own narration already covers the CTA line
+// (the oo 9:16 cut does this), so mounting an <Audio src=""> would just error.
+export const StoreOutroPortrait: React.FC<{ audioSrc?: string; audioDur?: number; bg?: string }> = ({ audioSrc, audioDur = 0, bg }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const cta = spring({ frame: frame - 26, fps, config: { damping: 12 } });
   const apple = spring({ frame: frame - 40, fps, config: { damping: 11 } });
   const play = spring({ frame: frame - 52, fps, config: { damping: 11 } });
   return (
+    // bg defaults to TRANSPARENT so the reel's own background keeps running — passing a
+    // different colour here made the download beat a jump cut to another world.
     <AbsoluteFill style={{ fontFamily: font.family, background: bg }}>
-      <Sequence from={10} durationInFrames={Math.round(audioDur * fps) + 10}><Audio src={staticFile(audioSrc)} /></Sequence>
+      {audioSrc ? (
+        <Sequence from={10} durationInFrames={Math.round(audioDur * fps) + 10}><Audio src={staticFile(audioSrc)} /></Sequence>
+      ) : null}
 
       {/* the full app-store phone (search "Kids English Learning" → our app → detail → GET →
           download → OPEN), same as the 16:9. transform makes the wrapper the containing block
@@ -27,7 +33,12 @@ export const StoreOutroPortrait: React.FC<{ audioSrc: string; audioDur: number; 
       </div>
 
       <div style={{ position: "absolute", top: 1120, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 26 }}>
-        <div style={{ opacity: cta, fontSize: 56, fontWeight: 800, color: "#FFD54F", textAlign: "center" }}>Download the app — it's FREE!</div>
+        {/* a green BUTTON, not tinted text: the outro now sits on the video's own light
+            background (a dark teal jump-cut was rejected), where #FFD54F is unreadable.
+            The pill also reads correctly if a dark bg is ever passed again. */}
+        <div style={{ opacity: cta, fontSize: 52, fontWeight: 800, color: "#FFFFFF", background: "#2E7D32", borderRadius: 999, padding: "18px 52px", textAlign: "center", boxShadow: "0 16px 36px rgba(46,125,50,0.40)" }}>
+          Download the app — it's FREE!
+        </div>
         <div style={{ display: "flex", gap: 30 }}>
           <Img src={staticFile("appstore.png")} style={{ width: 360, height: "auto", transform: `scale(${apple})` }} />
           <Img src={staticFile("playstore.png")} style={{ width: 360, height: "auto", transform: `scale(${play})` }} />

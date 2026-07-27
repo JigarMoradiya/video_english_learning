@@ -56,7 +56,7 @@ export const OiOyReel: React.FC = () => {
   const data = comparisons.oi_oy;
   const at = beatTimeline();
   return (
-    <ReelBase audio="audio/oi_oy/oi_oy.mp3" hueShift={data.hueShift} sfx={SFX} total={OI_OY_DURATION} floater="bubble" scene="party">
+    <ReelBase audio="audio/oi_oy/oi_oy.mp3" hueShift={data.hueShift} sfx={SFX} total={OI_OY_DURATION} floater="bubble" scene="party" logoUntil={OI_OY_DURATION - BEATS.wrap} logoCorner="tr">
       <Sequence {...at(BEATS.hook)}>
         <OiHook data={data} />
       </Sequence>

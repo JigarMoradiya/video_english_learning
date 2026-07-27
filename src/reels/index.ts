@@ -10,6 +10,8 @@ import { ShortVowelsReel, SHORT_VOWELS_DURATION } from "./shortvowels";
 import { ShortVowelsPortraitReel, SHORT_VOWELS_PORTRAIT_DURATION } from "./shortvowels_portrait";
 import { LettersP1Reel, LETTERS_P1_DURATION } from "./letters_p1";
 import { LettersP2Reel, LETTERS_P2_DURATION } from "./letters_p2";
+import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
+import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
@@ -47,6 +49,10 @@ export const REELS: ReelEntry[] = [
   // A→Z Letter Sounds, split into two 9:16 parts (pink world, sibling of the purple Short Vowels).
   { id: "letters-p1-9x16", component: LettersP1Reel, durationInFrames: LETTERS_P1_DURATION, width: 1080, height: 1920 },
   { id: "letters-p2-9x16", component: LettersP2Reel, durationInFrames: LETTERS_P2_DURATION, width: 1080, height: 1920 },
+  // L13 · "Which SOUND?" oo — 9:16 cut: SAME narration, TOP/BOTTOM split world.
+  { id: "oo-9x16", component: OoPortraitReel, durationInFrames: OO_PORTRAIT_DURATION, width: 1080, height: 1920 },
+  // L5 · "-ck Rule" c/k/ck — 9:16 cut: SAME narration, stacked team tower, deep-teal world.
+  { id: "c-k-ck-9x16", component: CkCkPortraitReel, durationInFrames: CK_PORTRAIT_DURATION, width: 1080, height: 1920 },
   // ── A–Z Letter Shorts (series) — one 9:16 Short per letter, ~25s each ───────
   // "Paper Craft Daylight" world. Fully data-driven: all 26 come from one
   // template, so an episode is a LETTERS row, not a build.
