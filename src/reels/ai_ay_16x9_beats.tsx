@@ -111,9 +111,16 @@ export const AaNotThis: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ d
 // ── seeIt — the train leaves, two boards of six words slide in ───────────────
 // Card sizing (CkWordChip law): card width ≈ size × 1.8, a spoken card pulses 1.32×.
 // 3 per row in an 844 board: 844 / (1.8 × (3 + 2×0.16)) = 141 max. 128 with gap 46 fits.
+// A card is size x 1.68 tall (CkWordChip: pad .12 + emoji .82 + gap .04 + word .5 +
+// pad .1 + border .1) and a SPOKEN card pulses to 1.32x. Two rows must fit the slot
+// INCLUDING that pulse, or the bottom row leaves the board and the top row grows into
+// the header:  2H + gap + 0.32H <= slot.  At size 100: 408 <= 416. At 128 it was 517.
 const BOARD_W = 844;
-const CARD = 128;
+const CARD = 100;
 const CARD_GAP = 46;
+const ROW_GAP = 18;
+const CARDS_TOP = 128; // clears the header pill, which ends at ~84
+const CARDS_BOTTOM = 16;
 
 const WordBoard: React.FC<{
   team: PhonicsComparison["teams"][0];
@@ -142,13 +149,13 @@ const WordBoard: React.FC<{
       }}
     >
       {/* board header */}
-      <div style={{ position: "absolute", top: 20, left: "50%", transform: `translateX(-50%) translateY(${bob(frame, fps, 4, 2.8)}px)`, background: c, color: "#fff", borderRadius: 999, padding: "10px 34px", display: "flex", alignItems: "center", gap: 14, boxShadow: `0 10px 26px ${c}55`, whiteSpace: "nowrap" }}>
-        <span style={{ fontSize: 38 }}>{team.zoneEmoji}</span>
-        <span style={{ fontSize: 52, fontWeight: 700 }}>{team.marker}</span>
-        <span style={{ fontSize: 30, fontWeight: 600, opacity: 0.9 }}>· {team.zoneHint}</span>
+      <div style={{ position: "absolute", top: 14, left: "50%", transform: `translateX(-50%) translateY(${bob(frame, fps, 3, 2.8)}px)`, background: c, color: "#fff", borderRadius: 999, padding: "8px 30px", display: "flex", alignItems: "center", gap: 14, boxShadow: `0 10px 26px ${c}55`, whiteSpace: "nowrap" }}>
+        <span style={{ fontSize: 32 }}>{team.zoneEmoji}</span>
+        <span style={{ fontSize: 44, fontWeight: 700 }}>{team.marker}</span>
+        <span style={{ fontSize: 26, fontWeight: 600, opacity: 0.9 }}>· {team.zoneHint}</span>
       </div>
       {/* two rows of three */}
-      <div style={{ position: "absolute", left: 0, right: 0, top: 150, bottom: 26, display: "flex", flexDirection: "column", justifyContent: "center", gap: 22 }}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: CARDS_TOP, bottom: CARDS_BOTTOM, display: "flex", flexDirection: "column", justifyContent: "center", gap: ROW_GAP }}>
         {[words.slice(0, 3), words.slice(3, 6)].map((row, r) => (
           <div key={r} style={{ display: "flex", justifyContent: "center", gap: CARD_GAP }}>
             {row.map((w) => {
@@ -243,7 +250,9 @@ export const AaQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; word: strin
             🎨
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 40 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: font.family, fontSize: 150, fontWeight: 700, color: palette.ink, lineHeight: 1.1 }}>
+            {/* baseline-aligned: a block child's baseline is its bottom edge, so the gap
+                bars sit ON the writing line instead of floating mid-letter */}
+            <div style={{ display: "flex", alignItems: "baseline", gap: 6, fontFamily: font.family, fontSize: 150, fontWeight: 700, color: palette.ink, lineHeight: 1.1 }}>
               {revealed ? (
                 <>
                   <span>{word.slice(0, cut)}</span>
@@ -253,7 +262,7 @@ export const AaQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; word: strin
               ) : (
                 blanked.split("").map((ch, i) =>
                   ch === "_" ? (
-                    <span key={i} style={{ display: "inline-block", width: 66, height: 11, background: "#B9C4D6", borderRadius: 6, margin: "0 4px", transform: `translateY(-10px) scaleY(${suspense})` }} />
+                    <span key={i} style={{ display: "block", width: 66, height: 12, background: "#B9C4D6", borderRadius: 6, margin: "0 5px", transform: `scaleY(${suspense})`, transformOrigin: "bottom" }} />
                   ) : (
                     <span key={i}>{ch}</span>
                   )
