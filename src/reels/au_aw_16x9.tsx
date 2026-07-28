@@ -52,14 +52,18 @@ const SPECS: BeatSpec[] = [
   { id: "recap", from: 65, to: 67 },    // So remember…
   { id: "wrap", from: 68, to: 70 },     // CTA
 ];
-const beats = planBeats(track, SPECS);
+export const auAwBeats = planBeats(track, SPECS);
+const beats = auAwBeats;
 const byId: Record<string, Beat> = Object.fromEntries(beats.map((b) => [b.id, b]));
 export const AU_AW_16X9_DURATION = track.totalFrames;
+export const auAwTrack = track;
+export const auAwP = P;
+export const auAwW = W;
 
-const WORDS_MID = ["author", "autumn", "sauce", "launch", "pause", "because"];
-const WORDS_END = ["saw", "paw", "draw", "yawn", "dawn", "crawl"];
+export const AU_AW_WORDS_MID = ["author", "autumn", "sauce", "launch", "pause", "because"];
+export const AU_AW_WORDS_END = ["saw", "paw", "draw", "yawn", "dawn", "crawl"];
 
-const COPY: PairCopy = {
+export const AU_AW_COPY: PairCopy = {
   soundLabel: "/aw/ — “yaaawn”",
   // the narration says "sau" first, then "awtumn"
   wrong: [{ bad: "sau", good: "saw" }, { bad: "awtumn", good: "autumn" }],
@@ -68,7 +72,7 @@ const COPY: PairCopy = {
 };
 
 const R = (i: number) => P(i) - P(36);
-const ONE_SOUND_CUES: OneSoundCues = {
+export const AU_AW_ONE_SOUND_CUES: OneSoundCues = {
   fork: R(37),      // "Remember ow, with its two different sounds?"
   notLike: R(38),   // "Aw is not like that."
   oneSound: R(39),  // "Aw only ever says one sound."
@@ -81,7 +85,7 @@ const marker = (t: string): Slot => ({ text: t, kind: "marker" });
 const letter = (t: string): Slot => ({ text: t, kind: "letter" });
 const ghost = (t: string): Slot => ({ text: t, kind: "ghost" });
 
-const signStateFor = (f: number): SlotState => {
+export const auAwStateFor = (f: number): SlotState => {
   // notThis — each wrong spelling sits where it does NOT belong, crossed out
   if (f >= P(32)) {
     if (f < P(33)) return { cars: [null, letter("s"), { text: "au", kind: "cross" }], litIdx: 2 };
@@ -131,10 +135,10 @@ const signStateFor = (f: number): SlotState => {
 };
 
 // au owns the BEGINNING sign as well as the middle one ("autumn", "author")
-const lawnColorFor = (i: number) => (i === 2 ? data.teams[1].colorHex : data.teams[0].colorHex);
+export const auAwColorFor = (i: number) => (i === 2 ? data.teams[1].colorHex : data.teams[0].colorHex);
 
 type Cue = { from: number; name: string; vol: number };
-const SFX: Cue[] = [
+export const AU_AW_SFX: Cue[] = [
   { from: P(0), name: "swoosh_soft", vol: 0.3 }, // the yawn
   { from: P(2), name: "pop", vol: 0.3 },
   { from: P(4), name: "pop", vol: 0.3 },
@@ -166,15 +170,15 @@ const SFX: Cue[] = [
 const overlayFor = (b: Beat) => {
   switch (b.id) {
     case "hook": return <PairHook data={data} beat={b} />;
-    case "same": return <PairSame data={data} beat={b} copy={COPY} />;
+    case "same": return <PairSame data={data} beat={b} copy={AU_AW_COPY} />;
     case "where": return <PairWhere data={data} beat={b} />;
     case "ruleMid": return <PairRule data={data} beat={b} teamIdx={0} />;
     case "ruleEnd": return <PairRule data={data} beat={b} teamIdx={1} />;
     case "bonus": return <PairBonus data={data} beat={b} ruleAt={P(26) - b.from} guards="a final letter" examples={["yawn", "crawl"]} />;
-    case "notThis": return <PairNotThis data={data} beat={b} copy={COPY} />;
-    case "oneSound": return <AwOneSound data={data} beat={b} cues={ONE_SOUND_CUES} />;
-    case "seeIt": return <PairSeeIt data={data} beat={b} wordsMid={WORDS_MID} wordsEnd={WORDS_END} />;
-    case "quiz": return <PairQuiz data={data} beat={b} copy={COPY} word="yawn" blanked="y__n" answer={1} />;
+    case "notThis": return <PairNotThis data={data} beat={b} copy={AU_AW_COPY} />;
+    case "oneSound": return <AwOneSound data={data} beat={b} cues={AU_AW_ONE_SOUND_CUES} />;
+    case "seeIt": return <PairSeeIt data={data} beat={b} wordsMid={AU_AW_WORDS_MID} wordsEnd={AU_AW_WORDS_END} />;
+    case "quiz": return <PairQuiz data={data} beat={b} copy={AU_AW_COPY} word="yawn" blanked="y__n" answer={1} />;
     case "recap": return <PairRecap data={data} beat={b} />;
     // the sky is at full dawn by now and reads fine behind the store card, but a light wash
     // keeps it calm without cutting away from the world
@@ -187,7 +191,7 @@ export const AuAw16x9Reel: React.FC = () => (
   <ReelBase
     audio="audio/au_aw_16x9/au_aw_16x9.mp3"
     hueShift={data.hueShift}
-    sfx={SFX}
+    sfx={AU_AW_SFX}
     total={AU_AW_16X9_DURATION}
     background={<LawnSky />}
     logoUntil={byId.wrap.from}
@@ -195,8 +199,8 @@ export const AuAw16x9Reel: React.FC = () => (
   >
     <WordLawn
       data={data}
-      stateFor={signStateFor}
-      colorFor={lawnColorFor}
+      stateFor={auAwStateFor}
+      colorFor={auAwColorFor}
       showLabelsFrom={P(12)}
       // as on ou/ow the narration names the beginning and the middle together, then the end
       // much later ("Aw takes the END of the word")

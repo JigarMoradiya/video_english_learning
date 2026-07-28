@@ -52,14 +52,18 @@ const SPECS: BeatSpec[] = [
   { id: "recap", from: 89, to: 92 },     // So remember…
   { id: "wrap", from: 93, to: 95 },      // CTA
 ];
-const beats = planBeats(track, SPECS);
+export const ouOwBeats = planBeats(track, SPECS);
+const beats = ouOwBeats;
 const byId: Record<string, Beat> = Object.fromEntries(beats.map((b) => [b.id, b]));
 export const OU_OW_16X9_DURATION = track.totalFrames;
+export const ouOwTrack = track;
+export const ouOwP = P;
+export const ouOwW = W;
 
-const WORDS_MID = ["out", "cloud", "house", "mouth", "round", "shout"];
-const WORDS_END = ["cow", "now", "how", "wow", "brown", "owl"];
+export const OU_OW_WORDS_MID = ["out", "cloud", "house", "mouth", "round", "shout"];
+export const OU_OW_WORDS_END = ["cow", "now", "how", "wow", "brown", "owl"];
 
-const COPY: PairCopy = {
+export const OU_OW_COPY: PairCopy = {
   soundLabel: "/ow/ — “ouch!”",
   // this card has no "we never write…" beat; the bonus beat took that slot
   wrong: [{ bad: "cowd", good: "cloud" }, { bad: "cou", good: "cow" }],
@@ -69,7 +73,7 @@ const COPY: PairCopy = {
 
 // the two-sound beat's sub-cues, BEAT-RELATIVE (it renders inside its own Sequence)
 const R = (i: number) => P(i) - P(30);
-const TWO_SOUND_CUES: TwoSoundCues = {
+export const OU_OW_TWO_SOUND_CUES: TwoSoundCues = {
   longO: R(32),                              // "ow was saying the long O"
   callback: R(31),                           // "Do you remember our oa and ow video?"
   longLabel: R(32),                          // the "· long O" label lands here
@@ -100,7 +104,7 @@ const marker = (t: string): Slot => ({ text: t, kind: "marker" });
 const letter = (t: string): Slot => ({ text: t, kind: "letter" });
 const ghost = (t: string): Slot => ({ text: t, kind: "ghost" });
 
-const podiumStateFor = (f: number): SlotState => {
+export const ouOwStateFor = (f: number): SlotState => {
   // bonus — ow with exactly one letter after it, so "almost last" is visible
   if (f >= P(25)) {
     if (f < P(27)) return { cars: [ghost("?"), marker("ow"), ghost("?")], litIdx: 1 };
@@ -146,10 +150,10 @@ const podiumStateFor = (f: number): SlotState => {
 };
 
 // ou owns the BEGINNING podium as well as the middle one, so slot 0 is not neutral here
-const circusColorFor = (i: number) => (i === 2 ? data.teams[1].colorHex : data.teams[0].colorHex);
+export const ouOwColorFor = (i: number) => (i === 2 ? data.teams[1].colorHex : data.teams[0].colorHex);
 
 type Cue = { from: number; name: string; vol: number };
-const SFX: Cue[] = [
+export const OU_OW_SFX: Cue[] = [
   { from: P(0), name: "boing", vol: 0.36 }, // "Ouch!"
   { from: P(2), name: "pop", vol: 0.3 },
   { from: P(4), name: "pop", vol: 0.3 },
@@ -183,14 +187,14 @@ const SFX: Cue[] = [
 const overlayFor = (b: Beat) => {
   switch (b.id) {
     case "hook": return <PairHook data={data} beat={b} />;
-    case "same": return <PairSame data={data} beat={b} copy={COPY} />;
+    case "same": return <PairSame data={data} beat={b} copy={OU_OW_COPY} />;
     case "where": return <PairWhere data={data} beat={b} />;
     case "ruleMid": return <PairRule data={data} beat={b} teamIdx={0} />;
     case "ruleEnd": return <PairRule data={data} beat={b} teamIdx={1} />;
     case "bonus": return <PairBonus data={data} beat={b} ruleAt={P(26) - b.from} guards="a final n or l" examples={["brown", "owl"]} />;
-    case "twoSounds": return <OuTwoSounds data={data} beat={b} cues={TWO_SOUND_CUES} />;
-    case "seeIt": return <PairSeeIt data={data} beat={b} wordsMid={WORDS_MID} wordsEnd={WORDS_END} />;
-    case "quiz": return <PairQuiz data={data} beat={b} copy={COPY} word="brown" blanked="br__n" answer={1} />;
+    case "twoSounds": return <OuTwoSounds data={data} beat={b} cues={OU_OW_TWO_SOUND_CUES} />;
+    case "seeIt": return <PairSeeIt data={data} beat={b} wordsMid={OU_OW_WORDS_MID} wordsEnd={OU_OW_WORDS_END} />;
+    case "quiz": return <PairQuiz data={data} beat={b} copy={OU_OW_COPY} word="brown" blanked="br__n" answer={1} />;
     case "recap": return <PairRecap data={data} beat={b} />;
     // the big top competes with the store card, but cutting away from it made the world
     // jump — so the tent stays and is washed back behind the card instead
@@ -203,7 +207,7 @@ export const OuOw16x9Reel: React.FC = () => (
   <ReelBase
     audio="audio/ou_ow_16x9/ou_ow_16x9.mp3"
     hueShift={data.hueShift}
-    sfx={SFX}
+    sfx={OU_OW_SFX}
     total={OU_OW_16X9_DURATION}
     background={<CircusSky />}
     logoUntil={byId.wrap.from}
@@ -212,8 +216,8 @@ export const OuOw16x9Reel: React.FC = () => (
     {/* the set — top-level so it reads the ABSOLUTE frame; the two-ring beat takes over */}
     <WordCircus
       data={data}
-      stateFor={podiumStateFor}
-      colorFor={circusColorFor}
+      stateFor={ouOwStateFor}
+      colorFor={ouOwColorFor}
       showLabelsFrom={P(12)}
       // the narration never lists the three positions in a row on this card: it names the
       // beginning and the middle together ("Ou likes the beginning and the middle"), then

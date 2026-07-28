@@ -1,7 +1,9 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { bob } from "../lib/motion";
-import { palette } from "../data/tokens";
+import { hex, palette, tint } from "../data/tokens";
+import { PhonicsComparison } from "../data/types";
+import { SlotContent, SlotState, hopInfo, markerAwareColor, slotColor } from "./PositionSlot";
 
 // ── Shared layout kit for 9:16 lesson beats ──────────────────────────────────
 // Extracted from the oo portrait cut after its first version came out EMPTY: small
@@ -99,6 +101,129 @@ export const Ear: React.FC<{ size?: number; color?: string }> = ({ size = 190, c
         })}
       </svg>
       <span style={{ fontSize: size * 0.6, lineHeight: 1, marginLeft: size * 0.16, transform: `scale(${1 + 0.05 * Math.sin((frame / fps) * 4)})` }}>👂</span>
+    </div>
+  );
+};
+
+// ── the three-position row, portrait ─────────────────────────────────────────
+// Added for the ou/ow and au/aw portrait cuts. The slots stay in a HORIZONTAL row even
+// though the frame is tall: they stand for the ORDER OF LETTERS IN A WORD, so stacking
+// them vertically would teach the wrong thing. The tall space goes to the world instead,
+// which is also what stops the frame reading empty — the failure this file was born from.
+//
+//   y   100 …  280   the beat's headline pill
+//   y   300 …  600   the world above (canopy, rocket nose…)
+//   y   612 …  656   position plates
+//   y   680 …  980   the three slot cards
+//   y   990 … 1200   the character
+//   y  1200 … 1452   the ground
+//   y  1500 +        captions
+export const PP_SAFE_X = 90;
+export const PP_PLATE_TOP = 612;
+export const PP_ROW_TOP = 680;
+export const PP_CARD_W = 280;
+export const PP_CARD_H = 300;
+export const PP_CARD_GAP = 30; // 3×280 + 2×30 = 900 — exactly the safe width
+export const ppCx = (i: number) => PP_SAFE_X + i * (PP_CARD_W + PP_CARD_GAP) + PP_CARD_W / 2;
+
+// A pill pinned near the top, clear of the 90px social margin.
+export const PHead: React.FC<{ children: React.ReactNode; size?: number; still?: boolean; from?: number }> = ({ children, size = 48, still = false, from = 0 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const s = still ? 1 : spring({ frame: frame - from, fps, config: { damping: 12 } });
+  return (
+    <div style={{ position: "absolute", top: 104, left: 0, width: 1080, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
+      <div
+        style={{
+          background: "#ffffffef", borderRadius: 999, padding: "16px 36px", fontSize: size, fontWeight: 700,
+          color: palette.ink, textAlign: "center", maxWidth: 900, lineHeight: 1.16,
+          boxShadow: "0 14px 34px rgba(20,16,40,0.30)",
+          transform: `scale(${0.88 + 0.12 * s}) translateY(${bob(frame, fps, 4, 2.6)}px)`,
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const PP_LABEL = ["START", "MIDDLE", "END"];
+
+export const PSlotRow: React.FC<{
+  data: PhonicsComparison;
+  stateFor: (frame: number) => SlotState;
+  showLabelsFrom: number;
+  labelLitAt: [number, number, number];
+  hideAt: number;
+  colorFor?: (i: number) => string;
+  hopFrames?: number;
+  // each world moves its own way, so it draws its own character at the x we hand it
+  renderCharacter?: (x: number, t: number, moving: boolean, dir: number) => React.ReactNode;
+}> = ({ data, stateFor, showLabelsFrom, labelLitAt, hideAt, colorFor, hopFrames = 14, renderCharacter }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const f = frame;
+  if (f >= hideAt + 14) return null;
+  const opacity = interpolate(f, [hideAt - 14, hideAt + 14], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
+  const { cars, litIdx } = stateFor(f);
+  const { cur, prev, t } = hopInfo(stateFor, f, hopFrames);
+  const fromX = ppCx(Math.max(0, prev));
+  const toX = ppCx(Math.max(0, cur));
+  const ease = t * t * (3 - 2 * t);
+  const charX = fromX + (toX - fromX) * ease;
+
+  return (
+    <div style={{ position: "absolute", inset: 0, opacity }}>
+      {[0, 1, 2].map((i) => {
+        const slot = cars[i];
+        const col = markerAwareColor(slot, i, data, colorFor ?? ((k: number) => slotColor(k, data)));
+        const c = hex(col);
+        const lit = litIdx === i;
+        return (
+          <div key={i} style={{ position: "absolute", left: ppCx(i) - PP_CARD_W / 2, top: 0, width: PP_CARD_W, height: 1200 }}>
+            {f >= showLabelsFrom && (
+              <div
+                style={{
+                  position: "absolute", top: PP_PLATE_TOP, left: "50%", transform: "translateX(-50%)",
+                  background: f >= labelLitAt[i] ? "#FFFFFF" : "#FFFFFF99",
+                  color: f >= labelLitAt[i] ? c : "#8FA0B8",
+                  borderRadius: 999, padding: "4px 16px", fontSize: 21, fontWeight: 700, letterSpacing: 1.6,
+                  whiteSpace: "nowrap", boxShadow: f >= labelLitAt[i] ? "0 6px 16px rgba(0,0,0,0.22)" : "none",
+                }}
+              >
+                {PP_LABEL[i]}
+              </div>
+            )}
+            <div
+              style={{
+                position: "absolute", top: PP_ROW_TOP, left: 0, width: PP_CARD_W, height: PP_CARD_H,
+                borderRadius: 30,
+                background: lit ? tint(col, 0.9) : "#FFFFFFF2",
+                border: `7px solid ${lit ? c : tint(col, 0.5)}`,
+                boxShadow: lit ? `0 18px 44px ${c}66` : "0 12px 30px rgba(20,14,40,0.32)",
+                display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden",
+                transform: `scale(${lit ? 1 + 0.045 * Math.sin((frame / fps) * 6) : 1})`,
+                transformOrigin: "center bottom",
+              }}
+            >
+              <SlotContent slot={slot} color={col} scale={0.6} />
+            </div>
+            {slot?.tag && (
+              <div
+                style={{
+                  position: "absolute", top: PP_ROW_TOP + PP_CARD_H + 10, left: "50%", transform: "translateX(-50%)",
+                  background: "#FFF3E0", border: "3px solid #EF6C00", color: "#EF6C00", borderRadius: 999,
+                  padding: "2px 14px", fontSize: 21, fontWeight: 700, whiteSpace: "nowrap",
+                }}
+              >
+                {slot.tag}
+              </div>
+            )}
+          </div>
+        );
+      })}
+      {renderCharacter && litIdx !== undefined && litIdx >= 0 && renderCharacter(charX, t, t < 0.98 && prev !== cur, toX < fromX ? -1 : 1)}
     </div>
   );
 };

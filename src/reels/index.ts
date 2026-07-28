@@ -15,6 +15,8 @@ import { OiOy16x9Reel, OI_OY_16X9_DURATION } from "./oi_oy_16x9";
 import { OaOw16x9Reel, OA_OW_16X9_DURATION } from "./oa_ow_16x9";
 import { OuOw16x9Reel, OU_OW_16X9_DURATION } from "./ou_ow_16x9";
 import { AuAw16x9Reel, AU_AW_16X9_DURATION } from "./au_aw_16x9";
+import { OuOwPortraitReel, OU_OW_PORTRAIT_DURATION } from "./ou_ow_portrait";
+import { AuAwPortraitReel, AU_AW_PORTRAIT_DURATION } from "./au_aw_portrait";
 import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
 import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
 import { letterShortEntry } from "./letter_short";
@@ -75,6 +77,9 @@ export const REELS: ReelEntry[] = [
   { id: "ou-ow-16x9", component: OuOw16x9Reel, durationInFrames: OU_OW_16X9_DURATION, width: 1920, height: 1080 },
   // L14 · au/aw — long-form 16:9 lesson. The Sleepy Lawn: the sky runs night → dawn.
   { id: "au-aw-16x9", component: AuAw16x9Reel, durationInFrames: AU_AW_16X9_DURATION, width: 1920, height: 1080 },
+  // 9:16 cuts — SAME narration and beat map, different worlds: a dusk treehouse, a night launch.
+  { id: "ou-ow-9x16", component: OuOwPortraitReel, durationInFrames: OU_OW_PORTRAIT_DURATION, width: 1080, height: 1920 },
+  { id: "au-aw-9x16", component: AuAwPortraitReel, durationInFrames: AU_AW_PORTRAIT_DURATION, width: 1080, height: 1920 },
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
   //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)
