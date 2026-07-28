@@ -108,7 +108,7 @@ export const POuTwoSounds: React.FC<{ data: PhonicsComparison; beat: Beat; cues:
     return (
       <>
         <PHead size={46}>Two different jobs 💡</PHead>
-        <div style={{ position: "absolute", top: 400, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 40, fontFamily: font.family }}>
+        <div style={{ position: "absolute", top: 430, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 40, fontFamily: font.family }}>
           {panels.map((p, i) => {
             const c = hex(p.c);
             const e = spring({ frame: frame - cues.writeRead - i * 12, fps, config: { damping: 12 } });
@@ -138,7 +138,7 @@ export const POuTwoSounds: React.FC<{ data: PhonicsComparison; beat: Beat; cues:
     return (
       <>
         <PHead size={44}>{frame >= cues.trick ? "Keep the one that's a real word ✅" : "So… test it! 🔍"}</PHead>
-        <div style={{ position: "absolute", top: 470, left: 0, width: 1080, display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "absolute", top: 500, left: 0, width: 1080, display: "flex", justifyContent: "center" }}>
           <div style={{ background: "#fff", borderRadius: 38, padding: "34px 34px", boxShadow: "0 20px 50px rgba(20,14,40,0.42)", display: "flex", flexDirection: "column", gap: 26, alignItems: "flex-start" }}>
             <PTestRow spelled="sn + ow" result="snow" ok at={cues.test1Word} verdictAt={cues.test1Ok} note="a real word!" color={LONG_O} />
             <PTestRow spelled="c + ow" result="coe" ok={false} at={cues.test2Word} verdictAt={cues.test2Bad} note="not a word" color={LONG_O} />
@@ -168,7 +168,7 @@ export const POuTwoSounds: React.FC<{ data: PhonicsComparison; beat: Beat; cues:
     return (
       <>
         <PHead size={44}>Which sound do you say? 🤔</PHead>
-        <div style={{ position: "absolute", top: 420, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 22, fontFamily: font.family }}>
+        <div style={{ position: "absolute", top: 450, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 22, fontFamily: font.family }}>
           <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <span style={{ fontSize: 150, fontWeight: 700, color: owBig, transform: `scale(${pulse(frame - cues.noRule, fps, 0.05, 1.1)})`, textShadow: `0 14px 34px ${owBig}66` }}>ow</span>
             {showShrug && <span style={{ position: "absolute", top: -96, left: "50%", marginLeft: -38, fontSize: 72, transform: `scale(${spring({ frame: frame - cues.letters, fps, config: { damping: 9 } })})` }}>🤷</span>}
@@ -210,8 +210,8 @@ export const POuTwoSounds: React.FC<{ data: PhonicsComparison; beat: Beat; cues:
           <><span style={{ color: hex(owC) }}>ow</span> has two jobs 🌳</>
         )}
       </PHead>
-      <PRing label="ow" sub="long O" colorHex={LONG_O} marker="ow" words={["snow", "grow", "show"]} top={400} enterAt={0} wordAt={cues.longWords} dim={!sameL && !leftFocus} badge="as seen in oa ⚡ ow" badgeAt={cues.callback} subAt={cues.longLabel} />
-      <PRing label="ow" sub="ow!" colorHex={owC} marker="ow" words={["cow", "brown", "owl"]} top={920} enterAt={8} wordAt={cues.owWords} dim={false} subAt={cues.owSound} curtainUntil={cues.owSound} />
+      <PRing label="ow" sub="long O" colorHex={LONG_O} marker="ow" words={["snow", "grow", "show"]} top={430} enterAt={0} wordAt={cues.longWords} dim={!sameL && !leftFocus} badge="as seen in oa ⚡ ow" badgeAt={cues.callback} subAt={cues.longLabel} />
+      <PRing label="ow" sub="ow!" colorHex={owC} marker="ow" words={["cow", "brown", "owl"]} top={950} enterAt={8} wordAt={cues.owWords} dim={false} subAt={cues.owSound} curtainUntil={cues.owSound} />
     </>
   );
 };
@@ -248,7 +248,7 @@ export const PAwOneSound: React.FC<{ data: PhonicsComparison; beat: Beat; cues: 
       <PHead size={44}>
         {frame >= cues.oneSound ? (<><span style={{ color: awC }}>aw</span> always says ONE sound 🚀</>) : (<>Good news! 🚀</>)}
       </PHead>
-      <div style={{ position: "absolute", top: 430, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 46, fontFamily: font.family }}>
+      <div style={{ position: "absolute", top: 460, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 40, fontFamily: font.family }}>
         {/* ow forks in two */}
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>

@@ -131,8 +131,9 @@ export const PHead: React.FC<{ children: React.ReactNode; size?: number; still?:
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const s = still ? 1 : spring({ frame: frame - from, fps, config: { damping: 12 } });
+  // top 210, not 104: au/aw carries its brand mark top-LEFT and a two-line pill reached it
   return (
-    <div style={{ position: "absolute", top: 104, left: 0, width: 1080, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
+    <div style={{ position: "absolute", top: 210, left: 0, width: 1080, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
       <div
         style={{
           background: "#ffffffef", borderRadius: 999, padding: "16px 36px", fontSize: size, fontWeight: 700,

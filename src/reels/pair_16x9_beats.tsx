@@ -486,6 +486,7 @@ export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ d
                   <span style={{ fontSize: 60, display: "inline-block", transform: `scale(${emojiPop})` }}>{t.zoneEmoji}</span>
                   <span style={{ fontSize: 108, fontWeight: 700, color: c, lineHeight: 1, textShadow: lit ? `0 10px 26px ${c}55` : "none" }}>{t.marker}</span>
                   <span style={{ fontSize: 40, fontWeight: 600, color: lit ? c : palette.inkSoft }}>{t.zonePhrase ?? (t.zoneHint === "middle" ? "in the middle" : "at the end")}</span>
+                  {t.zoneNote && <span style={{ fontSize: 27, fontWeight: 600, color: palette.inkSoft, whiteSpace: "nowrap" }}>{t.zoneNote}</span>}
                 </div>
               </div>
             );

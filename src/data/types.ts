@@ -10,6 +10,9 @@ export interface ComparisonTeam {
   // Optional long form for the rule pill and recap card. ou/ow needs it: the sound sits at
   // the BEGINNING as well as the middle ("out", "ouch"), so "in the middle" would be wrong.
   zonePhrase?: string;
+  // Second line on the recap card. The end spelling's rule has a clause the short phrase
+  // can't carry ("…or guards the last letter"), and the narration says it out loud.
+  zoneNote?: string;
   markerAudio?: string; // blend sound file stem ("ai")
 }
 

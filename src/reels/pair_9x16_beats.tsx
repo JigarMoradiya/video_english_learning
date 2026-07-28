@@ -32,7 +32,7 @@ export const PPairSame: React.FC<{ data: PhonicsComparison; copy: PairCopy }> = 
   const ring = Math.max(0, Math.sin((frame / fps) * 3.2));
   const c = hex(data.teams[0].colorHex);
   return (
-    <div style={{ position: "absolute", top: 104, left: 0, width: 1080, display: "flex", justifyContent: "center" }}>
+    <div style={{ position: "absolute", top: 210, left: 0, width: 1080, display: "flex", justifyContent: "center" }}>
       <div style={{ position: "relative" }}>
         <div style={{ position: "absolute", inset: -16 - ring * 24, borderRadius: 999, border: `6px solid ${c}`, opacity: (1 - ring) * 0.5 }} />
         <div style={{ background: "#ffffffef", borderRadius: 999, padding: "16px 44px", fontSize: 66, fontWeight: 700, color: c, fontFamily: font.family, boxShadow: "0 14px 34px rgba(20,16,40,0.3)", transform: `translateY(${bob(frame, fps, 4, 2.6)}px)` }}>
@@ -103,7 +103,7 @@ export const PPairNotThis: React.FC<{ data: PhonicsComparison; beat: Beat; copy:
     );
   }
   return (
-    <div style={{ position: "absolute", top: 96, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 12, fontFamily: font.family, transform: `scale(${0.9 + 0.1 * s})` }}>
+    <div style={{ position: "absolute", top: 200, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 12, fontFamily: font.family, transform: `scale(${0.9 + 0.1 * s})` }}>
       <div style={{ position: "relative", background: "#FFEBEE", border: "6px solid #C62828", borderRadius: 24, padding: "8px 34px", fontSize: 56, fontWeight: 700, color: "#C62828" }}>
         {bad}
         <svg width="100%" height="100%" style={{ position: "absolute", left: 0, top: 0 }}>
@@ -176,8 +176,8 @@ export const PPairSeeIt: React.FC<{ data: PhonicsComparison; beat: Beat; wordsMi
   return (
     <>
       <PHead size={44}>More words! 📚</PHead>
-      <PBoard team={data.teams[0]} words={wordsMid} beat={beat} headAt={0} top={330} />
-      <PBoard team={data.teams[1]} words={wordsEnd} beat={beat} headAt={endHead} top={880} />
+      <PBoard team={data.teams[0]} words={wordsMid} beat={beat} headAt={0} top={404} />
+      <PBoard team={data.teams[1]} words={wordsEnd} beat={beat} headAt={endHead} top={934} />
     </>
   );
 };
@@ -211,14 +211,18 @@ export const PPairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pa
   return (
     <>
       <PHead size={48}>Your turn! 🤔</PHead>
-      <div style={{ position: "absolute", top: 330, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 44, fontFamily: font.family }}>
+      <div style={{ position: "absolute", top: 404, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 36, fontFamily: font.family }}>
         <div style={{ width: 300, height: 300, background: palette.card, border: `9px solid ${c}`, borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 168, overflow: "hidden", padding: 16, boxShadow: `0 18px 44px ${c}44`, transform: `translateY(${bob(frame, fps, 8, 2.6)}px)` }}>
           <QuizIllo word={word} />
         </div>
 
+        {/* on a panel: these worlds are dark, and dark ink on a night sky left the y and the
+            n of "y__n" unreadable */}
         <div
           style={{
             display: "flex", alignItems: "baseline", gap: 6, fontSize: 130, fontWeight: 700, color: palette.ink, lineHeight: 1.1,
+            background: "#FFFFFFF2", borderRadius: 34, padding: "18px 46px",
+            boxShadow: "0 16px 40px rgba(20,14,40,0.4)",
             opacity: frame >= wordAt ? 1 : 0.22,
             transform: `scale(${(frame >= wordAt ? 0.9 + 0.1 * wordIn : 0.92) * (revealed ? pulse(frame - revealAt, fps, 0.05, 0.8) : 1)})`,
           }}
@@ -278,7 +282,7 @@ export const PPairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ 
   return (
     <>
       <PHead size={50}>Remember! ✨</PHead>
-      <div style={{ position: "absolute", top: 372, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 34, fontFamily: font.family }}>
+      <div style={{ position: "absolute", top: 430, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 30, fontFamily: font.family }}>
         {data.teams.map((t, i) => {
           const c = hex(t.colorHex);
           const cue = beat.word(t.marker);
@@ -303,8 +307,11 @@ export const PPairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ 
               >
                 <span style={{ fontSize: 62 }}>{t.zoneEmoji}</span>
                 <span style={{ fontSize: 96, fontWeight: 700, color: c, lineHeight: 1 }}>{t.marker}</span>
-                <span style={{ fontSize: 34, fontWeight: 600, color: lit ? c : palette.inkSoft }}>
-                  {t.zonePhrase ?? (t.zoneHint === "middle" ? "in the middle" : "at the end")}
+                <span style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 34, fontWeight: 600, color: lit ? c : palette.inkSoft }}>
+                    {t.zonePhrase ?? (t.zoneHint === "middle" ? "in the middle" : "at the end")}
+                  </span>
+                  {t.zoneNote && <span style={{ fontSize: 23, fontWeight: 600, color: palette.inkSoft }}>{t.zoneNote}</span>}
                 </span>
               </div>
             </div>

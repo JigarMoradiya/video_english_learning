@@ -110,7 +110,7 @@ export const comparisons: Record<string, PhonicsComparison> = {
       // 🎪 not 🏠: "house" is one of this card's own example words, and a house badge next to
       // a house card reads as a mistake
       { marker: "ou", colorHex: "C2185B", zoneEmoji: "🎪", zoneHint: "middle", zonePhrase: "inside the word", markerAudio: "ou" },
-      { marker: "ow", colorHex: "F57F17", zoneEmoji: "🏁", zoneHint: "end", zonePhrase: "at the end", markerAudio: "ow" },
+      { marker: "ow", colorHex: "F57F17", zoneEmoji: "🏁", zoneHint: "end", zonePhrase: "at the end", zoneNote: "…or guarding the last letter", markerAudio: "ow" },
     ],
     quiz: [
       { word: "cloud", blanked: "cl__d", answerTeam: 0 },
@@ -136,7 +136,7 @@ export const comparisons: Record<string, PhonicsComparison> = {
     hueShift: 250,
     teams: [
       { marker: "au", colorHex: "5E35B1", zoneEmoji: "🌙", zoneHint: "middle", zonePhrase: "inside the word", markerAudio: "au" },
-      { marker: "aw", colorHex: "EF6C00", zoneEmoji: "🌅", zoneHint: "end", zonePhrase: "at the end", markerAudio: "aw" },
+      { marker: "aw", colorHex: "EF6C00", zoneEmoji: "🌅", zoneHint: "end", zonePhrase: "at the end", zoneNote: "…or right before the last letter", markerAudio: "aw" },
     ],
     quiz: [
       { word: "autumn", blanked: "__tumn", answerTeam: 0 },

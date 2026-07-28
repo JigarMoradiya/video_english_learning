@@ -4,7 +4,7 @@ import { ReelBase } from "./ReelBase";
 import { comparisons } from "../data/comparisons";
 import { Beat } from "../lib/timing";
 import { Captions, keywordColorFor } from "../components/Captions";
-import { StoreOutro } from "../components/StoreOutro";
+import { StoreOutroPortrait } from "../components/StoreOutroPortrait";
 import { LaunchSky, astronautAt } from "../components/PortraitWorlds";
 import { PSlotRow } from "../components/PortraitBeatKit";
 import { PPairBonus, PPairHook, PPairNotThis, PPairQuiz, PPairRecap, PPairRule, PPairSame, PPairSeeIt, PPairWhere } from "./pair_9x16_beats";
@@ -35,7 +35,9 @@ const overlayFor = (b: Beat) => {
     case "seeIt": return <PPairSeeIt data={data} beat={b} wordsMid={AU_AW_WORDS_MID} wordsEnd={AU_AW_WORDS_END} />;
     case "quiz": return <PPairQuiz data={data} beat={b} copy={AU_AW_COPY} word="yawn" blanked="y__n" answer={1} />;
     case "recap": return <PPairRecap data={data} beat={b} />;
-    case "wrap": return <StoreOutro silent compact total={b.durationInFrames} bg="rgba(255,252,248,0.80)" />;
+    // the 9:16 store outro is its own component — the landscape one pins its text
+    // column at left 770, which runs clean off a 1080-wide frame
+    case "wrap": return <StoreOutroPortrait bg="rgba(255,252,248,0.80)" />;
     default: return null;
   }
 };
@@ -49,7 +51,8 @@ export const AuAwPortraitReel: React.FC = () => (
     background={<LaunchSky />}
     logoUntil={byId.wrap.from}
     // bottom-left in portrait: a two-line headline pill reaches the top-right corner
-    logoCorner="bl"
+    // top-left, as asked — the headline pill sits at y 210 so it clears the mark
+    logoCorner="tl"
   >
     <PSlotRow
       data={data}

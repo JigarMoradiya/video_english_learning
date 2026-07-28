@@ -33,24 +33,64 @@ export const TreehouseSky: React.FC = () => {
 
       {/* the canopy — overlapping leaf clumps that breathe */}
       <svg width={width} height={620} style={{ position: "absolute", left: 0, top: 0 }}>
-        {Array.from({ length: 16 }).map((_, i) => {
-          const cx = (i * 137) % (width + 120) - 60;
-          const cy = 60 + ((i * 53) % 190);
-          const r = 92 + ((i * 37) % 60);
-          const puff = 1 + 0.035 * Math.sin(frame / (34 + (i % 5) * 7) + i);
-          return <ellipse key={i} cx={cx} cy={cy} rx={r * puff} ry={r * 0.72 * puff} fill={i % 3 === 0 ? "#1E4620" : i % 3 === 1 ? "#265C29" : "#2F7233"} opacity={0.95} />;
+        {/* three depth layers, darkest behind — a single ring of same-tone blobs read flat */}
+        {[
+          { n: 13, fill: "#173A19", spread: 250, yb: 40, r0: 118, k: 0.78 },
+          { n: 15, fill: "#22521F", spread: 195, yb: 74, r0: 104, k: 0.72 },
+          { n: 17, fill: "#2E6B2A", spread: 150, yb: 108, r0: 88, k: 0.68 },
+        ].map((L, li) =>
+          Array.from({ length: L.n }).map((_, i) => {
+            const cx = ((i * 149 + li * 61) % (width + 160)) - 80;
+            const cy = L.yb + ((i * 47 + li * 23) % L.spread);
+            const r = L.r0 + ((i * 31) % 44);
+            const puff = 1 + 0.03 * Math.sin(frame / (36 + (i % 5) * 8) + i + li);
+            return <ellipse key={`${li}-${i}`} cx={cx} cy={cy} rx={r * puff} ry={r * L.k * puff} fill={L.fill} />;
+          })
+        )}
+        {/* sun-catch highlights on the topmost leaves */}
+        {Array.from({ length: 8 }).map((_, i) => {
+          const cx = ((i * 191) % (width + 120)) - 60;
+          const cy = 96 + ((i * 37) % 120);
+          return <ellipse key={`h-${i}`} cx={cx} cy={cy} rx={46} ry={30} fill="#4C8A3A" opacity={0.55} />;
         })}
       </svg>
 
-      {/* the trunk, and the shelf branch the cards stand on */}
+      {/* the trunk. It now runs PAST the shelf and flares into roots that meet the forest
+          floor — it used to stop short and hang in the air above the ground. */}
       <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
-        <path d={`M${width * 0.5 - 78} 300 q 18 380 -6 ${GROUND_Y - 300} L${width * 0.5 + 66} ${GROUND_Y} q -20 -400 4 ${-(GROUND_Y - 300)} Z`} fill="#5D4037" opacity={0.55} />
+        <defs>
+          <linearGradient id="bark" x1="0" x2="1">
+            <stop offset="0%" stopColor="#4E342E" />
+            <stop offset="38%" stopColor="#6D4C41" />
+            <stop offset="72%" stopColor="#5D4037" />
+            <stop offset="100%" stopColor="#3E2723" />
+          </linearGradient>
+        </defs>
+        {/* tapered trunk down to the floor, then root flares */}
+        <path
+          d={`M${width * 0.5 - 62} 300
+              C ${width * 0.5 - 78} 640, ${width * 0.5 - 86} 900, ${width * 0.5 - 96} ${GROUND_Y + 150}
+              L ${width * 0.5 + 96} ${GROUND_Y + 150}
+              C ${width * 0.5 + 86} 900, ${width * 0.5 + 78} 640, ${width * 0.5 + 62} 300 Z`}
+          fill="url(#bark)"
+        />
+        {[-1, 1].map((k) => (
+          <path key={k} d={`M${width * 0.5 + k * 84} ${GROUND_Y + 40} q ${k * 96} 60 ${k * 168} 108 l ${-k * 30} 34 q ${-k * 82} -46 ${-k * 150} -92 Z`} fill="#4E342E" />
+        ))}
+        {/* bark grain */}
+        {[-40, -12, 18, 46].map((ox, i) => (
+          <path key={i} d={`M${width * 0.5 + ox} 340 q ${(i % 2 ? 10 : -10)} 320 ${(i % 2 ? -6 : 8)} ${GROUND_Y - 260}`} fill="none" stroke="#3E2723" strokeWidth={5} opacity={0.4} strokeLinecap="round" />
+        ))}
+        {/* the shelf branch the cards stand on, with a stub where it leaves the trunk */}
         <rect x={0} y={SHELF_Y} width={width} height={30} rx={15} fill="#6D4C41" />
         <rect x={0} y={SHELF_Y} width={width} height={12} rx={6} fill="#8D6E63" />
+        <ellipse cx={width * 0.5} cy={SHELF_Y + 15} rx={104} ry={26} fill="#5D4037" />
         {/* the lower branch the owl hops along */}
         <rect x={0} y={1272} width={width} height={24} rx={12} fill="#5D4037" />
-        {/* forest floor */}
-        <path d={`M0 ${GROUND_Y + 96} Q ${width / 2} ${GROUND_Y + 40} ${width} ${GROUND_Y + 96} L${width} ${height} L0 ${height} Z`} fill="#2C4A2E" />
+        <rect x={0} y={1272} width={width} height={9} rx={4.5} fill="#795548" />
+        {/* forest floor, mounded so the roots sit IN it */}
+        <path d={`M0 ${GROUND_Y + 118} Q ${width / 2} ${GROUND_Y + 52} ${width} ${GROUND_Y + 118} L${width} ${height} L0 ${height} Z`} fill="#33502F" />
+        <path d={`M0 ${GROUND_Y + 168} Q ${width * 0.44} ${GROUND_Y + 108} ${width} ${GROUND_Y + 168} L${width} ${height} L0 ${height} Z`} fill="#2A4227" />
       </svg>
 
       {/* leaves falling all the way down, so the tall frame is never still */}
@@ -64,25 +104,49 @@ export const TreehouseSky: React.FC = () => {
         })}
       </svg>
 
-      {/* undergrowth: ferns, toadstools and a log, so the forest floor is not a flat field */}
-      <svg width={width} height={520} style={{ position: "absolute", left: 0, top: GROUND_Y + 70 }}>
-        {Array.from({ length: 9 }).map((_, i) => {
-          const fx = 40 + i * 122;
-          const sway = Math.sin(frame / 30 + i * 0.8) * 5;
+      {/* undergrowth: grass TUFTS (not single blades), ferns and shaded toadstools */}
+      <svg width={width} height={560} style={{ position: "absolute", left: 0, top: GROUND_Y + 96 }}>
+        {Array.from({ length: 26 }).map((_, i) => {
+          const gx = (i * 43) % width;
+          const base = 200 + ((i * 29) % 46);
+          const sway = Math.sin(frame / 28 + i * 0.6) * 6;
           return (
-            <g key={i} transform={`translate(${fx} 190)`}>
+            <g key={i}>
               {[-1, 0, 1].map((k) => (
-                <path key={k} d={`M0 0 q ${k * 26 + sway} -50 ${k * 46 + sway * 1.6} -96`} fill="none" stroke={i % 2 ? "#33691E" : "#3F7D22" } strokeWidth={11} strokeLinecap="round" />
+                <path
+                  key={k}
+                  d={`M${gx} ${base} q ${k * 12 + sway} ${-26 - Math.abs(k) * 6} ${k * 22 + sway * 1.5} ${-58 - Math.abs(k) * 10}`}
+                  fill="none" stroke={i % 3 === 0 ? "#4E7B36" : i % 3 === 1 ? "#5C8F3E" : "#437030"}
+                  strokeWidth={7} strokeLinecap="round"
+                />
               ))}
             </g>
           );
         })}
-        {[150, 470, 760].map((mx, i) => (
-          <g key={i} transform={`translate(${mx} ${210 + (i % 2) * 26})`}>
-            <rect x={-9} y={-26} width={18} height={30} rx={8} fill="#EFEBE9" />
-            <ellipse cx={0} cy={-28} rx={30} ry={18} fill="#D84315" />
-            <circle cx={-11} cy={-32} r={5} fill="#FFF3E0" />
-            <circle cx={10} cy={-26} r={4} fill="#FFF3E0" />
+        {[
+          { x: 132, s: 1.15 }, { x: 470, s: 0.85 }, { x: 742, s: 1.0 }, { x: 930, s: 0.7 },
+        ].map((m, i) => {
+          const bobY = Math.sin(frame / 40 + i) * 2;
+          return (
+            <g key={i} transform={`translate(${m.x} ${214 + bobY}) scale(${m.s})`}>
+              {/* stem with a slight lean and a shaded side */}
+              <path d="M-11 0 q 3 -34 0 -46 l 22 0 q -3 12 0 46 Z" fill="#F5EFE6" />
+              <path d="M0 0 q 2 -34 0 -46 l 11 0 q -3 12 0 46 Z" fill="#E0D7CA" />
+              {/* cap, with an underside rim so it reads round */}
+              <path d="M-40 -44 q 8 -40 40 -40 q 32 0 40 40 q -16 10 -40 10 q -24 0 -40 -10 Z" fill="#C62828" />
+              <path d="M-40 -44 q 16 10 40 10 q 24 0 40 -10 q -14 14 -40 14 q -26 0 -40 -14 Z" fill="#8E1F1F" />
+              <ellipse cx={-14} cy={-62} rx={9} ry={7} fill="#FFF3E0" opacity={0.95} />
+              <ellipse cx={13} cy={-56} rx={7} ry={5.5} fill="#FFF3E0" opacity={0.95} />
+              <ellipse cx={2} cy={-72} rx={5} ry={4} fill="#FFF3E0" opacity={0.9} />
+            </g>
+          );
+        })}
+        {/* a couple of ferns behind the tufts */}
+        {[60, 620, 980].map((fx, i) => (
+          <g key={i} transform={`translate(${fx} 205) rotate(${Math.sin(frame / 34 + i) * 3})`}>
+            {[-1, 0, 1].map((k) => (
+              <path key={k} d={`M0 0 q ${k * 30} -54 ${k * 52} -102`} fill="none" stroke="#3B6B2E" strokeWidth={10} strokeLinecap="round" />
+            ))}
           </g>
         ))}
       </svg>
