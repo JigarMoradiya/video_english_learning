@@ -4,7 +4,7 @@ import { ReelBase } from "./ReelBase";
 import { comparisons } from "../data/comparisons";
 import { Beat } from "../lib/timing";
 import { Captions, keywordColorFor } from "../components/Captions";
-import { StoreOutroPortrait } from "../components/StoreOutroPortrait";
+import { StoreOutroPortrait, STORE_OUTRO_PORTRAIT_F } from "../components/StoreOutroPortrait";
 import { TreehouseSky, owlAt } from "../components/PortraitWorlds";
 import { PSlotRow } from "../components/PortraitBeatKit";
 import { PPairBonus, PPairHook, PPairQuiz, PPairRecap, PPairRule, PPairSame, PPairSeeIt, PPairWhere } from "./pair_9x16_beats";
@@ -21,7 +21,11 @@ import {
 // this card's own words). A re-crop of the circus would just be the same video squeezed.
 const data = comparisons.ou_ow;
 const byId: Record<string, Beat> = Object.fromEntries(ouOwBeats.map((b) => [b.id, b]));
-export const OU_OW_PORTRAIT_DURATION = OU_OW_16X9_DURATION;
+// The store flow is a FIXED 344-frame animation (phone search → detail →
+// download → badges). The narration finishes before it does, so the video used to cut mid
+// download. Pad the composition so the flow always gets to play out.
+const OUTRO_PAD = Math.max(0, STORE_OUTRO_PORTRAIT_F - byId.wrap.durationInFrames);
+export const OU_OW_PORTRAIT_DURATION = OU_OW_16X9_DURATION + OUTRO_PAD;
 
 const overlayFor = (b: Beat) => {
   switch (b.id) {
@@ -51,7 +55,7 @@ export const OuOwPortraitReel: React.FC = () => (
     background={<TreehouseSky />}
     logoUntil={byId.wrap.from}
     // bottom-left in portrait: a two-line headline pill reaches the top-right corner
-    logoCorner="bl"
+    logoCorner="tl"
   >
     <PSlotRow
       data={data}
@@ -67,7 +71,7 @@ export const OuOwPortraitReel: React.FC = () => (
     {ouOwBeats.map((b) => {
       const node = overlayFor(b);
       return node ? (
-        <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames}>
+        <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames + (b.id === "wrap" ? OUTRO_PAD : 0)}>
           {node}
         </Sequence>
       ) : null;

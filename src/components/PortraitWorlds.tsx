@@ -104,51 +104,59 @@ export const TreehouseSky: React.FC = () => {
         })}
       </svg>
 
-      {/* undergrowth: grass TUFTS (not single blades), ferns and shaded toadstools */}
-      <svg width={width} height={560} style={{ position: "absolute", left: 0, top: GROUND_Y + 96 }}>
-        {Array.from({ length: 26 }).map((_, i) => {
-          const gx = (i * 43) % width;
-          const base = 200 + ((i * 29) % 46);
-          const sway = Math.sin(frame / 28 + i * 0.6) * 6;
+      {/* Undergrowth grows FROM the ground line, not out of the middle of the field. The
+          floor is a curve (higher in the centre), so each plant's base is sampled off that
+          same curve and everything grows upward from where the land actually starts. */}
+      <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
+        {(() => {
+          const EDGE = GROUND_Y + 118;
+          const CREST = GROUND_Y + 52;
+          const groundAt = (x: number) => {
+            const t = x / width;
+            return (1 - t) * (1 - t) * EDGE + 2 * (1 - t) * t * CREST + t * t * EDGE;
+          };
           return (
-            <g key={i}>
-              {[-1, 0, 1].map((k) => (
-                <path
-                  key={k}
-                  d={`M${gx} ${base} q ${k * 12 + sway} ${-26 - Math.abs(k) * 6} ${k * 22 + sway * 1.5} ${-58 - Math.abs(k) * 10}`}
-                  fill="none" stroke={i % 3 === 0 ? "#4E7B36" : i % 3 === 1 ? "#5C8F3E" : "#437030"}
-                  strokeWidth={7} strokeLinecap="round"
-                />
+            <>
+              {Array.from({ length: 30 }).map((_, i) => {
+                const gx = (i * 37.4) % width;
+                const base = groundAt(gx) + 6;
+                const sway = Math.sin(frame / 28 + i * 0.6) * 6;
+                return (
+                  <g key={`g-${i}`}>
+                    {[-1, 0, 1].map((k) => (
+                      <path
+                        key={k}
+                        d={`M${gx} ${base} q ${k * 12 + sway} ${-26 - Math.abs(k) * 6} ${k * 22 + sway * 1.5} ${-58 - Math.abs(k) * 10}`}
+                        fill="none"
+                        stroke={i % 3 === 0 ? "#4E7B36" : i % 3 === 1 ? "#5C8F3E" : "#437030"}
+                        strokeWidth={7}
+                        strokeLinecap="round"
+                      />
+                    ))}
+                  </g>
+                );
+              })}
+              {[{ x: 150, s: 1.15 }, { x: 452, s: 0.85 }, { x: 726, s: 1.0 }, { x: 946, s: 0.72 }].map((m, i) => (
+                <g key={`m-${i}`} transform={`translate(${m.x} ${groundAt(m.x) + 4 + Math.sin(frame / 40 + i) * 2}) scale(${m.s})`}>
+                  <path d="M-11 0 q 3 -34 0 -46 l 22 0 q -3 12 0 46 Z" fill="#F5EFE6" />
+                  <path d="M0 0 q 2 -34 0 -46 l 11 0 q -3 12 0 46 Z" fill="#E0D7CA" />
+                  <path d="M-40 -44 q 8 -40 40 -40 q 32 0 40 40 q -16 10 -40 10 q -24 0 -40 -10 Z" fill="#C62828" />
+                  <path d="M-40 -44 q 16 10 40 10 q 24 0 40 -10 q -14 14 -40 14 q -26 0 -40 -14 Z" fill="#8E1F1F" />
+                  <ellipse cx={-14} cy={-62} rx={9} ry={7} fill="#FFF3E0" opacity={0.95} />
+                  <ellipse cx={13} cy={-56} rx={7} ry={5.5} fill="#FFF3E0" opacity={0.95} />
+                  <ellipse cx={2} cy={-72} rx={5} ry={4} fill="#FFF3E0" opacity={0.9} />
+                </g>
               ))}
-            </g>
+              {[70, 596, 1000].map((fx, i) => (
+                <g key={`f-${i}`} transform={`translate(${fx} ${groundAt(fx) + 4}) rotate(${Math.sin(frame / 34 + i) * 3})`}>
+                  {[-1, 0, 1].map((k) => (
+                    <path key={k} d={`M0 0 q ${k * 30} -54 ${k * 52} -102`} fill="none" stroke="#3B6B2E" strokeWidth={10} strokeLinecap="round" />
+                  ))}
+                </g>
+              ))}
+            </>
           );
-        })}
-        {[
-          { x: 132, s: 1.15 }, { x: 470, s: 0.85 }, { x: 742, s: 1.0 }, { x: 930, s: 0.7 },
-        ].map((m, i) => {
-          const bobY = Math.sin(frame / 40 + i) * 2;
-          return (
-            <g key={i} transform={`translate(${m.x} ${214 + bobY}) scale(${m.s})`}>
-              {/* stem with a slight lean and a shaded side */}
-              <path d="M-11 0 q 3 -34 0 -46 l 22 0 q -3 12 0 46 Z" fill="#F5EFE6" />
-              <path d="M0 0 q 2 -34 0 -46 l 11 0 q -3 12 0 46 Z" fill="#E0D7CA" />
-              {/* cap, with an underside rim so it reads round */}
-              <path d="M-40 -44 q 8 -40 40 -40 q 32 0 40 40 q -16 10 -40 10 q -24 0 -40 -10 Z" fill="#C62828" />
-              <path d="M-40 -44 q 16 10 40 10 q 24 0 40 -10 q -14 14 -40 14 q -26 0 -40 -14 Z" fill="#8E1F1F" />
-              <ellipse cx={-14} cy={-62} rx={9} ry={7} fill="#FFF3E0" opacity={0.95} />
-              <ellipse cx={13} cy={-56} rx={7} ry={5.5} fill="#FFF3E0" opacity={0.95} />
-              <ellipse cx={2} cy={-72} rx={5} ry={4} fill="#FFF3E0" opacity={0.9} />
-            </g>
-          );
-        })}
-        {/* a couple of ferns behind the tufts */}
-        {[60, 620, 980].map((fx, i) => (
-          <g key={i} transform={`translate(${fx} 205) rotate(${Math.sin(frame / 34 + i) * 3})`}>
-            {[-1, 0, 1].map((k) => (
-              <path key={k} d={`M0 0 q ${k * 30} -54 ${k * 52} -102`} fill="none" stroke="#3B6B2E" strokeWidth={10} strokeLinecap="round" />
-            ))}
-          </g>
-        ))}
+        })()}
       </svg>
 
       {/* fireflies around the trunk */}
