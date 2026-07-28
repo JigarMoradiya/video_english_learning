@@ -28,7 +28,8 @@
     "render:ou_ow_16x9": "remotion render ou-ow-16x9 out/ou_ow_16x9.mp4",
     "render:au_aw_16x9": "remotion render au-aw-16x9 out/au_aw_16x9.mp4",
     "render:ou_ow_9x16": "remotion render ou-ow-9x16 out/ou_ow_9x16.mp4",
-    "render:au_aw_9x16": "remotion render au-aw-9x16 out/au_aw_9x16.mp4"
+    "render:au_aw_9x16": "remotion render au-aw-9x16 out/au_aw_9x16.mp4",
+    "render:ch_tch_16x9": "remotion render ch-tch-16x9 out/ch_tch_16x9.mp4"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

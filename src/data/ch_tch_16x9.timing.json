@@ -1,0 +1,3757 @@
+[
+  {
+    "index": 0,
+    "text": "Listen to this sound.",
+    "line_index": 0,
+    "start": 0.12,
+    "end": 1.48,
+    "duration": 1.36,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 0.12,
+        "end": 0.32
+      },
+      {
+        "word": "to",
+        "start": 0.32,
+        "end": 0.6
+      },
+      {
+        "word": "this",
+        "start": 0.6,
+        "end": 0.78
+      },
+      {
+        "word": "sound.",
+        "start": 0.78,
+        "end": 1.48
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Ch!",
+    "line_index": 0,
+    "start": 2.14,
+    "end": 3.4,
+    "duration": 1.26,
+    "words": [
+      {
+        "word": "Ch!",
+        "start": 2.14,
+        "end": 3.4
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Two spellings can make it.",
+    "line_index": 1,
+    "start": 4.6,
+    "end": 6.08,
+    "duration": 1.48,
+    "words": [
+      {
+        "word": "Two",
+        "start": 4.6,
+        "end": 4.74
+      },
+      {
+        "word": "spellings",
+        "start": 4.74,
+        "end": 5.3
+      },
+      {
+        "word": "can",
+        "start": 5.3,
+        "end": 5.48
+      },
+      {
+        "word": "make",
+        "start": 5.48,
+        "end": 5.74
+      },
+      {
+        "word": "it.",
+        "start": 5.74,
+        "end": 6.08
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "We can write ch, or we can write tch.",
+    "line_index": 1,
+    "start": 7.48,
+    "end": 11.21,
+    "duration": 3.73,
+    "words": [
+      {
+        "word": "We",
+        "start": 7.48,
+        "end": 7.48
+      },
+      {
+        "word": "can",
+        "start": 7.48,
+        "end": 7.7
+      },
+      {
+        "word": "write",
+        "start": 7.7,
+        "end": 7.92
+      },
+      {
+        "word": "ch,",
+        "start": 7.92,
+        "end": 8.47
+      },
+      {
+        "word": "or",
+        "start": 9.88,
+        "end": 9.98
+      },
+      {
+        "word": "we",
+        "start": 9.98,
+        "end": 10.18
+      },
+      {
+        "word": "can",
+        "start": 10.18,
+        "end": 10.4
+      },
+      {
+        "word": "write",
+        "start": 10.4,
+        "end": 10.66
+      },
+      {
+        "word": "tch.",
+        "start": 10.66,
+        "end": 11.21
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Say it with me.",
+    "line_index": 2,
+    "start": 13.06,
+    "end": 13.77,
+    "duration": 0.71,
+    "words": [
+      {
+        "word": "Say",
+        "start": 13.06,
+        "end": 13.18
+      },
+      {
+        "word": "it",
+        "start": 13.18,
+        "end": 13.32
+      },
+      {
+        "word": "with",
+        "start": 13.32,
+        "end": 13.42
+      },
+      {
+        "word": "me.",
+        "start": 13.42,
+        "end": 13.77
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Ch!",
+    "line_index": 2,
+    "start": 14.96,
+    "end": 15.06,
+    "duration": 0.1,
+    "words": [
+      {
+        "word": "Ch!",
+        "start": 14.96,
+        "end": 15.06
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "You hear it in chair, and you hear it in catch.",
+    "line_index": 3,
+    "start": 16.7,
+    "end": 20.8,
+    "duration": 4.1,
+    "words": [
+      {
+        "word": "You",
+        "start": 16.7,
+        "end": 16.84
+      },
+      {
+        "word": "hear",
+        "start": 16.84,
+        "end": 17.16
+      },
+      {
+        "word": "it",
+        "start": 17.16,
+        "end": 17.44
+      },
+      {
+        "word": "in",
+        "start": 17.44,
+        "end": 17.64
+      },
+      {
+        "word": "chair,",
+        "start": 17.64,
+        "end": 18.26
+      },
+      {
+        "word": "and",
+        "start": 19.18,
+        "end": 19.34
+      },
+      {
+        "word": "you",
+        "start": 19.34,
+        "end": 19.46
+      },
+      {
+        "word": "hear",
+        "start": 19.46,
+        "end": 19.78
+      },
+      {
+        "word": "it",
+        "start": 19.78,
+        "end": 20.1
+      },
+      {
+        "word": "in",
+        "start": 20.2,
+        "end": 20.34
+      },
+      {
+        "word": "catch.",
+        "start": 20.34,
+        "end": 20.8
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "It is the same sound, but the spelling is different.",
+    "line_index": 4,
+    "start": 22.86,
+    "end": 26.4,
+    "duration": 3.54,
+    "words": [
+      {
+        "word": "It",
+        "start": 22.86,
+        "end": 22.98
+      },
+      {
+        "word": "is",
+        "start": 22.98,
+        "end": 23.1
+      },
+      {
+        "word": "the",
+        "start": 23.1,
+        "end": 23.26
+      },
+      {
+        "word": "same",
+        "start": 23.26,
+        "end": 23.58
+      },
+      {
+        "word": "sound,",
+        "start": 23.58,
+        "end": 23.98
+      },
+      {
+        "word": "but",
+        "start": 24.7,
+        "end": 24.8
+      },
+      {
+        "word": "the",
+        "start": 24.8,
+        "end": 24.96
+      },
+      {
+        "word": "spelling",
+        "start": 24.96,
+        "end": 25.38
+      },
+      {
+        "word": "is",
+        "start": 25.38,
+        "end": 25.74
+      },
+      {
+        "word": "different.",
+        "start": 25.74,
+        "end": 26.4
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "So how do we know which one to write?",
+    "line_index": 5,
+    "start": 27.74,
+    "end": 29.94,
+    "duration": 2.2,
+    "words": [
+      {
+        "word": "So",
+        "start": 27.74,
+        "end": 27.84
+      },
+      {
+        "word": "how",
+        "start": 27.84,
+        "end": 28.14
+      },
+      {
+        "word": "do",
+        "start": 28.14,
+        "end": 28.34
+      },
+      {
+        "word": "we",
+        "start": 28.34,
+        "end": 28.5
+      },
+      {
+        "word": "know",
+        "start": 28.5,
+        "end": 28.72
+      },
+      {
+        "word": "which",
+        "start": 28.72,
+        "end": 29.02
+      },
+      {
+        "word": "one",
+        "start": 29.02,
+        "end": 29.3
+      },
+      {
+        "word": "to",
+        "start": 29.3,
+        "end": 29.5
+      },
+      {
+        "word": "write?",
+        "start": 29.5,
+        "end": 29.94
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "This time we look at the letter just before the sound.",
+    "line_index": 6,
+    "start": 31.32,
+    "end": 35.68,
+    "duration": 4.36,
+    "words": [
+      {
+        "word": "This",
+        "start": 31.32,
+        "end": 31.42
+      },
+      {
+        "word": "time",
+        "start": 31.42,
+        "end": 31.82
+      },
+      {
+        "word": "we",
+        "start": 31.82,
+        "end": 32.82
+      },
+      {
+        "word": "look",
+        "start": 32.82,
+        "end": 33.08
+      },
+      {
+        "word": "at",
+        "start": 33.08,
+        "end": 33.36
+      },
+      {
+        "word": "the",
+        "start": 33.36,
+        "end": 33.54
+      },
+      {
+        "word": "letter",
+        "start": 33.54,
+        "end": 33.86
+      },
+      {
+        "word": "just",
+        "start": 33.86,
+        "end": 34.36
+      },
+      {
+        "word": "before",
+        "start": 34.36,
+        "end": 34.84
+      },
+      {
+        "word": "the",
+        "start": 34.84,
+        "end": 35.1
+      },
+      {
+        "word": "sound.",
+        "start": 35.1,
+        "end": 35.68
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Here is the rule.",
+    "line_index": 7,
+    "start": 37.24,
+    "end": 38.2,
+    "duration": 0.96,
+    "words": [
+      {
+        "word": "Here",
+        "start": 37.24,
+        "end": 37.24
+      },
+      {
+        "word": "is",
+        "start": 37.24,
+        "end": 37.5
+      },
+      {
+        "word": "the",
+        "start": 37.5,
+        "end": 37.62
+      },
+      {
+        "word": "rule.",
+        "start": 37.62,
+        "end": 38.2
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "If the sound comes right after a short vowel, we write tch.",
+    "line_index": 7,
+    "start": 39.7,
+    "end": 44.9,
+    "duration": 5.2,
+    "words": [
+      {
+        "word": "If",
+        "start": 39.7,
+        "end": 39.7
+      },
+      {
+        "word": "the",
+        "start": 39.7,
+        "end": 39.88
+      },
+      {
+        "word": "sound",
+        "start": 39.88,
+        "end": 40.26
+      },
+      {
+        "word": "comes",
+        "start": 40.26,
+        "end": 40.68
+      },
+      {
+        "word": "right",
+        "start": 40.68,
+        "end": 41.08
+      },
+      {
+        "word": "after",
+        "start": 41.08,
+        "end": 41.66
+      },
+      {
+        "word": "a",
+        "start": 41.66,
+        "end": 41.9
+      },
+      {
+        "word": "short",
+        "start": 41.9,
+        "end": 42.2
+      },
+      {
+        "word": "vowel,",
+        "start": 42.2,
+        "end": 43.15
+      },
+      {
+        "word": "we",
+        "start": 43.76,
+        "end": 43.78
+      },
+      {
+        "word": "write",
+        "start": 43.78,
+        "end": 44.1
+      },
+      {
+        "word": "tch.",
+        "start": 44.1,
+        "end": 44.9
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Listen.",
+    "line_index": 8,
+    "start": 46.48,
+    "end": 46.96,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Listen.",
+        "start": 46.48,
+        "end": 46.96
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "C - a - tch.",
+    "line_index": 8,
+    "start": 48.1,
+    "end": 50.84,
+    "duration": 2.74,
+    "words": [
+      {
+        "word": "C",
+        "start": 48.1,
+        "end": 48.1
+      },
+      {
+        "word": "- a",
+        "start": 49.42,
+        "end": 49.64
+      },
+      {
+        "word": "- tch.",
+        "start": 49.64,
+        "end": 50.84
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Catch!",
+    "line_index": 8,
+    "start": 52.32,
+    "end": 52.9,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Catch!",
+        "start": 52.32,
+        "end": 52.9
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "That a is a short vowel, so this word takes tch.",
+    "line_index": 9,
+    "start": 54.38,
+    "end": 59.06,
+    "duration": 4.68,
+    "words": [
+      {
+        "word": "That",
+        "start": 54.38,
+        "end": 54.58
+      },
+      {
+        "word": "a",
+        "start": 54.58,
+        "end": 54.88
+      },
+      {
+        "word": "is",
+        "start": 54.88,
+        "end": 55.18
+      },
+      {
+        "word": "a",
+        "start": 55.18,
+        "end": 55.32
+      },
+      {
+        "word": "short",
+        "start": 55.32,
+        "end": 55.58
+      },
+      {
+        "word": "vowel,",
+        "start": 55.58,
+        "end": 56.3
+      },
+      {
+        "word": "so",
+        "start": 56.96,
+        "end": 57.06
+      },
+      {
+        "word": "this",
+        "start": 57.06,
+        "end": 57.4
+      },
+      {
+        "word": "word",
+        "start": 57.4,
+        "end": 57.78
+      },
+      {
+        "word": "takes",
+        "start": 57.78,
+        "end": 58.3
+      },
+      {
+        "word": "tch.",
+        "start": 58.3,
+        "end": 59.06
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Here are more.",
+    "line_index": 10,
+    "start": 59.72,
+    "end": 61.64,
+    "duration": 1.92,
+    "words": [
+      {
+        "word": "Here",
+        "start": 59.72,
+        "end": 59.72
+      },
+      {
+        "word": "are",
+        "start": 60.86,
+        "end": 61.12
+      },
+      {
+        "word": "more.",
+        "start": 61.12,
+        "end": 61.64
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Match.",
+    "line_index": 10,
+    "start": 63.23,
+    "end": 63.76,
+    "duration": 0.53,
+    "words": [
+      {
+        "word": "Match.",
+        "start": 63.23,
+        "end": 63.76
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Watch.",
+    "line_index": 10,
+    "start": 65.44,
+    "end": 66.01,
+    "duration": 0.57,
+    "words": [
+      {
+        "word": "Watch.",
+        "start": 65.44,
+        "end": 66.01
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Fetch.",
+    "line_index": 10,
+    "start": 68.12,
+    "end": 68.52,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Fetch.",
+        "start": 68.12,
+        "end": 68.52
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "They all have a short vowel first, and then tch.",
+    "line_index": 11,
+    "start": 70.18,
+    "end": 73.76,
+    "duration": 3.58,
+    "words": [
+      {
+        "word": "They",
+        "start": 70.18,
+        "end": 70.18
+      },
+      {
+        "word": "all",
+        "start": 70.18,
+        "end": 70.48
+      },
+      {
+        "word": "have",
+        "start": 70.48,
+        "end": 70.86
+      },
+      {
+        "word": "a",
+        "start": 70.86,
+        "end": 71.08
+      },
+      {
+        "word": "short",
+        "start": 71.08,
+        "end": 71.42
+      },
+      {
+        "word": "vowel",
+        "start": 71.42,
+        "end": 71.84
+      },
+      {
+        "word": "first,",
+        "start": 71.84,
+        "end": 73.14
+      },
+      {
+        "word": "and",
+        "start": 73.2,
+        "end": 73.3
+      },
+      {
+        "word": "then",
+        "start": 73.3,
+        "end": 73.6
+      },
+      {
+        "word": "tch.",
+        "start": 73.6,
+        "end": 73.76
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "In every other place, we simply write ch.",
+    "line_index": 12,
+    "start": 76.02,
+    "end": 79.74,
+    "duration": 3.72,
+    "words": [
+      {
+        "word": "In",
+        "start": 76.02,
+        "end": 76.14
+      },
+      {
+        "word": "every",
+        "start": 76.14,
+        "end": 76.6
+      },
+      {
+        "word": "other",
+        "start": 76.6,
+        "end": 76.98
+      },
+      {
+        "word": "place,",
+        "start": 76.98,
+        "end": 78.1
+      },
+      {
+        "word": "we",
+        "start": 78.12,
+        "end": 78.16
+      },
+      {
+        "word": "simply",
+        "start": 78.16,
+        "end": 78.62
+      },
+      {
+        "word": "write",
+        "start": 78.62,
+        "end": 79.02
+      },
+      {
+        "word": "ch.",
+        "start": 79.02,
+        "end": 79.74
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "There are three of those places.",
+    "line_index": 13,
+    "start": 81.4,
+    "end": 83.03,
+    "duration": 1.63,
+    "words": [
+      {
+        "word": "There",
+        "start": 81.4,
+        "end": 81.46
+      },
+      {
+        "word": "are",
+        "start": 81.46,
+        "end": 81.6
+      },
+      {
+        "word": "three",
+        "start": 81.6,
+        "end": 81.92
+      },
+      {
+        "word": "of",
+        "start": 81.92,
+        "end": 82.18
+      },
+      {
+        "word": "those",
+        "start": 82.18,
+        "end": 82.38
+      },
+      {
+        "word": "places.",
+        "start": 82.38,
+        "end": 83.03
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "The first is at the start of a word.",
+    "line_index": 14,
+    "start": 84.94,
+    "end": 87.91,
+    "duration": 2.97,
+    "words": [
+      {
+        "word": "The",
+        "start": 84.94,
+        "end": 85.28
+      },
+      {
+        "word": "first",
+        "start": 85.28,
+        "end": 85.28
+      },
+      {
+        "word": "is",
+        "start": 86.44,
+        "end": 86.54
+      },
+      {
+        "word": "at",
+        "start": 86.54,
+        "end": 86.62
+      },
+      {
+        "word": "the",
+        "start": 86.62,
+        "end": 86.76
+      },
+      {
+        "word": "start",
+        "start": 86.76,
+        "end": 87.1
+      },
+      {
+        "word": "of",
+        "start": 87.1,
+        "end": 87.46
+      },
+      {
+        "word": "a",
+        "start": 87.46,
+        "end": 87.56
+      },
+      {
+        "word": "word.",
+        "start": 87.56,
+        "end": 87.91
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Chair.",
+    "line_index": 15,
+    "start": 89.42,
+    "end": 89.78,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "Chair.",
+        "start": 89.42,
+        "end": 89.78
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "Chin.",
+    "line_index": 15,
+    "start": 91.4,
+    "end": 92.0,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "Chin.",
+        "start": 91.4,
+        "end": 92.0
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Chip.",
+    "line_index": 15,
+    "start": 93.54,
+    "end": 93.78,
+    "duration": 0.24,
+    "words": [
+      {
+        "word": "Chip.",
+        "start": 93.54,
+        "end": 93.78
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Nothing comes before the sound, so we write ch.",
+    "line_index": 16,
+    "start": 95.72,
+    "end": 99.12,
+    "duration": 3.4,
+    "words": [
+      {
+        "word": "Nothing",
+        "start": 95.72,
+        "end": 95.84
+      },
+      {
+        "word": "comes",
+        "start": 95.84,
+        "end": 96.16
+      },
+      {
+        "word": "before",
+        "start": 96.16,
+        "end": 96.64
+      },
+      {
+        "word": "the",
+        "start": 96.64,
+        "end": 96.88
+      },
+      {
+        "word": "sound,",
+        "start": 96.88,
+        "end": 97.42
+      },
+      {
+        "word": "so",
+        "start": 98.08,
+        "end": 98.1
+      },
+      {
+        "word": "we",
+        "start": 98.1,
+        "end": 98.28
+      },
+      {
+        "word": "write",
+        "start": 98.28,
+        "end": 98.52
+      },
+      {
+        "word": "ch.",
+        "start": 98.52,
+        "end": 99.12
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "The second is after a consonant.",
+    "line_index": 17,
+    "start": 101.3,
+    "end": 104.08,
+    "duration": 2.78,
+    "words": [
+      {
+        "word": "The",
+        "start": 101.3,
+        "end": 101.4
+      },
+      {
+        "word": "second",
+        "start": 101.4,
+        "end": 101.64
+      },
+      {
+        "word": "is",
+        "start": 101.64,
+        "end": 103.2
+      },
+      {
+        "word": "after",
+        "start": 103.2,
+        "end": 103.3
+      },
+      {
+        "word": "a",
+        "start": 103.3,
+        "end": 103.48
+      },
+      {
+        "word": "consonant.",
+        "start": 103.48,
+        "end": 104.08
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "A consonant is any letter that is not a vowel.",
+    "line_index": 18,
+    "start": 105.82,
+    "end": 109.52,
+    "duration": 3.7,
+    "words": [
+      {
+        "word": "A",
+        "start": 105.82,
+        "end": 105.86
+      },
+      {
+        "word": "consonant",
+        "start": 105.86,
+        "end": 106.52
+      },
+      {
+        "word": "is",
+        "start": 106.52,
+        "end": 106.9
+      },
+      {
+        "word": "any",
+        "start": 106.9,
+        "end": 107.32
+      },
+      {
+        "word": "letter",
+        "start": 107.32,
+        "end": 107.74
+      },
+      {
+        "word": "that",
+        "start": 107.74,
+        "end": 108.08
+      },
+      {
+        "word": "is",
+        "start": 108.08,
+        "end": 108.26
+      },
+      {
+        "word": "not",
+        "start": 108.26,
+        "end": 108.56
+      },
+      {
+        "word": "a",
+        "start": 108.56,
+        "end": 108.88
+      },
+      {
+        "word": "vowel.",
+        "start": 108.88,
+        "end": 109.52
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Listen to lunch, and bench.",
+    "line_index": 19,
+    "start": 110.94,
+    "end": 115.94,
+    "duration": 5.0,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 110.94,
+        "end": 111.06
+      },
+      {
+        "word": "to",
+        "start": 111.06,
+        "end": 111.54
+      },
+      {
+        "word": "lunch,",
+        "start": 111.54,
+        "end": 111.64
+      },
+      {
+        "word": "and",
+        "start": 115.32,
+        "end": 115.44
+      },
+      {
+        "word": "bench.",
+        "start": 115.44,
+        "end": 115.94
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "There is an n before the sound, so we write ch.",
+    "line_index": 20,
+    "start": 117.74,
+    "end": 121.54,
+    "duration": 3.8,
+    "words": [
+      {
+        "word": "There",
+        "start": 117.74,
+        "end": 117.88
+      },
+      {
+        "word": "is",
+        "start": 117.88,
+        "end": 118.04
+      },
+      {
+        "word": "an",
+        "start": 118.04,
+        "end": 118.22
+      },
+      {
+        "word": "n",
+        "start": 118.52,
+        "end": 118.52
+      },
+      {
+        "word": "before",
+        "start": 118.52,
+        "end": 118.94
+      },
+      {
+        "word": "the",
+        "start": 118.94,
+        "end": 119.18
+      },
+      {
+        "word": "sound,",
+        "start": 119.18,
+        "end": 119.63
+      },
+      {
+        "word": "so",
+        "start": 120.38,
+        "end": 120.38
+      },
+      {
+        "word": "we",
+        "start": 120.38,
+        "end": 120.56
+      },
+      {
+        "word": "write",
+        "start": 120.56,
+        "end": 120.84
+      },
+      {
+        "word": "ch.",
+        "start": 120.84,
+        "end": 121.54
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "The third is after a long vowel.",
+    "line_index": 21,
+    "start": 123.64,
+    "end": 126.77,
+    "duration": 3.13,
+    "words": [
+      {
+        "word": "The",
+        "start": 123.64,
+        "end": 123.74
+      },
+      {
+        "word": "third",
+        "start": 123.74,
+        "end": 123.94
+      },
+      {
+        "word": "is",
+        "start": 125.24,
+        "end": 125.36
+      },
+      {
+        "word": "after",
+        "start": 125.36,
+        "end": 125.62
+      },
+      {
+        "word": "a",
+        "start": 125.62,
+        "end": 125.8
+      },
+      {
+        "word": "long",
+        "start": 125.8,
+        "end": 126.12
+      },
+      {
+        "word": "vowel.",
+        "start": 126.12,
+        "end": 126.77
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "A long vowel says its own name.",
+    "line_index": 22,
+    "start": 128.52,
+    "end": 131.1,
+    "duration": 2.58,
+    "words": [
+      {
+        "word": "A",
+        "start": 128.52,
+        "end": 128.52
+      },
+      {
+        "word": "long",
+        "start": 128.52,
+        "end": 128.78
+      },
+      {
+        "word": "vowel",
+        "start": 128.78,
+        "end": 129.26
+      },
+      {
+        "word": "says",
+        "start": 129.26,
+        "end": 129.8
+      },
+      {
+        "word": "its",
+        "start": 129.8,
+        "end": 130.18
+      },
+      {
+        "word": "own",
+        "start": 130.3,
+        "end": 130.5
+      },
+      {
+        "word": "name.",
+        "start": 130.5,
+        "end": 131.1
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Listen to beach, coach and peach.",
+    "line_index": 23,
+    "start": 132.58,
+    "end": 139.38,
+    "duration": 6.8,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 132.58,
+        "end": 132.58
+      },
+      {
+        "word": "to",
+        "start": 132.58,
+        "end": 132.98
+      },
+      {
+        "word": "beach,",
+        "start": 132.98,
+        "end": 133.98
+      },
+      {
+        "word": "coach",
+        "start": 136.98,
+        "end": 136.98
+      },
+      {
+        "word": "and",
+        "start": 136.98,
+        "end": 138.22
+      },
+      {
+        "word": "peach.",
+        "start": 138.22,
+        "end": 139.38
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Those vowels are long, so we write ch again.",
+    "line_index": 24,
+    "start": 140.94,
+    "end": 145.2,
+    "duration": 4.26,
+    "words": [
+      {
+        "word": "Those",
+        "start": 140.94,
+        "end": 141.1
+      },
+      {
+        "word": "vowels",
+        "start": 141.1,
+        "end": 141.68
+      },
+      {
+        "word": "are",
+        "start": 141.68,
+        "end": 142.04
+      },
+      {
+        "word": "long,",
+        "start": 142.04,
+        "end": 142.6
+      },
+      {
+        "word": "so",
+        "start": 143.16,
+        "end": 143.2
+      },
+      {
+        "word": "we",
+        "start": 143.2,
+        "end": 143.38
+      },
+      {
+        "word": "write",
+        "start": 143.38,
+        "end": 143.72
+      },
+      {
+        "word": "ch",
+        "start": 143.72,
+        "end": 144.36
+      },
+      {
+        "word": "again.",
+        "start": 144.36,
+        "end": 145.2
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "But watch out!",
+    "line_index": 25,
+    "start": 146.8,
+    "end": 147.68,
+    "duration": 0.88,
+    "words": [
+      {
+        "word": "But",
+        "start": 146.8,
+        "end": 146.9
+      },
+      {
+        "word": "watch",
+        "start": 146.9,
+        "end": 147.3
+      },
+      {
+        "word": "out!",
+        "start": 147.3,
+        "end": 147.68
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Some words break this rule.",
+    "line_index": 25,
+    "start": 148.66,
+    "end": 150.48,
+    "duration": 1.82,
+    "words": [
+      {
+        "word": "Some",
+        "start": 148.66,
+        "end": 148.66
+      },
+      {
+        "word": "words",
+        "start": 148.66,
+        "end": 149.1
+      },
+      {
+        "word": "break",
+        "start": 149.1,
+        "end": 149.6
+      },
+      {
+        "word": "this",
+        "start": 149.6,
+        "end": 149.96
+      },
+      {
+        "word": "rule.",
+        "start": 149.96,
+        "end": 150.48
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "Let's call them the rule breakers.",
+    "line_index": 26,
+    "start": 151.96,
+    "end": 155.32,
+    "duration": 3.36,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 151.96,
+        "end": 152.1
+      },
+      {
+        "word": "call",
+        "start": 152.18,
+        "end": 152.34
+      },
+      {
+        "word": "them",
+        "start": 152.34,
+        "end": 152.7
+      },
+      {
+        "word": "the",
+        "start": 152.7,
+        "end": 153.72
+      },
+      {
+        "word": "rule",
+        "start": 153.72,
+        "end": 154.2
+      },
+      {
+        "word": "breakers.",
+        "start": 154.2,
+        "end": 155.32
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "There are nine you will meet a lot, so let's learn them.",
+    "line_index": 27,
+    "start": 156.98,
+    "end": 160.78,
+    "duration": 3.8,
+    "words": [
+      {
+        "word": "There",
+        "start": 156.98,
+        "end": 157.0
+      },
+      {
+        "word": "are",
+        "start": 157.0,
+        "end": 157.18
+      },
+      {
+        "word": "nine",
+        "start": 157.18,
+        "end": 157.54
+      },
+      {
+        "word": "you",
+        "start": 157.54,
+        "end": 157.8
+      },
+      {
+        "word": "will",
+        "start": 157.8,
+        "end": 157.92
+      },
+      {
+        "word": "meet",
+        "start": 157.92,
+        "end": 158.18
+      },
+      {
+        "word": "a",
+        "start": 158.18,
+        "end": 158.46
+      },
+      {
+        "word": "lot,",
+        "start": 158.46,
+        "end": 158.84
+      },
+      {
+        "word": "so",
+        "start": 159.64,
+        "end": 159.66
+      },
+      {
+        "word": "let's",
+        "start": 159.66,
+        "end": 160.06
+      },
+      {
+        "word": "learn",
+        "start": 160.06,
+        "end": 160.26
+      },
+      {
+        "word": "them.",
+        "start": 160.26,
+        "end": 160.78
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "First come four little words.",
+    "line_index": 28,
+    "start": 162.96,
+    "end": 164.98,
+    "duration": 2.02,
+    "words": [
+      {
+        "word": "First",
+        "start": 162.96,
+        "end": 163.0
+      },
+      {
+        "word": "come",
+        "start": 163.0,
+        "end": 163.42
+      },
+      {
+        "word": "four",
+        "start": 163.42,
+        "end": 164.08
+      },
+      {
+        "word": "little",
+        "start": 164.08,
+        "end": 164.4
+      },
+      {
+        "word": "words.",
+        "start": 164.4,
+        "end": 164.98
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "Much.",
+    "line_index": 29,
+    "start": 166.37,
+    "end": 166.84,
+    "duration": 0.47,
+    "words": [
+      {
+        "word": "Much.",
+        "start": 166.37,
+        "end": 166.84
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "Such.",
+    "line_index": 29,
+    "start": 168.37,
+    "end": 168.73,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "Such.",
+        "start": 168.37,
+        "end": 168.73
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "Rich.",
+    "line_index": 29,
+    "start": 170.4,
+    "end": 170.86,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "Rich.",
+        "start": 170.4,
+        "end": 170.86
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "Which.",
+    "line_index": 29,
+    "start": 172.4,
+    "end": 172.94,
+    "duration": 0.54,
+    "words": [
+      {
+        "word": "Which.",
+        "start": 172.4,
+        "end": 172.94
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "All four have short vowels, so they should take tch.",
+    "line_index": 30,
+    "start": 174.8,
+    "end": 178.3,
+    "duration": 3.5,
+    "words": [
+      {
+        "word": "All",
+        "start": 174.8,
+        "end": 174.96
+      },
+      {
+        "word": "four",
+        "start": 174.96,
+        "end": 175.34
+      },
+      {
+        "word": "have",
+        "start": 175.34,
+        "end": 175.66
+      },
+      {
+        "word": "short",
+        "start": 175.66,
+        "end": 176.0
+      },
+      {
+        "word": "vowels,",
+        "start": 176.0,
+        "end": 176.72
+      },
+      {
+        "word": "so",
+        "start": 177.32,
+        "end": 177.42
+      },
+      {
+        "word": "they",
+        "start": 177.42,
+        "end": 177.64
+      },
+      {
+        "word": "should",
+        "start": 177.64,
+        "end": 177.86
+      },
+      {
+        "word": "take",
+        "start": 177.98,
+        "end": 178.2
+      },
+      {
+        "word": "tch.",
+        "start": 178.2,
+        "end": 178.3
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "But they don't!",
+    "line_index": 31,
+    "start": 180.36,
+    "end": 181.25,
+    "duration": 0.89,
+    "words": [
+      {
+        "word": "But",
+        "start": 180.36,
+        "end": 180.48
+      },
+      {
+        "word": "they",
+        "start": 180.48,
+        "end": 180.7
+      },
+      {
+        "word": "don't!",
+        "start": 180.7,
+        "end": 181.25
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "They just use ch.",
+    "line_index": 31,
+    "start": 182.04,
+    "end": 183.46,
+    "duration": 1.42,
+    "words": [
+      {
+        "word": "They",
+        "start": 182.04,
+        "end": 182.14
+      },
+      {
+        "word": "just",
+        "start": 182.14,
+        "end": 182.44
+      },
+      {
+        "word": "use",
+        "start": 182.44,
+        "end": 182.86
+      },
+      {
+        "word": "ch.",
+        "start": 182.86,
+        "end": 183.46
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "So why are they different?",
+    "line_index": 32,
+    "start": 185.22,
+    "end": 186.63,
+    "duration": 1.41,
+    "words": [
+      {
+        "word": "So",
+        "start": 185.22,
+        "end": 185.32
+      },
+      {
+        "word": "why",
+        "start": 185.32,
+        "end": 185.72
+      },
+      {
+        "word": "are",
+        "start": 185.72,
+        "end": 185.94
+      },
+      {
+        "word": "they",
+        "start": 185.94,
+        "end": 186.08
+      },
+      {
+        "word": "different?",
+        "start": 186.08,
+        "end": 186.63
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "Here is the funny part.",
+    "line_index": 33,
+    "start": 188.22,
+    "end": 189.38,
+    "duration": 1.16,
+    "words": [
+      {
+        "word": "Here",
+        "start": 188.22,
+        "end": 188.36
+      },
+      {
+        "word": "is",
+        "start": 188.36,
+        "end": 188.52
+      },
+      {
+        "word": "the",
+        "start": 188.52,
+        "end": 188.64
+      },
+      {
+        "word": "funny",
+        "start": 188.64,
+        "end": 188.98
+      },
+      {
+        "word": "part.",
+        "start": 188.98,
+        "end": 189.38
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "These four are older than the rule!",
+    "line_index": 33,
+    "start": 190.72,
+    "end": 192.9,
+    "duration": 2.18,
+    "words": [
+      {
+        "word": "These",
+        "start": 190.72,
+        "end": 190.72
+      },
+      {
+        "word": "four",
+        "start": 190.72,
+        "end": 191.06
+      },
+      {
+        "word": "are",
+        "start": 191.06,
+        "end": 191.46
+      },
+      {
+        "word": "older",
+        "start": 191.46,
+        "end": 191.96
+      },
+      {
+        "word": "than",
+        "start": 191.96,
+        "end": 192.24
+      },
+      {
+        "word": "the",
+        "start": 192.24,
+        "end": 192.4
+      },
+      {
+        "word": "rule!",
+        "start": 192.4,
+        "end": 192.9
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "People were writing them a very long time ago.",
+    "line_index": 34,
+    "start": 194.08,
+    "end": 196.98,
+    "duration": 2.9,
+    "words": [
+      {
+        "word": "People",
+        "start": 194.08,
+        "end": 194.22
+      },
+      {
+        "word": "were",
+        "start": 194.22,
+        "end": 194.46
+      },
+      {
+        "word": "writing",
+        "start": 194.46,
+        "end": 194.84
+      },
+      {
+        "word": "them",
+        "start": 194.84,
+        "end": 195.14
+      },
+      {
+        "word": "a",
+        "start": 195.14,
+        "end": 195.38
+      },
+      {
+        "word": "very",
+        "start": 195.38,
+        "end": 195.8
+      },
+      {
+        "word": "long",
+        "start": 195.8,
+        "end": 196.1
+      },
+      {
+        "word": "time",
+        "start": 196.1,
+        "end": 196.42
+      },
+      {
+        "word": "ago.",
+        "start": 196.42,
+        "end": 196.98
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "text": "The rule came along later, but these four were already here.",
+    "line_index": 35,
+    "start": 198.14,
+    "end": 202.56,
+    "duration": 4.42,
+    "words": [
+      {
+        "word": "The",
+        "start": 198.14,
+        "end": 198.24
+      },
+      {
+        "word": "rule",
+        "start": 198.24,
+        "end": 198.54
+      },
+      {
+        "word": "came",
+        "start": 198.54,
+        "end": 198.82
+      },
+      {
+        "word": "along",
+        "start": 198.82,
+        "end": 199.14
+      },
+      {
+        "word": "later,",
+        "start": 199.14,
+        "end": 199.88
+      },
+      {
+        "word": "but",
+        "start": 200.44,
+        "end": 200.5
+      },
+      {
+        "word": "these",
+        "start": 200.5,
+        "end": 200.82
+      },
+      {
+        "word": "four",
+        "start": 200.82,
+        "end": 201.14
+      },
+      {
+        "word": "were",
+        "start": 201.14,
+        "end": 201.42
+      },
+      {
+        "word": "already",
+        "start": 201.42,
+        "end": 201.92
+      },
+      {
+        "word": "here.",
+        "start": 201.92,
+        "end": 202.56
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "text": "So they never had to change.",
+    "line_index": 36,
+    "start": 203.6,
+    "end": 205.3,
+    "duration": 1.7,
+    "words": [
+      {
+        "word": "So",
+        "start": 203.6,
+        "end": 203.7
+      },
+      {
+        "word": "they",
+        "start": 203.7,
+        "end": 203.88
+      },
+      {
+        "word": "never",
+        "start": 203.88,
+        "end": 204.2
+      },
+      {
+        "word": "had",
+        "start": 204.2,
+        "end": 204.46
+      },
+      {
+        "word": "to",
+        "start": 204.46,
+        "end": 204.68
+      },
+      {
+        "word": "change.",
+        "start": 204.68,
+        "end": 205.3
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "text": "Here is a trick to help you remember them.",
+    "line_index": 37,
+    "start": 207.18,
+    "end": 208.8,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "Here",
+        "start": 207.18,
+        "end": 207.3
+      },
+      {
+        "word": "is",
+        "start": 207.3,
+        "end": 207.46
+      },
+      {
+        "word": "a",
+        "start": 207.46,
+        "end": 207.54
+      },
+      {
+        "word": "trick",
+        "start": 207.54,
+        "end": 207.8
+      },
+      {
+        "word": "to",
+        "start": 207.94,
+        "end": 208.04
+      },
+      {
+        "word": "help",
+        "start": 208.04,
+        "end": 208.5
+      },
+      {
+        "word": "you",
+        "start": 208.5,
+        "end": 208.5
+      },
+      {
+        "word": "remember",
+        "start": 208.5,
+        "end": 208.5
+      },
+      {
+        "word": "them.",
+        "start": 208.5,
+        "end": 208.8
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "text": "They go together in two pairs that rhyme.",
+    "line_index": 38,
+    "start": 210.04,
+    "end": 213.82,
+    "duration": 3.78,
+    "words": [
+      {
+        "word": "They",
+        "start": 210.04,
+        "end": 210.04
+      },
+      {
+        "word": "go",
+        "start": 210.04,
+        "end": 210.3
+      },
+      {
+        "word": "together",
+        "start": 210.3,
+        "end": 210.82
+      },
+      {
+        "word": "in",
+        "start": 210.82,
+        "end": 211.16
+      },
+      {
+        "word": "two",
+        "start": 211.16,
+        "end": 211.48
+      },
+      {
+        "word": "pairs",
+        "start": 211.48,
+        "end": 212.28
+      },
+      {
+        "word": "that",
+        "start": 212.28,
+        "end": 213.12
+      },
+      {
+        "word": "rhyme.",
+        "start": 213.12,
+        "end": 213.82
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "text": "Much and such.",
+    "line_index": 39,
+    "start": 214.0,
+    "end": 215.54,
+    "duration": 1.54,
+    "words": [
+      {
+        "word": "Much",
+        "start": 214.0,
+        "end": 214.513
+      },
+      {
+        "word": "and",
+        "start": 214.513,
+        "end": 214.898
+      },
+      {
+        "word": "such.",
+        "start": 214.898,
+        "end": 215.54
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "text": "Rich and which.",
+    "line_index": 39,
+    "start": 217.38,
+    "end": 219.02,
+    "duration": 1.64,
+    "words": [
+      {
+        "word": "Rich",
+        "start": 217.38,
+        "end": 217.885
+      },
+      {
+        "word": "and",
+        "start": 217.885,
+        "end": 218.263
+      },
+      {
+        "word": "which.",
+        "start": 218.263,
+        "end": 219.02
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "text": "Say them in pairs, and they will stay in your head.",
+    "line_index": 40,
+    "start": 220.64,
+    "end": 223.79,
+    "duration": 3.15,
+    "words": [
+      {
+        "word": "Say",
+        "start": 220.64,
+        "end": 220.74
+      },
+      {
+        "word": "them",
+        "start": 220.74,
+        "end": 221.0
+      },
+      {
+        "word": "in",
+        "start": 221.0,
+        "end": 221.16
+      },
+      {
+        "word": "pairs,",
+        "start": 221.16,
+        "end": 221.72
+      },
+      {
+        "word": "and",
+        "start": 222.28,
+        "end": 222.28
+      },
+      {
+        "word": "they",
+        "start": 222.28,
+        "end": 222.42
+      },
+      {
+        "word": "will",
+        "start": 222.42,
+        "end": 222.54
+      },
+      {
+        "word": "stay",
+        "start": 222.54,
+        "end": 222.84
+      },
+      {
+        "word": "in",
+        "start": 222.84,
+        "end": 223.16
+      },
+      {
+        "word": "your",
+        "start": 223.16,
+        "end": 223.34
+      },
+      {
+        "word": "head.",
+        "start": 223.34,
+        "end": 223.79
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "text": "Then come five longer rule breakers.",
+    "line_index": 41,
+    "start": 225.98,
+    "end": 228.98,
+    "duration": 3.0,
+    "words": [
+      {
+        "word": "Then",
+        "start": 225.98,
+        "end": 226.16
+      },
+      {
+        "word": "come",
+        "start": 226.16,
+        "end": 226.48
+      },
+      {
+        "word": "five",
+        "start": 226.48,
+        "end": 227.1
+      },
+      {
+        "word": "longer",
+        "start": 227.1,
+        "end": 227.78
+      },
+      {
+        "word": "rule",
+        "start": 227.78,
+        "end": 228.12
+      },
+      {
+        "word": "breakers.",
+        "start": 228.12,
+        "end": 228.98
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "text": "Sandwich.",
+    "line_index": 42,
+    "start": 230.73,
+    "end": 231.31,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Sandwich.",
+        "start": 230.73,
+        "end": 231.31
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "text": "Spinach.",
+    "line_index": 42,
+    "start": 232.8,
+    "end": 233.3,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Spinach.",
+        "start": 232.8,
+        "end": 233.3
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "text": "Ostrich.",
+    "line_index": 42,
+    "start": 234.9,
+    "end": 235.54,
+    "duration": 0.64,
+    "words": [
+      {
+        "word": "Ostrich.",
+        "start": 234.9,
+        "end": 235.54
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "text": "Attach.",
+    "line_index": 42,
+    "start": 237.0,
+    "end": 237.66,
+    "duration": 0.66,
+    "words": [
+      {
+        "word": "Attach.",
+        "start": 237.0,
+        "end": 237.66
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "text": "Detach.",
+    "line_index": 42,
+    "start": 238.68,
+    "end": 239.39,
+    "duration": 0.71,
+    "words": [
+      {
+        "word": "Detach.",
+        "start": 238.68,
+        "end": 239.39
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "text": "They have short vowels too, but they still use ch.",
+    "line_index": 43,
+    "start": 240.98,
+    "end": 245.33,
+    "duration": 4.35,
+    "words": [
+      {
+        "word": "They",
+        "start": 240.98,
+        "end": 241.1
+      },
+      {
+        "word": "have",
+        "start": 241.1,
+        "end": 241.34
+      },
+      {
+        "word": "short",
+        "start": 241.34,
+        "end": 241.7
+      },
+      {
+        "word": "vowels",
+        "start": 241.7,
+        "end": 242.2
+      },
+      {
+        "word": "too,",
+        "start": 242.2,
+        "end": 242.84
+      },
+      {
+        "word": "but",
+        "start": 243.42,
+        "end": 243.44
+      },
+      {
+        "word": "they",
+        "start": 243.44,
+        "end": 243.64
+      },
+      {
+        "word": "still",
+        "start": 243.64,
+        "end": 243.98
+      },
+      {
+        "word": "use",
+        "start": 243.98,
+        "end": 244.48
+      },
+      {
+        "word": "ch.",
+        "start": 244.48,
+        "end": 245.33
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "text": "These five travelled here from lands far away.",
+    "line_index": 44,
+    "start": 246.88,
+    "end": 250.28,
+    "duration": 3.4,
+    "words": [
+      {
+        "word": "These",
+        "start": 246.88,
+        "end": 246.94
+      },
+      {
+        "word": "five",
+        "start": 246.94,
+        "end": 247.26
+      },
+      {
+        "word": "travelled",
+        "start": 247.26,
+        "end": 247.9
+      },
+      {
+        "word": "here",
+        "start": 247.9,
+        "end": 248.24
+      },
+      {
+        "word": "from",
+        "start": 248.24,
+        "end": 248.62
+      },
+      {
+        "word": "lands",
+        "start": 248.62,
+        "end": 249.02
+      },
+      {
+        "word": "far",
+        "start": 249.02,
+        "end": 249.54
+      },
+      {
+        "word": "away.",
+        "start": 249.54,
+        "end": 250.28
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "text": "They packed their own spelling and brought it with them.",
+    "line_index": 45,
+    "start": 251.4,
+    "end": 254.8,
+    "duration": 3.4,
+    "words": [
+      {
+        "word": "They",
+        "start": 251.4,
+        "end": 251.5
+      },
+      {
+        "word": "packed",
+        "start": 251.5,
+        "end": 251.88
+      },
+      {
+        "word": "their",
+        "start": 251.96,
+        "end": 252.14
+      },
+      {
+        "word": "own",
+        "start": 252.14,
+        "end": 252.42
+      },
+      {
+        "word": "spelling",
+        "start": 252.42,
+        "end": 252.9
+      },
+      {
+        "word": "and",
+        "start": 252.9,
+        "end": 253.56
+      },
+      {
+        "word": "brought",
+        "start": 253.56,
+        "end": 253.86
+      },
+      {
+        "word": "it",
+        "start": 253.86,
+        "end": 254.1
+      },
+      {
+        "word": "with",
+        "start": 254.1,
+        "end": 254.32
+      },
+      {
+        "word": "them.",
+        "start": 254.32,
+        "end": 254.8
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "text": "And when they arrived, they simply kept it!",
+    "line_index": 46,
+    "start": 256.1,
+    "end": 259.34,
+    "duration": 3.24,
+    "words": [
+      {
+        "word": "And",
+        "start": 256.1,
+        "end": 256.24
+      },
+      {
+        "word": "when",
+        "start": 256.24,
+        "end": 256.44
+      },
+      {
+        "word": "they",
+        "start": 256.44,
+        "end": 256.68
+      },
+      {
+        "word": "arrived,",
+        "start": 256.68,
+        "end": 257.96
+      },
+      {
+        "word": "they",
+        "start": 258.04,
+        "end": 258.04
+      },
+      {
+        "word": "simply",
+        "start": 258.04,
+        "end": 258.54
+      },
+      {
+        "word": "kept",
+        "start": 258.54,
+        "end": 258.94
+      },
+      {
+        "word": "it!",
+        "start": 258.94,
+        "end": 259.34
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "text": "So we learn these five by remembering them.",
+    "line_index": 47,
+    "start": 261.1,
+    "end": 263.98,
+    "duration": 2.88,
+    "words": [
+      {
+        "word": "So",
+        "start": 261.1,
+        "end": 261.2
+      },
+      {
+        "word": "we",
+        "start": 261.2,
+        "end": 261.36
+      },
+      {
+        "word": "learn",
+        "start": 261.36,
+        "end": 261.6
+      },
+      {
+        "word": "these",
+        "start": 261.6,
+        "end": 261.94
+      },
+      {
+        "word": "five",
+        "start": 261.94,
+        "end": 262.34
+      },
+      {
+        "word": "by",
+        "start": 262.34,
+        "end": 262.76
+      },
+      {
+        "word": "remembering",
+        "start": 262.76,
+        "end": 263.34
+      },
+      {
+        "word": "them.",
+        "start": 263.34,
+        "end": 263.98
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "text": "Now let's say all nine together.",
+    "line_index": 48,
+    "start": 265.56,
+    "end": 268.02,
+    "duration": 2.46,
+    "words": [
+      {
+        "word": "Now",
+        "start": 265.56,
+        "end": 265.7
+      },
+      {
+        "word": "let's",
+        "start": 265.7,
+        "end": 266.12
+      },
+      {
+        "word": "say",
+        "start": 266.18,
+        "end": 266.34
+      },
+      {
+        "word": "all",
+        "start": 266.54,
+        "end": 266.78
+      },
+      {
+        "word": "nine",
+        "start": 266.78,
+        "end": 267.16
+      },
+      {
+        "word": "together.",
+        "start": 267.16,
+        "end": 268.02
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "text": "Much, such, rich, which.",
+    "line_index": 49,
+    "start": 269.98,
+    "end": 277.84,
+    "duration": 7.86,
+    "words": [
+      {
+        "word": "Much,",
+        "start": 269.98,
+        "end": 270.12
+      },
+      {
+        "word": "such,",
+        "start": 271.66,
+        "end": 271.84
+      },
+      {
+        "word": "rich,",
+        "start": 273.8,
+        "end": 274.24
+      },
+      {
+        "word": "which.",
+        "start": 276.38,
+        "end": 277.84
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "text": "Sandwich, spinach, ostrich, attach, detach.",
+    "line_index": 50,
+    "start": 278.16,
+    "end": 288.76,
+    "duration": 10.6,
+    "words": [
+      {
+        "word": "Sandwich,",
+        "start": 278.16,
+        "end": 278.82
+      },
+      {
+        "word": "spinach,",
+        "start": 280.58,
+        "end": 281.18
+      },
+      {
+        "word": "ostrich,",
+        "start": 282.98,
+        "end": 283.76
+      },
+      {
+        "word": "attach,",
+        "start": 285.7,
+        "end": 286.36
+      },
+      {
+        "word": "detach.",
+        "start": 288.28,
+        "end": 288.76
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "text": "Remember those nine, and the rule will work for the rest!",
+    "line_index": 51,
+    "start": 291.0,
+    "end": 294.5,
+    "duration": 3.5,
+    "words": [
+      {
+        "word": "Remember",
+        "start": 291.0,
+        "end": 291.38
+      },
+      {
+        "word": "those",
+        "start": 291.38,
+        "end": 291.74
+      },
+      {
+        "word": "nine,",
+        "start": 291.74,
+        "end": 292.36
+      },
+      {
+        "word": "and",
+        "start": 292.62,
+        "end": 292.74
+      },
+      {
+        "word": "the",
+        "start": 292.74,
+        "end": 292.88
+      },
+      {
+        "word": "rule",
+        "start": 292.88,
+        "end": 293.16
+      },
+      {
+        "word": "will",
+        "start": 293.16,
+        "end": 293.44
+      },
+      {
+        "word": "work",
+        "start": 293.44,
+        "end": 293.78
+      },
+      {
+        "word": "for",
+        "start": 293.78,
+        "end": 294.04
+      },
+      {
+        "word": "the",
+        "start": 294.04,
+        "end": 294.18
+      },
+      {
+        "word": "rest!",
+        "start": 294.18,
+        "end": 294.5
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "text": "Now let's look at more tch words.",
+    "line_index": 52,
+    "start": 296.92,
+    "end": 298.88,
+    "duration": 1.96,
+    "words": [
+      {
+        "word": "Now",
+        "start": 296.92,
+        "end": 296.92
+      },
+      {
+        "word": "let's",
+        "start": 296.92,
+        "end": 297.3
+      },
+      {
+        "word": "look",
+        "start": 297.3,
+        "end": 297.46
+      },
+      {
+        "word": "at",
+        "start": 297.46,
+        "end": 297.72
+      },
+      {
+        "word": "more",
+        "start": 297.72,
+        "end": 298.08
+      },
+      {
+        "word": "tch",
+        "start": 298.08,
+        "end": 298.44
+      },
+      {
+        "word": "words.",
+        "start": 298.44,
+        "end": 298.88
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "text": "Catch.",
+    "line_index": 53,
+    "start": 300.58,
+    "end": 300.98,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Catch.",
+        "start": 300.58,
+        "end": 300.98
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "text": "Match.",
+    "line_index": 53,
+    "start": 302.54,
+    "end": 302.98,
+    "duration": 0.44,
+    "words": [
+      {
+        "word": "Match.",
+        "start": 302.54,
+        "end": 302.98
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "text": "Watch.",
+    "line_index": 53,
+    "start": 304.8,
+    "end": 305.12,
+    "duration": 0.32,
+    "words": [
+      {
+        "word": "Watch.",
+        "start": 304.8,
+        "end": 305.12
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "text": "Fetch.",
+    "line_index": 53,
+    "start": 306.92,
+    "end": 307.32,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Fetch.",
+        "start": 306.92,
+        "end": 307.32
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "text": "Itch.",
+    "line_index": 53,
+    "start": 309.26,
+    "end": 309.72,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "Itch.",
+        "start": 309.26,
+        "end": 309.72
+      }
+    ]
+  },
+  {
+    "index": 80,
+    "text": "Ditch.",
+    "line_index": 53,
+    "start": 311.62,
+    "end": 312.05,
+    "duration": 0.43,
+    "words": [
+      {
+        "word": "Ditch.",
+        "start": 311.62,
+        "end": 312.05
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "text": "Every one of them has a short vowel, and then tch.",
+    "line_index": 54,
+    "start": 313.7,
+    "end": 318.07,
+    "duration": 4.37,
+    "words": [
+      {
+        "word": "Every",
+        "start": 313.7,
+        "end": 314.02
+      },
+      {
+        "word": "one",
+        "start": 314.02,
+        "end": 314.34
+      },
+      {
+        "word": "of",
+        "start": 314.34,
+        "end": 314.52
+      },
+      {
+        "word": "them",
+        "start": 314.52,
+        "end": 314.74
+      },
+      {
+        "word": "has",
+        "start": 314.74,
+        "end": 315.04
+      },
+      {
+        "word": "a",
+        "start": 315.04,
+        "end": 315.2
+      },
+      {
+        "word": "short",
+        "start": 315.2,
+        "end": 315.52
+      },
+      {
+        "word": "vowel,",
+        "start": 315.52,
+        "end": 316.32
+      },
+      {
+        "word": "and",
+        "start": 316.9,
+        "end": 317.02
+      },
+      {
+        "word": "then",
+        "start": 317.02,
+        "end": 317.32
+      },
+      {
+        "word": "tch.",
+        "start": 317.32,
+        "end": 318.07
+      }
+    ]
+  },
+  {
+    "index": 82,
+    "text": "And now let's look at the ch words.",
+    "line_index": 55,
+    "start": 319.84,
+    "end": 321.86,
+    "duration": 2.02,
+    "words": [
+      {
+        "word": "And",
+        "start": 319.84,
+        "end": 319.94
+      },
+      {
+        "word": "now",
+        "start": 319.94,
+        "end": 319.98
+      },
+      {
+        "word": "let's",
+        "start": 319.98,
+        "end": 320.36
+      },
+      {
+        "word": "look",
+        "start": 320.38,
+        "end": 320.52
+      },
+      {
+        "word": "at",
+        "start": 320.52,
+        "end": 320.8
+      },
+      {
+        "word": "the",
+        "start": 320.8,
+        "end": 320.98
+      },
+      {
+        "word": "ch",
+        "start": 320.98,
+        "end": 321.24
+      },
+      {
+        "word": "words.",
+        "start": 321.24,
+        "end": 321.86
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "text": "Chair.",
+    "line_index": 56,
+    "start": 323.6,
+    "end": 324.06,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "Chair.",
+        "start": 323.6,
+        "end": 324.06
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "text": "Chin.",
+    "line_index": 56,
+    "start": 325.52,
+    "end": 325.89,
+    "duration": 0.37,
+    "words": [
+      {
+        "word": "Chin.",
+        "start": 325.52,
+        "end": 325.89
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "text": "Chip.",
+    "line_index": 56,
+    "start": 327.97,
+    "end": 328.18,
+    "duration": 0.21,
+    "words": [
+      {
+        "word": "Chip.",
+        "start": 327.97,
+        "end": 328.18
+      }
+    ]
+  },
+  {
+    "index": 86,
+    "text": "Lunch.",
+    "line_index": 56,
+    "start": 330.15,
+    "end": 330.69,
+    "duration": 0.54,
+    "words": [
+      {
+        "word": "Lunch.",
+        "start": 330.15,
+        "end": 330.69
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "text": "Beach.",
+    "line_index": 56,
+    "start": 332.64,
+    "end": 332.98,
+    "duration": 0.34,
+    "words": [
+      {
+        "word": "Beach.",
+        "start": 332.64,
+        "end": 332.98
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "text": "Coach.",
+    "line_index": 56,
+    "start": 334.82,
+    "end": 335.18,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "Coach.",
+        "start": 334.82,
+        "end": 335.18
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "text": "At the start, after a consonant, or after a long vowel, we write just ch.",
+    "line_index": 57,
+    "start": 337.16,
+    "end": 347.36,
+    "duration": 10.2,
+    "words": [
+      {
+        "word": "At",
+        "start": 337.16,
+        "end": 337.28
+      },
+      {
+        "word": "the",
+        "start": 337.28,
+        "end": 337.44
+      },
+      {
+        "word": "start,",
+        "start": 337.44,
+        "end": 337.84
+      },
+      {
+        "word": "after",
+        "start": 339.64,
+        "end": 339.9
+      },
+      {
+        "word": "a",
+        "start": 339.9,
+        "end": 340.08
+      },
+      {
+        "word": "consonant,",
+        "start": 340.08,
+        "end": 340.73
+      },
+      {
+        "word": "or",
+        "start": 342.44,
+        "end": 342.56
+      },
+      {
+        "word": "after",
+        "start": 342.56,
+        "end": 343.0
+      },
+      {
+        "word": "a",
+        "start": 343.0,
+        "end": 343.2
+      },
+      {
+        "word": "long",
+        "start": 343.2,
+        "end": 343.52
+      },
+      {
+        "word": "vowel,",
+        "start": 343.52,
+        "end": 344.32
+      },
+      {
+        "word": "we",
+        "start": 345.34,
+        "end": 345.48
+      },
+      {
+        "word": "write",
+        "start": 345.48,
+        "end": 345.8
+      },
+      {
+        "word": "just",
+        "start": 345.8,
+        "end": 346.56
+      },
+      {
+        "word": "ch.",
+        "start": 346.56,
+        "end": 347.36
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "text": "Now it is your turn!",
+    "line_index": 58,
+    "start": 349.2,
+    "end": 350.17,
+    "duration": 0.97,
+    "words": [
+      {
+        "word": "Now",
+        "start": 349.2,
+        "end": 349.24
+      },
+      {
+        "word": "it",
+        "start": 349.24,
+        "end": 349.42
+      },
+      {
+        "word": "is",
+        "start": 349.42,
+        "end": 349.52
+      },
+      {
+        "word": "your",
+        "start": 349.52,
+        "end": 349.72
+      },
+      {
+        "word": "turn!",
+        "start": 349.72,
+        "end": 350.17
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "text": "Here is the word.",
+    "line_index": 58,
+    "start": 351.5,
+    "end": 352.46,
+    "duration": 0.96,
+    "words": [
+      {
+        "word": "Here",
+        "start": 351.5,
+        "end": 351.62
+      },
+      {
+        "word": "is",
+        "start": 351.62,
+        "end": 351.86
+      },
+      {
+        "word": "the",
+        "start": 351.86,
+        "end": 352.0
+      },
+      {
+        "word": "word.",
+        "start": 352.0,
+        "end": 352.46
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "text": "Beach.",
+    "line_index": 58,
+    "start": 353.28,
+    "end": 353.48,
+    "duration": 0.2,
+    "words": [
+      {
+        "word": "Beach.",
+        "start": 353.28,
+        "end": 353.48
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "text": "Do we write it with ch, or with tch?",
+    "line_index": 59,
+    "start": 355.14,
+    "end": 359.02,
+    "duration": 3.88,
+    "words": [
+      {
+        "word": "Do",
+        "start": 355.14,
+        "end": 355.14
+      },
+      {
+        "word": "we",
+        "start": 355.14,
+        "end": 355.28
+      },
+      {
+        "word": "write",
+        "start": 355.28,
+        "end": 355.52
+      },
+      {
+        "word": "it",
+        "start": 355.52,
+        "end": 355.8
+      },
+      {
+        "word": "with",
+        "start": 355.8,
+        "end": 356.02
+      },
+      {
+        "word": "ch,",
+        "start": 356.02,
+        "end": 356.12
+      },
+      {
+        "word": "or",
+        "start": 357.54,
+        "end": 357.62
+      },
+      {
+        "word": "with",
+        "start": 357.62,
+        "end": 358.02
+      },
+      {
+        "word": "tch?",
+        "start": 358.02,
+        "end": 359.02
+      }
+    ]
+  },
+  {
+    "index": 94,
+    "text": "It is ch!",
+    "line_index": 60,
+    "start": 360.86,
+    "end": 361.34,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "It",
+        "start": 360.86,
+        "end": 360.98
+      },
+      {
+        "word": "is",
+        "start": 360.98,
+        "end": 361.24
+      },
+      {
+        "word": "ch!",
+        "start": 361.24,
+        "end": 361.34
+      }
+    ]
+  },
+  {
+    "index": 95,
+    "text": "Here, e and a make a long vowel, not a short one.",
+    "line_index": 60,
+    "start": 363.7,
+    "end": 367.48,
+    "duration": 3.78,
+    "words": [
+      {
+        "word": "Here,",
+        "start": 363.7,
+        "end": 363.96
+      },
+      {
+        "word": "e",
+        "start": 364.1,
+        "end": 364.1
+      },
+      {
+        "word": "and",
+        "start": 364.1,
+        "end": 364.2
+      },
+      {
+        "word": "a",
+        "start": 364.2,
+        "end": 364.42
+      },
+      {
+        "word": "make",
+        "start": 364.42,
+        "end": 364.52
+      },
+      {
+        "word": "a",
+        "start": 364.52,
+        "end": 364.82
+      },
+      {
+        "word": "long",
+        "start": 364.82,
+        "end": 365.18
+      },
+      {
+        "word": "vowel,",
+        "start": 365.18,
+        "end": 365.73
+      },
+      {
+        "word": "not",
+        "start": 366.4,
+        "end": 366.44
+      },
+      {
+        "word": "a",
+        "start": 366.44,
+        "end": 366.62
+      },
+      {
+        "word": "short",
+        "start": 366.62,
+        "end": 366.88
+      },
+      {
+        "word": "one.",
+        "start": 366.88,
+        "end": 367.48
+      }
+    ]
+  },
+  {
+    "index": 96,
+    "text": "So let's remember it together.",
+    "line_index": 61,
+    "start": 369.04,
+    "end": 370.44,
+    "duration": 1.4,
+    "words": [
+      {
+        "word": "So",
+        "start": 369.04,
+        "end": 369.04
+      },
+      {
+        "word": "let's",
+        "start": 369.04,
+        "end": 369.16
+      },
+      {
+        "word": "remember",
+        "start": 369.16,
+        "end": 369.6
+      },
+      {
+        "word": "it",
+        "start": 369.6,
+        "end": 369.84
+      },
+      {
+        "word": "together.",
+        "start": 369.84,
+        "end": 370.44
+      }
+    ]
+  },
+  {
+    "index": 97,
+    "text": "After a short vowel we write tch.",
+    "line_index": 62,
+    "start": 372.24,
+    "end": 375.21,
+    "duration": 2.97,
+    "words": [
+      {
+        "word": "After",
+        "start": 372.24,
+        "end": 372.36
+      },
+      {
+        "word": "a",
+        "start": 372.36,
+        "end": 372.56
+      },
+      {
+        "word": "short",
+        "start": 372.56,
+        "end": 372.84
+      },
+      {
+        "word": "vowel",
+        "start": 372.84,
+        "end": 373.34
+      },
+      {
+        "word": "we",
+        "start": 373.34,
+        "end": 374.16
+      },
+      {
+        "word": "write",
+        "start": 374.16,
+        "end": 374.46
+      },
+      {
+        "word": "tch.",
+        "start": 374.46,
+        "end": 375.21
+      }
+    ]
+  },
+  {
+    "index": 98,
+    "text": "Everywhere else we write just ch.",
+    "line_index": 63,
+    "start": 377.2,
+    "end": 380.24,
+    "duration": 3.04,
+    "words": [
+      {
+        "word": "Everywhere",
+        "start": 377.2,
+        "end": 377.28
+      },
+      {
+        "word": "else",
+        "start": 377.28,
+        "end": 377.78
+      },
+      {
+        "word": "we",
+        "start": 378.32,
+        "end": 378.42
+      },
+      {
+        "word": "write",
+        "start": 378.42,
+        "end": 378.76
+      },
+      {
+        "word": "just",
+        "start": 378.76,
+        "end": 379.4
+      },
+      {
+        "word": "ch.",
+        "start": 379.4,
+        "end": 380.24
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "text": "And don't forget our nine rule breakers.",
+    "line_index": 64,
+    "start": 381.98,
+    "end": 384.52,
+    "duration": 2.54,
+    "words": [
+      {
+        "word": "And",
+        "start": 381.98,
+        "end": 382.06
+      },
+      {
+        "word": "don't",
+        "start": 382.06,
+        "end": 382.44
+      },
+      {
+        "word": "forget",
+        "start": 382.44,
+        "end": 382.78
+      },
+      {
+        "word": "our",
+        "start": 382.78,
+        "end": 383.2
+      },
+      {
+        "word": "nine",
+        "start": 383.2,
+        "end": 383.62
+      },
+      {
+        "word": "rule",
+        "start": 383.62,
+        "end": 384.0
+      },
+      {
+        "word": "breakers.",
+        "start": 384.42,
+        "end": 384.52
+      }
+    ]
+  },
+  {
+    "index": 100,
+    "text": "Come and practise these words in the English Learning app.",
+    "line_index": 65,
+    "start": 386.76,
+    "end": 389.94,
+    "duration": 3.18,
+    "words": [
+      {
+        "word": "Come",
+        "start": 386.76,
+        "end": 386.86
+      },
+      {
+        "word": "and",
+        "start": 386.86,
+        "end": 387.02
+      },
+      {
+        "word": "practise",
+        "start": 387.02,
+        "end": 387.44
+      },
+      {
+        "word": "these",
+        "start": 387.44,
+        "end": 387.78
+      },
+      {
+        "word": "words",
+        "start": 387.78,
+        "end": 388.12
+      },
+      {
+        "word": "in",
+        "start": 388.12,
+        "end": 388.46
+      },
+      {
+        "word": "the",
+        "start": 388.46,
+        "end": 388.58
+      },
+      {
+        "word": "English",
+        "start": 388.58,
+        "end": 388.94
+      },
+      {
+        "word": "Learning",
+        "start": 388.94,
+        "end": 389.44
+      },
+      {
+        "word": "app.",
+        "start": 389.44,
+        "end": 389.94
+      }
+    ]
+  },
+  {
+    "index": 101,
+    "text": "It is free, with no ads!",
+    "line_index": 65,
+    "start": 391.06,
+    "end": 393.08,
+    "duration": 2.02,
+    "words": [
+      {
+        "word": "It",
+        "start": 391.06,
+        "end": 391.16
+      },
+      {
+        "word": "is",
+        "start": 391.16,
+        "end": 391.28
+      },
+      {
+        "word": "free,",
+        "start": 391.28,
+        "end": 391.76
+      },
+      {
+        "word": "with",
+        "start": 392.16,
+        "end": 392.16
+      },
+      {
+        "word": "no",
+        "start": 392.16,
+        "end": 392.48
+      },
+      {
+        "word": "ads!",
+        "start": 392.48,
+        "end": 393.08
+      }
+    ]
+  }
+]

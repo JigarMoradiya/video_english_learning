@@ -284,19 +284,24 @@ const blankFor = (word: string, marker: string) => {
   return word.slice(0, i) + "_".repeat(marker.length) + word.slice(i + marker.length);
 };
 
-export const PairSeeIt: React.FC<{ data: PhonicsComparison; beat: Beat; wordsMid: string[]; wordsEnd: string[] }> = ({ data, beat, wordsMid, wordsEnd }) => {
+export const PairSeeIt: React.FC<{
+  data: PhonicsComparison; beat: Beat; wordsMid: string[]; wordsEnd: string[];
+  // ch/tch narrates its SECOND team first, and its header cue is the second "now", so the
+  // board order and the hand-over cue both have to be overridable.
+  swap?: boolean; endHeadAt?: number;
+}> = ({ data, beat, wordsMid, wordsEnd, swap = false, endHeadAt }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const midHead = 0;
-  const endHead = beat.word("Now") >= 0 ? beat.word("Now") - 20 : sec(16, fps);
+  const endHead = endHeadAt !== undefined ? endHeadAt : beat.word("Now") >= 0 ? beat.word("Now") - 20 : sec(16, fps);
   return (
     <>
       {/* NO per-word audio here. The narration already says every word out loud — "Boat.
           Coat. Goat. …" — so playing the app's word clip on the same cue doubled the voice.
           (The letter videos DO need their clips; those beats have no narration of their own.) */}
       <AbsoluteFill>
-        <WordBoard team={data.teams[0]} words={wordsMid} beat={beat} headAt={midHead} side="left" />
-        <WordBoard team={data.teams[1]} words={wordsEnd} beat={beat} headAt={endHead} side="right" />
+        <WordBoard team={data.teams[swap ? 1 : 0]} words={wordsMid} beat={beat} headAt={midHead} side="left" />
+        <WordBoard team={data.teams[swap ? 0 : 1]} words={wordsEnd} beat={beat} headAt={endHead} side="right" />
       </AbsoluteFill>
       <Band top={92}>
         <Pill size={46}>More words! 📚</Pill>
@@ -306,7 +311,7 @@ export const PairSeeIt: React.FC<{ data: PhonicsComparison; beat: Beat; wordsMid
 };
 
 // ── quiz — the word with a gap, then the answer ─────────────────────────────
-export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: PairCopy; word: string; blanked: string; answer: number }> = ({ data, beat, copy, word, blanked, answer }) => {
+export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: PairCopy; word: string; blanked: string; answer: number; top?: number }> = ({ data, beat, copy, word, blanked, answer, top = 392 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   // see PairCopy.reveal — which "it's" is the answer differs per card, and keying the wrong
@@ -343,7 +348,7 @@ export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pai
       </Band>
       {/* picture LEFT, word + choices RIGHT — uses the 16:9 width instead of stacking
           everything in a tall column, which ran the word into the choice cards */}
-      <Center top={392}>
+      <Center top={top}>
         <div style={{ display: "flex", alignItems: "center", gap: 84 }}>
           <div style={{ width: 300, height: 300, background: palette.card, border: `9px solid ${c}`, borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 168, boxShadow: `0 18px 44px ${c}44`, transform: `translateY(${bob(frame, fps, 8, 2.6)}px)`, overflow: "hidden", padding: 18 }}>
             <QuizIllo word={word} />
@@ -440,12 +445,18 @@ const QuizIllo: React.FC<{ word: string }> = ({ word }) => {
 };
 
 // ── recap ────────────────────────────────────────────────────────────────────
-export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data, beat }) => {
+export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat; top?: number; crest?: string; scale?: number }> = ({ data, beat, top = 316, crest, scale = 1 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   return (
-    <Center top={316}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 30 }}>
+    <Center top={top}>
+      {/* ch/tch adds a crest and a fourth row, which pushed the logo down behind the
+          captions — the whole block scales to fit the 300…860 stage instead. */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 26, transform: `scale(${scale})`, transformOrigin: "top center" }}>
+        {/* something above the Remember pill, so the beat does not open on bare text */}
+        {crest && (
+          <span style={{ fontSize: 92, transform: `scale(${0.7 + 0.3 * spring({ frame: frame - 4, fps, config: { damping: 10 } })}) translateY(${bob(frame, fps, 7, 3)}px)` }}>{crest}</span>
+        )}
         <Pill size={56}>Remember! ✨</Pill>
         <div style={{ display: "flex", gap: 56 }}>
           {data.teams.map((t, i) => {

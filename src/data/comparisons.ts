@@ -149,6 +149,27 @@ export const comparisons: Record<string, PhonicsComparison> = {
       { word: "crawl", blanked: "cr__l", answerTeam: 1 },
     ],
   },
+  ch_tch: {
+    id: "ch_tch",
+    cardTitle: "ch ⚡ tch",
+    shortTitle: "ch vs tch",
+    rule: "Right after a SHORT vowel → TCH! Everywhere else → CH.",
+    explanation:
+      "Both spellings say /ch/.\n• Right after a **short vowel** → **tch** (ca-tch).\n• At the start, after a consonant, or after a long vowel → **ch** (chair, lunch, beach).\n• Nine rule breakers use ch anyway: much, such, rich, which, sandwich, spinach, ostrich, attach, detach.",
+    example: "chair · catch",
+    group: "spelling",
+    hueShift: 120, // pitch green — nothing like the other six
+    teams: [
+      { marker: "ch", colorHex: "1565C0", zoneEmoji: "🥅", zoneHint: "everywhere else", zonePhrase: "everywhere else", markerAudio: "ch" },
+      { marker: "tch", colorHex: "D84315", zoneEmoji: "⚽", zoneHint: "after a short vowel", zonePhrase: "after a short vowel", markerAudio: "tch" },
+    ],
+    quiz: [
+      { word: "catch", blanked: "ca___", answerTeam: 1 },
+      { word: "match", blanked: "ma___", answerTeam: 1 },
+      { word: "beach", blanked: "bea__", answerTeam: 0 },
+      { word: "lunch", blanked: "lun__", answerTeam: 0 },
+    ],
+  },
   c_k_ck: {
     id: "c_k_ck",
     cardTitle: "c ⚡ k ⚡ ck",

@@ -17,6 +17,7 @@ import { OuOw16x9Reel, OU_OW_16X9_DURATION } from "./ou_ow_16x9";
 import { AuAw16x9Reel, AU_AW_16X9_DURATION } from "./au_aw_16x9";
 import { OuOwPortraitReel, OU_OW_PORTRAIT_DURATION } from "./ou_ow_portrait";
 import { AuAwPortraitReel, AU_AW_PORTRAIT_DURATION } from "./au_aw_portrait";
+import { ChTch16x9Reel, CH_TCH_16X9_DURATION } from "./ch_tch_16x9";
 import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
 import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
 import { letterShortEntry } from "./letter_short";
@@ -80,6 +81,8 @@ export const REELS: ReelEntry[] = [
   // 9:16 cuts — SAME narration and beat map, different worlds: a dusk treehouse, a night launch.
   { id: "ou-ow-9x16", component: OuOwPortraitReel, durationInFrames: OU_OW_PORTRAIT_DURATION, width: 1080, height: 1920 },
   { id: "au-aw-9x16", component: AuAwPortraitReel, durationInFrames: AU_AW_PORTRAIT_DURATION, width: 1080, height: 1920 },
+  // L10 · ch/tch — long-form 16:9 lesson. Match Day: the rule is the letter BEFORE the sound.
+  { id: "ch-tch-16x9", component: ChTch16x9Reel, durationInFrames: CH_TCH_16X9_DURATION, width: 1920, height: 1080 },
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
   //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)
