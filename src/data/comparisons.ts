@@ -170,6 +170,27 @@ export const comparisons: Record<string, PhonicsComparison> = {
       { word: "lunch", blanked: "lun__", answerTeam: 0 },
     ],
   },
+  ge_dge: {
+    id: "ge_dge",
+    cardTitle: "ge ⚡ dge",
+    shortTitle: "ge vs dge",
+    rule: "Right after a SHORT vowel → DGE! After anything else → GE.",
+    explanation:
+      "Both spellings say /j/ at the end of a word.\n• Right after a **short vowel** → **dge** (ba-dge).\n• After a long vowel or a consonant → **ge** (cage, large).\n• ck, tch and dge are one family: a short vowel at the end needs a helper.",
+    example: "cage · badge",
+    group: "spelling",
+    hueShift: 275, // courtroom oak + brass
+    teams: [
+      { marker: "ge", colorHex: "00695C", zoneEmoji: "✍️", zoneHint: "everywhere else", zonePhrase: "after a long vowel or consonant", markerAudio: "ge" },
+      { marker: "dge", colorHex: "AD1457", zoneEmoji: "🔨", zoneHint: "after a short vowel", zonePhrase: "after a short vowel", markerAudio: "dge" },
+    ],
+    quiz: [
+      { word: "badge", blanked: "ba___", answerTeam: 1 },
+      { word: "bridge", blanked: "bri___", answerTeam: 1 },
+      { word: "huge", blanked: "hu__", answerTeam: 0 },
+      { word: "large", blanked: "lar__", answerTeam: 0 },
+    ],
+  },
   c_k_ck: {
     id: "c_k_ck",
     cardTitle: "c ⚡ k ⚡ ck",

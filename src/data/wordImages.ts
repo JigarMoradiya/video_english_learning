@@ -10,6 +10,9 @@ export const wordImages: Record<string, string> = {
   day: "words/day.png", // smiling sun cutout
   boy: "words/boy.png", // app cutout
   road: "words/road.png", // app cutout
+  // No cage emoji exists, and a bare 🐦 taught the word "bird" instead of "cage".
+  // Drawn in tools/draw_cage.py rather than borrowed.
+  cage: "words/cage.png",
 };
 
 // Emoji placeholders for words with no app cutout yet.
@@ -84,6 +87,22 @@ export const wordEmojis: Record<string, string> = {
   ostrich: "🦤",
   attach: "📎",
   detach: "✂️",
+  // ge/dge set
+  badge: "🎖️",
+  bridge: "🌉",
+  judge: "⚖️",
+  fudge: "🍫",
+  hedge: "🌳",
+  edge: "📐",
+  cage: "🐦",
+  page: "📄",
+  huge: "🐘",
+  large: "🐋",
+  change: "🔄",
+  orange: "🍊",
+  village: "🏘️",
+  message: "✉️",
+  stage: "🎤",
   // c/k/ck set
   cat: "🐱",
   cot: "🛏️",
@@ -133,6 +152,13 @@ export const wordEmojis: Record<string, string> = {
 };
 
 export type Illustration = { kind: "image"; src: string } | { kind: "emoji"; char: string } | null;
+
+// Some glyphs are mostly padding — ⚖️ next to 🌉 or 🍫 looks half the size at the same
+// fontSize. Nudge those individually rather than growing every card.
+export const wordEmojiScale: Record<string, number> = {
+  judge: 1.4,
+  edge: 1.2,
+};
 
 export const illustrationFor = (word: string): Illustration => {
   if (wordImages[word]) return { kind: "image", src: wordImages[word] };

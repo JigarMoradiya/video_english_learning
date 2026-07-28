@@ -6,7 +6,7 @@ import { Band, Center, Pill, STAGE_TOP, safeX } from "../components/LandscapeBea
 import { CkWordChip } from "../components/CkWordChip";
 import { LogoBadge } from "../components/BrandMarks";
 import { Confetti } from "../components/Confetti";
-import { hex, palette, tint, font } from "../data/tokens";
+import { hex, palette, tint, font, slab } from "../data/tokens";
 import { bob, pulse, wiggle } from "../lib/motion";
 import { illustrationFor } from "../data/wordImages";
 
@@ -311,7 +311,13 @@ export const PairSeeIt: React.FC<{
 };
 
 // ── quiz — the word with a gap, then the answer ─────────────────────────────
-export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: PairCopy; word: string; blanked: string; answer: number; top?: number }> = ({ data, beat, copy, word, blanked, answer, top = 392 }) => {
+export const PairQuiz: React.FC<{
+  data: PhonicsComparison; beat: Beat; copy: PairCopy; word: string; blanked: string;
+  answer: number; top?: number;
+  // The Word Court's ground is dark purple, and the bare word is drawn in palette.ink — on
+  // the sky worlds that reads fine, there it vanished. A light plate goes behind it.
+  plate?: boolean;
+}> = ({ data, beat, copy, word, blanked, answer, top = 392, plate = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   // see PairCopy.reveal — which "it's" is the answer differs per card, and keying the wrong
@@ -361,6 +367,7 @@ export const PairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pai
               style={{
                 display: "flex", alignItems: "baseline", gap: 6, fontFamily: font.family,
                 fontSize: 150, fontWeight: 700, color: palette.ink, lineHeight: 1.1,
+                ...(plate ? { background: "#FFFDF6", borderRadius: 34, padding: "10px 40px 22px", boxShadow: "0 16px 40px rgba(14,10,28,0.4)" } : {}),
                 // held ghosted before it is named, so the wait is not a hole
                 opacity: frame >= wordAt ? 1 : 0.22,
                 transform: `scale(${(frame >= wordAt ? 0.9 + 0.1 * wordIn : 0.92) * (revealed ? pulse(frame - revealAt, fps, 0.05, 0.8) : 1)})`,
@@ -445,7 +452,12 @@ const QuizIllo: React.FC<{ word: string }> = ({ word }) => {
 };
 
 // ── recap ────────────────────────────────────────────────────────────────────
-export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat; top?: number; crest?: string; scale?: number }> = ({ data, beat, top = 316, crest, scale = 1 }) => {
+export const PairRecap: React.FC<{
+  data: PhonicsComparison; beat: Beat; top?: number; crest?: string; scale?: number; depth3d?: boolean;
+  // the brand badge: its size, extra space above it, and whether it keeps breathing after
+  // the entrance pop
+  logoSize?: number; logoGap?: number; logoPulse?: boolean;
+}> = ({ data, beat, top = 316, crest, scale = 1, depth3d = false, logoSize = 118, logoGap = 0, logoPulse = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   return (
@@ -490,8 +502,8 @@ export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat; top?: nu
                     display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
                     fontFamily: font.family, minWidth: 420,
                     opacity: lit ? 1 : 0.72,
-                    transform: `scale(${(0.86 + 0.14 * enter) * kick * glow}) translateY(${bob(frame, fps, lit ? 8 : 5, 2.6, i)}px)`,
-                    boxShadow: lit ? `0 22px 54px ${c}66` : "0 12px 30px rgba(30,36,56,0.12)",
+                    transform: `${depth3d ? `perspective(1500px) rotateX(8deg) rotateY(${(i - 0.5) * 6}deg) ` : ""}scale(${(0.86 + 0.14 * enter) * kick * glow}) translateY(${bob(frame, fps, lit ? 8 : 5, 2.6, i)}px)`,
+                    boxShadow: depth3d ? slab(t.colorHex, lit ? 24 : 14) : lit ? `0 22px 54px ${c}66` : "0 12px 30px rgba(30,36,56,0.12)",
                   }}
                 >
                   <span style={{ fontSize: 60, display: "inline-block", transform: `scale(${emojiPop})` }}>{t.zoneEmoji}</span>
@@ -504,8 +516,13 @@ export const PairRecap: React.FC<{ data: PhonicsComparison; beat: Beat; top?: nu
           })}
         </div>
         {/* brand badge — one logo, in the content, on the app's own gradient */}
-        <div style={{ transform: `scale(${spring({ frame: frame - 70, fps, config: { damping: 12 } })})` }}>
-          <LogoBadge size={118} />
+        <div
+          style={{
+            marginTop: logoGap,
+            transform: `scale(${spring({ frame: frame - 70, fps, config: { damping: 12 } })* (logoPulse ? 1 + 0.06 * Math.sin(((frame - 70) / fps) * 3.4) : 1)}) translateY(${logoPulse ? bob(frame, fps, 6, 2.2) : 0}px)`,
+          }}
+        >
+          <LogoBadge size={logoSize} />
         </div>
       </div>
     </Center>

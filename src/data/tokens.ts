@@ -102,3 +102,19 @@ export const letterColorFor = (letter: string, imageColorHex: string): string =>
   }
   return hslToHex(h, 0.6, 0.45);
 };
+
+// ── 3D extrusion ────────────────────────────────────────────────────────────
+// Stacked HARD shadows make a card's side faces, so it reads as a solid slab instead of a
+// flat rectangle; the soft one grounds it. Used by the Word Court (ge/dge) — chosen over
+// three.js because it needs no dependency and cannot fail to render.
+const darken = (h: string, pct: number) => {
+  const c = h.replace("#", "");
+  const n = parseInt(c.length === 3 ? c.split("").map((x) => x + x).join("") : c, 16);
+  const f = 1 - pct / 100;
+  return `rgb(${Math.max(0, Math.round(((n >> 16) & 255) * f))},${Math.max(0, Math.round(((n >> 8) & 255) * f))},${Math.max(0, Math.round((n & 255) * f))})`;
+};
+
+export const slab = (colorHex: string, depth = 12) => {
+  const c = hex(colorHex);
+  return `0 ${Math.round(depth * 0.45)}px 0 ${darken(c, 16)}, 0 ${depth}px 0 ${darken(c, 34)}, 0 ${depth + 16}px 30px rgba(14,10,28,0.42)`;
+};

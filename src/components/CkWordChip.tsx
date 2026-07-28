@@ -2,7 +2,7 @@ import React from "react";
 import { Img, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { bob } from "../lib/motion";
 import { hex, palette, tint } from "../data/tokens";
-import { illustrationFor } from "../data/wordImages";
+import { illustrationFor, wordEmojiScale } from "../data/wordImages";
 
 // A docked example word on the Word Street: emoji on top, the word below with the
 // target grapheme tinted in the zone colour. Springs in at `enterFrame`; the target
@@ -40,7 +40,7 @@ export const CkWordChip: React.FC<{
   // e.g. "🦵⚽" (kick) is two emojis — keep them SIDE BY SIDE (nowrap) and a bit
   // smaller so the pair fits the card instead of stacking / breaking the layout.
   const multiEmoji = [...emoji].length > 1;
-  const emojiSize = multiEmoji ? size * 0.5 : size * 0.72;
+  const emojiSize = (multiEmoji ? size * 0.5 : size * 0.72) * (wordEmojiScale[word] ?? 1);
 
   return (
     <div

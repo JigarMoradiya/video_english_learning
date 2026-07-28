@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { hex, palette, tint, font } from "../data/tokens";
+import { hex, palette, tint, font, slab } from "../data/tokens";
 import { bob, wiggle } from "../lib/motion";
 import { STAGE_TOP, safeX } from "./LandscapeBeatKit";
 
@@ -138,8 +138,10 @@ export const WordTiles: React.FC<{
   enterAt: number;
   endingAt?: number;     // the ending tile lands on its own cue
   labelAt?: number;
-  emoji?: string;        // a picture for the word being built
-}> = ({ parts, endingColor, focusLabel, focusColor = "#D81B60", verdict, enterAt, endingAt = 0, labelAt = 0, emoji }) => {
+  emoji?: React.ReactNode; // a picture for the word being built (emoji or real art)
+  depth3d?: boolean;     // extruded slabs on a tilted stage — the ge/dge Word Court look
+  verdictTop?: number;   // a world with no crowd stand can put the verdict lower
+}> = ({ parts, endingColor, focusLabel, focusColor = "#D81B60", verdict, enterAt, endingAt = 0, labelAt = 0, emoji, depth3d = false, verdictTop }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   const ec = hex(endingColor);
@@ -156,13 +158,26 @@ export const WordTiles: React.FC<{
           <span style={{ fontSize: 104, transform: `scale(${spring({ frame: frame - enterAt, fps, config: { damping: 11 } })}) translateY(${bob(frame, fps, 7, 3)}px)` }}>{emoji}</span>
         </div>
       )}
-      <div style={{ position: "absolute", left: 0, right: 0, top: TILE_TOP, display: "flex", justifyContent: "center", gap: 18, fontFamily: font.family }}>
+      <div
+        style={{
+          position: "absolute", left: 0, right: 0, top: TILE_TOP,
+          display: "flex", justifyContent: "center", gap: depth3d ? 24 : 18, fontFamily: font.family,
+          // The 3D stage. One perspective on the ROW, so all tiles share a vanishing point —
+          // per-tile perspective made each one its own little world and the row read crooked.
+          ...(depth3d ? { perspective: 1500, perspectiveOrigin: "50% 30%" } : {}),
+        }}
+      >
         {parts.map((p, i) => {
           const isEnd = p.kind === "ending";
           const isFocus = p.kind === "focus";
           const shown = isEnd ? frame >= endingAt : true;
           const s = isEnd ? spring({ frame: frame - endingAt, fps, config: { damping: 10 } }) : inn;
           const pulse = isFocus && frame >= labelAt ? 1 + 0.05 * Math.sin((frame / fps) * 6) : 1;
+          const edge = isEnd ? endingColor : isFocus ? focusColor : "B7C4D4";
+          // The focus tile and the ending tile stand PROUD of the plain ones — a deeper
+          // extrusion plus a lift, so the letter that decides the rule is the tallest thing
+          // on the bench. That's the whole teaching point, told by depth instead of a colour.
+          const deep = isEnd || isFocus ? 22 : 13;
           return (
             <div
               key={i}
@@ -170,12 +185,17 @@ export const WordTiles: React.FC<{
                 minWidth: 132, height: TILE_H, padding: "0 26px", borderRadius: 28,
                 background: isEnd ? tint(endingColor, 0.88) : isFocus ? "#FFF8E1" : "#FFFFFFF2",
                 border: `8px solid ${isEnd ? ec : isFocus ? fc : "#B7C4D4"}`,
-                boxShadow: isEnd ? `0 18px 44px ${ec}55` : isFocus ? `0 16px 40px ${fc}44` : "0 12px 30px rgba(20,40,20,0.22)",
+                boxShadow: depth3d
+                  ? slab(edge, deep)
+                  : isEnd ? `0 18px 44px ${ec}55` : isFocus ? `0 16px 40px ${fc}44` : "0 12px 30px rgba(20,40,20,0.22)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 104, fontWeight: 700,
                 color: isEnd ? ec : isFocus ? fc : palette.ink,
                 opacity: shown ? 1 : 0,
-                transform: `scale(${(0.8 + 0.2 * s) * pulse}) translateY(${bob(frame, fps, 6, 2.2, i)}px)`,
+                transform: depth3d
+                  ? `rotateX(10deg) rotateY(${(i - (parts.length - 1) / 2) * 4}deg) translateZ(${isEnd || isFocus ? 40 : 0}px) scale(${(0.8 + 0.2 * s) * pulse}) translateY(${bob(frame, fps, 6, 2.2, i)}px)`
+                  : `scale(${(0.8 + 0.2 * s) * pulse}) translateY(${bob(frame, fps, 6, 2.2, i)}px)`,
+                transformStyle: depth3d ? "preserve-3d" : undefined,
               }}
             >
               {p.text}
@@ -202,7 +222,7 @@ export const WordTiles: React.FC<{
 
       {/* the verdict — what we therefore write */}
       {verdict && frame >= endingAt && (
-        <div style={{ position: "absolute", left: 0, right: 0, top: VERDICT_TOP, display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "absolute", left: 0, right: 0, top: verdictTop ?? VERDICT_TOP, display: "flex", justifyContent: "center" }}>
           <div
             style={{
               background: "#FFFFFFF2", border: `6px solid ${ec}`, color: palette.ink, borderRadius: 999,

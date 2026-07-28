@@ -6,6 +6,13 @@ import { Band, Center, Pill } from "../components/LandscapeBeatKit";
 import { TilePart, WordTiles } from "../components/WordTiles";
 import { hex, palette, tint, font } from "../data/tokens";
 import { bob, wiggle } from "../lib/motion";
+import { CaseCues, LetterBeforeCase, PlaceCard, VowelWord } from "./letter_before_beats";
+
+// The three "letter before" shapes now live in letter_before_beats.tsx, shared with ge/dge.
+// Re-exported under their original names so this card's reel is untouched.
+export { PlaceCard, VowelWord };
+export type { CaseCues };
+export const ChCase = LetterBeforeCase;
 
 // Beats for ch/tch. The rule here is not about WHERE the sound sits, so there is no
 // three-position row: every teaching beat is a word built from tiles with the letter before
@@ -148,74 +155,7 @@ export const ChLookBefore: React.FC<{ beat: Beat; ruleAt: number }> = ({ ruleAt 
   );
 };
 
-export type CaseCues = {
-  introAt?: number;   // "The first is at the start of a word" / "Here is the rule"
-  ruleAt?: number;    // the generic [short vowel] + [tch] diagram
-  build: number; done: number; label: number; more: number[]; allAt: number;
-};
 
-export const ChCase: React.FC<{
-  headline: React.ReactNode; base: TilePart[]; endingColor: string;
-  focusLabel?: string; focusColor?: string; cues: CaseCues;
-  examples: { parts: TilePart[]; emoji: string }[]; allWords?: string[];
-  baseEmoji?: string; introNode?: React.ReactNode;
-}> = ({ headline, base, endingColor, focusLabel, focusColor, cues, examples, allWords, baseEmoji, introNode }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  let idx = -1;
-  for (let i = 0; i < cues.more.length; i++) if (frame >= cues.more[i]) idx = i;
-  const showAll = allWords && frame >= cues.allAt;
-  const preRule = cues.ruleAt !== undefined && frame >= cues.ruleAt && frame < cues.build;
-  const preIntro = cues.introAt !== undefined && frame >= cues.introAt && frame < (cues.ruleAt ?? cues.build);
-  const parts = idx < 0 ? base : examples[idx].parts;
-  const emoji = idx < 0 ? baseEmoji ?? "" : examples[idx].emoji;
-  return (
-    <>
-      <Band top={92}>
-        <Pill size={46}>{headline}</Pill>
-      </Band>
-      {preIntro || preRule ? (
-        <Center top={400}>
-          {preRule ? (
-            // the rule itself, before any example word — this stretch used to be blank
-            <div style={{ display: "flex", alignItems: "center", gap: 26, fontFamily: font.family }}>
-              <div style={{ background: "#FFF8E1", border: `8px solid ${hex(focusColor ?? "D81B60")}`, color: hex(focusColor ?? "D81B60"), borderRadius: 30, padding: "20px 40px", fontSize: 58, fontWeight: 700, whiteSpace: "nowrap", transform: `translateY(${bob(frame, fps, 6, 2.4)}px)` }}>
-                short vowel
-              </div>
-              <span style={{ fontSize: 60, color: palette.inkSoft }}>+</span>
-              <div style={{ background: tint(endingColor, 0.88), border: `8px solid ${hex(endingColor)}`, color: hex(endingColor), borderRadius: 30, padding: "20px 46px", fontSize: 72, fontWeight: 700, transform: `translateY(${bob(frame, fps, 6, 2.4, 1)}px)` }}>
-                {base[base.length - 1].text}
-              </div>
-              <span style={{ fontSize: 54 }}>✅</span>
-            </div>
-          ) : (
-            introNode
-          )}
-        </Center>
-      ) : showAll ? (
-        <Center top={400}>
-          <div style={{ display: "flex", gap: 30 }}>
-            {allWords!.map((w, i) => (
-              <VowelWord key={w} word={w} at={cues.allAt + i * 6} ending={base[base.length - 1].text} tone={endingColor} />
-            ))}
-          </div>
-        </Center>
-      ) : (
-        <WordTiles
-          key={idx}
-          parts={parts}
-          endingColor={endingColor}
-          focusLabel={focusLabel}
-          focusColor={focusColor}
-          enterAt={idx < 0 ? cues.build : cues.more[idx]}
-          endingAt={idx < 0 ? cues.done : cues.more[idx] + 4}
-          labelAt={idx < 0 ? cues.label : cues.more[idx] + 8}
-          emoji={emoji}
-        />
-      )}
-    </>
-  );
-};
 
 export const ChPlaces: React.FC<{ litAt: [number, number, number]; introAt: number; bigAt?: number }> = ({ litAt, introAt, bigAt = 0 }) => {
   const frame = useCurrentFrame();
@@ -259,19 +199,6 @@ export const ChPlaces: React.FC<{ litAt: [number, number, number]; introAt: numb
   );
 };
 
-// the card each of the three ch beats opens on, so the naming line has something to show
-export const PlaceCard: React.FC<{ n: string; label: string; emoji: string }> = ({ n, label, emoji }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const c = hex(CH);
-  return (
-    <div style={{ background: tint(CH, 0.9), border: `9px solid ${c}`, borderRadius: 38, padding: "28px 56px", display: "flex", alignItems: "center", gap: 26, fontFamily: font.family, transform: `scale(${0.86 + 0.14 * spring({ frame, fps, config: { damping: 12 } })}) translateY(${bob(frame, fps, 6, 2.6)}px)`, boxShadow: `0 20px 48px ${c}55` }}>
-      <span style={{ fontSize: 70 }}>{emoji}</span>
-      <span style={{ fontSize: 64, fontWeight: 700, color: c }}>{n}</span>
-      <span style={{ fontSize: 52, fontWeight: 700, color: palette.ink }}>{label}</span>
-    </div>
-  );
-};
 
 // the two see-it lines that summarise a board — they had no visual of their own
 export const ChSeeItNote: React.FC<{ vowelAt: number; clearAt: number; casesAt: number[] }> = ({ vowelAt, clearAt, casesAt }) => {
@@ -403,23 +330,6 @@ const BreakerCard: React.FC<{
   );
 };
 
-// a word with its short vowel underlined and its ending tinted
-export const VowelWord: React.FC<{ word: string; at: number; ending: string; tone: string }> = ({ word, at, ending, tone }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  if (frame < at) return null;
-  const s = spring({ frame: frame - at, fps, config: { damping: 11 } });
-  const c = hex(tone);
-  const stem = word.slice(0, word.length - ending.length);
-  const vowel = stem.slice(-1);
-  return (
-    <div style={{ background: "#FFFFFFF2", border: `7px solid ${c}`, borderRadius: 28, padding: "14px 30px", fontSize: 66, fontWeight: 700, fontFamily: font.family, color: palette.ink, whiteSpace: "nowrap", transform: `scale(${0.74 + 0.26 * s}) translateY(${bob(frame, fps, 6, 2.4)}px)`, boxShadow: `0 16px 40px ${c}44` }}>
-      {stem.slice(0, -1)}
-      <span style={{ color: "#D81B60", borderBottom: "8px solid #D81B60", paddingBottom: 2 }}>{vowel}</span>
-      <span style={{ color: c }}>{ending}</span>
-    </div>
-  );
-};
 
 // ── the four little words ────────────────────────────────────────────────────
 export type FourCues = {

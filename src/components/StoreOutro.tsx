@@ -16,7 +16,12 @@ const CTA_DUR = 9.64;
 // compact  = detail-page-only store flow (fits short beats)
 // total    = the outro/beat length in frames (used to time the store-badge reveal)
 // audioSrc = custom CTA voiceover (each video keeps a UNIQUE closing line); dur = its seconds
-export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?: number; audioSrc?: string; audioDur?: number; bg?: string }> = ({ silent = false, compact = false, total = STORE_OUTRO_F, audioSrc = "audio/recognition/practice_letter_rules_download_app.mp3", audioDur = CTA_DUR, bg }) => {
+export const StoreOutro: React.FC<{
+  silent?: boolean; compact?: boolean; total?: number; audioSrc?: string; audioDur?: number; bg?: string;
+  // The app name is palette.ink, which is right on the bright worlds. ge/dge's Word Court is
+  // dark purple and it disappeared into the background, so a dark world passes a light colour.
+  titleColor?: string;
+}> = ({ silent = false, compact = false, total = STORE_OUTRO_F, audioSrc = "audio/recognition/practice_letter_rules_download_app.mp3", audioDur = CTA_DUR, bg, titleColor = palette.ink }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const logoIn = spring({ frame: frame - 10, fps, config: { damping: 12 } });
@@ -48,7 +53,7 @@ export const StoreOutro: React.FC<{ silent?: boolean; compact?: boolean; total?:
 
       <div style={{ position: "absolute", left: 770, top: 0, width: 1120, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 22 }}>
         <Img src={staticFile("app_icon.png")} style={{ width: 224, height: 224, borderRadius: 50, transform: `scale(${logoIn}) translateY(${bob(frame, fps, 8, 2.6)}px) rotate(${wiggle(frame, fps, 1.2, 2.4)}deg)`, boxShadow: "0 18px 40px rgba(30,36,56,0.25)" }} />
-        <div style={{ opacity: line, fontSize: 58, fontWeight: 800, color: palette.ink, textAlign: "center" }}>Kids English Learning</div>
+        <div style={{ opacity: line, fontSize: 58, fontWeight: 800, color: titleColor, textAlign: "center", textShadow: titleColor === palette.ink ? "none" : "0 6px 18px rgba(14,10,28,0.55)" }}>Kids English Learning</div>
         {/* CTA reads as a BUTTON, not a line of purple text. #8E24AA on the pale
             lavender gradient had weak contrast and fought the dark title above it. */}
         <div

@@ -1,0 +1,2992 @@
+[
+  {
+    "index": 0,
+    "text": "Listen to this sound at the end of a word.",
+    "line_index": 0,
+    "start": 0.18,
+    "end": 2.28,
+    "duration": 2.1,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 0.18,
+        "end": 0.34
+      },
+      {
+        "word": "to",
+        "start": 0.34,
+        "end": 0.6
+      },
+      {
+        "word": "this",
+        "start": 0.6,
+        "end": 0.78
+      },
+      {
+        "word": "sound",
+        "start": 0.78,
+        "end": 1.18
+      },
+      {
+        "word": "at",
+        "start": 1.18,
+        "end": 1.42
+      },
+      {
+        "word": "the",
+        "start": 1.42,
+        "end": 1.54
+      },
+      {
+        "word": "end",
+        "start": 1.54,
+        "end": 1.72
+      },
+      {
+        "word": "of",
+        "start": 1.72,
+        "end": 1.88
+      },
+      {
+        "word": "a",
+        "start": 1.88,
+        "end": 1.96
+      },
+      {
+        "word": "word.",
+        "start": 1.96,
+        "end": 2.28
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "J!",
+    "line_index": 0,
+    "start": 4.06,
+    "end": 4.32,
+    "duration": 0.26,
+    "words": [
+      {
+        "word": "J!",
+        "start": 4.06,
+        "end": 4.32
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Two spellings can make it.",
+    "line_index": 1,
+    "start": 5.82,
+    "end": 6.9,
+    "duration": 1.08,
+    "words": [
+      {
+        "word": "Two",
+        "start": 5.82,
+        "end": 5.92
+      },
+      {
+        "word": "spellings",
+        "start": 5.92,
+        "end": 6.44
+      },
+      {
+        "word": "can",
+        "start": 6.44,
+        "end": 6.58
+      },
+      {
+        "word": "make",
+        "start": 6.58,
+        "end": 6.8
+      },
+      {
+        "word": "it.",
+        "start": 6.8,
+        "end": 6.9
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "We can write ge, or we can write dge.",
+    "line_index": 1,
+    "start": 8.22,
+    "end": 11.44,
+    "duration": 3.22,
+    "words": [
+      {
+        "word": "We",
+        "start": 8.22,
+        "end": 8.22
+      },
+      {
+        "word": "can",
+        "start": 8.22,
+        "end": 8.4
+      },
+      {
+        "word": "write",
+        "start": 8.4,
+        "end": 8.62
+      },
+      {
+        "word": "ge,",
+        "start": 8.62,
+        "end": 9.17
+      },
+      {
+        "word": "or",
+        "start": 10.2,
+        "end": 10.32
+      },
+      {
+        "word": "we",
+        "start": 10.32,
+        "end": 10.52
+      },
+      {
+        "word": "can",
+        "start": 10.52,
+        "end": 10.7
+      },
+      {
+        "word": "write",
+        "start": 10.7,
+        "end": 10.94
+      },
+      {
+        "word": "dge.",
+        "start": 10.94,
+        "end": 11.44
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Say it with me.",
+    "line_index": 2,
+    "start": 13.34,
+    "end": 14.19,
+    "duration": 0.85,
+    "words": [
+      {
+        "word": "Say",
+        "start": 13.34,
+        "end": 13.46
+      },
+      {
+        "word": "it",
+        "start": 13.46,
+        "end": 13.64
+      },
+      {
+        "word": "with",
+        "start": 13.64,
+        "end": 13.74
+      },
+      {
+        "word": "me.",
+        "start": 13.74,
+        "end": 14.19
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "J!",
+    "line_index": 2,
+    "start": 15.22,
+    "end": 15.4,
+    "duration": 0.18,
+    "words": [
+      {
+        "word": "J!",
+        "start": 15.22,
+        "end": 15.4
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "You hear it in cage, and you hear it in badge.",
+    "line_index": 3,
+    "start": 16.88,
+    "end": 20.56,
+    "duration": 3.68,
+    "words": [
+      {
+        "word": "You",
+        "start": 16.88,
+        "end": 17.0
+      },
+      {
+        "word": "hear",
+        "start": 17.0,
+        "end": 17.22
+      },
+      {
+        "word": "it",
+        "start": 17.22,
+        "end": 17.42
+      },
+      {
+        "word": "in",
+        "start": 17.42,
+        "end": 17.64
+      },
+      {
+        "word": "cage,",
+        "start": 17.64,
+        "end": 18.19
+      },
+      {
+        "word": "and",
+        "start": 19.0,
+        "end": 19.12
+      },
+      {
+        "word": "you",
+        "start": 19.12,
+        "end": 19.26
+      },
+      {
+        "word": "hear",
+        "start": 19.26,
+        "end": 19.48
+      },
+      {
+        "word": "it",
+        "start": 19.48,
+        "end": 19.72
+      },
+      {
+        "word": "in",
+        "start": 19.72,
+        "end": 19.96
+      },
+      {
+        "word": "badge.",
+        "start": 19.96,
+        "end": 20.56
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "It is the same sound, but the spelling is different.",
+    "line_index": 4,
+    "start": 22.22,
+    "end": 25.22,
+    "duration": 3.0,
+    "words": [
+      {
+        "word": "It",
+        "start": 22.22,
+        "end": 22.32
+      },
+      {
+        "word": "is",
+        "start": 22.32,
+        "end": 22.44
+      },
+      {
+        "word": "the",
+        "start": 22.44,
+        "end": 22.6
+      },
+      {
+        "word": "same",
+        "start": 22.6,
+        "end": 22.96
+      },
+      {
+        "word": "sound,",
+        "start": 22.96,
+        "end": 23.36
+      },
+      {
+        "word": "but",
+        "start": 23.9,
+        "end": 24.0
+      },
+      {
+        "word": "the",
+        "start": 24.0,
+        "end": 24.16
+      },
+      {
+        "word": "spelling",
+        "start": 24.16,
+        "end": 24.52
+      },
+      {
+        "word": "is",
+        "start": 24.52,
+        "end": 24.72
+      },
+      {
+        "word": "different.",
+        "start": 24.72,
+        "end": 25.22
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "So how do we know which one to write?",
+    "line_index": 5,
+    "start": 26.2,
+    "end": 28.12,
+    "duration": 1.92,
+    "words": [
+      {
+        "word": "So",
+        "start": 26.2,
+        "end": 26.3
+      },
+      {
+        "word": "how",
+        "start": 26.3,
+        "end": 26.56
+      },
+      {
+        "word": "do",
+        "start": 26.56,
+        "end": 26.72
+      },
+      {
+        "word": "we",
+        "start": 26.72,
+        "end": 26.86
+      },
+      {
+        "word": "know",
+        "start": 26.86,
+        "end": 27.06
+      },
+      {
+        "word": "which",
+        "start": 27.06,
+        "end": 27.32
+      },
+      {
+        "word": "one",
+        "start": 27.32,
+        "end": 27.58
+      },
+      {
+        "word": "to",
+        "start": 27.58,
+        "end": 27.76
+      },
+      {
+        "word": "write?",
+        "start": 27.76,
+        "end": 28.12
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Just like ch and tch, we look at the letter before it.",
+    "line_index": 6,
+    "start": 29.78,
+    "end": 34.0,
+    "duration": 4.22,
+    "words": [
+      {
+        "word": "Just",
+        "start": 29.78,
+        "end": 29.9
+      },
+      {
+        "word": "like",
+        "start": 30.04,
+        "end": 30.2
+      },
+      {
+        "word": "ch",
+        "start": 30.2,
+        "end": 30.64
+      },
+      {
+        "word": "and",
+        "start": 30.64,
+        "end": 31.28
+      },
+      {
+        "word": "tch,",
+        "start": 31.28,
+        "end": 31.96
+      },
+      {
+        "word": "we",
+        "start": 32.56,
+        "end": 32.56
+      },
+      {
+        "word": "look",
+        "start": 32.56,
+        "end": 32.78
+      },
+      {
+        "word": "at",
+        "start": 32.78,
+        "end": 32.92
+      },
+      {
+        "word": "the",
+        "start": 32.92,
+        "end": 33.06
+      },
+      {
+        "word": "letter",
+        "start": 33.06,
+        "end": 33.32
+      },
+      {
+        "word": "before",
+        "start": 33.32,
+        "end": 33.72
+      },
+      {
+        "word": "it.",
+        "start": 33.72,
+        "end": 34.0
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Here is the rule.",
+    "line_index": 7,
+    "start": 35.38,
+    "end": 36.29,
+    "duration": 0.91,
+    "words": [
+      {
+        "word": "Here",
+        "start": 35.38,
+        "end": 35.54
+      },
+      {
+        "word": "is",
+        "start": 35.54,
+        "end": 35.72
+      },
+      {
+        "word": "the",
+        "start": 35.72,
+        "end": 35.84
+      },
+      {
+        "word": "rule.",
+        "start": 35.84,
+        "end": 36.29
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "If the sound comes right after a short vowel, we write dge.",
+    "line_index": 7,
+    "start": 37.84,
+    "end": 42.11,
+    "duration": 4.27,
+    "words": [
+      {
+        "word": "If",
+        "start": 37.84,
+        "end": 37.94
+      },
+      {
+        "word": "the",
+        "start": 37.98,
+        "end": 38.08
+      },
+      {
+        "word": "sound",
+        "start": 38.08,
+        "end": 38.4
+      },
+      {
+        "word": "comes",
+        "start": 38.4,
+        "end": 38.84
+      },
+      {
+        "word": "right",
+        "start": 38.84,
+        "end": 39.18
+      },
+      {
+        "word": "after",
+        "start": 39.18,
+        "end": 39.72
+      },
+      {
+        "word": "a",
+        "start": 39.72,
+        "end": 39.9
+      },
+      {
+        "word": "short",
+        "start": 39.9,
+        "end": 40.12
+      },
+      {
+        "word": "vowel,",
+        "start": 40.12,
+        "end": 40.78
+      },
+      {
+        "word": "we",
+        "start": 41.2,
+        "end": 41.2
+      },
+      {
+        "word": "write",
+        "start": 41.2,
+        "end": 41.46
+      },
+      {
+        "word": "dge.",
+        "start": 41.46,
+        "end": 42.11
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Listen.",
+    "line_index": 8,
+    "start": 43.48,
+    "end": 44.66,
+    "duration": 1.18,
+    "words": [
+      {
+        "word": "Listen.",
+        "start": 43.48,
+        "end": 44.66
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "B - a - dge.",
+    "line_index": 8,
+    "start": 44.92,
+    "end": 46.48,
+    "duration": 1.56,
+    "words": [
+      {
+        "word": "B",
+        "start": 44.92,
+        "end": 44.92
+      },
+      {
+        "word": "- a",
+        "start": 44.92,
+        "end": 45.74
+      },
+      {
+        "word": "- dge.",
+        "start": 45.74,
+        "end": 46.48
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Badge!",
+    "line_index": 8,
+    "start": 47.92,
+    "end": 48.44,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "Badge!",
+        "start": 47.92,
+        "end": 48.44
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "That a is a short vowel, so this word takes dge.",
+    "line_index": 9,
+    "start": 49.9,
+    "end": 53.74,
+    "duration": 3.84,
+    "words": [
+      {
+        "word": "That",
+        "start": 49.9,
+        "end": 50.1
+      },
+      {
+        "word": "a",
+        "start": 50.1,
+        "end": 50.38
+      },
+      {
+        "word": "is",
+        "start": 50.38,
+        "end": 50.68
+      },
+      {
+        "word": "a",
+        "start": 50.68,
+        "end": 50.82
+      },
+      {
+        "word": "short",
+        "start": 50.82,
+        "end": 51.04
+      },
+      {
+        "word": "vowel,",
+        "start": 51.04,
+        "end": 51.64
+      },
+      {
+        "word": "so",
+        "start": 52.02,
+        "end": 52.12
+      },
+      {
+        "word": "this",
+        "start": 52.12,
+        "end": 52.4
+      },
+      {
+        "word": "word",
+        "start": 52.4,
+        "end": 52.72
+      },
+      {
+        "word": "takes",
+        "start": 52.72,
+        "end": 53.04
+      },
+      {
+        "word": "dge.",
+        "start": 53.04,
+        "end": 53.74
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Here are more.",
+    "line_index": 10,
+    "start": 55.16,
+    "end": 55.8,
+    "duration": 0.64,
+    "words": [
+      {
+        "word": "Here",
+        "start": 55.16,
+        "end": 55.32
+      },
+      {
+        "word": "are",
+        "start": 55.32,
+        "end": 55.44
+      },
+      {
+        "word": "more.",
+        "start": 55.44,
+        "end": 55.8
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Bridge.",
+    "line_index": 10,
+    "start": 57.06,
+    "end": 57.46,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Bridge.",
+        "start": 57.06,
+        "end": 57.46
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Judge.",
+    "line_index": 10,
+    "start": 58.82,
+    "end": 59.22,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Judge.",
+        "start": 58.82,
+        "end": 59.22
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Fudge.",
+    "line_index": 10,
+    "start": 60.78,
+    "end": 61.02,
+    "duration": 0.24,
+    "words": [
+      {
+        "word": "Fudge.",
+        "start": 60.78,
+        "end": 61.02
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "They all have a short vowel first, and then dge.",
+    "line_index": 11,
+    "start": 62.54,
+    "end": 66.12,
+    "duration": 3.58,
+    "words": [
+      {
+        "word": "They",
+        "start": 62.54,
+        "end": 62.54
+      },
+      {
+        "word": "all",
+        "start": 62.54,
+        "end": 62.9
+      },
+      {
+        "word": "have",
+        "start": 62.9,
+        "end": 63.22
+      },
+      {
+        "word": "a",
+        "start": 63.22,
+        "end": 63.46
+      },
+      {
+        "word": "short",
+        "start": 63.46,
+        "end": 63.76
+      },
+      {
+        "word": "vowel",
+        "start": 63.76,
+        "end": 64.08
+      },
+      {
+        "word": "first,",
+        "start": 64.08,
+        "end": 65.02
+      },
+      {
+        "word": "and",
+        "start": 65.12,
+        "end": 65.12
+      },
+      {
+        "word": "then",
+        "start": 65.12,
+        "end": 65.38
+      },
+      {
+        "word": "dge.",
+        "start": 65.38,
+        "end": 66.12
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "In every other place, we simply write ge.",
+    "line_index": 12,
+    "start": 67.74,
+    "end": 70.8,
+    "duration": 3.06,
+    "words": [
+      {
+        "word": "In",
+        "start": 67.74,
+        "end": 67.86
+      },
+      {
+        "word": "every",
+        "start": 67.86,
+        "end": 68.26
+      },
+      {
+        "word": "other",
+        "start": 68.26,
+        "end": 68.56
+      },
+      {
+        "word": "place,",
+        "start": 68.56,
+        "end": 69.3
+      },
+      {
+        "word": "we",
+        "start": 69.34,
+        "end": 69.34
+      },
+      {
+        "word": "simply",
+        "start": 69.34,
+        "end": 69.76
+      },
+      {
+        "word": "write",
+        "start": 69.76,
+        "end": 70.12
+      },
+      {
+        "word": "ge.",
+        "start": 70.12,
+        "end": 70.8
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "There are two of those places.",
+    "line_index": 13,
+    "start": 72.06,
+    "end": 73.53,
+    "duration": 1.47,
+    "words": [
+      {
+        "word": "There",
+        "start": 72.06,
+        "end": 72.22
+      },
+      {
+        "word": "are",
+        "start": 72.22,
+        "end": 72.36
+      },
+      {
+        "word": "two",
+        "start": 72.36,
+        "end": 72.62
+      },
+      {
+        "word": "of",
+        "start": 72.62,
+        "end": 72.84
+      },
+      {
+        "word": "those",
+        "start": 72.84,
+        "end": 72.98
+      },
+      {
+        "word": "places.",
+        "start": 72.98,
+        "end": 73.53
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "The first is after a long vowel.",
+    "line_index": 14,
+    "start": 75.08,
+    "end": 77.9,
+    "duration": 2.82,
+    "words": [
+      {
+        "word": "The",
+        "start": 75.08,
+        "end": 75.24
+      },
+      {
+        "word": "first",
+        "start": 75.24,
+        "end": 75.24
+      },
+      {
+        "word": "is",
+        "start": 75.24,
+        "end": 76.74
+      },
+      {
+        "word": "after",
+        "start": 76.74,
+        "end": 76.92
+      },
+      {
+        "word": "a",
+        "start": 76.92,
+        "end": 77.12
+      },
+      {
+        "word": "long",
+        "start": 77.12,
+        "end": 77.4
+      },
+      {
+        "word": "vowel.",
+        "start": 77.4,
+        "end": 77.9
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Listen to cage.",
+    "line_index": 15,
+    "start": 82.68,
+    "end": 84.15,
+    "duration": 1.47,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 82.68,
+        "end": 82.68
+      },
+      {
+        "word": "to",
+        "start": 82.68,
+        "end": 83.1
+      },
+      {
+        "word": "cage.",
+        "start": 83.1,
+        "end": 84.15
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "The a says its own name, so it is long.",
+    "line_index": 15,
+    "start": 86.08,
+    "end": 88.96,
+    "duration": 2.88,
+    "words": [
+      {
+        "word": "The",
+        "start": 86.08,
+        "end": 86.08
+      },
+      {
+        "word": "a",
+        "start": 86.08,
+        "end": 86.38
+      },
+      {
+        "word": "says",
+        "start": 86.38,
+        "end": 86.78
+      },
+      {
+        "word": "its",
+        "start": 86.78,
+        "end": 87.06
+      },
+      {
+        "word": "own",
+        "start": 87.14,
+        "end": 87.3
+      },
+      {
+        "word": "name,",
+        "start": 87.3,
+        "end": 87.88
+      },
+      {
+        "word": "so",
+        "start": 88.2,
+        "end": 88.2
+      },
+      {
+        "word": "it",
+        "start": 88.2,
+        "end": 88.38
+      },
+      {
+        "word": "is",
+        "start": 88.38,
+        "end": 88.48
+      },
+      {
+        "word": "long.",
+        "start": 88.48,
+        "end": 88.96
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "That means we only need ge.",
+    "line_index": 16,
+    "start": 90.3,
+    "end": 92.86,
+    "duration": 2.56,
+    "words": [
+      {
+        "word": "That",
+        "start": 90.3,
+        "end": 90.3
+      },
+      {
+        "word": "means",
+        "start": 90.3,
+        "end": 90.64
+      },
+      {
+        "word": "we",
+        "start": 90.64,
+        "end": 90.92
+      },
+      {
+        "word": "only",
+        "start": 90.92,
+        "end": 91.32
+      },
+      {
+        "word": "need",
+        "start": 91.32,
+        "end": 91.86
+      },
+      {
+        "word": "ge.",
+        "start": 91.86,
+        "end": 92.86
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Page.",
+    "line_index": 16,
+    "start": 94.12,
+    "end": 94.46,
+    "duration": 0.34,
+    "words": [
+      {
+        "word": "Page.",
+        "start": 94.12,
+        "end": 94.46
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Huge.",
+    "line_index": 16,
+    "start": 95.94,
+    "end": 96.44,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Huge.",
+        "start": 95.94,
+        "end": 96.44
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "Stage.",
+    "line_index": 16,
+    "start": 98.08,
+    "end": 98.48,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Stage.",
+        "start": 98.08,
+        "end": 98.48
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "The second is after a consonant.",
+    "line_index": 17,
+    "start": 100.48,
+    "end": 102.51,
+    "duration": 2.03,
+    "words": [
+      {
+        "word": "The",
+        "start": 100.48,
+        "end": 100.54
+      },
+      {
+        "word": "second",
+        "start": 100.54,
+        "end": 100.54
+      },
+      {
+        "word": "is",
+        "start": 100.54,
+        "end": 101.3
+      },
+      {
+        "word": "after",
+        "start": 101.3,
+        "end": 101.6
+      },
+      {
+        "word": "a",
+        "start": 101.6,
+        "end": 101.76
+      },
+      {
+        "word": "consonant.",
+        "start": 101.76,
+        "end": 102.51
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Listen to large.",
+    "line_index": 18,
+    "start": 103.52,
+    "end": 104.71,
+    "duration": 1.19,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 103.52,
+        "end": 103.52
+      },
+      {
+        "word": "to",
+        "start": 103.52,
+        "end": 103.86
+      },
+      {
+        "word": "large.",
+        "start": 103.86,
+        "end": 104.71
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "There is an r before the sound.",
+    "line_index": 18,
+    "start": 107.08,
+    "end": 108.86,
+    "duration": 1.78,
+    "words": [
+      {
+        "word": "There",
+        "start": 107.08,
+        "end": 107.16
+      },
+      {
+        "word": "is",
+        "start": 107.16,
+        "end": 107.32
+      },
+      {
+        "word": "an",
+        "start": 107.32,
+        "end": 107.48
+      },
+      {
+        "word": "r",
+        "start": 107.48,
+        "end": 107.74
+      },
+      {
+        "word": "before",
+        "start": 107.74,
+        "end": 108.1
+      },
+      {
+        "word": "the",
+        "start": 108.1,
+        "end": 108.32
+      },
+      {
+        "word": "sound.",
+        "start": 108.32,
+        "end": 108.86
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "So we write ge again.",
+    "line_index": 19,
+    "start": 109.36,
+    "end": 110.98,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "So",
+        "start": 109.36,
+        "end": 109.46
+      },
+      {
+        "word": "we",
+        "start": 109.46,
+        "end": 109.66
+      },
+      {
+        "word": "write",
+        "start": 109.66,
+        "end": 109.9
+      },
+      {
+        "word": "ge",
+        "start": 109.9,
+        "end": 110.38
+      },
+      {
+        "word": "again.",
+        "start": 110.38,
+        "end": 110.98
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Change.",
+    "line_index": 19,
+    "start": 112.68,
+    "end": 112.86,
+    "duration": 0.18,
+    "words": [
+      {
+        "word": "Change.",
+        "start": 112.68,
+        "end": 112.86
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Orange.",
+    "line_index": 19,
+    "start": 114.38,
+    "end": 114.98,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "Orange.",
+        "start": 114.38,
+        "end": 114.98
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "Now let's put the whole family together.",
+    "line_index": 20,
+    "start": 117.22,
+    "end": 119.4,
+    "duration": 2.18,
+    "words": [
+      {
+        "word": "Now",
+        "start": 117.22,
+        "end": 117.22
+      },
+      {
+        "word": "let's",
+        "start": 117.22,
+        "end": 117.6
+      },
+      {
+        "word": "put",
+        "start": 117.64,
+        "end": 117.74
+      },
+      {
+        "word": "the",
+        "start": 117.74,
+        "end": 117.96
+      },
+      {
+        "word": "whole",
+        "start": 117.96,
+        "end": 118.24
+      },
+      {
+        "word": "family",
+        "start": 118.24,
+        "end": 118.72
+      },
+      {
+        "word": "together.",
+        "start": 118.72,
+        "end": 119.4
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Do you remember duck, from our c, k and ck video?",
+    "line_index": 21,
+    "start": 120.52,
+    "end": 124.48,
+    "duration": 3.96,
+    "words": [
+      {
+        "word": "Do",
+        "start": 120.52,
+        "end": 120.52
+      },
+      {
+        "word": "you",
+        "start": 120.52,
+        "end": 120.64
+      },
+      {
+        "word": "remember",
+        "start": 120.64,
+        "end": 121.08
+      },
+      {
+        "word": "duck,",
+        "start": 121.08,
+        "end": 121.54
+      },
+      {
+        "word": "from",
+        "start": 121.96,
+        "end": 122.02
+      },
+      {
+        "word": "our",
+        "start": 122.02,
+        "end": 122.26
+      },
+      {
+        "word": "c,",
+        "start": 122.26,
+        "end": 122.72
+      },
+      {
+        "word": "k",
+        "start": 122.96,
+        "end": 122.96
+      },
+      {
+        "word": "and",
+        "start": 122.96,
+        "end": 123.52
+      },
+      {
+        "word": "ck",
+        "start": 123.52,
+        "end": 123.82
+      },
+      {
+        "word": "video?",
+        "start": 123.82,
+        "end": 124.48
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "And catch, from our ch and tch video?",
+    "line_index": 22,
+    "start": 125.64,
+    "end": 128.58,
+    "duration": 2.94,
+    "words": [
+      {
+        "word": "And",
+        "start": 125.64,
+        "end": 125.88
+      },
+      {
+        "word": "catch,",
+        "start": 125.88,
+        "end": 126.7
+      },
+      {
+        "word": "from",
+        "start": 126.72,
+        "end": 126.76
+      },
+      {
+        "word": "our",
+        "start": 126.76,
+        "end": 126.96
+      },
+      {
+        "word": "ch",
+        "start": 126.96,
+        "end": 127.24
+      },
+      {
+        "word": "and",
+        "start": 127.24,
+        "end": 127.66
+      },
+      {
+        "word": "tch",
+        "start": 127.66,
+        "end": 128.04
+      },
+      {
+        "word": "video?",
+        "start": 128.04,
+        "end": 128.58
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "Duck.",
+    "line_index": 23,
+    "start": 130.2,
+    "end": 130.44,
+    "duration": 0.24,
+    "words": [
+      {
+        "word": "Duck.",
+        "start": 130.2,
+        "end": 130.44
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "Catch.",
+    "line_index": 23,
+    "start": 131.64,
+    "end": 132.3,
+    "duration": 0.66,
+    "words": [
+      {
+        "word": "Catch.",
+        "start": 131.64,
+        "end": 132.3
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "Badge.",
+    "line_index": 23,
+    "start": 133.92,
+    "end": 134.4,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Badge.",
+        "start": 133.92,
+        "end": 134.4
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "Ck, tch and dge all do the same job!",
+    "line_index": 24,
+    "start": 137.22,
+    "end": 141.08,
+    "duration": 3.86,
+    "words": [
+      {
+        "word": "Ck,",
+        "start": 137.22,
+        "end": 137.5
+      },
+      {
+        "word": "tch",
+        "start": 138.04,
+        "end": 138.08
+      },
+      {
+        "word": "and",
+        "start": 138.28,
+        "end": 138.56
+      },
+      {
+        "word": "dge",
+        "start": 138.56,
+        "end": 138.96
+      },
+      {
+        "word": "all",
+        "start": 139.6,
+        "end": 139.64
+      },
+      {
+        "word": "do",
+        "start": 139.68,
+        "end": 140.08
+      },
+      {
+        "word": "the",
+        "start": 140.08,
+        "end": 140.26
+      },
+      {
+        "word": "same",
+        "start": 140.26,
+        "end": 140.6
+      },
+      {
+        "word": "job!",
+        "start": 140.6,
+        "end": 141.08
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "A short vowel at the end of a word needs a helper.",
+    "line_index": 25,
+    "start": 142.38,
+    "end": 145.56,
+    "duration": 3.18,
+    "words": [
+      {
+        "word": "A",
+        "start": 142.38,
+        "end": 142.38
+      },
+      {
+        "word": "short",
+        "start": 142.38,
+        "end": 142.72
+      },
+      {
+        "word": "vowel",
+        "start": 142.72,
+        "end": 143.14
+      },
+      {
+        "word": "at",
+        "start": 143.14,
+        "end": 143.44
+      },
+      {
+        "word": "the",
+        "start": 143.44,
+        "end": 143.6
+      },
+      {
+        "word": "end",
+        "start": 143.6,
+        "end": 143.82
+      },
+      {
+        "word": "of",
+        "start": 143.82,
+        "end": 143.98
+      },
+      {
+        "word": "a",
+        "start": 143.98,
+        "end": 144.08
+      },
+      {
+        "word": "word",
+        "start": 144.08,
+        "end": 144.36
+      },
+      {
+        "word": "needs",
+        "start": 144.36,
+        "end": 144.98
+      },
+      {
+        "word": "a",
+        "start": 144.98,
+        "end": 145.24
+      },
+      {
+        "word": "helper.",
+        "start": 145.24,
+        "end": 145.56
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "Once you can see it, you will spot it everywhere.",
+    "line_index": 26,
+    "start": 147.14,
+    "end": 149.66,
+    "duration": 2.52,
+    "words": [
+      {
+        "word": "Once",
+        "start": 147.14,
+        "end": 147.14
+      },
+      {
+        "word": "you",
+        "start": 147.14,
+        "end": 147.32
+      },
+      {
+        "word": "can",
+        "start": 147.32,
+        "end": 147.48
+      },
+      {
+        "word": "see",
+        "start": 147.48,
+        "end": 147.74
+      },
+      {
+        "word": "it,",
+        "start": 147.74,
+        "end": 148.19
+      },
+      {
+        "word": "you",
+        "start": 148.46,
+        "end": 148.46
+      },
+      {
+        "word": "will",
+        "start": 148.46,
+        "end": 148.62
+      },
+      {
+        "word": "spot",
+        "start": 148.62,
+        "end": 148.96
+      },
+      {
+        "word": "it",
+        "start": 148.96,
+        "end": 149.16
+      },
+      {
+        "word": "everywhere.",
+        "start": 149.16,
+        "end": 149.66
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "And here is the best part.",
+    "line_index": 27,
+    "start": 151.0,
+    "end": 152.49,
+    "duration": 1.49,
+    "words": [
+      {
+        "word": "And",
+        "start": 151.0,
+        "end": 151.16
+      },
+      {
+        "word": "here",
+        "start": 151.16,
+        "end": 151.4
+      },
+      {
+        "word": "is",
+        "start": 151.4,
+        "end": 151.6
+      },
+      {
+        "word": "the",
+        "start": 151.6,
+        "end": 151.72
+      },
+      {
+        "word": "best",
+        "start": 151.72,
+        "end": 151.94
+      },
+      {
+        "word": "part.",
+        "start": 151.94,
+        "end": 152.49
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "Ch and tch had nine rule breakers to remember.",
+    "line_index": 28,
+    "start": 153.4,
+    "end": 157.12,
+    "duration": 3.72,
+    "words": [
+      {
+        "word": "Ch",
+        "start": 153.4,
+        "end": 153.4
+      },
+      {
+        "word": "and",
+        "start": 153.4,
+        "end": 153.96
+      },
+      {
+        "word": "tch",
+        "start": 153.96,
+        "end": 154.54
+      },
+      {
+        "word": "had",
+        "start": 154.86,
+        "end": 155.0
+      },
+      {
+        "word": "nine",
+        "start": 155.0,
+        "end": 155.48
+      },
+      {
+        "word": "rule",
+        "start": 155.48,
+        "end": 155.86
+      },
+      {
+        "word": "breakers",
+        "start": 155.86,
+        "end": 156.36
+      },
+      {
+        "word": "to",
+        "start": 156.36,
+        "end": 156.52
+      },
+      {
+        "word": "remember.",
+        "start": 156.52,
+        "end": 157.12
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "But dge does not have any!",
+    "line_index": 29,
+    "start": 157.9,
+    "end": 159.88,
+    "duration": 1.98,
+    "words": [
+      {
+        "word": "But",
+        "start": 157.9,
+        "end": 158.0
+      },
+      {
+        "word": "dge",
+        "start": 158.0,
+        "end": 158.38
+      },
+      {
+        "word": "does",
+        "start": 158.38,
+        "end": 158.76
+      },
+      {
+        "word": "not",
+        "start": 158.76,
+        "end": 159.02
+      },
+      {
+        "word": "have",
+        "start": 159.02,
+        "end": 159.34
+      },
+      {
+        "word": "any!",
+        "start": 159.34,
+        "end": 159.88
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "In longer words like village and message you will see just ge.",
+    "line_index": 30,
+    "start": 161.56,
+    "end": 166.88,
+    "duration": 5.32,
+    "words": [
+      {
+        "word": "In",
+        "start": 161.56,
+        "end": 161.68
+      },
+      {
+        "word": "longer",
+        "start": 161.68,
+        "end": 162.06
+      },
+      {
+        "word": "words",
+        "start": 162.06,
+        "end": 162.44
+      },
+      {
+        "word": "like",
+        "start": 162.44,
+        "end": 162.78
+      },
+      {
+        "word": "village",
+        "start": 162.78,
+        "end": 163.32
+      },
+      {
+        "word": "and",
+        "start": 163.32,
+        "end": 163.96
+      },
+      {
+        "word": "message",
+        "start": 163.96,
+        "end": 164.44
+      },
+      {
+        "word": "you",
+        "start": 164.44,
+        "end": 165.24
+      },
+      {
+        "word": "will",
+        "start": 165.24,
+        "end": 165.38
+      },
+      {
+        "word": "see",
+        "start": 165.38,
+        "end": 165.66
+      },
+      {
+        "word": "just",
+        "start": 165.66,
+        "end": 166.1
+      },
+      {
+        "word": "ge.",
+        "start": 166.1,
+        "end": 166.88
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "Listen to those endings.",
+    "line_index": 31,
+    "start": 168.22,
+    "end": 169.28,
+    "duration": 1.06,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 168.22,
+        "end": 168.32
+      },
+      {
+        "word": "to",
+        "start": 168.32,
+        "end": 168.54
+      },
+      {
+        "word": "those",
+        "start": 168.54,
+        "end": 168.74
+      },
+      {
+        "word": "endings.",
+        "start": 168.74,
+        "end": 169.28
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "They sound quiet and soft.",
+    "line_index": 31,
+    "start": 170.24,
+    "end": 171.88,
+    "duration": 1.64,
+    "words": [
+      {
+        "word": "They",
+        "start": 170.24,
+        "end": 170.24
+      },
+      {
+        "word": "sound",
+        "start": 170.24,
+        "end": 170.64
+      },
+      {
+        "word": "quiet",
+        "start": 170.64,
+        "end": 171.16
+      },
+      {
+        "word": "and",
+        "start": 171.16,
+        "end": 171.5
+      },
+      {
+        "word": "soft.",
+        "start": 171.5,
+        "end": 171.88
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "But in short words, you can trust dge every single time.",
+    "line_index": 32,
+    "start": 173.3,
+    "end": 177.7,
+    "duration": 4.4,
+    "words": [
+      {
+        "word": "But",
+        "start": 173.3,
+        "end": 173.34
+      },
+      {
+        "word": "in",
+        "start": 173.34,
+        "end": 173.5
+      },
+      {
+        "word": "short",
+        "start": 173.5,
+        "end": 173.82
+      },
+      {
+        "word": "words,",
+        "start": 173.82,
+        "end": 174.36
+      },
+      {
+        "word": "you",
+        "start": 174.88,
+        "end": 174.88
+      },
+      {
+        "word": "can",
+        "start": 174.88,
+        "end": 175.06
+      },
+      {
+        "word": "trust",
+        "start": 175.06,
+        "end": 175.44
+      },
+      {
+        "word": "dge",
+        "start": 175.44,
+        "end": 175.82
+      },
+      {
+        "word": "every",
+        "start": 175.82,
+        "end": 176.58
+      },
+      {
+        "word": "single",
+        "start": 176.58,
+        "end": 177.04
+      },
+      {
+        "word": "time.",
+        "start": 177.04,
+        "end": 177.7
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "text": "Now let's look at more dge words.",
+    "line_index": 33,
+    "start": 179.1,
+    "end": 181.14,
+    "duration": 2.04,
+    "words": [
+      {
+        "word": "Now",
+        "start": 179.1,
+        "end": 179.1
+      },
+      {
+        "word": "let's",
+        "start": 179.1,
+        "end": 179.48
+      },
+      {
+        "word": "look",
+        "start": 179.48,
+        "end": 179.64
+      },
+      {
+        "word": "at",
+        "start": 179.64,
+        "end": 179.8
+      },
+      {
+        "word": "more",
+        "start": 179.8,
+        "end": 180.16
+      },
+      {
+        "word": "dge",
+        "start": 180.16,
+        "end": 180.6
+      },
+      {
+        "word": "words.",
+        "start": 180.6,
+        "end": 181.14
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "text": "Badge.",
+    "line_index": 34,
+    "start": 182.58,
+    "end": 182.98,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Badge.",
+        "start": 182.58,
+        "end": 182.98
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "text": "Bridge.",
+    "line_index": 34,
+    "start": 184.26,
+    "end": 184.66,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Bridge.",
+        "start": 184.26,
+        "end": 184.66
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "text": "Judge.",
+    "line_index": 34,
+    "start": 186.08,
+    "end": 186.48,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Judge.",
+        "start": 186.08,
+        "end": 186.48
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "text": "Fudge.",
+    "line_index": 34,
+    "start": 187.96,
+    "end": 188.34,
+    "duration": 0.38,
+    "words": [
+      {
+        "word": "Fudge.",
+        "start": 187.96,
+        "end": 188.34
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "text": "Hedge.",
+    "line_index": 34,
+    "start": 190.04,
+    "end": 190.42,
+    "duration": 0.38,
+    "words": [
+      {
+        "word": "Hedge.",
+        "start": 190.04,
+        "end": 190.42
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "text": "Edge.",
+    "line_index": 34,
+    "start": 191.98,
+    "end": 192.36,
+    "duration": 0.38,
+    "words": [
+      {
+        "word": "Edge.",
+        "start": 191.98,
+        "end": 192.36
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "text": "Every one of them has a short vowel, and then dge.",
+    "line_index": 35,
+    "start": 193.64,
+    "end": 197.07,
+    "duration": 3.43,
+    "words": [
+      {
+        "word": "Every",
+        "start": 193.64,
+        "end": 193.98
+      },
+      {
+        "word": "one",
+        "start": 193.98,
+        "end": 194.28
+      },
+      {
+        "word": "of",
+        "start": 194.28,
+        "end": 194.46
+      },
+      {
+        "word": "them",
+        "start": 194.46,
+        "end": 194.62
+      },
+      {
+        "word": "has",
+        "start": 194.62,
+        "end": 194.86
+      },
+      {
+        "word": "a",
+        "start": 194.86,
+        "end": 195.0
+      },
+      {
+        "word": "short",
+        "start": 195.0,
+        "end": 195.3
+      },
+      {
+        "word": "vowel,",
+        "start": 195.3,
+        "end": 196.05
+      },
+      {
+        "word": "and",
+        "start": 196.18,
+        "end": 196.3
+      },
+      {
+        "word": "then",
+        "start": 196.3,
+        "end": 196.52
+      },
+      {
+        "word": "dge.",
+        "start": 196.52,
+        "end": 197.07
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "text": "And now let's look at the ge words.",
+    "line_index": 36,
+    "start": 198.86,
+    "end": 200.33,
+    "duration": 1.47,
+    "words": [
+      {
+        "word": "And",
+        "start": 198.86,
+        "end": 198.86
+      },
+      {
+        "word": "now",
+        "start": 198.86,
+        "end": 198.86
+      },
+      {
+        "word": "let's",
+        "start": 198.86,
+        "end": 199.22
+      },
+      {
+        "word": "look",
+        "start": 199.22,
+        "end": 199.36
+      },
+      {
+        "word": "at",
+        "start": 199.36,
+        "end": 199.52
+      },
+      {
+        "word": "the",
+        "start": 199.52,
+        "end": 199.7
+      },
+      {
+        "word": "ge",
+        "start": 199.7,
+        "end": 199.88
+      },
+      {
+        "word": "words.",
+        "start": 199.88,
+        "end": 200.33
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "text": "Cage.",
+    "line_index": 37,
+    "start": 202.12,
+    "end": 202.46,
+    "duration": 0.34,
+    "words": [
+      {
+        "word": "Cage.",
+        "start": 202.12,
+        "end": 202.46
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "text": "Page.",
+    "line_index": 37,
+    "start": 203.58,
+    "end": 204.22,
+    "duration": 0.64,
+    "words": [
+      {
+        "word": "Page.",
+        "start": 203.58,
+        "end": 204.22
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "text": "Huge.",
+    "line_index": 37,
+    "start": 206.06,
+    "end": 206.22,
+    "duration": 0.16,
+    "words": [
+      {
+        "word": "Huge.",
+        "start": 206.06,
+        "end": 206.22
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "text": "Large.",
+    "line_index": 37,
+    "start": 207.64,
+    "end": 208.18,
+    "duration": 0.54,
+    "words": [
+      {
+        "word": "Large.",
+        "start": 207.64,
+        "end": 208.18
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "text": "Change.",
+    "line_index": 37,
+    "start": 209.44,
+    "end": 210.1,
+    "duration": 0.66,
+    "words": [
+      {
+        "word": "Change.",
+        "start": 209.44,
+        "end": 210.1
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "text": "Orange.",
+    "line_index": 37,
+    "start": 211.58,
+    "end": 212.08,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Orange.",
+        "start": 211.58,
+        "end": 212.08
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "text": "After a long vowel, or after a consonant, we write just ge.",
+    "line_index": 38,
+    "start": 213.72,
+    "end": 218.44,
+    "duration": 4.72,
+    "words": [
+      {
+        "word": "After",
+        "start": 213.72,
+        "end": 213.82
+      },
+      {
+        "word": "a",
+        "start": 213.82,
+        "end": 214.0
+      },
+      {
+        "word": "long",
+        "start": 214.0,
+        "end": 214.18
+      },
+      {
+        "word": "vowel,",
+        "start": 214.18,
+        "end": 214.63
+      },
+      {
+        "word": "or",
+        "start": 215.14,
+        "end": 215.14
+      },
+      {
+        "word": "after",
+        "start": 215.14,
+        "end": 215.5
+      },
+      {
+        "word": "a",
+        "start": 215.5,
+        "end": 215.7
+      },
+      {
+        "word": "consonant,",
+        "start": 215.7,
+        "end": 216.6
+      },
+      {
+        "word": "we",
+        "start": 216.86,
+        "end": 216.94
+      },
+      {
+        "word": "write",
+        "start": 216.94,
+        "end": 217.16
+      },
+      {
+        "word": "just",
+        "start": 217.16,
+        "end": 217.58
+      },
+      {
+        "word": "ge.",
+        "start": 217.58,
+        "end": 218.44
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "text": "Now it is your turn!",
+    "line_index": 39,
+    "start": 219.98,
+    "end": 221.05,
+    "duration": 1.07,
+    "words": [
+      {
+        "word": "Now",
+        "start": 219.98,
+        "end": 220.16
+      },
+      {
+        "word": "it",
+        "start": 220.16,
+        "end": 220.34
+      },
+      {
+        "word": "is",
+        "start": 220.34,
+        "end": 220.44
+      },
+      {
+        "word": "your",
+        "start": 220.44,
+        "end": 220.6
+      },
+      {
+        "word": "turn!",
+        "start": 220.6,
+        "end": 221.05
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "text": "Here is the word.",
+    "line_index": 39,
+    "start": 221.74,
+    "end": 222.72,
+    "duration": 0.98,
+    "words": [
+      {
+        "word": "Here",
+        "start": 221.74,
+        "end": 221.9
+      },
+      {
+        "word": "is",
+        "start": 221.9,
+        "end": 222.1
+      },
+      {
+        "word": "the",
+        "start": 222.1,
+        "end": 222.22
+      },
+      {
+        "word": "word.",
+        "start": 222.22,
+        "end": 222.72
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "text": "Huge.",
+    "line_index": 39,
+    "start": 223.44,
+    "end": 223.94,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Huge.",
+        "start": 223.44,
+        "end": 223.94
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "text": "Do we write it with ge, or with dge?",
+    "line_index": 40,
+    "start": 225.18,
+    "end": 228.79,
+    "duration": 3.61,
+    "words": [
+      {
+        "word": "Do",
+        "start": 225.18,
+        "end": 225.24
+      },
+      {
+        "word": "we",
+        "start": 225.24,
+        "end": 225.38
+      },
+      {
+        "word": "write",
+        "start": 225.38,
+        "end": 225.58
+      },
+      {
+        "word": "it",
+        "start": 225.58,
+        "end": 225.84
+      },
+      {
+        "word": "with",
+        "start": 225.84,
+        "end": 226.1
+      },
+      {
+        "word": "ge,",
+        "start": 226.1,
+        "end": 226.75
+      },
+      {
+        "word": "or",
+        "start": 227.74,
+        "end": 227.74
+      },
+      {
+        "word": "with",
+        "start": 227.74,
+        "end": 228.04
+      },
+      {
+        "word": "dge?",
+        "start": 228.04,
+        "end": 228.79
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "text": "It is ge!",
+    "line_index": 41,
+    "start": 231.02,
+    "end": 233.18,
+    "duration": 2.16,
+    "words": [
+      {
+        "word": "It",
+        "start": 231.02,
+        "end": 231.16
+      },
+      {
+        "word": "is",
+        "start": 231.16,
+        "end": 231.42
+      },
+      {
+        "word": "ge!",
+        "start": 231.42,
+        "end": 233.18
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "text": "The u is saying its own name, so it is a long vowel.",
+    "line_index": 41,
+    "start": 233.18,
+    "end": 236.68,
+    "duration": 3.5,
+    "words": [
+      {
+        "word": "The",
+        "start": 233.18,
+        "end": 233.28
+      },
+      {
+        "word": "u",
+        "start": 233.28,
+        "end": 233.58
+      },
+      {
+        "word": "is",
+        "start": 233.58,
+        "end": 233.84
+      },
+      {
+        "word": "saying",
+        "start": 233.84,
+        "end": 234.14
+      },
+      {
+        "word": "its",
+        "start": 234.14,
+        "end": 234.42
+      },
+      {
+        "word": "own",
+        "start": 234.46,
+        "end": 234.64
+      },
+      {
+        "word": "name,",
+        "start": 234.64,
+        "end": 235.18
+      },
+      {
+        "word": "so",
+        "start": 235.64,
+        "end": 235.64
+      },
+      {
+        "word": "it",
+        "start": 235.64,
+        "end": 235.8
+      },
+      {
+        "word": "is",
+        "start": 235.8,
+        "end": 235.92
+      },
+      {
+        "word": "a",
+        "start": 235.92,
+        "end": 236.04
+      },
+      {
+        "word": "long",
+        "start": 236.04,
+        "end": 236.28
+      },
+      {
+        "word": "vowel.",
+        "start": 236.28,
+        "end": 236.68
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "text": "So let's remember it together.",
+    "line_index": 42,
+    "start": 238.3,
+    "end": 239.34,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "So",
+        "start": 238.3,
+        "end": 238.3
+      },
+      {
+        "word": "let's",
+        "start": 238.32,
+        "end": 238.42
+      },
+      {
+        "word": "remember",
+        "start": 238.42,
+        "end": 238.78
+      },
+      {
+        "word": "it",
+        "start": 238.78,
+        "end": 238.94
+      },
+      {
+        "word": "together.",
+        "start": 238.94,
+        "end": 239.34
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "text": "After a short vowel we write dge.",
+    "line_index": 43,
+    "start": 241.0,
+    "end": 243.78,
+    "duration": 2.78,
+    "words": [
+      {
+        "word": "After",
+        "start": 241.0,
+        "end": 241.34
+      },
+      {
+        "word": "a",
+        "start": 241.34,
+        "end": 241.52
+      },
+      {
+        "word": "short",
+        "start": 241.52,
+        "end": 241.74
+      },
+      {
+        "word": "vowel",
+        "start": 241.74,
+        "end": 242.18
+      },
+      {
+        "word": "we",
+        "start": 242.18,
+        "end": 242.66
+      },
+      {
+        "word": "write",
+        "start": 242.66,
+        "end": 242.94
+      },
+      {
+        "word": "dge.",
+        "start": 242.94,
+        "end": 243.78
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "text": "After a long vowel or a consonant, just ge.",
+    "line_index": 44,
+    "start": 244.98,
+    "end": 249.56,
+    "duration": 4.58,
+    "words": [
+      {
+        "word": "After",
+        "start": 244.98,
+        "end": 245.34
+      },
+      {
+        "word": "a",
+        "start": 245.34,
+        "end": 245.52
+      },
+      {
+        "word": "long",
+        "start": 245.52,
+        "end": 245.72
+      },
+      {
+        "word": "vowel",
+        "start": 245.72,
+        "end": 246.18
+      },
+      {
+        "word": "or",
+        "start": 246.18,
+        "end": 246.62
+      },
+      {
+        "word": "a",
+        "start": 246.62,
+        "end": 246.82
+      },
+      {
+        "word": "consonant,",
+        "start": 246.82,
+        "end": 248.38
+      },
+      {
+        "word": "just",
+        "start": 248.38,
+        "end": 248.66
+      },
+      {
+        "word": "ge.",
+        "start": 248.66,
+        "end": 249.56
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "text": "And the best part is that this rule has no tricky words at all!",
+    "line_index": 45,
+    "start": 251.32,
+    "end": 255.8,
+    "duration": 4.48,
+    "words": [
+      {
+        "word": "And",
+        "start": 251.32,
+        "end": 251.44
+      },
+      {
+        "word": "the",
+        "start": 251.44,
+        "end": 251.56
+      },
+      {
+        "word": "best",
+        "start": 251.56,
+        "end": 251.84
+      },
+      {
+        "word": "part",
+        "start": 251.84,
+        "end": 252.14
+      },
+      {
+        "word": "is",
+        "start": 252.14,
+        "end": 252.58
+      },
+      {
+        "word": "that",
+        "start": 253.1,
+        "end": 253.2
+      },
+      {
+        "word": "this",
+        "start": 253.2,
+        "end": 253.36
+      },
+      {
+        "word": "rule",
+        "start": 253.36,
+        "end": 253.64
+      },
+      {
+        "word": "has",
+        "start": 253.64,
+        "end": 253.9
+      },
+      {
+        "word": "no",
+        "start": 253.9,
+        "end": 254.24
+      },
+      {
+        "word": "tricky",
+        "start": 254.58,
+        "end": 254.68
+      },
+      {
+        "word": "words",
+        "start": 254.68,
+        "end": 255.04
+      },
+      {
+        "word": "at",
+        "start": 255.04,
+        "end": 255.3
+      },
+      {
+        "word": "all!",
+        "start": 255.3,
+        "end": 255.8
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "text": "You can find every rule and every sound in the English Learning app.",
+    "line_index": 46,
+    "start": 256.48,
+    "end": 261.22,
+    "duration": 4.74,
+    "words": [
+      {
+        "word": "You",
+        "start": 256.48,
+        "end": 256.48
+      },
+      {
+        "word": "can",
+        "start": 256.48,
+        "end": 256.48
+      },
+      {
+        "word": "find",
+        "start": 257.46,
+        "end": 257.56
+      },
+      {
+        "word": "every",
+        "start": 257.56,
+        "end": 257.92
+      },
+      {
+        "word": "rule",
+        "start": 257.92,
+        "end": 258.54
+      },
+      {
+        "word": "and",
+        "start": 258.54,
+        "end": 258.92
+      },
+      {
+        "word": "every",
+        "start": 258.92,
+        "end": 259.34
+      },
+      {
+        "word": "sound",
+        "start": 259.34,
+        "end": 259.76
+      },
+      {
+        "word": "in",
+        "start": 259.76,
+        "end": 260.08
+      },
+      {
+        "word": "the",
+        "start": 260.08,
+        "end": 260.22
+      },
+      {
+        "word": "English",
+        "start": 260.22,
+        "end": 260.5
+      },
+      {
+        "word": "Learning",
+        "start": 260.5,
+        "end": 260.92
+      },
+      {
+        "word": "app.",
+        "start": 260.92,
+        "end": 261.22
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "text": "It is free, so start today!",
+    "line_index": 46,
+    "start": 262.04,
+    "end": 263.84,
+    "duration": 1.8,
+    "words": [
+      {
+        "word": "It",
+        "start": 262.04,
+        "end": 262.12
+      },
+      {
+        "word": "is",
+        "start": 262.12,
+        "end": 262.26
+      },
+      {
+        "word": "free,",
+        "start": 262.26,
+        "end": 262.7
+      },
+      {
+        "word": "so",
+        "start": 262.88,
+        "end": 262.88
+      },
+      {
+        "word": "start",
+        "start": 262.88,
+        "end": 263.22
+      },
+      {
+        "word": "today!",
+        "start": 263.22,
+        "end": 263.84
+      }
+    ]
+  }
+]
