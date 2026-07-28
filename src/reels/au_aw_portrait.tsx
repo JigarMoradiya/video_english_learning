@@ -10,7 +10,7 @@ import { PSlotRow } from "../components/PortraitBeatKit";
 import { PPairBonus, PPairHook, PPairNotThis, PPairQuiz, PPairRecap, PPairRule, PPairSame, PPairSeeIt, PPairWhere } from "./pair_9x16_beats";
 import { PAwOneSound } from "./pair_9x16_special";
 import {
-  AU_AW_16X9_DURATION, AU_AW_COPY, AU_AW_ONE_SOUND_CUES, AU_AW_WORDS_END, AU_AW_WORDS_MID,
+  AU_AW_AUDIO_FRAMES, AU_AW_COPY, AU_AW_ONE_SOUND_CUES, AU_AW_WORDS_END, AU_AW_WORDS_MID,
   AU_AW_SFX, auAwBeats, auAwColorFor, auAwP, auAwStateFor, auAwTrack, auAwW,
 } from "./au_aw_16x9";
 
@@ -24,7 +24,7 @@ const byId: Record<string, Beat> = Object.fromEntries(auAwBeats.map((b) => [b.id
 // download → badges). The narration finishes before it does, so the video used to cut mid
 // download. Pad the composition so the flow always gets to play out.
 const OUTRO_PAD = Math.max(0, STORE_OUTRO_PORTRAIT_F - byId.wrap.durationInFrames);
-export const AU_AW_PORTRAIT_DURATION = AU_AW_16X9_DURATION + OUTRO_PAD;
+export const AU_AW_PORTRAIT_DURATION = AU_AW_AUDIO_FRAMES + OUTRO_PAD;  // pad from the NARRATION length, not the padded landscape one
 
 const overlayFor = (b: Beat) => {
   switch (b.id) {

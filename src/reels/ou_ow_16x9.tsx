@@ -4,7 +4,7 @@ import { ReelBase } from "./ReelBase";
 import { comparisons } from "../data/comparisons";
 import { Beat, BeatSpec, makeTrack, planBeats, sec } from "../lib/timing";
 import { Captions, keywordColorFor } from "../components/Captions";
-import { StoreOutro } from "../components/StoreOutro";
+import { StoreOutro, STORE_OUTRO_F } from "../components/StoreOutro";
 import { CircusSky, WordCircus } from "../components/WordCircus";
 import { Slot, SlotState } from "../components/PositionSlot";
 import { PairBonus, PairCopy, PairHook, PairQuiz, PairRecap, PairRule, PairSame, PairSeeIt, PairWhere } from "./pair_16x9_beats";
@@ -55,7 +55,12 @@ const SPECS: BeatSpec[] = [
 export const ouOwBeats = planBeats(track, SPECS);
 const beats = ouOwBeats;
 const byId: Record<string, Beat> = Object.fromEntries(beats.map((b) => [b.id, b]));
-export const OU_OW_16X9_DURATION = track.totalFrames;
+// `compact` used to trim the store flow to the detail page only, which dropped the SEARCH
+// step from the phone. The wrap beat is ~180 frames and the full flow is 344, so instead of
+// cutting the flow the composition is padded by the shortfall and the flow plays in full.
+const OUTRO_PAD = Math.max(0, STORE_OUTRO_F - byId.wrap.durationInFrames);
+export const OU_OW_AUDIO_FRAMES = track.totalFrames;      // the narration's own length
+export const OU_OW_16X9_DURATION = track.totalFrames + OUTRO_PAD;
 export const ouOwTrack = track;
 export const ouOwP = P;
 export const ouOwW = W;
@@ -198,7 +203,7 @@ const overlayFor = (b: Beat) => {
     case "recap": return <PairRecap data={data} beat={b} />;
     // the big top competes with the store card, but cutting away from it made the world
     // jump — so the tent stays and is washed back behind the card instead
-    case "wrap": return <StoreOutro silent compact total={b.durationInFrames} bg="rgba(255,252,248,0.76)" />;
+    case "wrap": return <StoreOutro silent total={b.durationInFrames + OUTRO_PAD} bg="rgba(255,252,248,0.76)" />;
     default: return null;
   }
 };
@@ -230,7 +235,7 @@ export const OuOw16x9Reel: React.FC = () => (
     {beats.map((b) => {
       const node = overlayFor(b);
       return node ? (
-        <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames}>
+        <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames + (b.id === "wrap" ? OUTRO_PAD : 0)}>
           {node}
         </Sequence>
       ) : null;
