@@ -5,7 +5,7 @@ import { Beat, sec } from "../lib/timing";
 import { Burst, PHead, PP_SAFE_X } from "../components/PortraitBeatKit";
 import { CkWordChip } from "../components/CkWordChip";
 import { LogoBadge } from "../components/BrandMarks";
-import { hex, palette, tint, font } from "../data/tokens";
+import { hex, palette, tint, font, slab } from "../data/tokens";
 import { bob, pulse, wiggle } from "../lib/motion";
 import { illustrationFor } from "../data/wordImages";
 import { PairCopy } from "./pair_16x9_beats";
@@ -276,13 +276,18 @@ export const PPairQuiz: React.FC<{ data: PhonicsComparison; beat: Beat; copy: Pa
 };
 
 // ── recap — the two cards stack, each lighting on its own spoken marker ─────
-export const PPairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ data, beat }) => {
+export const PPairRecap: React.FC<{
+  data: PhonicsComparison; beat: Beat; top?: number;
+  // The unlit card is drawn at opacity 0.72, which reads as pale grey on the bright worlds and
+  // as murk on ge/dge's dark theatre. `opaque` keeps it solid.
+  opaque?: boolean; depth3d?: boolean; logoSize?: number; logoGap?: number; logoPulse?: boolean;
+}> = ({ data, beat, top = 430, opaque = false, depth3d = false, logoSize = 128, logoGap = 8, logoPulse = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   return (
     <>
       <PHead size={50}>Remember! ✨</PHead>
-      <div style={{ position: "absolute", top: 430, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 30, fontFamily: font.family }}>
+      <div style={{ position: "absolute", top, left: 0, width: 1080, display: "flex", flexDirection: "column", alignItems: "center", gap: 30, fontFamily: font.family }}>
         {data.teams.map((t, i) => {
           const c = hex(t.colorHex);
           const cue = beat.word(t.marker);
@@ -301,7 +306,8 @@ export const PPairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ 
                   width: 760, background: lit ? tint(t.colorHex, 0.88) : "#fff",
                   border: `8px solid ${lit ? c : tint(t.colorHex, 0.5)}`, borderRadius: 38, padding: "24px 40px",
                   display: "flex", alignItems: "center", justifyContent: "center", gap: 26,
-                  opacity: lit ? 1 : 0.72, boxShadow: lit ? `0 20px 50px ${c}66` : "0 12px 30px rgba(20,14,40,0.28)",
+                  opacity: lit || opaque ? 1 : 0.72,
+                  boxShadow: depth3d ? slab(t.colorHex, lit ? 24 : 15) : lit ? `0 20px 50px ${c}66` : "0 12px 30px rgba(20,14,40,0.28)",
                   transform: `scale(${(0.88 + 0.12 * enter) * kick * glow}) translateY(${bob(frame, fps, lit ? 8 : 5, 2.6, i)}px)`,
                 }}
               >
@@ -317,8 +323,13 @@ export const PPairRecap: React.FC<{ data: PhonicsComparison; beat: Beat }> = ({ 
             </div>
           );
         })}
-        <div style={{ transform: `scale(${spring({ frame: frame - 70, fps, config: { damping: 12 } })})`, marginTop: 8 }}>
-          <LogoBadge size={128} />
+        <div
+          style={{
+            marginTop: logoGap,
+            transform: `scale(${spring({ frame: frame - 70, fps, config: { damping: 12 } }) * (logoPulse ? 1 + 0.06 * Math.sin(((frame - 70) / fps) * 3.4) : 1)}) translateY(${logoPulse ? bob(frame, fps, 6, 2.2) : 0}px)`,
+          }}
+        >
+          <LogoBadge size={logoSize} />
         </div>
       </div>
     </>

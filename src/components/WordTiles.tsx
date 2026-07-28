@@ -141,26 +141,31 @@ export const WordTiles: React.FC<{
   emoji?: React.ReactNode; // a picture for the word being built (emoji or real art)
   depth3d?: boolean;     // extruded slabs on a tilted stage — the ge/dge Word Court look
   verdictTop?: number;   // a world with no crowd stand can put the verdict lower
-}> = ({ parts, endingColor, focusLabel, focusColor = "#D81B60", verdict, enterAt, endingAt = 0, labelAt = 0, emoji, depth3d = false, verdictTop }) => {
+  // Vertical positions, so the 1080×1920 frame can space the same row out down the tall
+  // frame instead of squeezing it into the landscape stage band.
+  tileTop?: number; labelTop?: number; emojiTop?: number; emojiSize?: number;
+}> = ({ parts, endingColor, focusLabel, focusColor = "#D81B60", verdict, enterAt, endingAt = 0, labelAt = 0, emoji, depth3d = false, verdictTop, tileTop, labelTop, emojiTop, emojiSize }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   const ec = hex(endingColor);
   const fc = hex(focusColor);
   const inn = spring({ frame: frame - enterAt, fps, config: { damping: 13 } });
   const focusIdx = parts.findIndex((p) => p.kind === "focus");
+  const TT = tileTop ?? TILE_TOP;
+  const LT = labelTop ?? LABEL_TOP;
 
   return (
     <>
       {/* The picture for the word, so a built word is never just letters. ABOVE the row,
           not beside it — beside, it landed on top of the ending tile. */}
       {emoji && (
-        <div style={{ position: "absolute", left: 0, right: 0, top: TILE_TOP - 132, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
-          <span style={{ fontSize: 104, transform: `scale(${spring({ frame: frame - enterAt, fps, config: { damping: 11 } })}) translateY(${bob(frame, fps, 7, 3)}px)` }}>{emoji}</span>
+        <div style={{ position: "absolute", left: 0, right: 0, top: emojiTop ?? TT - 132, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
+          <span style={{ fontSize: emojiSize ?? 104, transform: `scale(${spring({ frame: frame - enterAt, fps, config: { damping: 11 } })}) translateY(${bob(frame, fps, 7, 3)}px)` }}>{emoji}</span>
         </div>
       )}
       <div
         style={{
-          position: "absolute", left: 0, right: 0, top: TILE_TOP,
+          position: "absolute", left: 0, right: 0, top: TT,
           display: "flex", justifyContent: "center", gap: depth3d ? 24 : 18, fontFamily: font.family,
           // The 3D stage. One perspective on the ROW, so all tiles share a vanishing point —
           // per-tile perspective made each one its own little world and the row read crooked.
@@ -206,7 +211,7 @@ export const WordTiles: React.FC<{
 
       {/* the label naming what the spotlighted letter IS */}
       {focusLabel && focusIdx >= 0 && frame >= labelAt && (
-        <div style={{ position: "absolute", left: 0, right: 0, top: LABEL_TOP, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
+        <div style={{ position: "absolute", left: 0, right: 0, top: LT, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
           <div
             style={{
               background: fc, color: "#fff", borderRadius: 999, padding: "8px 30px",
