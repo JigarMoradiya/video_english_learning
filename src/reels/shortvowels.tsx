@@ -12,6 +12,7 @@ import { Mascot } from "../components/Mascot";
 import { sec } from "../lib/timing";
 import { hex, font, palette } from "../data/tokens";
 import { bob } from "../lib/motion";
+import { MorningSky, Wash, WireBirds, chirpAt } from "../components/ChirpWire";
 
 // ── Short Vowels lesson video (16:9) ────────────────────────────────────────
 // Recreates the app's Short Vowels module: LEARN (talking-mouth vowels + word chips) →
@@ -48,6 +49,40 @@ const OUTRO_FROM = cur;
 export const SHORT_VOWELS_DURATION = OUTRO_FROM + OUTRO_F;
 const TITLE_FROM = LEARN[0].from;
 
+// Which bird is chirping, and when. Every scene already carries its vowel — the
+// intro plays each phoneme in turn, a learn scene IS one vowel, a practice round
+// names its answer in `correct`, and a listen word carries the vowel's colour — so
+// the birds are driven from the existing data rather than a second hand-made table.
+const vIdx = (letter: string) => VOWELS.findIndex((v) => v.lower === letter.toLowerCase());
+const CHIRPS: { from: number; to: number; idx: number }[] = [
+  // intro: each vowel's phoneme clip
+  ...INTRO_VOWELS.map(({ v, from }, i) => ({ from, to: from + sec(v.soundDur, FPS), idx: i })),
+  // learn: the whole scene belongs to that vowel, but the bird only chirps over the
+  // sound itself — a beak held open for a 20s scene reads as a stuck bird
+  ...LEARN.map((s2, i) => ({ from: s2.from + 2, to: s2.from + 2 + sec(s2.v.soundDur, FPS), idx: i })),
+  // practice: on the reveal, when the correct vowel's sound plays
+  ...ROUNDS.map((r) => ({
+    from: r.from + r.plan.revealAt,
+    to: r.from + r.plan.revealAt + sec(r.q.soundDur, FPS),
+    idx: vIdx(r.q.correct),
+  })),
+  // listen: on the vowel phoneme inside the sound-out
+  // lwPlan already publishes the exact frame each phoneme starts on (pStart), so the
+  // chirp is read from it rather than re-derived by adding durations up
+  ...LISTENS.map((s2) => {
+    const li = s2.w.letters.findIndex((ch) => vIdx(ch) >= 0);
+    if (li < 0) return { from: 0, to: 0, idx: -1 };
+    const from = s2.from + s2.plan.pStart[li];
+    return { from, to: from + sec(s2.w.phonemeDurs[li], FPS), idx: vIdx(s2.w.letters[li]) };
+  }),
+].filter((c) => c.idx >= 0);
+
+const Birds: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { idx, open } = chirpAt(CHIRPS, frame);
+  return <WireBirds vowels={VOWELS.map((v) => ({ letter: v.letter, color: v.color }))} activeIdx={idx} open={open} />;
+};
+
 type Cue = { from: number; name: string; vol: number };
 const SFX: Cue[] = [
   { from: 8, name: "sparkle", vol: 0.45 },
@@ -75,8 +110,13 @@ const TitleBar: React.FC = () => {
 };
 
 // ── framing cards ────────────────────────────────────────────────────────────
-const Card: React.FC<{ audio?: string; audioDur?: number; bg: string; children: React.ReactNode }> = ({ audio, audioDur, bg, children }) => (
-  <AbsoluteFill style={{ background: bg, alignItems: "center", justifyContent: "center", fontFamily: font.family }}>
+// `tone` tints the wash with the scene's colour. The old per-scene gradient is gone:
+// the sky is drawn ONCE at the root and runs the whole lesson, because a different
+// background per scene is a jump cut to another world (the lesson the portrait store
+// outro taught). Only the wash changes.
+const Card: React.FC<{ audio?: string; audioDur?: number; tone?: string; washBottom?: number; children: React.ReactNode }> = ({ audio, audioDur, tone, washBottom, children }) => (
+  <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", fontFamily: font.family }}>
+    <Wash tone={tone} bottom={washBottom} />
     {audio && <Sequence from={6} durationInFrames={sec(audioDur ?? 3, 30) + 8}><Audio src={staticFile(`audio/shortvowels/${audio}.mp3`)} /></Sequence>}
     {children}
   </AbsoluteFill>
@@ -88,7 +128,7 @@ const Intro: React.FC = () => {
   const s = spring({ frame, fps, config: { damping: 12 } });
   const sub = spring({ frame: frame - 14, fps, config: { damping: 12 } });
   return (
-    <Card bg="linear-gradient(160deg, #FFF0F0 0%, #FFF6EC 60%, #EEF3FF 100%)">
+    <Card washBottom={820}>
       <Sequence from={6} durationInFrames={sec(LINE.intro, 30) + 8}><Audio src={staticFile("audio/shortvowels/intro.mp3")} /></Sequence>
       {/* each vowel plays its sound in turn */}
       {INTRO_VOWELS.map(({ v, from }) => (
@@ -124,7 +164,7 @@ const RuleCard: React.FC = () => {
   const { fps } = useVideoConfig();
   const s = spring({ frame, fps, config: { damping: 12 } });
   return (
-    <Card audio="rule" audioDur={LINE.rule} bg="linear-gradient(160deg, #EEF3FF 0%, #FFF6EC 100%)">
+    <Card audio="rule" audioDur={LINE.rule}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 30 }}>
         {/* brand badge above the mouth row (the one logo on screen for this card) */}
         <LogoBadge size={148} style={{ transform: `scale(${spring({ frame: frame - 2, fps, config: { damping: 12 } })})` }} />
@@ -181,7 +221,7 @@ const StepIntro: React.FC<{ audio: string; audioDur: number; title: string; sub:
   const ic = spring({ frame: frame - 4, fps, config: { damping: 9 } });
   const sub2 = spring({ frame: frame - 12, fps, config: { damping: 11 } });
   return (
-    <Card audio={audio} audioDur={audioDur} bg="linear-gradient(160deg, #EDE9FF 0%, #FFF6EC 100%)">
+    <Card audio={audio} audioDur={audioDur} tone="#8E24AA" washBottom={860}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
         <div style={{ transform: `scale(${ic}) translateY(${bob(frame, fps, 7, 2.1)}px)` }}>{icon}</div>
         <div style={{ fontSize: 104, fontWeight: 800, color: "#8E24AA", transform: `scale(${s}) translateY(${bob(frame, fps, 8, 2.4)}px)` }}>{title}</div>
@@ -195,6 +235,9 @@ const StepIntro: React.FC<{ audio: string; audioDur: number; title: string; sub:
 export const ShortVowelsReel: React.FC = () => {
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFFFFF" }}>
+      {/* THE CHIRP WIRE — one continuous world for the whole lesson, up to the outro
+          (which owns the frame and shows the app icon full size) */}
+      <Sequence from={0} durationInFrames={OUTRO_FROM}><MorningSky /></Sequence>
       <Audio src={staticFile("music_bed.mp3")} loop volume={(f) => interpolate(f, [0, 20, SHORT_VOWELS_DURATION - 40, SHORT_VOWELS_DURATION], [0, 0.08, 0.08, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
       {SFX.map((s, i) => (
         <Sequence key={i} from={s.from} durationInFrames={45}><Audio src={staticFile(`sfx/${s.name}.mp3`)} volume={s.vol} /></Sequence>
@@ -208,25 +251,29 @@ export const ShortVowelsReel: React.FC = () => {
       <Sequence from={PINTRO_FROM} durationInFrames={PINTRO_F}><StepIntro audio="practice_intro" audioDur={LINE.practiceIntro} title="Let's practice!" sub="Find the missing vowel" icon={<FindIcon />} /></Sequence>
       {ROUNDS.map((r) => (
         <Sequence key={r.q.word} from={r.from} durationInFrames={r.plan.dur}>
-          <AbsoluteFill style={{ background: "linear-gradient(160deg, #F3F0FF 0%, #FFF6EC 100%)" }} />
+          <Wash tone={r.q.color} bottom={790} />
           <VowelPracticeRound q={r.q} plan={r.plan} prompt={r.prompt} praise={r.praise} />
         </Sequence>
       ))}
       <Sequence from={LINTRO_FROM} durationInFrames={LINTRO_F}><StepIntro audio="listen_intro" audioDur={LINE.listenIntro} title="Let's listen!" sub="Sound out each word" icon={<SpeakerIcon />} /></Sequence>
       {LISTENS.map((s) => (
         <Sequence key={s.w.word} from={s.from} durationInFrames={s.plan.dur}>
-          <AbsoluteFill style={{ background: "linear-gradient(160deg, #EAF7EE 0%, #FFF6EC 100%)" }} />
+          <Wash tone={s.w.color} />
           <ListenWord w={s.w} plan={s.plan} />
         </Sequence>
       ))}
+
+      {/* the five birds sit on the wire for the whole lesson; the one whose sound is
+          playing opens its beak. Drawn AFTER the scenes so a bird is never covered. */}
+      <Sequence from={0} durationInFrames={OUTRO_FROM}><Birds /></Sequence>
 
       {/* persistent title over the teaching content (learn → listen) */}
       <Sequence from={TITLE_FROM} durationInFrames={OUTRO_FROM - TITLE_FROM}><TitleBar /></Sequence>
 
       {/* the section cards have no image card, so the badge sits bottom-left there
           (one logo on screen at a time — everywhere else it lives on an image card) */}
-      <Sequence from={PINTRO_FROM} durationInFrames={PINTRO_F}><FrameBadge /></Sequence>
-      <Sequence from={LINTRO_FROM} durationInFrames={LINTRO_F}><FrameBadge /></Sequence>
+      <Sequence from={PINTRO_FROM} durationInFrames={PINTRO_F}><FrameBadge liftY={168} /></Sequence>
+      <Sequence from={LINTRO_FROM} durationInFrames={LINTRO_F}><FrameBadge liftY={168} /></Sequence>
 
       <Sequence from={OUTRO_FROM} durationInFrames={OUTRO_F}>
         <StoreOutro audioSrc="audio/shortvowels/outro_cta.mp3" audioDur={LINE.outroCta} />

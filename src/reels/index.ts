@@ -31,6 +31,10 @@ import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLAS
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
+import { ThumbShortVowels } from "../thumbs/shortvowels_thumb";
+import { ThumbLettersPhonics } from "../thumbs/letters_phonics_thumb";
+import { ThumbShortVowelsPortrait } from "../thumbs/shortvowels_thumb_portrait";
+import { ThumbLettersPhonicsPortrait } from "../thumbs/letters_phonics_thumb_portrait";
 import { PostQuizQ } from "../thumbs/quiz_post";
 import { LETTER_TILE_ENTRIES } from "../thumbs/poll_options";
 import { MouthChart } from "../thumbs/mouth_chart";
@@ -105,6 +109,12 @@ export const REELS: ReelEntry[] = [
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
   //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)
+  { id: "thumb-short-vowels", component: ThumbShortVowels, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-letters-phonics", component: ThumbLettersPhonics, durationInFrames: 1, width: 1280, height: 720 },
+  // Facebook shows a portrait crop even for a landscape video, so the 16:9 thumbnail
+  // loses the mascot and the logo at the edges. This is the tall version.
+  { id: "thumb-short-vowels-9x16", component: ThumbShortVowelsPortrait, durationInFrames: 1, width: 1080, height: 1920 },
+  { id: "thumb-letters-phonics-9x16", component: ThumbLettersPhonicsPortrait, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-phonics-a", component: ThumbPhonicsA, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-phonics-b", component: ThumbPhonicsB, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-phonics-c", component: ThumbPhonicsC, durationInFrames: 1, width: 1280, height: 720 },

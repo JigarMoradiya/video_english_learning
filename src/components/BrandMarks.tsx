@@ -45,6 +45,17 @@ const BADGED: Record<BadgeSet, Set<string>> = {
 export type BadgeSet = "phonics" | "recognition";
 export const letterHasBadge = (letter: string, set: BadgeSet = "phonics"): boolean => BADGED[set].has(letter.toUpperCase());
 
+// Short Vowels shows 16 image cards (5 vowel anchors, 6 practice, 5 listen) and badging
+// every one made the brand read as clutter. Half carry it — keyed by WORD, so a word that
+// appears in both practice and listen is consistent, and chosen so the on/off pattern
+// alternates instead of clumping:
+//   anchors  ant o  egg .  ink o  ox .  up o
+//   practice cat o  hen .  pig .  dog o  sun .  fox o
+//   listen   cat o  hen .  pig .  dog o  sun .
+// That is 8 of 16 appearances, exactly half.
+const SV_BADGED = new Set(["ant", "ink", "up", "cat", "dog", "fox"]);
+export const wordHasBadge = (word: string): boolean => SV_BADGED.has(word.toLowerCase());
+
 export type BadgeCorner = "tl" | "tr" | "bl" | "br";
 
 // Which corner each picture's badge sits on, chosen per image so the badge never covers the
@@ -71,12 +82,14 @@ export const CardBadge: React.FC<{ size?: number; corner?: BadgeCorner }> = ({ s
 };
 
 // bottom-left of the frame — for section cards that have no image card
-export const FrameBadge: React.FC<{ size?: number }> = ({ size }) => {
+// `liftY` raises the badge off the bottom edge. The Short Vowels lesson has a world
+// living in its bottom band (birds on a wire) and the badge sat right on the wire.
+export const FrameBadge: React.FC<{ size?: number; liftY?: number }> = ({ size, liftY = 0 }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   if (!WATERMARK_ENABLED) return null;
   const s = spring({ frame: frame - 6, fps, config: { damping: 13 } });
   const sz = size ?? Math.round(width * 0.062);
   const inset = Math.round(width * 0.03);
-  return <LogoBadge size={sz} opacity={interpolate(frame, [0, 16], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} style={{ position: "absolute", left: inset, bottom: inset, transform: `scale(${0.9 + s * 0.1})` }} />;
+  return <LogoBadge size={sz} opacity={interpolate(frame, [0, 16], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} style={{ position: "absolute", left: inset, bottom: inset + liftY, transform: `scale(${0.9 + s * 0.1})` }} />;
 };

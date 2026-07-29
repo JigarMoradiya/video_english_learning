@@ -4,7 +4,7 @@ import { SVPractice } from "../data/shortvowels";
 import { sec } from "../lib/timing";
 import { hex, palette, tint, cardStroke, font } from "../data/tokens";
 import { Confetti } from "./Confetti";
-import { CardBadge, badgeCorner } from "./BrandMarks";
+import { CardBadge, badgeCorner, wordHasBadge } from "./BrandMarks";
 
 const GREEN = "#43A047";
 const PURPLE = "#8E24AA";
@@ -62,7 +62,7 @@ export const VowelPracticeRound: React.FC<{ q: SVPractice; plan: VPPlan; prompt:
       <div style={{ position: "absolute", left: 640, top: "50%", transform: `translate(-50%,-50%) scale(${enter})`, width: 340, height: 340, background: "#fff", borderRadius: 40, border: `10px solid ${picStroke}`, boxShadow: `0 20px 50px ${picStroke}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 26 }}>
         <Img src={staticFile(`shortvowels/${q.word}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
         {/* brand badge straddling the card corner (never over the picture) */}
-        <CardBadge size={66} corner={badgeCorner(q.word)} />
+        {wordHasBadge(q.word) && <CardBadge size={66} corner={badgeCorner(q.word)} />}
       </div>
 
       {/* word letters with blank */}

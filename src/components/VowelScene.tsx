@@ -5,7 +5,8 @@ import { sec } from "../lib/timing";
 import { hex, tint, cardStroke, palette, font } from "../data/tokens";
 import { bob, pulse } from "../lib/motion";
 import { VowelFace } from "./Mouth";
-import { CardBadge, badgeCorner } from "./BrandMarks";
+import { CardBadge, badgeCorner, wordHasBadge } from "./BrandMarks";
+import { Wash } from "./ChirpWire";
 
 const FPS = 30;
 const ENTER = 16, SOUND_AT = 22, EX_GAP = 18;
@@ -67,7 +68,9 @@ export const VowelScene: React.FC<{ item: SVVowel }> = ({ item }) => {
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
-      <AbsoluteFill style={{ background: `linear-gradient(155deg, ${tint(item.color, 0.82)} 0%, #FFFFFF 66%)` }} />
+      {/* the Chirp Wire sky runs behind the whole lesson; this scene contributes
+          only the wash, tinted with its own vowel colour */}
+      <Wash tone={item.color} />
 
       {/* audio */}
       <Sequence from={p.soundAt} durationInFrames={sec(item.soundDur, fps) + 6}><Audio src={staticFile(`audio/shortvowels/sound_${item.lower}.mp3`)} /></Sequence>
@@ -102,7 +105,7 @@ export const VowelScene: React.FC<{ item: SVVowel }> = ({ item }) => {
                 <div style={{ position: "relative", width: 236, height: 236, background: "#fff", borderRadius: 34, border: `9px solid ${anchorStroke}`, boxShadow: `0 18px 44px ${anchorStroke}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 20, fontSize: 128 }}>
                   {item.anchorImg ? <Img src={staticFile(`shortvowels/${item.anchor}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} /> : <span>{item.anchorEmoji}</span>}
                   {/* brand badge straddling the card corner (never over the picture) */}
-                  <CardBadge size={58} corner={badgeCorner(item.anchor)} />
+                  {wordHasBadge(item.anchor) && <CardBadge size={58} corner={badgeCorner(item.anchor)} />}
                 </div>
                 <HiWord word={item.anchor} vowel={item.lower} color={c} size={94} />
               </div>

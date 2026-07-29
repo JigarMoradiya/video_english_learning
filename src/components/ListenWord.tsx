@@ -3,7 +3,7 @@ import { Audio, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame,
 import { SVListen } from "../data/shortvowels";
 import { sec } from "../lib/timing";
 import { hex, palette, tint, cardStroke, font } from "../data/tokens";
-import { CardBadge, badgeCorner } from "./BrandMarks";
+import { CardBadge, badgeCorner, wordHasBadge } from "./BrandMarks";
 
 export interface LWPlan { pStart: number[]; wordAt: number; dur: number }
 
@@ -67,7 +67,7 @@ export const ListenWord: React.FC<{ w: SVListen; plan: LWPlan }> = ({ w, plan })
         <div style={{ position: "absolute", left: "50%", top: 700, transform: `translateX(-50%) scale(${spring({ frame: frame - plan.wordAt, fps, config: { damping: 12 } })})`, width: 220, height: 220, background: "#fff", borderRadius: 30, border: `8px solid ${picStroke}`, boxShadow: `0 18px 44px ${picStroke}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 18 }}>
           <Img src={staticFile(`shortvowels/${w.word}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
           {/* brand badge straddling the card corner (never over the picture) */}
-          <CardBadge size={56} corner={badgeCorner(w.word)} />
+          {wordHasBadge(w.word) && <CardBadge size={56} corner={badgeCorner(w.word)} />}
         </div>
       )}
     </>
