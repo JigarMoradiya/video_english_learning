@@ -144,7 +144,11 @@ export const WordTiles: React.FC<{
   // Vertical positions, so the 1080×1920 frame can space the same row out down the tall
   // frame instead of squeezing it into the landscape stage band.
   tileTop?: number; labelTop?: number; emojiTop?: number; emojiSize?: number;
-}> = ({ parts, endingColor, focusLabel, focusColor = "#D81B60", verdict, enterAt, endingAt = 0, labelAt = 0, emoji, depth3d = false, verdictTop, tileTop, labelTop, emojiTop, emojiSize }) => {
+  // Rendered INSIDE the focus tile, so a pointing device is anchored to that element rather
+  // than to a guessed x/y. Both the landscape magnifier and the portrait spotlight shipped
+  // pointing at the wrong place because they were positioned by arithmetic instead.
+  focusOverlay?: React.ReactNode;
+}> = ({ parts, endingColor, focusLabel, focusColor = "#D81B60", verdict, enterAt, endingAt = 0, labelAt = 0, emoji, depth3d = false, verdictTop, tileTop, labelTop, emojiTop, emojiSize, focusOverlay }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   const ec = hex(endingColor);
@@ -201,9 +205,11 @@ export const WordTiles: React.FC<{
                   ? `rotateX(10deg) rotateY(${(i - (parts.length - 1) / 2) * 4}deg) translateZ(${isEnd || isFocus ? 40 : 0}px) scale(${(0.8 + 0.2 * s) * pulse}) translateY(${bob(frame, fps, 6, 2.2, i)}px)`
                   : `scale(${(0.8 + 0.2 * s) * pulse}) translateY(${bob(frame, fps, 6, 2.2, i)}px)`,
                 transformStyle: depth3d ? "preserve-3d" : undefined,
+                position: isFocus && focusOverlay ? "relative" : undefined,
               }}
             >
               {p.text}
+              {isFocus && focusOverlay}
             </div>
           );
         })}

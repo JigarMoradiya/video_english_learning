@@ -19,6 +19,7 @@ import { OuOwPortraitReel, OU_OW_PORTRAIT_DURATION } from "./ou_ow_portrait";
 import { AuAwPortraitReel, AU_AW_PORTRAIT_DURATION } from "./au_aw_portrait";
 import { GeDge16x9Reel, GE_DGE_16X9_DURATION } from "./ge_dge_16x9";
 import { GeDgePortraitReel, GE_DGE_PORTRAIT_DURATION } from "./ge_dge_portrait";
+import { ChTchPortraitReel, CH_TCH_PORTRAIT_DURATION } from "./ch_tch_portrait";
 import { ChTch16x9Reel, CH_TCH_16X9_DURATION } from "./ch_tch_16x9";
 import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
 import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
@@ -86,6 +87,7 @@ export const REELS: ReelEntry[] = [
   // L10 · ch/tch — long-form 16:9 lesson. Match Day: the rule is the letter BEFORE the sound.
   { id: "ge-dge-9x16", component: GeDgePortraitReel, durationInFrames: GE_DGE_PORTRAIT_DURATION, width: 1080, height: 1920 },
   { id: "ge-dge-16x9", component: GeDge16x9Reel, durationInFrames: GE_DGE_16X9_DURATION, width: 1920, height: 1080 },
+  { id: "ch-tch-9x16", component: ChTchPortraitReel, durationInFrames: CH_TCH_PORTRAIT_DURATION, width: 1080, height: 1920 },
   { id: "ch-tch-16x9", component: ChTch16x9Reel, durationInFrames: CH_TCH_16X9_DURATION, width: 1920, height: 1080 },
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
   //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png

@@ -13,6 +13,8 @@ export const wordImages: Record<string, string> = {
   // No cage emoji exists, and a bare 🐦 taught the word "bird" instead of "cage".
   // Drawn in tools/draw_cage.py rather than borrowed.
   cage: "words/cage.png",
+  // chair and bench both appear in ch/tch and both fell back to the same 🪑
+  bench: "words/bench.png",
 };
 
 // Emoji placeholders for words with no app cutout yet.
@@ -76,7 +78,7 @@ export const wordEmojis: Record<string, string> = {
   lunch: "🍱",
   bench: "🪑",
   beach: "🏖️",
-  coach: "🧑‍🏫",
+  coach: "📣",
   peach: "🍑",
   much: "➕",
   such: "✨",
