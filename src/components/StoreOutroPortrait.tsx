@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { font } from "../data/tokens";
+import { bob } from "../lib/motion";
 import { Confetti } from "./Confetti";
 import { StoreFlow } from "./StoreFlow";
 
@@ -17,6 +18,13 @@ export const StoreOutroPortrait: React.FC<{ audioSrc?: string; audioDur?: number
   const cta = spring({ frame: frame - 26, fps, config: { damping: 12 } });
   const apple = spring({ frame: frame - 40, fps, config: { damping: 11 } });
   const play = spring({ frame: frame - 52, fps, config: { damping: 11 } });
+  // Idle motion. Every spring above has settled by frame ~70, and this beat runs 344
+  // frames — so the outro used to sit dead still for its last eight seconds, which
+  // motion_check flags on every portrait video. The CTA breathes and the two badges
+  // bob out of phase with each other, so nothing on screen is ever frozen.
+  const t = frame / fps;
+  const breathe = 1 + 0.022 * Math.sin(t * 2.6);
+  const badgeBob = (phase: number) => bob(frame, fps, 5, 3.1, phase);
   return (
     // bg defaults to TRANSPARENT so the reel's own background keeps running — passing a
     // different colour here made the download beat a jump cut to another world.
@@ -36,12 +44,12 @@ export const StoreOutroPortrait: React.FC<{ audioSrc?: string; audioDur?: number
         {/* a green BUTTON, not tinted text: the outro now sits on the video's own light
             background (a dark teal jump-cut was rejected), where #FFD54F is unreadable.
             The pill also reads correctly if a dark bg is ever passed again. */}
-        <div style={{ opacity: cta, fontSize: 52, fontWeight: 800, color: "#FFFFFF", background: "#2E7D32", borderRadius: 999, padding: "18px 52px", textAlign: "center", boxShadow: "0 16px 36px rgba(46,125,50,0.40)" }}>
+        <div style={{ opacity: cta, transform: `scale(${breathe})`, fontSize: 52, fontWeight: 800, color: "#FFFFFF", background: "#2E7D32", borderRadius: 999, padding: "18px 52px", textAlign: "center", boxShadow: "0 16px 36px rgba(46,125,50,0.40)" }}>
           Download the app — it's FREE!
         </div>
         <div style={{ display: "flex", gap: 30 }}>
-          <Img src={staticFile("appstore.png")} style={{ width: 360, height: "auto", transform: `scale(${apple})` }} />
-          <Img src={staticFile("playstore.png")} style={{ width: 360, height: "auto", transform: `scale(${play})` }} />
+          <Img src={staticFile("appstore.png")} style={{ width: 360, height: "auto", transform: `scale(${apple}) translateY(${badgeBob(0)}px)` }} />
+          <Img src={staticFile("playstore.png")} style={{ width: 360, height: "auto", transform: `scale(${play}) translateY(${badgeBob(1.55)}px)` }} />
         </div>
       </div>
 

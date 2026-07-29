@@ -22,10 +22,12 @@ import { GSoftHard16x9Reel, G_SOFT_HARD_DURATION } from "./g_soft_hard_16x9";
 import { GeDge16x9Reel, GE_DGE_16X9_DURATION } from "./ge_dge_16x9";
 import { GeDgePortraitReel, GE_DGE_PORTRAIT_DURATION } from "./ge_dge_portrait";
 import { ChTchPortraitReel, CH_TCH_PORTRAIT_DURATION } from "./ch_tch_portrait";
+import { CSoftHardPortraitReel, C_SOFT_HARD_PORTRAIT_DURATION } from "./c_soft_hard_portrait";
+import { GSoftHardPortraitReel, G_SOFT_HARD_PORTRAIT_DURATION } from "./g_soft_hard_portrait";
 import { ChTch16x9Reel, CH_TCH_16X9_DURATION } from "./ch_tch_16x9";
 import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
 import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
-import { LogoIntroReel, LOGO_INTRO_DURATION } from "./logo_intro";
+import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLASH_DURATION } from "./logo_intro";
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
@@ -45,8 +47,10 @@ export interface ReelEntry {
 
 // NOTE: Remotion composition ids allow only a-z A-Z 0-9 and "-" (no underscore).
 export const REELS: ReelEntry[] = [
-  // Brand logo intro sting ("Blocks + Peek-a-Boo") — 3s. Prepend to any video.
+  // Brand logo intro — real logo pieces assemble into the logo. Prepend to any video.
   { id: "logo-intro-9x16", component: LogoIntroReel, durationInFrames: LOGO_INTRO_DURATION, width: 1080, height: 1920 },
+  { id: "logo-intro-16x9", component: LogoIntroReel, durationInFrames: LOGO_INTRO_DURATION, width: 1920, height: 1080 },
+  { id: "logo-intro-flash-9x16", component: LogoIntroFlashReel, durationInFrames: LOGO_INTRO_FLASH_DURATION, width: 1080, height: 1920 },
   { id: "ai-ay", component: AiAyReel, durationInFrames: AI_AY_DURATION }, // L13 · Vowel Teams
   { id: "oi-oy", component: OiOyReel, durationInFrames: OI_OY_DURATION }, // L14 · Diphthongs
   { id: "oa-ow", component: OaOwReel, durationInFrames: OA_OW_DURATION }, // L13 · Vowel Teams
@@ -96,6 +100,8 @@ export const REELS: ReelEntry[] = [
   { id: "ge-dge-16x9", component: GeDge16x9Reel, durationInFrames: GE_DGE_16X9_DURATION, width: 1920, height: 1080 },
   { id: "ch-tch-9x16", component: ChTchPortraitReel, durationInFrames: CH_TCH_PORTRAIT_DURATION, width: 1080, height: 1920 },
   { id: "ch-tch-16x9", component: ChTch16x9Reel, durationInFrames: CH_TCH_16X9_DURATION, width: 1920, height: 1080 },
+  { id: "c-soft-hard-9x16", component: CSoftHardPortraitReel, durationInFrames: C_SOFT_HARD_PORTRAIT_DURATION, width: 1080, height: 1920 },
+  { id: "g-soft-hard-9x16", component: GSoftHardPortraitReel, durationInFrames: G_SOFT_HARD_PORTRAIT_DURATION, width: 1080, height: 1920 },
   // ── Thumbnails (1280×720 stills, not videos) ────────────────────────────────
   //   npx remotion still thumb-phonics-a out/thumb_phonics_a.png
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)

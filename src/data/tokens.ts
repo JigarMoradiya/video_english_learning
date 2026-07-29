@@ -107,7 +107,7 @@ export const letterColorFor = (letter: string, imageColorHex: string): string =>
 // Stacked HARD shadows make a card's side faces, so it reads as a solid slab instead of a
 // flat rectangle; the soft one grounds it. Used by the Word Court (ge/dge) — chosen over
 // three.js because it needs no dependency and cannot fail to render.
-const darken = (h: string, pct: number) => {
+export const darken = (h: string, pct: number) => {
   const c = h.replace("#", "");
   const n = parseInt(c.length === 3 ? c.split("").map((x) => x + x).join("") : c, 16);
   const f = 1 - pct / 100;
