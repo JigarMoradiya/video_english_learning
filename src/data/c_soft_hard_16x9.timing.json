@@ -1,0 +1,3637 @@
+[
+ {
+  "index": 0,
+  "text": "Look at this letter.",
+  "line_index": 0,
+  "start": 0.28,
+  "end": 1.4,
+  "duration": 1.12,
+  "words": [
+   {
+    "word": "Look",
+    "start": 0.28,
+    "end": 0.42
+   },
+   {
+    "word": "at",
+    "start": 0.42,
+    "end": 0.58
+   },
+   {
+    "word": "this",
+    "start": 0.58,
+    "end": 0.84
+   },
+   {
+    "word": "letter.",
+    "start": 0.84,
+    "end": 1.4
+   }
+  ]
+ },
+ {
+  "index": 1,
+  "text": "C.",
+  "line_index": 1,
+  "start": 2.36,
+  "end": 2.64,
+  "duration": 0.28,
+  "words": [
+   {
+    "word": "C.",
+    "start": 2.36,
+    "end": 2.64
+   }
+  ]
+ },
+ {
+  "index": 2,
+  "text": "C has two different sounds.",
+  "line_index": 2,
+  "start": 3.88,
+  "end": 6.05,
+  "duration": 2.17,
+  "words": [
+   {
+    "word": "C",
+    "start": 3.88,
+    "end": 3.88
+   },
+   {
+    "word": "has",
+    "start": 3.88,
+    "end": 4.2
+   },
+   {
+    "word": "two",
+    "start": 4.2,
+    "end": 4.58
+   },
+   {
+    "word": "different",
+    "start": 4.58,
+    "end": 5.1
+   },
+   {
+    "word": "sounds.",
+    "start": 5.1,
+    "end": 6.05
+   }
+  ]
+ },
+ {
+  "index": 3,
+  "text": "Listen to the first one.",
+  "line_index": 3,
+  "start": 6.82,
+  "end": 7.96,
+  "duration": 1.14,
+  "words": [
+   {
+    "word": "Listen",
+    "start": 6.82,
+    "end": 6.94
+   },
+   {
+    "word": "to",
+    "start": 6.94,
+    "end": 7.18
+   },
+   {
+    "word": "the",
+    "start": 7.18,
+    "end": 7.28
+   },
+   {
+    "word": "first",
+    "start": 7.28,
+    "end": 7.56
+   },
+   {
+    "word": "one.",
+    "start": 7.56,
+    "end": 7.96
+   }
+  ]
+ },
+ {
+  "index": 4,
+  "text": "Cat.",
+  "line_index": 4,
+  "start": 9.24,
+  "end": 9.36,
+  "duration": 0.12,
+  "words": [
+   {
+    "word": "Cat.",
+    "start": 9.24,
+    "end": 9.36
+   }
+  ]
+ },
+ {
+  "index": 5,
+  "text": "The c says /k/.",
+  "line_index": 5,
+  "start": 10.5,
+  "end": 12.25,
+  "duration": 1.75,
+  "words": [
+   {
+    "word": "The",
+    "start": 10.5,
+    "end": 10.7
+   },
+   {
+    "word": "c",
+    "start": 10.7,
+    "end": 11.0
+   },
+   {
+    "word": "says",
+    "start": 11.0,
+    "end": 11.5
+   },
+   {
+    "word": "/k/.",
+    "start": 11.5,
+    "end": 12.25
+   }
+  ]
+ },
+ {
+  "index": 6,
+  "text": "Now listen to the second one.",
+  "line_index": 6,
+  "start": 14.08,
+  "end": 15.46,
+  "duration": 1.38,
+  "words": [
+   {
+    "word": "Now",
+    "start": 14.08,
+    "end": 14.16
+   },
+   {
+    "word": "listen",
+    "start": 14.16,
+    "end": 14.44
+   },
+   {
+    "word": "to",
+    "start": 14.44,
+    "end": 14.64
+   },
+   {
+    "word": "the",
+    "start": 14.64,
+    "end": 14.76
+   },
+   {
+    "word": "second",
+    "start": 14.76,
+    "end": 15.04
+   },
+   {
+    "word": "one.",
+    "start": 15.04,
+    "end": 15.46
+   }
+  ]
+ },
+ {
+  "index": 7,
+  "text": "City.",
+  "line_index": 7,
+  "start": 16.8,
+  "end": 17.28,
+  "duration": 0.48,
+  "words": [
+   {
+    "word": "City.",
+    "start": 16.8,
+    "end": 17.28
+   }
+  ]
+ },
+ {
+  "index": 8,
+  "text": "The c says /s/.",
+  "line_index": 8,
+  "start": 18.4,
+  "end": 19.5,
+  "duration": 1.1,
+  "words": [
+   {
+    "word": "The",
+    "start": 18.4,
+    "end": 18.46
+   },
+   {
+    "word": "c",
+    "start": 18.46,
+    "end": 18.78
+   },
+   {
+    "word": "says",
+    "start": 18.78,
+    "end": 19.3
+   },
+   {
+    "word": "/s/.",
+    "start": 19.3,
+    "end": 19.5
+   }
+  ]
+ },
+ {
+  "index": 9,
+  "text": "It is the same letter, but it makes two different sounds!",
+  "line_index": 9,
+  "start": 22.18,
+  "end": 26.1,
+  "duration": 3.92,
+  "words": [
+   {
+    "word": "It",
+    "start": 22.18,
+    "end": 22.28
+   },
+   {
+    "word": "is",
+    "start": 22.28,
+    "end": 22.44
+   },
+   {
+    "word": "the",
+    "start": 22.44,
+    "end": 22.58
+   },
+   {
+    "word": "same",
+    "start": 22.58,
+    "end": 22.9
+   },
+   {
+    "word": "letter,",
+    "start": 22.9,
+    "end": 23.3
+   },
+   {
+    "word": "but",
+    "start": 23.92,
+    "end": 23.94
+   },
+   {
+    "word": "it",
+    "start": 23.94,
+    "end": 24.08
+   },
+   {
+    "word": "makes",
+    "start": 24.08,
+    "end": 24.26
+   },
+   {
+    "word": "two",
+    "start": 24.26,
+    "end": 24.74
+   },
+   {
+    "word": "different",
+    "start": 24.74,
+    "end": 25.3
+   },
+   {
+    "word": "sounds!",
+    "start": 25.3,
+    "end": 26.1
+   }
+  ]
+ },
+ {
+  "index": 10,
+  "text": "So how do we know which sound to say?",
+  "line_index": 10,
+  "start": 27.2,
+  "end": 29.56,
+  "duration": 2.36,
+  "words": [
+   {
+    "word": "So",
+    "start": 27.2,
+    "end": 27.3
+   },
+   {
+    "word": "how",
+    "start": 27.3,
+    "end": 27.58
+   },
+   {
+    "word": "do",
+    "start": 27.58,
+    "end": 27.76
+   },
+   {
+    "word": "we",
+    "start": 27.76,
+    "end": 27.9
+   },
+   {
+    "word": "know",
+    "start": 27.9,
+    "end": 28.12
+   },
+   {
+    "word": "which",
+    "start": 28.12,
+    "end": 28.44
+   },
+   {
+    "word": "sound",
+    "start": 28.44,
+    "end": 28.86
+   },
+   {
+    "word": "to",
+    "start": 28.86,
+    "end": 29.1
+   },
+   {
+    "word": "say?",
+    "start": 29.1,
+    "end": 29.56
+   }
+  ]
+ },
+ {
+  "index": 11,
+  "text": "In our last videos, we looked at the letter before.",
+  "line_index": 11,
+  "start": 30.66,
+  "end": 33.78,
+  "duration": 3.12,
+  "words": [
+   {
+    "word": "In",
+    "start": 30.66,
+    "end": 30.76
+   },
+   {
+    "word": "our",
+    "start": 30.76,
+    "end": 30.96
+   },
+   {
+    "word": "last",
+    "start": 30.96,
+    "end": 31.28
+   },
+   {
+    "word": "videos,",
+    "start": 31.28,
+    "end": 32.08
+   },
+   {
+    "word": "we",
+    "start": 32.4,
+    "end": 32.4
+   },
+   {
+    "word": "looked",
+    "start": 32.4,
+    "end": 32.66
+   },
+   {
+    "word": "at",
+    "start": 32.68,
+    "end": 32.8
+   },
+   {
+    "word": "the",
+    "start": 32.8,
+    "end": 32.94
+   },
+   {
+    "word": "letter",
+    "start": 32.94,
+    "end": 33.18
+   },
+   {
+    "word": "before.",
+    "start": 33.18,
+    "end": 33.78
+   }
+  ]
+ },
+ {
+  "index": 12,
+  "text": "This time, we look the other way.",
+  "line_index": 12,
+  "start": 35.1,
+  "end": 37.24,
+  "duration": 2.14,
+  "words": [
+   {
+    "word": "This",
+    "start": 35.1,
+    "end": 35.12
+   },
+   {
+    "word": "time,",
+    "start": 35.12,
+    "end": 35.98
+   },
+   {
+    "word": "we",
+    "start": 36.1,
+    "end": 36.1
+   },
+   {
+    "word": "look",
+    "start": 36.1,
+    "end": 36.3
+   },
+   {
+    "word": "the",
+    "start": 36.3,
+    "end": 36.54
+   },
+   {
+    "word": "other",
+    "start": 36.54,
+    "end": 36.84
+   },
+   {
+    "word": "way.",
+    "start": 36.84,
+    "end": 37.24
+   }
+  ]
+ },
+ {
+  "index": 13,
+  "text": "We look at the letter that comes after the c.",
+  "line_index": 13,
+  "start": 38.02,
+  "end": 40.68,
+  "duration": 2.66,
+  "words": [
+   {
+    "word": "We",
+    "start": 38.02,
+    "end": 38.06
+   },
+   {
+    "word": "look",
+    "start": 38.06,
+    "end": 38.28
+   },
+   {
+    "word": "at",
+    "start": 38.28,
+    "end": 38.46
+   },
+   {
+    "word": "the",
+    "start": 38.46,
+    "end": 38.6
+   },
+   {
+    "word": "letter",
+    "start": 38.6,
+    "end": 38.88
+   },
+   {
+    "word": "that",
+    "start": 38.88,
+    "end": 39.1
+   },
+   {
+    "word": "comes",
+    "start": 39.1,
+    "end": 39.34
+   },
+   {
+    "word": "after",
+    "start": 39.34,
+    "end": 40.02
+   },
+   {
+    "word": "the",
+    "start": 40.02,
+    "end": 40.24
+   },
+   {
+    "word": "c.",
+    "start": 40.24,
+    "end": 40.68
+   }
+  ]
+ },
+ {
+  "index": 14,
+  "text": "Here is the rule!",
+  "line_index": 14,
+  "start": 42.26,
+  "end": 43.08,
+  "duration": 0.82,
+  "words": [
+   {
+    "word": "Here",
+    "start": 42.26,
+    "end": 42.26
+   },
+   {
+    "word": "is",
+    "start": 42.26,
+    "end": 42.46
+   },
+   {
+    "word": "the",
+    "start": 42.46,
+    "end": 42.58
+   },
+   {
+    "word": "rule!",
+    "start": 42.58,
+    "end": 43.08
+   }
+  ]
+ },
+ {
+  "index": 15,
+  "text": "Three letters are special.",
+  "line_index": 15,
+  "start": 44.24,
+  "end": 45.66,
+  "duration": 1.42,
+  "words": [
+   {
+    "word": "Three",
+    "start": 44.24,
+    "end": 44.24
+   },
+   {
+    "word": "letters",
+    "start": 44.24,
+    "end": 44.66
+   },
+   {
+    "word": "are",
+    "start": 44.66,
+    "end": 45.02
+   },
+   {
+    "word": "special.",
+    "start": 45.02,
+    "end": 45.66
+   }
+  ]
+ },
+ {
+  "index": 16,
+  "text": "E.",
+  "line_index": 16,
+  "start": 46.86,
+  "end": 47.2,
+  "duration": 0.34,
+  "words": [
+   {
+    "word": "E.",
+    "start": 46.86,
+    "end": 47.2
+   }
+  ]
+ },
+ {
+  "index": 17,
+  "text": "I.",
+  "line_index": 17,
+  "start": 48.08,
+  "end": 48.56,
+  "duration": 0.48,
+  "words": [
+   {
+    "word": "I.",
+    "start": 48.08,
+    "end": 48.56
+   }
+  ]
+ },
+ {
+  "index": 18,
+  "text": "Y.",
+  "line_index": 18,
+  "start": 49.3,
+  "end": 50.0,
+  "duration": 0.7,
+  "words": [
+   {
+    "word": "Y.",
+    "start": 49.3,
+    "end": 50.0
+   }
+  ]
+ },
+ {
+  "index": 19,
+  "text": "When c sees e, i or y coming next, the c goes soft.",
+  "line_index": 19,
+  "start": 51.34,
+  "end": 57.52,
+  "duration": 6.18,
+  "words": [
+   {
+    "word": "When",
+    "start": 51.34,
+    "end": 51.5
+   },
+   {
+    "word": "c",
+    "start": 51.5,
+    "end": 51.88
+   },
+   {
+    "word": "sees",
+    "start": 51.88,
+    "end": 52.46
+   },
+   {
+    "word": "e,",
+    "start": 52.46,
+    "end": 53.64
+   },
+   {
+    "word": "i",
+    "start": 53.66,
+    "end": 53.88
+   },
+   {
+    "word": "or",
+    "start": 53.88,
+    "end": 54.4
+   },
+   {
+    "word": "y",
+    "start": 54.4,
+    "end": 54.78
+   },
+   {
+    "word": "coming",
+    "start": 54.78,
+    "end": 55.12
+   },
+   {
+    "word": "next,",
+    "start": 55.12,
+    "end": 56.07
+   },
+   {
+    "word": "the",
+    "start": 56.1,
+    "end": 56.18
+   },
+   {
+    "word": "c",
+    "start": 56.18,
+    "end": 56.52
+   },
+   {
+    "word": "goes",
+    "start": 56.52,
+    "end": 56.98
+   },
+   {
+    "word": "soft.",
+    "start": 56.98,
+    "end": 57.52
+   }
+  ]
+ },
+ {
+  "index": 20,
+  "text": "A soft c says /s/, like a quiet little snake.",
+  "line_index": 20,
+  "start": 59.12,
+  "end": 64.22,
+  "duration": 5.1,
+  "words": [
+   {
+    "word": "A",
+    "start": 59.12,
+    "end": 59.22
+   },
+   {
+    "word": "soft",
+    "start": 59.22,
+    "end": 59.64
+   },
+   {
+    "word": "c",
+    "start": 59.82,
+    "end": 59.92
+   },
+   {
+    "word": "says",
+    "start": 59.92,
+    "end": 60.56
+   },
+   {
+    "word": "/s/,",
+    "start": 60.56,
+    "end": 60.66
+   },
+   {
+    "word": "like",
+    "start": 62.24,
+    "end": 62.36
+   },
+   {
+    "word": "a",
+    "start": 62.36,
+    "end": 62.54
+   },
+   {
+    "word": "quiet",
+    "start": 62.54,
+    "end": 62.96
+   },
+   {
+    "word": "little",
+    "start": 62.96,
+    "end": 63.32
+   },
+   {
+    "word": "snake.",
+    "start": 63.32,
+    "end": 64.22
+   }
+  ]
+ },
+ {
+  "index": 21,
+  "text": "Listen.",
+  "line_index": 21,
+  "start": 64.74,
+  "end": 65.18,
+  "duration": 0.44,
+  "words": [
+   {
+    "word": "Listen.",
+    "start": 64.74,
+    "end": 65.18
+   }
+  ]
+ },
+ {
+  "index": 22,
+  "text": "/s/...",
+  "line_index": 22,
+  "start": 66.0,
+  "end": 67.3,
+  "duration": 1.3,
+  "words": [
+   {
+    "word": "/s/...",
+    "start": 66.0,
+    "end": 67.3
+   }
+  ]
+ },
+ {
+  "index": 23,
+  "text": "ih...",
+  "line_index": 22,
+  "start": 67.4,
+  "end": 67.52,
+  "duration": 0.12,
+  "words": [
+   {
+    "word": "ih...",
+    "start": 67.4,
+    "end": 67.52
+   }
+  ]
+ },
+ {
+  "index": 24,
+  "text": "ty...",
+  "line_index": 22,
+  "start": 68.2,
+  "end": 68.66,
+  "duration": 0.46,
+  "words": [
+   {
+    "word": "ty...",
+    "start": 68.2,
+    "end": 68.66
+   }
+  ]
+ },
+ {
+  "index": 25,
+  "text": "City!",
+  "line_index": 23,
+  "start": 70.0,
+  "end": 70.84,
+  "duration": 0.84,
+  "words": [
+   {
+    "word": "City!",
+    "start": 70.0,
+    "end": 70.84
+   }
+  ]
+ },
+ {
+  "index": 26,
+  "text": "The i comes right after the c, so this c is soft.",
+  "line_index": 24,
+  "start": 72.12,
+  "end": 76.44,
+  "duration": 4.32,
+  "words": [
+   {
+    "word": "The",
+    "start": 72.12,
+    "end": 72.26
+   },
+   {
+    "word": "i",
+    "start": 72.26,
+    "end": 72.56
+   },
+   {
+    "word": "comes",
+    "start": 72.56,
+    "end": 72.98
+   },
+   {
+    "word": "right",
+    "start": 72.98,
+    "end": 73.34
+   },
+   {
+    "word": "after",
+    "start": 73.34,
+    "end": 73.86
+   },
+   {
+    "word": "the",
+    "start": 73.86,
+    "end": 74.04
+   },
+   {
+    "word": "c,",
+    "start": 74.04,
+    "end": 74.48
+   },
+   {
+    "word": "so",
+    "start": 75.06,
+    "end": 75.1
+   },
+   {
+    "word": "this",
+    "start": 75.1,
+    "end": 75.38
+   },
+   {
+    "word": "c",
+    "start": 75.38,
+    "end": 75.78
+   },
+   {
+    "word": "is",
+    "start": 75.78,
+    "end": 76.1
+   },
+   {
+    "word": "soft.",
+    "start": 76.1,
+    "end": 76.44
+   }
+  ]
+ },
+ {
+  "index": 27,
+  "text": "Here are more soft c words.",
+  "line_index": 25,
+  "start": 78.12,
+  "end": 79.92,
+  "duration": 1.8,
+  "words": [
+   {
+    "word": "Here",
+    "start": 78.12,
+    "end": 78.26
+   },
+   {
+    "word": "are",
+    "start": 78.26,
+    "end": 78.42
+   },
+   {
+    "word": "more",
+    "start": 78.42,
+    "end": 78.72
+   },
+   {
+    "word": "soft",
+    "start": 78.72,
+    "end": 79.18
+   },
+   {
+    "word": "c",
+    "start": 79.36,
+    "end": 79.46
+   },
+   {
+    "word": "words.",
+    "start": 79.46,
+    "end": 79.92
+   }
+  ]
+ },
+ {
+  "index": 28,
+  "text": "Cent.",
+  "line_index": 26,
+  "start": 81.08,
+  "end": 81.34,
+  "duration": 0.26,
+  "words": [
+   {
+    "word": "Cent.",
+    "start": 81.08,
+    "end": 81.34
+   }
+  ]
+ },
+ {
+  "index": 29,
+  "text": "Circle.",
+  "line_index": 27,
+  "start": 82.84,
+  "end": 83.38,
+  "duration": 0.54,
+  "words": [
+   {
+    "word": "Circle.",
+    "start": 82.84,
+    "end": 83.38
+   }
+  ]
+ },
+ {
+  "index": 30,
+  "text": "Cycle.",
+  "line_index": 28,
+  "start": 84.73,
+  "end": 85.26,
+  "duration": 0.53,
+  "words": [
+   {
+    "word": "Cycle.",
+    "start": 84.73,
+    "end": 85.26
+   }
+  ]
+ },
+ {
+  "index": 31,
+  "text": "Every one of them has e, i or y right after the c.",
+  "line_index": 29,
+  "start": 86.68,
+  "end": 92.28,
+  "duration": 5.6,
+  "words": [
+   {
+    "word": "Every",
+    "start": 86.68,
+    "end": 87.0
+   },
+   {
+    "word": "one",
+    "start": 87.0,
+    "end": 87.26
+   },
+   {
+    "word": "of",
+    "start": 87.26,
+    "end": 87.44
+   },
+   {
+    "word": "them",
+    "start": 87.44,
+    "end": 87.62
+   },
+   {
+    "word": "has",
+    "start": 87.62,
+    "end": 88.0
+   },
+   {
+    "word": "e,",
+    "start": 88.0,
+    "end": 88.66
+   },
+   {
+    "word": "i",
+    "start": 89.16,
+    "end": 89.46
+   },
+   {
+    "word": "or",
+    "start": 89.48,
+    "end": 89.96
+   },
+   {
+    "word": "y",
+    "start": 89.96,
+    "end": 90.44
+   },
+   {
+    "word": "right",
+    "start": 90.44,
+    "end": 91.12
+   },
+   {
+    "word": "after",
+    "start": 91.12,
+    "end": 91.66
+   },
+   {
+    "word": "the",
+    "start": 91.66,
+    "end": 91.84
+   },
+   {
+    "word": "c.",
+    "start": 91.84,
+    "end": 92.28
+   }
+  ]
+ },
+ {
+  "index": 32,
+  "text": "So what happens everywhere else?",
+  "line_index": 30,
+  "start": 93.7,
+  "end": 95.3,
+  "duration": 1.6,
+  "words": [
+   {
+    "word": "So",
+    "start": 93.7,
+    "end": 93.7
+   },
+   {
+    "word": "what",
+    "start": 93.7,
+    "end": 93.96
+   },
+   {
+    "word": "happens",
+    "start": 93.96,
+    "end": 94.34
+   },
+   {
+    "word": "everywhere",
+    "start": 94.34,
+    "end": 94.92
+   },
+   {
+    "word": "else?",
+    "start": 94.92,
+    "end": 95.3
+   }
+  ]
+ },
+ {
+  "index": 33,
+  "text": "Everywhere else, the c stays hard.",
+  "line_index": 31,
+  "start": 96.96,
+  "end": 100.11,
+  "duration": 3.15,
+  "words": [
+   {
+    "word": "Everywhere",
+    "start": 96.96,
+    "end": 96.96
+   },
+   {
+    "word": "else,",
+    "start": 96.96,
+    "end": 97.8
+   },
+   {
+    "word": "the",
+    "start": 97.92,
+    "end": 97.92
+   },
+   {
+    "word": "c",
+    "start": 97.92,
+    "end": 98.22
+   },
+   {
+    "word": "stays",
+    "start": 98.22,
+    "end": 98.76
+   },
+   {
+    "word": "hard.",
+    "start": 98.76,
+    "end": 100.11
+   }
+  ]
+ },
+ {
+  "index": 34,
+  "text": "A hard c says /k/, strong and short.",
+  "line_index": 32,
+  "start": 100.8,
+  "end": 104.84,
+  "duration": 4.04,
+  "words": [
+   {
+    "word": "A",
+    "start": 100.8,
+    "end": 100.8
+   },
+   {
+    "word": "hard",
+    "start": 100.8,
+    "end": 101.14
+   },
+   {
+    "word": "c",
+    "start": 101.14,
+    "end": 101.48
+   },
+   {
+    "word": "says",
+    "start": 101.48,
+    "end": 101.96
+   },
+   {
+    "word": "/k/,",
+    "start": 101.96,
+    "end": 102.78
+   },
+   {
+    "word": "strong",
+    "start": 103.74,
+    "end": 103.92
+   },
+   {
+    "word": "and",
+    "start": 103.92,
+    "end": 104.36
+   },
+   {
+    "word": "short.",
+    "start": 104.36,
+    "end": 104.84
+   }
+  ]
+ },
+ {
+  "index": 35,
+  "text": "Listen.",
+  "line_index": 33,
+  "start": 106.0,
+  "end": 106.32,
+  "duration": 0.32,
+  "words": [
+   {
+    "word": "Listen.",
+    "start": 106.0,
+    "end": 106.32
+   }
+  ]
+ },
+ {
+  "index": 36,
+  "text": "/k/...",
+  "line_index": 34,
+  "start": 107.56,
+  "end": 108.66,
+  "duration": 1.1,
+  "words": [
+   {
+    "word": "/k/...",
+    "start": 107.56,
+    "end": 108.66
+   }
+  ]
+ },
+ {
+  "index": 37,
+  "text": "a...",
+  "line_index": 34,
+  "start": 108.72,
+  "end": 108.82,
+  "duration": 0.1,
+  "words": [
+   {
+    "word": "a...",
+    "start": 108.72,
+    "end": 108.82
+   }
+  ]
+ },
+ {
+  "index": 38,
+  "text": "t...",
+  "line_index": 34,
+  "start": 109.56,
+  "end": 110.64,
+  "duration": 1.08,
+  "words": [
+   {
+    "word": "t...",
+    "start": 109.56,
+    "end": 110.64
+   }
+  ]
+ },
+ {
+  "index": 39,
+  "text": "Cat!",
+  "line_index": 35,
+  "start": 110.72,
+  "end": 111.4,
+  "duration": 0.68,
+  "words": [
+   {
+    "word": "Cat!",
+    "start": 110.72,
+    "end": 111.4
+   }
+  ]
+ },
+ {
+  "index": 40,
+  "text": "The a comes after the c, and a is not one of our three letters.",
+  "line_index": 36,
+  "start": 112.56,
+  "end": 117.8,
+  "duration": 5.24,
+  "words": [
+   {
+    "word": "The",
+    "start": 112.56,
+    "end": 112.76
+   },
+   {
+    "word": "a",
+    "start": 112.76,
+    "end": 113.04
+   },
+   {
+    "word": "comes",
+    "start": 113.04,
+    "end": 113.38
+   },
+   {
+    "word": "after",
+    "start": 113.38,
+    "end": 114.08
+   },
+   {
+    "word": "the",
+    "start": 114.08,
+    "end": 114.3
+   },
+   {
+    "word": "c,",
+    "start": 114.3,
+    "end": 114.7
+   },
+   {
+    "word": "and",
+    "start": 115.24,
+    "end": 115.44
+   },
+   {
+    "word": "a",
+    "start": 115.44,
+    "end": 115.68
+   },
+   {
+    "word": "is",
+    "start": 115.68,
+    "end": 116.06
+   },
+   {
+    "word": "not",
+    "start": 116.06,
+    "end": 116.34
+   },
+   {
+    "word": "one",
+    "start": 116.34,
+    "end": 116.66
+   },
+   {
+    "word": "of",
+    "start": 116.66,
+    "end": 116.82
+   },
+   {
+    "word": "our",
+    "start": 116.82,
+    "end": 117.0
+   },
+   {
+    "word": "three",
+    "start": 117.0,
+    "end": 117.32
+   },
+   {
+    "word": "letters.",
+    "start": 117.32,
+    "end": 117.8
+   }
+  ]
+ },
+ {
+  "index": 41,
+  "text": "So this c stays hard.",
+  "line_index": 37,
+  "start": 118.64,
+  "end": 120.47,
+  "duration": 1.83,
+  "words": [
+   {
+    "word": "So",
+    "start": 118.64,
+    "end": 118.74
+   },
+   {
+    "word": "this",
+    "start": 118.74,
+    "end": 118.96
+   },
+   {
+    "word": "c",
+    "start": 118.96,
+    "end": 119.4
+   },
+   {
+    "word": "stays",
+    "start": 119.82,
+    "end": 119.92
+   },
+   {
+    "word": "hard.",
+    "start": 119.92,
+    "end": 120.47
+   }
+  ]
+ },
+ {
+  "index": 42,
+  "text": "Here are more hard c words.",
+  "line_index": 38,
+  "start": 122.14,
+  "end": 123.86,
+  "duration": 1.72,
+  "words": [
+   {
+    "word": "Here",
+    "start": 122.14,
+    "end": 122.16
+   },
+   {
+    "word": "are",
+    "start": 122.16,
+    "end": 122.36
+   },
+   {
+    "word": "more",
+    "start": 122.36,
+    "end": 122.58
+   },
+   {
+    "word": "hard",
+    "start": 122.58,
+    "end": 123.06
+   },
+   {
+    "word": "c",
+    "start": 123.06,
+    "end": 123.36
+   },
+   {
+    "word": "words.",
+    "start": 123.36,
+    "end": 123.86
+   }
+  ]
+ },
+ {
+  "index": 43,
+  "text": "Cup.",
+  "line_index": 39,
+  "start": 125.14,
+  "end": 125.54,
+  "duration": 0.4,
+  "words": [
+   {
+    "word": "Cup.",
+    "start": 125.14,
+    "end": 125.54
+   }
+  ]
+ },
+ {
+  "index": 44,
+  "text": "Cold.",
+  "line_index": 40,
+  "start": 126.66,
+  "end": 127.28,
+  "duration": 0.62,
+  "words": [
+   {
+    "word": "Cold.",
+    "start": 126.66,
+    "end": 127.28
+   }
+  ]
+ },
+ {
+  "index": 45,
+  "text": "Clap.",
+  "line_index": 41,
+  "start": 128.77,
+  "end": 129.05,
+  "duration": 0.28,
+  "words": [
+   {
+    "word": "Clap.",
+    "start": 128.77,
+    "end": 129.05
+   }
+  ]
+ },
+ {
+  "index": 46,
+  "text": "In clap, the letter l comes after the c.",
+  "line_index": 42,
+  "start": 130.84,
+  "end": 134.06,
+  "duration": 3.22,
+  "words": [
+   {
+    "word": "In",
+    "start": 130.84,
+    "end": 130.98
+   },
+   {
+    "word": "clap,",
+    "start": 130.98,
+    "end": 131.86
+   },
+   {
+    "word": "the",
+    "start": 131.94,
+    "end": 131.94
+   },
+   {
+    "word": "letter",
+    "start": 131.94,
+    "end": 132.22
+   },
+   {
+    "word": "l",
+    "start": 132.22,
+    "end": 132.62
+   },
+   {
+    "word": "comes",
+    "start": 132.62,
+    "end": 132.92
+   },
+   {
+    "word": "after",
+    "start": 132.92,
+    "end": 133.46
+   },
+   {
+    "word": "the",
+    "start": 133.46,
+    "end": 133.64
+   },
+   {
+    "word": "c.",
+    "start": 133.64,
+    "end": 134.06
+   }
+  ]
+ },
+ {
+  "index": 47,
+  "text": "That is fine.",
+  "line_index": 43,
+  "start": 134.98,
+  "end": 135.5,
+  "duration": 0.52,
+  "words": [
+   {
+    "word": "That",
+    "start": 134.98,
+    "end": 135.08
+   },
+   {
+    "word": "is",
+    "start": 135.08,
+    "end": 135.2
+   },
+   {
+    "word": "fine.",
+    "start": 135.2,
+    "end": 135.5
+   }
+  ]
+ },
+ {
+  "index": 48,
+  "text": "The c is still hard.",
+  "line_index": 44,
+  "start": 136.32,
+  "end": 138.02,
+  "duration": 1.7,
+  "words": [
+   {
+    "word": "The",
+    "start": 136.32,
+    "end": 136.38
+   },
+   {
+    "word": "c",
+    "start": 136.38,
+    "end": 136.76
+   },
+   {
+    "word": "is",
+    "start": 136.76,
+    "end": 137.04
+   },
+   {
+    "word": "still",
+    "start": 137.04,
+    "end": 137.38
+   },
+   {
+    "word": "hard.",
+    "start": 137.38,
+    "end": 138.02
+   }
+  ]
+ },
+ {
+  "index": 49,
+  "text": "Let's say our three special letters one more time.",
+  "line_index": 45,
+  "start": 139.8,
+  "end": 142.9,
+  "duration": 3.1,
+  "words": [
+   {
+    "word": "Let's",
+    "start": 139.8,
+    "end": 139.9
+   },
+   {
+    "word": "say",
+    "start": 139.9,
+    "end": 140.04
+   },
+   {
+    "word": "our",
+    "start": 140.04,
+    "end": 140.28
+   },
+   {
+    "word": "three",
+    "start": 140.28,
+    "end": 140.66
+   },
+   {
+    "word": "special",
+    "start": 140.66,
+    "end": 141.16
+   },
+   {
+    "word": "letters",
+    "start": 141.16,
+    "end": 141.54
+   },
+   {
+    "word": "one",
+    "start": 141.54,
+    "end": 141.98
+   },
+   {
+    "word": "more",
+    "start": 141.98,
+    "end": 142.26
+   },
+   {
+    "word": "time.",
+    "start": 142.26,
+    "end": 142.9
+   }
+  ]
+ },
+ {
+  "index": 50,
+  "text": "E.",
+  "line_index": 46,
+  "start": 144.02,
+  "end": 144.46,
+  "duration": 0.44,
+  "words": [
+   {
+    "word": "E.",
+    "start": 144.02,
+    "end": 144.46
+   }
+  ]
+ },
+ {
+  "index": 51,
+  "text": "I.",
+  "line_index": 47,
+  "start": 145.33,
+  "end": 145.85,
+  "duration": 0.52,
+  "words": [
+   {
+    "word": "I.",
+    "start": 145.33,
+    "end": 145.85
+   }
+  ]
+ },
+ {
+  "index": 52,
+  "text": "Y.",
+  "line_index": 48,
+  "start": 146.72,
+  "end": 147.4,
+  "duration": 0.68,
+  "words": [
+   {
+    "word": "Y.",
+    "start": 146.72,
+    "end": 147.4
+   }
+  ]
+ },
+ {
+  "index": 53,
+  "text": "Those three make the c soft.",
+  "line_index": 49,
+  "start": 148.6,
+  "end": 150.72,
+  "duration": 2.12,
+  "words": [
+   {
+    "word": "Those",
+    "start": 148.6,
+    "end": 148.84
+   },
+   {
+    "word": "three",
+    "start": 148.84,
+    "end": 149.32
+   },
+   {
+    "word": "make",
+    "start": 149.36,
+    "end": 149.64
+   },
+   {
+    "word": "the",
+    "start": 149.64,
+    "end": 149.92
+   },
+   {
+    "word": "c",
+    "start": 149.92,
+    "end": 150.16
+   },
+   {
+    "word": "soft.",
+    "start": 150.16,
+    "end": 150.72
+   }
+  ]
+ },
+ {
+  "index": 54,
+  "text": "Every other letter keeps it hard.",
+  "line_index": 50,
+  "start": 152.42,
+  "end": 154.44,
+  "duration": 2.02,
+  "words": [
+   {
+    "word": "Every",
+    "start": 152.42,
+    "end": 152.42
+   },
+   {
+    "word": "other",
+    "start": 152.42,
+    "end": 152.82
+   },
+   {
+    "word": "letter",
+    "start": 152.82,
+    "end": 153.22
+   },
+   {
+    "word": "keeps",
+    "start": 153.22,
+    "end": 153.64
+   },
+   {
+    "word": "it",
+    "start": 153.64,
+    "end": 153.94
+   },
+   {
+    "word": "hard.",
+    "start": 153.94,
+    "end": 154.44
+   }
+  ]
+ },
+ {
+  "index": 55,
+  "text": "Now let's look at more soft c words.",
+  "line_index": 51,
+  "start": 155.66,
+  "end": 158.08,
+  "duration": 2.42,
+  "words": [
+   {
+    "word": "Now",
+    "start": 155.66,
+    "end": 155.66
+   },
+   {
+    "word": "let's",
+    "start": 155.66,
+    "end": 156.08
+   },
+   {
+    "word": "look",
+    "start": 156.08,
+    "end": 156.22
+   },
+   {
+    "word": "at",
+    "start": 156.22,
+    "end": 156.38
+   },
+   {
+    "word": "more",
+    "start": 156.38,
+    "end": 156.7
+   },
+   {
+    "word": "soft",
+    "start": 156.7,
+    "end": 157.24
+   },
+   {
+    "word": "c",
+    "start": 157.46,
+    "end": 157.58
+   },
+   {
+    "word": "words.",
+    "start": 157.58,
+    "end": 158.08
+   }
+  ]
+ },
+ {
+  "index": 56,
+  "text": "City.",
+  "line_index": 52,
+  "start": 159.32,
+  "end": 159.75,
+  "duration": 0.43,
+  "words": [
+   {
+    "word": "City.",
+    "start": 159.32,
+    "end": 159.75
+   }
+  ]
+ },
+ {
+  "index": 57,
+  "text": "Cent.",
+  "line_index": 53,
+  "start": 161.2,
+  "end": 161.48,
+  "duration": 0.28,
+  "words": [
+   {
+    "word": "Cent.",
+    "start": 161.2,
+    "end": 161.48
+   }
+  ]
+ },
+ {
+  "index": 58,
+  "text": "Circle.",
+  "line_index": 54,
+  "start": 163.06,
+  "end": 163.6,
+  "duration": 0.54,
+  "words": [
+   {
+    "word": "Circle.",
+    "start": 163.06,
+    "end": 163.6
+   }
+  ]
+ },
+ {
+  "index": 59,
+  "text": "Cycle.",
+  "line_index": 55,
+  "start": 165.02,
+  "end": 165.64,
+  "duration": 0.62,
+  "words": [
+   {
+    "word": "Cycle.",
+    "start": 165.02,
+    "end": 165.64
+   }
+  ]
+ },
+ {
+  "index": 60,
+  "text": "Ice.",
+  "line_index": 56,
+  "start": 167.1,
+  "end": 167.38,
+  "duration": 0.28,
+  "words": [
+   {
+    "word": "Ice.",
+    "start": 167.1,
+    "end": 167.38
+   }
+  ]
+ },
+ {
+  "index": 61,
+  "text": "Race.",
+  "line_index": 57,
+  "start": 169.06,
+  "end": 169.4,
+  "duration": 0.34,
+  "words": [
+   {
+    "word": "Race.",
+    "start": 169.06,
+    "end": 169.4
+   }
+  ]
+ },
+ {
+  "index": 62,
+  "text": "Every one has e, i or y after the c.",
+  "line_index": 58,
+  "start": 170.88,
+  "end": 175.44,
+  "duration": 4.56,
+  "words": [
+   {
+    "word": "Every",
+    "start": 170.88,
+    "end": 171.14
+   },
+   {
+    "word": "one",
+    "start": 171.14,
+    "end": 171.5
+   },
+   {
+    "word": "has",
+    "start": 171.5,
+    "end": 171.94
+   },
+   {
+    "word": "e,",
+    "start": 171.94,
+    "end": 173.08
+   },
+   {
+    "word": "i",
+    "start": 173.14,
+    "end": 173.32
+   },
+   {
+    "word": "or",
+    "start": 173.32,
+    "end": 173.88
+   },
+   {
+    "word": "y",
+    "start": 173.88,
+    "end": 174.24
+   },
+   {
+    "word": "after",
+    "start": 174.24,
+    "end": 174.82
+   },
+   {
+    "word": "the",
+    "start": 174.82,
+    "end": 175.0
+   },
+   {
+    "word": "c.",
+    "start": 175.0,
+    "end": 175.44
+   }
+  ]
+ },
+ {
+  "index": 63,
+  "text": "Now let's look at the hard c words.",
+  "line_index": 59,
+  "start": 176.8,
+  "end": 179.12,
+  "duration": 2.32,
+  "words": [
+   {
+    "word": "Now",
+    "start": 176.8,
+    "end": 176.96
+   },
+   {
+    "word": "let's",
+    "start": 177.26,
+    "end": 177.36
+   },
+   {
+    "word": "look",
+    "start": 177.36,
+    "end": 177.52
+   },
+   {
+    "word": "at",
+    "start": 177.52,
+    "end": 177.76
+   },
+   {
+    "word": "the",
+    "start": 177.76,
+    "end": 177.94
+   },
+   {
+    "word": "hard",
+    "start": 177.94,
+    "end": 178.3
+   },
+   {
+    "word": "c",
+    "start": 178.3,
+    "end": 178.62
+   },
+   {
+    "word": "words.",
+    "start": 178.62,
+    "end": 179.12
+   }
+  ]
+ },
+ {
+  "index": 64,
+  "text": "Cat.",
+  "line_index": 60,
+  "start": 180.36,
+  "end": 180.52,
+  "duration": 0.16,
+  "words": [
+   {
+    "word": "Cat.",
+    "start": 180.36,
+    "end": 180.52
+   }
+  ]
+ },
+ {
+  "index": 65,
+  "text": "Cup.",
+  "line_index": 61,
+  "start": 182.07,
+  "end": 182.27,
+  "duration": 0.2,
+  "words": [
+   {
+    "word": "Cup.",
+    "start": 182.07,
+    "end": 182.27
+   }
+  ]
+ },
+ {
+  "index": 66,
+  "text": "Cold.",
+  "line_index": 62,
+  "start": 183.77,
+  "end": 184.32,
+  "duration": 0.55,
+  "words": [
+   {
+    "word": "Cold.",
+    "start": 183.77,
+    "end": 184.32
+   }
+  ]
+ },
+ {
+  "index": 67,
+  "text": "Clap.",
+  "line_index": 63,
+  "start": 185.8,
+  "end": 186.32,
+  "duration": 0.52,
+  "words": [
+   {
+    "word": "Clap.",
+    "start": 185.8,
+    "end": 186.32
+   }
+  ]
+ },
+ {
+  "index": 68,
+  "text": "Cream.",
+  "line_index": 64,
+  "start": 187.61,
+  "end": 188.18,
+  "duration": 0.57,
+  "words": [
+   {
+    "word": "Cream.",
+    "start": 187.61,
+    "end": 188.18
+   }
+  ]
+ },
+ {
+  "index": 69,
+  "text": "Picnic.",
+  "line_index": 65,
+  "start": 189.62,
+  "end": 190.12,
+  "duration": 0.5,
+  "words": [
+   {
+    "word": "Picnic.",
+    "start": 189.62,
+    "end": 190.12
+   }
+  ]
+ },
+ {
+  "index": 70,
+  "text": "Not one of them has e, i or y after the c.",
+  "line_index": 66,
+  "start": 191.16,
+  "end": 195.9,
+  "duration": 4.74,
+  "words": [
+   {
+    "word": "Not",
+    "start": 191.16,
+    "end": 191.28
+   },
+   {
+    "word": "one",
+    "start": 191.28,
+    "end": 191.64
+   },
+   {
+    "word": "of",
+    "start": 191.64,
+    "end": 191.82
+   },
+   {
+    "word": "them",
+    "start": 191.82,
+    "end": 192.0
+   },
+   {
+    "word": "has",
+    "start": 192.0,
+    "end": 192.42
+   },
+   {
+    "word": "e,",
+    "start": 192.42,
+    "end": 193.46
+   },
+   {
+    "word": "i",
+    "start": 193.5,
+    "end": 193.7
+   },
+   {
+    "word": "or",
+    "start": 193.7,
+    "end": 194.34
+   },
+   {
+    "word": "y",
+    "start": 194.34,
+    "end": 194.68
+   },
+   {
+    "word": "after",
+    "start": 194.68,
+    "end": 195.26
+   },
+   {
+    "word": "the",
+    "start": 195.26,
+    "end": 195.44
+   },
+   {
+    "word": "c.",
+    "start": 195.44,
+    "end": 195.9
+   }
+  ]
+ },
+ {
+  "index": 71,
+  "text": "You're doing really well!",
+  "line_index": 67,
+  "start": 197.22,
+  "end": 198.98,
+  "duration": 1.76,
+  "words": [
+   {
+    "word": "You're",
+    "start": 197.22,
+    "end": 197.42
+   },
+   {
+    "word": "doing",
+    "start": 197.42,
+    "end": 197.72
+   },
+   {
+    "word": "really",
+    "start": 197.72,
+    "end": 198.24
+   },
+   {
+    "word": "well!",
+    "start": 198.24,
+    "end": 198.98
+   }
+  ]
+ },
+ {
+  "index": 72,
+  "text": "If you're enjoying this, please like this video and subscribe.",
+  "line_index": 68,
+  "start": 199.9,
+  "end": 203.82,
+  "duration": 3.92,
+  "words": [
+   {
+    "word": "If",
+    "start": 199.9,
+    "end": 200.02
+   },
+   {
+    "word": "you're",
+    "start": 200.02,
+    "end": 200.28
+   },
+   {
+    "word": "enjoying",
+    "start": 200.28,
+    "end": 200.54
+   },
+   {
+    "word": "this,",
+    "start": 200.54,
+    "end": 201.08
+   },
+   {
+    "word": "please",
+    "start": 201.72,
+    "end": 201.72
+   },
+   {
+    "word": "like",
+    "start": 201.72,
+    "end": 202.12
+   },
+   {
+    "word": "this",
+    "start": 202.12,
+    "end": 202.44
+   },
+   {
+    "word": "video",
+    "start": 202.44,
+    "end": 202.72
+   },
+   {
+    "word": "and",
+    "start": 202.72,
+    "end": 203.06
+   },
+   {
+    "word": "subscribe.",
+    "start": 203.06,
+    "end": 203.82
+   }
+  ]
+ },
+ {
+  "index": 73,
+  "text": "Then we can keep making more videos for you.",
+  "line_index": 69,
+  "start": 204.66,
+  "end": 207.48,
+  "duration": 2.82,
+  "words": [
+   {
+    "word": "Then",
+    "start": 204.66,
+    "end": 204.8
+   },
+   {
+    "word": "we",
+    "start": 204.8,
+    "end": 205.04
+   },
+   {
+    "word": "can",
+    "start": 205.04,
+    "end": 205.22
+   },
+   {
+    "word": "keep",
+    "start": 205.22,
+    "end": 205.5
+   },
+   {
+    "word": "making",
+    "start": 205.5,
+    "end": 205.92
+   },
+   {
+    "word": "more",
+    "start": 205.92,
+    "end": 206.32
+   },
+   {
+    "word": "videos",
+    "start": 206.32,
+    "end": 206.68
+   },
+   {
+    "word": "for",
+    "start": 206.68,
+    "end": 207.04
+   },
+   {
+    "word": "you.",
+    "start": 207.04,
+    "end": 207.48
+   }
+  ]
+ },
+ {
+  "index": 74,
+  "text": "There is one more thing you should know.",
+  "line_index": 70,
+  "start": 209.08,
+  "end": 210.86,
+  "duration": 1.78,
+  "words": [
+   {
+    "word": "There",
+    "start": 209.08,
+    "end": 209.08
+   },
+   {
+    "word": "is",
+    "start": 209.08,
+    "end": 209.24
+   },
+   {
+    "word": "one",
+    "start": 209.24,
+    "end": 209.48
+   },
+   {
+    "word": "more",
+    "start": 209.48,
+    "end": 209.74
+   },
+   {
+    "word": "thing",
+    "start": 209.74,
+    "end": 210.0
+   },
+   {
+    "word": "you",
+    "start": 210.0,
+    "end": 210.24
+   },
+   {
+    "word": "should",
+    "start": 210.24,
+    "end": 210.46
+   },
+   {
+    "word": "know.",
+    "start": 210.46,
+    "end": 210.86
+   }
+  ]
+ },
+ {
+  "index": 75,
+  "text": "Look at these five words.",
+  "line_index": 71,
+  "start": 212.14,
+  "end": 213.58,
+  "duration": 1.44,
+  "words": [
+   {
+    "word": "Look",
+    "start": 212.14,
+    "end": 212.14
+   },
+   {
+    "word": "at",
+    "start": 212.14,
+    "end": 212.32
+   },
+   {
+    "word": "these",
+    "start": 212.32,
+    "end": 212.58
+   },
+   {
+    "word": "five",
+    "start": 212.58,
+    "end": 212.98
+   },
+   {
+    "word": "words.",
+    "start": 212.98,
+    "end": 213.58
+   }
+  ]
+ },
+ {
+  "index": 76,
+  "text": "Special.",
+  "line_index": 72,
+  "start": 214.89,
+  "end": 215.37,
+  "duration": 0.48,
+  "words": [
+   {
+    "word": "Special.",
+    "start": 214.89,
+    "end": 215.37
+   }
+  ]
+ },
+ {
+  "index": 77,
+  "text": "Precious.",
+  "line_index": 73,
+  "start": 216.78,
+  "end": 217.2,
+  "duration": 0.42,
+  "words": [
+   {
+    "word": "Precious.",
+    "start": 216.78,
+    "end": 217.2
+   }
+  ]
+ },
+ {
+  "index": 78,
+  "text": "Musician.",
+  "line_index": 74,
+  "start": 218.6,
+  "end": 219.49,
+  "duration": 0.89,
+  "words": [
+   {
+    "word": "Musician.",
+    "start": 218.6,
+    "end": 219.49
+   }
+  ]
+ },
+ {
+  "index": 79,
+  "text": "Ancient.",
+  "line_index": 75,
+  "start": 220.88,
+  "end": 221.42,
+  "duration": 0.54,
+  "words": [
+   {
+    "word": "Ancient.",
+    "start": 220.88,
+    "end": 221.42
+   }
+  ]
+ },
+ {
+  "index": 80,
+  "text": "Ocean.",
+  "line_index": 76,
+  "start": 222.86,
+  "end": 223.58,
+  "duration": 0.72,
+  "words": [
+   {
+    "word": "Ocean.",
+    "start": 222.86,
+    "end": 223.58
+   }
+  ]
+ },
+ {
+  "index": 81,
+  "text": "Every one of them has a soft c.",
+  "line_index": 77,
+  "start": 224.76,
+  "end": 227.08,
+  "duration": 2.32,
+  "words": [
+   {
+    "word": "Every",
+    "start": 224.76,
+    "end": 225.06
+   },
+   {
+    "word": "one",
+    "start": 225.06,
+    "end": 225.34
+   },
+   {
+    "word": "of",
+    "start": 225.34,
+    "end": 225.5
+   },
+   {
+    "word": "them",
+    "start": 225.5,
+    "end": 225.68
+   },
+   {
+    "word": "has",
+    "start": 225.68,
+    "end": 225.94
+   },
+   {
+    "word": "a",
+    "start": 225.94,
+    "end": 226.1
+   },
+   {
+    "word": "soft",
+    "start": 226.1,
+    "end": 226.5
+   },
+   {
+    "word": "c.",
+    "start": 226.5,
+    "end": 227.08
+   }
+  ]
+ },
+ {
+  "index": 82,
+  "text": "But listen carefully.",
+  "line_index": 78,
+  "start": 228.22,
+  "end": 229.28,
+  "duration": 1.06,
+  "words": [
+   {
+    "word": "But",
+    "start": 228.22,
+    "end": 228.3
+   },
+   {
+    "word": "listen",
+    "start": 228.3,
+    "end": 228.58
+   },
+   {
+    "word": "carefully.",
+    "start": 228.58,
+    "end": 229.28
+   }
+  ]
+ },
+ {
+  "index": 83,
+  "text": "This soft c does not say /s/.",
+  "line_index": 79,
+  "start": 230.42,
+  "end": 232.58,
+  "duration": 2.16,
+  "words": [
+   {
+    "word": "This",
+    "start": 230.42,
+    "end": 230.54
+   },
+   {
+    "word": "soft",
+    "start": 230.54,
+    "end": 230.94
+   },
+   {
+    "word": "c",
+    "start": 231.1,
+    "end": 231.26
+   },
+   {
+    "word": "does",
+    "start": 231.26,
+    "end": 231.64
+   },
+   {
+    "word": "not",
+    "start": 231.64,
+    "end": 231.96
+   },
+   {
+    "word": "say",
+    "start": 231.96,
+    "end": 232.44
+   },
+   {
+    "word": "/s/.",
+    "start": 232.44,
+    "end": 232.58
+   }
+  ]
+ },
+ {
+  "index": 84,
+  "text": "It says /sh/.",
+  "line_index": 80,
+  "start": 234.06,
+  "end": 235.33,
+  "duration": 1.27,
+  "words": [
+   {
+    "word": "It",
+    "start": 234.06,
+    "end": 234.14
+   },
+   {
+    "word": "says",
+    "start": 234.14,
+    "end": 234.48
+   },
+   {
+    "word": "/sh/.",
+    "start": 234.48,
+    "end": 235.33
+   }
+  ]
+ },
+ {
+  "index": 85,
+  "text": "Can you see what makes these words special?",
+  "line_index": 81,
+  "start": 237.08,
+  "end": 239.33,
+  "duration": 2.25,
+  "words": [
+   {
+    "word": "Can",
+    "start": 237.08,
+    "end": 237.18
+   },
+   {
+    "word": "you",
+    "start": 237.18,
+    "end": 237.38
+   },
+   {
+    "word": "see",
+    "start": 237.38,
+    "end": 237.64
+   },
+   {
+    "word": "what",
+    "start": 237.7,
+    "end": 237.86
+   },
+   {
+    "word": "makes",
+    "start": 237.86,
+    "end": 238.1
+   },
+   {
+    "word": "these",
+    "start": 238.1,
+    "end": 238.42
+   },
+   {
+    "word": "words",
+    "start": 238.42,
+    "end": 238.68
+   },
+   {
+    "word": "special?",
+    "start": 238.68,
+    "end": 239.33
+   }
+  ]
+ },
+ {
+  "index": 86,
+  "text": "Look at how each one ends.",
+  "line_index": 82,
+  "start": 240.86,
+  "end": 242.64,
+  "duration": 1.78,
+  "words": [
+   {
+    "word": "Look",
+    "start": 240.86,
+    "end": 240.86
+   },
+   {
+    "word": "at",
+    "start": 240.86,
+    "end": 241.06
+   },
+   {
+    "word": "how",
+    "start": 241.06,
+    "end": 241.28
+   },
+   {
+    "word": "each",
+    "start": 241.28,
+    "end": 241.72
+   },
+   {
+    "word": "one",
+    "start": 241.72,
+    "end": 242.02
+   },
+   {
+    "word": "ends.",
+    "start": 242.02,
+    "end": 242.64
+   }
+  ]
+ },
+ {
+  "index": 87,
+  "text": "-cial",
+  "line_index": 83,
+  "start": 243.08,
+  "end": 245.84,
+  "duration": 2.76,
+  "words": [
+   {
+    "word": "-cial",
+    "start": 243.08,
+    "end": 245.84
+   }
+  ]
+ },
+ {
+  "index": 88,
+  "text": "-cious",
+  "line_index": 84,
+  "start": 245.84,
+  "end": 246.04,
+  "duration": 0.2,
+  "words": [
+   {
+    "word": "-cious",
+    "start": 245.84,
+    "end": 246.04
+   }
+  ]
+ },
+ {
+  "index": 89,
+  "text": "-cian",
+  "line_index": 85,
+  "start": 247.52,
+  "end": 248.16,
+  "duration": 0.64,
+  "words": [
+   {
+    "word": "-cian",
+    "start": 247.52,
+    "end": 248.16
+   }
+  ]
+ },
+ {
+  "index": 90,
+  "text": "-cient",
+  "line_index": 86,
+  "start": 249.14,
+  "end": 250.02,
+  "duration": 0.88,
+  "words": [
+   {
+    "word": "-cient",
+    "start": 249.14,
+    "end": 250.02
+   }
+  ]
+ },
+ {
+  "index": 91,
+  "text": "-cean",
+  "line_index": 87,
+  "start": 251.52,
+  "end": 252.18,
+  "duration": 0.66,
+  "words": [
+   {
+    "word": "-cean",
+    "start": 251.52,
+    "end": 252.18
+   }
+  ]
+ },
+ {
+  "index": 92,
+  "text": "When the c is followed by two vowels like that, it says /sh/.",
+  "line_index": 88,
+  "start": 253.94,
+  "end": 258.43,
+  "duration": 4.49,
+  "words": [
+   {
+    "word": "When",
+    "start": 253.94,
+    "end": 253.94
+   },
+   {
+    "word": "the",
+    "start": 253.94,
+    "end": 254.12
+   },
+   {
+    "word": "c",
+    "start": 254.12,
+    "end": 254.34
+   },
+   {
+    "word": "is",
+    "start": 254.34,
+    "end": 254.68
+   },
+   {
+    "word": "followed",
+    "start": 254.68,
+    "end": 254.98
+   },
+   {
+    "word": "by",
+    "start": 254.98,
+    "end": 255.26
+   },
+   {
+    "word": "two",
+    "start": 255.26,
+    "end": 255.58
+   },
+   {
+    "word": "vowels",
+    "start": 255.58,
+    "end": 255.96
+   },
+   {
+    "word": "like",
+    "start": 255.96,
+    "end": 256.3
+   },
+   {
+    "word": "that,",
+    "start": 256.3,
+    "end": 257.1
+   },
+   {
+    "word": "it",
+    "start": 257.24,
+    "end": 257.24
+   },
+   {
+    "word": "says",
+    "start": 257.24,
+    "end": 257.58
+   },
+   {
+    "word": "/sh/.",
+    "start": 257.58,
+    "end": 258.43
+   }
+  ]
+ },
+ {
+  "index": 93,
+  "text": "That is a rule of its own, and it has its own video.",
+  "line_index": 89,
+  "start": 260.18,
+  "end": 263.44,
+  "duration": 3.26,
+  "words": [
+   {
+    "word": "That",
+    "start": 260.18,
+    "end": 260.18
+   },
+   {
+    "word": "is",
+    "start": 260.18,
+    "end": 260.46
+   },
+   {
+    "word": "a",
+    "start": 260.46,
+    "end": 260.6
+   },
+   {
+    "word": "rule",
+    "start": 260.6,
+    "end": 260.86
+   },
+   {
+    "word": "of",
+    "start": 260.86,
+    "end": 261.14
+   },
+   {
+    "word": "its",
+    "start": 261.14,
+    "end": 261.34
+   },
+   {
+    "word": "own,",
+    "start": 261.34,
+    "end": 261.82
+   },
+   {
+    "word": "and",
+    "start": 262.16,
+    "end": 262.24
+   },
+   {
+    "word": "it",
+    "start": 262.24,
+    "end": 262.34
+   },
+   {
+    "word": "has",
+    "start": 262.34,
+    "end": 262.52
+   },
+   {
+    "word": "its",
+    "start": 262.52,
+    "end": 262.74
+   },
+   {
+    "word": "own",
+    "start": 262.74,
+    "end": 262.94
+   },
+   {
+    "word": "video.",
+    "start": 262.94,
+    "end": 263.44
+   }
+  ]
+ },
+ {
+  "index": 94,
+  "text": "So don't worry about it today.",
+  "line_index": 90,
+  "start": 264.04,
+  "end": 265.64,
+  "duration": 1.6,
+  "words": [
+   {
+    "word": "So",
+    "start": 264.04,
+    "end": 264.1
+   },
+   {
+    "word": "don't",
+    "start": 264.1,
+    "end": 264.38
+   },
+   {
+    "word": "worry",
+    "start": 264.38,
+    "end": 264.68
+   },
+   {
+    "word": "about",
+    "start": 264.68,
+    "end": 264.92
+   },
+   {
+    "word": "it",
+    "start": 264.92,
+    "end": 265.12
+   },
+   {
+    "word": "today.",
+    "start": 265.12,
+    "end": 265.64
+   }
+  ]
+ },
+ {
+  "index": 95,
+  "text": "Just remember the big thing.",
+  "line_index": 91,
+  "start": 266.52,
+  "end": 268.21,
+  "duration": 1.69,
+  "words": [
+   {
+    "word": "Just",
+    "start": 266.52,
+    "end": 266.68
+   },
+   {
+    "word": "remember",
+    "start": 266.68,
+    "end": 267.22
+   },
+   {
+    "word": "the",
+    "start": 267.22,
+    "end": 267.44
+   },
+   {
+    "word": "big",
+    "start": 267.44,
+    "end": 267.66
+   },
+   {
+    "word": "thing.",
+    "start": 267.66,
+    "end": 268.21
+   }
+  ]
+ },
+ {
+  "index": 96,
+  "text": "Before e, i or y, the c is always soft.",
+  "line_index": 92,
+  "start": 269.04,
+  "end": 274.4,
+  "duration": 5.36,
+  "words": [
+   {
+    "word": "Before",
+    "start": 269.04,
+    "end": 269.18
+   },
+   {
+    "word": "e,",
+    "start": 269.18,
+    "end": 270.04
+   },
+   {
+    "word": "i",
+    "start": 270.6,
+    "end": 270.82
+   },
+   {
+    "word": "or",
+    "start": 270.82,
+    "end": 271.36
+   },
+   {
+    "word": "y,",
+    "start": 271.36,
+    "end": 271.94
+   },
+   {
+    "word": "the",
+    "start": 272.52,
+    "end": 272.52
+   },
+   {
+    "word": "c",
+    "start": 272.52,
+    "end": 272.8
+   },
+   {
+    "word": "is",
+    "start": 272.8,
+    "end": 273.26
+   },
+   {
+    "word": "always",
+    "start": 273.26,
+    "end": 273.82
+   },
+   {
+    "word": "soft.",
+    "start": 273.82,
+    "end": 274.4
+   }
+  ]
+ },
+ {
+  "index": 97,
+  "text": "It is never, ever hard.",
+  "line_index": 93,
+  "start": 275.4,
+  "end": 277.23,
+  "duration": 1.83,
+  "words": [
+   {
+    "word": "It",
+    "start": 275.4,
+    "end": 275.44
+   },
+   {
+    "word": "is",
+    "start": 275.44,
+    "end": 275.62
+   },
+   {
+    "word": "never,",
+    "start": 275.62,
+    "end": 276.26
+   },
+   {
+    "word": "ever",
+    "start": 276.66,
+    "end": 276.78
+   },
+   {
+    "word": "hard.",
+    "start": 276.78,
+    "end": 277.23
+   }
+  ]
+ },
+ {
+  "index": 98,
+  "text": "Now it's your turn!",
+  "line_index": 94,
+  "start": 279.12,
+  "end": 280.15,
+  "duration": 1.03,
+  "words": [
+   {
+    "word": "Now",
+    "start": 279.12,
+    "end": 279.12
+   },
+   {
+    "word": "it's",
+    "start": 279.12,
+    "end": 279.38
+   },
+   {
+    "word": "your",
+    "start": 279.38,
+    "end": 279.5
+   },
+   {
+    "word": "turn!",
+    "start": 279.5,
+    "end": 280.15
+   }
+  ]
+ },
+ {
+  "index": 99,
+  "text": "Here is the word...",
+  "line_index": 95,
+  "start": 281.0,
+  "end": 281.93,
+  "duration": 0.93,
+  "words": [
+   {
+    "word": "Here",
+    "start": 281.0,
+    "end": 281.18
+   },
+   {
+    "word": "is",
+    "start": 281.18,
+    "end": 281.36
+   },
+   {
+    "word": "the",
+    "start": 281.36,
+    "end": 281.48
+   },
+   {
+    "word": "word...",
+    "start": 281.48,
+    "end": 281.93
+   }
+  ]
+ },
+ {
+  "index": 100,
+  "text": "Cycle.",
+  "line_index": 96,
+  "start": 282.8,
+  "end": 283.36,
+  "duration": 0.56,
+  "words": [
+   {
+    "word": "Cycle.",
+    "start": 282.8,
+    "end": 283.36
+   }
+  ]
+ },
+ {
+  "index": 101,
+  "text": "Is this c hard...",
+  "line_index": 97,
+  "start": 284.28,
+  "end": 285.66,
+  "duration": 1.38,
+  "words": [
+   {
+    "word": "Is",
+    "start": 284.28,
+    "end": 284.44
+   },
+   {
+    "word": "this",
+    "start": 284.44,
+    "end": 284.64
+   },
+   {
+    "word": "c",
+    "start": 284.64,
+    "end": 284.98
+   },
+   {
+    "word": "hard...",
+    "start": 284.98,
+    "end": 285.66
+   }
+  ]
+ },
+ {
+  "index": 102,
+  "text": "or is it soft?",
+  "line_index": 98,
+  "start": 286.56,
+  "end": 287.36,
+  "duration": 0.8,
+  "words": [
+   {
+    "word": "or",
+    "start": 286.56,
+    "end": 286.68
+   },
+   {
+    "word": "is",
+    "start": 286.68,
+    "end": 286.9
+   },
+   {
+    "word": "it",
+    "start": 286.9,
+    "end": 287.0
+   },
+   {
+    "word": "soft?",
+    "start": 287.0,
+    "end": 287.36
+   }
+  ]
+ },
+ {
+  "index": 103,
+  "text": "It is soft!",
+  "line_index": 99,
+  "start": 289.48,
+  "end": 291.4,
+  "duration": 1.92,
+  "words": [
+   {
+    "word": "It",
+    "start": 289.48,
+    "end": 289.62
+   },
+   {
+    "word": "is",
+    "start": 289.62,
+    "end": 289.8
+   },
+   {
+    "word": "soft!",
+    "start": 289.8,
+    "end": 291.4
+   }
+  ]
+ },
+ {
+  "index": 104,
+  "text": "The y comes right after the c.",
+  "line_index": 100,
+  "start": 291.4,
+  "end": 293.84,
+  "duration": 2.44,
+  "words": [
+   {
+    "word": "The",
+    "start": 291.4,
+    "end": 291.52
+   },
+   {
+    "word": "y",
+    "start": 291.52,
+    "end": 291.88
+   },
+   {
+    "word": "comes",
+    "start": 291.88,
+    "end": 292.2
+   },
+   {
+    "word": "right",
+    "start": 292.2,
+    "end": 292.62
+   },
+   {
+    "word": "after",
+    "start": 292.62,
+    "end": 293.18
+   },
+   {
+    "word": "the",
+    "start": 293.18,
+    "end": 293.38
+   },
+   {
+    "word": "c.",
+    "start": 293.38,
+    "end": 293.84
+   }
+  ]
+ },
+ {
+  "index": 105,
+  "text": "Let's remember it together.",
+  "line_index": 101,
+  "start": 294.96,
+  "end": 296.26,
+  "duration": 1.3,
+  "words": [
+   {
+    "word": "Let's",
+    "start": 294.96,
+    "end": 295.18
+   },
+   {
+    "word": "remember",
+    "start": 295.18,
+    "end": 295.5
+   },
+   {
+    "word": "it",
+    "start": 295.5,
+    "end": 295.66
+   },
+   {
+    "word": "together.",
+    "start": 295.66,
+    "end": 296.26
+   }
+  ]
+ },
+ {
+  "index": 106,
+  "text": "Before e, i or y, the c is soft.",
+  "line_index": 102,
+  "start": 297.22,
+  "end": 302.46,
+  "duration": 5.24,
+  "words": [
+   {
+    "word": "Before",
+    "start": 297.22,
+    "end": 297.42
+   },
+   {
+    "word": "e,",
+    "start": 297.62,
+    "end": 298.5
+   },
+   {
+    "word": "i",
+    "start": 299.14,
+    "end": 299.36
+   },
+   {
+    "word": "or",
+    "start": 299.36,
+    "end": 299.98
+   },
+   {
+    "word": "y,",
+    "start": 299.98,
+    "end": 300.64
+   },
+   {
+    "word": "the",
+    "start": 301.22,
+    "end": 301.3
+   },
+   {
+    "word": "c",
+    "start": 301.3,
+    "end": 301.6
+   },
+   {
+    "word": "is",
+    "start": 301.6,
+    "end": 302.04
+   },
+   {
+    "word": "soft.",
+    "start": 302.04,
+    "end": 302.46
+   }
+  ]
+ },
+ {
+  "index": 107,
+  "text": "A soft c usually says /s/.",
+  "line_index": 103,
+  "start": 303.64,
+  "end": 305.82,
+  "duration": 2.18,
+  "words": [
+   {
+    "word": "A",
+    "start": 303.64,
+    "end": 303.7
+   },
+   {
+    "word": "soft",
+    "start": 303.7,
+    "end": 304.12
+   },
+   {
+    "word": "c",
+    "start": 304.3,
+    "end": 304.4
+   },
+   {
+    "word": "usually",
+    "start": 304.4,
+    "end": 305.08
+   },
+   {
+    "word": "says",
+    "start": 305.08,
+    "end": 305.6
+   },
+   {
+    "word": "/s/.",
+    "start": 305.6,
+    "end": 305.82
+   }
+  ]
+ },
+ {
+  "index": 108,
+  "text": "Everywhere else, the c is hard and says /k/.",
+  "line_index": 104,
+  "start": 307.6,
+  "end": 311.1,
+  "duration": 3.5,
+  "words": [
+   {
+    "word": "Everywhere",
+    "start": 307.6,
+    "end": 308.02
+   },
+   {
+    "word": "else,",
+    "start": 308.02,
+    "end": 308.44
+   },
+   {
+    "word": "the",
+    "start": 308.94,
+    "end": 309.0
+   },
+   {
+    "word": "c",
+    "start": 309.0,
+    "end": 309.3
+   },
+   {
+    "word": "is",
+    "start": 309.3,
+    "end": 309.64
+   },
+   {
+    "word": "hard",
+    "start": 309.64,
+    "end": 310.06
+   },
+   {
+    "word": "and",
+    "start": 310.06,
+    "end": 310.58
+   },
+   {
+    "word": "says",
+    "start": 310.58,
+    "end": 310.9
+   },
+   {
+    "word": "/k/.",
+    "start": 310.9,
+    "end": 311.1
+   }
+  ]
+ },
+ {
+  "index": 109,
+  "text": "Want to hear these sounds again?",
+  "line_index": 105,
+  "start": 313.48,
+  "end": 315.01,
+  "duration": 1.53,
+  "words": [
+   {
+    "word": "Want",
+    "start": 313.48,
+    "end": 313.62
+   },
+   {
+    "word": "to",
+    "start": 313.62,
+    "end": 313.8
+   },
+   {
+    "word": "hear",
+    "start": 313.8,
+    "end": 313.98
+   },
+   {
+    "word": "these",
+    "start": 313.98,
+    "end": 314.2
+   },
+   {
+    "word": "sounds",
+    "start": 314.2,
+    "end": 314.46
+   },
+   {
+    "word": "again?",
+    "start": 314.46,
+    "end": 315.01
+   }
+  ]
+ },
+ {
+  "index": 110,
+  "text": "They are all waiting in the English Learning app.",
+  "line_index": 106,
+  "start": 315.96,
+  "end": 318.54,
+  "duration": 2.58,
+  "words": [
+   {
+    "word": "They",
+    "start": 315.96,
+    "end": 316.08
+   },
+   {
+    "word": "are",
+    "start": 316.08,
+    "end": 316.22
+   },
+   {
+    "word": "all",
+    "start": 316.22,
+    "end": 316.52
+   },
+   {
+    "word": "waiting",
+    "start": 316.52,
+    "end": 316.98
+   },
+   {
+    "word": "in",
+    "start": 316.98,
+    "end": 317.24
+   },
+   {
+    "word": "the",
+    "start": 317.24,
+    "end": 317.36
+   },
+   {
+    "word": "English",
+    "start": 317.36,
+    "end": 317.7
+   },
+   {
+    "word": "Learning",
+    "start": 317.7,
+    "end": 318.16
+   },
+   {
+    "word": "app.",
+    "start": 318.16,
+    "end": 318.54
+   }
+  ]
+ },
+ {
+  "index": 111,
+  "text": "It costs nothing at all!",
+  "line_index": 107,
+  "start": 319.36,
+  "end": 320.88,
+  "duration": 1.52,
+  "words": [
+   {
+    "word": "It",
+    "start": 319.36,
+    "end": 319.46
+   },
+   {
+    "word": "costs",
+    "start": 319.46,
+    "end": 319.7
+   },
+   {
+    "word": "nothing",
+    "start": 319.7,
+    "end": 320.18
+   },
+   {
+    "word": "at",
+    "start": 320.18,
+    "end": 320.46
+   },
+   {
+    "word": "all!",
+    "start": 320.46,
+    "end": 320.88
+   }
+  ]
+ }
+]

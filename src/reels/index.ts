@@ -17,12 +17,15 @@ import { OuOw16x9Reel, OU_OW_16X9_DURATION } from "./ou_ow_16x9";
 import { AuAw16x9Reel, AU_AW_16X9_DURATION } from "./au_aw_16x9";
 import { OuOwPortraitReel, OU_OW_PORTRAIT_DURATION } from "./ou_ow_portrait";
 import { AuAwPortraitReel, AU_AW_PORTRAIT_DURATION } from "./au_aw_portrait";
+import { CSoftHard16x9Reel, C_SOFT_HARD_DURATION } from "./c_soft_hard_16x9";
+import { GSoftHard16x9Reel, G_SOFT_HARD_DURATION } from "./g_soft_hard_16x9";
 import { GeDge16x9Reel, GE_DGE_16X9_DURATION } from "./ge_dge_16x9";
 import { GeDgePortraitReel, GE_DGE_PORTRAIT_DURATION } from "./ge_dge_portrait";
 import { ChTchPortraitReel, CH_TCH_PORTRAIT_DURATION } from "./ch_tch_portrait";
 import { ChTch16x9Reel, CH_TCH_16X9_DURATION } from "./ch_tch_16x9";
 import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
 import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
+import { LogoIntroReel, LOGO_INTRO_DURATION } from "./logo_intro";
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
@@ -42,6 +45,8 @@ export interface ReelEntry {
 
 // NOTE: Remotion composition ids allow only a-z A-Z 0-9 and "-" (no underscore).
 export const REELS: ReelEntry[] = [
+  // Brand logo intro sting ("Blocks + Peek-a-Boo") — 3s. Prepend to any video.
+  { id: "logo-intro-9x16", component: LogoIntroReel, durationInFrames: LOGO_INTRO_DURATION, width: 1080, height: 1920 },
   { id: "ai-ay", component: AiAyReel, durationInFrames: AI_AY_DURATION }, // L13 · Vowel Teams
   { id: "oi-oy", component: OiOyReel, durationInFrames: OI_OY_DURATION }, // L14 · Diphthongs
   { id: "oa-ow", component: OaOwReel, durationInFrames: OA_OW_DURATION }, // L13 · Vowel Teams
@@ -85,6 +90,8 @@ export const REELS: ReelEntry[] = [
   { id: "ou-ow-9x16", component: OuOwPortraitReel, durationInFrames: OU_OW_PORTRAIT_DURATION, width: 1080, height: 1920 },
   { id: "au-aw-9x16", component: AuAwPortraitReel, durationInFrames: AU_AW_PORTRAIT_DURATION, width: 1080, height: 1920 },
   // L10 · ch/tch — long-form 16:9 lesson. Match Day: the rule is the letter BEFORE the sound.
+  { id: "g-soft-hard-16x9", component: GSoftHard16x9Reel, durationInFrames: G_SOFT_HARD_DURATION, width: 1920, height: 1080 },
+  { id: "c-soft-hard-16x9", component: CSoftHard16x9Reel, durationInFrames: C_SOFT_HARD_DURATION, width: 1920, height: 1080 },
   { id: "ge-dge-9x16", component: GeDgePortraitReel, durationInFrames: GE_DGE_PORTRAIT_DURATION, width: 1080, height: 1920 },
   { id: "ge-dge-16x9", component: GeDge16x9Reel, durationInFrames: GE_DGE_16X9_DURATION, width: 1920, height: 1080 },
   { id: "ch-tch-9x16", component: ChTchPortraitReel, durationInFrames: CH_TCH_PORTRAIT_DURATION, width: 1080, height: 1920 },

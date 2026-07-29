@@ -33,7 +33,9 @@ def read_lines(path: Path) -> list[str]:
     lines = []
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.strip()
-        if line:
+        # '#' lines are notes for whoever records the script (how to say a sound, which
+        # words to stress). They are NOT spoken, so they must never reach the aligner.
+        if line and not line.startswith("#"):
             lines.append(line)
     return lines
 

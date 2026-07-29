@@ -1,0 +1,411 @@
+1
+00:00:00,240 --> 00:00:01,140
+Look at this letter.
+
+2
+00:00:02,280 --> 00:00:02,700
+G.
+
+3
+00:00:03,980 --> 00:00:07,480
+G has two different sounds, just like c.
+
+4
+00:00:08,400 --> 00:00:09,480
+Listen to the first one.
+
+5
+00:00:10,700 --> 00:00:10,960
+Goat.
+
+6
+00:00:12,160 --> 00:00:13,900
+The g says /g/.
+
+7
+00:00:15,700 --> 00:00:17,400
+Now listen to the second one.
+
+8
+00:00:18,920 --> 00:00:19,280
+Gem.
+
+9
+00:00:20,320 --> 00:00:22,120
+The g says /j/.
+
+10
+00:00:23,880 --> 00:00:26,620
+The same letter, making two different sounds.
+
+11
+00:00:28,080 --> 00:00:29,980
+So how do we know which sound to say?
+
+12
+00:00:31,560 --> 00:00:34,160
+It is the same secret we used for c.
+
+13
+00:00:35,020 --> 00:00:38,000
+We look at the letter that comes after the g.
+
+14
+00:00:39,520 --> 00:00:40,360
+Here is the rule.
+
+15
+00:00:41,580 --> 00:00:44,320
+Do you remember our three special letters?
+
+16
+00:00:45,160 --> 00:00:45,580
+E.
+
+17
+00:00:45,900 --> 00:00:46,760
+I.
+
+18
+00:00:47,260 --> 00:00:47,780
+Y.
+
+19
+00:00:49,160 --> 00:00:56,620
+When g sees e, i or y coming next, the g goes soft.
+
+20
+00:00:58,380 --> 00:01:00,840
+A soft g says /j/.
+
+21
+00:01:02,040 --> 00:01:02,340
+Listen.
+
+22
+00:01:03,140 --> 00:01:03,440
+/j/...
+
+23
+00:01:04,440 --> 00:01:04,780
+e...
+
+24
+00:01:05,800 --> 00:01:06,360
+m...
+
+25
+00:01:07,400 --> 00:01:08,360
+Gem!
+
+26
+00:01:09,460 --> 00:01:13,880
+The e comes right after the g, so this g is soft.
+
+27
+00:01:15,620 --> 00:01:17,320
+Here are more soft g words.
+
+28
+00:01:18,960 --> 00:01:19,280
+Giant.
+
+29
+00:01:20,660 --> 00:01:21,160
+Gym.
+
+30
+00:01:22,200 --> 00:01:22,800
+Magic.
+
+31
+00:01:24,060 --> 00:01:27,660
+You have met soft g before, at the end of words.
+
+32
+00:01:28,940 --> 00:01:29,640
+Cage.
+
+33
+00:01:30,920 --> 00:01:31,660
+Large.
+
+34
+00:01:32,900 --> 00:01:33,360
+Bridge.
+
+35
+00:01:34,720 --> 00:01:37,610
+Every one of those has a soft g too.
+
+36
+00:01:39,020 --> 00:01:40,900
+So what happens everywhere else?
+
+37
+00:01:42,080 --> 00:01:45,420
+Everywhere else, the g stays hard.
+
+38
+00:01:46,420 --> 00:01:50,780
+A hard g says /g/, deep in your throat.
+
+39
+00:01:52,060 --> 00:01:52,580
+Listen.
+
+40
+00:01:53,600 --> 00:01:53,780
+/g/...
+
+41
+00:01:54,800 --> 00:01:55,220
+u...
+
+42
+00:01:57,420 --> 00:01:58,560
+m...
+
+43
+00:01:58,560 --> 00:01:58,760
+Gum!
+
+44
+00:01:59,900 --> 00:02:05,080
+The u comes after the g, and u is not one of our three letters.
+
+45
+00:02:05,940 --> 00:02:07,900
+So this g stays hard.
+
+46
+00:02:09,400 --> 00:02:11,490
+Here are more hard g words.
+
+47
+00:02:12,640 --> 00:02:12,860
+Goat.
+
+48
+00:02:14,060 --> 00:02:14,840
+Glad.
+
+49
+00:02:16,160 --> 00:02:16,620
+Flag.
+
+50
+00:02:17,800 --> 00:02:19,420
+You're doing really well!
+
+51
+00:02:19,860 --> 00:02:23,420
+If you're enjoying this, please like this video and subscribe.
+
+52
+00:02:23,980 --> 00:02:26,700
+Then we can keep making more videos for you.
+
+53
+00:02:27,940 --> 00:02:30,610
+But now I must tell you something important.
+
+54
+00:02:32,080 --> 00:02:35,260
+The g rule is not as tidy as the c rule.
+
+55
+00:02:36,080 --> 00:02:39,740
+With c, the rule works every single time.
+
+56
+00:02:40,480 --> 00:02:44,380
+With g, it works most of the time, but not always.
+
+57
+00:02:46,120 --> 00:02:52,660
+Some words have e or i after the g, and the g stays hard anyway.
+
+58
+00:02:54,060 --> 00:02:54,740
+Listen to these.
+
+59
+00:02:56,140 --> 00:02:56,320
+Get.
+
+60
+00:02:57,600 --> 00:02:58,300
+Give.
+
+61
+00:03:00,040 --> 00:03:00,620
+Girl.
+
+62
+00:03:02,020 --> 00:03:02,260
+Gift.
+
+63
+00:03:04,140 --> 00:03:04,720
+Begin.
+
+64
+00:03:06,380 --> 00:03:06,760
+Tiger.
+
+65
+00:03:08,160 --> 00:03:11,040
+Every one of them should be soft, but it is not!
+
+66
+00:03:12,800 --> 00:03:15,760
+These are little words you already say every day.
+
+67
+00:03:16,480 --> 00:03:19,560
+So learn them by sight, and they will never trick you.
+
+68
+00:03:20,760 --> 00:03:23,120
+And here is a trick that always helps.
+
+69
+00:03:24,520 --> 00:03:29,560
+If a word sounds strange with a soft g, try the hard g instead.
+
+70
+00:03:30,700 --> 00:03:33,060
+Your ears will tell you which one is right.
+
+71
+00:03:34,840 --> 00:03:37,320
+Now let's look at more soft g words.
+
+72
+00:03:38,660 --> 00:03:39,020
+Gem.
+
+73
+00:03:40,340 --> 00:03:40,820
+Giant.
+
+74
+00:03:42,140 --> 00:03:42,620
+Gym.
+
+75
+00:03:43,820 --> 00:03:44,420
+Magic.
+
+76
+00:03:45,700 --> 00:03:46,260
+Cage.
+
+77
+00:03:47,580 --> 00:03:48,240
+Large.
+
+78
+00:03:49,300 --> 00:03:54,000
+Every one has e, i or y after the g.
+
+79
+00:03:55,360 --> 00:03:57,830
+Now let's look at the hard g words.
+
+80
+00:03:59,000 --> 00:03:59,200
+Goat.
+
+81
+00:04:00,700 --> 00:04:01,280
+Gum.
+
+82
+00:04:02,540 --> 00:04:03,200
+Glad.
+
+83
+00:04:04,760 --> 00:04:05,100
+Flag.
+
+84
+00:04:06,840 --> 00:04:07,240
+Green.
+
+85
+00:04:08,640 --> 00:04:09,460
+Wagon.
+
+86
+00:04:10,800 --> 00:04:16,040
+Not one of them has e, i or y after the g.
+
+87
+00:04:17,600 --> 00:04:18,760
+Now it's your turn!
+
+88
+00:04:19,360 --> 00:04:20,640
+Here is the word.
+
+89
+00:04:21,580 --> 00:04:22,160
+Green.
+
+90
+00:04:23,140 --> 00:04:26,480
+Is this g hard, or is it soft?
+
+91
+00:04:28,760 --> 00:04:30,340
+It is hard!
+
+92
+00:04:30,420 --> 00:04:32,920
+The r comes right after the g.
+
+93
+00:04:34,100 --> 00:04:35,600
+Let's remember it together.
+
+94
+00:04:36,840 --> 00:04:44,140
+Before e, i or y, the g is usually soft and says /j/.
+
+95
+00:04:45,440 --> 00:04:49,800
+Everywhere else, the g is hard and says /g/.
+
+96
+00:04:51,100 --> 00:04:53,040
+And don't forget our tricky friends.
+
+97
+00:04:54,020 --> 00:04:54,380
+Get.
+
+98
+00:04:55,100 --> 00:04:56,160
+Give.
+
+99
+00:04:57,340 --> 00:04:58,120
+Girl.
+
+100
+00:04:59,320 --> 00:04:59,580
+Gift.
+
+101
+00:05:01,160 --> 00:05:05,120
+Every letter and every sound is inside the English Learning app.
+
+102
+00:05:05,920 --> 00:05:06,800
+Go and try it.
+
+103
+00:05:07,160 --> 00:05:08,600
+It's completely free!

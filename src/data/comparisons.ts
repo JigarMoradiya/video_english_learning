@@ -170,6 +170,41 @@ export const comparisons: Record<string, PhonicsComparison> = {
       { word: "lunch", blanked: "lun__", answerTeam: 0 },
     ],
   },
+  c_soft_hard: {
+    id: "c_soft_hard",
+    cardTitle: "hard c ⚡ soft c",
+    shortTitle: "c: /k/ or /s/",
+    rule: "Before e, i or y the c is SOFT. Everywhere else it is HARD.",
+    explanation:
+      "One letter, two sounds — and unlike ch/tch or ge/dge, you look at the letter AFTER the c.\n• Before **e, i or y** → **soft c**, usually /s/ (city, cent, cycle).\n• Everywhere else → **hard c**, /k/ (cat, cup, clap).\n• Before e/i/y the c is never hard. In -cial/-cious/-cian/-cient it is still soft, but says /sh/.",
+    example: "cat · city",
+    group: "sound",
+    hueShift: 38, // warm bakery light
+    teams: [
+      { marker: "/k/", colorHex: "D84315", zoneEmoji: "🍪", zoneHint: "everywhere else", zonePhrase: "everywhere else", markerAudio: "c" },
+      { marker: "/s/", colorHex: "2E7D32", zoneEmoji: "🐍", zoneHint: "before e, i, y", zonePhrase: "before e, i or y", markerAudio: "s" },
+    ],
+    quiz: [
+      { word: "cycle", blanked: "cycle", answerTeam: 1 },
+      { word: "cat", blanked: "cat", answerTeam: 0 },
+    ],
+  },
+  g_soft_hard: {
+    id: "g_soft_hard",
+    cardTitle: "hard g ⚡ soft g",
+    shortTitle: "g: /g/ or /j/",
+    rule: "Before e, i or y the g is USUALLY soft — but get, give, girl and gift stay hard.",
+    explanation:
+      "The same secret as hard/soft c: look at the letter AFTER the g.\n• Before **e, i or y** → **soft g**, /j/ (gem, giant, gym, cage).\n• Everywhere else → **hard g**, /g/ (goat, gum, glad, flag).\n• Unlike c, this rule is NOT airtight — **get, give, girl, gift, begin, tiger** all stay hard.",
+    example: "goat · gem",
+    group: "sound",
+    hueShift: 96, // garden green
+    teams: [
+      { marker: "/g/", colorHex: "D84315", zoneEmoji: "🐐", zoneHint: "everywhere else", zonePhrase: "everywhere else", markerAudio: "g" },
+      { marker: "/j/", colorHex: "2E7D32", zoneEmoji: "💎", zoneHint: "before e, i, y", zonePhrase: "before e, i or y", markerAudio: "j" },
+    ],
+    quiz: [{ word: "green", blanked: "green", answerTeam: 0 }],
+  },
   ge_dge: {
     id: "ge_dge",
     cardTitle: "ge ⚡ dge",

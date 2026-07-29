@@ -1,0 +1,447 @@
+1
+00:00:00,280 --> 00:00:01,400
+Look at this letter.
+
+2
+00:00:02,360 --> 00:00:02,640
+C.
+
+3
+00:00:03,880 --> 00:00:06,050
+C has two different sounds.
+
+4
+00:00:06,820 --> 00:00:07,960
+Listen to the first one.
+
+5
+00:00:09,240 --> 00:00:09,360
+Cat.
+
+6
+00:00:10,500 --> 00:00:12,250
+The c says /k/.
+
+7
+00:00:14,080 --> 00:00:15,460
+Now listen to the second one.
+
+8
+00:00:16,800 --> 00:00:17,280
+City.
+
+9
+00:00:18,400 --> 00:00:19,500
+The c says /s/.
+
+10
+00:00:22,180 --> 00:00:26,100
+It is the same letter, but it makes two different sounds!
+
+11
+00:00:27,200 --> 00:00:29,560
+So how do we know which sound to say?
+
+12
+00:00:30,660 --> 00:00:33,780
+In our last videos, we looked at the letter before.
+
+13
+00:00:35,100 --> 00:00:37,240
+This time, we look the other way.
+
+14
+00:00:38,020 --> 00:00:40,680
+We look at the letter that comes after the c.
+
+15
+00:00:42,260 --> 00:00:43,080
+Here is the rule!
+
+16
+00:00:44,240 --> 00:00:45,660
+Three letters are special.
+
+17
+00:00:46,860 --> 00:00:47,200
+E.
+
+18
+00:00:47,900 --> 00:00:48,620
+I.
+
+19
+00:00:49,300 --> 00:00:50,000
+Y.
+
+20
+00:00:51,340 --> 00:00:57,520
+When c sees e, i or y coming next, the c goes soft.
+
+21
+00:00:59,120 --> 00:01:04,220
+A soft c says /s/, like a quiet little snake.
+
+22
+00:01:04,740 --> 00:01:05,180
+Listen.
+
+23
+00:01:06,000 --> 00:01:07,300
+/s/...
+
+24
+00:01:07,400 --> 00:01:07,520
+ih...
+
+25
+00:01:08,200 --> 00:01:08,660
+ty...
+
+26
+00:01:10,000 --> 00:01:10,840
+City!
+
+27
+00:01:12,120 --> 00:01:16,440
+The i comes right after the c, so this c is soft.
+
+28
+00:01:18,120 --> 00:01:19,920
+Here are more soft c words.
+
+29
+00:01:21,080 --> 00:01:21,340
+Cent.
+
+30
+00:01:22,440 --> 00:01:23,400
+Circle.
+
+31
+00:01:24,560 --> 00:01:25,320
+Cycle.
+
+32
+00:01:26,680 --> 00:01:32,280
+Every one of them has e, i or y right after the c.
+
+33
+00:01:33,700 --> 00:01:35,300
+So what happens everywhere else?
+
+34
+00:01:36,960 --> 00:01:40,110
+Everywhere else, the c stays hard.
+
+35
+00:01:40,800 --> 00:01:44,840
+A hard c says /k/, strong and short.
+
+36
+00:01:46,000 --> 00:01:46,320
+Listen.
+
+37
+00:01:47,560 --> 00:01:48,660
+/k/...
+
+38
+00:01:48,720 --> 00:01:48,820
+a...
+
+39
+00:01:49,560 --> 00:01:50,640
+t...
+
+40
+00:01:50,720 --> 00:01:51,400
+Cat!
+
+41
+00:01:52,560 --> 00:01:57,800
+The a comes after the c, and a is not one of our three letters.
+
+42
+00:01:58,640 --> 00:02:00,470
+So this c stays hard.
+
+43
+00:02:02,140 --> 00:02:03,860
+Here are more hard c words.
+
+44
+00:02:05,140 --> 00:02:05,540
+Cup.
+
+45
+00:02:06,660 --> 00:02:07,280
+Cold.
+
+46
+00:02:08,940 --> 00:02:09,080
+Clap.
+
+47
+00:02:10,840 --> 00:02:14,060
+In clap, the letter l comes after the c.
+
+48
+00:02:14,980 --> 00:02:15,500
+That is fine.
+
+49
+00:02:16,320 --> 00:02:18,020
+The c is still hard.
+
+50
+00:02:19,800 --> 00:02:22,900
+Let's say our three special letters one more time.
+
+51
+00:02:24,020 --> 00:02:24,460
+E.
+
+52
+00:02:24,940 --> 00:02:25,920
+I.
+
+53
+00:02:26,720 --> 00:02:27,400
+Y.
+
+54
+00:02:28,600 --> 00:02:30,720
+Those three make the c soft.
+
+55
+00:02:32,420 --> 00:02:34,440
+Every other letter keeps it hard.
+
+56
+00:02:35,660 --> 00:02:38,080
+Now let's look at more soft c words.
+
+57
+00:02:39,520 --> 00:02:39,800
+City.
+
+58
+00:02:41,200 --> 00:02:41,480
+Cent.
+
+59
+00:02:43,060 --> 00:02:43,600
+Circle.
+
+60
+00:02:45,020 --> 00:02:45,640
+Cycle.
+
+61
+00:02:47,100 --> 00:02:47,380
+Ice.
+
+62
+00:02:49,200 --> 00:02:49,460
+Race.
+
+63
+00:02:50,880 --> 00:02:55,440
+Every one has e, i or y after the c.
+
+64
+00:02:56,800 --> 00:02:59,120
+Now let's look at the hard c words.
+
+65
+00:03:00,360 --> 00:03:00,520
+Cat.
+
+66
+00:03:01,820 --> 00:03:02,320
+Cup.
+
+67
+00:03:03,620 --> 00:03:04,360
+Cold.
+
+68
+00:03:05,800 --> 00:03:06,320
+Clap.
+
+69
+00:03:07,900 --> 00:03:08,240
+Cream.
+
+70
+00:03:09,620 --> 00:03:10,120
+Picnic.
+
+71
+00:03:11,160 --> 00:03:15,900
+Not one of them has e, i or y after the c.
+
+72
+00:03:17,220 --> 00:03:18,980
+You're doing really well!
+
+73
+00:03:19,900 --> 00:03:23,820
+If you're enjoying this, please like this video and subscribe.
+
+74
+00:03:24,660 --> 00:03:27,480
+Then we can keep making more videos for you.
+
+75
+00:03:29,080 --> 00:03:30,860
+There is one more thing you should know.
+
+76
+00:03:32,140 --> 00:03:33,580
+Look at these five words.
+
+77
+00:03:35,220 --> 00:03:35,420
+Special.
+
+78
+00:03:36,780 --> 00:03:37,200
+Precious.
+
+79
+00:03:38,900 --> 00:03:39,540
+Musician.
+
+80
+00:03:40,880 --> 00:03:41,420
+Ancient.
+
+81
+00:03:42,860 --> 00:03:43,580
+Ocean.
+
+82
+00:03:44,760 --> 00:03:47,080
+Every one of them has a soft c.
+
+83
+00:03:48,220 --> 00:03:49,280
+But listen carefully.
+
+84
+00:03:50,420 --> 00:03:52,580
+This soft c does not say /s/.
+
+85
+00:03:54,060 --> 00:03:55,330
+It says /sh/.
+
+86
+00:03:57,080 --> 00:03:59,330
+Can you see what makes these words special?
+
+87
+00:04:00,860 --> 00:04:02,640
+Look at how each one ends.
+
+88
+00:04:03,080 --> 00:04:05,840
+/shəl/.
+
+89
+00:04:05,840 --> 00:04:06,040
+/shəs/.
+
+90
+00:04:07,520 --> 00:04:08,160
+/shən/.
+
+91
+00:04:09,140 --> 00:04:10,020
+/shənt/.
+
+92
+00:04:11,520 --> 00:04:12,180
+/shən/.
+
+93
+00:04:13,940 --> 00:04:18,430
+When the c is followed by two vowels like that, it says /sh/.
+
+94
+00:04:20,180 --> 00:04:23,440
+That is a rule of its own, and it has its own video.
+
+95
+00:04:24,040 --> 00:04:25,640
+So don't worry about it today.
+
+96
+00:04:26,520 --> 00:04:28,210
+Just remember the big thing.
+
+97
+00:04:29,040 --> 00:04:34,400
+Before e, i or y, the c is always soft.
+
+98
+00:04:35,400 --> 00:04:37,230
+It is never, ever hard.
+
+99
+00:04:39,120 --> 00:04:40,150
+Now it's your turn!
+
+100
+00:04:41,000 --> 00:04:41,930
+Here is the word...
+
+101
+00:04:42,800 --> 00:04:43,360
+Cycle.
+
+102
+00:04:44,280 --> 00:04:45,660
+Is this c hard...
+
+103
+00:04:46,560 --> 00:04:47,360
+or is it soft?
+
+104
+00:04:49,480 --> 00:04:51,400
+It is soft!
+
+105
+00:04:51,400 --> 00:04:53,840
+The y comes right after the c.
+
+106
+00:04:54,960 --> 00:04:56,260
+Let's remember it together.
+
+107
+00:04:57,220 --> 00:05:02,460
+Before e, i or y, the c is soft.
+
+108
+00:05:03,640 --> 00:05:05,820
+A soft c usually says /s/.
+
+109
+00:05:07,600 --> 00:05:11,100
+Everywhere else, the c is hard and says /k/.
+
+110
+00:05:13,480 --> 00:05:15,010
+Want to hear these sounds again?
+
+111
+00:05:15,960 --> 00:05:18,540
+They are all waiting in the English Learning app.
+
+112
+00:05:19,360 --> 00:05:20,880
+It costs nothing at all!

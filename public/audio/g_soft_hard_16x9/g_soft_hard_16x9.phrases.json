@@ -1,0 +1,3442 @@
+[
+  {
+    "index": 0,
+    "text": "Look at this letter.",
+    "line_index": 0,
+    "start": 0.24,
+    "end": 1.14,
+    "duration": 0.9,
+    "words": [
+      {
+        "word": "Look",
+        "start": 0.24,
+        "end": 0.26
+      },
+      {
+        "word": "at",
+        "start": 0.26,
+        "end": 0.46
+      },
+      {
+        "word": "this",
+        "start": 0.46,
+        "end": 0.64
+      },
+      {
+        "word": "letter.",
+        "start": 0.64,
+        "end": 1.14
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "G.",
+    "line_index": 0,
+    "start": 2.28,
+    "end": 2.7,
+    "duration": 0.42,
+    "words": [
+      {
+        "word": "G.",
+        "start": 2.28,
+        "end": 2.7
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "G has two different sounds, just like c.",
+    "line_index": 1,
+    "start": 3.98,
+    "end": 7.48,
+    "duration": 3.5,
+    "words": [
+      {
+        "word": "G",
+        "start": 3.98,
+        "end": 3.98
+      },
+      {
+        "word": "has",
+        "start": 3.98,
+        "end": 4.26
+      },
+      {
+        "word": "two",
+        "start": 4.26,
+        "end": 4.56
+      },
+      {
+        "word": "different",
+        "start": 4.56,
+        "end": 4.98
+      },
+      {
+        "word": "sounds,",
+        "start": 4.98,
+        "end": 5.58
+      },
+      {
+        "word": "just",
+        "start": 6.22,
+        "end": 6.22
+      },
+      {
+        "word": "like",
+        "start": 6.22,
+        "end": 6.58
+      },
+      {
+        "word": "c.",
+        "start": 6.58,
+        "end": 7.48
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Listen to the first one.",
+    "line_index": 2,
+    "start": 8.4,
+    "end": 9.48,
+    "duration": 1.08,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 8.4,
+        "end": 8.4
+      },
+      {
+        "word": "to",
+        "start": 8.4,
+        "end": 8.66
+      },
+      {
+        "word": "the",
+        "start": 8.66,
+        "end": 8.76
+      },
+      {
+        "word": "first",
+        "start": 8.76,
+        "end": 9.02
+      },
+      {
+        "word": "one.",
+        "start": 9.02,
+        "end": 9.48
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Goat.",
+    "line_index": 3,
+    "start": 10.7,
+    "end": 10.96,
+    "duration": 0.26,
+    "words": [
+      {
+        "word": "Goat.",
+        "start": 10.7,
+        "end": 10.96
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "The g says /g/.",
+    "line_index": 4,
+    "start": 12.16,
+    "end": 13.9,
+    "duration": 1.74,
+    "words": [
+      {
+        "word": "The",
+        "start": 12.16,
+        "end": 12.24
+      },
+      {
+        "word": "g",
+        "start": 12.24,
+        "end": 12.52
+      },
+      {
+        "word": "says",
+        "start": 12.52,
+        "end": 12.92
+      },
+      {
+        "word": "/g/.",
+        "start": 12.92,
+        "end": 13.9
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Now listen to the second one.",
+    "line_index": 5,
+    "start": 15.7,
+    "end": 17.4,
+    "duration": 1.7,
+    "words": [
+      {
+        "word": "Now",
+        "start": 15.7,
+        "end": 15.86
+      },
+      {
+        "word": "listen",
+        "start": 15.86,
+        "end": 16.26
+      },
+      {
+        "word": "to",
+        "start": 16.26,
+        "end": 16.48
+      },
+      {
+        "word": "the",
+        "start": 16.48,
+        "end": 16.6
+      },
+      {
+        "word": "second",
+        "start": 16.6,
+        "end": 16.92
+      },
+      {
+        "word": "one.",
+        "start": 16.92,
+        "end": 17.4
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Gem.",
+    "line_index": 6,
+    "start": 18.92,
+    "end": 19.28,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "Gem.",
+        "start": 18.92,
+        "end": 19.28
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "The g says /j/.",
+    "line_index": 7,
+    "start": 20.32,
+    "end": 22.12,
+    "duration": 1.8,
+    "words": [
+      {
+        "word": "The",
+        "start": 20.32,
+        "end": 20.44
+      },
+      {
+        "word": "g",
+        "start": 20.44,
+        "end": 20.8
+      },
+      {
+        "word": "says",
+        "start": 20.8,
+        "end": 21.22
+      },
+      {
+        "word": "/j/.",
+        "start": 21.22,
+        "end": 22.12
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "The same letter, making two different sounds.",
+    "line_index": 8,
+    "start": 23.88,
+    "end": 26.62,
+    "duration": 2.74,
+    "words": [
+      {
+        "word": "The",
+        "start": 23.88,
+        "end": 23.94
+      },
+      {
+        "word": "same",
+        "start": 23.94,
+        "end": 24.24
+      },
+      {
+        "word": "letter,",
+        "start": 24.24,
+        "end": 25.02
+      },
+      {
+        "word": "making",
+        "start": 25.1,
+        "end": 25.16
+      },
+      {
+        "word": "two",
+        "start": 25.16,
+        "end": 25.54
+      },
+      {
+        "word": "different",
+        "start": 25.54,
+        "end": 25.94
+      },
+      {
+        "word": "sounds.",
+        "start": 25.94,
+        "end": 26.62
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "So how do we know which sound to say?",
+    "line_index": 9,
+    "start": 28.08,
+    "end": 29.98,
+    "duration": 1.9,
+    "words": [
+      {
+        "word": "So",
+        "start": 28.08,
+        "end": 28.18
+      },
+      {
+        "word": "how",
+        "start": 28.18,
+        "end": 28.42
+      },
+      {
+        "word": "do",
+        "start": 28.42,
+        "end": 28.58
+      },
+      {
+        "word": "we",
+        "start": 28.58,
+        "end": 28.72
+      },
+      {
+        "word": "know",
+        "start": 28.72,
+        "end": 28.9
+      },
+      {
+        "word": "which",
+        "start": 28.9,
+        "end": 29.14
+      },
+      {
+        "word": "sound",
+        "start": 29.14,
+        "end": 29.46
+      },
+      {
+        "word": "to",
+        "start": 29.46,
+        "end": 29.7
+      },
+      {
+        "word": "say?",
+        "start": 29.7,
+        "end": 29.98
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "It is the same secret we used for c.",
+    "line_index": 10,
+    "start": 31.56,
+    "end": 34.16,
+    "duration": 2.6,
+    "words": [
+      {
+        "word": "It",
+        "start": 31.56,
+        "end": 31.64
+      },
+      {
+        "word": "is",
+        "start": 31.64,
+        "end": 31.8
+      },
+      {
+        "word": "the",
+        "start": 31.8,
+        "end": 31.92
+      },
+      {
+        "word": "same",
+        "start": 31.92,
+        "end": 32.32
+      },
+      {
+        "word": "secret",
+        "start": 32.32,
+        "end": 32.76
+      },
+      {
+        "word": "we",
+        "start": 32.76,
+        "end": 32.96
+      },
+      {
+        "word": "used",
+        "start": 32.96,
+        "end": 33.36
+      },
+      {
+        "word": "for",
+        "start": 33.54,
+        "end": 33.66
+      },
+      {
+        "word": "c.",
+        "start": 33.66,
+        "end": 34.16
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "We look at the letter that comes after the g.",
+    "line_index": 11,
+    "start": 35.02,
+    "end": 38.0,
+    "duration": 2.98,
+    "words": [
+      {
+        "word": "We",
+        "start": 35.02,
+        "end": 35.02
+      },
+      {
+        "word": "look",
+        "start": 35.02,
+        "end": 35.24
+      },
+      {
+        "word": "at",
+        "start": 35.24,
+        "end": 35.42
+      },
+      {
+        "word": "the",
+        "start": 35.42,
+        "end": 35.58
+      },
+      {
+        "word": "letter",
+        "start": 35.58,
+        "end": 35.88
+      },
+      {
+        "word": "that",
+        "start": 35.88,
+        "end": 36.12
+      },
+      {
+        "word": "comes",
+        "start": 36.12,
+        "end": 36.36
+      },
+      {
+        "word": "after",
+        "start": 36.36,
+        "end": 37.14
+      },
+      {
+        "word": "the",
+        "start": 37.14,
+        "end": 37.54
+      },
+      {
+        "word": "g.",
+        "start": 37.54,
+        "end": 38.0
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Here is the rule.",
+    "line_index": 12,
+    "start": 39.52,
+    "end": 40.36,
+    "duration": 0.84,
+    "words": [
+      {
+        "word": "Here",
+        "start": 39.52,
+        "end": 39.52
+      },
+      {
+        "word": "is",
+        "start": 39.52,
+        "end": 39.72
+      },
+      {
+        "word": "the",
+        "start": 39.72,
+        "end": 39.86
+      },
+      {
+        "word": "rule.",
+        "start": 39.86,
+        "end": 40.36
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Do you remember our three special letters?",
+    "line_index": 13,
+    "start": 41.58,
+    "end": 44.32,
+    "duration": 2.74,
+    "words": [
+      {
+        "word": "Do",
+        "start": 41.58,
+        "end": 41.58
+      },
+      {
+        "word": "you",
+        "start": 41.58,
+        "end": 41.76
+      },
+      {
+        "word": "remember",
+        "start": 41.76,
+        "end": 42.26
+      },
+      {
+        "word": "our",
+        "start": 42.26,
+        "end": 42.56
+      },
+      {
+        "word": "three",
+        "start": 42.56,
+        "end": 42.92
+      },
+      {
+        "word": "special",
+        "start": 42.92,
+        "end": 43.42
+      },
+      {
+        "word": "letters?",
+        "start": 43.42,
+        "end": 44.32
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "E.",
+    "line_index": 14,
+    "start": 45.16,
+    "end": 45.58,
+    "duration": 0.42,
+    "words": [
+      {
+        "word": "E.",
+        "start": 45.16,
+        "end": 45.58
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "I.",
+    "line_index": 15,
+    "start": 45.9,
+    "end": 46.76,
+    "duration": 0.86,
+    "words": [
+      {
+        "word": "I.",
+        "start": 45.9,
+        "end": 46.76
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Y.",
+    "line_index": 16,
+    "start": 47.26,
+    "end": 47.78,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "Y.",
+        "start": 47.26,
+        "end": 47.78
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "When g sees e, i or y coming next, the g goes soft.",
+    "line_index": 17,
+    "start": 49.16,
+    "end": 56.62,
+    "duration": 7.46,
+    "words": [
+      {
+        "word": "When",
+        "start": 49.16,
+        "end": 49.32
+      },
+      {
+        "word": "g",
+        "start": 49.32,
+        "end": 49.68
+      },
+      {
+        "word": "sees",
+        "start": 49.68,
+        "end": 50.34
+      },
+      {
+        "word": "e,",
+        "start": 50.34,
+        "end": 51.64
+      },
+      {
+        "word": "i",
+        "start": 51.7,
+        "end": 51.92
+      },
+      {
+        "word": "or",
+        "start": 51.92,
+        "end": 52.5
+      },
+      {
+        "word": "y",
+        "start": 52.5,
+        "end": 52.98
+      },
+      {
+        "word": "coming",
+        "start": 52.98,
+        "end": 53.42
+      },
+      {
+        "word": "next,",
+        "start": 53.42,
+        "end": 54.62
+      },
+      {
+        "word": "the",
+        "start": 54.82,
+        "end": 54.9
+      },
+      {
+        "word": "g",
+        "start": 54.9,
+        "end": 55.34
+      },
+      {
+        "word": "goes",
+        "start": 55.34,
+        "end": 55.9
+      },
+      {
+        "word": "soft.",
+        "start": 55.9,
+        "end": 56.62
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "A soft g says /j/.",
+    "line_index": 18,
+    "start": 58.38,
+    "end": 60.84,
+    "duration": 2.46,
+    "words": [
+      {
+        "word": "A",
+        "start": 58.38,
+        "end": 58.48
+      },
+      {
+        "word": "soft",
+        "start": 58.48,
+        "end": 58.8
+      },
+      {
+        "word": "g",
+        "start": 58.8,
+        "end": 59.3
+      },
+      {
+        "word": "says",
+        "start": 59.3,
+        "end": 59.76
+      },
+      {
+        "word": "/j/.",
+        "start": 60.04,
+        "end": 60.84
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Listen.",
+    "line_index": 19,
+    "start": 62.04,
+    "end": 62.34,
+    "duration": 0.3,
+    "words": [
+      {
+        "word": "Listen.",
+        "start": 62.04,
+        "end": 62.34
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "/j/...",
+    "line_index": 20,
+    "start": 63.14,
+    "end": 63.44,
+    "duration": 0.3,
+    "words": [
+      {
+        "word": "/j/...",
+        "start": 63.14,
+        "end": 63.44
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "e...",
+    "line_index": 20,
+    "start": 64.44,
+    "end": 64.78,
+    "duration": 0.34,
+    "words": [
+      {
+        "word": "e...",
+        "start": 64.44,
+        "end": 64.78
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "m...",
+    "line_index": 20,
+    "start": 65.8,
+    "end": 66.36,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "m...",
+        "start": 65.8,
+        "end": 66.36
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Gem!",
+    "line_index": 21,
+    "start": 67.4,
+    "end": 68.36,
+    "duration": 0.96,
+    "words": [
+      {
+        "word": "Gem!",
+        "start": 67.4,
+        "end": 68.36
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "The e comes right after the g, so this g is soft.",
+    "line_index": 22,
+    "start": 69.46,
+    "end": 73.88,
+    "duration": 4.42,
+    "words": [
+      {
+        "word": "The",
+        "start": 69.46,
+        "end": 69.62
+      },
+      {
+        "word": "e",
+        "start": 69.62,
+        "end": 69.96
+      },
+      {
+        "word": "comes",
+        "start": 69.96,
+        "end": 70.26
+      },
+      {
+        "word": "right",
+        "start": 70.26,
+        "end": 70.66
+      },
+      {
+        "word": "after",
+        "start": 70.66,
+        "end": 71.2
+      },
+      {
+        "word": "the",
+        "start": 71.2,
+        "end": 71.38
+      },
+      {
+        "word": "g,",
+        "start": 71.38,
+        "end": 71.8
+      },
+      {
+        "word": "so",
+        "start": 72.32,
+        "end": 72.38
+      },
+      {
+        "word": "this",
+        "start": 72.38,
+        "end": 72.74
+      },
+      {
+        "word": "g",
+        "start": 72.74,
+        "end": 73.06
+      },
+      {
+        "word": "is",
+        "start": 73.06,
+        "end": 73.48
+      },
+      {
+        "word": "soft.",
+        "start": 73.48,
+        "end": 73.88
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Here are more soft g words.",
+    "line_index": 23,
+    "start": 75.62,
+    "end": 77.32,
+    "duration": 1.7,
+    "words": [
+      {
+        "word": "Here",
+        "start": 75.62,
+        "end": 75.76
+      },
+      {
+        "word": "are",
+        "start": 75.76,
+        "end": 75.88
+      },
+      {
+        "word": "more",
+        "start": 75.88,
+        "end": 76.14
+      },
+      {
+        "word": "soft",
+        "start": 76.14,
+        "end": 76.58
+      },
+      {
+        "word": "g",
+        "start": 76.58,
+        "end": 76.82
+      },
+      {
+        "word": "words.",
+        "start": 76.82,
+        "end": 77.32
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Giant.",
+    "line_index": 24,
+    "start": 78.96,
+    "end": 79.28,
+    "duration": 0.32,
+    "words": [
+      {
+        "word": "Giant.",
+        "start": 78.96,
+        "end": 79.28
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Gym.",
+    "line_index": 25,
+    "start": 80.66,
+    "end": 81.16,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Gym.",
+        "start": 80.66,
+        "end": 81.16
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "Magic.",
+    "line_index": 26,
+    "start": 82.2,
+    "end": 82.8,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "Magic.",
+        "start": 82.2,
+        "end": 82.8
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "You have met soft g before, at the end of words.",
+    "line_index": 27,
+    "start": 84.06,
+    "end": 87.66,
+    "duration": 3.6,
+    "words": [
+      {
+        "word": "You",
+        "start": 84.06,
+        "end": 84.18
+      },
+      {
+        "word": "have",
+        "start": 84.18,
+        "end": 84.36
+      },
+      {
+        "word": "met",
+        "start": 84.36,
+        "end": 84.58
+      },
+      {
+        "word": "soft",
+        "start": 84.58,
+        "end": 84.94
+      },
+      {
+        "word": "g",
+        "start": 84.94,
+        "end": 85.22
+      },
+      {
+        "word": "before,",
+        "start": 85.22,
+        "end": 85.94
+      },
+      {
+        "word": "at",
+        "start": 86.42,
+        "end": 86.52
+      },
+      {
+        "word": "the",
+        "start": 86.52,
+        "end": 86.68
+      },
+      {
+        "word": "end",
+        "start": 86.68,
+        "end": 86.96
+      },
+      {
+        "word": "of",
+        "start": 86.96,
+        "end": 87.2
+      },
+      {
+        "word": "words.",
+        "start": 87.2,
+        "end": 87.66
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Cage.",
+    "line_index": 28,
+    "start": 88.94,
+    "end": 89.64,
+    "duration": 0.7,
+    "words": [
+      {
+        "word": "Cage.",
+        "start": 88.94,
+        "end": 89.64
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "Large.",
+    "line_index": 29,
+    "start": 90.92,
+    "end": 91.66,
+    "duration": 0.74,
+    "words": [
+      {
+        "word": "Large.",
+        "start": 90.92,
+        "end": 91.66
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "Bridge.",
+    "line_index": 30,
+    "start": 92.9,
+    "end": 93.36,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "Bridge.",
+        "start": 92.9,
+        "end": 93.36
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Every one of those has a soft g too.",
+    "line_index": 31,
+    "start": 94.72,
+    "end": 97.61,
+    "duration": 2.89,
+    "words": [
+      {
+        "word": "Every",
+        "start": 94.72,
+        "end": 95.0
+      },
+      {
+        "word": "one",
+        "start": 95.0,
+        "end": 95.26
+      },
+      {
+        "word": "of",
+        "start": 95.26,
+        "end": 95.46
+      },
+      {
+        "word": "those",
+        "start": 95.46,
+        "end": 95.72
+      },
+      {
+        "word": "has",
+        "start": 95.72,
+        "end": 96.12
+      },
+      {
+        "word": "a",
+        "start": 96.12,
+        "end": 96.28
+      },
+      {
+        "word": "soft",
+        "start": 96.6,
+        "end": 96.7
+      },
+      {
+        "word": "g",
+        "start": 96.7,
+        "end": 96.96
+      },
+      {
+        "word": "too.",
+        "start": 96.96,
+        "end": 97.61
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "So what happens everywhere else?",
+    "line_index": 32,
+    "start": 99.02,
+    "end": 100.9,
+    "duration": 1.88,
+    "words": [
+      {
+        "word": "So",
+        "start": 99.02,
+        "end": 99.12
+      },
+      {
+        "word": "what",
+        "start": 99.12,
+        "end": 99.36
+      },
+      {
+        "word": "happens",
+        "start": 99.36,
+        "end": 99.76
+      },
+      {
+        "word": "everywhere",
+        "start": 99.76,
+        "end": 100.36
+      },
+      {
+        "word": "else?",
+        "start": 100.36,
+        "end": 100.9
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "Everywhere else, the g stays hard.",
+    "line_index": 33,
+    "start": 102.08,
+    "end": 105.42,
+    "duration": 3.34,
+    "words": [
+      {
+        "word": "Everywhere",
+        "start": 102.08,
+        "end": 102.5
+      },
+      {
+        "word": "else,",
+        "start": 102.5,
+        "end": 103.42
+      },
+      {
+        "word": "the",
+        "start": 103.46,
+        "end": 103.52
+      },
+      {
+        "word": "g",
+        "start": 103.52,
+        "end": 103.86
+      },
+      {
+        "word": "stays",
+        "start": 103.86,
+        "end": 104.36
+      },
+      {
+        "word": "hard.",
+        "start": 104.36,
+        "end": 105.42
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "A hard g says /g/, deep in your throat.",
+    "line_index": 34,
+    "start": 106.42,
+    "end": 110.78,
+    "duration": 4.36,
+    "words": [
+      {
+        "word": "A",
+        "start": 106.42,
+        "end": 106.54
+      },
+      {
+        "word": "hard",
+        "start": 106.54,
+        "end": 106.82
+      },
+      {
+        "word": "g",
+        "start": 106.82,
+        "end": 107.28
+      },
+      {
+        "word": "says",
+        "start": 107.28,
+        "end": 107.72
+      },
+      {
+        "word": "/g/,",
+        "start": 107.72,
+        "end": 108.74
+      },
+      {
+        "word": "deep",
+        "start": 109.62,
+        "end": 109.78
+      },
+      {
+        "word": "in",
+        "start": 109.78,
+        "end": 110.14
+      },
+      {
+        "word": "your",
+        "start": 110.14,
+        "end": 110.34
+      },
+      {
+        "word": "throat.",
+        "start": 110.34,
+        "end": 110.78
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "Listen.",
+    "line_index": 35,
+    "start": 112.06,
+    "end": 112.58,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "Listen.",
+        "start": 112.06,
+        "end": 112.58
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "/g/...",
+    "line_index": 36,
+    "start": 113.6,
+    "end": 113.78,
+    "duration": 0.18,
+    "words": [
+      {
+        "word": "/g/...",
+        "start": 113.6,
+        "end": 113.78
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "u...",
+    "line_index": 36,
+    "start": 114.8,
+    "end": 115.22,
+    "duration": 0.42,
+    "words": [
+      {
+        "word": "u...",
+        "start": 114.8,
+        "end": 115.22
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "m...",
+    "line_index": 36,
+    "start": 117.42,
+    "end": 118.56,
+    "duration": 1.14,
+    "words": [
+      {
+        "word": "m...",
+        "start": 117.42,
+        "end": 118.56
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "Gum!",
+    "line_index": 37,
+    "start": 118.56,
+    "end": 118.76,
+    "duration": 0.2,
+    "words": [
+      {
+        "word": "Gum!",
+        "start": 118.56,
+        "end": 118.76
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "The u comes after the g, and u is not one of our three letters.",
+    "line_index": 38,
+    "start": 119.9,
+    "end": 125.08,
+    "duration": 5.18,
+    "words": [
+      {
+        "word": "The",
+        "start": 119.9,
+        "end": 120.04
+      },
+      {
+        "word": "u",
+        "start": 120.04,
+        "end": 120.3
+      },
+      {
+        "word": "comes",
+        "start": 120.3,
+        "end": 120.72
+      },
+      {
+        "word": "after",
+        "start": 120.72,
+        "end": 121.32
+      },
+      {
+        "word": "the",
+        "start": 121.32,
+        "end": 121.58
+      },
+      {
+        "word": "g,",
+        "start": 121.58,
+        "end": 122.02
+      },
+      {
+        "word": "and",
+        "start": 122.62,
+        "end": 122.76
+      },
+      {
+        "word": "u",
+        "start": 122.76,
+        "end": 123.06
+      },
+      {
+        "word": "is",
+        "start": 123.06,
+        "end": 123.4
+      },
+      {
+        "word": "not",
+        "start": 123.4,
+        "end": 123.62
+      },
+      {
+        "word": "one",
+        "start": 123.62,
+        "end": 123.92
+      },
+      {
+        "word": "of",
+        "start": 123.92,
+        "end": 124.08
+      },
+      {
+        "word": "our",
+        "start": 124.08,
+        "end": 124.22
+      },
+      {
+        "word": "three",
+        "start": 124.22,
+        "end": 124.5
+      },
+      {
+        "word": "letters.",
+        "start": 124.5,
+        "end": 125.08
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "So this g stays hard.",
+    "line_index": 39,
+    "start": 125.94,
+    "end": 127.9,
+    "duration": 1.96,
+    "words": [
+      {
+        "word": "So",
+        "start": 125.94,
+        "end": 126.04
+      },
+      {
+        "word": "this",
+        "start": 126.04,
+        "end": 126.32
+      },
+      {
+        "word": "g",
+        "start": 126.32,
+        "end": 126.72
+      },
+      {
+        "word": "stays",
+        "start": 126.72,
+        "end": 127.14
+      },
+      {
+        "word": "hard.",
+        "start": 127.14,
+        "end": 127.9
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "Here are more hard g words.",
+    "line_index": 40,
+    "start": 129.4,
+    "end": 131.49,
+    "duration": 2.09,
+    "words": [
+      {
+        "word": "Here",
+        "start": 129.4,
+        "end": 129.54
+      },
+      {
+        "word": "are",
+        "start": 129.54,
+        "end": 129.7
+      },
+      {
+        "word": "more",
+        "start": 129.7,
+        "end": 129.98
+      },
+      {
+        "word": "hard",
+        "start": 129.98,
+        "end": 130.44
+      },
+      {
+        "word": "g",
+        "start": 130.44,
+        "end": 130.74
+      },
+      {
+        "word": "words.",
+        "start": 130.74,
+        "end": 131.49
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "Goat.",
+    "line_index": 41,
+    "start": 132.64,
+    "end": 132.86,
+    "duration": 0.22,
+    "words": [
+      {
+        "word": "Goat.",
+        "start": 132.64,
+        "end": 132.86
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "Glad.",
+    "line_index": 42,
+    "start": 134.06,
+    "end": 134.84,
+    "duration": 0.78,
+    "words": [
+      {
+        "word": "Glad.",
+        "start": 134.06,
+        "end": 134.84
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "Flag.",
+    "line_index": 43,
+    "start": 136.16,
+    "end": 136.62,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "Flag.",
+        "start": 136.16,
+        "end": 136.62
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "You're doing really well!",
+    "line_index": 44,
+    "start": 137.8,
+    "end": 139.42,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "You're",
+        "start": 137.8,
+        "end": 137.96
+      },
+      {
+        "word": "doing",
+        "start": 137.96,
+        "end": 138.24
+      },
+      {
+        "word": "really",
+        "start": 138.24,
+        "end": 138.66
+      },
+      {
+        "word": "well!",
+        "start": 138.66,
+        "end": 139.42
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "If you're enjoying this, please like this video and subscribe.",
+    "line_index": 45,
+    "start": 139.86,
+    "end": 143.42,
+    "duration": 3.56,
+    "words": [
+      {
+        "word": "If",
+        "start": 139.86,
+        "end": 140.0
+      },
+      {
+        "word": "you're",
+        "start": 140.0,
+        "end": 140.2
+      },
+      {
+        "word": "enjoying",
+        "start": 140.2,
+        "end": 140.58
+      },
+      {
+        "word": "this,",
+        "start": 140.58,
+        "end": 140.98
+      },
+      {
+        "word": "please",
+        "start": 141.5,
+        "end": 141.52
+      },
+      {
+        "word": "like",
+        "start": 141.52,
+        "end": 141.86
+      },
+      {
+        "word": "this",
+        "start": 141.86,
+        "end": 142.1
+      },
+      {
+        "word": "video",
+        "start": 142.1,
+        "end": 142.42
+      },
+      {
+        "word": "and",
+        "start": 142.42,
+        "end": 142.68
+      },
+      {
+        "word": "subscribe.",
+        "start": 142.68,
+        "end": 143.42
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "Then we can keep making more videos for you.",
+    "line_index": 46,
+    "start": 143.98,
+    "end": 146.7,
+    "duration": 2.72,
+    "words": [
+      {
+        "word": "Then",
+        "start": 143.98,
+        "end": 144.18
+      },
+      {
+        "word": "we",
+        "start": 144.18,
+        "end": 144.4
+      },
+      {
+        "word": "can",
+        "start": 144.4,
+        "end": 144.52
+      },
+      {
+        "word": "keep",
+        "start": 144.52,
+        "end": 144.76
+      },
+      {
+        "word": "making",
+        "start": 144.76,
+        "end": 145.14
+      },
+      {
+        "word": "more",
+        "start": 145.14,
+        "end": 145.48
+      },
+      {
+        "word": "videos",
+        "start": 145.48,
+        "end": 145.9
+      },
+      {
+        "word": "for",
+        "start": 145.9,
+        "end": 146.22
+      },
+      {
+        "word": "you.",
+        "start": 146.22,
+        "end": 146.7
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "text": "But now I must tell you something important.",
+    "line_index": 47,
+    "start": 147.94,
+    "end": 150.61,
+    "duration": 2.67,
+    "words": [
+      {
+        "word": "But",
+        "start": 147.94,
+        "end": 147.94
+      },
+      {
+        "word": "now",
+        "start": 147.94,
+        "end": 148.28
+      },
+      {
+        "word": "I",
+        "start": 148.28,
+        "end": 148.64
+      },
+      {
+        "word": "must",
+        "start": 148.64,
+        "end": 148.82
+      },
+      {
+        "word": "tell",
+        "start": 148.82,
+        "end": 149.08
+      },
+      {
+        "word": "you",
+        "start": 149.08,
+        "end": 149.3
+      },
+      {
+        "word": "something",
+        "start": 149.3,
+        "end": 149.76
+      },
+      {
+        "word": "important.",
+        "start": 149.76,
+        "end": 150.61
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "text": "The g rule is not as tidy as the c rule.",
+    "line_index": 48,
+    "start": 152.08,
+    "end": 155.26,
+    "duration": 3.18,
+    "words": [
+      {
+        "word": "The",
+        "start": 152.08,
+        "end": 152.08
+      },
+      {
+        "word": "g",
+        "start": 152.08,
+        "end": 152.36
+      },
+      {
+        "word": "rule",
+        "start": 152.36,
+        "end": 152.7
+      },
+      {
+        "word": "is",
+        "start": 152.7,
+        "end": 152.96
+      },
+      {
+        "word": "not",
+        "start": 152.96,
+        "end": 153.28
+      },
+      {
+        "word": "as",
+        "start": 153.28,
+        "end": 153.56
+      },
+      {
+        "word": "tidy",
+        "start": 153.56,
+        "end": 153.94
+      },
+      {
+        "word": "as",
+        "start": 153.94,
+        "end": 154.3
+      },
+      {
+        "word": "the",
+        "start": 154.3,
+        "end": 154.44
+      },
+      {
+        "word": "c",
+        "start": 154.44,
+        "end": 154.72
+      },
+      {
+        "word": "rule.",
+        "start": 154.72,
+        "end": 155.26
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "text": "With c, the rule works every single time.",
+    "line_index": 49,
+    "start": 156.08,
+    "end": 159.74,
+    "duration": 3.66,
+    "words": [
+      {
+        "word": "With",
+        "start": 156.08,
+        "end": 156.14
+      },
+      {
+        "word": "c,",
+        "start": 156.14,
+        "end": 156.72
+      },
+      {
+        "word": "the",
+        "start": 157.2,
+        "end": 157.2
+      },
+      {
+        "word": "rule",
+        "start": 157.2,
+        "end": 157.56
+      },
+      {
+        "word": "works",
+        "start": 157.56,
+        "end": 157.96
+      },
+      {
+        "word": "every",
+        "start": 158.18,
+        "end": 158.52
+      },
+      {
+        "word": "single",
+        "start": 158.52,
+        "end": 159.04
+      },
+      {
+        "word": "time.",
+        "start": 159.04,
+        "end": 159.74
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "text": "With g, it works most of the time, but not always.",
+    "line_index": 50,
+    "start": 160.48,
+    "end": 164.38,
+    "duration": 3.9,
+    "words": [
+      {
+        "word": "With",
+        "start": 160.48,
+        "end": 160.64
+      },
+      {
+        "word": "g,",
+        "start": 160.64,
+        "end": 161.22
+      },
+      {
+        "word": "it",
+        "start": 161.64,
+        "end": 161.68
+      },
+      {
+        "word": "works",
+        "start": 161.68,
+        "end": 161.9
+      },
+      {
+        "word": "most",
+        "start": 161.9,
+        "end": 162.32
+      },
+      {
+        "word": "of",
+        "start": 162.32,
+        "end": 162.58
+      },
+      {
+        "word": "the",
+        "start": 162.58,
+        "end": 162.7
+      },
+      {
+        "word": "time,",
+        "start": 162.7,
+        "end": 163.2
+      },
+      {
+        "word": "but",
+        "start": 163.58,
+        "end": 163.68
+      },
+      {
+        "word": "not",
+        "start": 163.68,
+        "end": 163.88
+      },
+      {
+        "word": "always.",
+        "start": 163.88,
+        "end": 164.38
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "text": "Some words have e or i after the g, and the g stays hard anyway.",
+    "line_index": 51,
+    "start": 166.12,
+    "end": 172.66,
+    "duration": 6.54,
+    "words": [
+      {
+        "word": "Some",
+        "start": 166.12,
+        "end": 166.12
+      },
+      {
+        "word": "words",
+        "start": 166.12,
+        "end": 166.58
+      },
+      {
+        "word": "have",
+        "start": 166.58,
+        "end": 166.92
+      },
+      {
+        "word": "e",
+        "start": 166.92,
+        "end": 167.42
+      },
+      {
+        "word": "or",
+        "start": 167.42,
+        "end": 167.98
+      },
+      {
+        "word": "i",
+        "start": 167.98,
+        "end": 168.4
+      },
+      {
+        "word": "after",
+        "start": 168.4,
+        "end": 169.16
+      },
+      {
+        "word": "the",
+        "start": 169.16,
+        "end": 169.34
+      },
+      {
+        "word": "g,",
+        "start": 169.34,
+        "end": 169.86
+      },
+      {
+        "word": "and",
+        "start": 170.34,
+        "end": 170.46
+      },
+      {
+        "word": "the",
+        "start": 170.46,
+        "end": 170.6
+      },
+      {
+        "word": "g",
+        "start": 170.6,
+        "end": 170.9
+      },
+      {
+        "word": "stays",
+        "start": 170.9,
+        "end": 171.26
+      },
+      {
+        "word": "hard",
+        "start": 171.26,
+        "end": 171.76
+      },
+      {
+        "word": "anyway.",
+        "start": 171.76,
+        "end": 172.66
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "text": "Listen to these.",
+    "line_index": 52,
+    "start": 174.06,
+    "end": 174.74,
+    "duration": 0.68,
+    "words": [
+      {
+        "word": "Listen",
+        "start": 174.06,
+        "end": 174.08
+      },
+      {
+        "word": "to",
+        "start": 174.08,
+        "end": 174.34
+      },
+      {
+        "word": "these.",
+        "start": 174.34,
+        "end": 174.74
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "text": "Get.",
+    "line_index": 53,
+    "start": 176.14,
+    "end": 176.32,
+    "duration": 0.18,
+    "words": [
+      {
+        "word": "Get.",
+        "start": 176.14,
+        "end": 176.32
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "text": "Give.",
+    "line_index": 54,
+    "start": 177.6,
+    "end": 178.3,
+    "duration": 0.7,
+    "words": [
+      {
+        "word": "Give.",
+        "start": 177.6,
+        "end": 178.3
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "text": "Girl.",
+    "line_index": 55,
+    "start": 180.04,
+    "end": 180.62,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Girl.",
+        "start": 180.04,
+        "end": 180.62
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "text": "Gift.",
+    "line_index": 56,
+    "start": 182.02,
+    "end": 182.26,
+    "duration": 0.24,
+    "words": [
+      {
+        "word": "Gift.",
+        "start": 182.02,
+        "end": 182.26
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "text": "Begin.",
+    "line_index": 57,
+    "start": 184.14,
+    "end": 184.72,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Begin.",
+        "start": 184.14,
+        "end": 184.72
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "text": "Tiger.",
+    "line_index": 58,
+    "start": 186.38,
+    "end": 186.76,
+    "duration": 0.38,
+    "words": [
+      {
+        "word": "Tiger.",
+        "start": 186.38,
+        "end": 186.76
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "text": "Every one of them should be soft, but it is not!",
+    "line_index": 59,
+    "start": 188.16,
+    "end": 191.04,
+    "duration": 2.88,
+    "words": [
+      {
+        "word": "Every",
+        "start": 188.16,
+        "end": 188.32
+      },
+      {
+        "word": "one",
+        "start": 188.32,
+        "end": 188.58
+      },
+      {
+        "word": "of",
+        "start": 188.58,
+        "end": 188.76
+      },
+      {
+        "word": "them",
+        "start": 188.76,
+        "end": 188.94
+      },
+      {
+        "word": "should",
+        "start": 188.94,
+        "end": 189.28
+      },
+      {
+        "word": "be",
+        "start": 189.28,
+        "end": 189.5
+      },
+      {
+        "word": "soft,",
+        "start": 189.5,
+        "end": 189.96
+      },
+      {
+        "word": "but",
+        "start": 190.56,
+        "end": 190.6
+      },
+      {
+        "word": "it",
+        "start": 190.6,
+        "end": 190.76
+      },
+      {
+        "word": "is",
+        "start": 190.76,
+        "end": 190.94
+      },
+      {
+        "word": "not!",
+        "start": 190.94,
+        "end": 191.04
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "text": "These are little words you already say every day.",
+    "line_index": 60,
+    "start": 192.8,
+    "end": 195.76,
+    "duration": 2.96,
+    "words": [
+      {
+        "word": "These",
+        "start": 192.8,
+        "end": 192.84
+      },
+      {
+        "word": "are",
+        "start": 192.84,
+        "end": 193.12
+      },
+      {
+        "word": "little",
+        "start": 193.12,
+        "end": 193.38
+      },
+      {
+        "word": "words",
+        "start": 193.38,
+        "end": 193.68
+      },
+      {
+        "word": "you",
+        "start": 193.68,
+        "end": 193.94
+      },
+      {
+        "word": "already",
+        "start": 193.94,
+        "end": 194.32
+      },
+      {
+        "word": "say",
+        "start": 194.32,
+        "end": 194.72
+      },
+      {
+        "word": "every",
+        "start": 194.72,
+        "end": 195.22
+      },
+      {
+        "word": "day.",
+        "start": 195.22,
+        "end": 195.76
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "text": "So learn them by sight, and they will never trick you.",
+    "line_index": 61,
+    "start": 196.48,
+    "end": 199.56,
+    "duration": 3.08,
+    "words": [
+      {
+        "word": "So",
+        "start": 196.48,
+        "end": 196.48
+      },
+      {
+        "word": "learn",
+        "start": 196.48,
+        "end": 196.8
+      },
+      {
+        "word": "them",
+        "start": 196.8,
+        "end": 197.04
+      },
+      {
+        "word": "by",
+        "start": 197.04,
+        "end": 197.24
+      },
+      {
+        "word": "sight,",
+        "start": 197.24,
+        "end": 197.84
+      },
+      {
+        "word": "and",
+        "start": 197.9,
+        "end": 198.02
+      },
+      {
+        "word": "they",
+        "start": 198.02,
+        "end": 198.16
+      },
+      {
+        "word": "will",
+        "start": 198.16,
+        "end": 198.3
+      },
+      {
+        "word": "never",
+        "start": 198.3,
+        "end": 198.7
+      },
+      {
+        "word": "trick",
+        "start": 198.7,
+        "end": 199.1
+      },
+      {
+        "word": "you.",
+        "start": 199.1,
+        "end": 199.56
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "text": "And here is a trick that always helps.",
+    "line_index": 62,
+    "start": 200.76,
+    "end": 203.12,
+    "duration": 2.36,
+    "words": [
+      {
+        "word": "And",
+        "start": 200.76,
+        "end": 200.88
+      },
+      {
+        "word": "here",
+        "start": 200.88,
+        "end": 201.16
+      },
+      {
+        "word": "is",
+        "start": 201.16,
+        "end": 201.38
+      },
+      {
+        "word": "a",
+        "start": 201.38,
+        "end": 201.5
+      },
+      {
+        "word": "trick",
+        "start": 201.5,
+        "end": 201.8
+      },
+      {
+        "word": "that",
+        "start": 201.8,
+        "end": 202.08
+      },
+      {
+        "word": "always",
+        "start": 202.08,
+        "end": 202.6
+      },
+      {
+        "word": "helps.",
+        "start": 202.6,
+        "end": 203.12
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "text": "If a word sounds strange with a soft g, try the hard g instead.",
+    "line_index": 63,
+    "start": 204.52,
+    "end": 209.56,
+    "duration": 5.04,
+    "words": [
+      {
+        "word": "If",
+        "start": 204.52,
+        "end": 204.7
+      },
+      {
+        "word": "a",
+        "start": 204.7,
+        "end": 204.82
+      },
+      {
+        "word": "word",
+        "start": 204.82,
+        "end": 205.06
+      },
+      {
+        "word": "sounds",
+        "start": 205.06,
+        "end": 205.4
+      },
+      {
+        "word": "strange",
+        "start": 205.52,
+        "end": 205.88
+      },
+      {
+        "word": "with",
+        "start": 205.88,
+        "end": 206.24
+      },
+      {
+        "word": "a",
+        "start": 206.24,
+        "end": 206.38
+      },
+      {
+        "word": "soft",
+        "start": 206.38,
+        "end": 206.72
+      },
+      {
+        "word": "g,",
+        "start": 206.72,
+        "end": 207.26
+      },
+      {
+        "word": "try",
+        "start": 208.02,
+        "end": 208.02
+      },
+      {
+        "word": "the",
+        "start": 208.02,
+        "end": 208.22
+      },
+      {
+        "word": "hard",
+        "start": 208.22,
+        "end": 208.58
+      },
+      {
+        "word": "g",
+        "start": 208.58,
+        "end": 208.86
+      },
+      {
+        "word": "instead.",
+        "start": 208.86,
+        "end": 209.56
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "text": "Your ears will tell you which one is right.",
+    "line_index": 64,
+    "start": 210.7,
+    "end": 213.06,
+    "duration": 2.36,
+    "words": [
+      {
+        "word": "Your",
+        "start": 210.7,
+        "end": 210.7
+      },
+      {
+        "word": "ears",
+        "start": 210.7,
+        "end": 211.14
+      },
+      {
+        "word": "will",
+        "start": 211.14,
+        "end": 211.32
+      },
+      {
+        "word": "tell",
+        "start": 211.32,
+        "end": 211.56
+      },
+      {
+        "word": "you",
+        "start": 211.56,
+        "end": 211.78
+      },
+      {
+        "word": "which",
+        "start": 211.78,
+        "end": 212.08
+      },
+      {
+        "word": "one",
+        "start": 212.08,
+        "end": 212.42
+      },
+      {
+        "word": "is",
+        "start": 212.42,
+        "end": 212.7
+      },
+      {
+        "word": "right.",
+        "start": 212.7,
+        "end": 213.06
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "text": "Now let's look at more soft g words.",
+    "line_index": 65,
+    "start": 214.84,
+    "end": 217.32,
+    "duration": 2.48,
+    "words": [
+      {
+        "word": "Now",
+        "start": 214.84,
+        "end": 214.84
+      },
+      {
+        "word": "let's",
+        "start": 214.84,
+        "end": 215.22
+      },
+      {
+        "word": "look",
+        "start": 215.22,
+        "end": 215.36
+      },
+      {
+        "word": "at",
+        "start": 215.36,
+        "end": 215.5
+      },
+      {
+        "word": "more",
+        "start": 215.5,
+        "end": 215.8
+      },
+      {
+        "word": "soft",
+        "start": 215.8,
+        "end": 216.2
+      },
+      {
+        "word": "g",
+        "start": 216.2,
+        "end": 216.52
+      },
+      {
+        "word": "words.",
+        "start": 216.52,
+        "end": 217.32
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "text": "Gem.",
+    "line_index": 66,
+    "start": 218.66,
+    "end": 219.02,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "Gem.",
+        "start": 218.66,
+        "end": 219.02
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "text": "Giant.",
+    "line_index": 67,
+    "start": 220.34,
+    "end": 220.82,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Giant.",
+        "start": 220.34,
+        "end": 220.82
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "text": "Gym.",
+    "line_index": 68,
+    "start": 222.14,
+    "end": 222.62,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Gym.",
+        "start": 222.14,
+        "end": 222.62
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "text": "Magic.",
+    "line_index": 69,
+    "start": 223.82,
+    "end": 224.42,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "Magic.",
+        "start": 223.82,
+        "end": 224.42
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "text": "Cage.",
+    "line_index": 70,
+    "start": 225.7,
+    "end": 226.26,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Cage.",
+        "start": 225.7,
+        "end": 226.26
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "text": "Large.",
+    "line_index": 71,
+    "start": 227.58,
+    "end": 228.24,
+    "duration": 0.66,
+    "words": [
+      {
+        "word": "Large.",
+        "start": 227.58,
+        "end": 228.24
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "text": "Every one has e, i or y after the g.",
+    "line_index": 72,
+    "start": 229.3,
+    "end": 234.0,
+    "duration": 4.7,
+    "words": [
+      {
+        "word": "Every",
+        "start": 229.3,
+        "end": 229.58
+      },
+      {
+        "word": "one",
+        "start": 229.58,
+        "end": 229.88
+      },
+      {
+        "word": "has",
+        "start": 229.88,
+        "end": 230.3
+      },
+      {
+        "word": "e,",
+        "start": 230.3,
+        "end": 231.34
+      },
+      {
+        "word": "i",
+        "start": 231.4,
+        "end": 231.6
+      },
+      {
+        "word": "or",
+        "start": 231.6,
+        "end": 232.18
+      },
+      {
+        "word": "y",
+        "start": 232.18,
+        "end": 232.56
+      },
+      {
+        "word": "after",
+        "start": 232.56,
+        "end": 233.3
+      },
+      {
+        "word": "the",
+        "start": 233.3,
+        "end": 233.48
+      },
+      {
+        "word": "g.",
+        "start": 233.48,
+        "end": 234.0
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "text": "Now let's look at the hard g words.",
+    "line_index": 73,
+    "start": 235.36,
+    "end": 237.83,
+    "duration": 2.47,
+    "words": [
+      {
+        "word": "Now",
+        "start": 235.36,
+        "end": 235.36
+      },
+      {
+        "word": "let's",
+        "start": 235.36,
+        "end": 235.76
+      },
+      {
+        "word": "look",
+        "start": 235.76,
+        "end": 235.94
+      },
+      {
+        "word": "at",
+        "start": 235.94,
+        "end": 236.12
+      },
+      {
+        "word": "the",
+        "start": 236.12,
+        "end": 236.28
+      },
+      {
+        "word": "hard",
+        "start": 236.28,
+        "end": 236.64
+      },
+      {
+        "word": "g",
+        "start": 236.64,
+        "end": 236.98
+      },
+      {
+        "word": "words.",
+        "start": 236.98,
+        "end": 237.83
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "text": "Goat.",
+    "line_index": 74,
+    "start": 239.0,
+    "end": 239.2,
+    "duration": 0.2,
+    "words": [
+      {
+        "word": "Goat.",
+        "start": 239.0,
+        "end": 239.2
+      }
+    ]
+  },
+  {
+    "index": 80,
+    "text": "Gum.",
+    "line_index": 75,
+    "start": 240.7,
+    "end": 241.28,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Gum.",
+        "start": 240.7,
+        "end": 241.28
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "text": "Glad.",
+    "line_index": 76,
+    "start": 242.54,
+    "end": 243.2,
+    "duration": 0.66,
+    "words": [
+      {
+        "word": "Glad.",
+        "start": 242.54,
+        "end": 243.2
+      }
+    ]
+  },
+  {
+    "index": 82,
+    "text": "Flag.",
+    "line_index": 77,
+    "start": 244.76,
+    "end": 245.1,
+    "duration": 0.34,
+    "words": [
+      {
+        "word": "Flag.",
+        "start": 244.76,
+        "end": 245.1
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "text": "Green.",
+    "line_index": 78,
+    "start": 246.84,
+    "end": 247.24,
+    "duration": 0.4,
+    "words": [
+      {
+        "word": "Green.",
+        "start": 246.84,
+        "end": 247.24
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "text": "Wagon.",
+    "line_index": 79,
+    "start": 248.64,
+    "end": 249.46,
+    "duration": 0.82,
+    "words": [
+      {
+        "word": "Wagon.",
+        "start": 248.64,
+        "end": 249.46
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "text": "Not one of them has e, i or y after the g.",
+    "line_index": 80,
+    "start": 250.8,
+    "end": 256.04,
+    "duration": 5.24,
+    "words": [
+      {
+        "word": "Not",
+        "start": 250.8,
+        "end": 250.94
+      },
+      {
+        "word": "one",
+        "start": 250.94,
+        "end": 251.28
+      },
+      {
+        "word": "of",
+        "start": 251.28,
+        "end": 251.48
+      },
+      {
+        "word": "them",
+        "start": 251.48,
+        "end": 251.7
+      },
+      {
+        "word": "has",
+        "start": 251.7,
+        "end": 252.12
+      },
+      {
+        "word": "e,",
+        "start": 252.12,
+        "end": 253.28
+      },
+      {
+        "word": "i",
+        "start": 253.36,
+        "end": 253.58
+      },
+      {
+        "word": "or",
+        "start": 253.58,
+        "end": 254.2
+      },
+      {
+        "word": "y",
+        "start": 254.2,
+        "end": 254.6
+      },
+      {
+        "word": "after",
+        "start": 254.6,
+        "end": 255.3
+      },
+      {
+        "word": "the",
+        "start": 255.3,
+        "end": 255.52
+      },
+      {
+        "word": "g.",
+        "start": 255.52,
+        "end": 256.04
+      }
+    ]
+  },
+  {
+    "index": 86,
+    "text": "Now it's your turn!",
+    "line_index": 81,
+    "start": 257.6,
+    "end": 258.76,
+    "duration": 1.16,
+    "words": [
+      {
+        "word": "Now",
+        "start": 257.6,
+        "end": 257.62
+      },
+      {
+        "word": "it's",
+        "start": 257.62,
+        "end": 257.94
+      },
+      {
+        "word": "your",
+        "start": 257.94,
+        "end": 258.08
+      },
+      {
+        "word": "turn!",
+        "start": 258.08,
+        "end": 258.76
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "text": "Here is the word.",
+    "line_index": 82,
+    "start": 259.36,
+    "end": 260.64,
+    "duration": 1.28,
+    "words": [
+      {
+        "word": "Here",
+        "start": 259.36,
+        "end": 259.5
+      },
+      {
+        "word": "is",
+        "start": 259.5,
+        "end": 259.78
+      },
+      {
+        "word": "the",
+        "start": 259.78,
+        "end": 259.94
+      },
+      {
+        "word": "word.",
+        "start": 259.94,
+        "end": 260.64
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "text": "Green.",
+    "line_index": 83,
+    "start": 261.58,
+    "end": 262.16,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Green.",
+        "start": 261.58,
+        "end": 262.16
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "text": "Is this g hard, or is it soft?",
+    "line_index": 84,
+    "start": 263.14,
+    "end": 266.48,
+    "duration": 3.34,
+    "words": [
+      {
+        "word": "Is",
+        "start": 263.14,
+        "end": 263.3
+      },
+      {
+        "word": "this",
+        "start": 263.3,
+        "end": 263.56
+      },
+      {
+        "word": "g",
+        "start": 263.56,
+        "end": 263.9
+      },
+      {
+        "word": "hard,",
+        "start": 263.9,
+        "end": 264.7
+      },
+      {
+        "word": "or",
+        "start": 265.66,
+        "end": 265.66
+      },
+      {
+        "word": "is",
+        "start": 265.66,
+        "end": 265.9
+      },
+      {
+        "word": "it",
+        "start": 265.9,
+        "end": 266.02
+      },
+      {
+        "word": "soft?",
+        "start": 266.02,
+        "end": 266.48
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "text": "It is hard!",
+    "line_index": 85,
+    "start": 268.76,
+    "end": 270.34,
+    "duration": 1.58,
+    "words": [
+      {
+        "word": "It",
+        "start": 268.76,
+        "end": 268.86
+      },
+      {
+        "word": "is",
+        "start": 268.86,
+        "end": 269.02
+      },
+      {
+        "word": "hard!",
+        "start": 269.02,
+        "end": 270.34
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "text": "The r comes right after the g.",
+    "line_index": 86,
+    "start": 270.42,
+    "end": 272.92,
+    "duration": 2.5,
+    "words": [
+      {
+        "word": "The",
+        "start": 270.42,
+        "end": 270.42
+      },
+      {
+        "word": "r",
+        "start": 270.42,
+        "end": 270.78
+      },
+      {
+        "word": "comes",
+        "start": 270.78,
+        "end": 271.16
+      },
+      {
+        "word": "right",
+        "start": 271.16,
+        "end": 271.66
+      },
+      {
+        "word": "after",
+        "start": 271.66,
+        "end": 272.24
+      },
+      {
+        "word": "the",
+        "start": 272.24,
+        "end": 272.48
+      },
+      {
+        "word": "g.",
+        "start": 272.48,
+        "end": 272.92
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "text": "Let's remember it together.",
+    "line_index": 87,
+    "start": 274.1,
+    "end": 275.6,
+    "duration": 1.5,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 274.1,
+        "end": 274.24
+      },
+      {
+        "word": "remember",
+        "start": 274.24,
+        "end": 274.66
+      },
+      {
+        "word": "it",
+        "start": 274.66,
+        "end": 274.86
+      },
+      {
+        "word": "together.",
+        "start": 274.86,
+        "end": 275.6
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "text": "Before e, i or y, the g is usually soft and says /j/.",
+    "line_index": 88,
+    "start": 276.84,
+    "end": 284.14,
+    "duration": 7.3,
+    "words": [
+      {
+        "word": "Before",
+        "start": 276.84,
+        "end": 277.02
+      },
+      {
+        "word": "e,",
+        "start": 277.02,
+        "end": 277.72
+      },
+      {
+        "word": "i",
+        "start": 278.26,
+        "end": 278.52
+      },
+      {
+        "word": "or",
+        "start": 278.52,
+        "end": 279.12
+      },
+      {
+        "word": "y,",
+        "start": 279.12,
+        "end": 280.48
+      },
+      {
+        "word": "the",
+        "start": 280.5,
+        "end": 280.58
+      },
+      {
+        "word": "g",
+        "start": 280.58,
+        "end": 280.94
+      },
+      {
+        "word": "is",
+        "start": 280.94,
+        "end": 281.22
+      },
+      {
+        "word": "usually",
+        "start": 281.22,
+        "end": 281.66
+      },
+      {
+        "word": "soft",
+        "start": 281.66,
+        "end": 282.16
+      },
+      {
+        "word": "and",
+        "start": 282.16,
+        "end": 282.66
+      },
+      {
+        "word": "says",
+        "start": 282.66,
+        "end": 283.04
+      },
+      {
+        "word": "/j/.",
+        "start": 283.04,
+        "end": 284.14
+      }
+    ]
+  },
+  {
+    "index": 94,
+    "text": "Everywhere else, the g is hard and says /g/.",
+    "line_index": 89,
+    "start": 285.44,
+    "end": 289.8,
+    "duration": 4.36,
+    "words": [
+      {
+        "word": "Everywhere",
+        "start": 285.44,
+        "end": 285.86
+      },
+      {
+        "word": "else,",
+        "start": 285.86,
+        "end": 286.78
+      },
+      {
+        "word": "the",
+        "start": 286.88,
+        "end": 286.88
+      },
+      {
+        "word": "g",
+        "start": 286.88,
+        "end": 287.2
+      },
+      {
+        "word": "is",
+        "start": 287.2,
+        "end": 287.48
+      },
+      {
+        "word": "hard",
+        "start": 287.48,
+        "end": 287.88
+      },
+      {
+        "word": "and",
+        "start": 287.88,
+        "end": 288.42
+      },
+      {
+        "word": "says",
+        "start": 288.42,
+        "end": 288.8
+      },
+      {
+        "word": "/g/.",
+        "start": 288.8,
+        "end": 289.8
+      }
+    ]
+  },
+  {
+    "index": 95,
+    "text": "And don't forget our tricky friends.",
+    "line_index": 90,
+    "start": 291.1,
+    "end": 293.04,
+    "duration": 1.94,
+    "words": [
+      {
+        "word": "And",
+        "start": 291.1,
+        "end": 291.26
+      },
+      {
+        "word": "don't",
+        "start": 291.26,
+        "end": 291.54
+      },
+      {
+        "word": "forget",
+        "start": 291.54,
+        "end": 291.82
+      },
+      {
+        "word": "our",
+        "start": 291.82,
+        "end": 292.08
+      },
+      {
+        "word": "tricky",
+        "start": 292.08,
+        "end": 292.42
+      },
+      {
+        "word": "friends.",
+        "start": 292.42,
+        "end": 293.04
+      }
+    ]
+  },
+  {
+    "index": 96,
+    "text": "Get.",
+    "line_index": 91,
+    "start": 294.02,
+    "end": 294.38,
+    "duration": 0.36,
+    "words": [
+      {
+        "word": "Get.",
+        "start": 294.02,
+        "end": 294.38
+      }
+    ]
+  },
+  {
+    "index": 97,
+    "text": "Give.",
+    "line_index": 92,
+    "start": 295.1,
+    "end": 296.16,
+    "duration": 1.06,
+    "words": [
+      {
+        "word": "Give.",
+        "start": 295.1,
+        "end": 296.16
+      }
+    ]
+  },
+  {
+    "index": 98,
+    "text": "Girl.",
+    "line_index": 93,
+    "start": 297.34,
+    "end": 298.12,
+    "duration": 0.78,
+    "words": [
+      {
+        "word": "Girl.",
+        "start": 297.34,
+        "end": 298.12
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "text": "Gift.",
+    "line_index": 94,
+    "start": 299.32,
+    "end": 299.58,
+    "duration": 0.26,
+    "words": [
+      {
+        "word": "Gift.",
+        "start": 299.32,
+        "end": 299.58
+      }
+    ]
+  },
+  {
+    "index": 100,
+    "text": "Every letter and every sound is inside the English Learning app.",
+    "line_index": 95,
+    "start": 301.16,
+    "end": 305.12,
+    "duration": 3.96,
+    "words": [
+      {
+        "word": "Every",
+        "start": 301.16,
+        "end": 301.38
+      },
+      {
+        "word": "letter",
+        "start": 301.38,
+        "end": 301.8
+      },
+      {
+        "word": "and",
+        "start": 301.8,
+        "end": 302.12
+      },
+      {
+        "word": "every",
+        "start": 302.12,
+        "end": 302.5
+      },
+      {
+        "word": "sound",
+        "start": 302.5,
+        "end": 302.94
+      },
+      {
+        "word": "is",
+        "start": 302.94,
+        "end": 303.16
+      },
+      {
+        "word": "inside",
+        "start": 303.16,
+        "end": 303.64
+      },
+      {
+        "word": "the",
+        "start": 303.64,
+        "end": 303.88
+      },
+      {
+        "word": "English",
+        "start": 303.88,
+        "end": 304.22
+      },
+      {
+        "word": "Learning",
+        "start": 304.22,
+        "end": 304.7
+      },
+      {
+        "word": "app.",
+        "start": 304.7,
+        "end": 305.12
+      }
+    ]
+  },
+  {
+    "index": 101,
+    "text": "Go and try it.",
+    "line_index": 96,
+    "start": 305.92,
+    "end": 306.8,
+    "duration": 0.88,
+    "words": [
+      {
+        "word": "Go",
+        "start": 305.92,
+        "end": 306.02
+      },
+      {
+        "word": "and",
+        "start": 306.02,
+        "end": 306.22
+      },
+      {
+        "word": "try",
+        "start": 306.22,
+        "end": 306.5
+      },
+      {
+        "word": "it.",
+        "start": 306.5,
+        "end": 306.8
+      }
+    ]
+  },
+  {
+    "index": 102,
+    "text": "It's completely free!",
+    "line_index": 97,
+    "start": 307.16,
+    "end": 308.6,
+    "duration": 1.44,
+    "words": [
+      {
+        "word": "It's",
+        "start": 307.16,
+        "end": 307.34
+      },
+      {
+        "word": "completely",
+        "start": 307.38,
+        "end": 307.8
+      },
+      {
+        "word": "free!",
+        "start": 307.8,
+        "end": 308.6
+      }
+    ]
+  }
+]

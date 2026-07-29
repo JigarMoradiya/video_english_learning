@@ -21,7 +21,9 @@ export const StoreOutro: React.FC<{
   // The app name is palette.ink, which is right on the bright worlds. ge/dge's Word Court is
   // dark purple and it disappeared into the background, so a dark world passes a light colour.
   titleColor?: string;
-}> = ({ silent = false, compact = false, total = STORE_OUTRO_F, audioSrc = "audio/recognition/practice_letter_rules_download_app.mp3", audioDur = CTA_DUR, bg, titleColor = palette.ink }) => {
+  // the green download card, so each world's outro is not identical
+  ctaBg?: string;
+}> = ({ silent = false, compact = false, total = STORE_OUTRO_F, audioSrc = "audio/recognition/practice_letter_rules_download_app.mp3", audioDur = CTA_DUR, bg, titleColor = palette.ink, ctaBg = "#2E7D32" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const logoIn = spring({ frame: frame - 10, fps, config: { damping: 12 } });
@@ -62,7 +64,7 @@ export const StoreOutro: React.FC<{
             fontSize: 42,
             fontWeight: 800,
             color: "#FFFFFF",
-            background: "#2E7D32",
+            background: ctaBg,
             borderRadius: 999,
             padding: "16px 44px",
             textAlign: "center",

@@ -148,7 +148,10 @@ export const WordTiles: React.FC<{
   // than to a guessed x/y. Both the landscape magnifier and the portrait spotlight shipped
   // pointing at the wrong place because they were positioned by arithmetic instead.
   focusOverlay?: React.ReactNode;
-}> = ({ parts, endingColor, focusLabel, focusColor = "#D81B60", verdict, enterAt, endingAt = 0, labelAt = 0, emoji, depth3d = false, verdictTop, tileTop, labelTop, emojiTop, emojiSize, focusOverlay }) => {
+  // One cue per tile, for scripts that spell a word out sound by sound ("/s/… ih… ty…").
+  // Without it every tile shares `enterAt` and the whole word lands on the first sound.
+  partsAt?: number[];
+}> = ({ parts, endingColor, focusLabel, focusColor = "#D81B60", verdict, enterAt, endingAt = 0, labelAt = 0, emoji, depth3d = false, verdictTop, tileTop, labelTop, emojiTop, emojiSize, focusOverlay, partsAt }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   const ec = hex(endingColor);
@@ -164,7 +167,17 @@ export const WordTiles: React.FC<{
           not beside it — beside, it landed on top of the ending tile. */}
       {emoji && (
         <div style={{ position: "absolute", left: 0, right: 0, top: emojiTop ?? TT - 132, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
-          <span style={{ fontSize: emojiSize ?? 104, transform: `scale(${spring({ frame: frame - enterAt, fps, config: { damping: 11 } })}) translateY(${bob(frame, fps, 7, 3)}px)` }}>{emoji}</span>
+          <span
+            style={{
+              // lineHeight 0 + flex: an <Img> inside a text span is baseline-aligned, so the
+              // font's descender pushed the picture ~70px below the coordinate it was given
+              // and it landed on the tiles underneath it
+              fontSize: emojiSize ?? 104, lineHeight: 0, display: "flex", alignItems: "center",
+              transform: `scale(${spring({ frame: frame - enterAt, fps, config: { damping: 11 } })}) translateY(${bob(frame, fps, 7, 3)}px)`,
+            }}
+          >
+            {emoji}
+          </span>
         </div>
       )}
       <div
@@ -179,8 +192,11 @@ export const WordTiles: React.FC<{
         {parts.map((p, i) => {
           const isEnd = p.kind === "ending";
           const isFocus = p.kind === "focus";
-          const shown = isEnd ? frame >= endingAt : true;
-          const s = isEnd ? spring({ frame: frame - endingAt, fps, config: { damping: 10 } }) : inn;
+          const mine = partsAt?.[i];
+          const shown = mine !== undefined ? frame >= mine : isEnd ? frame >= endingAt : true;
+          const s = mine !== undefined
+            ? spring({ frame: frame - mine, fps, config: { damping: 10 } })
+            : isEnd ? spring({ frame: frame - endingAt, fps, config: { damping: 10 } }) : inn;
           const pulse = isFocus && frame >= labelAt ? 1 + 0.05 * Math.sin((frame / fps) * 6) : 1;
           const edge = isEnd ? endingColor : isFocus ? focusColor : "B7C4D4";
           // The focus tile and the ending tile stand PROUD of the plain ones — a deeper
