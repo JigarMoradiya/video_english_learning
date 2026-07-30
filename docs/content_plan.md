@@ -442,3 +442,72 @@ while scripts and recordings are in flight.
 L8 → L28 continue the same way (21 more lessons), then the 5 unported compare cards at
 their levels (`th_two` L9, `ea_two`/`ow_two` L13, `ed_two` L21, `tion_sion` L23), then
 the 4 capstones. Reels run alongside from the five streams in §4.
+
+
+---
+
+## 12. DESIGN LAW — more visuals, less text
+
+**From a real user, so this is evidence, not preference.** The audience is 3–8 year olds.
+A child watching a phonics video *cannot read fluently yet* — that is the entire reason
+they are here. Every sentence on screen is content they cannot access.
+
+### The rule
+
+Text on screen may only be:
+
+1. **The thing being taught** — the letter, the word, the spelling pattern. Always.
+2. **A label of 1–4 words** — `SOFT FLOOR`, `A for Ant`, `e · i · y`.
+
+Never a sentence. Never a line the narrator is speaking at the same time.
+
+```
+The narration carries the EXPLANATION.
+The screen carries the EVIDENCE.
+```
+
+### What we are doing wrong now
+
+Real strings currently on screen, each one a narrator line duplicated as text:
+
+- `Short vowels make a QUICK sound — not the letter's NAME!`
+- `Open your mouth wide — like at the doctor! aaa`
+- `the same c — two different sounds`
+- `When the c is followed by two vowels like that, it says /sh/`
+- `Every one of them should be soft, but it is not!`
+
+The child hears all of that. Printing it as well helps nobody and crowds the frame — and
+crowding is what produced most of the overlap bugs in §5.
+
+### Replace text with
+
+| Instead of a sentence saying… | Show |
+|---|---|
+| "the c is soft here" | the letter turning the soft colour, and the soft gumball/floor lighting |
+| "look at the letter after" | the arrow drawing itself to that letter, the letter scaling up |
+| "two different sounds" | the two sound cards side by side, each pulsing as it is said |
+| "open your mouth wide" | the mouth doing it — the `VowelFace` already animates |
+| "should be soft but it is not" | the purple gumball flipping to green |
+| "these five words all end the same way" | the five endings lighting in turn |
+| a rule restated | the mascot demonstrating, or a ❌ on the wrong reading |
+
+We already own the vocabulary for this: `VowelFace` (animated mouths), `Connector` /
+`RuleArrow` (self-drawing arrows), `Gumball` (colour flip), `WordTiles` (per-tile
+highlight), `SoundCreature`, `Puzzled`, `EmptySlots`, the floor/chute signs. The tools
+exist — we have been leaning on captions instead of using them.
+
+### Applies to
+
+- **Every new lesson (L3–L28)** — at script stage. When a script line explains, ask what
+  the screen *shows* for that line; the answer must not be "the line".
+- **Every 4:5 conversion** — the re-layout is the moment to cut the sentence pills. A
+  narrower frame makes long text worse, so this is not extra work, it removes work.
+- **Thumbnails (§6)** — headline + 1 hook line + art. Nothing else.
+- **Captions stay.** They are for the scrolling adult with sound off, sit in their own
+  band, and are not part of the teaching frame. This rule is about the teaching area.
+
+### How to check it
+
+Count on-screen words per beat, excluding captions and the word being taught. **More than
+4 is a fail.** Cheap to eyeball on the existing phrase sheet — the sheet is already
+generated for every build.
