@@ -6,6 +6,9 @@ import { Quiz } from "../beats/Quiz";
 import { Wrap } from "../beats/Wrap";
 import { OiHook, OiSameSound, OiPuzzle, OiRuleMid, OyRuleEnd, OiSeeIt } from "./oi_oy_beats";
 import { Captions, keywordColorFor } from "../components/Captions";
+import { DigSite } from "../components/DigSite";
+import { StoreOutroPortrait, STORE_OUTRO_PORTRAIT_F } from "../components/StoreOutroPortrait";
+import { positionCues } from "../lib/positionCues";
 import { makeTrack, TPhrase } from "../lib/timing";
 import oiOyPhrases from "../data/oi_oy.timing.json";
 
@@ -25,7 +28,35 @@ const BEATS = {
   wrap: 346, // 67–78.5s
 };
 
-export const OI_OY_DURATION = Object.values(BEATS).reduce((a, b) => a + b, 0);
+// where the recap beat begins: the sum of everything before it. Stable, and independent of
+// the total — the total now depends on how long the outro needs, so deriving WRAP_FROM from
+// it would be circular.
+const WRAP_FROM = BEATS.hook + BEATS.same + BEATS.puzzle + BEATS.ruleOi + BEATS.ruleOy + BEATS.seeIt + BEATS.quiz;
+
+// ── the world reacts to the narration ────────────────────────────────────────
+// Cues come from the WORD timings via the shared nearest-preceding-spelling rule, so the
+// coin seam glints on "oi … middle" and a prize falls to the chest on "oy … end" — and
+// "Because it's at the end!", whose `oy` sits in the previous phrase, is still caught.
+const PH = oiOyPhrases as unknown as Parameters<typeof positionCues>[0];
+const SEAM_CUES = positionCues(PH, "middle", "oi", "oy");
+const CHEST_CUES = positionCues(PH, "end", "oy", "oi");
+// The download section appears with ITS OWN audio — the frame the first CTA line STARTS.
+// Two earlier attempts were both early: a hardcoded `- 236` put it at f2120, which is 65
+// frames INSIDE "oi goes in the middle, oy goes at the end!" (f2084-2185); then the END of
+// that teaching line (f2185) still left the phone on screen for 47 frames of silence before
+// "Want more fun phonics?" begins at f2232. The recap now holds through that gap.
+const CTA_RE = /want more|english learning app|download/i;
+const CTA_AT = PH.findIndex((ph) => CTA_RE.test((ph as { text?: string }).text ?? ""));
+const OUTRO_FROM = Math.round((PH[CTA_AT]?.start ?? 0) * 30);
+// THE REEL RUNS PAST ITS AUDIO so the store flow can finish. The narration ends at f2350,
+// but StoreFlow needs the full STORE_OUTRO_PORTRAIT_F to play search -> tap GET ->
+// downloading -> OPEN; at the 124 frames left inside the audio it was cut off mid-download.
+// The music bed carries the tail and ReelBase fades it against this same total.
+export const OI_OY_DURATION = OUTRO_FROM + STORE_OUTRO_PORTRAIT_F;
+
+// the recap chips light on the words that name them, not on guessed beat offsets
+const HI_OI = (SEAM_CUES[SEAM_CUES.length - 1] ?? WRAP_FROM) - WRAP_FROM;
+const HI_OY = (CHEST_CUES[CHEST_CUES.length - 1] ?? WRAP_FROM) - WRAP_FROM;
 
 const SFX: SfxCue[] = [
   { from: 12, name: "whoosh", vol: 0.5 }, // "Oy!" shout
@@ -56,7 +87,7 @@ export const OiOyReel: React.FC = () => {
   const data = comparisons.oi_oy;
   const at = beatTimeline();
   return (
-    <ReelBase audio="audio/oi_oy/oi_oy.mp3" hueShift={data.hueShift} sfx={SFX} total={OI_OY_DURATION} floater="bubble" scene="party" logoUntil={OI_OY_DURATION - BEATS.wrap} logoCorner="tr">
+    <ReelBase audio="audio/oi_oy/oi_oy.mp3" hueShift={data.hueShift} sfx={SFX} total={OI_OY_DURATION} scene="none" background={<DigSite oiColor={comparisons.oi_oy.teams[0].colorHex} oyColor={comparisons.oi_oy.teams[1].colorHex} seamCues={SEAM_CUES} chestCues={CHEST_CUES} dimFrom={OUTRO_FROM} />} logoUntil={WRAP_FROM} logoCorner="tr">
       <Sequence {...at(BEATS.hook)}>
         <OiHook data={data} />
       </Sequence>
@@ -79,13 +110,22 @@ export const OiOyReel: React.FC = () => {
         {/* "oi" spoken 59.9s (rel 177), "oy" 61.1s (rel 214), "It's oy!" 64.4s (rel 310) */}
         <Quiz data={data} word="enjoy" blanked="enj__" answer={1} revealAt={310} focusA={177} focusB={214} focusLen={36} />
       </Sequence>
-      <Sequence {...at(BEATS.wrap)}>
-        {/* recap: oi 69–71s (rel 60) · oy 71–73s (rel 120); app promo 74s (rel 210) */}
-        <Wrap data={data} hi0={60} hi1={120} hiLen={60} logoAt={210} />
+      {/* The recap must STOP where the store outro begins. Running the full beat left the
+          oi/oy chips drawn on top of the phone card, with one clipped at the right edge. */}
+      <Sequence from={WRAP_FROM} durationInFrames={OUTRO_FROM - WRAP_FROM}>
+        {/* recap: oi 69–71s (rel 60) · oy 71–73s (rel 120) */}
+        <Wrap data={data} hi0={HI_OI} hi1={HI_OY} hiLen={60} logoAt={210} store={false} demo={[["coin", "oi"], ["boy", "oy"]]} />
       </Sequence>
 
       {/* karaoke captions in the free band above SAFE_BOTTOM (top-level child = absolute frame) */}
-      <Captions track={track} keywordColor={keywordColorFor(data)} bottom={490} maxWidth={940} fontSize={40} />
+      {/* captions END at the outro (the oo_portrait pattern) — the store card carries its
+          own CTA text, and the caption band printed over the badges when it ran on. */}
+      <Sequence from={0} durationInFrames={OUTRO_FROM}>
+        <Captions track={track} keywordColor={keywordColorFor(data)} bottom={490} maxWidth={940} fontSize={40} />
+      </Sequence>
+      <Sequence from={OUTRO_FROM} durationInFrames={STORE_OUTRO_PORTRAIT_F}>
+        <StoreOutroPortrait />
+      </Sequence>
     </ReelBase>
   );
 };

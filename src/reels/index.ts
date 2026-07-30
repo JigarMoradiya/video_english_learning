@@ -60,6 +60,8 @@ export const REELS: ReelEntry[] = [
   { id: "oa-ow", component: OaOwReel, durationInFrames: OA_OW_DURATION }, // L13 · Vowel Teams
   // L5 · Short Vowel Rules "-ck Rule" — long-form YouTube teaching video (16:9).
   { id: "c-k-ck", component: CkCkReel, durationInFrames: C_K_CK_DURATION, width: 1920, height: 1080 },
+  // 4:5 for Facebook — same reel, stage fitted to the width, world fills the extra height
+  { id: "c-k-ck-4x5", component: CkCkReel, durationInFrames: C_K_CK_DURATION, width: 1080, height: 1350 },
   // L13 · "Which SOUND?" oo (moon/book) — long-form YouTube lesson (16:9).
   { id: "oo", component: OoReel, durationInFrames: OO_DURATION, width: 1920, height: 1080 },
   // A→Z Letter Phonics Sound — long-form 16:9 video ("A says a-a-a, A for Ant").
@@ -92,8 +94,12 @@ export const REELS: ReelEntry[] = [
   { id: "mouth-chart", component: MouthChart, durationInFrames: 1, width: 1500, height: 1180 },
   // L13 · ai/ay — long-form 16:9 lesson. The Word Train: carriages ARE word positions.
   { id: "ai-ay-16x9", component: AiAy16x9Reel, durationInFrames: AI_AY_16X9_DURATION, width: 1920, height: 1080 },
+  // 4:5 for Facebook — the SAME lesson wearing The Word Train, restaged for a tall frame.
+  { id: "ai-ay-4x5", component: AiAy16x9Reel, durationInFrames: AI_AY_16X9_DURATION, width: 1080, height: 1350 },
   // L14 · oi/oy — long-form 16:9 lesson. The Lily Pond: a frog HOPS to the position.
   { id: "oi-oy-16x9", component: OiOy16x9Reel, durationInFrames: OI_OY_16X9_DURATION, width: 1920, height: 1080 },
+  // 4:5 for Facebook — the SAME lesson wearing The Lily Pond, restaged for a tall frame.
+  { id: "oi-oy-4x5", component: OiOy16x9Reel, durationInFrames: OI_OY_16X9_DURATION, width: 1080, height: 1350 },
   // L13 · oa/ow — long-form 16:9 lesson. The Open Sea: the swell ROLLS through the rafts.
   { id: "oa-ow-16x9", component: OaOw16x9Reel, durationInFrames: OA_OW_16X9_DURATION, width: 1920, height: 1080 },
   // L14 · ou/ow — long-form 16:9 lesson. The Two-Ring Circus: one ow, two sounds.

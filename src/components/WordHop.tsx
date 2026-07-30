@@ -21,20 +21,31 @@ import { PositionPlate, Slot, SlotContent, SlotState, TagChip, hopInfo, slotColo
 //   625…740  the frog, in FRONT of the pad and BELOW the card — no overlap
 //   712…860  water
 
-const PLATE_TOP = 316;
-const CARD_TOP = 372;
-const CARD_H = 240;
-const PAD_CY = 660; // pad centre; ry 52 → 608…712, so the card sits ON the pad
 const PAD_RY = 52;
-const WATER_TOP = 706;
-const BANK_W = 250; // the mascot's own pad, mirroring the train's engine slot
-const GAP = 24;
+
+// Band table per aspect. The 16:9 numbers are the originals and must not move.
+//
+// The whole pond — plate, card, pad, waterline — occupied y316…712, i.e. the top 53% of a
+// 1350-tall frame, leaving 644px (48%) of empty water with the caption floating in it.
+// Portrait drops the pond and grows the card, so the extra height is split between the sky
+// above (where the headline sits) and the water below, instead of all going to water.
+//
+// The relationships are preserved, not re-guessed:
+//   cardTop + cardH sits 4px above the pad top (padCY - PAD_RY)  -> the card rests ON the pad
+//   waterTop - (padCY - PAD_RY) == 98                            -> pads float the same way
+export const pondBands = (width: number, height: number) => {
+  const ratio = height / width;
+  if (ratio > 1.5) return { plateTop: 700, cardTop: 756, cardH: 320, padCY: 1124, waterTop: 1170, bankW: 170, gap: 14 }; // 9:16
+  if (ratio > 1) return { plateTop: 410, cardTop: 466, cardH: 300, padCY: 814, waterTop: 860, bankW: 170, gap: 16 };     // 4:5
+  return { plateTop: 316, cardTop: 372, cardH: 240, padCY: 660, waterTop: 706, bankW: 250, gap: 24 };                    // 16:9
+};
 const HOP_FRAMES = 13;
 
 // ── the sky/water the whole video sits on (persistent, absolute frame) ───────
 export const PondSky: React.FC = () => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
+  const B = pondBands(width, height);
   const drift = (speed: number, span: number, phase: number) => ((frame * speed + phase) % (width + span)) - span;
   return (
     <AbsoluteFill style={{ background: "linear-gradient(180deg, #FFE0B2 0%, #FFF3E0 34%, #FFEBC4 62%, #FFD59E 100%)" }}>
@@ -62,7 +73,7 @@ export const PondSky: React.FC = () => {
 
       {/* reed beds on both banks, swaying */}
       {[80, 150, 210, width - 130, width - 66].map((x, i) => (
-        <svg key={i} width={90} height={260} style={{ position: "absolute", left: x - 45, top: WATER_TOP - 210, transform: `rotate(${wiggle(frame, 30, 3 + (i % 3), 2.4, i)}deg)`, transformOrigin: "bottom center" }}>
+        <svg key={i} width={90} height={260} style={{ position: "absolute", left: x - 45, top: B.waterTop - 210, transform: `rotate(${wiggle(frame, 30, 3 + (i % 3), 2.4, i)}deg)`, transformOrigin: "bottom center" }}>
           <line x1={45} y1={260} x2={45} y2={40} stroke="#7CB342" strokeWidth={9} strokeLinecap="round" />
           <ellipse cx={45} cy={30} rx={13} ry={32} fill="#8D6E63" />
           <line x1={45} y1={150} x2={16} y2={104} stroke="#8BC34A" strokeWidth={7} strokeLinecap="round" />
@@ -71,11 +82,11 @@ export const PondSky: React.FC = () => {
 
       {/* the pond */}
       <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
-        <path d={`M0 ${WATER_TOP + 14} Q ${width * 0.5} ${WATER_TOP - 26} ${width} ${WATER_TOP + 10} L ${width} ${height} L 0 ${height} Z`} fill="#4DB6AC" opacity={0.9} />
-        <path d={`M0 ${WATER_TOP + 62} Q ${width * 0.42} ${WATER_TOP + 22} ${width} ${WATER_TOP + 58} L ${width} ${height} L 0 ${height} Z`} fill="#26A69A" opacity={0.75} />
+        <path d={`M0 ${B.waterTop + 14} Q ${width * 0.5} ${B.waterTop - 26} ${width} ${B.waterTop + 10} L ${width} ${height} L 0 ${height} Z`} fill="#4DB6AC" opacity={0.9} />
+        <path d={`M0 ${B.waterTop + 62} Q ${width * 0.42} ${B.waterTop + 22} ${width} ${B.waterTop + 58} L ${width} ${height} L 0 ${height} Z`} fill="#26A69A" opacity={0.75} />
         {/* ripple lines, always travelling */}
         {Array.from({ length: 7 }).map((_, i) => {
-          const y = WATER_TOP + 96 + i * 30;
+          const y = B.waterTop + 96 + i * 30;
           const off = ((frame * (0.8 + i * 0.18) + i * 120) % (width + 300)) - 150;
           return <path key={i} d={`M${off} ${y} q 40 -11 80 0 t 80 0`} fill="none" stroke="#B2DFDB" strokeWidth={5} strokeLinecap="round" opacity={0.5} />;
         })}
@@ -85,7 +96,7 @@ export const PondSky: React.FC = () => {
       <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
         {Array.from({ length: 9 }).map((_, i) => {
           const x = ((frame * (0.55 + i * 0.09) + i * 230) % (width + 220)) - 110;
-          const y = WATER_TOP + 108 + (i % 5) * 46;
+          const y = B.waterTop + 108 + (i % 5) * 46;
           const spin = frame * (0.5 + i * 0.1) + i * 40;
           return i % 3 === 0 ? (
             <g key={i} transform={`translate(${x} ${y}) rotate(${spin})`}>
@@ -111,7 +122,8 @@ const Pad: React.FC<{
   slot: Slot | null; color: string; lit: boolean; sweeping: boolean;
 }> = ({ cx, w, idx, label, labelLit, slot, color, lit, sweeping }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const B = pondBands(width, height);
   const c = hex(color);
   const float = bob(frame, fps, 4 + idx * 0.4, 4.2, idx * 0.7); // every pad always floating
   const cardW = w * 0.78;
@@ -120,7 +132,7 @@ const Pad: React.FC<{
   return (
     <div style={{ position: "absolute", left: cx - w / 2, top: 0, width: w, height: 900, pointerEvents: "none" }}>
       {/* the pad, riding the water */}
-      <svg width={w + 40} height={200} style={{ position: "absolute", left: -20, top: PAD_CY - 100 + float }}>
+      <svg width={w + 40} height={200} style={{ position: "absolute", left: -20, top: B.padCY - 100 + float }}>
         <ellipse cx={rx + 20} cy={100} rx={rx} ry={PAD_RY} fill={lit ? "#66BB6A" : "#7CB342"} />
         <ellipse cx={rx + 20} cy={94} rx={rx - 10} ry={PAD_RY - 8} fill={lit ? "#81C784" : "#8BC34A"} />
         {/* the notch + veins that make it read as a lily pad, not a green oval */}
@@ -136,7 +148,7 @@ const Pad: React.FC<{
       </svg>
 
       {/* a lily flower on the pad's rim, opening and closing */}
-      <svg width={70} height={70} style={{ position: "absolute", left: w - 46, top: PAD_CY - 46 + float }}>
+      <svg width={70} height={70} style={{ position: "absolute", left: w - 46, top: B.padCY - 46 + float }}>
         {[0, 60, 120, 180, 240, 300].map((a, i) => (
           <ellipse key={i} cx={35} cy={35} rx={9 + 2 * Math.sin((frame / fps) * 2 + i)} ry={20} fill="#F8BBD0" transform={`rotate(${a} 35 35)`} opacity={0.9} />
         ))}
@@ -146,7 +158,7 @@ const Pad: React.FC<{
       {/* the slot card — a rounded bubble resting on the pad */}
       <div
         style={{
-          position: "absolute", left: (w - cardW) / 2, top: CARD_TOP + float, width: cardW, height: CARD_H,
+          position: "absolute", left: (w - cardW) / 2, top: B.cardTop + float, width: cardW, height: B.cardH,
           borderRadius: 34,
           background: lit ? tint(color, 0.86) : "#FFFFFFF2",
           border: `7px solid ${lit ? c : tint(color, 0.5)}`,
@@ -162,7 +174,7 @@ const Pad: React.FC<{
 
       {/* "⬅ before" / "after ➡", right under the card the narration is talking about */}
       {slot?.tag && (
-        <div style={{ position: "absolute", left: 0, right: 0, top: CARD_TOP + CARD_H + 8 + float, display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "absolute", left: 0, right: 0, top: B.cardTop + B.cardH + 8 + float, display: "flex", justifyContent: "center" }}>
           <TagChip text={slot.tag} />
         </div>
       )}
@@ -170,8 +182,8 @@ const Pad: React.FC<{
       {/* position plate, on a stake pushed into the pad */}
       {label && (
         <>
-          <div style={{ position: "absolute", left: w / 2 - 4, top: PLATE_TOP + 34, width: 8, height: CARD_TOP - PLATE_TOP - 30, background: "#8D6E63", borderRadius: 4, opacity: 0.9 }} />
-          <div style={{ position: "absolute", left: 0, right: 0, top: PLATE_TOP + float * 0.4, display: "flex", justifyContent: "center" }}>
+          <div style={{ position: "absolute", left: w / 2 - 4, top: B.plateTop + 34, width: 8, height: B.cardTop - B.plateTop - 30, background: "#8D6E63", borderRadius: 4, opacity: 0.9 }} />
+          <div style={{ position: "absolute", left: 0, right: 0, top: B.plateTop + float * 0.4, display: "flex", justifyContent: "center" }}>
             <PositionPlate idx={idx} lit={labelLit} color={color} />
           </div>
         </>
@@ -222,14 +234,15 @@ export const WordHop: React.FC<{
   sweep?: { from: number; to: number };
 }> = ({ data, stateFor, showLabelsFrom, labelLitAt, hideAt, sweep }) => {
   const frame = useCurrentFrame();
-  const { width, fps } = useVideoConfig();
+  const { width, height, fps } = useVideoConfig();
+  const B = pondBands(width, height);
   const f = frame;
   if (f >= hideAt + 14) return null;
   const opacity = interpolate(f, [hideAt - 14, hideAt + 14], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   const SAFE = safeX(width);
-  const padW = (width - 2 * SAFE - BANK_W - 3 * GAP) / 3;
-  const cxOf = (i: number) => SAFE + BANK_W + GAP + i * (padW + GAP) + padW / 2;
+  const padW = (width - 2 * SAFE - B.bankW - 3 * B.gap) / 3;
+  const cxOf = (i: number) => SAFE + B.bankW + B.gap + i * (padW + B.gap) + padW / 2;
 
   const { cars, litIdx } = stateFor(f);
   const { cur, prev, t } = hopInfo(stateFor, f, HOP_FRAMES);
@@ -244,13 +257,13 @@ export const WordHop: React.FC<{
   const airborne = t > 0.08 && t < 0.92 && prev !== cur;
   const squash = airborne ? 1.08 : 1 - 0.1 * Math.sin(Math.PI * Math.min(1, t / 0.12));
   // the frog's art reaches ~77px above this anchor, so anchoring it at the pad centre drew
-  // its head through the card. CARD_TOP + CARD_H = 612 is the line it must stay under.
-  const frogY = PAD_CY + 42 - arc + bob(frame, fps, 4, 3);
+  // its head through the card. B.cardTop + B.cardH = 612 is the line it must stay under.
+  const frogY = B.padCY + 42 - arc + bob(frame, fps, 4, 3);
 
   return (
     <AbsoluteFill style={{ opacity }}>
       {/* the mascot watching from its own big pad, where the train kept its engine */}
-      <MascotPad x={SAFE} w={BANK_W} />
+      <MascotPad x={SAFE} w={B.bankW} />
 
       {[0, 1, 2].map((i) => (
         <Pad
@@ -275,19 +288,34 @@ export const WordHop: React.FC<{
 
 const MascotPad: React.FC<{ x: number; w: number }> = ({ x, w }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const B = pondBands(width, height);
   const float = bob(frame, fps, 3.4, 5);
   return (
     <div style={{ position: "absolute", left: x, top: 0, width: w, height: 900 }}>
-      <svg width={w + 30} height={190} style={{ position: "absolute", left: -15, top: PAD_CY - 96 + float }}>
+      <svg width={w + 30} height={190} style={{ position: "absolute", left: -15, top: B.padCY - 96 + float }}>
         <ellipse cx={w / 2 + 15} cy={96} rx={w / 2} ry={PAD_RY + 6} fill="#7CB342" />
         <ellipse cx={w / 2 + 15} cy={90} rx={w / 2 - 10} ry={PAD_RY - 2} fill="#8BC34A" />
         <path d={`M${w / 2 + 15} 90 l ${-(w / 2 - 24)} -9 l 0 18 Z`} fill="#F1F8E9" opacity={0.4} />
       </svg>
-      <Img
-        src={staticFile("mascot.png")}
-        style={{ position: "absolute", left: w * 0.1, top: PAD_CY - 250 + float, width: w * 0.8, transform: `rotate(${wiggle(frame, fps, 2.4, 2.6)}deg)` }}
-      />
+      {/* SITS ON the pad, derived — not a fixed offset. `padCY - 250` was tuned for the
+          16:9 mascot (bankW 250 -> 200px wide); portrait's is 136px wide, so the same
+          offset left him hanging 41px ABOVE the leaf. mascot.png is 923x1063 with only 7px
+          of bottom padding, so its feet are effectively the last pixel row and the full
+          height is the right thing to measure from. FEET_INTO_PAD reproduces the 16:9
+          placement exactly (608 + 32 - 230 = 410, which is what -250 gave). */}
+      {(() => {
+        const mw = w * 0.8;
+        const mh = mw * (1063 / 923);
+        const FEET_INTO_PAD = 32;
+        const top = B.padCY - PAD_RY + FEET_INTO_PAD - mh;
+        return (
+          <Img
+            src={staticFile("mascot.png")}
+            style={{ position: "absolute", left: w * 0.1, top: top + float, width: mw, transform: `rotate(${wiggle(frame, fps, 2.4, 2.6)}deg)`, transformOrigin: "bottom center" }}
+          />
+        );
+      })()}
     </div>
   );
 };
