@@ -37,7 +37,19 @@ const HiWord: React.FC<{ word: string; vowel: string; color: string; size: numbe
 
 export const VowelScene: React.FC<{ item: SVVowel }> = ({ item }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  // 4:5 cannot put a 720-wide column beside a 1020-wide one, so portrait stacks them.
+  // Every band is derived and the last one is asserted against the bird row, which sits
+  // at (WIRE_Y - BIRD_H) * height/1080 = 1185 in a 1350-tall frame.
+  const portrait = height > width;
+  const P = {
+    leftTop: 148, letter: 140, lower: 94, face: 224, sound: 60, hintW: 860, hintSize: 28, gapL: 16,
+    rightTop: 792, card: 186, cardFont: 104, word: 92, chipsW: 900, chipGap: 22, gapR: 34,
+  };
+  const pBirdTop = (1028 - 80) * (height / 1080);
+  if (portrait && P.rightTop + P.card + P.gapR + 60 > pBirdTop - 40) {
+    throw new Error(`VowelScene 4:5: content ends ${P.rightTop + P.card + P.gapR + 60}, birds at ${pBirdTop}`);
+  }
   const c = hex(item.color);
   const anchorStroke = cardStroke(item.anchorColor, c);
   const p = svScenePlan(item);
@@ -60,7 +72,7 @@ export const VowelScene: React.FC<{ item: SVVowel }> = ({ item }) => {
   // letter+face start CENTERED & large during the sound/hint beat, then slide to their left
   // home as the anchor + example chips cascade in on the right (fills the frame).
   const shift = interpolate(frame, [p.anchorAt - 22, p.anchorAt], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const leftShiftX = 540 * (1 - shift);
+  const leftShiftX = portrait ? 0 : 540 * (1 - shift);
   const hintIn = interpolate(frame, [p.hintAt - 8, p.hintAt + 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   // the sound label BUZZES while the hint repeats the sound ("aaa, aaa, aaa")
   const [hrs, hre] = HINT_REPEAT[item.lower] ?? [0, 0];
@@ -82,27 +94,27 @@ export const VowelScene: React.FC<{ item: SVVowel }> = ({ item }) => {
 
       <AbsoluteFill style={{ opacity: e }}>
         {/* LEFT: big letter + talking face + sound label + hint (centred while alone, then slides) */}
-        <div style={{ position: "absolute", left: 60, top: 0, width: 720, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18, transform: `translateX(${leftShiftX}px) scale(${1 + 0.1 * (1 - shift)})` }}>
-          <div style={{ fontSize: 172, fontWeight: 800, color: c, lineHeight: 1, transform: `scale(${letterPop}) translateY(${bob(frame, fps, 6, 2.6)}px)`, textShadow: `0 16px 36px ${c}44` }}>
-            {item.letter}<span style={{ fontSize: 116 }}>{item.lower}</span>
+        <div style={{ position: "absolute", left: portrait ? 0 : 60, top: portrait ? P.leftTop : 0, width: portrait ? width : 720, height: portrait ? "auto" : "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: portrait ? P.gapL : 18, transform: `translateX(${leftShiftX}px) scale(${1 + 0.1 * (1 - shift)})` }}>
+          <div style={{ fontSize: portrait ? P.letter : 172, fontWeight: 800, color: c, lineHeight: 1, transform: `scale(${letterPop}) translateY(${bob(frame, fps, 6, 2.6)}px)`, textShadow: `0 16px 36px ${c}44` }}>
+            {item.letter}<span style={{ fontSize: portrait ? P.lower : 116 }}>{item.lower}</span>
           </div>
           <div style={{ transform: `translateY(${bob(frame, fps, 7, 2.4, 1)}px)` }}>
-            <VowelFace shape={item.mouth} open={mouthOpen} size={286} color={c} frame={frame} fps={fps} />
+            <VowelFace shape={item.mouth} open={mouthOpen} size={portrait ? P.face : 286} color={c} frame={frame} fps={fps} />
           </div>
-          <div style={{ fontSize: 72, fontWeight: 800, color: soundLit || buzzing ? c : "#9a9a97", transform: `scale(${buzzing ? 1.14 + 0.06 * Math.sin(frame * 2.1) : soundLit ? 1.12 : 1}) rotate(${buzzing ? 3 * Math.sin(frame * 3.2) : 0}deg)`, textShadow: buzzing ? `0 10px 26px ${c}66` : "none" }}>“{item.sound}”</div>
+          <div style={{ fontSize: portrait ? P.sound : 72, fontWeight: 800, color: soundLit || buzzing ? c : "#9a9a97", transform: `scale(${buzzing ? 1.14 + 0.06 * Math.sin(frame * 2.1) : soundLit ? 1.12 : 1}) rotate(${buzzing ? 3 * Math.sin(frame * 3.2) : 0}deg)`, textShadow: buzzing ? `0 10px 26px ${c}66` : "none" }}>“{item.sound}”</div>
           {/* mouth-shape hint (from the app) */}
-          <div style={{ maxWidth: 620, textAlign: "center", fontSize: 34, fontWeight: 700, color: palette.inkSoft, background: "#FFFFFFcc", borderRadius: 22, padding: "12px 24px", boxShadow: `0 8px 22px ${c}22`, opacity: hintIn, transform: `translateY(${(1 - hintIn) * 10}px)` }}>{item.hint}</div>
+          <div style={{ maxWidth: portrait ? P.hintW : 620, textAlign: "center", fontSize: portrait ? P.hintSize : 34, fontWeight: 700, color: palette.inkSoft, background: "#FFFFFFcc", borderRadius: 22, padding: "12px 24px", boxShadow: `0 8px 22px ${c}22`, opacity: hintIn, transform: `translateY(${(1 - hintIn) * 10}px)` }}>{item.hint}</div>
         </div>
 
         {/* RIGHT: anchor (image + word) + 4 example word chips */}
-        <div style={{ position: "absolute", left: 840, top: 0, width: 1020, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 48 }}>
+        <div style={{ position: "absolute", left: portrait ? 0 : 840, top: portrait ? P.rightTop : 0, width: portrait ? width : 1020, height: portrait ? "auto" : "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: portrait ? "flex-start" : "center", gap: portrait ? P.gapR : 48 }}>
           {/* anchor */}
           {(() => {
             const inA = spring({ frame: frame - p.anchorAt + 8, fps, config: { damping: 13 } });
             const pop = frame >= p.anchorAt ? pulse(frame - p.anchorAt, fps, 0.06, 0.7) : 1;
             return (
               <div style={{ display: "flex", alignItems: "center", gap: 34, transform: `scale(${inA * pop})`, opacity: inA }}>
-                <div style={{ position: "relative", width: 236, height: 236, background: "#fff", borderRadius: 34, border: `9px solid ${anchorStroke}`, boxShadow: `0 18px 44px ${anchorStroke}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 20, fontSize: 128 }}>
+                <div style={{ position: "relative", width: portrait ? P.card : 236, height: portrait ? P.card : 236, background: "#fff", borderRadius: 34, border: `9px solid ${anchorStroke}`, boxShadow: `0 18px 44px ${anchorStroke}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 20, fontSize: portrait ? P.cardFont : 128 }}>
                   {item.anchorImg ? <Img src={staticFile(`shortvowels/${item.anchor}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} /> : <span>{item.anchorEmoji}</span>}
                   {/* brand badge straddling the card corner (never over the picture) */}
                   {wordHasBadge(item.anchor) && <CardBadge size={58} corner={badgeCorner(item.anchor)} />}
@@ -112,7 +124,7 @@ export const VowelScene: React.FC<{ item: SVVowel }> = ({ item }) => {
             );
           })()}
           {/* 4 example word chips (like the app) */}
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 26, maxWidth: 940 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: portrait ? P.chipGap : 26, maxWidth: portrait ? P.chipsW : 940 }}>
             {item.examples.map((ex, i) => {
               const inE = spring({ frame: frame - p.exStarts[i] + 6, fps, config: { damping: 13 } });
               const lit = frame >= p.exStarts[i] && frame < p.exStarts[i] + sec(ex.dur, fps) + 12;

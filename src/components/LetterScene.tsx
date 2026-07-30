@@ -8,6 +8,7 @@ import { TraceGlyph } from "./TraceGlyph";
 import { Confetti } from "./Confetti";
 import imageColors from "../data/imageColors.json";
 import { CardBadge, letterHasBadge } from "./BrandMarks";
+import { StudioWash } from "./PaintStudio";
 
 const COLORS = imageColors as Record<string, string>;
 const normKey = (w: string) => w.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -25,7 +26,22 @@ const wordColor = (w: string) => {
 // Letter + captions use a colour that CONTRASTS the image; the card keeps the image's colour.
 export const LetterScene: React.FC<{ item: LetterItem }> = ({ item }) => {
   const frame = useCurrentFrame();
-  const { fps, width } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  // Bands by aspect. The 16:9 numbers are exactly as they were; a 4:5 frame cannot put
+  // the letter pair BESIDE a 300px card and still fit the extras row, so portrait stacks
+  // them and spends the extra height it has.
+  const portrait = height > width;
+  // Portrait bands are CENTRED in the space between the header pill (which ends near y94)
+  // and the pot shelf (which starts near y1296). The first version started the sound line
+  // at y96 and it touched the header; the whole block now sits 72px lower, leaving 73px
+  // of clearance above and 83px below.
+  const L = portrait
+    ? { soundTop: 168, sizeA: 54, sizeB: 66, rowTop: 340, glyphBig: 250, glyphSmall: 164,
+        card: 282, rowGap: 0, cardTop: 638, forTop: 964, forSize: 60,
+        exTop: 1072, exTile: 108, exGap: 34, exLabel: 25, confettiY: 772 }
+    : { soundTop: 118, sizeA: 64, sizeB: 78, rowTop: 292, glyphBig: 278, glyphSmall: 182,
+        card: 300, rowGap: 90, cardTop: 292, forTop: 612, forSize: 66,
+        exTop: 720, exTile: 116, exGap: 44, exLabel: 27, confettiY: 420 };
   const c = letterColorFor(item.letter, item.imageColor); // distinct per-letter colour (contrast-guarded)
   const ic = lum(item.imageColor) > 0.62 ? shade(item.imageColor, 0.3) : hex(item.imageColor); // image-card stroke
   const t = item.timings;
@@ -70,7 +86,9 @@ export const LetterScene: React.FC<{ item: LetterItem }> = ({ item }) => {
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
       {/* themed background (light tint of the contrast colour) */}
-      <AbsoluteFill style={{ background: `linear-gradient(155deg, ${tint(c, 0.84)} 0%, #FFFFFF 66%)` }} />
+      {portrait
+        ? <StudioWash tone={c} />
+        : <AbsoluteFill style={{ background: `linear-gradient(155deg, ${tint(c, 0.84)} 0%, #FFFFFF 66%)` }} />}
       <svg width={width} height="100%" style={{ position: "absolute" }}>
         {floaters.map((o, k) => {
           const cx = o[0] * width + Math.sin(frame / fps + k) * 22;
@@ -88,30 +106,35 @@ export const LetterScene: React.FC<{ item: LetterItem }> = ({ item }) => {
       </svg>
 
       <AbsoluteFill style={{ transform: enterT, opacity: e }}>
+        {/* Bands by aspect. The 16:9 numbers are unchanged; a 4:5 frame cannot put the
+            letter pair BESIDE a 300px card and still fit the extras row, so portrait
+            stacks them and spends the extra height it has instead. */}
+
         {/* SPOKEN SOUND (above) — clear of the persistent title pill */}
-        <div style={{ position: "absolute", top: 118, left: 0, width, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+        <div style={{ position: "absolute", top: L.soundTop, left: 0, width, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
           <div style={{ display: "flex", gap: 22, alignItems: "baseline" }}>
-            <Tok i={0} text={item.letter} size={64} />
-            <Tok i={1} text="says" size={56} />
+            <Tok i={0} text={item.letter} size={L.sizeA} />
+            <Tok i={1} text="says" size={L.sizeA - 8} />
           </div>
           <div style={{ display: "flex", gap: 26 }}>
-            <Tok i={2} text={item.soundToken} size={78} />
-            <Tok i={3} text={item.soundToken} size={78} />
-            <Tok i={4} text={item.soundToken} size={78} />
+            <Tok i={2} text={item.soundToken} size={L.sizeB} />
+            <Tok i={3} text={item.soundToken} size={L.sizeB} />
+            <Tok i={4} text={item.soundToken} size={L.sizeB} />
           </div>
         </div>
 
         {/* MAIN ROW: self-drawing case pair + word image */}
-        <div style={{ position: "absolute", top: 292, left: 0, width, height: 300, display: "flex", alignItems: "center", justifyContent: "center", gap: 90 }}>
+        <div style={{ position: "absolute", top: L.rowTop, left: 0, width, height: L.glyphBig, display: "flex", alignItems: "center", justifyContent: "center", gap: L.rowGap }}>
           <div style={{ display: "flex", alignItems: "flex-end", gap: 6, transform: `translateY(${bob(frame, fps, 7, 2.8)}px)` }}>
-            <TraceGlyph char={item.letter} color={c} box={278} progress={drawP} />
-            <TraceGlyph char={lower} color={c} box={182} progress={lowerP} />
+            <TraceGlyph char={item.letter} color={c} box={L.glyphBig} progress={drawP} />
+            <TraceGlyph char={lower} color={c} box={L.glyphSmall} progress={lowerP} />
           </div>
           <div
             style={{
-              position: "relative",
-              width: 300,
-              height: 300,
+              position: portrait ? "absolute" : "relative",
+              ...(portrait ? { top: L.cardTop - L.rowTop, left: (width - L.card) / 2 } : {}),
+              width: L.card,
+              height: L.card,
               transform: `scale(${imgIn * imgPulse}) translateY(${bob(frame, fps, 7, 2.4, 1)}px)`,
               background: "#fff",
               borderRadius: 38,
@@ -125,27 +148,27 @@ export const LetterScene: React.FC<{ item: LetterItem }> = ({ item }) => {
           >
             <Img src={staticFile(`letters/${item.image}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
             {/* brand badge on only a handful of the 26 letters (A→Z would be too busy) */}
-            {letterHasBadge(item.letter) && <CardBadge size={66} corner="br" />}
+            {letterHasBadge(item.letter) && <CardBadge size={portrait ? 58 : 66} corner="br" />}
           </div>
         </div>
 
         {/* "A for Ant" — below the row, in the WORD's own colour (distinct from the sound line) */}
-        <div style={{ position: "absolute", top: 612, left: 0, width, display: "flex", justifyContent: "center", gap: 24, alignItems: "baseline" }}>
-          <Tok i={5} text={item.letter} size={66} col={ic} />
-          <Tok i={6} text="for" size={56} col={ic} />
-          <Tok i={7} text={item.word} size={66} col={ic} />
+        <div style={{ position: "absolute", top: L.forTop, left: 0, width, display: "flex", justifyContent: "center", gap: 24, alignItems: "baseline" }}>
+          <Tok i={5} text={item.letter} size={L.forSize} col={ic} />
+          <Tok i={6} text="for" size={L.forSize - 10} col={ic} />
+          <Tok i={7} text={item.word} size={L.forSize} col={ic} />
         </div>
 
         {/* extra example words — small image tiles, each in its OWN image colour */}
-        <div style={{ position: "absolute", top: 720, left: 0, width, display: "flex", justifyContent: "center", gap: 44 }}>
+        <div style={{ position: "absolute", top: L.exTop, left: 0, width, display: "flex", justifyContent: "center", gap: L.exGap }}>
           {item.extras.map((w, k) => {
             const wc = wordColor(w);
             return (
               <div key={w} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, opacity: extra(k), transform: `scale(${0.72 + extra(k) * 0.28}) translateY(${(1 - extra(k)) * 16}px)` }}>
-                <div style={{ width: 116, height: 116, background: "#fff", borderRadius: 24, border: `6px solid ${wc}`, boxShadow: `0 10px 24px ${wc}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 12 }}>
+                <div style={{ width: L.exTile, height: L.exTile, background: "#fff", borderRadius: 24, border: `6px solid ${wc}`, boxShadow: `0 10px 24px ${wc}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 12 }}>
                   <Img src={staticFile(`letters/${normKey(w)}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
                 </div>
-                <div style={{ fontSize: 27, fontWeight: 800, color: wc }}>{w}</div>
+                <div style={{ fontSize: L.exLabel, fontWeight: 800, color: wc }}>{w}</div>
               </div>
             );
           })}
@@ -153,7 +176,7 @@ export const LetterScene: React.FC<{ item: LetterItem }> = ({ item }) => {
       </AbsoluteFill>
 
       {/* confetti pops when the word is revealed */}
-      <Confetti frame={frame} fps={fps} burstFrame={wordAt} origin={{ x: width / 2, y: 420 }} colors={[c, "#FF5252", "#FFD54F", "#4FC3F7", "#81C784"]} count={30} seed={item.letter.charCodeAt(0)} />
+      <Confetti frame={frame} fps={fps} burstFrame={wordAt} origin={{ x: width / 2, y: L.confettiY }} colors={[c, "#FF5252", "#FFD54F", "#4FC3F7", "#81C784"]} count={30} seed={item.letter.charCodeAt(0)} />
     </AbsoluteFill>
   );
 };

@@ -6,6 +6,7 @@ import { VowelScene, vowelSceneFrames } from "../components/VowelScene";
 import { VowelPracticeRound, vpPlan } from "../components/VowelPracticeRound";
 import { ListenWord, lwPlan } from "../components/ListenWord";
 import { StoreOutro, STORE_OUTRO_F } from "../components/StoreOutro";
+import { StoreOutroPortrait } from "../components/StoreOutroPortrait";
 import { VowelFace } from "../components/Mouth";
 import { PRAISES } from "../data/practice";
 import { Mascot } from "../components/Mascot";
@@ -161,25 +162,38 @@ const Intro: React.FC = () => {
 
 const RuleCard: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const portrait = height > width;
   const s = spring({ frame, fps, config: { damping: 12 } });
   return (
     <Card audio="rule" audioDur={LINE.rule}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 30 }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: portrait ? 24 : 30, transform: portrait ? `translateY(${-height * 0.10}px)` : undefined }}>
         {/* brand badge above the mouth row (the one logo on screen for this card) */}
-        <LogoBadge size={148} style={{ transform: `scale(${spring({ frame: frame - 2, fps, config: { damping: 12 } })})` }} />
+        <LogoBadge size={portrait ? 120 : 148} style={{ transform: `scale(${spring({ frame: frame - 2, fps, config: { damping: 12 } })})` }} />
         {/* the 5 quick-talking vowel mouths (relates to the rule) */}
         <div style={{ display: "flex", gap: 26 }}>
           {VOWELS.map((v, i) => {
             const inn = spring({ frame: frame - 4 - i * 4, fps, config: { damping: 11 } });
             const talk = 0.45 + 0.4 * Math.abs(Math.sin(frame * 0.55 + i)); // quick, lively
-            return <div key={v.letter} style={{ transform: `scale(${inn}) translateY(${bob(frame, fps, 7, 2.2, i)}px)` }}><VowelFace shape={v.mouth} open={talk} size={116} color={v.color} frame={frame} fps={fps} /></div>;
+            return <div key={v.letter} style={{ transform: `scale(${inn}) translateY(${bob(frame, fps, 7, 2.2, i)}px)` }}><VowelFace shape={v.mouth} open={talk} size={portrait ? 100 : 116} color={v.color} frame={frame} fps={fps} /></div>;
           })}
         </div>
-        <div style={{ maxWidth: 1500, textAlign: "center", transform: `scale(${s})`, lineHeight: 1.25 }}>
+        <div style={{ maxWidth: portrait ? 940 : 1500, textAlign: "center", transform: `scale(${s})`, lineHeight: 1.25 }}>
           <div style={{ fontSize: 40, fontWeight: 700, color: "#8E24AA", marginBottom: 14, opacity: spring({ frame: frame - 8, fps, config: { damping: 12 } }) }}>Remember!</div>
-          <div style={{ fontSize: 80, fontWeight: 800, color: palette.ink }}>
-            Short vowels make a <span style={{ color: "#2E7D32" }}>QUICK sound</span> —<br />not the letter's <span style={{ color: "#C62828" }}>NAME!</span>
+          {/* In 4:5 the line breaks are EXPLICIT: left to wrap, "QUICK sound" split across
+              two lines, which broke the phrase the card exists to teach. */}
+          <div style={{ fontSize: portrait ? 62 : 80, fontWeight: 800, color: palette.ink }}>
+            {portrait ? (
+              <>
+                Short vowels make a<br />
+                <span style={{ color: "#2E7D32" }}>QUICK sound</span> —<br />
+                not the letter's <span style={{ color: "#C62828" }}>NAME!</span>
+              </>
+            ) : (
+              <>
+                Short vowels make a <span style={{ color: "#2E7D32" }}>QUICK sound</span> —<br />not the letter's <span style={{ color: "#C62828" }}>NAME!</span>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -233,11 +247,16 @@ const StepIntro: React.FC<{ audio: string; audioDur: number; title: string; sub:
 };
 
 export const ShortVowelsReel: React.FC = () => {
+  const { width, height } = useVideoConfig();
+  const portrait = height > width;
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFFFFF" }}>
       {/* THE CHIRP WIRE — one continuous world for the whole lesson, up to the outro
           (which owns the frame and shows the app icon full size) */}
-      <Sequence from={0} durationInFrames={OUTRO_FROM}><MorningSky /></Sequence>
+      {/* In 4:5 the sky runs to the END. Stopping it at the outro left the download
+          section on the root's white background, which read as a jump cut to nowhere.
+          The 16:9 keeps its original behaviour: its outro is a full-frame design. */}
+      <Sequence from={0} durationInFrames={portrait ? SHORT_VOWELS_DURATION : OUTRO_FROM}><MorningSky /></Sequence>
       <Audio src={staticFile("music_bed.mp3")} loop volume={(f) => interpolate(f, [0, 20, SHORT_VOWELS_DURATION - 40, SHORT_VOWELS_DURATION], [0, 0.08, 0.08, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
       {SFX.map((s, i) => (
         <Sequence key={i} from={s.from} durationInFrames={45}><Audio src={staticFile(`sfx/${s.name}.mp3`)} volume={s.vol} /></Sequence>
@@ -276,7 +295,9 @@ export const ShortVowelsReel: React.FC = () => {
       <Sequence from={LINTRO_FROM} durationInFrames={LINTRO_F}><FrameBadge liftY={168} /></Sequence>
 
       <Sequence from={OUTRO_FROM} durationInFrames={OUTRO_F}>
-        <StoreOutro audioSrc="audio/shortvowels/outro_cta.mp3" audioDur={LINE.outroCta} />
+        {portrait
+          ? <StoreOutroPortrait audioSrc="audio/shortvowels/outro_cta.mp3" audioDur={LINE.outroCta} />
+          : <StoreOutro audioSrc="audio/shortvowels/outro_cta.mp3" audioDur={LINE.outroCta} />}
       </Sequence>
     </AbsoluteFill>
   );

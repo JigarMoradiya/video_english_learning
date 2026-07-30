@@ -20,6 +20,9 @@ import { darken, hex, tint } from "../data/tokens";
 //   y   948 … 1020   the birds, perched
 //   y   985 … 1080   rooftops (BEHIND the wire, so the birds read in front)
 //   y  1020          the wire itself
+// Every band below is quoted for a 1080-TALL frame and scaled by `k` at render time, so
+// the 4:5 cut keeps the same proportions and the published 16:9 is bit-identical (k = 1).
+export const bandK = (height: number) => height / 1080;
 export const WASH_TOP = 100;
 export const WASH_BOTTOM = 930;
 export const WIRE_Y = 1028;
@@ -59,9 +62,13 @@ export const MorningSky: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
+  const k = bandK(height);
+  const wireY = WIRE_Y * k;
+  const roofTop = ROOF_TOP * k;
   const sunX = width - SUN_INSET;
+  const sunY = SUN_Y * k;
   const sag = 26; // the wire dips in the middle
-  const wireD = `M0 ${WIRE_Y - 14} Q ${width / 2} ${WIRE_Y + sag + wiggle(frame, fps, 4, 5.2)} ${width} ${WIRE_Y - 14}`;
+  const wireD = `M0 ${wireY - 14} Q ${width / 2} ${wireY + sag + wiggle(frame, fps, 4, 5.2)} ${width} ${wireY - 14}`;
   return (
     <div
       style={{
@@ -90,7 +97,7 @@ export const MorningSky: React.FC = () => {
             <stop offset="75%" stopColor="#FFEFD2" stopOpacity={0.1} />
             <stop offset="100%" stopColor="#FFF3DC" stopOpacity={0} />
           </radialGradient>
-          <radialGradient id="cwRay" gradientUnits="userSpaceOnUse" cx={sunX} cy={SUN_Y} r={SUN_R + 250}>
+          <radialGradient id="cwRay" gradientUnits="userSpaceOnUse" cx={sunX} cy={sunY} r={SUN_R + 250}>
             <stop offset="0%" stopColor="#FFEFC0" stopOpacity={0.55} />
             <stop offset="42%" stopColor="#FFE6AC" stopOpacity={0.34} />
             <stop offset="100%" stopColor="#FFE6AC" stopOpacity={0} />
@@ -98,17 +105,17 @@ export const MorningSky: React.FC = () => {
         </defs>
 
         {/* haze first, so the beams sit inside the glow */}
-        <circle cx={sunX} cy={SUN_Y} r={SUN_R + 250} fill="url(#cwSunHaze)" />
+        <circle cx={sunX} cy={sunY} r={SUN_R + 250} fill="url(#cwSunHaze)" />
 
         {/* beams: soft, uneven lengths, turning slowly */}
-        <g transform={`rotate(${t * 3.2} ${sunX} ${SUN_Y})`}>
+        <g transform={`rotate(${t * 3.2} ${sunX} ${sunY})`}>
           {Array.from({ length: 16 }, (_, i) => {
             const a = (i / 16) * Math.PI * 2;
             // uneven lengths + a slow breath, so it never reads as a mechanical star
             const len = (i % 4 === 0 ? 246 : i % 2 === 0 ? 176 : 124) * (1 + 0.05 * Math.sin(t * 1.1 + i));
             const r0 = SUN_R - 6;
             const half = 0.13 - 0.055 * (i % 2); // radians; wide enough to read as a shaft, not a scratch
-            const pt = (rr: number, aa: number) => `${sunX + Math.cos(aa) * rr} ${SUN_Y + Math.sin(aa) * rr}`;
+            const pt = (rr: number, aa: number) => `${sunX + Math.cos(aa) * rr} ${sunY + Math.sin(aa) * rr}`;
             return (
               <path
                 key={i}
@@ -120,7 +127,7 @@ export const MorningSky: React.FC = () => {
         </g>
 
         {/* the disc */}
-        <circle cx={sunX} cy={SUN_Y} r={SUN_R * (1 + 0.02 * Math.sin(t * 1.2))} fill="url(#cwSunCore)" />
+        <circle cx={sunX} cy={sunY} r={SUN_R * (1 + 0.02 * Math.sin(t * 1.2))} fill="url(#cwSunCore)" />
 
         {CLOUDS.map((c, i) => {
           // wrap around so the sky never runs out of clouds
@@ -144,7 +151,7 @@ export const MorningSky: React.FC = () => {
         {/* a treeline behind the rooftops for depth */}
         <g opacity={0.42}>
           {Array.from({ length: 15 }, (_, i) => (
-            <ellipse key={i} cx={i * 138 + 30} cy={ROOF_TOP - 6 + (i % 3) * 12} rx={78} ry={44} fill="#9FC49A" />
+            <ellipse key={i} cx={i * 138 + 30} cy={roofTop - 6 + (i % 3) * 12} rx={78} ry={44} fill="#9FC49A" />
           ))}
         </g>
 
@@ -153,7 +160,7 @@ export const MorningSky: React.FC = () => {
           {Array.from({ length: 9 }, (_, i) => {
             const w = 210 + (i % 3) * 60;
             const x = i * 224 - 40;
-            const top = ROOF_TOP + (i % 2 ? 26 : 0);
+            const top = roofTop + (i % 2 ? 26 : 0);
             return (
               <g key={i}>
                 <path d={`M${x} ${top + 34} L${x + w / 2} ${top} L${x + w} ${top + 34} Z`} fill="#B4C6DC" />
@@ -167,13 +174,13 @@ export const MorningSky: React.FC = () => {
         {/* the poles, at the very edges so they never enter the teaching area */}
         {[46, width - 46].map((x) => (
           <g key={x}>
-            <rect x={x - 13} y={WIRE_Y - 92} width={26} height={height - WIRE_Y + 92} fill="#A8845F" />
-            <rect x={x - 74} y={WIRE_Y - 78} width={148} height={16} rx={8} fill="#96744F" />
+            <rect x={x - 13} y={wireY - 92} width={26} height={height - wireY + 92} fill="#A8845F" />
+            <rect x={x - 74} y={wireY - 78} width={148} height={16} rx={8} fill="#96744F" />
           </g>
         ))}
 
         {/* two lines: the birds' wire in front, a slack one behind for depth */}
-        <path d={`M0 ${WIRE_Y - 62} Q ${width / 2} ${WIRE_Y - 62 + sag * 1.5} ${width} ${WIRE_Y - 62}`}
+        <path d={`M0 ${wireY - 62} Q ${width / 2} ${wireY - 62 + sag * 1.5} ${width} ${wireY - 62}`}
               fill="none" stroke="#8B98A8" strokeWidth={4} opacity={0.4} />
         <path d={wireD} fill="none" stroke="#5C6875" strokeWidth={7} opacity={0.85} />
       </svg>
@@ -187,7 +194,12 @@ export const MorningSky: React.FC = () => {
  * there is a wash behind the teaching zone. `tone` carries the current vowel's
  * colour so each vowel still owns its scene without the sky cutting to a new world.
  */
-export const Wash: React.FC<{ tone?: string; strength?: number; bottom?: number }> = ({ tone, strength = 1, bottom = WASH_BOTTOM }) => (
+export const Wash: React.FC<{ tone?: string; strength?: number; bottom?: number }> = ({ tone, strength = 1, bottom }) => {
+  const { height } = useVideoConfig();
+  const k = bandK(height);
+  const top = WASH_TOP * k;
+  const bot = (bottom ?? WASH_BOTTOM) * k;
+  return (
   <>
     {/* FEATHERED, not a panel. The first version was an opaque rounded rectangle
         covering x 40..1880 · y 20..930 — 85% of the frame — which hid the very sky
@@ -197,7 +209,7 @@ export const Wash: React.FC<{ tone?: string; strength?: number; bottom?: number 
         middle and can fade to nothing at the edges. */}
     <div
       style={{
-        position: "absolute", left: 0, right: 0, top: WASH_TOP, height: bottom - WASH_TOP,
+        position: "absolute", left: 0, right: 0, top, height: bot - top,
         background:
           "radial-gradient(108% 82% at 50% 48%, rgba(255,255,255,0.82) 0%, " +
           "rgba(255,255,255,0.70) 40%, rgba(255,255,255,0.38) 70%, rgba(255,255,255,0) 100%)",
@@ -213,21 +225,24 @@ export const Wash: React.FC<{ tone?: string; strength?: number; bottom?: number 
     {tone && (
       <div
         style={{
-          position: "absolute", left: 0, right: 0, top: WASH_TOP, height: bottom - WASH_TOP,
+          position: "absolute", left: 0, right: 0, top, height: bot - top,
           background: `radial-gradient(88% 68% at 50% 40%, ${tint(tone, 0.66)} 0%, rgba(255,255,255,0) 74%)`,
           maskImage: FADE, WebkitMaskImage: FADE,
           opacity: 0.45 * strength,
         }}
       />
     )}
-  </>
-);
+    </>
+  );
+};
 
 /** One bird. Drawn, not an emoji: an emoji bird is unreadable at 72px and cannot open its beak. */
-export const Bird: React.FC<{ x: number; color: string; letter: string; open: number; phase: number; active: boolean; y?: number; scale?: number; still?: boolean }> = ({ x, color, letter, open, phase, active, y = WIRE_Y, scale = 1, still = false }) => {
+export const Bird: React.FC<{ x: number; color: string; letter: string; open: number; phase: number; active: boolean; y?: number; scale?: number; still?: boolean }> = ({ x, color, letter, open, phase, active, y, scale = 1, still = false }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, height } = useVideoConfig();
   const c = hex(color);
+  // the wire's y scales with the frame, so an unspecified y follows it
+  const yy = y ?? WIRE_Y * bandK(height);
   // every bird hops gently; the active one lifts and leans into its chirp
   // `still` pins the bird on the wire. The hop is mid-cycle at frame 0, so in a STILL
   // (the thumbnail) each bird sat at a different height and the row looked sloppy;
@@ -236,7 +251,7 @@ export const Bird: React.FC<{ x: number; color: string; letter: string; open: nu
   const lean = active ? -6 * open : 0;
   const beak = 5 + open * 15; // degrees the beak gapes
   return (
-    <g transform={`translate(${x} ${y + hop}) rotate(${lean}) scale(${scale})`}>
+    <g transform={`translate(${x} ${yy + hop}) rotate(${lean}) scale(${scale})`}>
       {/* feet gripping the wire */}
       <path d="M-9 0 l-3 -13 M9 0 l3 -13" stroke={darken(c, 34)} strokeWidth={4} strokeLinecap="round" fill="none" />
       {/* Tail — a two-feather fan that tucks BEHIND the body (drawn before it).
@@ -283,13 +298,14 @@ export const WireBirds: React.FC<{
   open: number;
 }> = ({ vowels, activeIdx, open }) => {
   const frame = useCurrentFrame();
-  const { fps, width } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const wireY = WIRE_Y * bandK(height);
   const t = frame / fps;
   // spread across the middle of the wire, clear of both poles
   const span = width - 2 * 300;
   const xs = vowels.map((_, i) => 300 + (span / (vowels.length - 1)) * i);
   return (
-    <svg width={width} height={1080} viewBox={`0 0 ${width} 1080`} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
       {/* sound rings out of the active bird's beak */}
       {activeIdx >= 0 && [0, 1, 2].map((k) => {
         const ph = ((t * 1.4) - k * 0.33) % 1;
@@ -298,7 +314,7 @@ export const WireBirds: React.FC<{
         return (
           <path
             key={k}
-            d={`M${xs[activeIdx] + 52} ${WIRE_Y - 56 - r * 0.9} a${r} ${r} 0 0 1 0 ${r * 1.8}`}
+            d={`M${xs[activeIdx] + 52} ${wireY - 56 - r * 0.9} a${r} ${r} 0 0 1 0 ${r * 1.8}`}
             fill="none" stroke={hex(vowels[activeIdx].color)} strokeWidth={5} strokeLinecap="round"
             opacity={0.7 * (1 - p) * Math.min(1, open * 1.6)}
           />

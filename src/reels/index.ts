@@ -64,10 +64,16 @@ export const REELS: ReelEntry[] = [
   { id: "oo", component: OoReel, durationInFrames: OO_DURATION, width: 1920, height: 1080 },
   // A→Z Letter Phonics Sound — long-form 16:9 video ("A says a-a-a, A for Ant").
   { id: "letters-phonics", component: LettersReel, durationInFrames: LETTERS_DURATION, width: 1920, height: 1080 },
+  // 4:5 for Facebook — the SAME reel (identical timing, audio and SFX) laid out for a tall
+  // frame and wearing The Paint Studio. Not a crop of the 16:9.
+  { id: "letters-phonics-4x5", component: LettersReel, durationInFrames: LETTERS_DURATION, width: 1080, height: 1350 },
   // A→Z Letter Recognition — 16:9 "game-board" video ("A says a"), grid fills up.
   { id: "letter-recognition", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1920, height: 1080 },
   // L2 · Short Vowels — 16:9 lesson: learn (talking mouths) → practice → listen → download.
   { id: "short-vowels", component: ShortVowelsReel, durationInFrames: SHORT_VOWELS_DURATION, width: 1920, height: 1080 },
+  // 4:5 for Facebook — the SAME reel (identical timing, audio, SFX) laid out for a tall
+  // frame, wearing The Chirp Wire. Not a crop of the 16:9.
+  { id: "short-vowels-4x5", component: ShortVowelsReel, durationInFrames: SHORT_VOWELS_DURATION, width: 1080, height: 1350 },
   // L2 · Short Vowels — 9:16 reel: SAME content, DISTINCT bold full-colour vertical theme.
   { id: "short-vowels-9x16", component: ShortVowelsPortraitReel, durationInFrames: SHORT_VOWELS_PORTRAIT_DURATION, width: 1080, height: 1920 },
   // A→Z Letter Sounds, split into two 9:16 parts (pink world, sibling of the purple Short Vowels).
@@ -114,6 +120,8 @@ export const REELS: ReelEntry[] = [
   // Facebook shows a portrait crop even for a landscape video, so the 16:9 thumbnail
   // loses the mascot and the logo at the edges. This is the tall version.
   { id: "thumb-short-vowels-9x16", component: ThumbShortVowelsPortrait, durationInFrames: 1, width: 1080, height: 1920 },
+  { id: "thumb-short-vowels-4x5", component: ThumbShortVowelsPortrait, durationInFrames: 1, width: 1080, height: 1350 },
+  { id: "thumb-letters-phonics-4x5", component: ThumbLettersPhonicsPortrait, durationInFrames: 1, width: 1080, height: 1350 },
   { id: "thumb-letters-phonics-9x16", component: ThumbLettersPhonicsPortrait, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-phonics-a", component: ThumbPhonicsA, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-phonics-b", component: ThumbPhonicsB, durationInFrames: 1, width: 1280, height: 720 },

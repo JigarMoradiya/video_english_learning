@@ -27,7 +27,8 @@ export const vpPlan = (q: SVPractice, promptDur: number, praiseDur: number): VPP
 // On reveal the correct vowel drops into the gap (green); then sound → word → praise + confetti.
 export const VowelPracticeRound: React.FC<{ q: SVPractice; plan: VPPlan; prompt: Clip; praise: Clip }> = ({ q, plan, prompt, praise }) => {
   const frame = useCurrentFrame();
-  const { fps, width } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const portrait = height > width;
   const c = hex(q.color);
   const picStroke = cardStroke(q.imageColor, c);
   const revealed = frame >= plan.revealAt;
@@ -35,11 +36,16 @@ export const VowelPracticeRound: React.FC<{ q: SVPractice; plan: VPPlan; prompt:
   const enter = spring({ frame, fps, config: { damping: 14 } });
 
   // word letters row (right area), blank at q.blank
-  const WORDCX = 1200, WORDY = 388, TW = 128, GAP = 20;
+  const WORDCX = portrait ? width / 2 : 1200;
+  const WORDY = portrait ? 690 : 388;
+  const TW = portrait ? 118 : 128;
+  const GAP = portrait ? 18 : 20;
   const rowW = q.word.length * TW + (q.word.length - 1) * GAP;
   const slotX = (i: number) => WORDCX - rowW / 2 + i * (TW + GAP) + TW / 2;
   // options row
-  const OPTY = 636, OW = 150, OGAP = 34;
+  const OPTY = portrait ? 892 : 636;
+  const OW = portrait ? 140 : 150;
+  const OGAP = portrait ? 30 : 34;
   const orow = q.options.length * OW + (q.options.length - 1) * OGAP;
   const optX = (i: number) => WORDCX - orow / 2 + i * (OW + OGAP) + OW / 2;
   const correctIdx = q.options.indexOf(q.correct);
@@ -56,10 +62,10 @@ export const VowelPracticeRound: React.FC<{ q: SVPractice; plan: VPPlan; prompt:
       <Sequence from={plan.praiseAt} durationInFrames={sec(praise.dur, fps) + 8}><Audio src={staticFile(`audio/recognition/${praise.audio}.mp3`)} /></Sequence>
 
       {/* prompt */}
-      <div style={{ position: "absolute", top: 140, left: 0, width, textAlign: "center", fontFamily: font.family, fontSize: 62, fontWeight: 800, color: asking ? PURPLE : palette.ink, opacity: enter }}>{prompt.text}</div>
+      <div style={{ position: "absolute", top: portrait ? 122 : 140, left: 0, width, textAlign: "center", fontFamily: font.family, fontSize: portrait ? 50 : 62, padding: portrait ? "0 60px" : 0, boxSizing: "border-box", fontWeight: 800, color: asking ? PURPLE : palette.ink, opacity: enter }}>{prompt.text}</div>
 
       {/* word picture (left) */}
-      <div style={{ position: "absolute", left: 640, top: "50%", transform: `translate(-50%,-50%) scale(${enter})`, width: 340, height: 340, background: "#fff", borderRadius: 40, border: `10px solid ${picStroke}`, boxShadow: `0 20px 50px ${picStroke}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 26 }}>
+      <div style={{ position: "absolute", left: portrait ? width / 2 : 640, top: portrait ? 318 : "50%", transform: `translate(-50%,${portrait ? "0" : "-50%"}) scale(${enter})`, width: portrait ? 280 : 340, height: portrait ? 280 : 340, background: "#fff", borderRadius: 40, border: `10px solid ${picStroke}`, boxShadow: `0 20px 50px ${picStroke}44`, display: "flex", alignItems: "center", justifyContent: "center", padding: 26 }}>
         <Img src={staticFile(`shortvowels/${q.word}.png`)} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
         {/* brand badge straddling the card corner (never over the picture) */}
         {wordHasBadge(q.word) && <CardBadge size={66} corner={badgeCorner(q.word)} />}
@@ -100,7 +106,7 @@ export const VowelPracticeRound: React.FC<{ q: SVPractice; plan: VPPlan; prompt:
       )}
 
       {frame >= plan.praiseAt && (
-        <div style={{ position: "absolute", left: WORDCX, top: 250, transform: `translateX(-50%) scale(${spring({ frame: frame - plan.praiseAt, fps, config: { damping: 10 } })})`, whiteSpace: "nowrap", fontFamily: font.family, fontSize: 46, fontWeight: 800, color: GREEN }}>{praise.text}</div>
+        <div style={{ position: "absolute", left: WORDCX, top: portrait ? 1046 : 250, transform: `translateX(-50%) scale(${spring({ frame: frame - plan.praiseAt, fps, config: { damping: 10 } })})`, whiteSpace: "nowrap", fontFamily: font.family, fontSize: 46, fontWeight: 800, color: GREEN }}>{praise.text}</div>
       )}
       <Confetti frame={frame} fps={fps} burstFrame={plan.revealAt} origin={{ x: WORDCX, y: WORDY }} colors={[c, GREEN, "#FF9F43", "#4FC3F7", "#FFD54F"]} count={26} seed={q.word.charCodeAt(0)} />
     </>

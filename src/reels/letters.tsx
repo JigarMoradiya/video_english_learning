@@ -8,6 +8,8 @@ import { font, palette, tint, hex, letterColorFor } from "../data/tokens";
 import { Mascot } from "../components/Mascot";
 import { bob } from "../lib/motion";
 import { HeaderLogo } from "../components/BrandMarks";
+import { BrushJar, PaintPot, StudioWall } from "../components/PaintStudio";
+import { StoreOutroPortrait, STORE_OUTRO_PORTRAIT_F } from "../components/StoreOutroPortrait";
 
 // ── A→Z "Letter Phonics Sound" video (16:9) ─────────────────────────────────
 // Recreates the app's LetterPhonicsSoundView flow for all 26 letters, reusing the
@@ -74,33 +76,35 @@ const activeIndexAt = (f: number): number => {
 // Persistent bottom strip: all 26 letters, current highlighted, past filled, future faint.
 const AlphabetStrip: React.FC = () => {
   const frame = useCurrentFrame();
-  const { width } = useVideoConfig();
+  // both read BEFORE the early return below: pulling a hook in after it changes the hook
+  // count between frames, which is React error #310 and killed the render at frame 63
+  const { width, height } = useVideoConfig();
+  const portrait = height > width;
   if (frame < STRIP_START - 12 || frame > STRIP_END + 12) return null;
   const active = activeIndexAt(frame);
   const accent = letterColorFor(SEGS[active].it.letter, SEGS[active].it.imageColor);
   const fade = interpolate(frame, [STRIP_START - 12, STRIP_START + 6, STRIP_END - 6, STRIP_END + 12], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const cell = (width - 150) / 26;
+  const cell = (width - (portrait ? 90 : 150)) / 26;
   return (
-    <div style={{ position: "absolute", bottom: 20, left: 0, width, display: "flex", justifyContent: "center", gap: 4, opacity: fade }}>
+    <div style={{ position: "absolute", bottom: portrait ? 16 : 20, left: 0, width, display: "flex", justifyContent: "center", alignItems: "flex-end", gap: portrait ? 3 : 4, opacity: fade }}>
       {LETTERS.map((l, i) => {
-        const isActive = i === active;
-        const done = i < active;
+        const state = i === active ? "active" : i < active ? "done" : "todo";
+        // In 4:5 the strip IS the Paint Studio's bottom shelf: 26 tins that get painted
+        // as the alphabet is worked through. Same progress logic either way.
+        if (portrait) {
+          return <PaintPot key={l.letter} letter={l.letter} color={letterColorFor(l.letter, l.imageColor)} state={state} size={Math.min(38, cell)} />;
+        }
+        const isActive = state === "active";
+        const done = state === "done";
         return (
           <div
             key={l.letter}
             style={{
-              width: cell,
-              height: cell,
-              maxWidth: 54,
-              maxHeight: 54,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 12,
+              width: cell, height: cell, maxWidth: 54, maxHeight: 54,
+              display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12,
               background: isActive ? accent : done ? tint(letterColorFor(l.letter, l.imageColor), 0.72) : "rgba(30,36,56,0.06)",
               color: isActive ? "#fff" : done ? letterColorFor(l.letter, l.imageColor) : "rgba(30,36,56,0.32)",
-              fontSize: isActive ? 30 : 24,
-              fontWeight: 800,
+              fontSize: isActive ? 30 : 24, fontWeight: 800,
               transform: `scale(${isActive ? 1.22 : 1})`,
               boxShadow: isActive ? `0 8px 18px ${hex(accent)}66` : "none",
             }}
@@ -172,8 +176,19 @@ const Intro: React.FC = () => {
 
 
 export const LettersReel: React.FC = () => {
+  const { width, height } = useVideoConfig();
+  const portrait = height > width;
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFFFFF" }}>
+      {/* THE PAINT STUDIO — 4:5 only, so the published 16:9 lesson is untouched. The wall
+          stays neutral and each letter's colour arrives in its own wash, so the frame never
+          jump-cuts between letters. The brush jar sits low-left, clear of the pot shelf. */}
+      {portrait && (
+        <Sequence from={0} durationInFrames={OUTRO_FROM}>
+          <StudioWall />
+          <BrushJar />
+        </Sequence>
+      )}
       <Audio
         src={staticFile("music_bed.mp3")}
         loop
@@ -207,7 +222,7 @@ export const LettersReel: React.FC = () => {
       <Header />
 
       <Sequence from={OUTRO_FROM} durationInFrames={OUTRO_F}>
-        <StoreOutro />
+        {portrait ? <StoreOutroPortrait /> : <StoreOutro />}
       </Sequence>
     </AbsoluteFill>
   );

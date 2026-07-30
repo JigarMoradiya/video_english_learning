@@ -2,14 +2,18 @@ import React from "react";
 import { AbsoluteFill, Img, staticFile, useVideoConfig } from "remotion";
 import { LETTERS } from "../data/letters";
 import { font, hex, letterColorFor, palette, tint } from "../data/tokens";
+import { PaintPot, StudioWall } from "../components/PaintStudio";
 
-// ── Letter Sounds A–Z thumbnail, PORTRAIT 9:16 ───────────────────────────────
-//   npx remotion still thumb-letters-phonics-9x16 out/thumb_letters_phonics_9x16.png
+// ── Letter Sounds A–Z thumbnail, 4:5 ────────────────────────────────────────
+//   npx remotion still thumb-letters-phonics-4x5 out/fb/thumb_letters_phonics_4x5.png
+//
+// Matches the 4:5 video: The Paint Studio, with the A–Z strip as the studio's pots.
 //
 // Facebook shows a portrait crop even for a landscape video, so the 16:9 version loses
 // the mascot and the logo at the edges. Recomposed for a tall frame rather than cropped:
 //
-//   · the headline STACKS on two lines instead of shrinking to fit one
+//   · the headline runs on ONE line — 13 characters at 104px is ~800px wide, which
+//     fits 1080 comfortably, and the height it frees goes to the sound label
 //   · the A–Z strip becomes THREE ROWS of 9 / 9 / 8. Twenty-six cells across 1080px
 //     would be 41px each and unreadable, and thirteen still filled the frame edge to
 //     edge; nine gives 95px cells inside a proper margin. The short last row is centred.
@@ -25,22 +29,26 @@ const PER_ROW = 9;
 
 export const ThumbLettersPhonicsPortrait: React.FC = () => {
   const { width: W, height: H } = useVideoConfig();
+  // A 9:16 frame has far more height than 4:5 for the same width, so the fixed-width
+  // elements (card, pots, mascot) are grown and the strip pushed lower; otherwise the
+  // same fractions leave ~350px of dead space above the mascot.
+  const tall = H / W > 1.5;
 
-  const headTop = H * 0.115;
-  const headSize = H * 0.080;
-  const headEnd = headTop + headSize * 2.08;
+  const headTop = H * 0.10;
+  const headSize = H * (tall ? 0.060 : 0.077);
+  const headEnd = headTop + headSize * 1.06; // ONE line now, not two
 
   // The sound line sits ABOVE the letter + picture and the naming line BELOW it, which
   // is the order the video itself uses. Each band is derived from the one above, so the
   // rhythm holds if any single size changes.
-  const lineSize = H * 0.044;
-  const GAP = H * 0.022;
+  const lineSize = H * (tall ? 0.040 : 0.048); // bigger, using the height the single-line headline freed
+  const GAP = H * 0.024;
 
   const saysTop = headEnd + GAP;
   const saysEnd = saysTop + lineSize * 1.2;
 
   const heroTop = saysEnd + GAP;
-  const cardSize = W * 0.30;
+  const cardSize = W * (tall ? 0.30 : 0.235);
   const heroEnd = heroTop + cardSize;
 
   const forTop = heroEnd + GAP;
@@ -49,18 +57,19 @@ export const ThumbLettersPhonicsPortrait: React.FC = () => {
   // The grid must total 88% of the frame INCLUDING its gaps. Dividing the width by 13
   // first and adding gaps afterwards made it exactly 1080 wide, so the strip ran
   // edge to edge with no margin: cellW * (13 + 12 * 0.12) = W * 0.88.
-  const cellW = (W * 0.88) / (PER_ROW + (PER_ROW - 1) * 0.12);
+  const cellW = (W * (tall ? 0.80 : 0.72)) / (PER_ROW + (PER_ROW - 1) * 0.12);
   const cellH = cellW * 0.86;
   const cellGap = cellW * 0.12;
+  const rowGap = cellW * 0.34; // lids sit above the cell, so rows need more than columns
   const ROWS = Math.ceil(LETTERS.length / PER_ROW);
   // each row is centred on its OWN width, so the short final row (8 of 9) sits centred
   // instead of hanging left with a gap on the right
   const rowLeft = (n: number) => (W - (n * cellW + (n - 1) * cellGap)) / 2;
   const rowCount = (r: number) => Math.min(PER_ROW, LETTERS.length - r * PER_ROW);
-  const stripTop = forEnd + GAP;
-  const stripEnd = stripTop + ROWS * cellH + (ROWS - 1) * cellGap;
+  const stripTop = forEnd + (tall ? H * 0.075 : GAP);
+  const stripEnd = stripTop + ROWS * cellH + (ROWS - 1) * rowGap;
 
-  const mascotH = H * 0.17;
+  const mascotH = H * (tall ? 0.185 : 0.14);
   const mascotW = mascotH * (923 / 1063);
   // mascot.png has ~7px of bottom padding on 1063, so its feet are effectively the last
   // pixel row: anything <= 0 reads as cropped. Give it real clearance.
@@ -75,8 +84,10 @@ export const ThumbLettersPhonicsPortrait: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family, overflow: "hidden" }}>
-      {/* the letter's own colour flooding the frame, exactly as LetterScene does */}
-      <AbsoluteFill style={{ background: `linear-gradient(168deg, ${tint(HC, 0.78)} 0%, #FFFFFF 58%, ${tint(HC, 0.9)} 100%)` }} />
+      {/* the studio wall, then this letter's colour breathed over it — the same pair the
+          4:5 video uses, so the thumbnail and the video are the same place */}
+      <StudioWall />
+      <AbsoluteFill style={{ background: `radial-gradient(74% 52% at 50% 40%, ${tint(HC, 0.66)} 0%, rgba(255,255,255,0) 76%)`, opacity: 0.85 }} />
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ position: "absolute", inset: 0 }}>
         {[
           { x: W * 0.1, y: H * 0.075, s: 1.1, star: false, li: 8 },
@@ -125,7 +136,7 @@ export const ThumbLettersPhonicsPortrait: React.FC = () => {
           textShadow: "0 6px 0 #FFFFFF, 0 10px 26px rgba(30,36,56,0.22)",
         }}
       >
-        LETTER<br />SOUNDS
+        LETTER SOUNDS
       </div>
 
       {/* the sound, above the letter — and lowercase, which is how the sound is written */}
@@ -170,7 +181,7 @@ export const ThumbLettersPhonicsPortrait: React.FC = () => {
         {HERO.letter} for {HERO.word}
       </div>
 
-      {/* the A–Z strip: three rows of 9/9/8, each row centred on its own width */}
+      {/* the A–Z strip as the studio's pots: three rows of 9/9/8, each row centred */}
       {LETTERS.map((l, i) => {
         const c = hex(letterColorFor(l.letter, l.imageColor));
         const row = Math.floor(i / PER_ROW);
@@ -181,14 +192,10 @@ export const ThumbLettersPhonicsPortrait: React.FC = () => {
             style={{
               position: "absolute",
               left: rowLeft(rowCount(row)) + col * (cellW + cellGap),
-              top: stripTop + row * (cellH + cellGap),
-              width: cellW, height: cellH, borderRadius: cellW * 0.24, background: c,
-              boxShadow: `0 6px 14px ${c}55`,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: cellH * 0.6, fontWeight: 800, color: "#fff",
+              top: stripTop + row * (cellH + rowGap),
             }}
           >
-            {l.letter}
+            <PaintPot letter={l.letter} color={c} state={l.letter === HERO.letter ? "active" : "done"} size={cellW} />
           </div>
         );
       })}

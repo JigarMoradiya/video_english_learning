@@ -14,7 +14,7 @@ export const STORE_OUTRO_PORTRAIT_F = 344;
 // (the oo 9:16 cut does this), so mounting an <Audio src=""> would just error.
 export const StoreOutroPortrait: React.FC<{ audioSrc?: string; audioDur?: number; bg?: string }> = ({ audioSrc, audioDur = 0, bg }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, height } = useVideoConfig();
   const cta = spring({ frame: frame - 26, fps, config: { damping: 12 } });
   const apple = spring({ frame: frame - 40, fps, config: { damping: 11 } });
   const play = spring({ frame: frame - 52, fps, config: { damping: 11 } });
@@ -23,12 +23,17 @@ export const StoreOutroPortrait: React.FC<{ audioSrc?: string; audioDur?: number
   // motion_check flags on every portrait video. The CTA breathes and the two badges
   // bob out of phase with each other, so nothing on screen is ever frozen.
   const t = frame / fps;
+  // This is laid out for 1920 tall; its content occupies y110…1350 (measured, 1240 tall).
+  // In a shorter frame — the 4:5 Facebook cut — that put the store badges flush against
+  // the bottom edge with 110px empty above. Centre it. Clamped at 0 so a 1920-tall frame,
+  // where the layout is already approved, is left exactly as it was.
+  const dy = Math.min(0, (height - 1240) / 2 - 110);
   const breathe = 1 + 0.022 * Math.sin(t * 2.6);
   const badgeBob = (phase: number) => bob(frame, fps, 5, 3.1, phase);
   return (
     // bg defaults to TRANSPARENT so the reel's own background keeps running — passing a
     // different colour here made the download beat a jump cut to another world.
-    <AbsoluteFill style={{ fontFamily: font.family, background: bg }}>
+    <AbsoluteFill style={{ fontFamily: font.family, background: bg, transform: `translateY(${dy}px)` }}>
       {audioSrc ? (
         <Sequence from={10} durationInFrames={Math.round(audioDur * fps) + 10}><Audio src={staticFile(audioSrc)} /></Sequence>
       ) : null}
