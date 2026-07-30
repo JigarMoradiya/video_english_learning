@@ -22,13 +22,21 @@ import { PositionPlate, Slot, SlotContent, SlotState, TagChip, slotColor } from 
 // The swell is a single function of x and time, so the rafts read as three points on ONE
 // wave rather than three things bobbing independently.
 
-const PLATE_TOP = 316;
-const CARD_TOP = 372;
-const CARD_H = 240;
-const DECK_Y = 616;
-const SEA_TOP = 636; // the water meets the deck — a gap here left the rafts floating on sand
-const BOAT_W = 250; // the mascot's dock, where the train kept its engine
-const GAP = 24;
+// Band table per aspect. The 16:9 numbers are the originals and must not move.
+//
+// The sea line at y636 puts the horizon at 59% of a 1080 frame but at only 47% of a
+// 1350-tall one, so the 4:5 cut had the bottom HALF as empty water with the caption adrift
+// in it — the same bug the train rail (y782) and the pond waterline (y706) each had.
+// Portrait keeps the 16:9's own proportions (29% sky / 30% content / 41% sea) and both of
+// its invariants:
+//   cardTop + cardH sits 4px above deckY   -> the card rests ON the deck
+//   seaTop - deckY == 20                   -> the water meets the deck, no sand gap
+export const waveBands = (width: number, height: number) => {
+  const ratio = height / width;
+  if (ratio > 1.5) return { plateTop: 560, cardTop: 616, cardH: 470, deckY: 1090, seaTop: 1110, boatW: 170, gap: 14 }; // 9:16
+  if (ratio > 1) return { plateTop: 392, cardTop: 448, cardH: 345, deckY: 797, seaTop: 817, boatW: 170, gap: 16 };     // 4:5
+  return { plateTop: 316, cardTop: 372, cardH: 240, deckY: 616, seaTop: 636, boatW: 250, gap: 24 };                    // 16:9
+};
 
 const swell = (x: number, frame: number) => Math.sin(x / 250 - frame * 0.055) * 13;
 
@@ -36,6 +44,7 @@ const swell = (x: number, frame: number) => Math.sin(x / 250 - frame * 0.055) * 
 export const OceanSky: React.FC = () => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
+  const B = waveBands(width, height);
   const drift = (speed: number, span: number, phase: number) => ((frame * speed + phase) % (width + span)) - span;
   const band = (y: number, amp: number, len: number, speed: number, fill: string, op: number) => {
     const pts: string[] = [];
@@ -80,9 +89,9 @@ export const OceanSky: React.FC = () => {
 
       {/* the sea: three travelling bands, so the horizon is never static */}
       <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
-        {band(SEA_TOP + 6, 12, 260, 0.055, "#4FC3F7", 0.9)}
-        {band(SEA_TOP + 58, 15, 200, 0.075, "#29B6F6", 0.85)}
-        {band(SEA_TOP + 128, 18, 165, 0.095, "#0288D1", 0.8)}
+        {band(B.seaTop + 6, 12, 260, 0.055, "#4FC3F7", 0.9)}
+        {band(B.seaTop + 58, 15, 200, 0.075, "#29B6F6", 0.85)}
+        {band(B.seaTop + 128, 18, 165, 0.095, "#0288D1", 0.8)}
         {/* a fish breaching in the open water, clear of the caption band */}
         {(() => {
           const cycle = 150;
@@ -105,7 +114,7 @@ export const OceanSky: React.FC = () => {
         {/* foam flecks riding the surface */}
         {Array.from({ length: 12 }).map((_, i) => {
           const x = ((frame * (1.1 + i * 0.12) + i * 170) % (width + 200)) - 100;
-          const y = SEA_TOP + 30 + (i % 6) * 38 + Math.sin(x / 220 - frame * 0.06) * 12;
+          const y = B.seaTop + 30 + (i % 6) * 38 + Math.sin(x / 220 - frame * 0.06) * 12;
           return <ellipse key={i} cx={x} cy={y} rx={26} ry={5} fill="#E1F5FE" opacity={0.55} />;
         })}
       </svg>
@@ -119,7 +128,8 @@ const Raft: React.FC<{
   slot: Slot | null; color: string; lit: boolean; lift: number;
 }> = ({ cx, w, idx, label, labelLit, slot, color, lit, lift }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const B = waveBands(width, height);
   const c = hex(color);
   // one swell for the whole sea, sampled at this raft's x — plus the crest's extra lift
   const rise = swell(cx, frame) - lift;
@@ -128,12 +138,12 @@ const Raft: React.FC<{
 
   return (
     <div
-      style={{ position: "absolute", left: cx - w / 2, top: rise, width: w, height: 900, transform: `rotate(${tilt}deg)`, transformOrigin: `center ${DECK_Y}px`, pointerEvents: "none" }}
+      style={{ position: "absolute", left: cx - w / 2, top: rise, width: w, height: 900, transform: `rotate(${tilt}deg)`, transformOrigin: `center ${B.deckY}px`, pointerEvents: "none" }}
     >
       {/* the slot card, standing on the deck */}
       <div
         style={{
-          position: "absolute", left: (w - cardW) / 2, top: CARD_TOP, width: cardW, height: CARD_H,
+          position: "absolute", left: (w - cardW) / 2, top: B.cardTop, width: cardW, height: B.cardH,
           borderRadius: 30,
           background: lit ? tint(color, 0.86) : "#FFFFFFF2",
           border: `7px solid ${lit ? c : tint(color, 0.5)}`,
@@ -148,7 +158,7 @@ const Raft: React.FC<{
       </div>
 
       {/* the deck: planks + the barrels holding it up */}
-      <svg width={w} height={130} style={{ position: "absolute", left: 0, top: DECK_Y - 8 }}>
+      <svg width={w} height={130} style={{ position: "absolute", left: 0, top: B.deckY - 8 }}>
         <rect x={6} y={8} width={w - 12} height={26} rx={9} fill="#A1887F" />
         <rect x={6} y={8} width={w - 12} height={11} rx={6} fill="#BCAAA4" />
         {Array.from({ length: 7 }).map((_, i) => (
@@ -163,7 +173,7 @@ const Raft: React.FC<{
 
       {/* "⬅ before" / "after ➡" */}
       {slot?.tag && (
-        <div style={{ position: "absolute", left: 0, right: 0, top: CARD_TOP + CARD_H + 10, display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "absolute", left: 0, right: 0, top: B.cardTop + B.cardH + 10, display: "flex", justifyContent: "center" }}>
           <TagChip text={slot.tag} />
         </div>
       )}
@@ -171,8 +181,8 @@ const Raft: React.FC<{
       {/* mast + pennant carrying the position name */}
       {label && (
         <>
-          <div style={{ position: "absolute", left: w / 2 - 4, top: PLATE_TOP + 30, width: 8, height: CARD_TOP - PLATE_TOP - 26, background: "#8D6E63", borderRadius: 4 }} />
-          <div style={{ position: "absolute", left: 0, right: 0, top: PLATE_TOP, display: "flex", justifyContent: "center", transform: `rotate(${wiggle(frame, fps, 3, 1.6, idx)}deg)`, transformOrigin: "center left" }}>
+          <div style={{ position: "absolute", left: w / 2 - 4, top: B.plateTop + 30, width: 8, height: B.cardTop - B.plateTop - 26, background: "#8D6E63", borderRadius: 4 }} />
+          <div style={{ position: "absolute", left: 0, right: 0, top: B.plateTop, display: "flex", justifyContent: "center", transform: `rotate(${wiggle(frame, fps, 3, 1.6, idx)}deg)`, transformOrigin: "center left" }}>
             <PositionPlate idx={idx} lit={labelLit} color={color} />
           </div>
         </>
@@ -193,20 +203,21 @@ export const WordWaves: React.FC<{
   sweep?: { from: number; to: number };
 }> = ({ data, stateFor, showLabelsFrom, labelLitAt, hideAt, sweep }) => {
   const frame = useCurrentFrame();
-  const { width, fps } = useVideoConfig();
+  const { width, height, fps } = useVideoConfig();
+  const B = waveBands(width, height);
   const f = frame;
   if (f >= hideAt + 14) return null;
   const opacity = interpolate(f, [hideAt - 14, hideAt + 14], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   const SAFE = safeX(width);
-  const raftW = (width - 2 * SAFE - BOAT_W - 3 * GAP) / 3;
-  const cxOf = (i: number) => SAFE + BOAT_W + GAP + i * (raftW + GAP) + raftW / 2;
+  const raftW = (width - 2 * SAFE - B.boatW - 3 * B.gap) / 3;
+  const cxOf = (i: number) => SAFE + B.boatW + B.gap + i * (raftW + B.gap) + raftW / 2;
 
   const { cars, litIdx } = stateFor(f);
 
   // the rolling crest: a travelling bump that lifts whatever raft it is under
   const rolling = !!sweep && f >= sweep.from && f < sweep.to;
-  const crestX = rolling ? interpolate(((f - sweep!.from) % 78) / 78, [0, 1], [SAFE + BOAT_W, width - SAFE]) : -9999;
+  const crestX = rolling ? interpolate(((f - sweep!.from) % 78) / 78, [0, 1], [SAFE + B.boatW, width - SAFE]) : -9999;
   const liftAt = (x: number) => {
     const d = Math.abs(x - crestX);
     const fromCrest = d < 260 ? Math.cos((d / 260) * (Math.PI / 2)) * 30 : 0;
@@ -215,7 +226,7 @@ export const WordWaves: React.FC<{
 
   return (
     <AbsoluteFill style={{ opacity }}>
-      <MascotDock x={SAFE} w={BOAT_W} />
+      <MascotDock x={SAFE} w={B.boatW} />
 
       {[0, 1, 2].map((i) => (
         <Raft
@@ -242,7 +253,7 @@ export const WordWaves: React.FC<{
         if (l < 9) return null;
         const k = l / 30; // 0…1, how squarely the swell is under this raft
         return (
-          <svg key={i} width={raftW} height={120} style={{ position: "absolute", left: cx - raftW / 2, top: SEA_TOP - 6, opacity: k }}>
+          <svg key={i} width={raftW} height={120} style={{ position: "absolute", left: cx - raftW / 2, top: B.seaTop - 6, opacity: k }}>
             <ellipse cx={raftW / 2} cy={26} rx={raftW * 0.42} ry={13} fill="#FFFFFF" opacity={0.55} />
             <path d={`M${raftW * 0.16} 30 q ${raftW * 0.17} -26 ${raftW * 0.34} -4 q ${raftW * 0.17} 22 ${raftW * 0.34} -8`} fill="none" stroke="#FFFFFF" strokeWidth={9} strokeLinecap="round" opacity={0.9} />
             {Array.from({ length: 6 }).map((_, d) => (
@@ -260,14 +271,24 @@ export const WordWaves: React.FC<{
 // deliberately does NOT ride the swell. The rafts move, the shore stays put.
 const MascotDock: React.FC<{ x: number; w: number }> = ({ x, w }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const B = waveBands(width, height);
   return (
     <div style={{ position: "absolute", left: x, top: 0, width: w, height: 900 }}>
       <Img
         src={staticFile("mascot.png")}
-        style={{ position: "absolute", left: w * 0.1, top: DECK_Y - 246, width: w * 0.8, transform: `translateY(${bob(frame, fps, 4, 2)}px) rotate(${wiggle(frame, fps, 2.6, 2.2)}deg)` }}
+        style={{
+          position: "absolute", left: w * 0.1, width: w * 0.8,
+          // STANDS ON the dock, derived. `deckY - 246` was tuned for the 16:9 mascot (boatW
+          // 250 -> 200px wide); portrait's is 136px, so the same offset left him floating.
+          // mascot.png is 923x1063 with 7px of bottom padding, so its feet are effectively
+          // the last pixel row. Resolves to 370 at 16:9 — what the offset gave.
+          top: B.deckY - 16 - w * 0.8 * (1063 / 923),
+          transform: `translateY(${bob(frame, fps, 4, 2)}px) rotate(${wiggle(frame, fps, 2.6, 2.2)}deg)`,
+          transformOrigin: "bottom center",
+        }}
       />
-      <svg width={w + 30} height={210} style={{ position: "absolute", left: -15, top: DECK_Y - 8 }}>
+      <svg width={w + 30} height={210} style={{ position: "absolute", left: -15, top: B.deckY - 8 }}>
         <rect x={0} y={8} width={w + 30} height={28} rx={10} fill="#A1887F" />
         <rect x={0} y={8} width={w + 30} height={12} rx={6} fill="#BCAAA4" />
         {Array.from({ length: 6 }).map((_, i) => (

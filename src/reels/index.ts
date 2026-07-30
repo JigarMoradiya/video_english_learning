@@ -64,6 +64,9 @@ export const REELS: ReelEntry[] = [
   { id: "c-k-ck-4x5", component: CkCkReel, durationInFrames: C_K_CK_DURATION, width: 1080, height: 1350 },
   // L13 · "Which SOUND?" oo (moon/book) — long-form YouTube lesson (16:9).
   { id: "oo", component: OoReel, durationInFrames: OO_DURATION, width: 1920, height: 1080 },
+  // 4:5 for Facebook — its OWN world: 16:9 and 9:16 already share OoWorld, so the
+  // Facebook cut gets a third look rather than a third copy of the same one.
+  { id: "oo-4x5", component: OoReel, durationInFrames: OO_DURATION, width: 1080, height: 1350 },
   // A→Z Letter Phonics Sound — long-form 16:9 video ("A says a-a-a, A for Ant").
   { id: "letters-phonics", component: LettersReel, durationInFrames: LETTERS_DURATION, width: 1920, height: 1080 },
   // 4:5 for Facebook — the SAME reel (identical timing, audio and SFX) laid out for a tall
@@ -102,6 +105,8 @@ export const REELS: ReelEntry[] = [
   { id: "oi-oy-4x5", component: OiOy16x9Reel, durationInFrames: OI_OY_16X9_DURATION, width: 1080, height: 1350 },
   // L13 · oa/ow — long-form 16:9 lesson. The Open Sea: the swell ROLLS through the rafts.
   { id: "oa-ow-16x9", component: OaOw16x9Reel, durationInFrames: OA_OW_16X9_DURATION, width: 1920, height: 1080 },
+  // 4:5 for Facebook — the SAME lesson wearing The Open Sea, restaged for a tall frame.
+  { id: "oa-ow-4x5", component: OaOw16x9Reel, durationInFrames: OA_OW_16X9_DURATION, width: 1080, height: 1350 },
   // L14 · ou/ow — long-form 16:9 lesson. The Two-Ring Circus: one ow, two sounds.
   { id: "ou-ow-16x9", component: OuOw16x9Reel, durationInFrames: OU_OW_16X9_DURATION, width: 1920, height: 1080 },
   // L14 · au/aw — long-form 16:9 lesson. The Sleepy Lawn: the sky runs night → dawn.
