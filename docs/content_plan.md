@@ -232,18 +232,48 @@ at once, so each gets real review:
 
 ---
 
-## 6. Thumbnails — every video and every reel
+## 6. Thumbnails — DESIGNED, not frame grabs
 
-Current: 4 thumbnails for 2 lessons. Needed: 3 sizes per long video (1280×720,
-1080×1350, 1080×1920) and a 9:16 cover per reel.
+```
+❌ Do NOT export frames from the video as thumbnails. YouTube, Facebook and Instagram
+   all offer "pick a frame" at upload. A frame grab adds nothing the upload flow does
+   not already give for free. tools/export_covers.sh does exactly this and should be
+   deleted — it was built on a misreading of the requirement.
+```
 
-The pattern is established and aspect-aware — `letters_phonics_thumb_portrait.tsx`
-serves 4:5 and 9:16 from one component by scaling element sizes on `H/W > 1.5`.
+A thumbnail is a **separate designed still**: a headline that is not in the video, a
+hook, the hero art, and the mascot/logo — composed to be read at 120px in a feed. That
+is what the four existing ones are.
 
-- **Long videos** — one thumbnail component per lesson, registered at all three sizes,
-  wearing that video's world.
-- **Reels** — export frame 0 as the cover via a new `tools/export_covers.sh`, into
-  `out/covers/`. One script covers all 42 and everything future.
+Current: 4 designed thumbnails, covering 2 lessons.
+Needed: **15 landscape videos × 3 sizes** (1280×720 YouTube, 1080×1350 Facebook,
+1080×1920 Shorts/Reels) **+ 42 reels × 1** (1080×1920) ≈ **87 stills**.
+
+### The scale problem, and the answer
+
+Each of the four hand-built thumbnails took several review rounds (headline wrapping,
+row spacing, mascot clipping, strip margins). Eighty-seven hand-built components is not
+feasible and would not stay consistent.
+
+**Make it data-driven, the way the 26 letter shorts already are.** `letter_short.tsx`
+plus a `LETTERS` row generates 26 reels from one template; thumbnails should work the
+same way:
+
+- **`src/thumbs/thumb_template.tsx`** — one aspect-aware component taking:
+  `{ title, hook, sub, heroArt, accent, world, strip? }`
+- **`src/data/thumbs.ts`** — one row per video/reel. A new thumbnail becomes a data
+  row, not a build.
+- Registered by mapping over that data at all required sizes, exactly as
+  `...LETTERS.map(letterShortEntry)` does in `src/reels/index.ts`.
+
+Reuse from the four that exist: the aspect-size switch (`H/W > 1.5` grows the card,
+strip and mascot), the rotated gold corner badge, dark-ink-on-bright for pale worlds,
+and the asserted band gaps. Those are the parts that took the review rounds.
+
+**Per-family art, not per-video:** the 26 letter reels share one layout with the letter
+and word swapped; the 11 comparison videos share one layout with the pair swapped. So
+87 stills需 roughly **4 layouts**, not 87 designs.
+
 - **Note:** the two 16:9 `letters_phonics` thumbnails still show the old flat-gradient
   look and no longer match the Paint Studio video. Redo with the rest.
 
@@ -254,14 +284,15 @@ serves 4:5 and 9:16 from one component by scaling element sizes on `H/W > 1.5`.
 ```
 Mon    long video #1  → YouTube 16:9  +  Facebook 4:5   (+ 3 thumbnails)
 Thu    long video #2  → YouTube 16:9  +  Facebook 4:5   (+ 3 thumbnails)
-daily  reel           → YT Shorts + FB Reels + Instagram (+ 9:16 cover)
+daily  reel           → YT Shorts + FB Reels + Instagram (+ designed 9:16 thumb)
 ```
 
 One narration session per long video; reels batch-recorded weekly. Rendering is not a
 constraint — every composition renders in minutes.
 
-1. **Unblock (week 1).** Re-render the two stale landscape masters. Export reel covers.
-   Build missing thumbnails for what is already posted. No new narration.
+1. **Unblock (week 1).** Re-render the two stale landscape masters ✅ done. Delete
+   `tools/export_covers.sh` and `out/covers/`. Build the thumbnail template + data, then
+   the stills for what is already posted. No new narration.
 2. **Backfill formats, card-wise (weeks 1–6, alongside).** 4:5 for the 11 existing
    comparison videos in the order above, one per long-video slot, each reviewed.
 3. **Port the 5 missing compare cards** into `comparisons.ts` (`th_two`, `ea_two`,
@@ -277,7 +308,7 @@ constraint — every composition renders in minutes.
 
 **New**
 - `src/components/PortraitBands.ts` — shared band table + `assertBands()`
-- `tools/export_covers.sh` — frame-0 still for every reel composition
+- `src/thumbs/thumb_template.tsx` + `src/data/thumbs.ts` — data-driven thumbnails
 - `src/thumbs/<lesson>_thumb.tsx` — one per new lesson, registered at 3 sizes
 - `src/reels/l<N>_<name>.tsx` + `..._beats.tsx` per new level, following
   `c_soft_hard_16x9.tsx` / `c_soft_hard_beats.tsx` as the reference pair
