@@ -588,3 +588,62 @@ A conversion is no longer a layout job. Per card it is: text pass → visual rep
 transitions → 4:5 layout → verify, across two beat files (16:9+4:5 share one; 9:16 has its
 own). That is a **design pass, not a mechanical one**, and 2 long videos a week only holds
 if the new lessons are built to this bar from the start rather than retrofitted.
+
+
+---
+
+## 14. Worlds — the two videos still on a bare gradient
+
+Every long video built since ge/dge has its own world. Two predate the approach and are
+still a plain gradient:
+
+| Video | World |
+|---|---|
+| `c_k_ck` (L5) | **THE KEY SHOP** — decided, not built |
+| `oo` (L13) | none yet — needs one |
+
+All others: Word Train (ai/ay) · Lily Pond (oi/oy) · Open Sea (oa/ow) · Two-Ring Circus
+(ou/ow) · Sleepy Lawn (au/aw) · Word Court (ge/dge) · Match Day + Claw Machine (ch/tch) ·
+Bakery + Lift (soft/hard c) · Garden + Gumball Tower (soft/hard g) · Chirp Wire (short
+vowels) · Paint Studio (letters, 4:5).
+
+### THE KEY SHOP — c/k/ck
+
+Chosen because **/k/ is "key"** — a pun a four-year-old gets — and because the video is
+already reaching for it: its headline says "3 ways to spell /k/! 🔑" and it calls them
+"the /k/ Crew". The concept was latent; it was never built.
+
+The rule is *three spellings, one sound, chosen by what comes before*. In a key shop that
+is literal: **three different keys that all open the same lock.**
+
+- **Three keys on hooks** — `c`, `k`, `ck` — each a different shape, each labelled with
+  when it is used. They hang and sway.
+- **One lock.** The chosen key lifts off its hook, travels, turns, and the lock **clicks
+  open**. That is the §13.2 cause-and-effect the video currently lacks entirely — today
+  the answer just appears.
+- **`ck` is a two-part key** — two teeth, one turn. Shows "two letters, one sound"
+  without saying it.
+- **The workbench** is the teaching band; keyrings, blanks and metal shavings live in the
+  margins, pushed back per the bright-world rule.
+- **The mascot is the locksmith** — it can point at the deciding letter, try a key, shake
+  its head at the wrong one, cheer the click. Satisfies §13.3 with the character we have.
+
+Bands to be measured from the finished video first, as with the Paint Studio — do not
+guess them.
+
+### Build order for this card
+
+1. ~~Text trim (16:9 + 9:16)~~ ✅ done
+2. **The Key Shop world** — the §13 pass: world, transitions, mascot acting, anticipation
+3. Verify both aspects, render, review
+4. **Only then** the 4:5 (`PortraitBands` + aspect branch)
+
+### Open refinement to §12
+
+The "≤4 words" test is too blunt. `before a, o, u → use c` is 6 words and must STAY — it
+is the rule as a formula, with an arrow doing the work. `And at the end of a word, right
+after one short vowel, we use ck` is narration and must go. The real test is **sentence
+vs formula**, not length. Word count is a useful smell, not the rule.
+
+Also note: an audit must walk composed JSX. The headline rule pills are built from nested
+spans so each letter can be coloured, so a text-node regex never sees them.
