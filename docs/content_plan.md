@@ -511,3 +511,80 @@ exist — we have been leaning on captions instead of using them.
 Count on-screen words per beat, excluding captions and the word being taught. **More than
 4 is a fail.** Cheap to eyeball on the existing phrase sheet — the sheet is already
 generated for every build.
+
+
+---
+
+## 13. QUALITY BAR — what "proper" means
+
+§12 says cut the text. This says what must replace it. Deleting a sentence and leaving a
+gap makes the video worse, not better. The bar is: **more visual, real motion, real
+transitions, playful, kid-friendly.** Below is that stated so it can be checked.
+
+### 1. Nothing hard-cuts
+
+Beats currently swap instantly. A child reads a cut as "that thing vanished". Every beat
+change needs a *reason* on screen: the card slides out as the next slides in, the world
+pans, a curtain/door/lid moves, the mascot carries the object off. The world already
+gives us the device in each case — the lift travels, the claw lowers, the tin opens.
+
+### 2. Things move because something caused them
+
+The strongest teaching we have built is cause-and-effect, not labelling:
+- the gumball **flips colour** on the word "not" (g, tricky words)
+- the word **rides to a floor** (c, the lift)
+- the bird **opens its beak** on its own phoneme
+
+Every rule application should be an event like that, not a card appearing. If a beat can
+only be expressed by a card appearing, the visual idea is not finished.
+
+### 3. The mascot acts
+
+It currently bobs and nothing else. It is the only character and can carry everything a
+sentence used to: point at the deciding letter, cheer a correct answer, look puzzled
+before a reveal, cover its ears for a wrong sound, lean in to listen. Cheapest single
+upgrade available — one component, used everywhere.
+
+### 4. Anticipation, then payoff
+
+Reveals currently just appear. Give each one a wind-up: squash before the pop, a
+drumroll beat, the object shaking, slots pulsing empty. Then land it — overshoot and
+settle, not a linear fade. `spring()` is already used; the missing part is the *beat of
+waiting* before it.
+
+### 5. Everything alive, nothing busy
+
+Idle bob is in place. What is missing is follow-through: a card that lands should settle,
+a letter that pops should overshoot then snap back, a dropped object should bounce once.
+Motion should never be uniform — vary period and phase per element (already done for the
+birds and brushes; extend it everywhere).
+
+### 6. Reward every success
+
+`Confetti` exists and is barely used. Every correct answer, completed word and finished
+recap should feel earned — burst, sparkle, the mascot celebrating, the pot filling.
+
+### 7. Every sound has a visual
+
+SFX are cued but often land with nothing moving. If a sound plays, something on screen
+must react on that frame — a pulse, a bounce, a flash of colour.
+
+### How to check it
+
+Additions to the existing gate, since taste is not a check:
+
+- **`motion_check.py` gets stricter.** Today it passes if *anything* in the content region
+  moves. Raise it: the **teaching element itself** must move during its beat, so a frozen
+  card behind a bobbing mascot no longer passes.
+- **Transition audit.** For each beat boundary, sample the frames either side; if the diff
+  is a step change with no intermediate frames, it is a hard cut → fail.
+- **Word count per beat** (§12) ≤ 4, excluding captions and the taught word.
+- **Read the contact sheet.** Still the only check that catches "technically animated but
+  lifeless".
+
+### Consequence for scheduling
+
+A conversion is no longer a layout job. Per card it is: text pass → visual replacements →
+transitions → 4:5 layout → verify, across two beat files (16:9+4:5 share one; 9:16 has its
+own). That is a **design pass, not a mechanical one**, and 2 long videos a week only holds
+if the new lessons are built to this bar from the start rather than retrofitted.
