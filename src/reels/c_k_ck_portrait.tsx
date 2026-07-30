@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { comparisons } from "../data/comparisons";
-import { CkBackground } from "../components/CkBackground";
+import { ShopWall } from "../components/KeyShop";
 import { Captions } from "../components/Captions";
 import { WordStreetPortrait } from "../components/WordStreetPortrait";
 import { StoreOutroPortrait, STORE_OUTRO_PORTRAIT_F } from "../components/StoreOutroPortrait";
@@ -93,7 +93,8 @@ export const CkCkPortraitReel: React.FC = () => {
       {/* the SAME animated background as the 16:9 cut — drifting colour orbs and
           twinkling sparkles. CkBackground is fractional/dimension-aware, so it fills
           1080×1920 too; the portrait was using a flat static gradient. */}
-      <CkBackground hueShift={data.hueShift} />
+      {/* THE KEY SHOP — same world as the 16:9, so the two aspects match */}
+      <ShopWall />
 
       <Audio src={staticFile("audio/c_k_ck/c_k_ck.mp3")} />
       <Audio

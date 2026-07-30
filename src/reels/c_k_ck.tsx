@@ -2,7 +2,7 @@ import React from "react";
 import { Sequence } from "remotion";
 import { comparisons } from "../data/comparisons";
 import { ReelBase, SfxCue } from "./ReelBase";
-import { CkBackground } from "../components/CkBackground";
+import { ShopWall } from "../components/KeyShop";
 import { WordStreet } from "../components/WordStreet";
 import { Captions } from "../components/Captions";
 import { StoreOutro } from "../components/StoreOutro";
@@ -114,7 +114,8 @@ export const CkCkReel: React.FC = () => {
       hueShift={data.hueShift}
       sfx={SFX}
       total={C_K_CK_DURATION}
-      background={<CkBackground hueShift={data.hueShift} />}
+      // THE KEY SHOP — /k/ is "key", and three keys opening one lock IS the rule
+      background={<ShopWall />}
       logoUntil={byId.wrap.from}
       logoCorner="tr"
     >
