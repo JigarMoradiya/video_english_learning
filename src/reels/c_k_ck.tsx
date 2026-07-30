@@ -1,11 +1,12 @@
 import React from "react";
-import { Sequence } from "remotion";
+import { Sequence, useVideoConfig } from "remotion";
 import { comparisons } from "../data/comparisons";
 import { ReelBase, SfxCue } from "./ReelBase";
 import { ShopWall } from "../components/KeyShop";
 import { WordStreet } from "../components/WordStreet";
 import { Captions } from "../components/Captions";
 import { StoreOutro } from "../components/StoreOutro";
+import { StoreOutroPortrait } from "../components/StoreOutroPortrait";
 import { makeTrack, planBeats, BeatSpec, Beat } from "../lib/timing";
 
 // c/k/ck keeps its richer caption palette (adds the /k/ and /s/ phoneme colours + city),
@@ -105,6 +106,30 @@ export const CkCkReel: React.FC = () => {
   const quiz = byId.quizQ;
   const reveal = byId.reveal;
   const quizRevealAt = reveal.from - quiz.from; // reveal flip, relative to quiz start
+  // 4:5 for Facebook. The three cards side by side ARE the teaching — stacking them
+  // would break the very comparison the video exists to make — and the row needs 1340px,
+  // so the stage is fitted to the width instead and the height it frees goes to the
+  // shop. Content ends up filling 96% of the width against 70% in the 16:9, so it reads
+  // LARGER on a phone, not smaller. Every gap and alignment inside the stage is
+  // preserved exactly, which is what makes an overlap impossible.
+  const { width: FW, height: FH } = useVideoConfig();
+  const portrait = FH > FW;
+  const wrapBeat = beats.find((b) => b.id === "wrap");
+  // 4:5 for Facebook. The three cards side by side ARE the teaching — stacking them
+  // would break the comparison the video exists to make — and the beats are flex rows,
+  // so the cards already shrink to fit 1080 on their own. No scaling is needed or wanted:
+  // scaling about the top-left pulled the children's centre from 540 to 416 and the whole
+  // video sat left-aligned with dead space down the right. All that is required is to
+  // centre the 1080-tall design in the taller frame; the shop fills the height it frees.
+  const stageStyle: React.CSSProperties = portrait
+    ? { position: "absolute", left: 0, top: 0, width: FW, height: 1080,
+        // 0.94 about the CENTRE (never the top-left — that pulls the children's 540
+        // centre to 416 and the whole video sits left-aligned). Flex already shrinks the
+        // three cards to fit 1080, but only ~55px from each edge where the 16:9 has 290;
+        // this buys a real side margin out of the height the taller frame gives us.
+        transform: `translateY(${(FH - 1080) / 2}px) scale(0.94)`, transformOrigin: "50% 50%" }
+    : { position: "absolute", inset: 0 };
+
   // the short-vowel underline appears only when "short vowel" is spoken (after "It's ck —")
   const quizUnderlineAt = Math.max(0, track.wordAbs("vowel", { afterSec: 115 }) - quiz.from);
 
@@ -119,23 +144,22 @@ export const CkCkReel: React.FC = () => {
       logoUntil={byId.wrap.from}
       logoCorner="tr"
     >
-      {/* persistent set + captions — top-level children read the absolute frame */}
-      <WordStreet data={data} beats={beats} />
+      {/* persistent set — inside the stage so it scales with the cards */}
+      <div style={stageStyle}>
+        <WordStreet data={data} beats={beats} />
+      </div>
+      {/* captions stay OUTSIDE the stage: they belong to the frame, not the teaching
+          area, and must sit at the real bottom in either aspect */}
       <Sequence from={0} durationInFrames={byId.wrap.from}>
-        <Captions track={track} keywordColor={ckKeywordColor} maxWidth={1360} fontSize={40} bottom={70} />
+        <Captions track={track} keywordColor={ckKeywordColor} maxWidth={portrait ? 940 : 1360} fontSize={portrait ? 34 : 40} bottom={portrait ? 150 : 70} />
       </Sequence>
 
-      {/* per-beat foreground overlays */}
+      {/* per-beat foreground overlays, inside the fitted stage */}
+      <div style={stageStyle}>
       {beats.map((b) => {
         if (b.id === "reveal") return null; // folded into the quiz span
-        if (b.id === "wrap") {
-          // download visual over the existing narrated CTA line (no new audio)
-          return (
-            <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames}>
-              <StoreOutro silent compact total={b.durationInFrames} />
-            </Sequence>
-          );
-        }
+        // the download beat is rendered OUTSIDE this wrapper — see below
+        if (b.id === "wrap") return null;
         if (b.id === "quizQ") {
           return (
             <Sequence key={b.id} from={b.from} durationInFrames={b.durationInFrames + reveal.durationInFrames}>
@@ -149,6 +173,21 @@ export const CkCkReel: React.FC = () => {
           </Sequence>
         );
       })}
+      </div>
+
+      {/* The download beat sits OUTSIDE the fitted stage — it belongs to the frame, not
+          to the teaching area. Rendered inside it, the 0.94 scale plus the stage's own
+          translate pushed the two store badges to y1387 in a 1350-tall frame and sliced
+          them in half. 4:5 also gets the PORTRAIT outro: the landscape one lays the phone
+          on the left with the CTA beside it, so in a 1080-wide frame the text ran clean
+          off the right edge — the same bug short_vowels 4:5 shipped with. bg stays
+          undefined so the Key Shop keeps running underneath and the download section
+          isn't a jump cut to another background. */}
+      {wrapBeat && (
+        <Sequence from={wrapBeat.from} durationInFrames={wrapBeat.durationInFrames}>
+          {portrait ? <StoreOutroPortrait /> : <StoreOutro silent compact total={wrapBeat.durationInFrames} />}
+        </Sequence>
+      )}
     </ReelBase>
   );
 };

@@ -32,19 +32,25 @@ const BeatEmoji: React.FC<{ char: string }> = ({ char }) => {
 };
 
 // Mascot parked on the left of the centre stage, clear of every card row.
-const SideMascot: React.FC = () => {
+const SideMascot: React.FC<{ portraitTop?: number }> = ({ portraitTop }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  // In 16:9 the mascot lives in the wide left margin. A 1080-wide frame has no such
+  // margin, so on beats where a full-width card row reaches the edges it must be given
+  // an explicit home above the row — otherwise it stands on top of the first card.
+  const portrait = height > width;
   return (
     <div
       style={{
         position: "absolute",
-        left: 96,
-        top: "50%",
-        transform: `translateY(calc(-50% + ${bob(frame, fps, 10, 2.3)}px))`,
+        left: portrait && portraitTop !== undefined ? 40 : 96,
+        top: portrait && portraitTop !== undefined ? portraitTop : "50%",
+        transform: portrait && portraitTop !== undefined
+          ? `translateY(${bob(frame, fps, 10, 2.3)}px)`
+          : `translateY(calc(-50% + ${bob(frame, fps, 10, 2.3)}px))`,
       }}
     >
-      <Mascot size={190} />
+      <Mascot size={portrait && portraitTop !== undefined ? 120 : 190} />
     </div>
   );
 };
@@ -58,7 +64,8 @@ const Pill: React.FC<{ from?: number; color?: string; children: React.ReactNode 
   children,
 }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const portrait = height > width;
   const s = spring({ frame: frame - from, fps, config: { damping: 12 } });
   if (frame < from) return null;
   return (
@@ -68,8 +75,10 @@ const Pill: React.FC<{ from?: number; color?: string; children: React.ReactNode 
         background: "#ffffffe6",
         border: `4px solid ${color}`,
         borderRadius: 999,
-        padding: "16px 46px",
-        fontSize: 60,
+        // nowrap at 60px made the longest headline ("end + short vowel -> ck (one
+        // sound!)") ~1115px — wider than a 1080 frame. Portrait drops to 46.
+        padding: portrait ? "14px 34px" : "16px 46px",
+        fontSize: portrait ? 46 : 60,
         fontWeight: 700,
         color: palette.ink,
         boxShadow: `0 14px 34px ${palette.cardShadow}`,
@@ -292,7 +301,8 @@ const SEEIT_GROUPS: { g: number; words: { word: string; blanked: string }[] }[] 
 ];
 export const SeeIt3: React.FC<BeatProps> = ({ data, beat }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const portrait = height > width;
   const groups = SEEIT_GROUPS.map((gr) => ({ ...gr, words: gr.words.map((w) => ({ ...w, at: Math.max(0, beat.word(w.word)) })) }));
 
   // switch group when its LABEL is spoken ("c:" 87.9 · "k:" 93.64 · "ck:" 99.2),
@@ -312,7 +322,11 @@ export const SeeIt3: React.FC<BeatProps> = ({ data, beat }) => {
   // empty screen at "Let's try!" and ~1.4s at each new group label.
   // No fixed-width slot: at size 230 a card is ~414px, so a 300px slot made adjacent
   // cards overlap. Natural width + a real gap can never touch.
-  const gap = 84; // pulse-proof: a spoken card grows 0.16×width each side
+  // Card width is size x 1.8, so the 16:9 row is 3 x 414 + 2 x 84 = 1410 — it ran off
+  // BOTH edges of the 1080 frame (duck and kick were sliced). Portrait: 165 -> 297 wide,
+  // 3 x 297 + 2 x 52 = 995, and 52 still clears the 0.08 x width a pulsing card grows.
+  const chipSize = portrait ? 165 : 230;
+  const gap = portrait ? 52 : 84; // pulse-proof: a spoken card grows 0.16×width each side
 
   return (
     <Center>
@@ -346,14 +360,14 @@ export const SeeIt3: React.FC<BeatProps> = ({ data, beat }) => {
           {group.words.map((w, k) => {
             const on = frame >= w.at;
             return (
-              <div key={`${gi}-${w.word}`} style={{ height: 320, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div key={`${gi}-${w.word}`} style={{ height: portrait ? 250 : 320, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {on ? (
-                  <CkWordChip word={w.word} blanked={w.blanked} colorHex={data.teams[gi].colorHex} enterFrame={w.at} size={230} />
+                  <CkWordChip word={w.word} blanked={w.blanked} colorHex={data.teams[gi].colorHex} enterFrame={w.at} size={chipSize} />
                 ) : (
                   <div
                     style={{
-                      width: 300,
-                      height: 250,
+                      width: portrait ? 215 : 300,
+                      height: portrait ? 180 : 250,
                       borderRadius: 60,
                       border: `6px dashed ${c}55`,
                       background: "#ffffff55",
@@ -374,7 +388,7 @@ export const SeeIt3: React.FC<BeatProps> = ({ data, beat }) => {
           })}
         </div>
       </div>
-      <SideMascot />
+      <SideMascot portraitTop={330} />
     </Center>
   );
 };
@@ -540,7 +554,7 @@ export const Quiz3: React.FC<BeatProps & { revealAt: number; underlineAt: number
           })}
         </div>
       </div>
-      <SideMascot />
+      <SideMascot portraitTop={330} />
       <Confetti start={revealAt} />
     </Center>
   );
@@ -582,7 +596,16 @@ const TintWord: React.FC<{ word: string; blanked: string; color: string; size: n
 };
 export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  // This row sits inside a centre-aligned COLUMN, so it takes its max-content width and
+  // overflows the frame instead of shrinking the way the WordStreet zones do. At the
+  // 16:9 numbers (3x420 + 2x40 = 1340) that sliced the left card's border off at x=0 and
+  // cut "after a short vowel" off the right edge in the 1080-wide cut. Portrait gets its
+  // own width/gap sized so the row clears both edges with a real margin.
+  const portrait = height > width;
+  const RW = portrait ? 300 : 420;      // 3*300 + 2*26 = 952 -> 92px margin each side
+  const RGAP = portrait ? 26 : 40;
+  const RULE = portrait ? 26 : 34;      // "after a short vowel" must stay on one line
   // first card lands on "Remember:" (the beat start), not 0.6s later — the old 120.0
   // left three empty ghost boxes on screen while the line had already begun
   const ats = [0, beat.fRel(123.56), beat.fRel(126.22)];
@@ -593,7 +616,7 @@ export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
         <div style={{ fontSize: 72, fontWeight: 700, color: palette.ink, transform: `translateY(${bob(frame, fps, 5, 2.6)}px)` }}>
           Remember!
         </div>
-        <div style={{ display: "flex", gap: 40, alignItems: "stretch" }}>
+        <div style={{ display: "flex", gap: RGAP, alignItems: "stretch" }}>
           {RECAP.map((r, idx) => {
             const at = Math.max(0, ats[idx]);
             const on = frame >= at;
@@ -612,7 +635,7 @@ export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
               <div
                 key={r.i}
                 style={{
-                  width: 420,
+                  width: RW,
                   transform: `scale(${(on ? cardS : 0.9) * (1 + glow * 0.03)}) translateY(${bob(frame, fps, 5, 2.4, idx)}px)`,
                   opacity: on ? 1 : 0.25,
                   background: palette.card,
@@ -629,7 +652,7 @@ export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
                 <div style={{ fontSize: 120, fontWeight: 700, color: c, lineHeight: 1, transform: `scale(${letterS})`, textShadow: glow > 0.1 ? `0 0 ${glow * 44}px ${c}` : undefined }}>
                   {team.marker}
                 </div>
-                <div style={{ fontSize: 34, fontWeight: 700, color: c, whiteSpace: "nowrap", opacity: ruleS, transform: `translateY(${(1 - ruleS) * 14}px)` }}>{r.rule}</div>
+                <div style={{ fontSize: RULE, fontWeight: 700, color: c, whiteSpace: "nowrap", opacity: ruleS, transform: `translateY(${(1 - ruleS) * 14}px)` }}>{r.rule}</div>
                 <span style={{ fontSize: 78, marginTop: 6, display: "inline-block", transform: `scale(${emojiS}) translateY(${bob(frame, fps, 5, 2, idx)}px)` }}>{emoji}</span>
                 <div style={{ transform: `scale(${wordS})` }}>
                   <TintWord word={r.word} blanked={r.blanked} color={c} size={72} markVowel={r.i === 2} />
@@ -639,7 +662,7 @@ export const Recap3: React.FC<BeatProps> = ({ data, beat }) => {
           })}
         </div>
       </div>
-      <SideMascot />
+      <SideMascot portraitTop={180} />
     </Center>
   );
 };

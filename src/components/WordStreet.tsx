@@ -151,7 +151,8 @@ const WhereStrip: React.FC<{ colorHex: string; slot: number; marker: string; ent
 
 export const WordStreet: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = ({ data, beats }) => {
   const frame = useCurrentFrame();
-  const { width, fps } = useVideoConfig();
+  const { width, height, fps } = useVideoConfig();
+  const portrait = height > width;
   const B: Record<string, Beat> = Object.fromEntries(beats.map((b) => [b.id, b]));
   const f = frame;
 
@@ -182,16 +183,17 @@ export const WordStreet: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = 
   const softStart = sec(48.84, fps);
   const kDash = sec(54.92, fps);
   const morph = interpolate(f, [softStart, softStart + 70, kDash, kDash + 55], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const maxLeanK = Math.max(0, zw / 2 - FACE_SIZE / 2 - 14);
   let kx = 0;
   let kOp = 1;
   let kPop = 1;
   if (f >= softStart && f < kDash) {
     const t = interpolate(f, [softStart, softStart + 45], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     kOp = 1 - 0.82 * t;
-    kx = 70 * t;
+    kx = Math.min(70, maxLeanK) * t;
   }
   if (f >= kDash) {
-    kx = interpolate(f, [kDash, kDash + 18], [220, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    kx = interpolate(f, [kDash, kDash + 18], [Math.min(220, zw * 0.4), 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     kOp = interpolate(f, [kDash, kDash + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     kPop = 1 + 0.28 * spring({ frame: f - kDash, fps, config: { damping: 9 } }) * (f < kDash + 26 ? 1 : 0);
   }
@@ -244,9 +246,20 @@ export const WordStreet: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = 
         const look = i === 0 ? "r" : i === 2 ? "l" : "c";
         const isC = i === 0;
         const isK = i === 1;
-        const leanX = isC ? morph * 120 : 0;
+        // 120 is ~44% of the 16:9 zone half-width, so the leaning c stayed inside its
+        // own panel. At 1080 wide the zones are 297 not 549, and the same 120 pushed the
+        // soft-c "sss" face 45px past its panel and UNDER the k panel. Clamp the lean to
+        // whatever this zone can actually hold. 16:9 still resolves to the original 120.
+        const maxLean = Math.max(0, zw / 2 - FACE_SIZE / 2 - 14);
+        const leanX = isC ? morph * Math.min(120, maxLean) : 0;
         const tCount = TRIGGERS[i].length;
-        const tSize = tCount >= 5 ? 78 : 96;
+        // A 1080-wide frame gives each panel 297px, not 549. At 96 even the 3-chip zone
+        // (3x96 + 2x14 = 316) overflowed, and the 5 vowel chips ran 446 wide — clean off
+        // the right edge of the ck panel. Portrait holds 78 and splits 5 into 3 + 2 rows.
+        const tSize = portrait ? 78 : tCount >= 5 ? 78 : 96;
+        const tRows: string[][] = portrait && tCount >= 5
+          ? [TRIGGERS[i].slice(0, 3), TRIGGERS[i].slice(3)]
+          : [TRIGGERS[i]];
 
         return (
           <div
@@ -287,7 +300,11 @@ export const WordStreet: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = 
                 <span style={{ fontSize: 46 }}>{team.zoneEmoji}</span>
                 <span style={{ fontSize: 72, fontWeight: 700, color: "#fff", lineHeight: 1 }}>{team.marker}</span>
               </div>
-              <span style={{ fontSize: 30, fontWeight: 600, color: "#ffffffdd" }}>{team.zoneHint}</span>
+              {/* nowrap: in the 4:5 cut the three zones shrink from 560 to ~330 wide, and
+                  "after a short vowel" wrapped to a second line that sat behind the
+                  character below. nowrap + a smaller portrait size keeps it one line.
+                  16:9 is untouched — it already fitted on one line at 30. */}
+              <span style={{ fontSize: portrait ? 24 : 30, fontWeight: 600, color: "#ffffffdd", whiteSpace: "nowrap" }}>{team.zoneHint}</span>
             </div>
 
             {/* character — present from frame 0 so the cover frame is complete */}
@@ -333,7 +350,23 @@ export const WordStreet: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = 
                   <CkWordChip word={content.item.word} blanked={content.item.blanked} colorHex={team.colorHex} enterFrame={-999} size={CHIP} phase={i} />
                 </div>
               )}
-              {content?.kind === "words" &&
+              {/* PORTRAIT: 2 rows (2 + 1), centred — the same treatment the vowel chips
+                  got. Three chips at CHIP=84 are 3 x 151 + 2 x 26 = 505 wide; a 1080-frame
+                  panel is 297, so "kick" was sliced clean off the right edge of the frame.
+                  56 keeps the picture on every card and 2 x 94 + 10 = 198 still fits the
+                  202px slot, so nothing spills into the face above. */}
+              {content?.kind === "words" && portrait && (
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, alignItems: "center" }}>
+                  {[content.items.slice(0, 2), content.items.slice(2)].map((row, ri) => (
+                    <div key={ri} style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+                      {row.map((ex) => (
+                        <CkWordChip key={ex.word} word={ex.word} blanked={ex.blanked} colorHex={team.colorHex} enterFrame={ex.at} size={56} markVowel={i === 2 && f >= ruleCKFrom} />
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {content?.kind === "words" && !portrait &&
                 content.items.map((ex) => (
                   <CkWordChip key={ex.word} word={ex.word} blanked={ex.blanked} colorHex={team.colorHex} enterFrame={ex.at} size={CHIP} markVowel={i === 2 && f >= ruleCKFrom} />
                 ))}
@@ -341,8 +374,11 @@ export const WordStreet: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = 
                 <CkWordChip key={content.item.word} word={content.item.word} blanked={content.item.blanked} colorHex={team.colorHex} enterFrame={content.item.at} size={CHIP} />
               )}
               {content?.kind === "triggers" && (
-                <div style={{ display: "flex", gap: 14 }}>
-                  {TRIGGERS[i].map((v, k) => {
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
+                  {tRows.map((row, ri) => (
+                  <div key={ri} style={{ display: "flex", gap: 14, justifyContent: "center" }}>
+                  {row.map((v, ki) => {
+                    const k = ri * 3 + ki;   // stagger stays continuous across both rows
                     const at = triggerBase[i] + k * 8;
                     if (f < at) return null;
                     const s = spring({ frame: f - at, fps, config: { damping: 11 } });
@@ -369,6 +405,8 @@ export const WordStreet: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = 
                       </div>
                     );
                   })}
+                  </div>
+                  ))}
                 </div>
               )}
             </div>
@@ -380,9 +418,16 @@ export const WordStreet: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = 
           On the curb at bottom:96 he clipped the panel's bottom-left corner (panels end
           at y=860); at the old bottom:24 he sat inside the unsafe edge band. The band's
           left region is free because every headline pill is centred. */}
-      <div style={{ position: "absolute", left: 96, top: 104 }}>
-        <Mascot size={170} />
-      </div>
+      {/* PORTRAIT: hidden. At 1920 wide every headline pill is centred and leaves the
+          band's left region free, but at 1080 the widest pill spans almost the full
+          width — the bear ended up with the pill across his head and his feet on the c
+          panel's top-left corner. The beats that want a bear render their own SideMascot
+          inside the stage, so dropping this one removes a collision, not the mascot. */}
+      {!portrait && (
+        <div style={{ position: "absolute", left: 96, top: 104 }}>
+          <Mascot size={170} />
+        </div>
+      )}
     </AbsoluteFill>
   );
 };
