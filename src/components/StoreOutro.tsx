@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { StoreFlow } from "./StoreFlow";
+import { StoreOutroPortrait } from "./StoreOutroPortrait";
 import { font, palette } from "../data/tokens";
 import { bob, wiggle } from "../lib/motion";
 import { sec } from "../lib/timing";
@@ -25,12 +26,23 @@ export const StoreOutro: React.FC<{
   ctaBg?: string;
 }> = ({ silent = false, compact = false, total = STORE_OUTRO_F, audioSrc = "audio/recognition/practice_letter_rules_download_app.mp3", audioDur = CTA_DUR, bg, titleColor = palette.ink, ctaBg = "#2E7D32" }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  // THIS LAYOUT IS 16:9 ONLY — phone on the left, CTA and badges beside it. In a
+  // 1080-wide frame the right column runs clean off the edge. short_vowels, c/k/ck and
+  // ai/ay each shipped that bug before it was caught, and it would have hit all nine
+  // remaining 4:5 conversions, so the switch lives HERE rather than in every reel.
+  const portrait = height > width;
   const logoIn = spring({ frame: frame - 10, fps, config: { damping: 12 } });
   const line = spring({ frame: frame - (compact ? 16 : 26), fps, config: { damping: 12 } });
   const badgeAt = compact ? Math.round(total * 0.42) : 200; // reveal badges around download time
   const play = spring({ frame: frame - badgeAt, fps, config: { damping: 10 } });
   const apple = spring({ frame: frame - (badgeAt + 14), fps, config: { damping: 10 } });
+
+  // Placed AFTER every hook above — an early return before them changes the hook count
+  // per frame, which is what killed a render with React #310 once already. bg is left
+  // undefined so the reel's own world keeps running instead of a jump cut.
+  if (portrait) return <StoreOutroPortrait audioSrc={silent ? undefined : audioSrc} audioDur={audioDur} />;
+
   return (
     // NO background here. The video's global background (+ its ambient particles) must
     // keep running underneath, otherwise the download beat is a hard jump cut to a

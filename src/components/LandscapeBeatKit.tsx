@@ -44,17 +44,20 @@ export const Pill: React.FC<{
   // `still` = no entrance animation. Frame 0 is the upload thumbnail and must be a
   // COMPLETE cover, so the first beat's pill must not fade up from nothing.
   still?: boolean;
-}> = ({ children, color = palette.ink, bg = "#FFFFFFEE", enterFrame = 0, size = 54, still = false }) => {
+}> = ({ children, color = palette.ink, bg = "#FFFFFFEE", enterFrame = 0, size, still = false }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const portrait = height > width;
   const s = still ? 1 : spring({ frame: frame - enterFrame, fps, config: { damping: 12 } });
   return (
     <div
       style={{
         background: bg,
         borderRadius: 999,
-        padding: "18px 46px",
-        fontSize: size,
+        // Portrait: at 54 the longest headline ("Sound in the MIDDLE -> write ai") ran
+        // clean under the top-right logo watermark and hid its last word. 40 clears it.
+        padding: portrait ? "13px 32px" : "18px 46px",
+        fontSize: size ?? (portrait ? 40 : 54),
         fontWeight: 700,
         color,
         lineHeight: 1.15,

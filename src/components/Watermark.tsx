@@ -23,12 +23,19 @@ export const Watermark: React.FC<{
   corner?: "tl" | "tr" | "bl" | "br";
   pad?: number; // override the safe inset; the default is already correct for both aspects
 }> = ({ opacity = 0.55, widthFrac = 0.1, corner = "tl", pad: padProp }) => {
-  const { width } = useVideoConfig();
+  const { width, height } = useVideoConfig();
   if (!WATERMARK_ENABLED) return null;
   const w = Math.round(width * widthFrac);
   // SAFE INSET: 5% title-safe on 16:9 (96px), floored at 90px so a 1080-wide portrait
   // clears the social safe margin too. The old 2.8% gave only 30px on 9:16.
-  const pad = padProp ?? Math.max(Math.round(width * 0.05), 90);
+  //
+  // 4:5 is the exception. The 90px floor exists for 9:16, where Instagram and Reels
+  // paint their own UI over the corners; a Facebook 4:5 post has no such overlay, so 90
+  // just pushed the logo needlessly far in from the corner. 56 tucks it up and out
+  // without leaving the safe area.
+  const ratio = height / width;
+  const fourFive = ratio > 1 && ratio < 1.5;
+  const pad = padProp ?? (fourFive ? 56 : Math.max(Math.round(width * 0.05), 90));
   return (
     <Img
       src={staticFile("logo.png")}

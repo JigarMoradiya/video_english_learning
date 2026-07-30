@@ -193,13 +193,24 @@ const WordBoard: React.FC<{
   side: "left" | "right";
 }> = ({ team, words, beat, headAt, side }) => {
   const frame = useCurrentFrame();
-  const { fps, width } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
   const c = hex(team.colorHex);
   // BOTH boards arrive together at the top of the beat — a board that waits 17s for its
   // turn is a blank half-screen, which is the dead-screen failure. The board whose turn
   // it is not is DIMMED, never empty.
   const inn = spring({ frame: frame - 4, fps, config: { damping: 14 } });
-  const x = side === "left" ? safeX(width) : width - safeX(width) - BOARD_W;
+  // 2 x 844 fits 1920 but NOT 1080 — side by side the two boards overlapped each other
+  // by 716px. Portrait stacks them instead: full width, one above the other.
+  const portrait = height > width;
+  const bw = portrait ? width - 2 * safeX(width) : BOARD_W;
+  // The grid needs CARDS_TOP 128 + 2 x (CARD x 1.68) + ROW_GAP + 16 = 498px. At 330 the
+  // second row ("paint tail chain") was sliced off by the board stacked below it.
+  // Portrait: 430 tall each, cards at 88, tops at 270/724 -> 1154, clear of the caption.
+  const bh = portrait ? 430 : 560;
+  const card = portrait ? 88 : CARD;
+  const cardsTop = portrait ? 96 : CARDS_TOP;
+  const x = portrait ? safeX(width) : side === "left" ? safeX(width) : width - safeX(width) - BOARD_W;
+  const y = portrait ? (side === "left" ? 270 : 724) : STAGE_TOP;
   const slide = (1 - inn) * (side === "left" ? -80 : 80);
   const myTurn = frame >= headAt;
   return (
@@ -209,14 +220,14 @@ const WordBoard: React.FC<{
         The dim has to sit on something solid. */}
     <div
       style={{
-        position: "absolute", left: x, top: STAGE_TOP, width: BOARD_W, height: 560,
+        position: "absolute", left: x, top: y, width: bw, height: bh,
         transform: `translateX(${slide}px) scale(${myTurn ? 1 : 0.97})`,
         background: "#FFFFFF", borderRadius: 40, boxShadow: "0 18px 46px rgba(30,36,56,0.16)",
       }}
     />
     <div
       style={{
-        position: "absolute", left: x, top: STAGE_TOP, width: BOARD_W, height: 560,
+        position: "absolute", left: x, top: y, width: bw, height: bh,
         transform: `translateX(${slide}px) scale(${myTurn ? 1 : 0.97})`, opacity: myTurn ? 1 : 0.55,
         background: tint(team.colorHex, 0.9), border: `6px solid ${tint(team.colorHex, 0.45)}`,
         borderRadius: 40, boxShadow: `0 18px 46px ${c}33`, fontFamily: font.family,
@@ -231,7 +242,7 @@ const WordBoard: React.FC<{
         <span style={{ fontSize: 26, fontWeight: 600, opacity: 0.9 }}>· {team.zonePhrase ? team.zonePhrase.replace(" the word", "") : team.zoneHint}</span>
       </div>
       {/* two rows of three */}
-      <div style={{ position: "absolute", left: 0, right: 0, top: CARDS_TOP, bottom: CARDS_BOTTOM, display: "flex", flexDirection: "column", justifyContent: "center", gap: ROW_GAP }}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: cardsTop, bottom: CARDS_BOTTOM, display: "flex", flexDirection: "column", justifyContent: "center", gap: ROW_GAP }}>
         {[words.slice(0, 3), words.slice(3, 6)].map((row, r) => (
           <div key={r} style={{ display: "flex", justifyContent: "center", gap: CARD_GAP }}>
             {row.map((w) => {
@@ -250,7 +261,7 @@ const WordBoard: React.FC<{
                     // headAt left the second board's cards unrendered for 17 seconds
                     enterFrame={6 + i * 4}
                     litFrame={at >= 0 ? at : undefined}
-                    size={CARD}
+                    size={card}
                     phase={i}
                   />
                 </div>
@@ -318,6 +329,8 @@ export const PairQuiz: React.FC<{
   // the sky worlds that reads fine, there it vanished. A light plate goes behind it.
   plate?: boolean;
 }> = ({ data, beat, copy, word, blanked, answer, top = 392, plate = false }) => {
+  const { width: _w, height: _h } = useVideoConfig();
+  const portrait = _h > _w;
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   // see PairCopy.reveal — which "it's" is the answer differs per card, and keying the wrong
@@ -349,13 +362,19 @@ export const PairQuiz: React.FC<{
 
   return (
     <>
-      <Band top={72}>
-        <Pill size={50}>Your turn! 🤔</Pill>
-      </Band>
+      {/* 16:9 keeps the pill in the top band. In the 4:5 cut that left it 335px above
+          its own content, reading as two unrelated things; PairRecap keeps its pill
+          inside the centred column, so portrait does the same (rendered below). */}
+      {!portrait && (
+        <Band top={72}>
+          <Pill size={50}>Your turn! 🤔</Pill>
+        </Band>
+      )}
       {/* picture LEFT, word + choices RIGHT — uses the 16:9 width instead of stacking
           everything in a tall column, which ran the word into the choice cards */}
-      <Center top={top}>
-        <div style={{ display: "flex", alignItems: "center", gap: 84 }}>
+      <Center top={portrait ? 300 : top}>
+        {portrait && <div style={{ marginBottom: 34 }}><Pill size={50}>Your turn! 🤔</Pill></div>}
+        <div style={{ display: "flex", alignItems: "center", gap: portrait ? 44 : 84 }}>
           <div style={{ width: 300, height: 300, background: palette.card, border: `9px solid ${c}`, borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 168, boxShadow: `0 18px 44px ${c}44`, transform: `translateY(${bob(frame, fps, 8, 2.6)}px)`, overflow: "hidden", padding: 18 }}>
             <QuizIllo word={word} />
           </div>
@@ -458,6 +477,8 @@ export const PairRecap: React.FC<{
   // the entrance pop
   logoSize?: number; logoGap?: number; logoPulse?: boolean;
 }> = ({ data, beat, top = 316, crest, scale = 1, depth3d = false, logoSize = 118, logoGap = 0, logoPulse = false }) => {
+  const { width: _rw, height: _rh } = useVideoConfig();
+  const portraitR = _rh > _rw;
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   return (
@@ -516,14 +537,16 @@ export const PairRecap: React.FC<{
           })}
         </div>
         {/* brand badge — one logo, in the content, on the app's own gradient */}
-        <div
+        {/* PORTRAIT: no badge. The frame already carries the corner watermark, so this
+            second logo sat directly under the Remember cards as a duplicate mark. */}
+        {!portraitR && <div
           style={{
             marginTop: logoGap,
             transform: `scale(${spring({ frame: frame - 70, fps, config: { damping: 12 } })* (logoPulse ? 1 + 0.06 * Math.sin(((frame - 70) / fps) * 3.4) : 1)}) translateY(${logoPulse ? bob(frame, fps, 6, 2.2) : 0}px)`,
           }}
         >
           <LogoBadge size={logoSize} />
-        </div>
+        </div>}
       </div>
     </Center>
   );
