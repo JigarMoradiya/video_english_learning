@@ -189,7 +189,7 @@ export const ThreeOne: React.FC<BeatProps> = ({ data, beat }) => {
 // ── ③ Same-sound tag ─────────────────────────────────────────────────────────
 export const SameTag: React.FC<BeatProps> = () => (
   <Band>
-    <Pill from={6}>same sound → three spellings</Pill>
+    <Pill from={6}>same sound</Pill>
   </Band>
 );
 
@@ -204,7 +204,7 @@ export const Puzzle: React.FC<BeatProps> = ({ beat }) => {
       {/* bulb INLINE with the pill — stacked it pushed past the band and onto the
           middle zone's street sign */}
       <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-      <Pill from={0}>which one do we use? 🤔</Pill>
+      <Pill from={0}>which one? 🤔</Pill>
       {frame >= at && (
         <div
           style={{
@@ -309,7 +309,7 @@ export const SeeIt3: React.FC<BeatProps> = ({ data, beat }) => {
 
   // THREE FIXED SLOTS, always on screen. Before its word is spoken a slot shows a
   // dashed ghost card, so the stage is never blank — the old build left ~2.5s of
-  // empty screen at "Let's try some words!" and ~1.4s at each new group label.
+  // empty screen at "Let's try!" and ~1.4s at each new group label.
   // No fixed-width slot: at size 230 a card is ~414px, so a 300px slot made adjacent
   // cards overlap. Natural width + a real gap can never touch.
   const gap = 84; // pulse-proof: a spoken card grows 0.16×width each side
@@ -319,7 +319,7 @@ export const SeeIt3: React.FC<BeatProps> = ({ data, beat }) => {
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
         <BeatEmoji char="👀" />
         <div style={{ fontSize: 66, fontWeight: 700, color: palette.ink, transform: `translateY(${bob(frame, fps, 6, 2.6)}px)` }}>
-          Let's try some words!
+          Let's try!
         </div>
 
         {/* the group letter — breathing room below it so the label reads as a
@@ -448,7 +448,7 @@ export const Quiz3: React.FC<BeatProps & { revealAt: number; underlineAt: number
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 44 }}>
         <BeatEmoji char="🤔" />
         <div style={{ fontSize: 70, fontWeight: 700, color: palette.ink, transform: `translateY(${bob(frame, fps, 6, 2.4)}px)` }}>
-          Your turn! How do we spell…
+          Your turn!
         </div>
 
         {/* the word: du__ → duck. The short-vowel "u" underline appears ONLY after the

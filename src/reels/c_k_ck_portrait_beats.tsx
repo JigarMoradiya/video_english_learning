@@ -160,7 +160,7 @@ export const CThree: React.FC<BeatProps> = ({ data, beat }) => {
 // ── ③ Same-sound tag ─────────────────────────────────────────────────────────
 export const CSame: React.FC<BeatProps> = () => (
   <Band>
-    <Pill from={6}>same sound → three spellings</Pill>
+    <Pill from={6}>same sound</Pill>
   </Band>
 );
 
@@ -172,7 +172,7 @@ export const CPuzzle: React.FC<BeatProps> = ({ beat }) => {
   const s = spring({ frame: frame - at, fps, config: { damping: 10 } });
   return (
     <Band>
-      <Pill from={0}>which one do we use? 🤔</Pill>
+      <Pill from={0}>which one? 🤔</Pill>
       {frame >= at && (
         <div style={{ transform: `scale(${s})`, width: 124, height: 124, borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 14px 34px ${palette.cardShadow}` }}>
           <Lightbulb size={80} />
@@ -251,7 +251,7 @@ export const CSeeIt: React.FC<BeatProps> = ({ data, beat }) => {
     <Center lift={150}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 30 }}>
         <MascotHead badge="👀" />
-        <div style={{ fontSize: 62, fontWeight: 700, color: palette.ink, transform: `translateY(${bob(frame, fps, 6, 2.6)}px)` }}>Let's try some words!</div>
+        <div style={{ fontSize: 62, fontWeight: 700, color: palette.ink, transform: `translateY(${bob(frame, fps, 6, 2.6)}px)` }}>Let's try!</div>
 
         {/* clear space under the group letter so it reads as the row's heading */}
         <div
@@ -312,7 +312,7 @@ export const CQuiz: React.FC<BeatProps & { revealAt: number; underlineAt: number
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 48 }}>
         <MascotHead badge="🤔" size={150} />
         <div style={{ fontSize: 58, fontWeight: 700, color: palette.ink, textAlign: "center", transform: `translateY(${bob(frame, fps, 6, 2.4)}px)` }}>
-          Your turn! How do we spell…
+          Your turn!
         </div>
 
         {/* word slot is HELD (ghosted) from the beat start — no hole before 107.22 */}
