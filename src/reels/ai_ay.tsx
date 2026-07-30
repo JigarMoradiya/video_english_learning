@@ -11,6 +11,9 @@ import { SeeIt } from "../beats/SeeIt";
 import { Quiz } from "../beats/Quiz";
 import { Wrap } from "../beats/Wrap";
 import { Captions, keywordColorFor } from "../components/Captions";
+import { MetroLine } from "../components/MetroLine";
+import { StoreOutroPortrait } from "../components/StoreOutroPortrait";
+import { positionCues } from "../lib/positionCues";
 import { makeTrack, TPhrase } from "../lib/timing";
 import aiAyPhrases from "../data/ai_ay.timing.json";
 
@@ -31,6 +34,20 @@ const BEATS = {
 };
 
 export const AI_AY_DURATION = Object.values(BEATS).reduce((a, b) => a + b, 0);
+
+// ── download section: EXACTLY the oo_portrait pattern ────────────────────────
+//   captions live in a Sequence that ENDS at OUTRO_FROM · StoreOutroPortrait is used
+//   bare, no offset, no nudge. An ad-hoc translateY here is what made it sit too high.
+// Frames come from the phrase timings: the outro takes over once "Remember: ai in the
+// middle, ay at the end." has finished, and the recap holds until then.
+const PH = aiAyPhrases as unknown as Parameters<typeof positionCues>[0];
+const F = (sec: number) => Math.round(sec * 30);
+const OUTRO_FROM = F(PH[22].end);
+// cues come from the shared nearest-preceding-spelling rule (src/lib/positionCues.ts) —
+// same helper oi_oy uses, and verified to produce byte-identical frames to the local
+// version this replaced.
+const BLINK_AI = positionCues(PH, "middle", "ai", "ay");
+const BLINK_AY = positionCues(PH, "end", "ay", "ai");
 
 const SFX: SfxCue[] = [
   { from: 30, name: "pop", vol: 0.4 },
@@ -61,8 +78,13 @@ const SFX: SfxCue[] = [
 export const AiAyReel: React.FC = () => {
   const data = comparisons.ai_ay;
   const at = beatTimeline();
+  // THE METRO LINE. The rainbow never became a place; the railway station I tried first
+  // put a panel BEHIND the beats and every version of it collided with one of them. A
+  // subway diagram is drawn vertically in real life, so it fits 9:16 natively, and its
+  // spine runs down the LEFT edge — x200…1080 stays free, so no beat can ever land on it.
+  // It also teaches: ai is an interchange mid-line, ay is the terminus with buffers.
   return (
-    <ReelBase audio="audio/ai_ay/ai_ay.mp3" hueShift={data.hueShift} sfx={SFX} total={AI_AY_DURATION} scene="sky" logoUntil={AI_AY_DURATION - BEATS.wrap} logoCorner="tr">
+    <ReelBase audio="audio/ai_ay/ai_ay.mp3" hueShift={data.hueShift} sfx={SFX} total={AI_AY_DURATION} scene="none" background={<MetroLine lineColor={data.teams[0].colorHex} endColor={data.teams[1].colorHex} blinkAi={BLINK_AI} blinkAy={BLINK_AY} dimFrom={OUTRO_FROM} />} logoUntil={AI_AY_DURATION - BEATS.wrap} logoCorner="tr">
       <Sequence {...at(BEATS.hook)}>
         <Hook data={data} />
       </Sequence>
@@ -84,12 +106,23 @@ export const AiAyReel: React.FC = () => {
       <Sequence {...at(BEATS.quiz)}>
         <Quiz data={data} word="paint" blanked="p__nt" answer={0} />
       </Sequence>
-      <Sequence {...at(BEATS.wrap)}>
-        <Wrap data={data} />
+{/* The wrap used to end on a bare logo + two store badges. Every other video ends on
+          the shared StoreOutroPortrait — phone store-flow, then the CTA, then both badges —
+          so this reel now does too. The recap holds for 155f first, then the outro takes
+          the last 230f (its springs settle by ~70f, so 230 is comfortable). */}
+      <Sequence from={AI_AY_DURATION - BEATS.wrap} durationInFrames={OUTRO_FROM - (AI_AY_DURATION - BEATS.wrap)}>
+        <Wrap data={data} store={false} />
+      </Sequence>
+      <Sequence from={OUTRO_FROM} durationInFrames={AI_AY_DURATION - OUTRO_FROM}>
+        <StoreOutroPortrait />
       </Sequence>
 
       {/* karaoke captions in the free band above SAFE_BOTTOM (top-level child = absolute frame) */}
-      <Captions track={track} keywordColor={keywordColorFor(data)} bottom={490} maxWidth={940} fontSize={40} />
+      {/* captions END at the outro — the store card carries its own CTA text, and the
+          caption band printed straight over the badges. Same as oo_portrait. */}
+      <Sequence from={0} durationInFrames={OUTRO_FROM}>
+        <Captions track={track} keywordColor={keywordColorFor(data)} bottom={490} maxWidth={940} fontSize={40} />
+      </Sequence>
     </ReelBase>
   );
 };

@@ -38,7 +38,10 @@ const Intro: React.FC = () => {
     <Stage gap={40}>
       <div
         style={{
-          transform: `scale(${s * pulse(frame, fps, 0.04, 1.2)}) translateY(${bob(frame, fps, 12, 2)}px)`,
+          // Lifted clear of the metro line's `ai` interchange stop, which sits at y760 —
+          // Stage centres this heading at y725, so it printed straight through the stop's
+          // "ai · MIDDLE" tick-label. It is the only thing in its beat, so it can sit high.
+          transform: `translateY(-260px) scale(${s * pulse(frame, fps, 0.04, 1.2)}) translateY(${bob(frame, fps, 12, 2)}px)`,
           fontSize: 96,
           fontWeight: 700,
           color: palette.ink,

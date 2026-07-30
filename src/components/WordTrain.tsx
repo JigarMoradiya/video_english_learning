@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { PhonicsComparison } from "../data/types";
 import { Beat } from "../lib/timing";
-import { hex, tint, font } from "../data/tokens";
+import { darken, hex, tint, font } from "../data/tokens";
 import { bob, wiggle } from "../lib/motion";
 import { STAGE_TOP, safeX } from "./LandscapeBeatKit";
 import { NEUTRAL, PositionPlate, Slot, SlotContent, SlotState, TagChip } from "./PositionSlot";
@@ -28,15 +28,32 @@ import { NEUTRAL, PositionPlate, Slot, SlotContent, SlotState, TagChip } from ".
 export type Car = Slot;
 export type TrainState = SlotState;
 
-const RAIL_Y = 782; // top of the wheels; wheels end 842, inside the stage band (860)
 const WHEEL_R = 30;
-const BODY_TOP = STAGE_TOP + 60; // 360
-const BODY_H = 424; // 360 → 784, i.e. the body sits ON the wheels
+
+// Band table per aspect. The 16:9 numbers are the originals and must not move.
+//
+// A train row CANNOT fill a tall frame: 1080 wide holds engine + 3 carriages at ~250
+// each, so stretching the bodies to eat the height would make 250x600 carriages that
+// read as lockers, not rolling stock. The portrait staging instead keeps the train at
+// natural proportions in a middle band and gives the freed height to the WORLD —
+// sky/sun/clouds above (where the headline lives), embankment below (where the caption
+// sits). At the 16:9 rail of 782 a 1350-tall frame left 568px of empty grass with the
+// caption floating in the middle of it.
+//
+//   4:5    sky 0…480 · train 480…960 · embankment 960…1350
+//   16:9   sky 0…360 · train 360…842 · embankment 842…1080
+export const trainBands = (width: number, height: number) => {
+  const ratio = height / width;
+  if (ratio > 1.5) return { railY: 1780, bodyTop: 1480, bodyH: 300, engineW: 150, gap: 14 }; // 9:16
+  if (ratio > 1) return { railY: 900, bodyTop: 480, bodyH: 420, engineW: 170, gap: 16 };    // 4:5
+  return { railY: 782, bodyTop: STAGE_TOP + 60, bodyH: 424, engineW: 250, gap: 24 };        // 16:9
+};
 
 // ── the sky/hills the whole video sits on (persistent, absolute frame) ───────
 export const RailwaySky: React.FC = () => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
+  const B = trainBands(width, height);
   const drift = (speed: number, span: number, phase: number) => ((frame * speed + phase) % (width + span)) - span;
   return (
     <AbsoluteFill style={{ background: "linear-gradient(180deg, #BFE6FF 0%, #DFF3FF 46%, #FBF6E9 100%)" }}>
@@ -62,8 +79,8 @@ export const RailwaySky: React.FC = () => {
       ))}
       {/* rolling hills behind the track */}
       <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
-        <path d={`M0 ${RAIL_Y - 40} Q ${width * 0.22} ${RAIL_Y - 168} ${width * 0.46} ${RAIL_Y - 54} T ${width} ${RAIL_Y - 96} L ${width} ${height} L 0 ${height} Z`} fill="#A5D6A7" opacity={0.85} />
-        <path d={`M0 ${RAIL_Y + 6} Q ${width * 0.3} ${RAIL_Y - 74} ${width * 0.62} ${RAIL_Y + 12} T ${width} ${RAIL_Y - 22} L ${width} ${height} L 0 ${height} Z`} fill="#81C784" />
+        <path d={`M0 ${B.railY - 40} Q ${width * 0.22} ${B.railY - 168} ${width * 0.46} ${B.railY - 54} T ${width} ${B.railY - 96} L ${width} ${height} L 0 ${height} Z`} fill="#A5D6A7" opacity={0.85} />
+        <path d={`M0 ${B.railY + 6} Q ${width * 0.3} ${B.railY - 74} ${width * 0.62} ${B.railY + 12} T ${width} ${B.railY - 22} L ${width} ${height} L 0 ${height} Z`} fill="#81C784" />
       </svg>
     </AbsoluteFill>
   );
@@ -75,16 +92,17 @@ const Carriage: React.FC<{
   car: Car | null; color: string; lit: boolean;
 }> = ({ x, w, idx, label, labelLit, car, color, lit }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const B = trainBands(width, height);
   const c = hex(color);
   const jiggle = bob(frame, fps, 3, 0.9, idx * 0.6); // the whole train is always moving
   const litPop = lit ? 1 + 0.05 * Math.sin((frame / fps) * 6) : 1;
 
   const ROOF = 56; // coloured roof bar; the position plate sits ON it
   return (
-    <div style={{ position: "absolute", left: x, top: BODY_TOP + jiggle, width: w, height: BODY_H, transform: `scale(${litPop})`, transformOrigin: "center bottom" }}>
+    <div style={{ position: "absolute", left: x, top: B.bodyTop + jiggle, width: w, height: B.bodyH, transform: `scale(${litPop})`, transformOrigin: "center bottom" }}>
       {/* coupling to the unit in front */}
-      <div style={{ position: "absolute", left: -26, top: BODY_H - 92, width: 26, height: 14, background: "#546E7A", borderRadius: 7 }} />
+      <div style={{ position: "absolute", left: -26, top: B.bodyH - 92, width: 26, height: 14, background: "#546E7A", borderRadius: 7 }} />
 
       {/* roof */}
       <div
@@ -144,14 +162,15 @@ export const WordTrain: React.FC<{
   sweep?: { from: number; to: number };
 }> = ({ data, beats, stateFor, showLabelsFrom, labelLitAt, hideAt, sweep }) => {
   const frame = useCurrentFrame();
-  const { width, fps } = useVideoConfig();
+  const { width, height, fps } = useVideoConfig();
+  const B = trainBands(width, height);
   const f = frame;
   if (f >= hideAt + 14) return null;
   const opacity = interpolate(f, [hideAt - 14, hideAt + 14], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   const SAFE = safeX(width);
-  const GAP = 24;
-  const ENGINE_W = 250;
+  const GAP = B.gap;
+  const ENGINE_W = B.engineW;
   const carW = (width - 2 * SAFE - ENGINE_W - 3 * GAP) / 3; // ≈ 452
   const xOf = (i: number) => SAFE + ENGINE_W + GAP + i * (carW + GAP);
 
@@ -164,11 +183,11 @@ export const WordTrain: React.FC<{
     <AbsoluteFill style={{ opacity }}>
       <div style={{ position: "absolute", inset: 0, transform: `translateX(${trainX}px)` }}>
         {/* rails */}
-        <div style={{ position: "absolute", left: 0, right: 0, top: RAIL_Y + WHEEL_R * 2 - 6, height: 10, background: "#8D6E63", borderRadius: 5 }} />
-        <div style={{ position: "absolute", left: 0, right: 0, top: RAIL_Y + WHEEL_R * 2 + 10, height: 16, background: "#6D4C41", opacity: 0.5 }} />
+        <div style={{ position: "absolute", left: 0, right: 0, top: B.railY + WHEEL_R * 2 - 6, height: 10, background: "#8D6E63", borderRadius: 5 }} />
+        <div style={{ position: "absolute", left: 0, right: 0, top: B.railY + WHEEL_R * 2 + 10, height: 16, background: "#6D4C41", opacity: 0.5 }} />
         {/* sleepers scroll under the train — motion even when nothing else changes */}
         {Array.from({ length: 26 }).map((_, i) => (
-          <div key={i} style={{ position: "absolute", top: RAIL_Y + WHEEL_R * 2 + 8, left: ((i * 92 - frame * 2.2) % (width + 120) + width + 120) % (width + 120) - 60, width: 46, height: 20, background: "#795548", borderRadius: 4, opacity: 0.55 }} />
+          <div key={i} style={{ position: "absolute", top: B.railY + WHEEL_R * 2 + 8, left: ((i * 92 - frame * 2.2) % (width + 120) + width + 120) % (width + 120) - 60, width: 46, height: 20, background: "#795548", borderRadius: 4, opacity: 0.55 }} />
         ))}
 
         {/* engine */}
@@ -200,7 +219,7 @@ export const WordTrain: React.FC<{
           const cx = xOf(0) + carW / 2 + k * (2 * (carW + GAP));
           const R = 132;
           return (
-            <svg width={R * 2.4} height={R * 2.4} style={{ position: "absolute", left: cx - R * 1.2, top: BODY_TOP + BODY_H / 2 - R * 1.2 }}>
+            <svg width={R * 2.4} height={R * 2.4} style={{ position: "absolute", left: cx - R * 1.2, top: B.bodyTop + B.bodyH / 2 - R * 1.2 }}>
               <circle cx={R * 1.2} cy={R * 1.2} r={R} fill="#FFFFFF" opacity={0.22} />
               <circle cx={R * 1.2} cy={R * 1.2} r={R} fill="none" stroke="#D81B60" strokeWidth={14} />
               <line x1={R * 1.2 + R * 0.72} y1={R * 1.2 + R * 0.72} x2={R * 1.2 + R * 1.16} y2={R * 1.2 + R * 1.16} stroke="#D81B60" strokeWidth={20} strokeLinecap="round" />
@@ -219,8 +238,10 @@ export const WordTrain: React.FC<{
 
 const Wheel: React.FC<{ x: number }> = ({ x }) => {
   const frame = useCurrentFrame();
+  const { width, height } = useVideoConfig();
+  const B = trainBands(width, height);
   return (
-    <svg width={WHEEL_R * 2} height={WHEEL_R * 2} style={{ position: "absolute", left: x - WHEEL_R, top: RAIL_Y }}>
+    <svg width={WHEEL_R * 2} height={WHEEL_R * 2} style={{ position: "absolute", left: x - WHEEL_R, top: B.railY }}>
       <circle cx={WHEEL_R} cy={WHEEL_R} r={WHEEL_R - 2} fill="#37474F" />
       <circle cx={WHEEL_R} cy={WHEEL_R} r={WHEEL_R * 0.42} fill="#90A4AE" />
       <g transform={`rotate(${frame * 6} ${WHEEL_R} ${WHEEL_R})`}>
@@ -233,10 +254,11 @@ const Wheel: React.FC<{ x: number }> = ({ x }) => {
 
 const Engine: React.FC<{ x: number; w: number }> = ({ x, w }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const B = trainBands(width, height);
   const jiggle = bob(frame, fps, 3, 0.9);
   return (
-    <div style={{ position: "absolute", left: x, top: BODY_TOP + jiggle, width: w, height: BODY_H }}>
+    <div style={{ position: "absolute", left: x, top: B.bodyTop + jiggle, width: w, height: B.bodyH }}>
       {/* steam puffs — continuous motion above the funnel, inside the stage band */}
       {Array.from({ length: 5 }).map((_, i) => {
         const t = ((frame * 1.7 + i * 22) % 110) / 110;
@@ -252,5 +274,87 @@ const Engine: React.FC<{ x: number; w: number }> = ({ x, w }) => {
         <Img src={staticFile("mascot.png")} style={{ width: "94%", transform: `translateY(${16 + bob(frame, fps, 4, 1.6)}px) rotate(${wiggle(frame, fps, 2, 2.2)}deg)` }} />
       </div>
     </div>
+  );
+};
+
+// ── THE STATION (9:16) ───────────────────────────────────────────────────────
+// The 9:16 reel is a DIFFERENT show from the 16:9 lesson — its own narration, its own
+// beats — so it does not get the teaching train, whose carriages ARE word positions.
+// It gets the same WORLD: the railway the lesson lives on, with a scenic train rolling
+// along the bottom. That ties the two cuts together as one place without pretending the
+// carriages are doing teaching they aren't.
+//
+// It sits in the strip BELOW the caption band (captions are at bottom:490, so y~1430
+// down was 490px of empty pastel in the old rainbow version — the single biggest dead
+// area in the reel).
+export const StationWorld: React.FC<{ colors?: string[] }> = ({
+  colors = ["1E88E5", "F4511E", "43A047"],
+}) => {
+  const frame = useCurrentFrame();
+  const { width, height, fps } = useVideoConfig();
+  const B = trainBands(width, height);
+  const carW = (width - 2 * safeX(width) - B.engineW - 3 * B.gap) / 3;
+  const xOf = (i: number) => safeX(width) + B.engineW + B.gap + i * (carW + B.gap);
+  return (
+    <AbsoluteFill>
+      <RailwaySky />
+      {/* THE DEPARTURES BOARD — the content's home.
+          Stage centres every beat at y725 with SAFE_BOTTOM 470, so the cards were
+          floating in bare sky with ~400px of void between them and the caption. An
+          enamel station board mounted on two posts gives them something to sit ON,
+          fills that void with structure instead of emptiness, and is the piece of the
+          station the reel was missing. Light, not slate: the beats draw dark ink. */}
+      {(() => {
+        const BX = 54, BY = 250, BW = width - 108, BH = 950; // centre 725 = Stage's content centre
+        return (
+          <>
+            {/* posts down to the platform */}
+            {[BX + 130, BX + BW - 130].map((px) => (
+              <div key={px} style={{ position: "absolute", left: px, top: BY + BH - 20, width: 26, height: B.bodyTop - (BY + BH) + 90, background: "#9E9E9E", borderRadius: 6, boxShadow: "inset -6px 0 0 rgba(0,0,0,0.12)" }} />
+            ))}
+            {/* board face */}
+            <div style={{ position: "absolute", left: BX, top: BY, width: BW, height: BH, borderRadius: 40, background: "linear-gradient(180deg,#FFFDF7 0%,#F6F1E6 100%)", border: "10px solid #FFFFFF", boxShadow: "0 26px 60px rgba(30,36,56,0.22)" }} />
+            {/* NO lettered strip. It collided with beat titles at the top and with the
+                quiz's answer chips at the bottom — the beats own different amounts of the
+                board, so any fixed strip lands on one of them. The posts and rivets carry
+                the station identity on their own. */}
+            {/* rivets, so it reads as enamel and not a plain card */}
+            {[[BX + 34, BY + 34], [BX + BW - 34, BY + 34], [BX + 34, BY + BH - 130], [BX + BW - 34, BY + BH - 130]].map(([rx, ry], i) => (
+              <div key={i} style={{ position: "absolute", left: rx - 7, top: ry - 7, width: 14, height: 14, borderRadius: 7, background: "#D7CEBD" }} />
+            ))}
+          </>
+        );
+      })()}
+      {/* rails + sleepers, scrolling so the train is never standing still */}
+      <div style={{ position: "absolute", left: 0, right: 0, top: B.railY + WHEEL_R * 2 - 6, height: 10, background: "#8D6E63", borderRadius: 5 }} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: B.railY + WHEEL_R * 2 + 10, height: 16, background: "#6D4C41", opacity: 0.5 }} />
+      {Array.from({ length: Math.ceil(width / 92) + 2 }, (_, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute", top: B.railY + WHEEL_R * 2 + 8,
+            left: ((i * 92 - frame * 2.2) % (width + 120) + width + 120) % (width + 120) - 60,
+            width: 46, height: 20, background: "#795548", borderRadius: 4, opacity: 0.55,
+          }}
+        />
+      ))}
+      <Engine x={safeX(width)} w={B.engineW} />
+      {[0, 1, 2].map((i) => {
+        const c = hex(colors[i % colors.length]);
+        const jiggle = bob(frame, fps, 3, 0.9, i * 0.6);
+        return (
+          <div key={i} style={{ position: "absolute", left: xOf(i), top: B.bodyTop + jiggle, width: carW, height: B.bodyH }}>
+            <div style={{ position: "absolute", left: -22, top: B.bodyH - 78, width: 22, height: 12, background: "#546E7A", borderRadius: 6 }} />
+            <div style={{ position: "absolute", left: -6, right: -6, top: 0, height: 44, borderRadius: 16, background: c, boxShadow: `0 8px 20px ${c}55` }} />
+            <div style={{ position: "absolute", left: 0, right: 0, top: 32, bottom: 0, borderRadius: 20, background: "#FFFFFF", border: `6px solid ${tint(colors[i % colors.length], 0.5)}`, boxShadow: "0 12px 30px rgba(30,36,56,0.14)" }} />
+            {/* a window, so it reads as a carriage and not a white box */}
+            <div style={{ position: "absolute", left: carW * 0.18, right: carW * 0.18, top: 74, height: B.bodyH - 150, borderRadius: 14, background: tint(colors[i % colors.length], 0.86), border: `4px solid ${tint(colors[i % colors.length], 0.6)}` }} />
+          </div>
+        );
+      })}
+      {[0, 1, 2].flatMap((i) => [xOf(i) + carW * 0.24, xOf(i) + carW * 0.76]).concat([safeX(width) + 44, safeX(width) + 116]).map((wx, i) => (
+        <Wheel key={i} x={wx} />
+      ))}
+    </AbsoluteFill>
   );
 };
