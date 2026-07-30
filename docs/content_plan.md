@@ -239,10 +239,26 @@ register a second composition at 1080×1350. The 16:9 stays byte-identical.
 - **`tools/check_video.sh`** — for any `*-4x5` composition, assert the portrait store
   outro is used and the world sequence runs to full duration.
 
-**Per-card conversion order** (your "card wise" instruction) — in release order, not all
-at once, so each gets real review:
-`ai_ay` → `oa_ow` → `oo` → `oi_oy` → `ou_ow` → `au_aw` → `c_k_ck` → `ch_tch` →
-`ge_dge` → `c_soft_hard` → `g_soft_hard`
+**Per-card conversion order** — by the LEVEL each card posts at, not by card index. The
+first version of this list was card-index order, which would have converted `ai_ay` (L13)
+months before it posts and left `c_k_ck` (L5, the first one needed) until last:
+
+| # | Card | Posts at |
+|---|---|---|
+| 1 | `c_k_ck` | L5 |
+| 2 | `ch_tch` | L10 |
+| 3 | `ge_dge` | L10 |
+| 4 | `ai_ay` | L13 |
+| 5 | `oa_ow` | L13 |
+| 6 | `oo` | L13 |
+| 7 | `oi_oy` | L14 |
+| 8 | `ou_ow` | L14 |
+| 9 | `au_aw` | L14 |
+| 10 | `c_soft_hard` | L19 |
+| 11 | `g_soft_hard` | L19 |
+
+Convert each one shortly before its level, not in a batch — that way each gets real
+review and nothing is built long before it is needed.
 
 ---
 
@@ -368,3 +384,61 @@ Per piece, before it is called done:
 Daily reels needs ~364/year against ~120 identified. Recommendation is 5/week
 (weekdays), which stretches the library to ~6 months and protects recording time for the
 two long videos. Everything above works at either cadence.
+
+
+---
+
+## 11. The next 10 videos
+
+Split by **whether they need your voice** — that is the real constraint, not build time.
+
+### Two prerequisites first (not videos, but they gate everything)
+
+- **`src/components/PortraitBands.ts`** — the shared band table + `assertBands()`. Build
+  this before the first conversion so the twelve bugs in §5 are enforced by the first
+  one rather than rediscovered in it.
+- **`src/thumbs/thumb_template.tsx` + `src/data/thumbs.ts`** — the data-driven thumbnail
+  template from §6, with L1 and L2 migrated onto it as the proof. Every video below then
+  gets its 3 thumbnails as a data row.
+
+### Batch A — I can build these alone, no recording (4:5 conversions)
+
+Ordered by the level each posts at. Each is a portrait branch on the existing reel plus
+one composition entry; the 16:9 stays byte-identical.
+
+| # | Video | Posts at | Needs from you |
+|---|---|---|---|
+| 1 | `c_k_ck` 4:5 | L5 | nothing |
+| 2 | `ch_tch` 4:5 | L10 | nothing |
+| 3 | `ge_dge` 4:5 | L10 | nothing |
+| 4 | `ai_ay` 4:5 | L13 | nothing |
+| 5 | `oa_ow` 4:5 | L13 | nothing |
+
+### Batch B — these need a confirmed script and your narration
+
+New level lessons, in phonics order. Each ships **16:9 + 4:5 + a 9:16 cut + 3 thumbnails**.
+
+| # | Level | Teaches | Blocked on |
+|---|---|---|---|
+| 6 | L3 · 2-Sound Blending | blend two sounds: VC + CV (at, an, in, on, up) | script → your OK → recording |
+| 7 | L4 · CVC Words | say each sound then blend fast (cat, hat, pan, map) | script → your OK → recording |
+| 8 | L5 · Short Vowel Spelling Rules | ff·ll·ss·zz doubling · c/k/ck · -ng/-nk/x | script → your OK → recording |
+| 9 | L6 · Word Families | know one family, read the whole family (-at, -an, -en) | script → your OK → recording |
+| 10 | L7 · Beginning Blends | blends keep BOTH sounds (bl, cl, fl, gl, pl, st) | script → your OK → recording |
+
+Scripts written fresh per level — **not** from `Phonics_Scripts.html`.
+
+### Order of work
+
+1. `PortraitBands.ts`, then thumbnail template — one session
+2. Batch A conversions, one at a time with review between
+3. Batch B: I write the L3 script → you confirm → you record → I build. Then L4, and so on.
+
+Batch A and Batch B run in parallel: A needs none of your time, so it fills the gaps
+while scripts and recordings are in flight.
+
+### After these 10
+
+L8 → L28 continue the same way (21 more lessons), then the 5 unported compare cards at
+their levels (`th_two` L9, `ea_two`/`ow_two` L13, `ed_two` L21, `tion_sion` L23), then
+the 4 capstones. Reels run alongside from the five streams in §4.
