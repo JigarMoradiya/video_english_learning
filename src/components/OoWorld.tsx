@@ -85,6 +85,74 @@ export const Book: React.FC<{ size: number; active: boolean; frame: number; fps:
   );
 };
 
+
+// ── THE MOONLIT HOUSE — the 4:5 set ──────────────────────────────────────────
+// 16:9 and 9:16 both wear the left/right split world, so the Facebook cut gets its own
+// look rather than a third copy. A cutaway house divides top from bottom, which is the
+// division a tall frame actually wants: the moon is OUTSIDE above the roof for long /oo/,
+// and the lamplit room below the roof holds the bookshelf for short /u/.
+//
+// It also fixes a real cramp. Split left/right, each half is only 540px at 1080 wide (the
+// 16:9 gives 960), so the word chips wrapped. Stacked, each band gets the FULL width and
+// the chips sit in one row beside their character.
+//
+// THE BAND BUDGET — the constraint that decided this layout. oo_beats' `Lower` is
+// bottom-anchored at paddingBottom 175, so beat content ends at y1175 and can reach up to
+// ~y875. A naive half-and-half split at y675 would have put the book world straight
+// underneath it. So both worlds live ABOVE that:
+//   0 … 350   night: moon + long /oo/ label + long words
+//   350 … 392 the roof
+//   392 …     the room: book + short /u/ label + short words, ending by y700
+//   875 …1175 free for the beats
+//   1180…     the floor, under the caption band
+const HOUSE = { nightH: 350, roofH: 42, bookTop: 420, floorY: 1180 };
+
+const HouseBand: React.FC<{
+  side: "moon" | "book"; top: number; dim: number; active: boolean; color: string;
+  hint: string; words: (Ex & { at: number })[]; labeled: boolean; f: number;
+  frame: number; fps: number; width: number;
+}> = ({ side, top, dim, active, color, hint, words, labeled, f, frame, fps, width }) => (
+  <div style={{ position: "absolute", left: 0, top, width, opacity: dim, transition: "opacity 0.3s" }}>
+    {labeled && (
+      <div style={{ position: "absolute", top: 0, left: 54, transform: `translateY(${bob(frame, fps, 4, 2.6, side === "moon" ? 0 : 1)}px)`, background: color, color: "#fff", borderRadius: 26, padding: "10px 26px", display: "flex", alignItems: "center", gap: 10, fontSize: 36, fontWeight: 700, boxShadow: `0 10px 24px ${color}66` }}>
+        <span style={{ fontSize: 32 }}>{side === "moon" ? "🌙" : "📖"}</span> oo · {hint}
+      </div>
+    )}
+    {/* character on the LEFT, its words in one row to the RIGHT — the whole point of
+        stacking the two worlds instead of standing them side by side. */}
+    <div style={{ position: "absolute", top: labeled ? 92 : 40, left: 60 }}>
+      {side === "moon" ? <Moon size={150} active={active} frame={frame} fps={fps} /> : <Book size={158} active={active} frame={frame} fps={fps} />}
+    </div>
+    {active && (
+      <div style={{ position: "absolute", top: labeled ? 252 : 200, left: 60, width: 158, textAlign: "center", transform: `scale(${pulse(frame, fps, 0.08, 0.8)})`, fontSize: side === "moon" ? 38 : 34, fontWeight: 700, color }}>
+        {side === "moon" ? "oooooo" : "u"}
+      </div>
+    )}
+    <div style={{ position: "absolute", top: labeled ? 96 : 44, left: 236, width: 684, display: "flex", gap: 16, justifyContent: "flex-start", alignItems: "center" }}>
+      {words.map((w) =>
+        f >= w.at ? (
+          <CkWordChip key={w.word} word={w.word} blanked={w.blanked} colorHex={side === "moon" ? "5E35B1" : "E65100"} enterFrame={w.at} size={84} />
+        ) : (
+          <div
+            key={w.word}
+            style={{
+              width: 136, height: 142, borderRadius: 28, flexShrink: 0,
+              border: `4px dashed ${side === "moon" ? "#FFFFFF66" : `${color}66`}`,
+              background: side === "moon" ? "#FFFFFF1F" : "#ffffff55",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 44, fontWeight: 700,
+              color: side === "moon" ? "#FFFFFFAA" : `${color}99`,
+              transform: `translateY(${bob(frame, fps, 5, 2.2, w.word.length)}px)`,
+            }}
+          >
+            ?
+          </div>
+        )
+      )}
+    </div>
+  </div>
+);
+
 export const OoWorld: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = ({ data, beats }) => {
   const frame = useCurrentFrame();
   const { width, height, fps } = useVideoConfig();
@@ -181,6 +249,73 @@ export const OoWorld: React.FC<{ data: PhonicsComparison; beats: Beat[] }> = ({ 
       </div>
     </div>
   );
+
+  const portrait = height > width;
+  if (portrait) {
+    const roofY = HOUSE.nightH;
+    return (
+      <AbsoluteFill style={{ opacity: worldOpacity }}>
+        {/* the room fills everything under the roof, so the beats' lower band has a light
+            ground to draw on */}
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,#FFF6E6 0%,#FFEDD2 62%,#FFE3B8 100%)" }} />
+        {/* night, outside and above the roof */}
+        <div style={{ position: "absolute", left: 0, top: 0, width, height: roofY, background: "linear-gradient(180deg,#1B2447 0%,#2A2350 70%,#3A2F6E 100%)" }} />
+        <svg width={width} height={roofY} style={{ position: "absolute", left: 0, top: 0, opacity: 0.55 + moonDim * 0.45 }}>
+          {[...Array(26)].map((_, i) => {
+            const x = (Math.sin(i * 12.9) * 0.5 + 0.5) * (width - 80) + 40;
+            const y = (Math.cos(i * 7.3) * 0.5 + 0.5) * (roofY - 60) + 24;
+            const tw = 0.4 + 0.6 * Math.abs(Math.sin((frame / fps) * 1.5 + i));
+            return <circle key={i} cx={x} cy={y} r={i % 4 === 0 ? 3.2 : 2} fill="#fff" opacity={tw * 0.85} />;
+          })}
+        </svg>
+        {/* THE ROOF — the split, and what makes it read as one house rather than two panels */}
+        <svg width={width} height={HOUSE.roofH + 26} style={{ position: "absolute", left: 0, top: roofY - 4 }}>
+          <rect x={0} y={8} width={width} height={HOUSE.roofH} fill="#6D4C41" />
+          <rect x={0} y={8} width={width} height={9} fill="#8D6E63" />
+          {Array.from({ length: Math.ceil(width / 46) }, (_, i) => (
+            <rect key={i} x={i * 46} y={17} width={42} height={HOUSE.roofH - 9} rx={4} fill="#5D4037" opacity={0.55} />
+          ))}
+          {/* eaves overhang, so the roof sits ON the room */}
+          <rect x={0} y={HOUSE.roofH + 8} width={width} height={7} fill="#4E342E" opacity={0.5} />
+        </svg>
+        {/* a lamp glow behind the book world, and the shelf on the far right */}
+        <div style={{ position: "absolute", left: 0, top: HOUSE.bookTop - 40, width: 420, height: 300, background: "radial-gradient(60% 60% at 30% 45%, rgba(255,214,140,0.55) 0%, rgba(255,214,140,0) 72%)", opacity: 0.5 + bookDim * 0.5 }} />
+        {/* the bookshelf: boards, uprights and leaning spines. As bare stripes at 0.5 it
+            read as random bars rather than books. */}
+        <svg width={140} height={340} style={{ position: "absolute", right: 10, top: HOUSE.bookTop - 34, opacity: 0.62 + bookDim * 0.38 }}>
+          <rect x={2} y={0} width={12} height={340} rx={4} fill="#A9773F" />
+          <rect x={126} y={0} width={12} height={340} rx={4} fill="#A9773F" />
+          {[0, 1, 2].map((r) => {
+            const by = r * 110 + 100;
+            return (
+              <g key={r}>
+                {[0, 1, 2, 3, 4].map((k) => {
+                  const h = 62 + ((r + k) % 3) * 11;
+                  const lean = k === 4 ? 12 : 0;
+                  return (
+                    <rect
+                      key={k}
+                      x={18 + k * 21} y={by - h} width={17} height={h} rx={3}
+                      fill={["#C86B4E", "#4E8A7B", "#C9A227", "#6C7FB8", "#B0555F"][k]}
+                      transform={lean ? `rotate(${lean} ${18 + k * 21} ${by})` : undefined}
+                    />
+                  );
+                })}
+                <rect x={8} y={by} width={124} height={13} rx={4} fill="#B98A55" />
+                <rect x={8} y={by} width={124} height={4} fill="#D6A96A" />
+              </g>
+            );
+          })}
+        </svg>
+        {/* skirting + wood floor, under the caption band */}
+        <div style={{ position: "absolute", left: 0, top: HOUSE.floorY, width, height: height - HOUSE.floorY, background: "linear-gradient(180deg,#D7A96B 0%,#C2914F 100%)" }} />
+        <div style={{ position: "absolute", left: 0, top: HOUSE.floorY - 12, width, height: 12, background: "#F3E4CB" }} />
+
+        <HouseBand side="moon" top={34} dim={moonDim} active={focusMoon} color={MOON} hint="long /oo/" words={moonWords} labeled={labeled} f={f} frame={frame} fps={fps} width={width} />
+        <HouseBand side="book" top={HOUSE.bookTop} dim={bookDim} active={focusBook} color={BOOK} hint="short /u/" words={bookWords} labeled={labeled} f={f} frame={frame} fps={fps} width={width} />
+      </AbsoluteFill>
+    );
+  }
 
   return (
     <AbsoluteFill style={{ opacity: worldOpacity }}>

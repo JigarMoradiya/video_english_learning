@@ -1,5 +1,5 @@
 import React from "react";
-import { Sequence } from "remotion";
+import { Sequence, useVideoConfig } from "remotion";
 import { comparisons } from "../data/comparisons";
 import { ReelBase, SfxCue } from "./ReelBase";
 import { CkBackground } from "../components/CkBackground";
@@ -87,6 +87,10 @@ const overlayFor = (b: Beat): React.ReactNode => {
 };
 
 export const OoReel: React.FC = () => {
+  const { width: _w, height: _h } = useVideoConfig();
+  // maxWidth 1360 is wider than a 1080 frame, so in the 4:5 cut a long caption had no side
+  // margin at all. The 16:9 keeps its own numbers.
+  const portrait = _h > _w;
   const data = comparisons.oo;
   const quiz = byId.quizQ;
   const reveal = byId.reveal;
@@ -97,7 +101,7 @@ export const OoReel: React.FC = () => {
       {/* persistent split moon/book world + captions (top-level = absolute frame) */}
       <OoWorld data={data} beats={beats} />
       <Sequence from={0} durationInFrames={byId.wrap.from}>
-        <Captions track={track} keywordColor={ooKeywordColor} maxWidth={1360} fontSize={40} bottom={70} />
+        <Captions track={track} keywordColor={ooKeywordColor} maxWidth={portrait ? 950 : 1360} fontSize={portrait ? 36 : 40} bottom={portrait ? 96 : 70} />
       </Sequence>
 
       {beats.map((b) => {
