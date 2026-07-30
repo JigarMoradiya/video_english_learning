@@ -50,15 +50,22 @@ Verified against `src/reels/index.ts` and `out/`.
 - **42 portrait videos** — 16 lessons + all 26 A–Z letter shorts
 - **2 4:5 videos** — `letters_phonics`, `short_vowels`
 - **11 of 16 comparison cards** have 16:9 + 9:16; **none** has a 4:5
-- **Phonics levels with a video: 7 of 28** — L1, L2, L5, L10, L13, L14, L19
-- **Levels with no video: 21** — L3, 4, 6, 7, 8, 9, 11, 12, 15, 16, 17, 18, 20, 21,
-  22, 23, 24, 25, 26, 27, 28 — plus 4 capstone features
-- **Scripts already exist for all 28 levels + capstones** in
-  `/Users/jigarmoradiya/Documents/newProject/eng/iOS/Phonics_Scripts.html`
-  (`level-1`…`level-28`, `level-D`, `level-X`). This is the backlog — do not re-invent it.
+- **Levels with a finished LESSON video: 2 of 28** — L1 (`letters_phonics`) and
+  L2 (`short_vowels`). Those two only.
+- **Levels with partial compare-card coverage, no lesson video: 5** — L5, L10, L13,
+  L14, L19. A comparison video is **not** a level lesson: `ai/ay` teaches one
+  discrimination *inside* Vowel Teams, it does not teach L13. And the compare series is
+  itself unfinished (11 of 16 cards).
+- **Levels with nothing: 21** — L3, 4, 6, 7, 8, 9, 11, 12, 15, 16, 17, 18, 20, 21, 22,
+  23, 24, 25, 26, 27, 28 — plus 4 capstone features.
+
+**Scripts are written fresh, per level.** `Phonics_Scripts.html` is NOT the source —
+do not script from it. Every lesson follows the standing workflow: write the script →
+Jigar confirms it → record → build. That gate exists because a script built without
+confirmation has had to be thrown away before.
 
 **Fix first:** `out/letters_phonics.mp4` and `out/short_vowels.mp4` are older than their
-sources — both landscape masters are stale and must be re-rendered before scheduling.
+sources — both landscape masters were stale — re-rendered and verified ✅.
 
 ---
 
@@ -71,27 +78,30 @@ Never iterate `PhonicsListenLevelKey.allCases` — its declaration order is lega
 Comparison cards release at the level whose rule they discriminate, so they stop being
 a parallel series:
 
-| Level | Title | Video | Compare card slotting in here |
+"Lesson" = the level's own teaching video. "Compares" = discrimination cards that sit
+inside that level. A level is only covered when its **lesson** exists.
+
+| Level | Title | Lesson | Compare cards inside this level |
 |---|---|---|---|
-| 1 | Letter Sounds | ✅ | — |
-| 2 | Short Vowels | ✅ | — |
+| 1 | Letter Sounds | ✅ done | — |
+| 2 | Short Vowels | ✅ done | — |
 | 3 | 2-Sound Blending | **new** | — |
 | 4 | CVC Words | **new** | — |
-| 5 | Short Vowel Spelling Rules | ✅ | `c_k_ck` ✅ |
+| 5 | Short Vowel Spelling Rules | **needed** | `c_k_ck` ✅ |
 | 6 | Word Families | **new** | — |
 | 7 | Beginning Blends | **new** | — |
 | 8 | Ending Blends | **new** | — |
 | 9 | Digraphs | **new** | `th_two` ⚠ |
-| 10 | Special Endings | ✅ | `ch_tch` ✅ · `ge_dge` ✅ |
+| 10 | Special Endings | **needed** | `ch_tch` ✅ · `ge_dge` ✅ |
 | 11 | Open Syllable | **new** | — |
 | 12 | Magic E | **new** | — |
-| 13 | Vowel Teams | ✅ | `ai_ay` ✅ · `oa_ow` ✅ · `oo` ✅ · `ea_two` ⚠ · `ow_two` ⚠ |
-| 14 | Diphthongs | ✅ | `oi_oy` ✅ · `ou_ow` ✅ · `au_aw` ✅ |
+| 13 | Vowel Teams | **needed** | `ai_ay` ✅ · `oa_ow` ✅ · `oo` ✅ · `ea_two` ⚠ · `ow_two` ⚠ |
+| 14 | Diphthongs | **needed** | `oi_oy` ✅ · `ou_ow` ✅ · `au_aw` ✅ |
 | 15 | R-Controlled Vowels | **new** | — |
 | 16 | igh & gh Patterns | **new** | — |
 | 17 | Y as a Vowel | **new** | — |
 | 18 | 3-Letter Blends | **new** | — |
-| 19 | Soft C & Soft G | ✅ | `c_two` ✅ · `g_two` ✅ |
+| 19 | Soft C & Soft G | **needed** | `c_two` ✅ · `g_two` ✅ |
 | 20 | Silent Letters | **new** | — |
 | 21 | Word Endings | **new** | `ed_two` ⚠ |
 | 22 | Prefixes | **new** | — |
@@ -106,9 +116,13 @@ a parallel series:
 ⚠ = card exists in the app (`ComparisonData.swift`, 16 cards) but is **not ported** to
 `src/data/comparisons.ts`, so no composition exists. 5 cards / 10 videos outstanding.
 
-**Long-form total: 21 levels + 4 capstones + 5 compare cards = 30 pieces.** At 2/week
-that is ~15 weeks. Levels already covered need no new narration — only their 4:5 and
-thumbnails.
+**Long-form total: 26 level lessons (L3–L28) + 4 capstones + 5 remaining compare cards
+= 35 pieces.** At 2/week that is ~18 weeks. Only L1 and L2 need no new narration — just
+their 4:5 (done) and thumbnails.
+
+Note the five levels that have compare cards but no lesson (L5, L10, L13, L14, L19) each
+still need their lesson written and recorded. Their existing compare videos are a bonus
+inside the level, not a substitute for it.
 
 ---
 
@@ -297,8 +311,9 @@ constraint — every composition renders in minutes.
    comparison videos in the order above, one per long-video slot, each reviewed.
 3. **Port the 5 missing compare cards** into `comparisons.ts` (`th_two`, `ea_two`,
    `ow_two`, `ed_two`, `tion_sion`) so L9/L13/L21/L23 get their discrimination videos.
-4. **Walk the spine (weeks 2–17).** L3 → L28 in order, 2/week, scripts from
-   `Phonics_Scripts.html`. Each level ships 16:9 + 4:5 + a 9:16 cut + 3 thumbnails.
+4. **Walk the spine (weeks 2–19).** L3 → L28 in order, 2/week. Script written fresh per
+   level and **confirmed before recording**. Each level ships 16:9 + 4:5 + a 9:16 cut +
+   3 thumbnails.
 5. **Capstones.** Reading Ladder, Word Detective, Super Quiz.
 6. **Then** the vocabulary series (unpark when assets land) and app-module reels.
 
