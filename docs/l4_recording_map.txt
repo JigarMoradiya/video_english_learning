@@ -1,0 +1,35 @@
+# L4 · which file is which — record one clip per line, in this order
+# folder: public/audio/cvc/     format: opus | mp3 | m4a | wav
+
+01  Watch this.
+02  You just read a word.
+03  Three sounds. One word.
+04  Look at the colours.
+05  Blue. Red. Blue.
+06  Red is always the middle one.
+07  Red is a vowel.
+08  Blue ones are consonants.
+09  Consonant. Vowel. Consonant.
+10  Sound them out...
+11  ...then blend them fast.
+12  Ready? Let's do fifteen.
+13  First vowel — aaa.
+14  Same middle sound. Watch.
+15  You're getting it.
+16  Three words. One vowel.
+17  New vowel. eh.
+18  Hen. Pen. Hear the middle?
+19  Nice work.
+20  Next one — ih.
+21  Pig... big. Only the first sound changed.
+22  Your turn's coming. Keep watching.
+23  Next — oh.
+24  Pot. Hot. Hear that? Just the front sound.
+25  Last vowel. uh.
+26  This one's yours. Sound it out.
+27  Did you get it? I bet you did.
+28  Fifteen words. You read them all.
+29  One more. Something's missing.
+30  Which vowel goes in the middle?
+31  You found it. That's real reading.
+32  Every word here is in the English Learning app — tap any word and watch it build itself. Free on both stores.
