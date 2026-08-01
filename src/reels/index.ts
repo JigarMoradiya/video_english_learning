@@ -27,6 +27,8 @@ import { GSoftHardPortraitReel, G_SOFT_HARD_PORTRAIT_DURATION } from "./g_soft_h
 import { ChTch16x9Reel, CH_TCH_16X9_DURATION } from "./ch_tch_16x9";
 import { OoPortraitReel, OO_PORTRAIT_DURATION } from "./oo_portrait";
 import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
+import { BlendingReel, BLENDING_TOTAL } from "./blending";
+import { Blending916Reel, BLENDING916_TOTAL } from "./blending916";
 import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLASH_DURATION } from "./logo_intro";
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
@@ -63,6 +65,14 @@ export const REELS: ReelEntry[] = [
   // 4:5 for Facebook — same reel, stage fitted to the width, world fills the extra height
   { id: "c-k-ck-4x5", component: CkCkReel, durationInFrames: C_K_CK_DURATION, width: 1080, height: 1350 },
   // L13 · "Which SOUND?" oo (moon/book) — long-form YouTube lesson (16:9).
+  // L3 · 2-Sound Blending — long-form 16:9 lesson. The Word Factory: two tiles ride the
+  // belt, the press stamps them into one word. Sounds come from the APP's bank.
+  { id: "l3-blending", component: BlendingReel, durationInFrames: BLENDING_TOTAL, width: 1920, height: 1080 },
+  // 4:5 for Facebook — the SAME lesson, content re-arranged for a 728px zone.
+  { id: "l3-blending-4x5", component: BlendingReel, durationInFrames: BLENDING_TOTAL, width: 1080, height: 1350 },
+  // 9:16 — its OWN narration (2:34, 8 build examples dropped + gaps tightened) and its
+  // own world, The Rocket Tower. Not a crop of the workshop.
+  { id: "l3-blending-9x16", component: Blending916Reel, durationInFrames: BLENDING916_TOTAL, width: 1080, height: 1920 },
   { id: "oo", component: OoReel, durationInFrames: OO_DURATION, width: 1920, height: 1080 },
   // 4:5 for Facebook — its OWN world: 16:9 and 9:16 already share OoWorld, so the
   // Facebook cut gets a third look rather than a third copy of the same one.

@@ -1,0 +1,1162 @@
+[
+  {
+    "index": 0,
+    "text": "Two sounds just became a word.",
+    "line_index": 0,
+    "start": 0.22,
+    "end": 2.85,
+    "duration": 2.63,
+    "words": [
+      {
+        "word": "Two",
+        "start": 0.22,
+        "end": 0.22
+      },
+      {
+        "word": "sounds",
+        "start": 0.22,
+        "end": 0.76
+      },
+      {
+        "word": "just",
+        "start": 0.76,
+        "end": 1.18
+      },
+      {
+        "word": "became",
+        "start": 1.18,
+        "end": 1.58
+      },
+      {
+        "word": "a",
+        "start": 1.58,
+        "end": 1.8
+      },
+      {
+        "word": "word.",
+        "start": 1.8,
+        "end": 2.85
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Today you're going to do that sixteen times.",
+    "line_index": 1,
+    "start": 3.14,
+    "end": 5.23,
+    "duration": 2.09,
+    "words": [
+      {
+        "word": "Today",
+        "start": 3.14,
+        "end": 3.14
+      },
+      {
+        "word": "you're",
+        "start": 3.14,
+        "end": 3.42
+      },
+      {
+        "word": "going",
+        "start": 3.42,
+        "end": 3.56
+      },
+      {
+        "word": "to",
+        "start": 3.56,
+        "end": 3.74
+      },
+      {
+        "word": "do",
+        "start": 3.74,
+        "end": 3.9
+      },
+      {
+        "word": "that",
+        "start": 3.9,
+        "end": 4.12
+      },
+      {
+        "word": "sixteen",
+        "start": 4.12,
+        "end": 4.68
+      },
+      {
+        "word": "times.",
+        "start": 4.68,
+        "end": 5.23
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Blending is easy.",
+    "line_index": 2,
+    "start": 6.06,
+    "end": 6.96,
+    "duration": 0.9,
+    "words": [
+      {
+        "word": "Blending",
+        "start": 6.06,
+        "end": 6.28
+      },
+      {
+        "word": "is",
+        "start": 6.28,
+        "end": 6.54
+      },
+      {
+        "word": "easy.",
+        "start": 6.54,
+        "end": 6.96
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Say the sounds apart…",
+    "line_index": 2,
+    "start": 7.76,
+    "end": 9.84,
+    "duration": 2.08,
+    "words": [
+      {
+        "word": "Say",
+        "start": 7.76,
+        "end": 7.8
+      },
+      {
+        "word": "the",
+        "start": 7.8,
+        "end": 7.98
+      },
+      {
+        "word": "sounds",
+        "start": 7.98,
+        "end": 8.24
+      },
+      {
+        "word": "apart…",
+        "start": 8.24,
+        "end": 9.84
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "…then squeeze them together.",
+    "line_index": 3,
+    "start": 9.94,
+    "end": 11.48,
+    "duration": 1.54,
+    "words": [
+      {
+        "word": "…then",
+        "start": 9.94,
+        "end": 10.14
+      },
+      {
+        "word": "squeeze",
+        "start": 10.14,
+        "end": 10.52
+      },
+      {
+        "word": "them",
+        "start": 10.52,
+        "end": 10.86
+      },
+      {
+        "word": "together.",
+        "start": 10.86,
+        "end": 11.48
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Slow first.",
+    "line_index": 4,
+    "start": 12.3,
+    "end": 12.88,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Slow",
+        "start": 12.3,
+        "end": 12.34
+      },
+      {
+        "word": "first.",
+        "start": 12.34,
+        "end": 12.88
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Fast after.",
+    "line_index": 5,
+    "start": 14.68,
+    "end": 16.86,
+    "duration": 2.18,
+    "words": [
+      {
+        "word": "Fast",
+        "start": 14.68,
+        "end": 14.82
+      },
+      {
+        "word": "after.",
+        "start": 14.82,
+        "end": 16.86
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Red box is a vowel.",
+    "line_index": 6,
+    "start": 17.04,
+    "end": 18.26,
+    "duration": 1.22,
+    "words": [
+      {
+        "word": "Red",
+        "start": 17.04,
+        "end": 17.04
+      },
+      {
+        "word": "box",
+        "start": 17.04,
+        "end": 17.3
+      },
+      {
+        "word": "is",
+        "start": 17.3,
+        "end": 17.54
+      },
+      {
+        "word": "a",
+        "start": 17.54,
+        "end": 17.66
+      },
+      {
+        "word": "vowel.",
+        "start": 17.66,
+        "end": 18.26
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Blue box is a consonant.",
+    "line_index": 6,
+    "start": 18.86,
+    "end": 20.32,
+    "duration": 1.46,
+    "words": [
+      {
+        "word": "Blue",
+        "start": 18.86,
+        "end": 18.96
+      },
+      {
+        "word": "box",
+        "start": 18.96,
+        "end": 19.26
+      },
+      {
+        "word": "is",
+        "start": 19.26,
+        "end": 19.56
+      },
+      {
+        "word": "a",
+        "start": 19.56,
+        "end": 19.66
+      },
+      {
+        "word": "consonant.",
+        "start": 19.66,
+        "end": 20.32
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "When the vowel goes first, we get these.",
+    "line_index": 7,
+    "start": 21.18,
+    "end": 23.5,
+    "duration": 2.32,
+    "words": [
+      {
+        "word": "When",
+        "start": 21.18,
+        "end": 21.28
+      },
+      {
+        "word": "the",
+        "start": 21.28,
+        "end": 21.42
+      },
+      {
+        "word": "vowel",
+        "start": 21.42,
+        "end": 21.68
+      },
+      {
+        "word": "goes",
+        "start": 21.68,
+        "end": 21.98
+      },
+      {
+        "word": "first,",
+        "start": 21.98,
+        "end": 22.76
+      },
+      {
+        "word": "we",
+        "start": 22.88,
+        "end": 22.88
+      },
+      {
+        "word": "get",
+        "start": 22.88,
+        "end": 23.04
+      },
+      {
+        "word": "these.",
+        "start": 23.04,
+        "end": 23.5
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Eight words.",
+    "line_index": 8,
+    "start": 24.22,
+    "end": 25.66,
+    "duration": 1.44,
+    "words": [
+      {
+        "word": "Eight",
+        "start": 24.22,
+        "end": 24.34
+      },
+      {
+        "word": "words.",
+        "start": 24.34,
+        "end": 25.66
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Vowel first, every time.",
+    "line_index": 8,
+    "start": 25.72,
+    "end": 27.44,
+    "duration": 1.72,
+    "words": [
+      {
+        "word": "Vowel",
+        "start": 25.72,
+        "end": 25.94
+      },
+      {
+        "word": "first,",
+        "start": 25.94,
+        "end": 26.4
+      },
+      {
+        "word": "every",
+        "start": 26.76,
+        "end": 26.92
+      },
+      {
+        "word": "time.",
+        "start": 26.92,
+        "end": 27.44
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Now flip it.",
+    "line_index": 9,
+    "start": 28.68,
+    "end": 29.34,
+    "duration": 0.66,
+    "words": [
+      {
+        "word": "Now",
+        "start": 28.68,
+        "end": 28.82
+      },
+      {
+        "word": "flip",
+        "start": 28.82,
+        "end": 29.06
+      },
+      {
+        "word": "it.",
+        "start": 29.06,
+        "end": 29.34
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Consonant first.",
+    "line_index": 9,
+    "start": 30.04,
+    "end": 31.42,
+    "duration": 1.38,
+    "words": [
+      {
+        "word": "Consonant",
+        "start": 30.04,
+        "end": 30.4
+      },
+      {
+        "word": "first.",
+        "start": 30.4,
+        "end": 31.42
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Eight more.",
+    "line_index": 10,
+    "start": 31.44,
+    "end": 32.84,
+    "duration": 1.4,
+    "words": [
+      {
+        "word": "Eight",
+        "start": 31.44,
+        "end": 31.56
+      },
+      {
+        "word": "more.",
+        "start": 31.56,
+        "end": 32.84
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Consonant first, every time.",
+    "line_index": 10,
+    "start": 33.06,
+    "end": 34.9,
+    "duration": 1.84,
+    "words": [
+      {
+        "word": "Consonant",
+        "start": 33.06,
+        "end": 33.28
+      },
+      {
+        "word": "first,",
+        "start": 33.28,
+        "end": 34.1
+      },
+      {
+        "word": "every",
+        "start": 34.4,
+        "end": 34.42
+      },
+      {
+        "word": "time.",
+        "start": 34.42,
+        "end": 34.9
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Here's the secret.",
+    "line_index": 11,
+    "start": 36.44,
+    "end": 37.47,
+    "duration": 1.03,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 36.44,
+        "end": 36.7
+      },
+      {
+        "word": "the",
+        "start": 36.7,
+        "end": 36.82
+      },
+      {
+        "word": "secret.",
+        "start": 36.82,
+        "end": 37.47
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "These aren't just little words.",
+    "line_index": 11,
+    "start": 38.14,
+    "end": 39.54,
+    "duration": 1.4,
+    "words": [
+      {
+        "word": "These",
+        "start": 38.14,
+        "end": 38.14
+      },
+      {
+        "word": "aren't",
+        "start": 38.14,
+        "end": 38.6
+      },
+      {
+        "word": "just",
+        "start": 38.6,
+        "end": 38.76
+      },
+      {
+        "word": "little",
+        "start": 38.76,
+        "end": 39.06
+      },
+      {
+        "word": "words.",
+        "start": 39.06,
+        "end": 39.54
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Put a sound in FRONT of them…",
+    "line_index": 12,
+    "start": 40.24,
+    "end": 42.7,
+    "duration": 2.46,
+    "words": [
+      {
+        "word": "Put",
+        "start": 40.24,
+        "end": 40.32
+      },
+      {
+        "word": "a",
+        "start": 40.32,
+        "end": 40.48
+      },
+      {
+        "word": "sound",
+        "start": 40.48,
+        "end": 40.72
+      },
+      {
+        "word": "in",
+        "start": 40.72,
+        "end": 40.98
+      },
+      {
+        "word": "FRONT",
+        "start": 40.98,
+        "end": 41.48
+      },
+      {
+        "word": "of",
+        "start": 41.48,
+        "end": 41.6
+      },
+      {
+        "word": "them…",
+        "start": 41.6,
+        "end": 42.7
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "And the other eight?",
+    "line_index": 13,
+    "start": 42.84,
+    "end": 43.72,
+    "duration": 0.88,
+    "words": [
+      {
+        "word": "And",
+        "start": 42.84,
+        "end": 43.0
+      },
+      {
+        "word": "the",
+        "start": 43.0,
+        "end": 43.16
+      },
+      {
+        "word": "other",
+        "start": 43.16,
+        "end": 43.32
+      },
+      {
+        "word": "eight?",
+        "start": 43.32,
+        "end": 43.72
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Put the sound at the BACK.",
+    "line_index": 13,
+    "start": 44.64,
+    "end": 46.02,
+    "duration": 1.38,
+    "words": [
+      {
+        "word": "Put",
+        "start": 44.64,
+        "end": 44.72
+      },
+      {
+        "word": "the",
+        "start": 44.72,
+        "end": 44.92
+      },
+      {
+        "word": "sound",
+        "start": 44.92,
+        "end": 45.24
+      },
+      {
+        "word": "at",
+        "start": 45.24,
+        "end": 45.54
+      },
+      {
+        "word": "the",
+        "start": 45.54,
+        "end": 45.72
+      },
+      {
+        "word": "BACK.",
+        "start": 45.72,
+        "end": 46.02
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "You didn't learn sixteen little words.",
+    "line_index": 14,
+    "start": 46.98,
+    "end": 48.88,
+    "duration": 1.9,
+    "words": [
+      {
+        "word": "You",
+        "start": 46.98,
+        "end": 47.08
+      },
+      {
+        "word": "didn't",
+        "start": 47.08,
+        "end": 47.42
+      },
+      {
+        "word": "learn",
+        "start": 47.42,
+        "end": 47.6
+      },
+      {
+        "word": "sixteen",
+        "start": 47.6,
+        "end": 48.0
+      },
+      {
+        "word": "little",
+        "start": 48.08,
+        "end": 48.42
+      },
+      {
+        "word": "words.",
+        "start": 48.42,
+        "end": 48.88
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "You learned sixteen word machines.",
+    "line_index": 14,
+    "start": 49.42,
+    "end": 51.62,
+    "duration": 2.2,
+    "words": [
+      {
+        "word": "You",
+        "start": 49.42,
+        "end": 49.52
+      },
+      {
+        "word": "learned",
+        "start": 49.52,
+        "end": 49.8
+      },
+      {
+        "word": "sixteen",
+        "start": 49.8,
+        "end": 50.42
+      },
+      {
+        "word": "word",
+        "start": 50.42,
+        "end": 50.9
+      },
+      {
+        "word": "machines.",
+        "start": 50.9,
+        "end": 51.62
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "Blended along with me?",
+    "line_index": 15,
+    "start": 52.54,
+    "end": 53.6,
+    "duration": 1.06,
+    "words": [
+      {
+        "word": "Blended",
+        "start": 52.54,
+        "end": 52.72
+      },
+      {
+        "word": "along",
+        "start": 52.72,
+        "end": 53.02
+      },
+      {
+        "word": "with",
+        "start": 53.02,
+        "end": 53.26
+      },
+      {
+        "word": "me?",
+        "start": 53.26,
+        "end": 53.6
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Tap the thumbs up — I want to know you did it!",
+    "line_index": 15,
+    "start": 54.18,
+    "end": 56.66,
+    "duration": 2.48,
+    "words": [
+      {
+        "word": "Tap",
+        "start": 54.18,
+        "end": 54.22
+      },
+      {
+        "word": "the",
+        "start": 54.22,
+        "end": 54.46
+      },
+      {
+        "word": "thumbs",
+        "start": 54.46,
+        "end": 54.72
+      },
+      {
+        "word": "up",
+        "start": 54.72,
+        "end": 54.96
+      },
+      {
+        "word": "—",
+        "start": 54.96,
+        "end": 55.3
+      },
+      {
+        "word": "I",
+        "start": 55.36,
+        "end": 55.46
+      },
+      {
+        "word": "want",
+        "start": 55.46,
+        "end": 55.72
+      },
+      {
+        "word": "to",
+        "start": 55.72,
+        "end": 55.92
+      },
+      {
+        "word": "know",
+        "start": 55.92,
+        "end": 56.06
+      },
+      {
+        "word": "you",
+        "start": 56.06,
+        "end": 56.22
+      },
+      {
+        "word": "did",
+        "start": 56.22,
+        "end": 56.4
+      },
+      {
+        "word": "it!",
+        "start": 56.4,
+        "end": 56.66
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "Your turn.",
+    "line_index": 16,
+    "start": 57.52,
+    "end": 58.1,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Your",
+        "start": 57.52,
+        "end": 57.6
+      },
+      {
+        "word": "turn.",
+        "start": 57.6,
+        "end": 58.1
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Blend it with me.",
+    "line_index": 16,
+    "start": 58.5,
+    "end": 59.36,
+    "duration": 0.86,
+    "words": [
+      {
+        "word": "Blend",
+        "start": 58.5,
+        "end": 58.58
+      },
+      {
+        "word": "it",
+        "start": 58.58,
+        "end": 58.76
+      },
+      {
+        "word": "with",
+        "start": 58.76,
+        "end": 59.0
+      },
+      {
+        "word": "me.",
+        "start": 59.0,
+        "end": 59.36
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Last one — which word is this?",
+    "line_index": 17,
+    "start": 60.74,
+    "end": 62.76,
+    "duration": 2.02,
+    "words": [
+      {
+        "word": "Last",
+        "start": 60.74,
+        "end": 60.76
+      },
+      {
+        "word": "one",
+        "start": 60.76,
+        "end": 61.22
+      },
+      {
+        "word": "—",
+        "start": 61.22,
+        "end": 61.58
+      },
+      {
+        "word": "which",
+        "start": 61.74,
+        "end": 62.0
+      },
+      {
+        "word": "word",
+        "start": 62.08,
+        "end": 62.28
+      },
+      {
+        "word": "is",
+        "start": 62.28,
+        "end": 62.44
+      },
+      {
+        "word": "this?",
+        "start": 62.44,
+        "end": 62.76
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Cup!",
+    "line_index": 18,
+    "start": 63.8,
+    "end": 64.84,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "Cup!",
+        "start": 63.8,
+        "end": 64.84
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "You blended a whole word by yourself.",
+    "line_index": 18,
+    "start": 64.84,
+    "end": 67.14,
+    "duration": 2.3,
+    "words": [
+      {
+        "word": "You",
+        "start": 64.84,
+        "end": 64.94
+      },
+      {
+        "word": "blended",
+        "start": 64.94,
+        "end": 65.36
+      },
+      {
+        "word": "a",
+        "start": 65.36,
+        "end": 65.62
+      },
+      {
+        "word": "whole",
+        "start": 65.62,
+        "end": 65.86
+      },
+      {
+        "word": "word",
+        "start": 65.86,
+        "end": 66.28
+      },
+      {
+        "word": "by",
+        "start": 66.28,
+        "end": 66.56
+      },
+      {
+        "word": "yourself.",
+        "start": 66.56,
+        "end": 67.14
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Hit subscribe, because next time we blend THREE sounds — cat, dog, pig.",
+    "line_index": 19,
+    "start": 67.9,
+    "end": 74.34,
+    "duration": 6.44,
+    "words": [
+      {
+        "word": "Hit",
+        "start": 67.9,
+        "end": 68.0
+      },
+      {
+        "word": "subscribe,",
+        "start": 68.0,
+        "end": 68.98
+      },
+      {
+        "word": "because",
+        "start": 69.04,
+        "end": 69.2
+      },
+      {
+        "word": "next",
+        "start": 69.2,
+        "end": 69.44
+      },
+      {
+        "word": "time",
+        "start": 69.44,
+        "end": 69.8
+      },
+      {
+        "word": "we",
+        "start": 69.8,
+        "end": 69.98
+      },
+      {
+        "word": "blend",
+        "start": 69.98,
+        "end": 70.2
+      },
+      {
+        "word": "THREE",
+        "start": 70.2,
+        "end": 70.66
+      },
+      {
+        "word": "sounds",
+        "start": 70.66,
+        "end": 71.04
+      },
+      {
+        "word": "—",
+        "start": 71.04,
+        "end": 72.0
+      },
+      {
+        "word": "cat,",
+        "start": 72.0,
+        "end": 72.48
+      },
+      {
+        "word": "dog,",
+        "start": 73.12,
+        "end": 73.56
+      },
+      {
+        "word": "pig.",
+        "start": 74.02,
+        "end": 74.34
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Blend all sixteen yourself in English Learning — tap the boxes, hear every sound, free on both stores.",
+    "line_index": 20,
+    "start": 75.46,
+    "end": 82.88,
+    "duration": 7.42,
+    "words": [
+      {
+        "word": "Blend",
+        "start": 75.46,
+        "end": 75.64
+      },
+      {
+        "word": "all",
+        "start": 75.64,
+        "end": 75.98
+      },
+      {
+        "word": "sixteen",
+        "start": 75.98,
+        "end": 76.42
+      },
+      {
+        "word": "yourself",
+        "start": 76.42,
+        "end": 76.9
+      },
+      {
+        "word": "in",
+        "start": 76.9,
+        "end": 77.24
+      },
+      {
+        "word": "English",
+        "start": 77.24,
+        "end": 77.5
+      },
+      {
+        "word": "Learning",
+        "start": 77.5,
+        "end": 77.92
+      },
+      {
+        "word": "—",
+        "start": 77.92,
+        "end": 78.58
+      },
+      {
+        "word": "tap",
+        "start": 78.7,
+        "end": 78.82
+      },
+      {
+        "word": "the",
+        "start": 78.82,
+        "end": 79.04
+      },
+      {
+        "word": "boxes,",
+        "start": 79.04,
+        "end": 79.66
+      },
+      {
+        "word": "hear",
+        "start": 79.92,
+        "end": 80.06
+      },
+      {
+        "word": "every",
+        "start": 80.06,
+        "end": 80.5
+      },
+      {
+        "word": "sound,",
+        "start": 80.5,
+        "end": 81.1
+      },
+      {
+        "word": "free",
+        "start": 81.5,
+        "end": 81.64
+      },
+      {
+        "word": "on",
+        "start": 81.64,
+        "end": 82.0
+      },
+      {
+        "word": "both",
+        "start": 82.0,
+        "end": 82.24
+      },
+      {
+        "word": "stores.",
+        "start": 82.24,
+        "end": 82.88
+      }
+    ]
+  }
+]
