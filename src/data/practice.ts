@@ -19,7 +19,7 @@ export const PRACTICE: PracticeQ[] = [
   { letter: "b", options: ["d", "b", "p"], soundDur: 0.22 },
   { letter: "a", options: ["e", "a", "o"], soundDur: 0.53 },
   { letter: "m", options: ["n", "m", "w"], soundDur: 0.69 },
-  { letter: "f", options: ["v", "f", "s"], soundDur: 0.15 },
+  { letter: "f", options: ["v", "f", "s"], soundDur: 0.31 },
   { letter: "g", options: ["g", "j", "k"], soundDur: 0.22 },
   { letter: "q", options: ["p", "q", "g"], soundDur: 0.42 },
   { letter: "d", options: ["d", "b", "t"], soundDur: 0.27 },
