@@ -57,30 +57,35 @@ juh luh mmm nuh puh ruh sss tuh vuh wuh` .
 13 of the 15 have app artwork. `sit` and `hot` do not — use 🪑 and 🌶️, which are Android's
 own fallbacks for those two words.
 
-**RECORDED LINE BY LINE — one audio file per line, everything including the sound-outs.**
+**AUDIO — two sources, nothing cut.**
 
-`docs/l4_lines.txt` is the plain list to record from, in order.
+| | |
+|---|---|
+| **You record** | the 32 teacher lines, ONE FILE PER LINE — `docs/l4_lines.txt` |
+| **From the app** | all 16 letter sounds and all 15 whole words — verified present |
 
-This replaces both earlier approaches, and it is the user's call. One long take meant
-CUTTING it, and every cut is a place a consonant gets clipped — that is what damaged `in.`
-`up.` `us.` `ba+g` and `dog` on L3. Assembling from the app's clip bank was worse still:
-L3 v1 did that and the pacing was rejected outright (*"too fast going why? audio not
-complete some places"*). One file per line means nothing is ever cut and nothing is
-borrowed — each clip is placed whole.
+The app clips are `Resources/Audio/Phonics/phonics abcd/sound_<letter>.opus` (c a t h m p e
+n r d i g b s o u) and `phonics_word/<word>.opus` (cat hat map hen pen red pig big sit dog
+pot hot sun run cup). Every one of these was checked and exists.
 
-**The cost transfers to ME: the GAPS are now mine to choose.** L3 v1 sounded rushed because
-I used 0.11s between events and 0.23s between sounds. The rule for L4:
+Nothing is ever CUT. On L3 the narration was one long take that had to be sliced, and every
+slice is a place a consonant gets clipped — that damaged `in.` `up.` `us.` `ba+g` and `dog`.
+One file per line, plus the app's own clips, means every piece is placed whole.
+
+**The cost transfers to ME: the GAPS are now mine to choose.** L3 v1 was assembled this same
+way and was rejected for pacing — *"too fast going why?"* — because I used 0.11s between
+events and 0.23s between sounds. That was the real failure, not the assembly. The rule for L4:
 
 | Between | Gap |
 |---|---|
-| Two sounds inside one sound-out | ~0.35s |
-| Sound-out and its word | ~0.45s |
+| Two sounds inside one sound-out (`kuh` → `aaa`) | ~0.35s |
+| Last sound and its word (`tuh` → `cat!`) | ~0.45s |
 | Two narration lines | ~0.60s |
 | Across a section change | ~0.90s |
 | The three child-turn pauses | **1.0s / 2.0s / 2.5s** |
 
-Never assemble a sound-out from separate letter clips — record `kuh... aaa... tuh... cat!`
-as one line so it breathes as one person saying it.
+Bold rows below are the recorded lines. Unbolded rows are assembled from the app clips at
+the gaps above.
 
 ---
 
@@ -136,7 +141,7 @@ as one line so it breathes as one person saying it.
 
 ## 6 · SHORT O 🐙 (2:16–2:48)
 
-| 34 | **oh.** | 🐙 badge. Red `o` drops in. |
+| 34 | **Next — oh.** | 🐙 badge. Red `o` drops in. |
 | 35 | duh… oh… guh… → dog! | Full build + 🐶 |
 | 36 | puh… oh… tuh… → pot! | Full build + 🍯 |
 | 37 | huh… oh… tuh… → hot! | Full build + 🌶️ |
