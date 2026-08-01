@@ -33,6 +33,8 @@ import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLAS
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
+import { ThumbBlending } from "../thumbs/blending_thumb";
+import { ThumbBlendingPortrait } from "../thumbs/blending_thumb_portrait";
 import { ThumbShortVowels } from "../thumbs/shortvowels_thumb";
 import { ThumbLettersPhonics } from "../thumbs/letters_phonics_thumb";
 import { ThumbShortVowelsPortrait } from "../thumbs/shortvowels_thumb_portrait";
@@ -144,6 +146,9 @@ export const REELS: ReelEntry[] = [
   { id: "thumb-short-vowels-4x5", component: ThumbShortVowelsPortrait, durationInFrames: 1, width: 1080, height: 1350 },
   { id: "thumb-letters-phonics-4x5", component: ThumbLettersPhonicsPortrait, durationInFrames: 1, width: 1080, height: 1350 },
   { id: "thumb-letters-phonics-9x16", component: ThumbLettersPhonicsPortrait, durationInFrames: 1, width: 1080, height: 1920 },
+  // L3 · 2-Sound Blending — each aspect wears the world its own video wears
+  { id: "thumb-blending", component: ThumbBlending, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-blending-9x16", component: ThumbBlendingPortrait, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-phonics-a", component: ThumbPhonicsA, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-phonics-b", component: ThumbPhonicsB, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-phonics-c", component: ThumbPhonicsC, durationInFrames: 1, width: 1280, height: 720 },
