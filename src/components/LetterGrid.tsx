@@ -9,13 +9,18 @@ import { letterColorFor, font } from "../data/tokens";
 // spotlight + panel fly-in can target exact cell centres.
 const ROWS = [7, 6, 7, 6];
 
-const LAYOUT = (() => {
+// BAND TABLE, not constants. The board sits LEFT of the panel at 16:9, but a portrait
+// frame stacks board-over-panel — same rows, its own area. Geometry is derived per
+// aspect, because a pinned 1080-centred originY put the board mid-frame at 4:5.
+const layoutFor = (width: number, height: number) => {
+  const portrait = height > width;
   const gap = 16;
-  const areaX = 56, areaW = 852; // left column (panel starts at 1000)
+  const areaX = portrait ? 80 : 56;
+  const areaW = portrait ? width - 160 : 852; // landscape: left column (panel starts at 1000)
   const maxCols = Math.max(...ROWS);
   const cell = (areaW - (maxCols - 1) * gap) / maxCols;
   const blockH = ROWS.length * cell + (ROWS.length - 1) * gap;
-  const originY = (1080 - blockH) / 2; // vertically centred in the frame
+  const originY = portrait ? 128 : (height - blockH) / 2; // top band / vertically centred
   const items: { x: number; y: number }[] = [];
   let idx = 0;
   ROWS.forEach((count, row) => {
@@ -28,21 +33,25 @@ const LAYOUT = (() => {
       };
     }
   });
-  return { cell, items };
-})();
-
-export const GRID = { cell: LAYOUT.cell };
-export const cellCenter = (i: number) => LAYOUT.items[i];
+  return { cell, items, bottom: originY + blockH };
+};
+const CACHE = new Map<string, ReturnType<typeof layoutFor>>();
+export const gridLayout = (width: number, height: number) => {
+  const k = `${width}x${height}`;
+  if (!CACHE.has(k)) CACHE.set(k, layoutFor(width, height));
+  return CACHE.get(k)!;
+};
+export const cellCenterFor = (i: number, width: number, height: number) => gridLayout(width, height).items[i];
 
 export const LetterGrid: React.FC<{ active: number; activeDone?: boolean }> = ({ active, activeDone = false }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const cell = GRID.cell;
+  const { fps, width, height } = useVideoConfig();
+  const cell = gridLayout(width, height).cell;
 
   return (
     <>
       {REC_LETTERS.map((l, i) => {
-        const { x, y } = cellCenter(i);
+        const { x, y } = cellCenterFor(i, width, height);
         const appear = spring({ frame: frame - 8 - i * 2, fps, config: { damping: 13 } });
         const done = i < active || (i === active && activeDone); // checks off during its own celebration
         const current = i === active && !activeDone;

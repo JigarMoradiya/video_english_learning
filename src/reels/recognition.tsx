@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { REC_LETTERS } from "../data/recognition";
-import { LetterGrid, GRID, cellCenter } from "../components/LetterGrid";
+import { LetterGrid, gridLayout, cellCenterFor } from "../components/LetterGrid";
 import { RecognitionPanel } from "../components/RecognitionPanel";
 import { sec } from "../lib/timing";
 import { font, palette } from "../data/tokens";
@@ -12,6 +12,8 @@ import { StoreOutro, STORE_OUTRO_F } from "../components/StoreOutro";
 import { PRACTICE, PROMPTS, PRAISES, roundPlan, PRACTICE_INTRO_DUR } from "../data/practice";
 import { bob } from "../lib/motion";
 import { HeaderLogo } from "../components/BrandMarks";
+import { AquariumWorld } from "../components/Aquarium";
+import { letterColorFor } from "../data/tokens";
 
 // ── A→Z "Letter Recognition" video (16:9) ───────────────────────────────────
 // Recreates the app's MainLetterRecognitionView ("A says a"). The 26-letter GRID is the
@@ -83,19 +85,27 @@ const SFX: Cue[] = [
   { from: OUTRO_FROM + 8, name: "chime_soft", vol: 0.34 },
 ];
 
-// ── background (bespoke landscape sky-lavender, matches app .skyLavender) ─────
+// ── background: THE AQUARIUM — recognition's OWN world ───────────────────────
+// The game is a search, and underwater the spotlight is a diver's torch. The water runs
+// to the FINAL frame and steps back at the outro; the active letter's colour arrives as
+// a light-pool that crossfades over the spotlight sweep. Washes belong to the TEACHING
+// run — once practice starts, Z's red would otherwise tint the whole quiz.
 const Bg: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps, width, height } = useVideoConfig();
+  const active = activeIndexAt(frame);
+  const dim = interpolate(frame, [OUTRO_FROM, OUTRO_FROM + 20], [1, 0.3], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const teaching = frame < PRACTICE_INTRO_FROM + 16;
+  const cur = teaching && active >= 0 && active < 26 ? REC_LETTERS[active] : null;
+  const prev = teaching && active >= 1 && active <= 26 ? REC_LETTERS[active - 1] : null;
+  const fadeIn = cur ? interpolate(frame - SEGS[active].from, [0, T_MOVE + 6], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
   return (
-    <AbsoluteFill style={{ background: "linear-gradient(160deg, #EDE9FF 0%, #F3F0FF 45%, #FFF6EC 100%)" }}>
-      <svg width={width} height={height} style={{ position: "absolute" }}>
-        {[[0.9, 0.14, 150], [0.95, 0.7, 120], [0.5, 0.92, 110], [0.72, 0.4, 90]].map((o, k) => {
-          const cx = (o[0] as number) * width + Math.sin(frame / fps + k) * 20;
-          const cy = (o[1] as number) * height + Math.cos(frame / fps + k) * 16;
-          return <circle key={k} cx={cx} cy={cy} r={o[2] as number} fill="#8E7BE8" opacity={0.06} />;
-        })}
-      </svg>
+    <AbsoluteFill style={{ opacity: dim }}>
+      <AquariumWorld tone={prev && fadeIn < 1 ? letterColorFor(prev.letter, prev.imageColor) : undefined} />
+      {cur && (
+        <div style={{ position: "absolute", inset: 0, opacity: fadeIn }}>
+          <AquariumWorld tone={letterColorFor(cur.letter, cur.imageColor)} />
+        </div>
+      )}
     </AbsoluteFill>
   );
 };
@@ -104,6 +114,7 @@ const Bg: React.FC = () => {
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 const GridLayer: React.FC = () => {
   const frame = useCurrentFrame();
+  const { width, height } = useVideoConfig();
   if (frame >= OUTRO_FROM) return null;
   if (frame >= PRACTICE_INTRO_FROM && frame < FINALE_FROM) return null; // hidden during practice
   const active = activeIndexAt(frame);
@@ -115,11 +126,11 @@ const GridLayer: React.FC = () => {
   let glow: React.ReactNode = null;
   if (seg) {
     const mv = easeOut(interpolate(frame - seg.from, [0, T_MOVE], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
-    const from = active > 0 ? cellCenter(active - 1) : cellCenter(active);
-    const to = cellCenter(active);
+    const from = active > 0 ? cellCenterFor(active - 1, width, height) : cellCenterFor(active, width, height);
+    const to = cellCenterFor(active, width, height);
     const x = from.x + (to.x - from.x) * mv;
     const y = from.y + (to.y - from.y) * mv;
-    const r = GRID.cell * 1.15;
+    const r = gridLayout(width, height).cell * 1.15;
     glow = (
       <div style={{ position: "absolute", left: x - r, top: y - r, width: r * 2, height: r * 2, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,159,67,0.55) 0%, rgba(255,159,67,0.22) 45%, rgba(255,159,67,0) 72%)", opacity: activeDone ? 0.3 : 1 }} />
     );
@@ -168,10 +179,13 @@ const Intro: React.FC = () => {
   const { fps } = useVideoConfig();
   const s = spring({ frame, fps, config: { damping: 12 } });
   const sub = spring({ frame: frame - 10, fps, config: { damping: 11 } });
-  // right-side title (grid assembles on the left via GridLayer)
+  // 16:9: title right of the board. Portrait: the board owns the top, so the title
+  // takes the band beneath it.
+  const { width, height } = useVideoConfig();
+  const portrait = height > width;
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
-      <div style={{ position: "absolute", left: 1000, top: 0, width: 860, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16 }}>
+      <div style={{ position: "absolute", ...(portrait ? { left: 0, top: gridLayout(width, height).bottom, width, height: height - gridLayout(width, height).bottom } : { left: 1000, top: 0, width: 860, height: "100%" }), display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16 }}>
         <div style={{ textAlign: "center", lineHeight: 1.05, transform: `scale(${s}) translateY(${bob(frame, fps, 8, 2.6)}px)` }}>
           <div style={{ fontSize: 96, fontWeight: 800, color: "#8E24AA" }}>Phonics</div>
           <div style={{ fontSize: 96, fontWeight: 800, color: palette.ink }}>Letter Sounds</div>
@@ -190,7 +204,7 @@ const PracticeIntro: React.FC = () => {
   const s = spring({ frame, fps, config: { damping: 12 } });
   const sub = spring({ frame: frame - 12, fps, config: { damping: 11 } });
   return (
-    <AbsoluteFill style={{ background: "linear-gradient(160deg, #EDE9FF 0%, #FFF6EC 100%)", alignItems: "center", justifyContent: "center", fontFamily: font.family }}>
+    <AbsoluteFill style={{ background: "rgba(236,250,253,0.66)", alignItems: "center", justifyContent: "center", fontFamily: font.family }}>
       <Sequence from={6} durationInFrames={sec(PRACTICE_INTRO_DUR, FPS) + 6}><Audio src={staticFile("audio/recognition/now_lets_practice.mp3")} /></Sequence>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
         <div style={{ fontSize: 108, fontWeight: 800, color: "#8E24AA", transform: `scale(${s}) translateY(${bob(frame, fps, 9, 2.4)}px)` }}>Now let's practice!</div>
@@ -207,9 +221,11 @@ const Finale: React.FC = () => {
   const { fps, width } = useVideoConfig();
   const s = spring({ frame, fps, config: { damping: 12 } });
   const sub = spring({ frame: frame - 12, fps, config: { damping: 11 } });
+  const { height } = useVideoConfig();
+  const portrait = height > width;
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
-      <div style={{ position: "absolute", left: 1000, top: 0, width: 860, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18 }}>
+      <div style={{ position: "absolute", ...(portrait ? { left: 0, top: gridLayout(width, height).bottom, width, height: height - gridLayout(width, height).bottom } : { left: 1000, top: 0, width: 860, height: "100%" }), display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18 }}>
         <div style={{ fontSize: 96, fontWeight: 800, color: "#8E24AA", transform: `scale(${s}) translateY(${bob(frame, fps, 9, 2.4)}px)` }}>You found</div>
         <div style={{ fontSize: 108, fontWeight: 800, color: palette.ink, transform: `scale(${s})` }}>all 26! 🎉</div>
         <div style={{ transform: `scale(${sub})` }}><Mascot size={200} /></div>
@@ -222,6 +238,13 @@ const Finale: React.FC = () => {
   );
 };
 
+
+// PracticeRound's tops are landscape values (title 150 … tiles ~770); in a 1350-tall
+// frame that leaves the bottom third empty, so the whole block steps down to centre.
+const PracticeShift: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { width, height } = useVideoConfig();
+  return <AbsoluteFill style={{ transform: height > width ? "translateY(190px)" : undefined }}>{children}</AbsoluteFill>;
+};
 
 export const RecognitionReel: React.FC = () => {
   return (
@@ -243,7 +266,7 @@ export const RecognitionReel: React.FC = () => {
           <Sequence from={audioRel} durationInFrames={s.dur - audioRel}>
             <Audio src={staticFile(`audio/recognition/${s.it.trio}.mp3`)} />
           </Sequence>
-          <RecognitionPanel item={s.it} audioStart={audioRel} flyFrom={cellCenter(s.i)} />
+          <RecognitionPanel item={s.it} audioStart={audioRel} cellIndex={s.i} />
         </Sequence>
       ))}
 
@@ -253,7 +276,7 @@ export const RecognitionReel: React.FC = () => {
       </Sequence>
       {ROUNDS.map((r) => (
         <Sequence key={r.q.letter} from={r.from} durationInFrames={r.plan.dur}>
-          <PracticeRound q={r.q} plan={r.plan} prompt={r.prompt} praise={r.praise} />
+          <PracticeShift><PracticeRound q={r.q} plan={r.plan} prompt={r.prompt} praise={r.praise} /></PracticeShift>
         </Sequence>
       ))}
 

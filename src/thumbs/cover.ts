@@ -55,6 +55,15 @@ export const cover = (W: number, H: number) => {
       bottom: portrait ? H * 0.022 : 0,
       aspect: 1063 / 923,
     },
+    /** Cap the headline size so LONG titles fit their band. The base sizes suit ~13
+     * characters ("SHORT VOWELS", "CV · VC BLENDING"); "LETTER RECOGNITION" at the base
+     * 104 runs under the badge at 16:9 and clean off a 1080 frame at 9:16. Pass the
+     * longest LINE of the title; 0.62 is the face's average glyph-width ratio at w800. */
+    headSize(longestLine: number): number {
+      const base = portrait ? H * 0.095 : 104;
+      const room = portrait ? W - 60 : W - 470; // 16:9 leaves the badge corner clear
+      return Math.min(base, room / (longestLine * 0.62));
+    },
     logo: {
       width: portrait ? W * 0.13 : 104,
       right: portrait ? W * 0.022 : 20,

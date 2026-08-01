@@ -1,6 +1,7 @@
 import React from "react";
 import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { RecLetter } from "../data/recognition";
+import { cellCenterFor } from "./LetterGrid";
 import { sec } from "../lib/timing";
 import { hex, shade, lum, palette, font, letterColorFor } from "../data/tokens";
 import { pulse } from "../lib/motion";
@@ -12,17 +13,24 @@ import { CardBadge, letterHasBadge } from "./BrandMarks";
 // clip; the word image (its own-colour card) and word name sit below. Absolute-positioned
 // on the right; grid owns the left.
 // vertically centred group: letter (center) · "says <sound>" · image card · word
-const PANEL = { letterX: 1430, letterY: 219, saysY: 324, cardY: 434, cardSize: 420, wordY: 872 };
+// BAND TABLE: the panel lives RIGHT of the board at 16:9 and BELOW it in a portrait
+// frame, where the board owns the top. Values are y-stacked to fit 1350 with margins.
+const panelFor = (width: number, height: number) =>
+  height > width
+    ? { letterX: width / 2, letterY: 742, saysY: 842, cardY: 906, cardSize: 288, wordY: 1226 }
+    : { letterX: 1430, letterY: 219, saysY: 324, cardY: 434, cardSize: 420, wordY: 872 };
 const PURPLE = "#8E24AA";
 const MUTED = "rgba(30,36,56,0.4)";
 
 export const RecognitionPanel: React.FC<{
   item: RecLetter;
   audioStart: number; // frames into this sequence when the trio begins
-  flyFrom: { x: number; y: number }; // grid cell centre the letter flies from
-}> = ({ item, audioStart, flyFrom }) => {
+  cellIndex: number; // grid cell the letter flies from (resolved per-aspect)
+}> = ({ item, audioStart, cellIndex }) => {
   const t = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const PANEL = panelFor(width, height);
+  const flyFrom = cellCenterFor(cellIndex, width, height);
   const A = audioStart;
   const ic = lum(item.imageColor) > 0.62 ? shade(item.imageColor, 0.3) : hex(item.imageColor);
 
