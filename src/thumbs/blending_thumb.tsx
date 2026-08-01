@@ -3,6 +3,7 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Block, WordPlank, WorkshopWorld } from "../components/ToyWorkshop";
 import { CONSONANT, VOWEL } from "../components/ToyWorkshop";
 import { font, palette } from "../data/tokens";
+import { cover } from "./cover";
 
 // ── L3 · 2-Sound Blending thumbnail (1280×720) ───────────────────────────────
 //   sh tools/render_still.sh thumb-blending
@@ -21,9 +22,9 @@ import { font, palette } from "../data/tokens";
 // Dark ink on a bright ground, like short_vowels: the workshop is cream, white text
 // would need a heavy outline to survive on it, and a bright thumbnail stands out in a
 // row of dark ones.
-const GOLD = "#FFC42A";
 const W = 1280;
 const H = 720;
+const C = cover(W, H);
 
 const CARD = 150;          // the a and t blocks
 const PLANK = 220;         // the at plank — bigger, because it is the answer
@@ -38,11 +39,11 @@ const ROW_W = CARD + GAP + OP + GAP + CARD + GAP + OP + GAP + PLANK_W;
 const ROW_X = Math.round((W - ROW_W) / 2);
 const ROW_CY = 430;
 
-const TITLE_TOP = 176;
+const TITLE_TOP = C.head.top;
 const TITLE_H = 88;
-const MASCOT_W = 186;
-const MASCOT_X = 18;
-const MASCOT_BOTTOM = 8;   // mascot.png has ~7px of padding: the feet are the last row
+const MASCOT_W = C.mascot.width;
+const MASCOT_X = C.mascot.left;
+const MASCOT_BOTTOM = C.mascot.bottom;
 
 if (ROW_X < 40) {
   throw new Error(`thumb: the sum is ${ROW_W}px wide, only ${W - 80}px of safe width`);
@@ -68,19 +69,17 @@ export const ThumbBlending: React.FC = () => (
     {/* badge — the promise, in the corner, tilted so it reads as a sticker */}
     <div
       style={{
-        position: "absolute", left: 22, top: 20, transform: "rotate(-11deg)",
-        background: GOLD, color: palette.ink, borderRadius: 20, padding: "8px 20px",
-        fontSize: 34, fontWeight: 800, lineHeight: 1.05, textAlign: "center",
-        boxShadow: "0 10px 24px rgba(30,36,56,0.30)",
+        position: "absolute", ...C.badge, color: palette.ink,
       }}
     >
-      2 SOUNDS<br /><span style={{ fontSize: 24 }}>1 WORD</span>
+      2 SOUNDS<br /><span style={C.badgeSub}>1 WORD</span>
     </div>
 
     <div
       style={{
         position: "absolute", left: 0, right: 0, top: TITLE_TOP, textAlign: "center",
-        fontSize: 84, fontWeight: 800, color: palette.ink, letterSpacing: 1, lineHeight: 1,
+        fontSize: C.head.fontSize, fontWeight: C.head.fontWeight,
+        lineHeight: C.head.lineHeight, letterSpacing: C.head.letterSpacing, color: palette.ink,
         textShadow: "0 4px 0 rgba(255,255,255,0.9)",
       }}
     >
@@ -119,7 +118,7 @@ export const ThumbBlending: React.FC = () => (
     />
     <Img
       src={staticFile("logo.png")}
-      style={{ position: "absolute", right: 238, bottom: 18, width: 150, height: "auto" }}
+      style={{ position: "absolute", ...C.logo, right: 232, height: "auto" }}
     />
   </AbsoluteFill>
 );

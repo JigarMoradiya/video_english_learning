@@ -31,7 +31,7 @@ export const CONSONANT = "#2979CF";
 const STEEL = "#7E93A6";
 const STEEL_D = "#55697B";
 
-export const RocketWorld: React.FC = () => {
+export const RocketWorld: React.FC<{ bare?: boolean }> = ({ bare = false }) => {
   const frame = useCurrentFrame();
   const { width, height, fps } = useVideoConfig();
   const t = frame / fps;
@@ -163,16 +163,16 @@ export const RocketWorld: React.FC = () => {
       })}
 
       {/* the bear, in mission control on the pad */}
-      <Img
+      {!bare && <Img
         src={staticFile("mascot.png")}
         style={{
           position: "absolute", left: 250, top: padTop - 150 + bob(frame, fps, 6, 2.4),
           width: 132, transform: `rotate(${wiggle(frame, fps, 1.6, 3)}deg)`, transformOrigin: "bottom center",
         }}
-      />
+      />}
 
       {/* the CV·VC key, on the pad's right — chip ABOVE label so nothing can squash */}
-      <div
+      {!bare && <div
         style={{
           position: "absolute", right: 42, top: padTop - 196,
           background: "#FFFDF7", border: `6px solid ${STEEL}`, borderRadius: 16,
@@ -191,7 +191,7 @@ export const RocketWorld: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div>}
       </AbsoluteFill>
     </AbsoluteFill>
   );
