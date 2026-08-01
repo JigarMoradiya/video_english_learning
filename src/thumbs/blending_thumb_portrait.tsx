@@ -29,7 +29,8 @@ const SUN_R = 62;
 const PAD_Y = 1320;             // RocketWorld's own deck line
 
 const C = cover(W, H);
-const HEAD_TOP = C.head.top;
+const HEAD_LIFT = 66;                 // the stacked sum below needs the room
+const HEAD_TOP = C.head.top - HEAD_LIFT;
 const HEAD_SIZE = C.head.fontSize;
 const HEAD_H = HEAD_SIZE * 2 * 1.04;
 

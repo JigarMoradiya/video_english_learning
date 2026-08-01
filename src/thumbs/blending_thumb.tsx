@@ -39,7 +39,8 @@ const ROW_W = CARD + GAP + OP + GAP + CARD + GAP + OP + GAP + PLANK_W;
 const ROW_X = Math.round((W - ROW_W) / 2);
 const ROW_CY = 430;
 
-const TITLE_TOP = C.head.top;
+const HEAD_DROP = 44;                 // the bunting runs across the top of the workshop
+const TITLE_TOP = C.head.top + HEAD_DROP;
 const TITLE_H = 88;
 const MASCOT_W = C.mascot.width;
 const MASCOT_X = C.mascot.left;
