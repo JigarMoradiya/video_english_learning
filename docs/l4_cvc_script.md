@@ -2,6 +2,9 @@
 
 Written fresh from the module source (`UI/Phonics/4 CVC Words/`). ~3:50.
 
+**One continuous take, whole script — narration and sound-outs together.** No assembling
+from the app's clip bank; see THE VOICE below for why.
+
 **Signature move:** three boxes drop in one at a time — **blue · red · blue** — each letter
 lights and speaks while the other two dim, then all three glow together, slide inward and
 FUSE into one purple tile. The word is spoken whole and the picture bounces in. This is the
@@ -54,8 +57,30 @@ juh luh mmm nuh puh ruh sss tuh vuh wuh` .
 13 of the 15 have app artwork. `sit` and `hot` do not — use 🪑 and 🌶️, which are Android's
 own fallbacks for those two words.
 
-**Bold = record fresh.** Unbolded phoneme and word rows are assembled from the app's
-existing audio bank (`phonics abcd/sound_*.opus` and `phonics_word/*.opus`).
+**RECORDED LINE BY LINE — one audio file per line, everything including the sound-outs.**
+
+`docs/l4_lines.txt` is the plain list to record from, in order.
+
+This replaces both earlier approaches, and it is the user's call. One long take meant
+CUTTING it, and every cut is a place a consonant gets clipped — that is what damaged `in.`
+`up.` `us.` `ba+g` and `dog` on L3. Assembling from the app's clip bank was worse still:
+L3 v1 did that and the pacing was rejected outright (*"too fast going why? audio not
+complete some places"*). One file per line means nothing is ever cut and nothing is
+borrowed — each clip is placed whole.
+
+**The cost transfers to ME: the GAPS are now mine to choose.** L3 v1 sounded rushed because
+I used 0.11s between events and 0.23s between sounds. The rule for L4:
+
+| Between | Gap |
+|---|---|
+| Two sounds inside one sound-out | ~0.35s |
+| Sound-out and its word | ~0.45s |
+| Two narration lines | ~0.60s |
+| Across a section change | ~0.90s |
+| The three child-turn pauses | **1.0s / 2.0s / 2.5s** |
+
+Never assemble a sound-out from separate letter clips — record `kuh... aaa... tuh... cat!`
+as one line so it breathes as one person saying it.
 
 ---
 
@@ -142,53 +167,82 @@ existing audio bank (`phonics abcd/sound_*.opus` and `phonics_word/*.opus`).
 
 ---
 
-## RECORDING LIST — 32 lines, read straight down
+## RECORDING LIST — read straight down, ONE take
 
-Record as ONE continuous take, a short pause between lines. Warm, unhurried, talking to one
-child sitting next to you. Do not perform — just talk.
+51 lines. Warm, unhurried, talking to one child sitting next to you. A clear pause between
+lines. The numbers are only so you don't lose your place — don't read them out.
+
+Sound-outs: say each sound separately with a small gap, then the whole word snappy.
+`kuh... aaa... tuh...` then `cat!`
 
 ```
  1  Watch this.
- 2  You just read a word.
- 3  Three sounds. One word.
- 4  Look at the colours.
- 5  Blue. Red. Blue.
- 6  Red is always the middle one.
- 7  Red is a vowel.
- 8  Blue ones are consonants.
- 9  Consonant. Vowel. Consonant.
-10  Sound them out...
-11  ...then blend them fast.
-12  Ready? Let's do fifteen.
-13  First vowel — aaa.
-14  Same middle sound. Watch.
-15  You're getting it.
-16  Three words. One vowel.
-17  New vowel. eh.
-18  Hen. Pen. Hear the middle?
-19  Nice work.
-20  Next one — ih.
-21  Pig... big. Only the first sound changed.
-22  Your turn's coming. Keep watching.
-23  oh.
-24  Pot. Hot. Hear that? Just the front sound.
-25  Last vowel. uh.
-26  This one's yours. Sound it out.
-27  Did you get it? I bet you did.
-28  Fifteen words. You read them all.
-29  One more. Something's missing.
-30  Which vowel goes in the middle?
-31  You found it. That's real reading.
-32  Every word here is in the English Learning app — tap any word and watch it build itself. Free on both stores.
+ 2  kuh... aaa... tuh...
+ 3  cat!
+ 4  You just read a word.
+ 5  Three sounds. One word.
+ 6  Look at the colours.
+ 7  Blue. Red. Blue.
+ 8  Red is always the middle one.
+ 9  Red is a vowel.
+10  Blue ones are consonants.
+11  Consonant. Vowel. Consonant.
+12  Sound them out...
+13  ...then blend them fast.
+14  Ready? Let's do fifteen.
+
+15  First vowel — aaa.
+16  kuh... aaa... tuh...   cat!
+17  Same middle sound. Watch.
+18  huh... aaa... tuh...   hat!
+19  You're getting it.
+20  mmm... aaa... puh...   map!
+21  Three words. One vowel.
+
+22  New vowel. eh.
+23  huh... eh... nuh...    hen!
+24  puh... eh... nuh...    pen!
+25  Hen. Pen. Hear the middle?        <-- PAUSE ~1s
+26  ruh... eh... duh...    red!
+27  Nice work.
+
+28  Next one — ih.
+29  puh... ih... guh...    pig!
+30  buh... ih... guh...    big!
+31  Pig... big. Only the first sound changed.
+32  sss... ih... tuh...    sit!
+33  Your turn's coming. Keep watching.
+
+34  oh.
+35  duh... oh... guh...    dog!
+36  puh... oh... tuh...    pot!
+37  huh... oh... tuh...    hot!
+38  Pot. Hot. Hear that? Just the front sound.
+
+39  Last vowel. uh.
+40  sss... uh... nuh...    sun!
+41  This one's yours. Sound it out.   <-- PAUSE ~2s
+42  ruh... uh... nuh...    run!
+43  Did you get it? I bet you did.
+44  kuh... uh... puh...    cup!
+45  Fifteen words. You read them all.
+
+46  One more. Something's missing.
+47  duh...        ...guh...
+48  Which vowel goes in the middle?   <-- PAUSE ~2.5s
+49  oh!   Dog!
+50  You found it. That's real reading.
+
+51  Every word here is in the English Learning app — tap any word and watch it build itself. Free on both stores.
 ```
 
-Three lines are followed by a **real pause** where the child answers. Leave the silence in
-the take — do not fill it:
-* line 18 (`Hear the middle?`) — about 1 second
-* line 26 (`This one's yours. Sound it out.`) — about 2 seconds
-* line 30 (`Which vowel goes in the middle?`) — about 2.5 seconds
+**Line 47** is the quiz word with its middle missing — say `duh...`, leave a clear gap where
+the vowel would be, then `guh...`. The gap is the point.
 
----
+**Leave the three PAUSE silences in the take.** Do not edit them out — that is the child's
+turn, and the video needs the real gap.
+
+If you fluff a line, pause and say it again. I keep the good one. Don't restart the take.
 
 ## How this differs from L3, measurably
 
