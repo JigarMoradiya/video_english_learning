@@ -1,35 +1,68 @@
-# L4 · which file is which — record one clip per line, in this order
-# folder: public/audio/cvc/     format: opus | mp3 | m4a | wav
+# L4 · RECORDING LIST — one file per CONTINUOUS RUN of teacher talk
+# folder: public/audio/cvc/    format: opus | mp3 | m4a | wav
+#
+# Read each block straight through as ONE take, natural pauses between sentences.
+# The sounds and words in between come from the app — you never record those.
 
-01  Watch this.
-02  You just read a word.
-03  Three sounds. One word.
-04  Look at the colours.
-05  Blue. Red. Blue.
-06  Red is always the middle one.
-07  Red is a vowel.
-08  Blue ones are consonants.
-09  Consonant. Vowel. Consonant.
-10  Sound them out...
-11  ...then blend them fast.
-12  Ready? Let's do fifteen.
-13  First vowel — aaa.
-14  Same middle sound. Watch.
-15  You're getting it.
-16  Three words. One vowel.
-17  New vowel. eh.
-18  Hen. Pen. Hear the middle?
-19  Nice work.
-20  Next one — ih.
-21  Pig... big. Only the first sound changed.
-22  Your turn's coming. Keep watching.
-23  Next — oh.
-24  Pot. Hot. Hear that? Just the front sound.
-25  Last vowel. uh.
-26  This one's yours. Sound it out.
-27  Did you get it? I bet you did.
-28  Fifteen words. You read them all.
-29  One more. Something's missing.
-30  Which vowel goes in the middle?
-31  You found it. That's real reading.
-32  Every word here is in the English Learning app — tap any word and watch it build itself. Free on both stores.
+───── 01 ────────────────────────────────────────────────────────
+Watch this.
+
+───── 02 ────────────────────────────────────────────────────────
+You just read a word.
+Three sounds. One word.
+Look at the colours.
+Blue. Red. Blue.
+Red is always the middle one.
+Red is a vowel.
+Blue ones are consonants.
+Consonant. Vowel. Consonant.
+Sound them out...
+...then blend them fast.
+Ready? Let's do fifteen.
+First vowel — aaa.
+
+───── 03 ────────────────────────────────────────────────────────
+Same middle sound. Watch.
+
+───── 04 ────────────────────────────────────────────────────────
+You're getting it.
+
+───── 05 ────────────────────────────────────────────────────────
+Three words. One vowel.
+New vowel. eh.
+
+───── 06 ────────────────────────────────────────────────────────
+Hen. Pen. Hear the middle?
+
+───── 07 ────────────────────────────────────────────────────────
+Nice work.
+Next one — ih.
+
+───── 08 ────────────────────────────────────────────────────────
+Pig... big. Only the first sound changed.
+
+───── 09 ────────────────────────────────────────────────────────
+Your turn's coming. Keep watching.
+Next — oh.
+
+───── 10 ────────────────────────────────────────────────────────
+Pot. Hot. Hear that? Just the front sound.
+Last vowel. uh.
+
+───── 11 ────────────────────────────────────────────────────────
+This one's yours. Sound it out.
+
+───── 12 ────────────────────────────────────────────────────────
+Did you get it? I bet you did.
+
+───── 13 ────────────────────────────────────────────────────────
+Fifteen words. You read them all.
+One more. Something's missing.
+
+───── 14 ────────────────────────────────────────────────────────
+Which vowel goes in the middle?
+
+───── 15 ────────────────────────────────────────────────────────
+You found it. That's real reading.
+Every word here is in the English Learning app — tap any word and watch it build itself. Free on both stores.
+
