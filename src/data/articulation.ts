@@ -27,7 +27,7 @@ export type Articulation =
   | "tongueCurl"; // r       tongue curled back
 
 // Per LETTER, driven by its phonics sound:
-//   A Aaa · B Buh · C Kuh · D Duh · E Eh · F Fuh · G Guh · H Huh · I Ih · J Juh
+//   A Aaa · B Buh · C Kuh · D Duh · E Eh · F Fff · G Guh · H Huh · I Ih · J Juh
 //   K Kuh · L Luh · M Mmm · N Nuh · O Oh · P Puh · Q Kwuh · R Ruh · S Sss · T Tuh
 //   U Uh · V Vuh · W Wuh · X Ks · Y Yuh · Z Zuh
 export const LETTER_ARTICULATION: Record<string, Articulation> = {

@@ -19,7 +19,7 @@ const BG = "linear-gradient(145deg, #141C4A 0%, #2B3A9E 52%, #4657D6 100%)";
 
 // the video's own phonics sound tokens (from src/data/letters.ts), so the thumbnail teaches
 // exactly what the video says
-const SOUND: Record<string, string> = { a: "aaa", b: "buh", c: "kuh", d: "duh", e: "eh", f: "fuh", g: "guh" };
+const SOUND: Record<string, string> = { a: "aaa", b: "buh", c: "kuh", d: "duh", e: "eh", f: "fff", g: "guh" };
 
 const Ground: React.FC<{ children: React.ReactNode; bg?: string }> = ({ children, bg = BG }) => (
   <AbsoluteFill style={{ background: bg, fontFamily: font.family, overflow: "hidden" }}>
