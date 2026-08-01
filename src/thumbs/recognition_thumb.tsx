@@ -71,7 +71,7 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
 
   const B = portrait
     ? { x: 90, w: W - 180, y: 610 }
-    : { x: 46, w: 528, y: 196 };
+    : { x: 210, w: 470, y: 196 };
   const G = boardGeom(B.w);
 
   // hero: letter row + card + says line, explicit top
@@ -80,7 +80,7 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
   const LETTER_F = portrait ? 170 : 132;
   const SAYS_F = portrait ? 56 : 42;
   const heroH = LETTER_F * 0.95 + 12 + CARD + 10 + SAYS_F * 1.2;
-  const heroCX = portrait ? W / 2 : 900;
+  const heroCX = portrait ? W / 2 : 960;
 
   if (HEAD_TOP + HEAD_H + 20 > (portrait ? B.y : Math.min(B.y, HERO_TOP))) {
     throw new Error(`thumb: headline ends ${HEAD_TOP + HEAD_H}, content starts ${portrait ? B.y : Math.min(B.y, HERO_TOP)}`);
@@ -98,8 +98,8 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
   if (portrait && mascotW + 10 > heroCX - CARD / 2) {
     throw new Error(`thumb: mascot ends ${mascotW}, hero card starts ${heroCX - CARD / 2}`);
   }
-  if (!portrait && H - mascotH < B.y + G.h + 8) {
-    throw new Error(`thumb: mascot top ${H - mascotH} rises into the board ending ${B.y + G.h}`);
+  if (!portrait && C.mascot.left + mascotW > B.x - 8) {
+    throw new Error(`thumb: mascot ends ${C.mascot.left + mascotW}, the board starts ${B.x}`);
   }
 
   return (
