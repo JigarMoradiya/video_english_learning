@@ -118,7 +118,7 @@ const Opener: React.FC<{ from: number }> = ({ from }) => {
   return (
     <>
       <Stage gap={0}>
-        <div style={{ display: "flex", alignItems: "center", gap, opacity: gridIn ? 0 : 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap, opacity: gridIn ? 0 : merged ? interpolate(mergeP, [0, 1], [1, 0.45], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 22, transform: `translateX(${(1 - inA) * -700}px) scale(${aScale})` }}>
             <Block text="a" vowel size={tall ? 210 : 250} lit={(f >= c(0) && f < c(1)) || (f >= c(10) && f < c(11))} popAt={c(0)} />
             {f >= c(10) && label(f < c(11) ? 1 : 0, "VOWEL", VOWEL)}
@@ -172,20 +172,24 @@ const SetSec: React.FC<{ from: number; triples: Triple[]; banner: string; color:
   const p1 = rel(t.p1), p2 = rel(t.p2), p3 = rel(t.p3);
   const gap = intro ? (tall ? 250 : 340) : interpolate(f, [p3 - 8, p3], [tall ? 250 : 340, 16], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const said = !intro && f >= p3;
+  const landIn = spring({ frame: f - p3, fps, config: { damping: 12, stiffness: 90 } });
+  const dim = interpolate(landIn, [0, 1], [1, 0.45], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
 
   return (
     <>
       <Banner text={banner} color={color} />
       <Stage gap={0}>
-        <div style={{ display: "flex", alignItems: "center", gap, opacity: said ? interpolate(f, [p3 + 2, p3 + 9], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap, opacity: dim }}>
           <Block text={t.a} vowel={t.vowelFirst} size={tall ? 210 : 250} lit={!intro && f >= p1 && f < p2} popAt={intro ? undefined : p1} />
           <Block text={intro ? "?" : t.b} vowel={!t.vowelFirst} size={tall ? 210 : 250} lit={!intro && f >= p2 && f < p3} ghost={intro} popAt={intro ? undefined : p2} />
         </div>
-        {/* the blocks fade as the plank lands — a plank floated above visible blocks
-            overlapped their top edge */}
+        {/* the blocks do NOT go away — they step back to 0.45 and the plank lands ON them */}
         {said && (
-          <div style={{ position: "absolute", top: 150, transformOrigin: "top center", transform: `scale(${spring({ frame: f - p3, fps, config: { damping: 10 } })})` }}>
-            <WordPlank word={t.word} size={tall ? 210 : 240} lit={f < p3 + 24} />
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ transform: `translateY(${-(1 - landIn) * 130}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+              <WordPlank word={t.word} size={tall ? 210 : 240} lit={f < p3 + 24} />
+            </div>
           </div>
         )}
       </Stage>
@@ -351,17 +355,22 @@ const PracticeSec: React.FC<{ from: number }> = ({ from }) => {
   const s1 = second ? c(130) : c(127), s2 = second ? c(131) : c(128), hit = second ? c(132) : c(129);
   const vowelFirst = !second;
   const said = f >= hit;
+  const landIn = spring({ frame: f - hit, fps, config: { damping: 12, stiffness: 90 } });
+  const dim = interpolate(landIn, [0, 1], [1, 0.45], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
   return (
     <>
       <Banner text="YOUR TURN" />
       <Stage gap={0}>
-        <div style={{ display: "flex", alignItems: "center", gap: interpolate(f, [hit - 8, hit], [tall ? 250 : 340, 16], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), opacity: said ? interpolate(f, [hit + 2, hit + 9], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: interpolate(f, [hit - 8, hit], [tall ? 250 : 340, 16], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), opacity: dim }}>
           <Block text={f >= s1 ? A : "?"} vowel={vowelFirst} size={tall ? 210 : 250} ghost={f < s1} lit={f >= s1 && f < hit} popAt={s1} />
           <Block text={f >= s2 ? B : "?"} vowel={!vowelFirst} size={tall ? 210 : 250} ghost={f < s2} lit={f >= s2 && f < hit} popAt={s2} />
         </div>
         {said && (
-          <div style={{ position: "absolute", top: 150, transformOrigin: "top center", transform: `scale(${spring({ frame: f - hit, fps, config: { damping: 10 } })})` }}>
-            <WordPlank word={word} size={tall ? 210 : 240} lit />
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ transform: `translateY(${-(1 - landIn) * 130}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+              <WordPlank word={word} size={tall ? 210 : 240} lit />
+            </div>
           </div>
         )}
         <Click at={hit} y={30} />

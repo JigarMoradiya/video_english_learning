@@ -91,7 +91,7 @@ const Opener: React.FC<{ from: number }> = ({ from }) => {
   return (
     <>
       <Stage gap={0}>
-        <div style={{ display: "flex", alignItems: "center", gap, opacity: grid ? 0 : 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap, opacity: grid ? 0 : merged ? interpolate(mergeP, [0, 1], [1, 0.45], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 20, transform: `translateY(${bob(f, fps, 4, 3.2, 0)}px) scale(${aS})` }}>
             <Block text="a" vowel size={264} lit={(f >= c(0) && f < c(1)) || (f >= c(10) && f < c(11))} popAt={c(0)} />
             {f >= c(10) && label(f < c(11) ? 1 : 0, "VOWEL", VOWEL)}
@@ -140,18 +140,22 @@ const SetSec: React.FC<{ from: number; triples: Triple[]; banner: string; color:
   const tr = triples[k];
   const t = { ...tr, p1: rel(tr.p1), p2: rel(tr.p2), p3: rel(tr.p3) };
   const said = !intro && f >= t.p3;
+  const landIn = spring({ frame: f - t.p3, fps, config: { damping: 12, stiffness: 90 } });
+  const dim = interpolate(landIn, [0, 1], [1, 0.45], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const gap = intro ? 260 : interpolate(f, [t.p3 - 8, t.p3], [260, 14], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <>
       <Banner text={banner} color={color} />
       <Stage gap={0}>
-        <div style={{ display: "flex", alignItems: "center", gap, opacity: said ? interpolate(f, [t.p3 + 2, t.p3 + 9], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap, opacity: dim }}>
           <Block text={t.a} vowel={t.vowelFirst} size={264} lit={!intro && f >= t.p1 && f < t.p2} popAt={intro ? undefined : t.p1} />
           <Block text={intro ? "?" : t.b} vowel={!t.vowelFirst} size={264} lit={!intro && f >= t.p2 && f < t.p3} ghost={intro} popAt={intro ? undefined : t.p2} />
         </div>
         {said && (
-          <div style={{ position: "absolute", top: 320, transformOrigin: "top center", transform: `scale(${spring({ frame: f - t.p3, fps, config: { damping: 10 } })})` }}>
-            <WordCapsule word={t.word} size={296} lit={f < t.p3 + 24} />
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ transform: `translateY(${-(1 - landIn) * 150}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+              <WordCapsule word={t.word} size={296} lit={f < t.p3 + 24} />
+            </div>
           </div>
         )}
       </Stage>
@@ -203,7 +207,7 @@ const BuildSec: React.FC<{ from: number; builds: BuildT[]; banner: string; intro
     const r = Math.max(1, Math.min(5, Math.floor((span - 1) / 3)));
     return [a, a + r, a + span - r, a + span];
   };
-  const addScale = interpolate(f, b.front ? win(b.p2 - 2, cut) : win(cut, b.p2e + 6), [1, 1.16, 1.16, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const addScale = interpolate(f, b.front ? win(b.p2 - 2, cut) : win(cut, b.p3 + 16), [1, 1.16, 1.16, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const chunkScale = interpolate(f, b.front ? win(cut, b.p2e + 6) : win(b.p2 - 2, cut), [1, 1.16, 1.16, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   if (intro && gatherUntil !== undefined && f < rel(gatherUntil) - 6) {
@@ -310,17 +314,21 @@ const PracticeSec: React.FC<{ from: number }> = ({ from }) => {
   const s1 = second ? c(103) : c(100), s2 = second ? c(104) : c(101), hit = second ? c(105) : c(102);
   const vowelFirst = !second;
   const said = f >= hit;
+  const landIn = spring({ frame: f - hit, fps, config: { damping: 12, stiffness: 90 } });
+  const dim = interpolate(landIn, [0, 1], [1, 0.45], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <>
       <Banner text="YOUR TURN" />
       <Stage gap={0}>
-        <div style={{ display: "flex", alignItems: "center", gap: interpolate(f, [hit - 8, hit], [260, 14], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), opacity: said ? interpolate(f, [hit + 2, hit + 9], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: interpolate(f, [hit - 8, hit], [260, 14], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), opacity: dim }}>
           <Block text={f >= s1 ? A : "?"} vowel={vowelFirst} size={264} ghost={f < s1} lit={f >= s1 && f < hit} popAt={s1} />
           <Block text={f >= s2 ? Bl : "?"} vowel={!vowelFirst} size={264} ghost={f < s2} lit={f >= s2 && f < hit} popAt={s2} />
         </div>
         {said && (
-          <div style={{ position: "absolute", top: 320, transformOrigin: "top center", transform: `scale(${spring({ frame: f - hit, fps, config: { damping: 10 } })})` }}>
-            <WordCapsule word={word} size={296} lit />
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ transform: `translateY(${-(1 - landIn) * 150}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+              <WordCapsule word={word} size={296} lit />
+            </div>
           </div>
         )}
         <Click at={hit} y={40} />
