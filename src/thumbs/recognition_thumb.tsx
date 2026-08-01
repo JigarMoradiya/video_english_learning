@@ -38,7 +38,7 @@ const Board: React.FC<{ x: number; w: number; y: number }> = ({ x, w, y }) => {
           const current = i === 5;
           const isVowel = "AEIOU".includes(l.letter);
           const wc = letterColorFor(l.letter, l.imageColor);
-          const bg = current ? "#E91E63" : done && isVowel ? GOLD_TILE : isVowel ? "rgba(255,159,67,0.18)" : "rgba(56,86,190,0.1)";
+          const bg = current ? "#8E24AA" : done && isVowel ? GOLD_TILE : isVowel ? "rgba(255,159,67,0.18)" : "rgba(56,86,190,0.1)";
           const fg = current ? "#fff" : done ? (isVowel ? "#fff" : wc) : isVowel ? "#E67E22" : "rgba(30,36,56,0.5)";
           return (
             <div
@@ -47,7 +47,7 @@ const Board: React.FC<{ x: number; w: number; y: number }> = ({ x, w, y }) => {
                 position: "absolute", left: rowX + col * (cell + GAP), top: y + row * (cell + GAP),
                 width: cell, height: cell, borderRadius: cell * 0.18,
                 background: bg, display: "flex", alignItems: "center", justifyContent: "center",
-                boxShadow: current ? "0 8px 22px rgba(233,30,99,0.45), 0 0 0 5px rgba(233,30,99,0.28)" : "none",
+                boxShadow: current ? "0 8px 22px rgba(142,36,170,0.45), 0 0 0 5px rgba(142,36,170,0.28)" : "none",
                 fontFamily: font.family, transform: current ? "scale(1.12)" : undefined,
               }}
             >
