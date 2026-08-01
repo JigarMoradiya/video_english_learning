@@ -137,7 +137,7 @@ const Opener: React.FC<{ from: number }> = ({ from }) => {
         {merged && (
           <div style={{ position: "absolute", inset: 0, display: "flex", justifyContent: "center",
                         alignItems: gridIn ? "flex-start" : "center", paddingTop: gridIn ? 4 : 0 }}>
-            <div style={{ transform: `translateY(${-(1 - mergeP) * (tall ? 90 : 105)}px) scale(${(gridIn ? 0.8 : 1) * interpolate(mergeP, [0.12, 1], [0.28, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(mergeP, [0.12, 0.34], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+            <div style={{ transform: `translateY(${-(tall ? 72 : 62) - (1 - mergeP) * (tall ? 90 : 105)}px) scale(${(gridIn ? 0.8 : 1) * interpolate(mergeP, [0.12, 1], [0.28, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(mergeP, [0.12, 0.34], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
               <WordPlank word="at" size={tall ? 250 : 300} lit={f < c(2) + 30} />
             </div>
           </div>
@@ -187,7 +187,7 @@ const SetSec: React.FC<{ from: number; triples: Triple[]; banner: string; color:
         {/* the blocks do NOT go away — they step back to 0.45 and the plank lands ON them */}
         {said && (
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ transform: `translateY(${-(1 - landIn) * 130}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+            <div style={{ transform: `translateY(${-(tall ? 72 : 62) - (1 - landIn) * 130}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
               <WordPlank word={t.word} size={tall ? 210 : 240} lit={f < p3 + 24} />
             </div>
           </div>
@@ -368,7 +368,7 @@ const PracticeSec: React.FC<{ from: number }> = ({ from }) => {
         </div>
         {said && (
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ transform: `translateY(${-(1 - landIn) * 130}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+            <div style={{ transform: `translateY(${-(tall ? 72 : 62) - (1 - landIn) * 130}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
               <WordPlank word={word} size={tall ? 210 : 240} lit />
             </div>
           </div>

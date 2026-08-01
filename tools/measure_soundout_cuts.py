@@ -86,11 +86,19 @@ def main() -> int:
                 cands = [b[1] for b in bs[:-1]]
                 cut = next((c for c in cands if lo <= c <= hi), p["start"] + dur * 0.33)
             else:
-                # add = the final consonant. With 3 bursts it is the last one; with fewer
-                # the plosive releases inside the previous burst, so give it the last 28%
-                # rather than the 3 frames the burst end would leave (a blink).
-                cands = [b[0] for b in bs[1:]][::-1]
-                cut = next((c for c in cands if lo <= c <= hi), p["start"] + dur * 0.72)
+                # add = the FINAL consonant, so the handover is always near the end.
+                #
+                # Said smoothly, "mmm-aaa-p" gives only two bursts: the opening consonant and
+                # then the vowel AND the final consonant together. Taking the last burst's
+                # START therefore lit "p" at the beginning of "aaa" — the reported bug. Only
+                # when that last burst is SHORT is it the consonant on its own (bag 0.07s,
+                # wet 0.05s); when it is long the consonant is buried at its end.
+                last = bs[-1] if bs else [p["start"], p["end"]]
+                if last[1] - last[0] < 0.25:
+                    cut = last[0]                       # the burst IS the consonant
+                else:
+                    cut = max(last[0] + 0.10, last[1] - 0.16)   # it is the tail of the burst
+                cut = min(max(cut, lo), hi)
             cuts[word] = round(float(cut), 3)
             print(f"  {word:4s} {'VC' if front else 'CV'}  {len(bs)} bursts  cut {cuts[word]:.2f}"
                   f"  (phrase {p['start']:.2f}-{p['end']:.2f})")

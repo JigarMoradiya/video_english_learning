@@ -109,7 +109,7 @@ const Opener: React.FC<{ from: number }> = ({ from }) => {
         {merged && (
           <div style={{ position: "absolute", inset: 0, display: "flex", justifyContent: "center",
                         alignItems: grid ? "flex-start" : "center", paddingTop: grid ? 60 : 0 }}>
-            <div style={{ transform: `translateY(${bob(f, fps, 4.4, 3.4) - (1 - mergeP) * 110}px) scale(${(grid ? 0.82 : 1) * interpolate(mergeP, [0.12, 1], [0.28, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(mergeP, [0.12, 0.34], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+            <div style={{ transform: `translateY(${bob(f, fps, 4.4, 3.4) - 86 - (1 - mergeP) * 110}px) scale(${(grid ? 0.82 : 1) * interpolate(mergeP, [0.12, 1], [0.28, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(mergeP, [0.12, 0.34], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
               <WordCapsule word="at" size={310} lit={f < c(2) + 30} />
             </div>
           </div>
@@ -153,7 +153,7 @@ const SetSec: React.FC<{ from: number; triples: Triple[]; banner: string; color:
         </div>
         {said && (
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ transform: `translateY(${-(1 - landIn) * 150}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+            <div style={{ transform: `translateY(${-86 - (1 - landIn) * 150}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
               <WordCapsule word={t.word} size={296} lit={f < t.p3 + 24} />
             </div>
           </div>
@@ -326,7 +326,7 @@ const PracticeSec: React.FC<{ from: number }> = ({ from }) => {
         </div>
         {said && (
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ transform: `translateY(${-(1 - landIn) * 150}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+            <div style={{ transform: `translateY(${-86 - (1 - landIn) * 150}px) scale(${interpolate(landIn, [0, 1], [1.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`, opacity: interpolate(landIn, [0, 0.3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
               <WordCapsule word={word} size={296} lit />
             </div>
           </div>
