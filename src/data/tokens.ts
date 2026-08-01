@@ -92,7 +92,28 @@ const hueOf = (h: string): { hue: number; sat: number } => {
 // nudged away only if the hue happens to clash with the word image (so it never blends).
 // This replaces the old complement-of-image approach, which made most letters blue because
 // most word images are warm-coloured.
+// The golden-angle formula drops NINE letters into the green-teal band (90°-210°):
+// A B E G J O R W Z — precisely the set reported twice as looking wrong. And because the
+// letter's colour also tints the background wash, a green letter turns its WHOLE scene
+// green on the cream studio wall, which reads dirty no matter the saturation. So those
+// nine are hand-picked instead — vivid Material tones, each checked against its own image
+// hue (so it can never blend with the picture) and against its neighbour letters. The
+// other seventeen keep the formula, which the eye already approved.
+const LETTER_OVERRIDES: Record<string, string> = {
+  A: "#1E88E5",  // azure       (ant is brown-red)
+  B: "#C2185B",  // crimson     (bat is tan; red proper would sit too close)
+  E: "#7B1FA2",  // deep purple (elephant is grey — anything vivid works)
+  G: "#1E88E5",  // azure       (goat is warm tan, every warm hue clashes)
+  J: "#D81B60",  // pink        (joker is purple)
+  O: "#1565C0",  // blue        (the orange is orange — complement pops)
+  R: "#3949AB",  // indigo      (rose is red)
+  W: "#0277BD",  // deep blue   (watermelon is red)
+  Z: "#C62828",  // red         (zebra is monochrome)
+};
+
 export const letterColorFor = (letter: string, imageColorHex: string): string => {
+  const o = LETTER_OVERRIDES[letter.toUpperCase()];
+  if (o) return o;
   const idx = letter.toUpperCase().charCodeAt(0) - 65;
   let h = (idx * 137.508) % 360;
   const img = hueOf(imageColorHex);

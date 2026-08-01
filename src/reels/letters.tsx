@@ -173,18 +173,27 @@ const Intro: React.FC = () => {
 };
 
 
+const StudioBackdrop: React.FC = () => {
+  const frame = useCurrentFrame();
+  const dim = interpolate(frame, [OUTRO_FROM, OUTRO_FROM + 20], [1, 0.3], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill style={{ opacity: dim }}>
+      <StudioWall />
+      <BrushJar />
+    </AbsoluteFill>
+  );
+};
+
 export const LettersReel: React.FC = () => {
   const { width, height } = useVideoConfig();
   const portrait = height > width;
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFFFFF" }}>
-      {/* THE PAINT STUDIO — every aspect. The wall stays neutral and each letter's colour
-          arrives in its own wash, so the frame never jump-cuts between letters. The brush
-          jar sits low-left, clear of the pot shelf. */}
-      <Sequence from={0} durationInFrames={OUTRO_FROM}>
-        <StudioWall />
-        <BrushJar />
-      </Sequence>
+      {/* THE PAINT STUDIO — every aspect, and it runs to the END. Cutting it at the outro
+          swapped the whole background for white, a jump cut; instead the studio stays and
+          steps back (the dimFrom pattern every video uses) so the store card is the only
+          thing in focus. */}
+      <StudioBackdrop />
       <Audio
         src={staticFile("music_bed.mp3")}
         loop

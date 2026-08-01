@@ -39,15 +39,16 @@ const SPLASHES = [
   { x: 1820, y: 880, r: 80, li: 8 },
 ];
 
-/** A paint splat: a blob with a few flung droplets. */
+/** A paint splat. Just the blob: the "flung droplet" satellites that used to ring it sat
+ * DETACHED from the body, and at wash opacity on the pale wall they read as stray pale
+ * dots floating on the wall — reported as "white dots". The small ear overlaps the blob,
+ * so the silhouette still says paint rather than a plain ellipse. */
 const Splash: React.FC<{ x: number; y: number; r: number; color: string; op?: number }> = ({ x, y, r, color, op = 0.24 }) => {
   const c = hex(color);
   return (
     <g opacity={op}>
       <ellipse cx={x} cy={y} rx={r} ry={r * 0.82} fill={c} />
       <ellipse cx={x + r * 0.72} cy={y - r * 0.5} rx={r * 0.3} ry={r * 0.26} fill={c} />
-      <circle cx={x - r * 0.9} cy={y + r * 0.42} r={r * 0.17} fill={c} />
-      <circle cx={x + r * 0.5} cy={y + r * 0.85} r={r * 0.12} fill={c} />
     </g>
   );
 };
