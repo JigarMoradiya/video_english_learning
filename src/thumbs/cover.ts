@@ -46,6 +46,9 @@ export const cover = (W: number, H: number) => {
       fontWeight: 800 as const,
       lineHeight: 1.04,
       letterSpacing: portrait ? 0 : 1,
+      // a white LIFT so dark ink survives on a pale world, plus a soft drop for depth.
+      // L3 shipped with a 4px lift and no drop and read flat beside the others.
+      textShadow: "0 6px 0 #FFFFFF, 0 10px 26px rgba(30,36,56,0.22)",
     },
     mascot: {
       width: portrait ? W * 0.34 : 184,

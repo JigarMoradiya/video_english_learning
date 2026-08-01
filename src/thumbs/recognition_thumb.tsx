@@ -115,7 +115,7 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
           position: "absolute", left: portrait ? 0 : 200, top: HEAD_TOP, width: portrait ? W : 956, textAlign: "center", whiteSpace: portrait ? undefined : "nowrap",
           fontSize: HEAD_SIZE, fontWeight: C.head.fontWeight, lineHeight: C.head.lineHeight,
           letterSpacing: C.head.letterSpacing, color: palette.ink,
-          textShadow: "0 6px 0 rgba(255,255,255,0.9), 0 10px 26px rgba(30,36,56,0.22)",
+          textShadow: C.head.textShadow,
         }}
       >
         {portrait ? <>LETTER<br />RECOGNITION</> : "LETTER RECOGNITION"}

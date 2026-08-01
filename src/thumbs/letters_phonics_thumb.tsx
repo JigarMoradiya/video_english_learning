@@ -108,7 +108,7 @@ export const ThumbLettersPhonics: React.FC = () => (
         position: "absolute", left: 0, top: 44, width: W, textAlign: "center",
         fontSize: C.head.fontSize, fontWeight: C.head.fontWeight, color: palette.ink,
         letterSpacing: C.head.letterSpacing, lineHeight: C.head.lineHeight,
-        textShadow: "0 6px 0 #FFFFFF, 0 10px 26px rgba(30,36,56,0.22)",
+        textShadow: C.head.textShadow,
       }}
     >
       LETTER SOUNDS

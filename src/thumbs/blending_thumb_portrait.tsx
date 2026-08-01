@@ -117,6 +117,7 @@ export const ThumbBlendingPortrait: React.FC = () => (
         position: "absolute", left: HEAD_L, top: HEAD_TOP, width: HEAD_W, textAlign: "center",
         fontSize: C.head.fontSize, fontWeight: C.head.fontWeight,
         lineHeight: C.head.lineHeight, letterSpacing: C.head.letterSpacing, color: palette.ink,
+        textShadow: C.head.textShadow,
       }}
     >
       CV · VC<br />BLENDING
