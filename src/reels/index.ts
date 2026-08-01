@@ -33,6 +33,8 @@ import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLAS
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
+import { CvcReel } from "./cvc";
+import { CVC_DURATION } from "../data/cvc";
 import { ThumbRecognition169, ThumbRecognition916 } from "../thumbs/recognition_thumb";
 import { ThumbBlending } from "../thumbs/blending_thumb";
 import { ThumbBlendingPortrait } from "../thumbs/blending_thumb_portrait";
@@ -86,6 +88,7 @@ export const REELS: ReelEntry[] = [
   // frame and wearing The Paint Studio. Not a crop of the 16:9.
   { id: "letters-phonics-4x5", component: LettersReel, durationInFrames: LETTERS_DURATION, width: 1080, height: 1350 },
   // A→Z Letter Recognition — 16:9 "game-board" video ("A says a"), grid fills up.
+  { id: "l4-cvc", component: CvcReel, durationInFrames: CVC_DURATION, width: 1920, height: 1080 },
   { id: "letter-recognition", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1920, height: 1080 },
   { id: "letter-recognition-4x5", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1080, height: 1350 },
   // L2 · Short Vowels — 16:9 lesson: learn (talking mouths) → practice → listen → download.
