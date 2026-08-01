@@ -74,7 +74,12 @@ def main() -> int:
             # 0.05-0.07s -- two frames. Any candidate closer than MARGIN to either edge is
             # rejected and the next one back is tried.
             MARGIN = 0.15
-            lo, hi = p["start"] + MARGIN, p["end"] - MARGIN
+            # head margin always: whichever card lights FIRST needs to be readable.
+            # tail margin only for `front`, where the second card's lit window ends at the
+            # sound-out. A CV build's added letter stays lit into the word reveal, so a late
+            # cut costs it nothing -- and the late burst is the truth about when it is said.
+            lo = p["start"] + MARGIN
+            hi = p["end"] - MARGIN if front else p["end"]
             if front:
                 # add = burst 1. When the three sounds run together as ONE burst there is
                 # no boundary to find, so fall back to a third — add is 1 of 3 sounds.

@@ -118,9 +118,7 @@ const Opener: React.FC<{ from: number }> = ({ from }) => {
   return (
     <>
       <Stage gap={0}>
-        <div style={{ display: "flex", alignItems: "center", gap, transformOrigin: "center center",
-                      transform: `scale(${merged ? 1 - 0.8 * mergeP : 1})`,
-                      opacity: gridIn ? 0 : merged ? interpolate(mergeP, [0.82, 1], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap, opacity: gridIn ? 0 : 1 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 22, transform: `translateX(${(1 - inA) * -700}px) scale(${aScale})` }}>
             <Block text="a" vowel size={tall ? 210 : 250} lit={(f >= c(0) && f < c(1)) || (f >= c(10) && f < c(11))} popAt={c(0)} />
             {f >= c(10) && label(f < c(11) ? 1 : 0, "VOWEL", VOWEL)}
@@ -243,7 +241,10 @@ const BuildSec: React.FC<{ from: number; builds: BuildT[]; banner: string; intro
   // ORDER FOLLOWS THE SOUND-OUT: "buh-aaa-t" = add first (front), "buh-aaa-g" = the
   // CHUNK "ba" first and the added "g" LAST. One cut point, sides swap with b.front.
   const cut = rel(b.cut);
-  const addLit = sweep && (b.front ? f < cut : f >= cut);
+  // A CV build's added letter is a stop consonant -- "g" in buh-aaa-g is a 0.07s release,
+  // so ending its lit window at the sound-out gave a 2-frame blink. It lights on the sound
+  // and HOLDS through the word reveal, which is both correct and visible.
+  const addLit = b.front ? (sweep && f < cut) : (!intro && f >= cut && f < b.p3 + 22);
   const chunkLit = sweep && (b.front ? f >= cut : f < cut);
   // A MEASURED cut can land a frame or two from the phrase end, so a fixed 5-frame ramp
   // would make the interpolate range non-monotonic (Remotion throws). Ramps adapt to the
