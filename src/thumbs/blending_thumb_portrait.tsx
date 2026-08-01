@@ -29,6 +29,9 @@ const SUN_R = 62;
 const PAD_Y = 1320;             // RocketWorld's own deck line
 
 const C = cover(W, H);
+const GANTRY_R = 196;                 // gantry + rocket fins own x0…196
+const HEAD_L = GANTRY_R + 14;
+const HEAD_W = W - HEAD_L - 30;
 const HEAD_LIFT = 66;                 // the stacked sum below needs the room
 const HEAD_TOP = C.head.top - HEAD_LIFT;
 const HEAD_SIZE = C.head.fontSize;
@@ -57,8 +60,11 @@ if (CAP_TOP + CAP_H + 30 > PAD_Y) {
 if (H - MASCOT_BOTTOM - MASCOT_H < CAP_TOP + CAP_H) {
   throw new Error(`thumb: mascot top ${H - MASCOT_BOTTOM - MASCOT_H} rises into the word card`);
 }
-if (2 * CARD + PAIR_GAP > W - 120) {
-  throw new Error(`thumb: the pair is ${2 * CARD + PAIR_GAP}px wide in a ${W}px frame`);
+if (HEAD_W < 760) {
+  throw new Error(`thumb: headline zone is ${HEAD_W}px, "BLENDING" needs about 800`);
+}
+if (2 * CARD + PAIR_GAP > HEAD_W) {
+  throw new Error(`thumb: the pair is ${2 * CARD + PAIR_GAP}px wide in a ${HEAD_W}px clear zone`);
 }
 
 
@@ -108,7 +114,7 @@ export const ThumbBlendingPortrait: React.FC = () => (
     {/* the headline STACKS in portrait — one line would have to shrink to fit */}
     <div
       style={{
-        position: "absolute", left: 0, top: HEAD_TOP, width: W, textAlign: "center",
+        position: "absolute", left: HEAD_L, top: HEAD_TOP, width: HEAD_W, textAlign: "center",
         fontSize: C.head.fontSize, fontWeight: C.head.fontWeight,
         lineHeight: C.head.lineHeight, letterSpacing: C.head.letterSpacing, color: palette.ink,
       }}
@@ -118,7 +124,7 @@ export const ThumbBlendingPortrait: React.FC = () => (
 
     <div
       style={{
-        position: "absolute", left: 0, top: PAIR_TOP, width: W,
+        position: "absolute", left: HEAD_L, top: PAIR_TOP, width: HEAD_W,
         display: "flex", justifyContent: "center", alignItems: "center", gap: PAIR_GAP,
       }}
     >
@@ -128,14 +134,14 @@ export const ThumbBlendingPortrait: React.FC = () => (
 
     <div
       style={{
-        position: "absolute", left: 0, top: ARROW_TOP, width: W, textAlign: "center",
+        position: "absolute", left: HEAD_L, top: ARROW_TOP, width: HEAD_W, textAlign: "center",
         fontSize: ARROW, fontWeight: 800, color: palette.inkSoft, lineHeight: 1,
       }}
     >
       ↓
     </div>
 
-    <div style={{ position: "absolute", left: 0, top: CAP_TOP, width: W, display: "flex", justifyContent: "center" }}>
+    <div style={{ position: "absolute", left: HEAD_L, top: CAP_TOP, width: HEAD_W, display: "flex", justifyContent: "center" }}>
       <WordCapsule word="at" size={CAPSULE} lit />
     </div>
 
