@@ -100,7 +100,13 @@ export const letterColorFor = (letter: string, imageColorHex: string): string =>
     const dist = Math.min(Math.abs(h - img.hue), 360 - Math.abs(h - img.hue));
     if (dist < 42) h = (h + 180) % 360; // too close to the image → jump to the opposite side
   }
-  return hslToHex(h, 0.6, 0.45);
+  // One saturation does NOT fit the whole wheel. At s=0.6/l=0.45 the reds, blues and
+  // purples read vivid, but every hue in the green-teal-cyan band (90°-210°) came out
+  // muddy and washed — which is exactly the set of letters reported as "not HD":
+  // A(180) B(138) E(190) G(105) J(158) O(125) R(178) W(145) Z(198). Greens need more
+  // chroma and less lightness to look as saturated as a red does.
+  const greenish = h >= 90 && h <= 210;
+  return hslToHex(h, greenish ? 0.82 : 0.6, greenish ? 0.36 : 0.45);
 };
 
 // ── 3D extrusion ────────────────────────────────────────────────────────────

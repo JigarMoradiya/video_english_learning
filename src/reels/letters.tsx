@@ -89,11 +89,9 @@ const AlphabetStrip: React.FC = () => {
     <div style={{ position: "absolute", bottom: portrait ? 16 : 20, left: 0, width, display: "flex", justifyContent: "center", alignItems: "flex-end", gap: portrait ? 3 : 4, opacity: fade }}>
       {LETTERS.map((l, i) => {
         const state = i === active ? "active" : i < active ? "done" : "todo";
-        // In 4:5 the strip IS the Paint Studio's bottom shelf: 26 tins that get painted
-        // as the alphabet is worked through. Same progress logic either way.
-        if (portrait) {
-          return <PaintPot key={l.letter} letter={l.letter} color={letterColorFor(l.letter, l.imageColor)} state={state} size={Math.min(38, cell)} />;
-        }
+        // The strip IS the Paint Studio's bottom shelf: 26 tins that get painted as the
+        // alphabet is worked through — every aspect, since the 16:9 wears the studio too.
+        return <PaintPot key={l.letter} letter={l.letter} color={letterColorFor(l.letter, l.imageColor)} state={state} size={Math.min(portrait ? 38 : 44, cell)} />;
         const isActive = state === "active";
         const done = state === "done";
         return (
@@ -180,15 +178,13 @@ export const LettersReel: React.FC = () => {
   const portrait = height > width;
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFFFFF" }}>
-      {/* THE PAINT STUDIO — 4:5 only, so the published 16:9 lesson is untouched. The wall
-          stays neutral and each letter's colour arrives in its own wash, so the frame never
-          jump-cuts between letters. The brush jar sits low-left, clear of the pot shelf. */}
-      {portrait && (
-        <Sequence from={0} durationInFrames={OUTRO_FROM}>
-          <StudioWall />
-          <BrushJar />
-        </Sequence>
-      )}
+      {/* THE PAINT STUDIO — every aspect. The wall stays neutral and each letter's colour
+          arrives in its own wash, so the frame never jump-cuts between letters. The brush
+          jar sits low-left, clear of the pot shelf. */}
+      <Sequence from={0} durationInFrames={OUTRO_FROM}>
+        <StudioWall />
+        <BrushJar />
+      </Sequence>
       <Audio
         src={staticFile("music_bed.mp3")}
         loop

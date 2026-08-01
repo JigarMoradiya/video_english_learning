@@ -105,8 +105,8 @@ export const StudioWall: React.FC = () => {
 /** The jar of brushes in the left margin. Handles sway out of phase with each other. */
 export const BrushJar: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const JAR_Y = 1000;   // sits on the pot shelf
+  const { fps, height } = useVideoConfig();
+  const JAR_Y = height - 350;   // clear of the tin shelf in every aspect (1000 at 4:5)
   const BRUSHES = [
     { x: 58, h: 300, li: 2 },
     { x: 92, h: 356, li: 9 },

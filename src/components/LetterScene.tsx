@@ -85,10 +85,9 @@ export const LetterScene: React.FC<{ item: LetterItem }> = ({ item }) => {
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
-      {/* themed background (light tint of the contrast colour) */}
-      {portrait
-        ? <StudioWash tone={c} />
-        : <AbsoluteFill style={{ background: `linear-gradient(155deg, ${tint(c, 0.84)} 0%, #FFFFFF 66%)` }} />}
+      {/* themed background — the letter's colour arrives as a paint WASH over the studio
+          wall in every aspect (the 16:9 used to cut to a flat gradient, a different video) */}
+      <StudioWash tone={c} />
       <svg width={width} height="100%" style={{ position: "absolute" }}>
         {floaters.map((o, k) => {
           const cx = o[0] * width + Math.sin(frame / fps + k) * 22;
