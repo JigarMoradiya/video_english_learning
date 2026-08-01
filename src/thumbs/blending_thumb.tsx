@@ -21,6 +21,7 @@ import { font, palette } from "../data/tokens";
 // Dark ink on a bright ground, like short_vowels: the workshop is cream, white text
 // would need a heavy outline to survive on it, and a bright thumbnail stands out in a
 // row of dark ones.
+const GOLD = "#FFC42A";
 const W = 1280;
 const H = 720;
 
@@ -38,7 +39,7 @@ const ROW_X = Math.round((W - ROW_W) / 2);
 const ROW_CY = 430;
 
 const TITLE_TOP = 176;
-const TITLE_H = 96;
+const TITLE_H = 88;
 const MASCOT_W = 186;
 const MASCOT_X = 18;
 const MASCOT_BOTTOM = 8;   // mascot.png has ~7px of padding: the feet are the last row
@@ -67,23 +68,23 @@ export const ThumbBlending: React.FC = () => (
     {/* badge — the promise, in the corner, tilted so it reads as a sticker */}
     <div
       style={{
-        position: "absolute", left: 30, top: 26, transform: "rotate(-7deg)",
-        background: "#FFC42A", color: palette.ink, borderRadius: 18,
-        padding: "12px 22px", fontSize: 34, fontWeight: 900, lineHeight: 1.06,
-        letterSpacing: 0.5, textAlign: "center", boxShadow: "0 8px 0 #E0A400",
+        position: "absolute", left: 22, top: 20, transform: "rotate(-11deg)",
+        background: GOLD, color: palette.ink, borderRadius: 20, padding: "8px 20px",
+        fontSize: 34, fontWeight: 800, lineHeight: 1.05, textAlign: "center",
+        boxShadow: "0 10px 24px rgba(30,36,56,0.30)",
       }}
     >
-      2 SOUNDS<br />1 WORD
+      2 SOUNDS<br /><span style={{ fontSize: 24 }}>1 WORD</span>
     </div>
 
     <div
       style={{
         position: "absolute", left: 0, right: 0, top: TITLE_TOP, textAlign: "center",
-        fontSize: 92, fontWeight: 900, color: palette.ink, letterSpacing: -1.5, lineHeight: 1,
+        fontSize: 84, fontWeight: 800, color: palette.ink, letterSpacing: 1, lineHeight: 1,
         textShadow: "0 4px 0 rgba(255,255,255,0.9)",
       }}
     >
-      BLENDING
+      CV · VC BLENDING
     </div>
 
     {/* THE SUM */}
@@ -104,7 +105,7 @@ export const ThumbBlending: React.FC = () => (
     <div
       style={{
         position: "absolute", left: ROW_X, top: ROW_CY + PLANK * 0.5 + 4,
-        display: "flex", alignItems: "flex-start", gap: GAP, fontSize: 27, fontWeight: 800,
+        display: "flex", alignItems: "flex-start", gap: GAP, fontSize: 26, fontWeight: 800,
       }}
     >
       <div style={{ width: CARD, textAlign: "center", color: VOWEL }}>vowel</div>
@@ -118,7 +119,7 @@ export const ThumbBlending: React.FC = () => (
     />
     <Img
       src={staticFile("logo.png")}
-      style={{ position: "absolute", right: 24, top: 20, width: 148, height: "auto", opacity: 0.95 }}
+      style={{ position: "absolute", right: 238, bottom: 18, width: 150, height: "auto" }}
     />
   </AbsoluteFill>
 );
