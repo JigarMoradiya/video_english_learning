@@ -53,8 +53,10 @@ const Splash: React.FC<{ x: number; y: number; r: number; color: string; op?: nu
   );
 };
 
-/** The studio wall: canvas texture, splashes in the margins, and a drip that never stops. */
-export const StudioWall: React.FC = () => {
+/** The studio wall: canvas texture, splashes in the margins, and a drip that never stops.
+ * `splats={false}` keeps the texture but drops the blobs — a cover's badge corner has no
+ * room for them, and a still can't explain a lone blob the way motion can. */
+export const StudioWall: React.FC<{ splats?: boolean }> = ({ splats = true }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
@@ -74,7 +76,7 @@ export const StudioWall: React.FC = () => {
           <rect key={`v${i}`} x={i * 24} y={0} width={1} height={height} fill="#B9A88E" opacity={0.10} />
         ))}
 
-        {SPLASHES.map((s, i) => (
+        {splats && SPLASHES.map((s, i) => (
           <Splash key={i} x={s.x} y={s.y} r={s.r} color={letterColorFor(LETTERS[s.li].letter, LETTERS[s.li].imageColor)} />
         ))}
 

@@ -27,7 +27,10 @@ const H = 720;
 const GOLD = "#FFC42A";
 
 const HERO = LETTERS[0]; // A · Ant
-const HC = hex(letterColorFor(HERO.letter, HERO.imageColor));
+// The cover keeps the PREVIOUS cover's teal for the hero glyphs and the card stroke —
+// picked by eye over the video's azure ("previous font color of a and card stroke color
+// is good"). Only the hero wears it; the tin shelf uses every letter's real colour.
+const HC = "#2EB8B8";
 
 const C = cover(W, H);
 
@@ -47,9 +50,39 @@ if (H - MASCOT_BOTTOM - MASCOT_H > STRIP_Y) {
   throw new Error("thumb: mascot sits below the strip; it will look detached");
 }
 
+// stars and four-point sparks, LIGHT — decoration must sit far behind the content
+const SPARKS: { x: number; y: number; s: number; kind: "star" | "spark"; li: number }[] = [
+  { x: 74, y: 210, s: 1.15, kind: "star", li: 8 },
+  { x: 176, y: 120, s: 0.6, kind: "spark", li: 2 },
+  { x: 60, y: 420, s: 0.7, kind: "spark", li: 14 },
+  { x: 1176, y: 132, s: 1.0, kind: "star", li: 20 },
+  { x: 1236, y: 330, s: 0.62, kind: "spark", li: 11 },
+  { x: 1120, y: 470, s: 0.85, kind: "star", li: 4 },
+  { x: 240, y: 520, s: 0.5, kind: "spark", li: 24 },
+  { x: 640, y: 118, s: 0.45, kind: "spark", li: 17 },
+];
+
+const starPts = (x: number, y: number, r: number) =>
+  Array.from({ length: 10 }, (_, k) => {
+    const a = (k / 10) * Math.PI * 2 - Math.PI / 2;
+    const rr = k % 2 ? r * 0.44 : r;
+    return `${x + Math.cos(a) * rr},${y + Math.sin(a) * rr}`;
+  }).join(" ");
+
+const sparkPath = (x: number, y: number, r: number) =>
+  `M${x} ${y - r} Q${x + r * 0.16} ${y - r * 0.16} ${x + r} ${y} Q${x + r * 0.16} ${y + r * 0.16} ${x} ${y + r} Q${x - r * 0.16} ${y + r * 0.16} ${x - r} ${y} Q${x - r * 0.16} ${y - r * 0.16} ${x} ${y - r} Z`;
+
 const Backdrop: React.FC = () => (
   <>
-    <StudioWall />
+    <StudioWall splats={false} />
+    <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ position: "absolute", inset: 0 }}>
+      {SPARKS.map((sp, i) => {
+        const c = hex(letterColorFor(LETTERS[sp.li].letter, LETTERS[sp.li].imageColor));
+        return sp.kind === "star"
+          ? <polygon key={i} points={starPts(sp.x, sp.y, 52 * sp.s)} fill={c} opacity={0.14} />
+          : <path key={i} d={sparkPath(sp.x, sp.y, 40 * sp.s)} fill={c} opacity={0.18} />;
+      })}
+    </svg>
     <StudioWash tone={HC} />
   </>
 );
