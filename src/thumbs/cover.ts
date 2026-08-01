@@ -61,7 +61,7 @@ export const cover = (W: number, H: number) => {
      * longest LINE of the title; 0.62 is the face's average glyph-width ratio at w800. */
     headSize(longestLine: number): number {
       const base = portrait ? H * 0.095 : 104;
-      const room = portrait ? W - 60 : W - 470; // 16:9 leaves the badge corner clear
+      const room = portrait ? W - 60 : W - 344; // clears the badge corner and the logo
       return Math.min(base, room / (longestLine * 0.62));
     },
     logo: {

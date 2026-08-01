@@ -92,7 +92,7 @@ export const AquariumWorld: React.FC<{ dim?: number; tone?: string }> = ({ dim =
         <g transform={`translate(${portrait ? 120 : 150} ${sandY + 26})`} opacity={0.9}>
           <path d="M0 0 C -6 -34, -26 -30, -24 -58 M0 0 C 4 -40, 22 -36, 20 -66 M0 0 C -2 -22, 10 -20, 8 -44" stroke="#F4A28C" strokeWidth={10} strokeLinecap="round" fill="none" />
         </g>
-        <g transform={`translate(${width - (portrait ? 130 : 170)} ${sandY + 40}) rotate(${8 + Math.sin(t * 0.8) * 4})`}>
+        <g transform={`translate(${width - (portrait ? 130 : 118)} ${sandY + 40}) rotate(${8 + Math.sin(t * 0.8) * 4})`}>
           {Array.from({ length: 5 }, (_, i) => (
             <ellipse key={i} cx={0} cy={-16} rx={9} ry={20} fill="#F7B84B" transform={`rotate(${i * 72})`} />
           ))}

@@ -16,7 +16,7 @@ const GOLD_TILE = "#FF9F43";
 const ROWS = [7, 6, 7, 6];
 const HERO = REC_LETTERS[5]; // F · Fish
 const HC = hex(letterColorFor(HERO.letter, HERO.imageColor));
-const GAP = 12;
+const GAP = 10;
 
 const boardGeom = (areaW: number) => {
   const cell = (areaW - 6 * GAP) / 7;
@@ -71,16 +71,16 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
 
   const B = portrait
     ? { x: 90, w: W - 180, y: 610 }
-    : { x: 210, w: 470, y: 196 };
+    : { x: 210, w: 600, y: 200 };
   const G = boardGeom(B.w);
 
   // hero: letter row + card + says line, explicit top
   const HERO_TOP = portrait ? 1150 : 200;
-  const CARD = portrait ? 320 : 236;
+  const CARD = portrait ? 320 : 250;
   const LETTER_F = portrait ? 170 : 132;
   const SAYS_F = portrait ? 56 : 42;
   const heroH = LETTER_F * 0.95 + 12 + CARD + 10 + SAYS_F * 1.2;
-  const heroCX = portrait ? W / 2 : 960;
+  const heroCX = portrait ? W / 2 : 1068;
 
   if (HEAD_TOP + HEAD_H + 20 > (portrait ? B.y : Math.min(B.y, HERO_TOP))) {
     throw new Error(`thumb: headline ends ${HEAD_TOP + HEAD_H}, content starts ${portrait ? B.y : Math.min(B.y, HERO_TOP)}`);
@@ -93,7 +93,7 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
   }
   // the mascot (bottom-left, cover-sized) must clear the hero column horizontally in
   // portrait and the board vertically in landscape
-  const mascotW = C.mascot.width;
+  const mascotW = portrait ? C.mascot.width * 0.86 : C.mascot.width; // portrait: a touch under the shared rule
   const mascotH = mascotW * C.mascot.aspect;
   if (portrait && mascotW + 10 > heroCX - CARD / 2) {
     throw new Error(`thumb: mascot ends ${mascotW}, hero card starts ${heroCX - CARD / 2}`);
@@ -112,7 +112,7 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
 
       <div
         style={{
-          position: "absolute", left: portrait ? 0 : 230, top: HEAD_TOP, width: portrait ? W : W - 260, textAlign: "center", whiteSpace: portrait ? undefined : "nowrap",
+          position: "absolute", left: portrait ? 0 : 200, top: HEAD_TOP, width: portrait ? W : 956, textAlign: "center", whiteSpace: portrait ? undefined : "nowrap",
           fontSize: HEAD_SIZE, fontWeight: C.head.fontWeight, lineHeight: C.head.lineHeight,
           letterSpacing: C.head.letterSpacing, color: palette.ink,
           textShadow: "0 6px 0 rgba(255,255,255,0.9), 0 10px 26px rgba(30,36,56,0.22)",
@@ -153,7 +153,14 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
         src={staticFile("mascot.png")}
         style={{ position: "absolute", left: C.mascot.left, bottom: C.mascot.bottom, width: mascotW, height: "auto" }}
       />
-      <Img src={staticFile("logo.png")} style={{ position: "absolute", ...C.logo, height: "auto" }} />
+      <Img
+        src={staticFile("logo.png")}
+        style={
+          portrait
+            ? { position: "absolute", ...C.logo, height: "auto" }
+            : { position: "absolute", right: C.logo.right, top: 16, width: C.logo.width, height: "auto" }
+        }
+      />
     </AbsoluteFill>
   );
 };
