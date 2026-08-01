@@ -17,7 +17,9 @@ import { CardBadge, letterHasBadge } from "./BrandMarks";
 // frame, where the board owns the top. Values are y-stacked to fit 1350 with margins.
 const panelFor = (width: number, height: number) =>
   height > width
-    ? { letterX: width / 2, letterY: 742, saysY: 842, cardY: 906, cardSize: 288, wordY: 1226 }
+    ? // letter 595..785 · says 800..895 · card 915..1225 · word 1250..1315 — 15px+ gaps,
+      // measured from the 190px letter (Y is its CENTRE) and the 82px says line (Y is TOP)
+      { letterX: width / 2, letterY: 690, saysY: 800, cardY: 915, cardSize: 310, wordY: 1250 }
     : { letterX: 1430, letterY: 219, saysY: 324, cardY: 434, cardSize: 420, wordY: 872 };
 const PURPLE = "#8E24AA";
 const MUTED = "rgba(30,36,56,0.4)";

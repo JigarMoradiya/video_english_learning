@@ -16,7 +16,7 @@ const layoutFor = (width: number, height: number) => {
   const portrait = height > width;
   const gap = 16;
   const areaX = portrait ? 80 : 56;
-  const areaW = portrait ? width - 160 : 852; // landscape: left column (panel starts at 1000)
+  const areaW = portrait ? width - 280 : 852; // landscape: left column (panel starts at 1000)
   const maxCols = Math.max(...ROWS);
   const cell = (areaW - (maxCols - 1) * gap) / maxCols;
   const blockH = ROWS.length * cell + (ROWS.length - 1) * gap;
@@ -60,9 +60,11 @@ export const LetterGrid: React.FC<{ active: number; activeDone?: boolean }> = ({
         const isVowel = "AEIOU".includes(l.letter);
         const GRAY = "rgba(56,86,190,0.1)"; // shared consonant background (never fills with colour)
 
-        // Vowels: warm-tint when upcoming, solid ORANGE (like the selected tile) once done — pop hard.
+        // The CURRENT tile is PINK — it used to be the same orange as a done vowel, so
+        // "which one is speaking" and "which vowels are done" were indistinguishable.
+        // Vowels: warm-tint when upcoming, solid ORANGE once done — pop hard.
         // Consonants: background stays GRAY always; only the letter's TEXT colour changes when done.
-        const bg = current ? "#FF9F43" : done ? (isVowel ? "#FF9F43" : GRAY) : isVowel ? "rgba(255,159,67,0.18)" : GRAY;
+        const bg = current ? "#E91E63" : done ? (isVowel ? "#FF9F43" : GRAY) : isVowel ? "rgba(255,159,67,0.18)" : GRAY;
         const fg = current ? "#fff" : done ? (isVowel ? "#fff" : wc) : isVowel ? "#E67E22" : "rgba(30,36,56,0.5)";
         const scale = (current ? 1.12 : 1) * appear;
 
@@ -77,7 +79,7 @@ export const LetterGrid: React.FC<{ active: number; activeDone?: boolean }> = ({
               height: cell,
               borderRadius: 16,
               background: bg,
-              boxShadow: current ? "0 10px 26px rgba(255,140,0,0.55), 0 0 0 6px rgba(255,159,67,0.28)" : done ? "0 4px 12px rgba(30,36,56,0.08)" : "none",
+              boxShadow: current ? "0 10px 26px rgba(233,30,99,0.5), 0 0 0 6px rgba(233,30,99,0.26)" : done ? "0 4px 12px rgba(30,36,56,0.08)" : "none",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

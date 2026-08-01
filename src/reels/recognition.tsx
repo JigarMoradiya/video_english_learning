@@ -132,7 +132,7 @@ const GridLayer: React.FC = () => {
     const y = from.y + (to.y - from.y) * mv;
     const r = gridLayout(width, height).cell * 1.15;
     glow = (
-      <div style={{ position: "absolute", left: x - r, top: y - r, width: r * 2, height: r * 2, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,159,67,0.55) 0%, rgba(255,159,67,0.22) 45%, rgba(255,159,67,0) 72%)", opacity: activeDone ? 0.3 : 1 }} />
+      <div style={{ position: "absolute", left: x - r, top: y - r, width: r * 2, height: r * 2, borderRadius: "50%", background: "radial-gradient(circle, rgba(233,30,99,0.42) 0%, rgba(233,30,99,0.18) 45%, rgba(233,30,99,0) 72%)", opacity: activeDone ? 0.3 : 1 }} />
     );
   }
 
