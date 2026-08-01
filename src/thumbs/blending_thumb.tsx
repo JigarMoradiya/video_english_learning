@@ -25,6 +25,9 @@ import { cover } from "./cover";
 const W = 1280;
 const H = 720;
 const C = cover(W, H);
+// the shelf's bottom board sits at y730 in a 720 frame
+const SHELF_BOTTOM = 730;
+const WORLD_LIFT = SHELF_BOTTOM - H + 26;   // 36 — clears the board and leaves a margin
 
 const CARD = 150;          // the a and t blocks
 const PLANK = 220;         // the at plank — bigger, because it is the answer
@@ -44,7 +47,7 @@ const TITLE_TOP = C.head.top + HEAD_DROP;
 const TITLE_H = 88;
 const MASCOT_W = C.mascot.width;
 const MASCOT_X = C.mascot.left;
-const MASCOT_BOTTOM = C.mascot.bottom;
+const MASCOT_BOTTOM = C.mascot.bottom + 34;   // stands on the lifted bench, not the frame edge
 
 if (ROW_X < 40) {
   throw new Error(`thumb: the sum is ${ROW_W}px wide, only ${W - 80}px of safe width`);
@@ -65,7 +68,10 @@ const Op: React.FC<{ glyph: string }> = ({ glyph }) => (
 
 export const ThumbBlending: React.FC = () => (
   <AbsoluteFill style={{ fontFamily: font.family }}>
-    <WorkshopWorld />
+    <AbsoluteFill style={{ background: "#FFE6C4" }} />
+    <AbsoluteFill style={{ transform: `translateY(-${WORLD_LIFT}px)` }}>
+      <WorkshopWorld />
+    </AbsoluteFill>
 
     {/* badge — the promise, in the corner, tilted so it reads as a sticker */}
     <div
