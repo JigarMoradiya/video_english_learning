@@ -155,11 +155,7 @@ export const ThumbRecognition: React.FC<{ width: number; height: number }> = ({ 
       />
       <Img
         src={staticFile("logo.png")}
-        style={
-          portrait
-            ? { position: "absolute", ...C.logo, height: "auto" }
-            : { position: "absolute", right: C.logo.right, top: 16, width: C.logo.width, height: "auto" }
-        }
+        style={{ position: "absolute", right: C.logo.right, top: portrait ? 30 : 16, width: C.logo.width, height: "auto" }}
       />
     </AbsoluteFill>
   );
