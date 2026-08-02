@@ -43,21 +43,25 @@ export const run = (id: string): Clip => {
 
 /** the 15 words in teaching order, grouped as the app groups them */
 export const GROUP_WORDS: Record<string, string[]> = {
-  shortA: ["cat", "hat", "map"],
-  shortE: ["hen", "pen", "red"],
-  shortI: ["pig", "big", "sit"],
-  shortO: ["dog", "pot", "hot"],
-  shortU: ["sun", "run", "cup"],
+  shortA: ["cat", "hat", "map", "fan", "bat"],
+  shortE: ["hen", "pen", "bed", "net", "ten"],
+  shortI: ["pig", "big", "six", "lip", "win"],
+  shortO: ["dog", "pot", "hot", "box", "fox"],
+  shortU: ["sun", "bug", "run", "cup", "jug"],
 };
 export const ALL_WORDS = Object.values(GROUP_WORDS).flat();
 
 /** word → the picture the video shows. 13 come from the app's own artwork. */
 export const PIC: Record<string, string> = {
   cat: "letters/cat.png", hat: "letters/hat.png", map: "letters/map.png",
-  hen: "letters/hen.png", pen: "letters/pen.png", red: "🔴",
-  pig: "letters/pig.png", big: "🐘", sit: "🪑",
+  fan: "letters/fan.png", bat: "letters/bat.png",
+  hen: "letters/hen.png", pen: "letters/pen.png", bed: "🛏️",
+  net: "letters/net.png", ten: "🔟",
+  pig: "letters/pig.png", big: "🐘", six: "6️⃣", lip: "👄", win: "🏆",
   dog: "letters/dog.png", pot: "letters/pot.png", hot: "🌶️",
-  sun: "letters/sun.png", run: "🏃", cup: "☕",
+  box: "📦", fox: "letters/fox.png",
+  sun: "letters/sun.png", bug: "🐛", run: "🏃",
+  cup: "☕", jug: "letters/jug.png",
 };
 
 export const OUTRO_FROM = F(AUDIO_SEC) + 24;

@@ -32,11 +32,12 @@ RUN_TEXT: dict[str, list[str]] = {
     "02": ["You just read a word.", "Three sounds. One word.", "Look at the colours.",
            "Blue. Red. Blue.", "Red is always the middle one.", "Red is a vowel.",
            "Blue ones are consonants.", "Consonant. Vowel. Consonant.",
-           "Sound them out...", "...then blend them fast.", "Ready? Let's do fifteen.",
+           "Sound them out...", "...then blend them fast.", "Ready? Let's do.",
            "First vowel — aaa."],
     "03": ["Same middle sound. Watch."],
     "04": ["You're getting it."],
-    "05": ["Three words. One vowel.", "New vowel. eh."],
+    "05a": ["Three words. One vowel."],
+    "05b": ["New vowel. eh."],
     "06": ["Hen. Pen. Hear the middle?"],
     "07": ["Nice work.", "Next one — ih."],
     "08": ["Pig... big. Only the first sound changed."],
@@ -44,7 +45,8 @@ RUN_TEXT: dict[str, list[str]] = {
     "10": ["Pot. Hot. Hear that? Just the front sound.", "Last vowel. uh."],
     "11": ["This one's yours. Sound it out."],
     "12": ["Did you get it? I bet you did."],
-    "13": ["Fifteen words. You read them all.", "One more. Something's missing."],
+    "13a": ["Twenty five words."],
+    "13b": ["You read them all.", "One more. Something's missing."],
     "14": ["Which vowel goes in the middle?"],
     "15": ["You found it. That's real reading.",
            "Every word here is in the English Learning app — tap any word and watch it build itself. Free on both stores."],
@@ -66,7 +68,7 @@ def words_of(path: Path) -> list[tuple[str, float, float]]:
     out = []
     for seg in r["segments"]:
         for w in seg.get("words", []):
-            out.append((re.sub(r"[^A-Za-z']", "", w["word"]).lower(), w["start"], w["end"]))
+            out.append((re.sub(r"[^A-Za-z0-9']", "", w["word"]).lower(), w["start"], w["end"]))
     return [w for w in out if w[0]]
 
 
@@ -111,14 +113,20 @@ def main() -> int:
             # walk the script's sentences across the heard word stream in order
             wi = 0
             for s in sents:
-                n = len([w for w in re.findall(r"[A-Za-z']+", s)])
+                script_words = re.findall(r"[A-Za-z0-9'\u2014\u2019.,!?…-]+", s)
+                n = len([w for w in re.findall(r"[A-Za-z0-9']+", s)])
                 take = heard[wi:wi + n]
                 wi += n
                 if not take:
                     continue
                 st, en = c["start"] + take[0][1], c["start"] + take[-1][2]
-                ws = [{"word": w, "start": round(c["start"] + a, 3), "end": round(c["start"] + b, 3)}
-                      for w, a, b in take]
+                # SCRIPT words, WHISPER times. Whisper hears "uh" as "er" and "ih" as "E";
+                # its text must never reach the screen.
+                spoken = [w for w in script_words if re.search(r"[A-Za-z0-9]", w)]
+                ws = [{"word": spoken[k] if k < len(spoken) else take[k][0],
+                       "start": round(c["start"] + take[k][1], 3),
+                       "end": round(c["start"] + take[k][2], 3)}
+                      for k in range(len(take))]
                 push(s, st, en, ws)
             print(f"  run {rid}: {len(sents)} sentences from {len(heard)} heard words")
 

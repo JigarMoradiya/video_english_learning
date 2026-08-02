@@ -176,7 +176,7 @@ export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroup
                     cx={width * fx + Math.sin(t * 0.9 + i + k) * 16}
                     cy={B.counterY - 30 - p * 190}
                     rx={20 + p * 20} ry={26 + p * 22}
-                    fill="url(#swSteam)" opacity={0.34 * (1 - p)}
+                    fill="url(#swSteam)" opacity={0.5 * (1 - p)}
                   />
                 );
               })}

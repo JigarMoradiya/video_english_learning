@@ -8,12 +8,12 @@
   "duration": 0.685,
   "words": [
    {
-    "word": "watch",
+    "word": "Watch",
     "start": 0.975,
     "end": 1.415
    },
    {
-    "word": "this",
+    "word": "this.",
     "start": 1.415,
     "end": 1.735
    }
@@ -58,18 +58,18 @@
   "duration": 1.353,
   "words": [
    {
-    "word": "you",
+    "word": "You",
     "start": 6.627,
     "end": 7.107
    },
    {
     "word": "just",
     "start": 7.107,
-    "end": 7.367
+    "end": 7.347
    },
    {
     "word": "read",
-    "start": 7.367,
+    "start": 7.347,
     "end": 7.607
    },
    {
@@ -78,7 +78,7 @@
     "end": 7.767
    },
    {
-    "word": "word",
+    "word": "word.",
     "start": 7.767,
     "end": 8.087
    }
@@ -93,23 +93,23 @@
   "duration": 1.84,
   "words": [
    {
-    "word": "three",
+    "word": "Three",
     "start": 8.56,
     "end": 8.7
    },
    {
-    "word": "sounds",
+    "word": "sounds.",
     "start": 8.7,
     "end": 9.16
    },
    {
-    "word": "one",
-    "start": 9.56,
-    "end": 9.9
+    "word": "One",
+    "start": 9.6,
+    "end": 9.88
    },
    {
-    "word": "word",
-    "start": 9.9,
+    "word": "word.",
+    "start": 9.88,
     "end": 10.4
    }
   ]
@@ -119,11 +119,11 @@
   "text": "Look at the colours.",
   "line_index": 4,
   "start": 11.046,
-  "end": 11.84,
-  "duration": 0.794,
+  "end": 11.86,
+  "duration": 0.814,
   "words": [
    {
-    "word": "look",
+    "word": "Look",
     "start": 11.046,
     "end": 11.166
    },
@@ -138,9 +138,9 @@
     "end": 11.486
    },
    {
-    "word": "colours",
+    "word": "colours.",
     "start": 11.486,
-    "end": 11.786
+    "end": 11.806
    }
   ]
  },
@@ -153,17 +153,17 @@
   "duration": 2.65,
   "words": [
    {
-    "word": "blue",
+    "word": "Blue.",
     "start": 12.75,
-    "end": 12.89
+    "end": 12.87
    },
    {
-    "word": "red",
+    "word": "Red.",
     "start": 13.53,
-    "end": 14.13
+    "end": 14.11
    },
    {
-    "word": "blue",
+    "word": "Blue.",
     "start": 14.73,
     "end": 15.19
    }
@@ -174,38 +174,38 @@
   "text": "Red is always the middle one.",
   "line_index": 6,
   "start": 16.632,
-  "end": 18.56,
-  "duration": 1.928,
+  "end": 18.54,
+  "duration": 1.908,
   "words": [
    {
-    "word": "red",
+    "word": "Red",
     "start": 16.632,
-    "end": 17.312
+    "end": 17.032
    },
    {
     "word": "is",
-    "start": 17.312,
-    "end": 17.512
+    "start": 17.032,
+    "end": 17.252
    },
    {
     "word": "always",
-    "start": 17.512,
-    "end": 18.012
+    "start": 17.252,
+    "end": 17.752
    },
    {
     "word": "the",
-    "start": 18.012,
-    "end": 18.272
+    "start": 17.752,
+    "end": 17.992
    },
    {
     "word": "middle",
-    "start": 18.272,
-    "end": 18.492
+    "start": 17.992,
+    "end": 18.212
    },
    {
-    "word": "one",
-    "start": 18.492,
-    "end": 18.932
+    "word": "one.",
+    "start": 18.212,
+    "end": 18.632
    }
   ]
  },
@@ -214,11 +214,11 @@
   "text": "Red is a vowel.",
   "line_index": 7,
   "start": 19.051,
-  "end": 20.04,
-  "duration": 0.989,
+  "end": 20.06,
+  "duration": 1.009,
   "words": [
    {
-    "word": "red",
+    "word": "Red",
     "start": 19.051,
     "end": 19.231
    },
@@ -233,9 +233,9 @@
     "end": 19.691
    },
    {
-    "word": "vowel",
+    "word": "vowel.",
     "start": 19.691,
-    "end": 19.931
+    "end": 19.951
    }
   ]
  },
@@ -248,7 +248,7 @@
   "duration": 2.25,
   "words": [
    {
-    "word": "blue",
+    "word": "Blue",
     "start": 20.23,
     "end": 20.59
    },
@@ -263,7 +263,7 @@
     "end": 21.23
    },
    {
-    "word": "consonants",
+    "word": "consonants.",
     "start": 21.23,
     "end": 22.03
    }
@@ -274,23 +274,23 @@
   "text": "Consonant. Vowel. Consonant.",
   "line_index": 9,
   "start": 23.147,
-  "end": 26.7,
-  "duration": 3.553,
+  "end": 26.68,
+  "duration": 3.533,
   "words": [
    {
-    "word": "consonant",
+    "word": "Consonant.",
     "start": 23.147,
     "end": 23.907
    },
    {
-    "word": "vowel",
+    "word": "Vowel.",
     "start": 24.227,
     "end": 24.867
    },
    {
-    "word": "consonant",
+    "word": "Consonant.",
     "start": 25.607,
-    "end": 26.447
+    "end": 26.427
    }
   ]
  },
@@ -303,18 +303,18 @@
   "duration": 0.857,
   "words": [
    {
-    "word": "sound",
+    "word": "Sound",
     "start": 27.883,
-    "end": 28.004
+    "end": 28.003
    },
    {
     "word": "them",
-    "start": 28.004,
-    "end": 28.204
+    "start": 28.003,
+    "end": 28.203
    },
    {
-    "word": "out",
-    "start": 28.204,
+    "word": "out...",
+    "start": 28.203,
     "end": 28.563
    }
   ]
@@ -328,7 +328,7 @@
   "duration": 1.22,
   "words": [
    {
-    "word": "then",
+    "word": "...then",
     "start": 29.36,
     "end": 29.58
    },
@@ -343,7 +343,7 @@
     "end": 30.18
    },
    {
-    "word": "fast",
+    "word": "fast.",
     "start": 30.18,
     "end": 30.58
    }
@@ -351,31 +351,26 @@
  },
  {
   "index": 12,
-  "text": "Ready? Let's do fifteen.",
+  "text": "Ready? Let's do.",
   "line_index": 12,
-  "start": 30.73,
-  "end": 34.68,
-  "duration": 3.95,
+  "start": 31.506,
+  "end": 33.28,
+  "duration": 1.774,
   "words": [
    {
-    "word": "ready",
-    "start": 30.73,
-    "end": 30.87
+    "word": "Ready?",
+    "start": 31.506,
+    "end": 31.706
    },
    {
-    "word": "let's",
-    "start": 31.69,
-    "end": 32.07
+    "word": "Let's",
+    "start": 32.486,
+    "end": 32.926
    },
    {
-    "word": "do",
-    "start": 32.07,
-    "end": 32.23
-   },
-   {
-    "word": "first",
-    "start": 32.69,
-    "end": 34.23
+    "word": "do.",
+    "start": 32.926,
+    "end": 33.206
    }
   ]
  },
@@ -383,19 +378,24 @@
   "index": 13,
   "text": "First vowel \u2014 aaa.",
   "line_index": 13,
-  "start": 34.68,
-  "end": 36.62,
-  "duration": 1.94,
+  "start": 33.28,
+  "end": 37.04,
+  "duration": 3.76,
   "words": [
    {
-    "word": "vowel",
-    "start": 34.68,
-    "end": 35.08
+    "word": "First",
+    "start": 33.28,
+    "end": 35.1
    },
    {
-    "word": "aah",
-    "start": 36.06,
-    "end": 36.62
+    "word": "vowel",
+    "start": 35.1,
+    "end": 35.52
+   },
+   {
+    "word": "aaa.",
+    "start": 36.26,
+    "end": 37.04
    }
   ]
  },
@@ -403,29 +403,29 @@
   "index": 14,
   "text": "kuh... aaa... tuh... cat!",
   "line_index": 14,
-  "start": 37.7,
-  "end": 40.25,
+  "start": 38.108,
+  "end": 40.658,
   "duration": 2.55,
   "words": [
    {
     "word": "kuh",
-    "start": 37.7,
-    "end": 37.91
+    "start": 38.108,
+    "end": 38.318
    },
    {
     "word": "aaa",
-    "start": 38.26,
-    "end": 38.79
+    "start": 38.668,
+    "end": 39.198
    },
    {
     "word": "tuh",
-    "start": 39.14,
-    "end": 39.34
+    "start": 39.548,
+    "end": 39.748
    },
    {
     "word": "cat!",
-    "start": 39.79,
-    "end": 40.25
+    "start": 40.198,
+    "end": 40.658
    }
   ]
  },
@@ -433,29 +433,29 @@
   "index": 15,
   "text": "Same middle sound. Watch.",
   "line_index": 15,
-  "start": 40.908,
-  "end": 42.64,
+  "start": 41.316,
+  "end": 43.048,
   "duration": 1.732,
   "words": [
    {
-    "word": "same",
-    "start": 40.908,
-    "end": 41.368
+    "word": "Same",
+    "start": 41.316,
+    "end": 41.776
    },
    {
     "word": "middle",
-    "start": 41.368,
-    "end": 41.608
+    "start": 41.776,
+    "end": 42.016
    },
    {
-    "word": "sound",
-    "start": 41.608,
-    "end": 42.008
+    "word": "sound.",
+    "start": 42.016,
+    "end": 42.416
    },
    {
-    "word": "watch",
-    "start": 42.588,
-    "end": 42.748
+    "word": "Watch.",
+    "start": 42.996,
+    "end": 43.156
    }
   ]
  },
@@ -463,29 +463,29 @@
   "index": 16,
   "text": "huh... aaa... tuh... hat!",
   "line_index": 16,
-  "start": 43.67,
-  "end": 46.3,
+  "start": 44.078,
+  "end": 46.708,
   "duration": 2.63,
   "words": [
    {
     "word": "huh",
-    "start": 43.67,
-    "end": 43.89
+    "start": 44.078,
+    "end": 44.298
    },
    {
     "word": "aaa",
-    "start": 44.24,
-    "end": 44.77
+    "start": 44.648,
+    "end": 45.178
    },
    {
     "word": "tuh",
-    "start": 45.12,
-    "end": 45.32
+    "start": 45.528,
+    "end": 45.728
    },
    {
     "word": "hat!",
-    "start": 45.77,
-    "end": 46.3
+    "start": 46.178,
+    "end": 46.708
    }
   ]
  },
@@ -493,24 +493,24 @@
   "index": 17,
   "text": "You're getting it.",
   "line_index": 17,
-  "start": 46.972,
-  "end": 47.79,
+  "start": 47.38,
+  "end": 48.198,
   "duration": 0.818,
   "words": [
    {
-    "word": "you're",
-    "start": 46.972,
-    "end": 47.392
+    "word": "You're",
+    "start": 47.38,
+    "end": 47.8
    },
    {
     "word": "getting",
-    "start": 47.392,
-    "end": 47.592
+    "start": 47.8,
+    "end": 48.0
    },
    {
-    "word": "it",
-    "start": 47.592,
-    "end": 47.912
+    "word": "it.",
+    "start": 48.0,
+    "end": 48.32
    }
   ]
  },
@@ -518,29 +518,29 @@
   "index": 18,
   "text": "mmm... aaa... puh... map!",
   "line_index": 18,
-  "start": 48.601,
-  "end": 51.731,
+  "start": 49.008,
+  "end": 52.138,
   "duration": 3.13,
   "words": [
    {
     "word": "mmm",
-    "start": 48.601,
-    "end": 49.291
+    "start": 49.008,
+    "end": 49.698
    },
    {
     "word": "aaa",
-    "start": 49.641,
-    "end": 50.171
+    "start": 50.048,
+    "end": 50.578
    },
    {
     "word": "puh",
-    "start": 50.521,
-    "end": 50.741
+    "start": 50.928,
+    "end": 51.148
    },
    {
     "word": "map!",
-    "start": 51.191,
-    "end": 51.731
+    "start": 51.598,
+    "end": 52.138
    }
   ]
  },
@@ -548,1049 +548,1374 @@
   "index": 19,
   "text": "Three words. One vowel.",
   "line_index": 19,
-  "start": 52.49,
-  "end": 56.001,
-  "duration": 3.511,
+  "start": 52.897,
+  "end": 54.588,
+  "duration": 1.691,
   "words": [
    {
-    "word": "words",
-    "start": 52.49,
-    "end": 52.91
+    "word": "Three",
+    "start": 52.897,
+    "end": 53.317
    },
    {
-    "word": "vowel",
-    "start": 53.65,
-    "end": 54.09
+    "word": "words.",
+    "start": 53.317,
+    "end": 53.737
    },
    {
-    "word": "new",
-    "start": 54.93,
-    "end": 55.33
+    "word": "One",
+    "start": 54.177,
+    "end": 54.497
    },
    {
-    "word": "vowel",
-    "start": 55.33,
-    "end": 55.79
+    "word": "vowel.",
+    "start": 54.497,
+    "end": 54.797
    }
   ]
  },
  {
   "index": 20,
-  "text": "New vowel. eh.",
+  "text": "f... aaa... nuh... fan!",
   "line_index": 20,
-  "start": 56.761,
-  "end": 56.921,
-  "duration": 0.16,
+  "start": 55.688,
+  "end": 58.568,
+  "duration": 2.88,
   "words": [
    {
-    "word": "eh",
-    "start": 56.761,
-    "end": 56.921
+    "word": "f",
+    "start": 55.688,
+    "end": 55.998
+   },
+   {
+    "word": "aaa",
+    "start": 56.348,
+    "end": 56.878
+   },
+   {
+    "word": "nuh",
+    "start": 57.228,
+    "end": 57.508
+   },
+   {
+    "word": "fan!",
+    "start": 57.958,
+    "end": 58.568
    }
   ]
  },
  {
   "index": 21,
-  "text": "huh... eh... nuh... hen!",
+  "text": "buh... aaa... tuh... bat!",
   "line_index": 21,
-  "start": 58.021,
-  "end": 60.411,
-  "duration": 2.39,
+  "start": 59.118,
+  "end": 61.648,
+  "duration": 2.53,
   "words": [
    {
-    "word": "huh",
-    "start": 58.021,
-    "end": 58.241
+    "word": "buh",
+    "start": 59.118,
+    "end": 59.338
    },
    {
-    "word": "eh",
-    "start": 58.591,
-    "end": 58.831
+    "word": "aaa",
+    "start": 59.688,
+    "end": 60.218
    },
    {
-    "word": "nuh",
-    "start": 59.181,
-    "end": 59.461
+    "word": "tuh",
+    "start": 60.568,
+    "end": 60.768
    },
    {
-    "word": "hen!",
-    "start": 59.911,
-    "end": 60.411
+    "word": "bat!",
+    "start": 61.218,
+    "end": 61.648
    }
   ]
  },
  {
   "index": 22,
-  "text": "puh... eh... nuh... pen!",
+  "text": "New vowel. eh.",
   "line_index": 22,
-  "start": 60.961,
-  "end": 63.301,
-  "duration": 2.34,
+  "start": 62.198,
+  "end": 64.438,
+  "duration": 2.24,
   "words": [
    {
-    "word": "puh",
-    "start": 60.961,
-    "end": 61.181
+    "word": "New",
+    "start": 62.198,
+    "end": 63.018
    },
    {
-    "word": "eh",
-    "start": 61.531,
-    "end": 61.771
+    "word": "vowel.",
+    "start": 63.018,
+    "end": 63.498
    },
    {
-    "word": "nuh",
-    "start": 62.121,
-    "end": 62.401
-   },
-   {
-    "word": "pen!",
-    "start": 62.851,
-    "end": 63.301
+    "word": "eh.",
+    "start": 63.498,
+    "end": 64.438
    }
   ]
  },
  {
   "index": 23,
-  "text": "Hen. Pen. Hear the middle?",
+  "text": "huh... eh... nuh... hen!",
   "line_index": 23,
-  "start": 64.274,
-  "end": 67.611,
-  "duration": 3.337,
+  "start": 65.498,
+  "end": 67.888,
+  "duration": 2.39,
   "words": [
    {
-    "word": "hen",
-    "start": 64.274,
-    "end": 65.094
+    "word": "huh",
+    "start": 65.498,
+    "end": 65.718
    },
    {
-    "word": "pen",
-    "start": 65.994,
-    "end": 66.434
+    "word": "eh",
+    "start": 66.068,
+    "end": 66.308
    },
    {
-    "word": "hear",
-    "start": 67.434,
-    "end": 67.634
+    "word": "nuh",
+    "start": 66.658,
+    "end": 66.938
    },
    {
-    "word": "the",
-    "start": 67.634,
-    "end": 67.794
-   },
-   {
-    "word": "middle",
-    "start": 67.794,
-    "end": 68.034
+    "word": "hen!",
+    "start": 67.388,
+    "end": 67.888
    }
   ]
  },
  {
   "index": 24,
-  "text": "ruh... eh... duh... red!",
+  "text": "puh... eh... nuh... pen!",
   "line_index": 24,
-  "start": 69.481,
-  "end": 71.891,
-  "duration": 2.41,
+  "start": 68.438,
+  "end": 70.778,
+  "duration": 2.34,
   "words": [
    {
-    "word": "ruh",
-    "start": 69.481,
-    "end": 69.811
+    "word": "puh",
+    "start": 68.438,
+    "end": 68.658
    },
    {
     "word": "eh",
-    "start": 70.161,
-    "end": 70.401
+    "start": 69.008,
+    "end": 69.248
    },
    {
-    "word": "duh",
-    "start": 70.751,
-    "end": 71.021
+    "word": "nuh",
+    "start": 69.598,
+    "end": 69.878
    },
    {
-    "word": "red!",
-    "start": 71.471,
-    "end": 71.891
+    "word": "pen!",
+    "start": 70.328,
+    "end": 70.778
    }
   ]
  },
  {
   "index": 25,
-  "text": "Nice work.",
+  "text": "Hen. Pen. Hear the middle?",
   "line_index": 25,
-  "start": 72.702,
-  "end": 73.501,
-  "duration": 0.799,
+  "start": 71.751,
+  "end": 75.088,
+  "duration": 3.337,
   "words": [
    {
-    "word": "nice",
-    "start": 72.702,
-    "end": 73.242
+    "word": "Hen.",
+    "start": 71.751,
+    "end": 72.571
    },
    {
-    "word": "work",
-    "start": 73.242,
-    "end": 73.762
+    "word": "Pen.",
+    "start": 73.471,
+    "end": 73.911
+   },
+   {
+    "word": "Hear",
+    "start": 74.911,
+    "end": 75.111
+   },
+   {
+    "word": "the",
+    "start": 75.111,
+    "end": 75.271
+   },
+   {
+    "word": "middle?",
+    "start": 75.271,
+    "end": 75.511
    }
   ]
  },
  {
   "index": 26,
-  "text": "Next one \u2014 ih.",
+  "text": "buh... eh... duh... bed!",
   "line_index": 26,
-  "start": 74.364,
-  "end": 75.861,
-  "duration": 1.497,
+  "start": 76.958,
+  "end": 79.198,
+  "duration": 2.24,
   "words": [
    {
-    "word": "next",
-    "start": 74.364,
-    "end": 74.464
+    "word": "buh",
+    "start": 76.958,
+    "end": 77.178
    },
    {
-    "word": "one",
-    "start": 74.464,
-    "end": 74.884
+    "word": "eh",
+    "start": 77.528,
+    "end": 77.768
    },
    {
-    "word": "e",
-    "start": 75.684,
-    "end": 75.684
+    "word": "duh",
+    "start": 78.118,
+    "end": 78.388
+   },
+   {
+    "word": "bed!",
+    "start": 78.838,
+    "end": 79.198
    }
   ]
  },
  {
   "index": 27,
-  "text": "puh... ih... guh... pig!",
+  "text": "nuh... eh... tuh... net!",
   "line_index": 27,
-  "start": 77.061,
-  "end": 79.401,
-  "duration": 2.34,
+  "start": 79.748,
+  "end": 82.098,
+  "duration": 2.35,
   "words": [
    {
-    "word": "puh",
-    "start": 77.061,
-    "end": 77.281
+    "word": "nuh",
+    "start": 79.748,
+    "end": 80.028
    },
    {
-    "word": "ih",
-    "start": 77.631,
-    "end": 77.881
+    "word": "eh",
+    "start": 80.378,
+    "end": 80.618
    },
    {
-    "word": "guh",
-    "start": 78.231,
-    "end": 78.451
+    "word": "tuh",
+    "start": 80.968,
+    "end": 81.168
    },
    {
-    "word": "pig!",
-    "start": 78.901,
-    "end": 79.401
+    "word": "net!",
+    "start": 81.618,
+    "end": 82.098
    }
   ]
  },
  {
   "index": 28,
-  "text": "buh... ih... guh... big!",
+  "text": "tuh... eh... nuh... ten!",
   "line_index": 28,
-  "start": 79.951,
-  "end": 82.211,
-  "duration": 2.26,
+  "start": 82.648,
+  "end": 85.058,
+  "duration": 2.41,
   "words": [
    {
-    "word": "buh",
-    "start": 79.951,
-    "end": 80.171
+    "word": "tuh",
+    "start": 82.648,
+    "end": 82.848
    },
    {
-    "word": "ih",
-    "start": 80.521,
-    "end": 80.771
+    "word": "eh",
+    "start": 83.198,
+    "end": 83.438
    },
    {
-    "word": "guh",
-    "start": 81.121,
-    "end": 81.341
+    "word": "nuh",
+    "start": 83.788,
+    "end": 84.068
    },
    {
-    "word": "big!",
-    "start": 81.791,
-    "end": 82.211
+    "word": "ten!",
+    "start": 84.518,
+    "end": 85.058
    }
   ]
  },
  {
   "index": 29,
-  "text": "Pig... big. Only the first sound changed.",
+  "text": "Nice work.",
   "line_index": 29,
-  "start": 83.033,
-  "end": 87.441,
-  "duration": 4.408,
+  "start": 85.869,
+  "end": 86.668,
+  "duration": 0.799,
   "words": [
    {
-    "word": "big",
-    "start": 83.033,
-    "end": 83.573
+    "word": "Nice",
+    "start": 85.869,
+    "end": 86.409
    },
    {
-    "word": "big",
-    "start": 84.673,
-    "end": 84.933
-   },
-   {
-    "word": "only",
-    "start": 86.153,
-    "end": 86.373
-   },
-   {
-    "word": "the",
-    "start": 86.373,
-    "end": 86.633
-   },
-   {
-    "word": "first",
-    "start": 86.633,
-    "end": 86.893
-   },
-   {
-    "word": "sound",
-    "start": 86.893,
-    "end": 87.193
-   },
-   {
-    "word": "changed",
-    "start": 87.193,
-    "end": 87.713
+    "word": "work.",
+    "start": 86.409,
+    "end": 86.929
    }
   ]
  },
  {
   "index": 30,
-  "text": "sss... ih... tuh... sit!",
+  "text": "Next one \u2014 ih.",
   "line_index": 30,
-  "start": 88.401,
-  "end": 90.931,
-  "duration": 2.53,
+  "start": 87.531,
+  "end": 89.028,
+  "duration": 1.497,
   "words": [
    {
-    "word": "sss",
-    "start": 88.401,
-    "end": 88.871
+    "word": "Next",
+    "start": 87.531,
+    "end": 87.631
    },
    {
-    "word": "ih",
-    "start": 89.221,
-    "end": 89.471
+    "word": "one",
+    "start": 87.631,
+    "end": 88.051
    },
    {
-    "word": "tuh",
-    "start": 89.821,
-    "end": 90.021
-   },
-   {
-    "word": "sit!",
-    "start": 90.471,
-    "end": 90.931
+    "word": "ih.",
+    "start": 88.851,
+    "end": 88.851
    }
   ]
  },
  {
   "index": 31,
-  "text": "Your turn's coming. Keep watching.",
+  "text": "puh... ih... guh... pig!",
   "line_index": 31,
-  "start": 91.61,
-  "end": 93.121,
-  "duration": 1.511,
+  "start": 90.228,
+  "end": 92.568,
+  "duration": 2.34,
   "words": [
    {
-    "word": "your",
-    "start": 91.61,
-    "end": 91.97
+    "word": "puh",
+    "start": 90.228,
+    "end": 90.448
    },
    {
-    "word": "turn",
-    "start": 91.97,
-    "end": 92.19
+    "word": "ih",
+    "start": 90.798,
+    "end": 91.048
    },
    {
-    "word": "is",
-    "start": 92.19,
-    "end": 92.35
+    "word": "guh",
+    "start": 91.398,
+    "end": 91.618
    },
    {
-    "word": "coming",
-    "start": 92.35,
-    "end": 92.69
-   },
-   {
-    "word": "keep",
-    "start": 93.13,
-    "end": 93.25
+    "word": "pig!",
+    "start": 92.068,
+    "end": 92.568
    }
   ]
  },
  {
   "index": 32,
-  "text": "Next \u2014 oh.",
+  "text": "buh... ih... guh... big!",
   "line_index": 32,
-  "start": 93.121,
-  "end": 95.341,
-  "duration": 2.22,
+  "start": 93.118,
+  "end": 95.378,
+  "duration": 2.26,
   "words": [
    {
-    "word": "watching",
-    "start": 93.121,
-    "end": 93.661
+    "word": "buh",
+    "start": 93.118,
+    "end": 93.338
    },
    {
-    "word": "next",
-    "start": 95.341,
-    "end": 95.341
+    "word": "ih",
+    "start": 93.688,
+    "end": 93.938
+   },
+   {
+    "word": "guh",
+    "start": 94.288,
+    "end": 94.508
+   },
+   {
+    "word": "big!",
+    "start": 94.958,
+    "end": 95.378
    }
   ]
  },
  {
   "index": 33,
-  "text": "duh... oh... guh... dog!",
+  "text": "Pig... big. Only the first sound changed.",
   "line_index": 33,
-  "start": 97.861,
-  "end": 100.251,
-  "duration": 2.39,
+  "start": 96.2,
+  "end": 100.608,
+  "duration": 4.408,
   "words": [
    {
-    "word": "duh",
-    "start": 97.861,
-    "end": 98.131
+    "word": "Pig...",
+    "start": 96.2,
+    "end": 96.74
    },
    {
-    "word": "oh",
-    "start": 98.481,
-    "end": 98.791
+    "word": "big.",
+    "start": 97.84,
+    "end": 98.1
    },
    {
-    "word": "guh",
-    "start": 99.141,
-    "end": 99.361
+    "word": "Only",
+    "start": 99.32,
+    "end": 99.54
    },
    {
-    "word": "dog!",
-    "start": 99.811,
-    "end": 100.251
+    "word": "the",
+    "start": 99.54,
+    "end": 99.8
+   },
+   {
+    "word": "first",
+    "start": 99.8,
+    "end": 100.06
+   },
+   {
+    "word": "sound",
+    "start": 100.06,
+    "end": 100.36
+   },
+   {
+    "word": "changed.",
+    "start": 100.36,
+    "end": 100.88
    }
   ]
  },
  {
   "index": 34,
-  "text": "puh... oh... tuh... pot!",
+  "text": "sss... ih... x... six!",
   "line_index": 34,
-  "start": 100.801,
-  "end": 103.151,
-  "duration": 2.35,
+  "start": 101.568,
+  "end": 104.238,
+  "duration": 2.67,
   "words": [
    {
-    "word": "puh",
-    "start": 100.801,
-    "end": 101.021
+    "word": "sss",
+    "start": 101.568,
+    "end": 102.038
    },
    {
-    "word": "oh",
-    "start": 101.371,
-    "end": 101.681
+    "word": "ih",
+    "start": 102.388,
+    "end": 102.638
    },
    {
-    "word": "tuh",
-    "start": 102.031,
-    "end": 102.231
+    "word": "x",
+    "start": 102.988,
+    "end": 103.258
    },
    {
-    "word": "pot!",
-    "start": 102.681,
-    "end": 103.151
+    "word": "six!",
+    "start": 103.708,
+    "end": 104.238
    }
   ]
  },
  {
   "index": 35,
-  "text": "huh... oh... tuh... hot!",
+  "text": "l... ih... puh... lip!",
   "line_index": 35,
-  "start": 103.701,
-  "end": 106.071,
-  "duration": 2.37,
+  "start": 104.788,
+  "end": 107.168,
+  "duration": 2.38,
   "words": [
    {
-    "word": "huh",
-    "start": 103.701,
-    "end": 103.921
+    "word": "l",
+    "start": 104.788,
+    "end": 105.148
    },
    {
-    "word": "oh",
-    "start": 104.271,
-    "end": 104.581
+    "word": "ih",
+    "start": 105.498,
+    "end": 105.748
    },
    {
-    "word": "tuh",
-    "start": 104.931,
-    "end": 105.131
+    "word": "puh",
+    "start": 106.098,
+    "end": 106.318
    },
    {
-    "word": "hot!",
-    "start": 105.581,
-    "end": 106.071
+    "word": "lip!",
+    "start": 106.768,
+    "end": 107.168
    }
   ]
  },
  {
   "index": 36,
-  "text": "Pot. Hot. Hear that? Just the front sound.",
+  "text": "w... ih... nuh... win!",
   "line_index": 36,
-  "start": 106.735,
-  "end": 111.821,
-  "duration": 5.086,
+  "start": 107.718,
+  "end": 110.298,
+  "duration": 2.58,
   "words": [
    {
-    "word": "pot",
-    "start": 106.735,
-    "end": 107.115
+    "word": "w",
+    "start": 107.718,
+    "end": 107.978
    },
    {
-    "word": "hot",
-    "start": 108.095,
-    "end": 108.715
+    "word": "ih",
+    "start": 108.328,
+    "end": 108.578
    },
    {
-    "word": "hear",
-    "start": 109.365,
-    "end": 109.775
+    "word": "nuh",
+    "start": 108.928,
+    "end": 109.208
    },
    {
-    "word": "that",
-    "start": 109.775,
-    "end": 110.095
-   },
-   {
-    "word": "just",
-    "start": 110.695,
-    "end": 110.915
-   },
-   {
-    "word": "the",
-    "start": 110.915,
-    "end": 111.135
-   },
-   {
-    "word": "front",
-    "start": 111.135,
-    "end": 111.415
-   },
-   {
-    "word": "sound",
-    "start": 111.415,
-    "end": 111.935
+    "word": "win!",
+    "start": 109.658,
+    "end": 110.298
    }
   ]
  },
  {
   "index": 37,
-  "text": "Last vowel. uh.",
+  "text": "Your turn's coming. Keep watching.",
   "line_index": 37,
-  "start": 113.146,
-  "end": 115.261,
-  "duration": 2.115,
+  "start": 110.977,
+  "end": 112.488,
+  "duration": 1.511,
   "words": [
    {
-    "word": "last",
-    "start": 113.146,
-    "end": 113.366
+    "word": "Your",
+    "start": 110.977,
+    "end": 111.337
    },
    {
-    "word": "vowel",
-    "start": 113.366,
-    "end": 113.766
+    "word": "turn's",
+    "start": 111.337,
+    "end": 111.557
    },
    {
-    "word": "er",
-    "start": 114.706,
-    "end": 115.126
+    "word": "coming.",
+    "start": 111.557,
+    "end": 111.717
+   },
+   {
+    "word": "Keep",
+    "start": 111.717,
+    "end": 112.057
+   },
+   {
+    "word": "watching.",
+    "start": 112.497,
+    "end": 112.617
    }
   ]
  },
  {
   "index": 38,
-  "text": "sss... uh... nuh... sun!",
+  "text": "Next \u2014 oh.",
   "line_index": 38,
-  "start": 116.471,
-  "end": 119.171,
-  "duration": 2.7,
+  "start": 112.488,
+  "end": 114.708,
+  "duration": 2.22,
   "words": [
    {
-    "word": "sss",
-    "start": 116.471,
-    "end": 116.941
+    "word": "Next",
+    "start": 112.488,
+    "end": 113.028
    },
    {
-    "word": "uh",
-    "start": 117.291,
-    "end": 117.531
-   },
-   {
-    "word": "nuh",
-    "start": 117.881,
-    "end": 118.161
-   },
-   {
-    "word": "sun!",
-    "start": 118.611,
-    "end": 119.171
+    "word": "oh.",
+    "start": 114.708,
+    "end": 114.708
    }
   ]
  },
  {
   "index": 39,
-  "text": "This one's yours. Sound it out.",
+  "text": "duh... oh... guh... dog!",
   "line_index": 39,
-  "start": 119.918,
-  "end": 122.241,
-  "duration": 2.323,
+  "start": 117.228,
+  "end": 119.618,
+  "duration": 2.39,
   "words": [
    {
-    "word": "this",
-    "start": 119.918,
-    "end": 120.338
+    "word": "duh",
+    "start": 117.228,
+    "end": 117.498
    },
    {
-    "word": "one's",
-    "start": 120.338,
-    "end": 120.758
+    "word": "oh",
+    "start": 117.848,
+    "end": 118.158
    },
    {
-    "word": "yours",
-    "start": 120.758,
-    "end": 120.958
+    "word": "guh",
+    "start": 118.508,
+    "end": 118.728
    },
    {
-    "word": "sound",
-    "start": 121.898,
-    "end": 121.958
-   },
-   {
-    "word": "it",
-    "start": 121.958,
-    "end": 122.158
-   },
-   {
-    "word": "out",
-    "start": 122.158,
-    "end": 122.438
+    "word": "dog!",
+    "start": 119.178,
+    "end": 119.618
    }
   ]
  },
  {
   "index": 40,
-  "text": "ruh... uh... nuh... run!",
+  "text": "puh... oh... tuh... pot!",
   "line_index": 40,
-  "start": 125.161,
-  "end": 127.681,
-  "duration": 2.52,
+  "start": 120.168,
+  "end": 122.518,
+  "duration": 2.35,
   "words": [
    {
-    "word": "ruh",
-    "start": 125.161,
-    "end": 125.491
+    "word": "puh",
+    "start": 120.168,
+    "end": 120.388
    },
    {
-    "word": "uh",
-    "start": 125.841,
-    "end": 126.081
+    "word": "oh",
+    "start": 120.738,
+    "end": 121.048
    },
    {
-    "word": "nuh",
-    "start": 126.431,
-    "end": 126.711
+    "word": "tuh",
+    "start": 121.398,
+    "end": 121.598
    },
    {
-    "word": "run!",
-    "start": 127.161,
-    "end": 127.681
+    "word": "pot!",
+    "start": 122.048,
+    "end": 122.518
    }
   ]
  },
  {
   "index": 41,
-  "text": "Did you get it? I bet you did.",
+  "text": "huh... oh... tuh... hot!",
   "line_index": 41,
-  "start": 128.477,
-  "end": 130.831,
-  "duration": 2.354,
+  "start": 123.068,
+  "end": 125.438,
+  "duration": 2.37,
   "words": [
    {
-    "word": "did",
-    "start": 128.477,
-    "end": 128.877
+    "word": "huh",
+    "start": 123.068,
+    "end": 123.288
    },
    {
-    "word": "you",
-    "start": 128.877,
-    "end": 129.037
+    "word": "oh",
+    "start": 123.638,
+    "end": 123.948
    },
    {
-    "word": "get",
-    "start": 129.037,
-    "end": 129.217
+    "word": "tuh",
+    "start": 124.298,
+    "end": 124.498
    },
    {
-    "word": "it",
-    "start": 129.217,
-    "end": 129.517
-   },
-   {
-    "word": "i",
-    "start": 130.137,
-    "end": 130.257
-   },
-   {
-    "word": "bet",
-    "start": 130.257,
-    "end": 130.537
-   },
-   {
-    "word": "you",
-    "start": 130.537,
-    "end": 130.797
-   },
-   {
-    "word": "did",
-    "start": 130.797,
-    "end": 131.077
+    "word": "hot!",
+    "start": 124.948,
+    "end": 125.438
    }
   ]
  },
  {
   "index": 42,
-  "text": "kuh... uh... puh... cup!",
+  "text": "buh... oh... x... box!",
   "line_index": 42,
-  "start": 131.661,
-  "end": 133.901,
-  "duration": 2.24,
+  "start": 125.988,
+  "end": 128.538,
+  "duration": 2.55,
   "words": [
    {
-    "word": "kuh",
-    "start": 131.661,
-    "end": 131.871
+    "word": "buh",
+    "start": 125.988,
+    "end": 126.208
    },
    {
-    "word": "uh",
-    "start": 132.221,
-    "end": 132.461
+    "word": "oh",
+    "start": 126.558,
+    "end": 126.868
    },
    {
-    "word": "puh",
-    "start": 132.811,
-    "end": 133.031
+    "word": "x",
+    "start": 127.218,
+    "end": 127.488
    },
    {
-    "word": "cup!",
-    "start": 133.481,
-    "end": 133.901
+    "word": "box!",
+    "start": 127.938,
+    "end": 128.538
    }
   ]
  },
  {
   "index": 43,
-  "text": "Fifteen words. You read them all.",
+  "text": "f... oh... x... fox!",
   "line_index": 43,
-  "start": 135.139,
-  "end": 138.841,
-  "duration": 3.702,
+  "start": 129.088,
+  "end": 131.738,
+  "duration": 2.65,
   "words": [
    {
-    "word": "words",
-    "start": 135.139,
-    "end": 135.559
+    "word": "f",
+    "start": 129.088,
+    "end": 129.398
    },
    {
-    "word": "you",
-    "start": 136.039,
-    "end": 136.279
+    "word": "oh",
+    "start": 129.748,
+    "end": 130.058
    },
    {
-    "word": "read",
-    "start": 136.279,
-    "end": 136.519
+    "word": "x",
+    "start": 130.408,
+    "end": 130.678
    },
    {
-    "word": "them",
-    "start": 136.519,
-    "end": 136.739
-   },
-   {
-    "word": "all",
-    "start": 136.739,
-    "end": 137.139
-   },
-   {
-    "word": "one",
-    "start": 138.099,
-    "end": 138.399
+    "word": "fox!",
+    "start": 131.128,
+    "end": 131.738
    }
   ]
  },
  {
   "index": 44,
-  "text": "One more. Something's missing.",
+  "text": "Pot. Hot. Hear that? Just the front sound.",
   "line_index": 44,
-  "start": 138.841,
-  "end": 140.501,
-  "duration": 1.66,
+  "start": 132.402,
+  "end": 137.488,
+  "duration": 5.086,
   "words": [
    {
-    "word": "more",
-    "start": 138.841,
-    "end": 139.161
+    "word": "Pot.",
+    "start": 132.402,
+    "end": 132.782
    },
    {
-    "word": "something's",
-    "start": 139.741,
-    "end": 140.221
+    "word": "Hot.",
+    "start": 133.762,
+    "end": 134.382
    },
    {
-    "word": "missing",
-    "start": 140.221,
-    "end": 140.501
+    "word": "Hear",
+    "start": 135.032,
+    "end": 135.442
+   },
+   {
+    "word": "that?",
+    "start": 135.442,
+    "end": 135.762
+   },
+   {
+    "word": "Just",
+    "start": 136.362,
+    "end": 136.582
+   },
+   {
+    "word": "the",
+    "start": 136.582,
+    "end": 136.802
+   },
+   {
+    "word": "front",
+    "start": 136.802,
+    "end": 137.082
+   },
+   {
+    "word": "sound.",
+    "start": 137.082,
+    "end": 137.602
    }
   ]
  },
  {
   "index": 45,
-  "text": "duh... ?... guh...",
+  "text": "Last vowel. uh.",
   "line_index": 45,
-  "start": 141.931,
-  "end": 143.321,
-  "duration": 1.39,
+  "start": 138.813,
+  "end": 140.928,
+  "duration": 2.115,
   "words": [
    {
-    "word": "duh",
-    "start": 141.931,
-    "end": 142.201
+    "word": "Last",
+    "start": 138.813,
+    "end": 139.033
    },
    {
-    "word": "guh",
-    "start": 143.101,
-    "end": 143.321
+    "word": "vowel.",
+    "start": 139.033,
+    "end": 139.433
+   },
+   {
+    "word": "uh.",
+    "start": 140.373,
+    "end": 140.793
    }
   ]
  },
  {
   "index": 46,
-  "text": "Which vowel goes in the middle?",
+  "text": "sss... uh... nuh... sun!",
   "line_index": 46,
-  "start": 144.097,
-  "end": 145.511,
-  "duration": 1.414,
+  "start": 142.138,
+  "end": 144.838,
+  "duration": 2.7,
   "words": [
    {
-    "word": "which",
-    "start": 144.097,
-    "end": 144.537
+    "word": "sss",
+    "start": 142.138,
+    "end": 142.608
    },
    {
-    "word": "vowel",
-    "start": 144.537,
-    "end": 144.877
+    "word": "uh",
+    "start": 142.958,
+    "end": 143.198
    },
    {
-    "word": "goes",
-    "start": 144.877,
-    "end": 145.257
+    "word": "nuh",
+    "start": 143.548,
+    "end": 143.828
    },
    {
-    "word": "in",
-    "start": 145.257,
-    "end": 145.457
-   },
-   {
-    "word": "the",
-    "start": 145.457,
-    "end": 145.557
-   },
-   {
-    "word": "middle",
-    "start": 145.557,
-    "end": 145.737
+    "word": "sun!",
+    "start": 144.278,
+    "end": 144.838
    }
   ]
  },
  {
   "index": 47,
-  "text": "oh... dog!",
+  "text": "buh... uh... guh... bug!",
   "line_index": 47,
-  "start": 148.991,
-  "end": 150.191,
-  "duration": 1.2,
+  "start": 145.388,
+  "end": 147.698,
+  "duration": 2.31,
   "words": [
    {
-    "word": "oh",
-    "start": 148.991,
-    "end": 149.301
+    "word": "buh",
+    "start": 145.388,
+    "end": 145.608
    },
    {
-    "word": "dog!",
-    "start": 149.751,
-    "end": 150.191
+    "word": "uh",
+    "start": 145.958,
+    "end": 146.198
+   },
+   {
+    "word": "guh",
+    "start": 146.548,
+    "end": 146.768
+   },
+   {
+    "word": "bug!",
+    "start": 147.218,
+    "end": 147.698
    }
   ]
  },
  {
   "index": 48,
-  "text": "You found it. That's real reading.",
+  "text": "This one's yours. Sound it out.",
   "line_index": 48,
-  "start": 151.326,
-  "end": 153.731,
-  "duration": 2.405,
+  "start": 148.445,
+  "end": 150.768,
+  "duration": 2.323,
   "words": [
    {
-    "word": "you",
-    "start": 151.326,
-    "end": 151.726
+    "word": "This",
+    "start": 148.445,
+    "end": 148.865
    },
    {
-    "word": "found",
-    "start": 151.726,
-    "end": 152.026
+    "word": "one's",
+    "start": 148.865,
+    "end": 149.285
+   },
+   {
+    "word": "yours.",
+    "start": 149.285,
+    "end": 149.485
+   },
+   {
+    "word": "Sound",
+    "start": 150.425,
+    "end": 150.485
    },
    {
     "word": "it",
-    "start": 152.026,
-    "end": 152.466
+    "start": 150.485,
+    "end": 150.685
    },
    {
-    "word": "that's",
-    "start": 152.786,
-    "end": 153.306
-   },
-   {
-    "word": "real",
-    "start": 153.306,
-    "end": 153.466
-   },
-   {
-    "word": "reading",
-    "start": 153.466,
-    "end": 153.966
+    "word": "out.",
+    "start": 150.685,
+    "end": 150.965
    }
   ]
  },
  {
   "index": 49,
-  "text": "Every word here is in the English Learning app \u2014 tap any word and watch it build itself. Free on both stores.",
+  "text": "ruh... uh... nuh... run!",
   "line_index": 49,
-  "start": 154.971,
-  "end": 162.311,
-  "duration": 7.34,
+  "start": 153.688,
+  "end": 156.208,
+  "duration": 2.52,
   "words": [
    {
-    "word": "every",
-    "start": 154.971,
-    "end": 155.291
+    "word": "ruh",
+    "start": 153.688,
+    "end": 154.018
    },
    {
-    "word": "word",
-    "start": 155.291,
-    "end": 155.571
+    "word": "uh",
+    "start": 154.368,
+    "end": 154.608
    },
    {
-    "word": "here",
-    "start": 155.571,
-    "end": 155.931
+    "word": "nuh",
+    "start": 154.958,
+    "end": 155.238
    },
    {
-    "word": "is",
-    "start": 155.931,
-    "end": 156.191
+    "word": "run!",
+    "start": 155.688,
+    "end": 156.208
+   }
+  ]
+ },
+ {
+  "index": 50,
+  "text": "Did you get it? I bet you did.",
+  "line_index": 50,
+  "start": 157.004,
+  "end": 159.358,
+  "duration": 2.354,
+  "words": [
+   {
+    "word": "Did",
+    "start": 157.004,
+    "end": 157.404
+   },
+   {
+    "word": "you",
+    "start": 157.404,
+    "end": 157.564
+   },
+   {
+    "word": "get",
+    "start": 157.564,
+    "end": 157.744
+   },
+   {
+    "word": "it?",
+    "start": 157.744,
+    "end": 158.044
+   },
+   {
+    "word": "I",
+    "start": 158.664,
+    "end": 158.784
+   },
+   {
+    "word": "bet",
+    "start": 158.784,
+    "end": 159.064
+   },
+   {
+    "word": "you",
+    "start": 159.064,
+    "end": 159.324
+   },
+   {
+    "word": "did.",
+    "start": 159.324,
+    "end": 159.604
+   }
+  ]
+ },
+ {
+  "index": 51,
+  "text": "kuh... uh... puh... cup!",
+  "line_index": 51,
+  "start": 160.188,
+  "end": 162.428,
+  "duration": 2.24,
+  "words": [
+   {
+    "word": "kuh",
+    "start": 160.188,
+    "end": 160.398
+   },
+   {
+    "word": "uh",
+    "start": 160.748,
+    "end": 160.988
+   },
+   {
+    "word": "puh",
+    "start": 161.338,
+    "end": 161.558
+   },
+   {
+    "word": "cup!",
+    "start": 162.008,
+    "end": 162.428
+   }
+  ]
+ },
+ {
+  "index": 52,
+  "text": "j... uh... guh... jug!",
+  "line_index": 52,
+  "start": 162.978,
+  "end": 165.338,
+  "duration": 2.36,
+  "words": [
+   {
+    "word": "j",
+    "start": 162.978,
+    "end": 163.268
+   },
+   {
+    "word": "uh",
+    "start": 163.618,
+    "end": 163.858
+   },
+   {
+    "word": "guh",
+    "start": 164.208,
+    "end": 164.428
+   },
+   {
+    "word": "jug!",
+    "start": 164.878,
+    "end": 165.338
+   }
+  ]
+ },
+ {
+  "index": 53,
+  "text": "Twenty five words.",
+  "line_index": 53,
+  "start": 166.238,
+  "end": 167.278,
+  "duration": 1.04,
+  "words": [
+   {
+    "word": "Twenty",
+    "start": 166.238,
+    "end": 166.858
+   },
+   {
+    "word": "five",
+    "start": 166.858,
+    "end": 167.278
+   }
+  ]
+ },
+ {
+  "index": 54,
+  "text": "You read them all.",
+  "line_index": 54,
+  "start": 168.498,
+  "end": 169.508,
+  "duration": 1.01,
+  "words": [
+   {
+    "word": "You",
+    "start": 168.498,
+    "end": 168.978
+   },
+   {
+    "word": "read",
+    "start": 168.978,
+    "end": 169.198
+   },
+   {
+    "word": "them",
+    "start": 169.198,
+    "end": 169.438
+   },
+   {
+    "word": "all.",
+    "start": 169.438,
+    "end": 169.818
+   }
+  ]
+ },
+ {
+  "index": 55,
+  "text": "One more. Something's missing.",
+  "line_index": 55,
+  "start": 170.556,
+  "end": 172.388,
+  "duration": 1.832,
+  "words": [
+   {
+    "word": "One",
+    "start": 170.556,
+    "end": 170.856
+   },
+   {
+    "word": "more.",
+    "start": 170.856,
+    "end": 171.176
+   },
+   {
+    "word": "Something's",
+    "start": 171.756,
+    "end": 172.196
+   },
+   {
+    "word": "missing.",
+    "start": 172.196,
+    "end": 172.456
+   }
+  ]
+ },
+ {
+  "index": 56,
+  "text": "duh... ?... guh...",
+  "line_index": 56,
+  "start": 173.878,
+  "end": 175.268,
+  "duration": 1.39,
+  "words": [
+   {
+    "word": "duh",
+    "start": 173.878,
+    "end": 174.148
+   },
+   {
+    "word": "guh",
+    "start": 175.048,
+    "end": 175.268
+   }
+  ]
+ },
+ {
+  "index": 57,
+  "text": "Which vowel goes in the middle?",
+  "line_index": 57,
+  "start": 176.044,
+  "end": 177.458,
+  "duration": 1.414,
+  "words": [
+   {
+    "word": "Which",
+    "start": 176.044,
+    "end": 176.484
+   },
+   {
+    "word": "vowel",
+    "start": 176.484,
+    "end": 176.824
+   },
+   {
+    "word": "goes",
+    "start": 176.824,
+    "end": 177.204
    },
    {
     "word": "in",
-    "start": 156.191,
-    "end": 156.351
+    "start": 177.204,
+    "end": 177.404
    },
    {
     "word": "the",
-    "start": 156.351,
-    "end": 156.471
+    "start": 177.404,
+    "end": 177.504
    },
    {
-    "word": "english",
-    "start": 156.471,
-    "end": 156.871
+    "word": "middle?",
+    "start": 177.504,
+    "end": 177.684
+   }
+  ]
+ },
+ {
+  "index": 58,
+  "text": "oh... dog!",
+  "line_index": 58,
+  "start": 180.938,
+  "end": 182.138,
+  "duration": 1.2,
+  "words": [
+   {
+    "word": "oh",
+    "start": 180.938,
+    "end": 181.248
    },
    {
-    "word": "learning",
-    "start": 156.871,
-    "end": 157.231
+    "word": "dog!",
+    "start": 181.698,
+    "end": 182.138
+   }
+  ]
+ },
+ {
+  "index": 59,
+  "text": "You found it. That's real reading.",
+  "line_index": 59,
+  "start": 183.273,
+  "end": 185.678,
+  "duration": 2.405,
+  "words": [
+   {
+    "word": "You",
+    "start": 183.273,
+    "end": 183.673
    },
    {
-    "word": "app",
-    "start": 157.231,
-    "end": 157.671
+    "word": "found",
+    "start": 183.673,
+    "end": 183.973
    },
    {
-    "word": "tap",
-    "start": 158.271,
-    "end": 158.411
+    "word": "it.",
+    "start": 183.973,
+    "end": 184.413
    },
    {
-    "word": "any",
-    "start": 158.411,
-    "end": 158.771
+    "word": "That's",
+    "start": 184.733,
+    "end": 185.253
+   },
+   {
+    "word": "real",
+    "start": 185.253,
+    "end": 185.413
+   },
+   {
+    "word": "reading.",
+    "start": 185.413,
+    "end": 185.913
+   }
+  ]
+ },
+ {
+  "index": 60,
+  "text": "Every word here is in the English Learning app \u2014 tap any word and watch it build itself. Free on both stores.",
+  "line_index": 60,
+  "start": 186.918,
+  "end": 194.258,
+  "duration": 7.34,
+  "words": [
+   {
+    "word": "Every",
+    "start": 186.918,
+    "end": 187.238
    },
    {
     "word": "word",
-    "start": 158.771,
-    "end": 159.111
+    "start": 187.238,
+    "end": 187.518
+   },
+   {
+    "word": "here",
+    "start": 187.518,
+    "end": 187.878
+   },
+   {
+    "word": "is",
+    "start": 187.878,
+    "end": 188.138
+   },
+   {
+    "word": "in",
+    "start": 188.138,
+    "end": 188.298
+   },
+   {
+    "word": "the",
+    "start": 188.298,
+    "end": 188.418
+   },
+   {
+    "word": "English",
+    "start": 188.418,
+    "end": 188.818
+   },
+   {
+    "word": "Learning",
+    "start": 188.818,
+    "end": 189.178
+   },
+   {
+    "word": "app",
+    "start": 189.178,
+    "end": 189.618
+   },
+   {
+    "word": "tap",
+    "start": 190.218,
+    "end": 190.358
+   },
+   {
+    "word": "any",
+    "start": 190.358,
+    "end": 190.718
+   },
+   {
+    "word": "word",
+    "start": 190.718,
+    "end": 191.058
    },
    {
     "word": "and",
-    "start": 159.111,
-    "end": 159.411
+    "start": 191.058,
+    "end": 191.358
    },
    {
     "word": "watch",
-    "start": 159.411,
-    "end": 159.691
+    "start": 191.358,
+    "end": 191.638
    },
    {
     "word": "it",
-    "start": 159.691,
-    "end": 159.911
+    "start": 191.638,
+    "end": 191.858
    },
    {
     "word": "build",
-    "start": 159.911,
-    "end": 160.091
+    "start": 191.858,
+    "end": 192.038
    },
    {
-    "word": "itself",
-    "start": 160.091,
-    "end": 160.571
+    "word": "itself.",
+    "start": 192.038,
+    "end": 192.518
    },
    {
-    "word": "free",
-    "start": 161.051,
-    "end": 161.251
+    "word": "Free",
+    "start": 192.998,
+    "end": 193.198
    },
    {
     "word": "on",
-    "start": 161.251,
-    "end": 161.611
+    "start": 193.198,
+    "end": 193.558
    },
    {
     "word": "both",
-    "start": 161.611,
-    "end": 161.891
+    "start": 193.558,
+    "end": 193.838
    },
    {
-    "word": "stores",
-    "start": 161.891,
-    "end": 162.311
+    "word": "stores.",
+    "start": 193.838,
+    "end": 194.258
    }
   ]
  }

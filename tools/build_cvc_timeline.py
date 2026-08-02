@@ -43,13 +43,9 @@ def dur(p: Path) -> float:
 
 
 # word → its three letters, in the app's own spelling
-WORDS = {
-    "cat": "cat", "hat": "hat", "map": "map",
-    "hen": "hen", "pen": "pen", "red": "red",
-    "pig": "pig", "big": "big", "sit": "sit",
-    "dog": "dog", "pot": "pot", "hot": "hot",
-    "sun": "sun", "run": "run", "cup": "cup",
-}
+WORDS = {w: w for w in
+         "cat hat map fan bat hen pen bed net ten pig big six lip win "
+         "dog pot hot box fox sun bug run cup jug".split()}
 VOWELS = set("aeiou")
 
 # The video, in order. Each entry is one of:
@@ -64,48 +60,60 @@ SCRIPT: list[tuple] = [
     ("gap", 0.5),
     ("build", "cat"),                    # kuh aaa tuh → cat!
     ("mark", "idea"),
-    ("run", "02"),                       # the twelve-sentence opener, ends "First vowel — aaa."
+    ("run", "02"),                       # the opener — now ends "Let's do. First vowel — aaa."
     ("mark", "shortA"),
     ("build", "cat"),
     ("run", "03"),                       # Same middle sound. Watch.
     ("build", "hat"),
     ("run", "04"),                       # You're getting it.
     ("build", "map"),
-    ("run", "05"),                       # Three words. One vowel. / New vowel. eh.
+    ("run", "05a"),                      # Three words. One vowel.  ← true HERE, at three
+    ("build", "fan"),
+    ("build", "bat"),
+    ("run", "05b"),                      # New vowel. eh.
     ("mark", "shortE"),
     ("build", "hen"),
     ("build", "pen"),
     ("run", "06"),                       # Hen. Pen. Hear the middle?
     ("gap", PAUSE_HEAR),
-    ("build", "red"),
+    ("build", "bed"),
+    ("build", "net"),
+    ("build", "ten"),
     ("run", "07"),                       # Nice work. / Next one — ih.
     ("mark", "shortI"),
     ("build", "pig"),
     ("build", "big"),
     ("run", "08"),                       # Pig... big. Only the first sound changed.
-    ("build", "sit"),
+    ("build", "six"),
+    ("build", "lip"),
+    ("build", "win"),
     ("run", "09"),                       # Your turn's coming. / Next — oh.
     ("mark", "shortO"),
     ("build", "dog"),
     ("build", "pot"),
     ("build", "hot"),
+    ("build", "box"),
+    ("build", "fox"),
     ("run", "10"),                       # Pot. Hot. Hear that? / Last vowel. uh.
     ("mark", "shortU"),
     ("build", "sun"),
+    ("build", "bug"),
     ("run", "11"),                       # This one's yours. Sound it out.
-    ("gap", PAUSE_TRY),                  # ← the child blends `run` alone
+    ("gap", PAUSE_TRY),
     ("build", "run"),
     ("run", "12"),                       # Did you get it? I bet you did.
     ("build", "cup"),
+    ("build", "jug"),
     ("mark", "wall"),
-    ("run", "13"),                       # Fifteen words... / One more. Something's missing.
+    ("run", "13a"),                      # Twenty five words.  (the new recording)
+    ("run", "13b"),                      # You read them all. / One more. Something's missing.
     ("mark", "quiz"),
-    ("quizsounds", "dog"),               # duh ... guh, with the vowel MISSING
+    ("quizsounds", "dog"),
     ("run", "14"),                       # Which vowel goes in the middle?
     ("gap", PAUSE_QUIZ),
-    ("qword", "dog"),                    # oh! Dog!
+    ("qword", "dog"),
     ("mark", "wrap"),
-    ("run", "15"),                       # You found it... / download line
+    ("run", "15"),
 ]
 
 

@@ -84,7 +84,7 @@ const Boards: React.FC = () => {
   // the idea section owns the frame between the hook's cat and the first Short-A build
   if (frame >= P(2) - 10 && frame < P(14) - HOLD_IN) return null;
 
-  const SIZE = 300;
+  const SIZE = inGroups(frame) ? 250 : 300;
   const isQuiz = !b.wordClip;
   const letters = b.word.split("");
 
@@ -111,10 +111,12 @@ const Boards: React.FC = () => {
 
   return (
     <>
-      {/* the boards — they slide together as the press descends, then hand over */}
+      {/* the boards — they slide together as the press descends, then hand over.
+          During the group sections the stage is the band RIGHT of the word list. */}
       <div
         style={{
-          position: "absolute", left: 0, top: B.stageTop, width, height: B.stageBot - B.stageTop,
+          position: "absolute", left: inGroups(frame) ? 64 + LIST_W : 0, top: B.stageTop,
+          width: inGroups(frame) ? B.menuX - (64 + LIST_W) : width, height: B.stageBot - B.stageTop,
           display: "flex", alignItems: "center", justifyContent: "center",
           gap: interpolate(press, [0, 1], [26, 2]),
           transform: `translateY(${inQuiz(frame) ? -QUIZ_LIFT : 0}px)`,
@@ -143,7 +145,9 @@ const Boards: React.FC = () => {
       {press > 0 && !merged && (
         <div
           style={{
-            position: "absolute", left: width / 2 - 260, width: 520, height: 44,
+            position: "absolute",
+            left: (inGroups(frame) ? 64 + LIST_W + (B.menuX - 64 - LIST_W) / 2 : width / 2) - 260,
+            width: 520, height: 44,
             top: B.stageTop + (B.stageBot - B.stageTop) / 2 - SIZE / 2 - 96 + press * 60,
             background: "linear-gradient(180deg,#C6CCD4 0%,#8E979F 100%)",
             borderRadius: 12, boxShadow: "0 10px 0 #6E767D, 0 16px 30px rgba(40,40,50,0.3)",
@@ -156,7 +160,8 @@ const Boards: React.FC = () => {
       {merged && (
         <div
           style={{
-            position: "absolute", left: 0, top: B.stageTop, width, height: B.stageBot - B.stageTop,
+            position: "absolute", left: inGroups(frame) ? 64 + LIST_W : 0, top: B.stageTop,
+            width: inGroups(frame) ? B.menuX - (64 + LIST_W) : width, height: B.stageBot - B.stageTop,
             display: "flex", alignItems: "center", justifyContent: "center", gap: 64,
           }}
         >
@@ -208,6 +213,11 @@ const IdeaScene: React.FC = () => {
   const vowelOnly = at(7) && !at(8);
   const consOnly = at(8) && !at(9);
   const labels = at(9);
+  // line 9's three words, each timed: the matching board pulses as its word is said
+  const p9 = (captionsJson as unknown as TPhrase[])[9];
+  const spokenIdx = labels && !at(10)
+    ? p9.words.findIndex((w, k) => frame >= f(w.start) && (k === p9.words.length - 1 || frame < f(p9.words[k + 1].start)))
+    : -1;
   const apart = at(10) && !at(11);
   const snap = at(11) && !at(12);
   const grid = at(12) && !at(13);
@@ -226,17 +236,17 @@ const IdeaScene: React.FC = () => {
       )}
 
       {/* 3-13 · the three boards, each line changing what they do */}
-      {showBoards && (
+      {showBoards && !grid && (
         <div style={{ display: "flex", alignItems: "center", gap, transition: "none" }}>
           {"cat".split("").map((ch, i) => {
             const vowel = i === 1;
             const s = split ? spring({ frame: since(3) - i * 3, fps, config: { damping: 12 } }) : 1;
-            const lit = pip === i || (midLift && vowel) || (vowelOnly && vowel) || (consOnly && !vowel);
+            const lit = pip === i || (midLift && vowel) || (vowelOnly && vowel) || (consOnly && !vowel) || spokenIdx === i;
             const dim = (vowelOnly && !vowel) || (consOnly && vowel);
             return (
               <div key={i} style={{
                 display: "flex", flexDirection: "column", alignItems: "center", gap: 50,
-                transform: `scale(${s}) translateY(${(midLift && vowel ? -22 : 0) + bob(frame, fps, 4, 2.4, i)}px)`,
+                transform: `scale(${s * (spokenIdx === i ? 1.1 : 1)}) translateY(${(midLift && vowel ? -22 : 0) + bob(frame, fps, 4, 2.4, i)}px)`,
               }}>
                 <div style={{ height: 52, fontSize: 46, fontWeight: 800, lineHeight: 1,
                               color: vowel ? VOWEL : CONSONANT,
@@ -257,23 +267,94 @@ const IdeaScene: React.FC = () => {
 
       {/* 12 · fifteen empty slots flick past — the promise of the lesson */}
       {grid && (
-        <div style={{ position: "absolute", display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 16 }}>
-          {Array.from({ length: 15 }, (_, k) => (
-            <div key={k} style={{ transform: `scale(${spring({ frame: since(12) - k * 2, fps, config: { damping: 13 } })})` }}>
-              <LetterBoard letter="" vowel={false} size={96} blank />
+        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 14 }}>
+          {Array.from({ length: 25 }, (_, k) => (
+            <div key={k} style={{ transform: `scale(${spring({ frame: since(12) - k * 1.5, fps, config: { damping: 13 } })}) translateY(${bob(frame, fps, 4, 2.6, k)}px)` }}>
+              <LetterBoard letter="" vowel={false} size={76} blank />
             </div>
           ))}
+        </div>
         </div>
       )}
 
       {/* 13 · the first vowel badge lands */}
       {badge && (
-        <div style={{ position: "absolute", top: -10,
+        <div style={{ position: "absolute", top: -34,
                       transform: `scale(${spring({ frame: since(13), fps, config: { damping: 10 } })})`,
                       fontSize: 90 }}>
           🍎
         </div>
       )}
+    </div>
+  );
+};
+
+// ── THE WORD LIST — the app's CVCLearnView left column ──────────────────────
+// During the teaching groups the frame splits like the app: the group's five words
+// listed on the left, the build animating on the right, the live word highlighted.
+const LIST_W = 380;
+const inGroups = (frame: number) => frame >= f(MARKS.shortA) && frame < f(MARKS.wall);
+
+const WordList: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps, width, height } = useVideoConfig();
+  const B = bands(width, height);
+  if (!inGroups(frame)) return null;
+  const gi = groupIndexAt(frame);
+  if (gi < 0) return null;
+  const g = GROUPS[gi];
+  const words = GROUP_WORDS[g.key];
+  const live = buildAt(frame);
+
+  return (
+    <div
+      style={{
+        position: "absolute", left: 48, top: B.stageTop - 36, width: LIST_W,
+        height: B.counterY - B.stageTop + 4,
+        display: "flex", flexDirection: "column", justifyContent: "center", gap: 14,
+        padding: "18px 24px", boxSizing: "border-box",
+        // its own board, like the menu opposite — the chips were floating over the jar
+        // shelf and the bread basket
+        background: "#FFFDF7", borderRadius: 22, border: "8px solid #C98A47",
+        boxShadow: "0 14px 30px rgba(60,40,20,0.22)",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 6,
+                    fontSize: 44, fontWeight: 800, color: palette.ink }}>
+        <span style={{ fontSize: 48 }}>{g.emoji}</span>{g.label}
+      </div>
+      {words.map((w, i) => {
+        const isLive = live?.word === w && live?.wordClip;
+        // "Hen. Pen. Hear the middle?" — the two named chips take turns pulsing
+        const r06 = CLIPS.find((c) => c.kind === "run" && c.id === "06")!;
+        const asking = frame >= f(r06.start) && frame < f(r06.start + r06.dur) + 30;
+        const named = asking && g.key === "shortE" && (w === "hen" || w === "pen");
+        const namedPulse = named && Math.floor((frame - f(r06.start)) / 14) % 2 === (w === "hen" ? 0 : 1);
+        const done = BUILDS.some((b) => b.word === w && b.wordClip && frame >= b.to && b.from >= f(MARKS[g.key]));
+        const s = spring({ frame: frame - f(MARKS[g.key]) - i * 4, fps, config: { damping: 13 } });
+        return (
+          <div
+            key={w}
+            style={{
+              display: "flex", alignItems: "center", gap: 14,
+              padding: "10px 22px", borderRadius: 18, width: LIST_W - 60,
+              background: isLive || namedPulse ? "#FFD466" : done ? "#FFF3D6" : "rgba(255,255,255,0.7)",
+              border: `4px solid ${isLive || namedPulse ? "#E0A400" : done ? "#E8CFA0" : "#EADFC8"}`,
+              boxShadow: isLive || namedPulse ? "0 10px 22px rgba(224,164,0,0.35)" : "0 6px 14px rgba(60,40,20,0.08)",
+              transform: `scale(${s * (isLive || namedPulse ? 1.06 : 1)})`, transformOrigin: "left center",
+            }}
+          >
+            {w.split("").map((ch, k) => (
+              <span key={k} style={{ fontSize: 40, fontWeight: 800, lineHeight: 1,
+                                     color: "aeiou".includes(ch) ? VOWEL : CONSONANT }}>
+                {ch}
+              </span>
+            ))}
+            <span style={{ marginLeft: "auto", fontSize: 30, opacity: done ? 1 : 0 }}>✓</span>
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -382,6 +463,7 @@ export const CvcReel: React.FC = () => {
 
         <Boards />
         <IdeaScene />
+        <WordList />
         <Wall />
         <QuizOptions />
         <Captions track={CAPTIONS} fontSize={50} bottom={44} />
