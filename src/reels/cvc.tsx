@@ -113,8 +113,11 @@ const Boards: React.FC = () => {
   if (frame >= P(2) - 10 && frame < P(14) - HOLD_IN) return null;
   if (frame >= f(MARKS.wall) - 4 && frame < f(MARKS.quiz)) return null;
 
-  const SIZE = inGroups(frame) ? 250 : 300;
+  const SIZE = inGroups(frame) ? 250 : inQuiz(frame) ? 232 : 300;
   const isQuiz = !b.wordClip;
+  // the LAST build is the quiz answer: its middle stays a blank until "oh!" is said
+  const isAnswer = b === BUILDS[BUILDS.length - 1];
+  const vowelSoundAt = isAnswer ? f(b.sounds.find((s) => s.idx === 1)?.start ?? 0) : 0;
   const letters = b.word.split("");
 
   // which sound is speaking right now — the app's own "one lit, two dim"
@@ -155,11 +158,14 @@ const Boards: React.FC = () => {
       >
         {letters.map((ch, i) => {
           const vowel = "aeiou".includes(ch);
-          const blank = isQuiz && i === 1;
+          const blank = (isQuiz && i === 1) || (isAnswer && i === 1 && frame < vowelSoundAt);
           return (
             <div key={i} style={{ transform: `scale(${entrance(i)}) translateY(${bob(frame, fps, 4, 2.4, i)}px)` }}>
               <div style={{ transform: blank && frame >= f(run("14").start)
-                  ? `scale(${pulse(frame - f(run("14").start), fps, 0.1, 0.9)})` : undefined }}>
+                  ? `scale(${pulse(frame - f(run("14").start), fps, 0.1, 0.9)})`
+                  : isAnswer && i === 1 && frame < vowelSoundAt + 14
+                    ? `translateY(${-(1 - interpolate(frame, [vowelSoundAt, vowelSoundAt + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })) * 150}px) scale(${interpolate(frame, [vowelSoundAt, vowelSoundAt + 14], [1.3, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`
+                    : undefined }}>
                 <LetterBoard
                   letter={ch}
                   vowel={vowel}
@@ -526,7 +532,7 @@ export const CvcReel: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFF6E6" }}>
-      <ShopWorld dim={dim} activeGroup={frame < f(MARKS.wall) ? gi : -1} doneGroups={frame >= f(MARKS.wall) ? 5 : Math.max(0, gi)} />
+      <ShopWorld dim={dim} activeGroup={frame < f(MARKS.wall) ? gi : -1} doneGroups={frame >= f(MARKS.wall) ? 5 : Math.max(0, gi)} leftFree={!inGroups(frame)} />
 
       {/* every clip plays whole, at the frame the timeline put it */}
       {CLIPS.map((c, i) => (

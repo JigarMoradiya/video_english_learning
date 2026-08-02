@@ -45,8 +45,8 @@ export const GROUPS = [
   { key: "shortU", label: "Short U", emoji: "☂️", letter: "u" },
 ] as const;
 
-export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroups?: number }> = ({
-  dim = 1, activeGroup = -1, doneGroups = 0,
+export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroups?: number; leftFree?: boolean }> = ({
+  dim = 1, activeGroup = -1, doneGroups = 0, leftFree = false,
 }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
@@ -96,6 +96,28 @@ export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroup
             <rect key={i} x={i * 150 + 8} y={B.counterY + 26} width={134} height={4} rx={2} fill={WOOD_D} opacity={0.4} />
           ))}
           <rect x={0} y={B.floorY} width={width} height={height - B.floorY} fill="#E8D6BA" />
+
+          {/* The left wall — a PRICES board and a cone hanging sign. Only drawn when the
+              word list is not occupying that column, so the two never stack. */}
+          {!portrait && leftFree && (
+            <g>
+              <rect x={92} y={236} width={214} height={150} rx={14} fill="#FFFDF7" stroke="#C98A47" strokeWidth={7} />
+              <rect x={112} y={262} width={174} height={9} rx={4} fill="#E2574C" opacity={0.85} />
+              {[0, 1, 2].map((k) => (
+                <g key={k}>
+                  <rect x={112} y={294 + k * 28} width={104} height={11} rx={5} fill="#D9C7A6" />
+                  <rect x={236} y={294 + k * 28} width={50} height={11} rx={5} fill="#E8B96B" />
+                </g>
+              ))}
+              <rect x={188} y={110} width={9} height={62} fill="#B08A5A" />
+              <g transform="translate(192 214)">
+                <path d="M-24 -44 l 24 44 l 24 -44 z" fill="#E3B778" stroke="#C79A5C" strokeWidth={3} />
+                <circle cx={0} cy={-52} r={24} fill="#F7C6D9" />
+                <circle cx={-9} cy={-60} r={14} fill="#FBD9E6" />
+                <circle cx={7} cy={-68} r={7} fill="#E2574C" />
+              </g>
+            </g>
+          )}
 
           {/* Counter dressing. These used to be WALL furniture in the left margin — a jar
               shelf and a basket at x40..240 — which is exactly the column the word list

@@ -79,18 +79,23 @@ export const ThumbLearnToRead: React.FC = () => (
     </div>
     <Img src={staticFile("logo.png")} style={{ position: "absolute", ...C.logo, height: "auto" }} />
 
+    {/* kicker — the METHOD: phonics, letter sounds first (the start of reading) */}
+    <div style={{ position: "absolute", left: 0, top: 20, width: W, textAlign: "center", fontSize: 42, fontWeight: 800, letterSpacing: 12, color: "#E8368F", textShadow: "0 3px 0 #FFFFFF" }}>
+      PHONICS
+    </div>
+
     {/* headline + subtitle pill */}
     <div
       style={{
-        position: "absolute", left: 0, top: 44, width: W, textAlign: "center",
+        position: "absolute", left: 0, top: 64, width: W, textAlign: "center",
         fontSize: C.head.fontSize, fontWeight: C.head.fontWeight, color: palette.ink,
         letterSpacing: C.head.letterSpacing, lineHeight: C.head.lineHeight, textShadow: C.head.textShadow,
       }}
     >
       LEARN TO READ
     </div>
-    <div style={{ position: "absolute", left: 0, top: 172, width: W, display: "flex", justifyContent: "center" }}>
-      <div style={{ background: "#5B50D6", color: "#fff", fontSize: 32, fontWeight: 800, letterSpacing: 6, padding: "8px 26px", borderRadius: 999, boxShadow: "0 8px 18px rgba(91,80,214,0.35)" }}>
+    <div style={{ position: "absolute", left: 0, top: 188, width: W, display: "flex", justifyContent: "center" }}>
+      <div style={{ background: "#5B50D6", color: "#fff", fontSize: 30, fontWeight: 800, letterSpacing: 5, padding: "8px 26px", borderRadius: 999, boxShadow: "0 8px 18px rgba(91,80,214,0.35)" }}>
         STEP&nbsp;BY&nbsp;STEP
       </div>
     </div>
