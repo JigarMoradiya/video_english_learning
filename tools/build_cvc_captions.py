@@ -75,6 +75,40 @@ def words_of(path: Path) -> list[tuple[str, float, float]]:
     return [w for w in out if w[0]]
 
 
+def split_points(heard: list[tuple[str, float, float]], sents: list[str]) -> list[int]:
+    """Where one script sentence ends and the next begins in the heard word stream.
+
+    Word COUNT alone is not enough. Whisper heard run 09's "Your turn's coming." as four
+    words, not three — it split the contraction — so every later sentence in that run was
+    handed one word too few, and "Next — oh." was stamped 2.2s early, ON the word
+    "watching". The count is only a hint now; the boundary is snapped to the real PAUSE
+    nearest it, because a teacher always breathes between sentences and never mid-sentence.
+    """
+    n = [len(re.findall(r"[A-Za-z0-9']+", s)) for s in sents]
+    # When the two counts agree, the count split is EXACT and must be left alone. Snapping
+    # it anyway is how "First vowel — aaa." picked up two of whisper's own words: run 02's
+    # counts matched perfectly, but "do first" was said without a pause while "Ready?" had
+    # one, so the largest-gap rule stole a boundary that was already right.
+    if sum(n) == len(heard):
+        cuts, acc = [0], 0
+        for k in n:
+            acc += k
+            cuts.append(acc)
+        return cuts
+    cuts, acc = [0], 0
+    for k in n[:-1]:
+        acc += k
+        lo, hi = max(cuts[-1] + 1, acc - 2), min(len(heard) - 1, acc + 2)
+        best, bestgap = acc, -1.0
+        for i in range(lo, hi + 1):
+            gap = heard[i][1] - heard[i - 1][2]          # silence before word i
+            if gap > bestgap:
+                best, bestgap = i, gap
+        cuts.append(best)
+    cuts.append(len(heard))                              # the last sentence takes the rest
+    return cuts
+
+
 def main() -> int:
     words_of._m = whisper.load_model("small.en")  # type: ignore[attr-defined]
     phrases: list[dict] = []
@@ -114,22 +148,33 @@ def main() -> int:
             heard = words_of(AUDIO / c["src"])
             sents = RUN_TEXT[rid]
             # walk the script's sentences across the heard word stream in order
-            wi = 0
-            for s in sents:
+            cuts = split_points(heard, sents)
+            for si, s in enumerate(sents):
                 script_words = re.findall(r"[A-Za-z0-9'\u2014\u2019.,!?…-]+", s)
-                n = len([w for w in re.findall(r"[A-Za-z0-9']+", s)])
-                take = heard[wi:wi + n]
-                wi += n
+                take = heard[cuts[si]:cuts[si + 1]]
                 if not take:
                     continue
                 st, en = c["start"] + take[0][1], c["start"] + take[-1][2]
                 # SCRIPT words, WHISPER times. Whisper hears "uh" as "er" and "ih" as "E";
                 # its text must never reach the screen.
                 spoken = [w for w in script_words if re.search(r"[A-Za-z0-9]", w)]
-                ws = [{"word": spoken[k] if k < len(spoken) else take[k][0],
-                       "start": round(c["start"] + take[k][1], 3),
-                       "end": round(c["start"] + take[k][2], 3)}
-                      for k in range(len(take))]
+                # THE SCRIPT SUPPLIES EVERY WORD ON SCREEN. Whisper's own text must never
+                # leak in: it heard "turn's" as two words and "aaa" as "aah", and falling
+                # back to it printed "Keep watching. watching" and "First vowel aaa. aah".
+                # A surplus heard word folds into the previous word's TIMING instead;
+                # a shortfall splits the last heard word's span across what is left.
+                ws = []
+                for k, wd in enumerate(spoken):
+                    if k < len(take):
+                        ws.append({"word": wd, "start": round(c["start"] + take[k][1], 3),
+                                   "end": round(c["start"] + take[k][2], 3)})
+                    else:
+                        last = ws[-1]
+                        span = (en - last["start"]) / (len(spoken) - k + 1)
+                        ws.append({"word": wd, "start": round(last["end"], 3),
+                                   "end": round(min(en, last["end"] + span), 3)})
+                if ws and len(take) > len(spoken):
+                    ws[-1]["end"] = round(c["start"] + take[-1][2], 3)
                 push(s, st, en, ws)
             print(f"  run {rid}: {len(sents)} sentences from {len(heard)} heard words")
 
@@ -154,41 +199,72 @@ def main() -> int:
     return 0
 
 
-def snap(phrases: list[dict]) -> None:
-    """Pull every caption onto the speech it names.
-
-    Whisper's word timestamps are approximate — good to a tenth or so — and a caption that
-    appears while the room is still silent reads as the video being out of sync. Each stamp
-    is re-seated on the first burst inside its own window, bounded by the previous phrase so
-    it can never steal a neighbour's line. Same fix that repaired L3's stamps.
-    """
+def bursts_of(path: str, floor: float = -46.0, join: float = 0.18) -> list[tuple[float, float]]:
+    """Every stretch of real speech in a wav, as (start, end) seconds."""
     import numpy as np
-    raw = subprocess.run(["ffmpeg", "-v", "quiet", "-i", "public/audio/cvc/_mix.wav",
-                          "-ac", "1", "-ar", "16000", "-f", "s16le", "-"],
-                         capture_output=True).stdout
+    raw = subprocess.run(["ffmpeg", "-v", "quiet", "-i", path, "-ac", "1", "-ar", "16000",
+                          "-f", "s16le", "-"], capture_output=True).stdout
     x = np.frombuffer(raw, dtype=np.int16).astype(float)
     sr, w = 16000, 320
     db = 20 * np.log10(np.sqrt(np.convolve(x ** 2, np.ones(w) / w, "same") + 1) / 32768 + 1e-9)
+    on = db > floor
+    edges = np.diff(on.astype(np.int8))
+    starts = (np.flatnonzero(edges == 1) + 1) / sr
+    ends = (np.flatnonzero(edges == -1) + 1) / sr
+    if on[0]:
+        starts = np.r_[0.0, starts]
+    if on[-1]:
+        ends = np.r_[ends, len(x) / sr]
+    out: list[list[float]] = []
+    for a, b in zip(starts, ends):
+        if out and a - out[-1][1] < join:      # a breath inside a phrase is not a boundary
+            out[-1][1] = b
+        else:
+            out.append([a, b])
+    return [(a, b) for a, b in out if b - a >= 0.06]
+
+
+def snap(phrases: list[dict]) -> None:
+    """Pull every caption onto the speech it names.
+
+    Whisper's word timestamps are good to a tenth or so, which is enough to put a caption
+    on the WRONG SIDE of a sentence boundary. The first version of this took the earliest
+    loud sample in a window — and that sample was sometimes the tail of the previous
+    sentence, which is how "Blue ones are consonants." came up 0.5s early, over the end of
+    "Red is a vowel." A stamp is now seated on a real speech BURST — a run of sound with
+    silence before it — so it can only ever land where someone starts speaking.
+    """
+    bursts = bursts_of("public/audio/cvc/_mix.wav")
     moved = 0
-    for i, p in enumerate(phrases):
-        lo = max(0.0, phrases[i - 1]["end"] + 0.02 if i else 0.0, p["start"] - 0.45)
-        hi = min(p["start"] + 0.45, p["end"])
-        a, b = int(lo * sr), int(hi * sr)
-        if b - a < w:
+    floor = 0.0
+    for p in phrases:
+        cand = [b for b in bursts if b[0] >= floor - 0.01 and b[0] <= p["start"] + 0.8]
+        if not cand:
+            floor = max(floor, p["end"])
             continue
-        seg = db[a:b]
-        on = seg > -52.0
-        if not on.any():
-            continue
-        onset = lo + int(np.argmax(on)) / sr
+        onset = min(cand, key=lambda b: abs(b[0] - p["start"]))[0]
         if abs(onset - p["start"]) > 0.05:
             shift = onset - p["start"]
             p["start"] = round(onset, 3)
-            p["duration"] = round(p["end"] - p["start"], 3)
             for wd in p.get("words", []):
                 wd["start"] = round(wd["start"] + shift, 3)
                 wd["end"] = round(wd["end"] + shift, 3)
             moved += 1
+        p["duration"] = round(p["end"] - p["start"], 3)
+        # the next line may not reach back inside this one. Build phrases end on an exact
+        # clip boundary, so this floor is hard; that is what stopped "New vowel. eh." from
+        # being seated on a burst that was really the word "bat".
+        floor = max(floor, p["end"] - 0.02)
+
+    # a line must not vanish while its own last word is still being said: stretch each end
+    # to the end of the last burst that belongs to it
+    for i, p in enumerate(phrases):
+        nxt = phrases[i + 1]["start"] if i + 1 < len(phrases) else 1e9
+        mine = [b for b in bursts if b[0] >= p["start"] - 0.01 and b[0] < nxt - 0.02]
+        if mine:
+            p["end"] = max(p["end"], min(mine[-1][1], nxt - 0.02))
+        p["end"] = round(min(p["end"], nxt - 0.02), 3)   # never outlive the next line
+        p["duration"] = round(p["end"] - p["start"], 3)
     print(f"  snapped {moved} caption stamps onto real speech")
 
 

@@ -107,6 +107,8 @@ SCRIPT: list[tuple] = [
     ("run", "12"),                       # Did you get it? I bet you did.
     ("build", "cup"),
     ("build", "jug"),
+    ("gap", 1.4),                        # jug is the last word — let it be read before
+                                         # twenty-five plates replace it
     ("mark", "wall"),
     ("run", "13a"),                      # Twenty five words.  (the new recording)
     ("run", "13b"),                      # You read them all. / One more. Something's missing.

@@ -1,5 +1,5 @@
 {
- "total": 219.597,
+ "total": 220.997,
  "marks": {
   "hook": 0.0,
   "idea": 5.62,
@@ -8,9 +8,9 @@
   "shortI": 99.328,
   "shortO": 131.328,
   "shortU": 161.238,
-  "wall": 189.338,
-  "quiz": 196.978,
-  "wrap": 207.138
+  "wall": 190.738,
+  "quiz": 198.378,
+  "wrap": 208.538
  },
  "clips": [
   {
@@ -1068,21 +1068,21 @@
   },
   {
    "src": "audio/cvc/13a.mp3",
-   "start": 190.238,
+   "start": 191.638,
    "dur": 1.35,
    "kind": "run",
    "id": "13a"
   },
   {
    "src": "audio/cvc/13b.mp3",
-   "start": 192.188,
+   "start": 193.588,
    "dur": 4.79,
    "kind": "run",
    "id": "13b"
   },
   {
    "src": "audio/cvc/snd/d.mp3",
-   "start": 197.878,
+   "start": 199.278,
    "dur": 0.27,
    "kind": "sound",
    "word": "dog",
@@ -1092,7 +1092,7 @@
   },
   {
    "src": "audio/cvc/snd/g.mp3",
-   "start": 199.048,
+   "start": 200.448,
    "dur": 0.22,
    "kind": "sound",
    "word": "dog",
@@ -1102,14 +1102,14 @@
   },
   {
    "src": "audio/cvc/14.mp3",
-   "start": 200.818,
+   "start": 202.218,
    "dur": 2.02,
    "kind": "run",
    "id": "14"
   },
   {
    "src": "audio/cvc/snd/o.mp3",
-   "start": 205.938,
+   "start": 207.338,
    "dur": 0.31,
    "kind": "sound",
    "word": "dog",
@@ -1119,14 +1119,14 @@
   },
   {
    "src": "audio/cvc/word/dog.mp3",
-   "start": 206.698,
+   "start": 208.098,
    "dur": 0.44,
    "kind": "word",
    "word": "dog"
   },
   {
    "src": "audio/cvc/15.mp3",
-   "start": 208.038,
+   "start": 209.438,
    "dur": 11.559,
    "kind": "run",
    "id": "15"

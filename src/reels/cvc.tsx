@@ -100,6 +100,23 @@ const groupIndexAt = (frame: number): number => {
   return idx;
 };
 
+/** The chosen `o` FLIES out of its option tile and into the blank — the child watches
+ *  their answer travel to the word instead of it simply appearing there. Both ends of
+ *  the path come from the option row's own layout below (three OPT tiles, OPT_GAP apart,
+ *  centred, at counterY - 172), so moving that row moves the flight with it. */
+const OPT = 148, OPT_GAP = 26;
+const flyIn = (frame: number, at: number, width: number, height: number, size: number) => {
+  const B = bands(width, height);
+  const p = interpolate(frame, [at, at + 19], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const e = 1 - Math.pow(1 - p, 3);                       // arrives settling, not braking
+  const fromX = (width - (3 * OPT + 2 * OPT_GAP)) / 2 + OPT / 2 - width / 2;
+  const fromY = B.counterY - 172 + OPT / 2 - (B.stageTop + (B.stageBot - B.stageTop) / 2 - QUIZ_LIFT);
+  const arc = Math.sin(p * Math.PI) * -70;                // it lifts over, not straight through
+  return `translate(${(1 - e) * fromX}px, ${(1 - e) * fromY + arc}px) `
+    + `scale(${interpolate(e, [0, 1], [OPT / size, 1])}) `
+    + `rotate(${(1 - e) * -14}deg)`;
+};
+
 // ── the three boards on the counter ─────────────────────────────────────────
 const Boards: React.FC = () => {
   const frame = useCurrentFrame();
@@ -112,6 +129,7 @@ const Boards: React.FC = () => {
   // final pair sat on top of all twenty-five words
   if (frame >= P(2) - 10 && frame < P(14) - HOLD_IN) return null;
   if (frame >= f(MARKS.wall) - 4 && frame < f(MARKS.quiz)) return null;
+  if (vowelCardAt(frame)) return null;   // the vowel announcement owns the stage
 
   const SIZE = inGroups(frame) ? 250 : inQuiz(frame) ? 232 : 300;
   const isQuiz = !b.wordClip;
@@ -139,11 +157,35 @@ const Boards: React.FC = () => {
     : 0;
   const merged = hasWord && !quiz && frame >= wordAt;
 
+  // no sound has played yet and none is due for a while: the child is being asked to blend
+  // ...and only where the wait is LONG. Every build arrives a little before its first
+  // sound; this is the child's turn, where the boards stand alone for two whole seconds.
+  const waiting = liveIdx < 0 && b.sounds.length > 0
+    && frame < f(b.sounds[0].start) - 20 && f(b.sounds[0].start) - b.from > 45;
+
   const enterAt = (i: number) => spring({ frame: frame - (b.from + i * 4), fps, config: { damping: 13 } });
   const entrance = (i: number) => 0.72 + 0.28 * enterAt(i);
 
   return (
     <>
+      {/* the child's turn: three dots count the thinking time, so two seconds of silence
+          is a beat the child can SEE rather than a frozen frame */}
+      {waiting && (
+        <div style={{ position: "absolute", left: inGroups(frame) ? 64 + LIST_W : 0,
+                      top: B.stageTop, width: inGroups(frame) ? B.menuX - (64 + LIST_W) : width,
+                      height: B.stageBot - B.stageTop, display: "flex", alignItems: "flex-end",
+                      justifyContent: "center", gap: 22, paddingBottom: 6 }}>
+          {[0, 1, 2].map((k) => {
+            const a = 0.5 + 0.5 * Math.sin(frame / 6 - k * 1.1);
+            return (
+              <div key={k} style={{ width: 26, height: 26, borderRadius: 13,
+                                    background: VOWEL[0], opacity: 0.25 + 0.75 * a,
+                                    transform: `scale(${0.75 + 0.45 * a})` }} />
+            );
+          })}
+        </div>
+      )}
+
       {/* the boards — they slide together as the press descends, then hand over.
           During the group sections the stage is the band RIGHT of the word list. */}
       <div
@@ -160,11 +202,14 @@ const Boards: React.FC = () => {
           const vowel = "aeiou".includes(ch);
           const blank = (isQuiz && i === 1) || (isAnswer && i === 1 && frame < vowelSoundAt);
           return (
-            <div key={i} style={{ transform: `scale(${entrance(i)}) translateY(${bob(frame, fps, 4, 2.4, i)}px)` }}>
+            // While the child is sounding a word out alone the stage has nothing else
+            // moving, so the boards themselves breathe in turn — it reads as waiting.
+            <div key={i} style={{ transform: `scale(${entrance(i) * (1 + (waiting ? 0.045 : 0) * Math.sin(frame / 8 - i * 0.9))}) `
+                                             + `translateY(${bob(frame, fps, 4, waiting ? 9 : 2.4, i)}px)` }}>
               <div style={{ transform: blank && frame >= f(run("14").start)
                   ? `scale(${pulse(frame - f(run("14").start), fps, 0.1, 0.9)})`
-                  : isAnswer && i === 1 && frame < vowelSoundAt + 14
-                    ? `translateY(${-(1 - interpolate(frame, [vowelSoundAt, vowelSoundAt + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })) * 150}px) scale(${interpolate(frame, [vowelSoundAt, vowelSoundAt + 14], [1.3, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`
+                  : isAnswer && i === 1 && frame < vowelSoundAt + 21
+                    ? flyIn(frame, vowelSoundAt, width, height, SIZE)
                     : undefined }}>
                 <LetterBoard
                   letter={ch}
@@ -259,7 +304,7 @@ const IdeaScene: React.FC = () => {
   // 8 blue are consonants    9 C V C                  10 sound them out
   // 11 blend them fast      12 ready, fifteen         13 first vowel aaa
   const split = at(3) && !at(4);                    // the sandwich comes apart again
-  const showBoards = at(3);
+  const showBoards = at(3) && !at(13);
   const pip = at(5) && !at(6) ? Math.min(2, Math.floor(since(5) / 26)) : -1;
   const midLift = at(6) && !at(9);
   const vowelOnly = at(7) && !at(8);
@@ -351,14 +396,70 @@ const IdeaScene: React.FC = () => {
         </div>
       )}
 
-      {/* 13 · the first vowel badge lands */}
-      {badge && (
-        <div style={{ position: "absolute", top: -34,
-                      transform: `scale(${spring({ frame: since(13), fps, config: { damping: 10 } })})`,
-                      fontSize: 90 }}>
-          🍎
+      {/* 13 · "First vowel — aaa." is drawn by <VowelCard/>, with the other four */}
+    </div>
+  );
+};
+
+// ── THE VOWEL ANNOUNCEMENT ──────────────────────────────────────────────────
+// "First vowel — aaa." · "New vowel. eh." · "Next one — ih." · "Next — oh." ·
+// "Last vowel. uh." Each names a vowel and then goes straight into that vowel's words, so
+// the vowel has to be BIG on screen while it is named — otherwise the line is spoken over
+// whatever the previous word happened to leave behind. Keyed on the caption line, so the
+// card is up for exactly as long as the sentence is.
+const VOWEL_LINES: { say: string; letter: string; badge: string }[] = [
+  { say: "First vowel", letter: "a", badge: "🍎" },
+  { say: "New vowel", letter: "e", badge: "🥚" },
+  { say: "Next one", letter: "i", badge: "🍦" },
+  { say: "Next —", letter: "o", badge: "🐙" },
+  { say: "Last vowel", letter: "u", badge: "☂️" },
+];
+
+/** [fromFrame, toFrame, entry] for the vowel card live at this frame, or null */
+const vowelCardAt = (frame: number) => {
+  const caps = captionsJson as unknown as TPhrase[];
+  for (const v of VOWEL_LINES) {
+    const idx = caps.findIndex((c) => c.text.startsWith(v.say));
+    if (idx < 0) continue;
+    const from = f(caps[idx].start) - 6;
+    // it holds until the boards for the first word of that group come up, so the child
+    // reads the vowel through the whole gap rather than for one syllable
+    const next = BUILDS.find((b) => b.from > from);
+    const to = next ? next.from : f(caps[idx].end) + 24;
+    if (frame >= from && frame < to) return { v, from };
+  }
+  return null;
+};
+
+const VowelCard: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps, width, height } = useVideoConfig();
+  const B = bands(width, height);
+  const hit = vowelCardAt(frame);
+  if (!hit) return null;
+  const s = spring({ frame: frame - hit.from, fps, config: { damping: 11 } });
+  const g = inGroups(frame);
+  // THE SAME FOOTPRINT AS THE BOARDS IT REPLACES. Stacking the badge above the card made
+  // the group ~400px tall against the boards' 250–300, and that extra height pushed the
+  // card down through the counter, over the sandwich plate and the cones standing on it.
+  // The badge is an overlay now, so it costs no layout height.
+  const size = g ? 250 : 300;
+  return (
+    <div style={{ position: "absolute", left: g ? 64 + LIST_W : 0, top: B.stageTop,
+                  width: g ? B.menuX - (64 + LIST_W) : width, height: B.stageBot - B.stageTop,
+                  display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ position: "relative",
+                    transform: `scale(${(0.7 + 0.3 * s) * (1 + 0.035 * Math.sin((frame - hit.from) / 11))}) `
+                               + `translateY(${bob(frame, fps, 3.2, 10)}px) `
+                               + `rotate(${(1 - s) * -8 + Math.sin((frame - hit.from) / 17) * 2.2}deg)` }}>
+        <LetterBoard letter={hit.v.letter} vowel size={size} lit />
+        <div style={{ position: "absolute", left: "50%", top: -58, fontSize: 66,
+                      transform: `translateX(-50%) scale(${s}) `
+                                 + `translateY(${bob(frame, fps, 3.6, 7)}px) `
+                                 + `rotate(${Math.sin((frame - hit.from) / 13) * 9}deg)` }}>
+          {hit.v.badge}
         </div>
-      )}
+      </div>
     </div>
   );
 };
@@ -367,6 +468,12 @@ const IdeaScene: React.FC = () => {
 // During the teaching groups the frame splits like the app: the group's five words
 // listed on the left, the build animating on the right, the live word highlighted.
 const LIST_W = 380;
+/** lines that hold two words up against each other — both chips take turns pulsing */
+const COMPARE = [
+  { run: "06", words: ["hen", "pen"] },
+  { run: "08", words: ["pig", "big"] },
+  { run: "10", words: ["pot", "hot"] },
+];
 const inGroups = (frame: number) => frame >= f(MARKS.shortA) && frame < f(MARKS.wall);
 
 const WordList: React.FC = () => {
@@ -399,11 +506,14 @@ const WordList: React.FC = () => {
       </div>
       {words.map((w, i) => {
         const isLive = live?.word === w && live?.wordClip;
-        // "Hen. Pen. Hear the middle?" — the two named chips take turns pulsing
-        const r06 = CLIPS.find((c) => c.kind === "run" && c.id === "06")!;
-        const asking = frame >= f(r06.start) && frame < f(r06.start + r06.dur) + 30;
-        const named = asking && g.key === "shortE" && (w === "hen" || w === "pen");
-        const namedPulse = named && Math.floor((frame - f(r06.start)) / 14) % 2 === (w === "hen" ? 0 : 1);
+        // Every line that COMPARES two words makes those two chips take turns pulsing:
+        //   06 "Hen. Pen. Hear the middle?"  08 "Pig... big..."  10 "Pot. Hot..."
+        const pair = COMPARE.find((c) => c.words.includes(w));
+        const pr = pair ? CLIPS.find((c) => c.kind === "run" && c.id === pair.run) : undefined;
+        const asking = pr ? frame >= f(pr.start) && frame < f(pr.start + pr.dur) + 30 : false;
+        const namedPulse = Boolean(
+          asking && pr && Math.floor((frame - f(pr.start)) / 14) % 2 === pair!.words.indexOf(w)
+        );
         const done = BUILDS.some((b) => b.word === w && b.wordClip && frame >= b.to && b.from >= f(MARKS[g.key]));
         const s = spring({ frame: frame - f(MARKS[g.key]) - i * 4, fps, config: { damping: 13 } });
         return (
@@ -456,7 +566,10 @@ const Wall: React.FC = () => {
             const k = row * 5 + i;
             const s = 0.7 + 0.3 * spring({ frame: frame - from - k * 2, fps, config: { damping: 13 } });
             return (
-              <div key={w} style={{ transform: `scale(${s}) translateY(${bob(frame, fps, 3.4, 7, k)}px)` }}>
+              // a WAVE crosses the grid — twenty-five cards holding still read as a
+              // frozen frame however gently each one bobs on its own
+              <div key={w} style={{ transform: `scale(${s * (1 + 0.05 * Math.sin((frame - from) / 9 - k * 0.5))}) `
+                                               + `translateY(${bob(frame, fps, 3.4, 7, k) + 9 * Math.sin((frame - from) / 9 - k * 0.5)}px)` }}>
                 <MergedSandwich word={w} size={88} />
               </div>
             );
@@ -483,7 +596,7 @@ const QuizOptions: React.FC = () => {
     <div
       style={{
         position: "absolute", left: 0, top: B.counterY - 172, width,
-        display: "flex", justifyContent: "center", gap: 26,
+        display: "flex", justifyContent: "center", gap: OPT_GAP,
       }}
     >
       {["o", "a", "u"].map((ch, i) => {
@@ -494,10 +607,12 @@ const QuizOptions: React.FC = () => {
             key={ch}
             style={{
               transform: `scale(${s * (revealed && right ? pulse(frame - vowelAt, fps, 0.09, 1) : 1)})`,
-              opacity: revealed && !right ? 0.35 : 1,
+              // the chosen tile does not stay behind — it IS the letter now flying
+              // into the word, so it leaves the row as the flight starts
+              opacity: revealed ? (right ? 0 : 0.35) : 1,
             }}
           >
-            <LetterBoard letter={ch} vowel size={148} lit={revealed && right} />
+            <LetterBoard letter={ch} vowel size={OPT} lit={revealed && right} />
           </div>
         );
       })}
@@ -556,6 +671,7 @@ export const CvcReel: React.FC = () => {
         <Boards />
         <IdeaScene />
         <WordList />
+        <VowelCard />
         <Wall />
         <QuizOptions />
         <FoundConfetti />
