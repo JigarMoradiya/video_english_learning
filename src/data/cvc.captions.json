@@ -21,7 +21,7 @@
  },
  {
   "index": 1,
-  "text": "kuh... aaa... tuh... cat!",
+  "text": "kuh... aaa... tuh... - cat!",
   "line_index": 1,
   "start": 3.07,
   "end": 5.62,
@@ -43,7 +43,7 @@
     "end": 4.71
    },
    {
-    "word": "cat!",
+    "word": "- cat!",
     "start": 5.16,
     "end": 5.62
    }
@@ -401,7 +401,7 @@
  },
  {
   "index": 14,
-  "text": "kuh... aaa... tuh... cat!",
+  "text": "kuh... aaa... tuh... - cat!",
   "line_index": 14,
   "start": 38.108,
   "end": 40.658,
@@ -423,7 +423,7 @@
     "end": 39.748
    },
    {
-    "word": "cat!",
+    "word": "- cat!",
     "start": 40.198,
     "end": 40.658
    }
@@ -433,59 +433,59 @@
   "index": 15,
   "text": "Same middle sound. Watch.",
   "line_index": 15,
-  "start": 41.316,
-  "end": 43.048,
+  "start": 42.316,
+  "end": 44.048,
   "duration": 1.732,
   "words": [
    {
     "word": "Same",
-    "start": 41.316,
-    "end": 41.776
+    "start": 42.316,
+    "end": 42.776
    },
    {
     "word": "middle",
-    "start": 41.776,
-    "end": 42.016
+    "start": 42.776,
+    "end": 43.016
    },
    {
     "word": "sound.",
-    "start": 42.016,
-    "end": 42.416
+    "start": 43.016,
+    "end": 43.416
    },
    {
     "word": "Watch.",
-    "start": 42.996,
-    "end": 43.156
+    "start": 43.996,
+    "end": 44.156
    }
   ]
  },
  {
   "index": 16,
-  "text": "huh... aaa... tuh... hat!",
+  "text": "huh... aaa... tuh... - hat!",
   "line_index": 16,
-  "start": 44.078,
-  "end": 46.708,
+  "start": 45.078,
+  "end": 47.708,
   "duration": 2.63,
   "words": [
    {
     "word": "huh",
-    "start": 44.078,
-    "end": 44.298
+    "start": 45.078,
+    "end": 45.298
    },
    {
     "word": "aaa",
-    "start": 44.648,
-    "end": 45.178
+    "start": 45.648,
+    "end": 46.178
    },
    {
     "word": "tuh",
-    "start": 45.528,
-    "end": 45.728
+    "start": 46.528,
+    "end": 46.728
    },
    {
-    "word": "hat!",
-    "start": 46.178,
-    "end": 46.708
+    "word": "- hat!",
+    "start": 47.178,
+    "end": 47.708
    }
   ]
  },
@@ -493,54 +493,54 @@
   "index": 17,
   "text": "You're getting it.",
   "line_index": 17,
-  "start": 47.38,
-  "end": 48.198,
+  "start": 49.38,
+  "end": 50.198,
   "duration": 0.818,
   "words": [
    {
     "word": "You're",
-    "start": 47.38,
-    "end": 47.8
+    "start": 49.38,
+    "end": 49.8
    },
    {
     "word": "getting",
-    "start": 47.8,
-    "end": 48.0
+    "start": 49.8,
+    "end": 50.0
    },
    {
     "word": "it.",
-    "start": 48.0,
-    "end": 48.32
+    "start": 50.0,
+    "end": 50.32
    }
   ]
  },
  {
   "index": 18,
-  "text": "mmm... aaa... puh... map!",
+  "text": "mmm... aaa... puh... - map!",
   "line_index": 18,
-  "start": 49.008,
-  "end": 52.138,
+  "start": 51.008,
+  "end": 54.138,
   "duration": 3.13,
   "words": [
    {
     "word": "mmm",
-    "start": 49.008,
-    "end": 49.698
+    "start": 51.008,
+    "end": 51.698
    },
    {
     "word": "aaa",
-    "start": 50.048,
-    "end": 50.578
+    "start": 52.048,
+    "end": 52.578
    },
    {
     "word": "puh",
-    "start": 50.928,
-    "end": 51.148
+    "start": 52.928,
+    "end": 53.148
    },
    {
-    "word": "map!",
-    "start": 51.598,
-    "end": 52.138
+    "word": "- map!",
+    "start": 53.598,
+    "end": 54.138
    }
   ]
  },
@@ -548,89 +548,89 @@
   "index": 19,
   "text": "Three words. One vowel.",
   "line_index": 19,
-  "start": 52.897,
-  "end": 54.588,
+  "start": 55.897,
+  "end": 57.588,
   "duration": 1.691,
   "words": [
    {
     "word": "Three",
-    "start": 52.897,
-    "end": 53.317
+    "start": 55.897,
+    "end": 56.317
    },
    {
     "word": "words.",
-    "start": 53.317,
-    "end": 53.737
+    "start": 56.317,
+    "end": 56.737
    },
    {
     "word": "One",
-    "start": 54.177,
-    "end": 54.497
+    "start": 57.177,
+    "end": 57.497
    },
    {
     "word": "vowel.",
-    "start": 54.497,
-    "end": 54.797
+    "start": 57.497,
+    "end": 57.797
    }
   ]
  },
  {
   "index": 20,
-  "text": "f... aaa... nuh... fan!",
+  "text": "fff... aaa... nuh... - fan!",
   "line_index": 20,
-  "start": 55.688,
-  "end": 58.568,
+  "start": 58.688,
+  "end": 61.568,
   "duration": 2.88,
   "words": [
    {
-    "word": "f",
-    "start": 55.688,
-    "end": 55.998
+    "word": "fff",
+    "start": 58.688,
+    "end": 58.998
    },
    {
     "word": "aaa",
-    "start": 56.348,
-    "end": 56.878
+    "start": 59.348,
+    "end": 59.878
    },
    {
     "word": "nuh",
-    "start": 57.228,
-    "end": 57.508
+    "start": 60.228,
+    "end": 60.508
    },
    {
-    "word": "fan!",
-    "start": 57.958,
-    "end": 58.568
+    "word": "- fan!",
+    "start": 60.958,
+    "end": 61.568
    }
   ]
  },
  {
   "index": 21,
-  "text": "buh... aaa... tuh... bat!",
+  "text": "buh... aaa... tuh... - bat!",
   "line_index": 21,
-  "start": 59.118,
-  "end": 61.648,
+  "start": 63.118,
+  "end": 65.648,
   "duration": 2.53,
   "words": [
    {
     "word": "buh",
-    "start": 59.118,
-    "end": 59.338
+    "start": 63.118,
+    "end": 63.338
    },
    {
     "word": "aaa",
-    "start": 59.688,
-    "end": 60.218
+    "start": 63.688,
+    "end": 64.218
    },
    {
     "word": "tuh",
-    "start": 60.568,
-    "end": 60.768
+    "start": 64.568,
+    "end": 64.768
    },
    {
-    "word": "bat!",
-    "start": 61.218,
-    "end": 61.648
+    "word": "- bat!",
+    "start": 65.218,
+    "end": 65.648
    }
   ]
  },
@@ -638,84 +638,84 @@
   "index": 22,
   "text": "New vowel. eh.",
   "line_index": 22,
-  "start": 62.198,
-  "end": 64.438,
-  "duration": 2.24,
+  "start": 67.198,
+  "end": 68.678,
+  "duration": 1.48,
   "words": [
    {
     "word": "New",
-    "start": 62.198,
-    "end": 63.018
+    "start": 67.198,
+    "end": 67.898
    },
    {
     "word": "vowel.",
-    "start": 63.018,
-    "end": 63.498
+    "start": 67.898,
+    "end": 68.038
    },
    {
     "word": "eh.",
-    "start": 63.498,
-    "end": 64.438
+    "start": 68.038,
+    "end": 68.678
    }
   ]
  },
  {
   "index": 23,
-  "text": "huh... eh... nuh... hen!",
+  "text": "huh... eh... nuh... - hen!",
   "line_index": 23,
-  "start": 65.498,
-  "end": 67.888,
+  "start": 70.498,
+  "end": 72.888,
   "duration": 2.39,
   "words": [
    {
     "word": "huh",
-    "start": 65.498,
-    "end": 65.718
+    "start": 70.498,
+    "end": 70.718
    },
    {
     "word": "eh",
-    "start": 66.068,
-    "end": 66.308
+    "start": 71.068,
+    "end": 71.308
    },
    {
     "word": "nuh",
-    "start": 66.658,
-    "end": 66.938
+    "start": 71.658,
+    "end": 71.938
    },
    {
-    "word": "hen!",
-    "start": 67.388,
-    "end": 67.888
+    "word": "- hen!",
+    "start": 72.388,
+    "end": 72.888
    }
   ]
  },
  {
   "index": 24,
-  "text": "puh... eh... nuh... pen!",
+  "text": "puh... eh... nuh... - pen!",
   "line_index": 24,
-  "start": 68.438,
-  "end": 70.778,
+  "start": 74.438,
+  "end": 76.778,
   "duration": 2.34,
   "words": [
    {
     "word": "puh",
-    "start": 68.438,
-    "end": 68.658
+    "start": 74.438,
+    "end": 74.658
    },
    {
     "word": "eh",
-    "start": 69.008,
-    "end": 69.248
+    "start": 75.008,
+    "end": 75.248
    },
    {
     "word": "nuh",
-    "start": 69.598,
-    "end": 69.878
+    "start": 75.598,
+    "end": 75.878
    },
    {
-    "word": "pen!",
-    "start": 70.328,
-    "end": 70.778
+    "word": "- pen!",
+    "start": 76.328,
+    "end": 76.778
    }
   ]
  },
@@ -723,124 +723,124 @@
   "index": 25,
   "text": "Hen. Pen. Hear the middle?",
   "line_index": 25,
-  "start": 71.751,
-  "end": 75.088,
+  "start": 78.751,
+  "end": 82.088,
   "duration": 3.337,
   "words": [
    {
     "word": "Hen.",
-    "start": 71.751,
-    "end": 72.571
+    "start": 78.751,
+    "end": 79.571
    },
    {
     "word": "Pen.",
-    "start": 73.471,
-    "end": 73.911
+    "start": 80.471,
+    "end": 80.911
    },
    {
     "word": "Hear",
-    "start": 74.911,
-    "end": 75.111
+    "start": 81.911,
+    "end": 82.111
    },
    {
     "word": "the",
-    "start": 75.111,
-    "end": 75.271
+    "start": 82.111,
+    "end": 82.271
    },
    {
     "word": "middle?",
-    "start": 75.271,
-    "end": 75.511
+    "start": 82.271,
+    "end": 82.511
    }
   ]
  },
  {
   "index": 26,
-  "text": "buh... eh... duh... bed!",
+  "text": "buh... eh... duh... - bed!",
   "line_index": 26,
-  "start": 76.958,
-  "end": 79.198,
+  "start": 83.958,
+  "end": 86.198,
   "duration": 2.24,
   "words": [
    {
     "word": "buh",
-    "start": 76.958,
-    "end": 77.178
+    "start": 83.958,
+    "end": 84.178
    },
    {
     "word": "eh",
-    "start": 77.528,
-    "end": 77.768
+    "start": 84.528,
+    "end": 84.768
    },
    {
     "word": "duh",
-    "start": 78.118,
-    "end": 78.388
+    "start": 85.118,
+    "end": 85.388
    },
    {
-    "word": "bed!",
-    "start": 78.838,
-    "end": 79.198
+    "word": "- bed!",
+    "start": 85.838,
+    "end": 86.198
    }
   ]
  },
  {
   "index": 27,
-  "text": "nuh... eh... tuh... net!",
+  "text": "nuh... eh... tuh... - net!",
   "line_index": 27,
-  "start": 79.748,
-  "end": 82.098,
+  "start": 87.748,
+  "end": 90.098,
   "duration": 2.35,
   "words": [
    {
     "word": "nuh",
-    "start": 79.748,
-    "end": 80.028
+    "start": 87.748,
+    "end": 88.028
    },
    {
     "word": "eh",
-    "start": 80.378,
-    "end": 80.618
+    "start": 88.378,
+    "end": 88.618
    },
    {
     "word": "tuh",
-    "start": 80.968,
-    "end": 81.168
+    "start": 88.968,
+    "end": 89.168
    },
    {
-    "word": "net!",
-    "start": 81.618,
-    "end": 82.098
+    "word": "- net!",
+    "start": 89.618,
+    "end": 90.098
    }
   ]
  },
  {
   "index": 28,
-  "text": "tuh... eh... nuh... ten!",
+  "text": "tuh... eh... nuh... - ten!",
   "line_index": 28,
-  "start": 82.648,
-  "end": 85.058,
+  "start": 91.648,
+  "end": 94.058,
   "duration": 2.41,
   "words": [
    {
     "word": "tuh",
-    "start": 82.648,
-    "end": 82.848
+    "start": 91.648,
+    "end": 91.848
    },
    {
     "word": "eh",
-    "start": 83.198,
-    "end": 83.438
+    "start": 92.198,
+    "end": 92.438
    },
    {
     "word": "nuh",
-    "start": 83.788,
-    "end": 84.068
+    "start": 92.788,
+    "end": 93.068
    },
    {
-    "word": "ten!",
-    "start": 84.518,
-    "end": 85.058
+    "word": "- ten!",
+    "start": 93.518,
+    "end": 94.058
    }
   ]
  },
@@ -848,19 +848,19 @@
   "index": 29,
   "text": "Nice work.",
   "line_index": 29,
-  "start": 85.869,
-  "end": 86.668,
+  "start": 95.869,
+  "end": 96.668,
   "duration": 0.799,
   "words": [
    {
     "word": "Nice",
-    "start": 85.869,
-    "end": 86.409
+    "start": 95.869,
+    "end": 96.409
    },
    {
     "word": "work.",
-    "start": 86.409,
-    "end": 86.929
+    "start": 96.409,
+    "end": 96.929
    }
   ]
  },
@@ -868,84 +868,84 @@
   "index": 30,
   "text": "Next one \u2014 ih.",
   "line_index": 30,
-  "start": 87.531,
-  "end": 89.028,
+  "start": 97.531,
+  "end": 99.028,
   "duration": 1.497,
   "words": [
    {
     "word": "Next",
-    "start": 87.531,
-    "end": 87.631
+    "start": 97.531,
+    "end": 97.631
    },
    {
     "word": "one",
-    "start": 87.631,
-    "end": 88.051
+    "start": 97.631,
+    "end": 98.051
    },
    {
     "word": "ih.",
-    "start": 88.851,
-    "end": 88.851
+    "start": 98.851,
+    "end": 98.851
    }
   ]
  },
  {
   "index": 31,
-  "text": "puh... ih... guh... pig!",
+  "text": "puh... ih... guh... - pig!",
   "line_index": 31,
-  "start": 90.228,
-  "end": 92.568,
+  "start": 100.228,
+  "end": 102.568,
   "duration": 2.34,
   "words": [
    {
     "word": "puh",
-    "start": 90.228,
-    "end": 90.448
+    "start": 100.228,
+    "end": 100.448
    },
    {
     "word": "ih",
-    "start": 90.798,
-    "end": 91.048
+    "start": 100.798,
+    "end": 101.048
    },
    {
     "word": "guh",
-    "start": 91.398,
-    "end": 91.618
+    "start": 101.398,
+    "end": 101.618
    },
    {
-    "word": "pig!",
-    "start": 92.068,
-    "end": 92.568
+    "word": "- pig!",
+    "start": 102.068,
+    "end": 102.568
    }
   ]
  },
  {
   "index": 32,
-  "text": "buh... ih... guh... big!",
+  "text": "buh... ih... guh... - big!",
   "line_index": 32,
-  "start": 93.118,
-  "end": 95.378,
+  "start": 104.118,
+  "end": 106.378,
   "duration": 2.26,
   "words": [
    {
     "word": "buh",
-    "start": 93.118,
-    "end": 93.338
+    "start": 104.118,
+    "end": 104.338
    },
    {
     "word": "ih",
-    "start": 93.688,
-    "end": 93.938
+    "start": 104.688,
+    "end": 104.938
    },
    {
     "word": "guh",
-    "start": 94.288,
-    "end": 94.508
+    "start": 105.288,
+    "end": 105.508
    },
    {
-    "word": "big!",
-    "start": 94.958,
-    "end": 95.378
+    "word": "- big!",
+    "start": 105.958,
+    "end": 106.378
    }
   ]
  },
@@ -953,134 +953,134 @@
   "index": 33,
   "text": "Pig... big. Only the first sound changed.",
   "line_index": 33,
-  "start": 96.2,
-  "end": 100.608,
+  "start": 108.2,
+  "end": 112.608,
   "duration": 4.408,
   "words": [
    {
     "word": "Pig...",
-    "start": 96.2,
-    "end": 96.74
+    "start": 108.2,
+    "end": 108.74
    },
    {
     "word": "big.",
-    "start": 97.84,
-    "end": 98.1
+    "start": 109.84,
+    "end": 110.1
    },
    {
     "word": "Only",
-    "start": 99.32,
-    "end": 99.54
+    "start": 111.32,
+    "end": 111.54
    },
    {
     "word": "the",
-    "start": 99.54,
-    "end": 99.8
+    "start": 111.54,
+    "end": 111.8
    },
    {
     "word": "first",
-    "start": 99.8,
-    "end": 100.06
+    "start": 111.8,
+    "end": 112.06
    },
    {
     "word": "sound",
-    "start": 100.06,
-    "end": 100.36
+    "start": 112.06,
+    "end": 112.36
    },
    {
     "word": "changed.",
-    "start": 100.36,
-    "end": 100.88
+    "start": 112.36,
+    "end": 112.88
    }
   ]
  },
  {
   "index": 34,
-  "text": "sss... ih... x... six!",
+  "text": "sss... ih... ks... - six!",
   "line_index": 34,
-  "start": 101.568,
-  "end": 104.238,
+  "start": 113.568,
+  "end": 116.238,
   "duration": 2.67,
   "words": [
    {
     "word": "sss",
-    "start": 101.568,
-    "end": 102.038
+    "start": 113.568,
+    "end": 114.038
    },
    {
     "word": "ih",
-    "start": 102.388,
-    "end": 102.638
+    "start": 114.388,
+    "end": 114.638
    },
    {
-    "word": "x",
-    "start": 102.988,
-    "end": 103.258
+    "word": "ks",
+    "start": 114.988,
+    "end": 115.258
    },
    {
-    "word": "six!",
-    "start": 103.708,
-    "end": 104.238
+    "word": "- six!",
+    "start": 115.708,
+    "end": 116.238
    }
   ]
  },
  {
   "index": 35,
-  "text": "l... ih... puh... lip!",
+  "text": "luh... ih... puh... - lip!",
   "line_index": 35,
-  "start": 104.788,
-  "end": 107.168,
+  "start": 117.788,
+  "end": 120.168,
   "duration": 2.38,
   "words": [
    {
-    "word": "l",
-    "start": 104.788,
-    "end": 105.148
+    "word": "luh",
+    "start": 117.788,
+    "end": 118.148
    },
    {
     "word": "ih",
-    "start": 105.498,
-    "end": 105.748
+    "start": 118.498,
+    "end": 118.748
    },
    {
     "word": "puh",
-    "start": 106.098,
-    "end": 106.318
+    "start": 119.098,
+    "end": 119.318
    },
    {
-    "word": "lip!",
-    "start": 106.768,
-    "end": 107.168
+    "word": "- lip!",
+    "start": 119.768,
+    "end": 120.168
    }
   ]
  },
  {
   "index": 36,
-  "text": "w... ih... nuh... win!",
+  "text": "wuh... ih... nuh... - win!",
   "line_index": 36,
-  "start": 107.718,
-  "end": 110.298,
+  "start": 121.718,
+  "end": 124.298,
   "duration": 2.58,
   "words": [
    {
-    "word": "w",
-    "start": 107.718,
-    "end": 107.978
+    "word": "wuh",
+    "start": 121.718,
+    "end": 121.978
    },
    {
     "word": "ih",
-    "start": 108.328,
-    "end": 108.578
+    "start": 122.328,
+    "end": 122.578
    },
    {
     "word": "nuh",
-    "start": 108.928,
-    "end": 109.208
+    "start": 122.928,
+    "end": 123.208
    },
    {
-    "word": "win!",
-    "start": 109.658,
-    "end": 110.298
+    "word": "- win!",
+    "start": 123.658,
+    "end": 124.298
    }
   ]
  },
@@ -1088,34 +1088,34 @@
   "index": 37,
   "text": "Your turn's coming. Keep watching.",
   "line_index": 37,
-  "start": 110.977,
-  "end": 112.488,
+  "start": 125.977,
+  "end": 127.488,
   "duration": 1.511,
   "words": [
    {
     "word": "Your",
-    "start": 110.977,
-    "end": 111.337
+    "start": 125.977,
+    "end": 126.337
    },
    {
     "word": "turn's",
-    "start": 111.337,
-    "end": 111.557
+    "start": 126.337,
+    "end": 126.557
    },
    {
     "word": "coming.",
-    "start": 111.557,
-    "end": 111.717
+    "start": 126.557,
+    "end": 126.717
    },
    {
     "word": "Keep",
-    "start": 111.717,
-    "end": 112.057
+    "start": 126.717,
+    "end": 127.057
    },
    {
     "word": "watching.",
-    "start": 112.497,
-    "end": 112.617
+    "start": 127.497,
+    "end": 127.617
    }
   ]
  },
@@ -1123,169 +1123,169 @@
   "index": 38,
   "text": "Next \u2014 oh.",
   "line_index": 38,
-  "start": 112.488,
-  "end": 114.708,
+  "start": 127.488,
+  "end": 129.708,
   "duration": 2.22,
   "words": [
    {
     "word": "Next",
-    "start": 112.488,
-    "end": 113.028
+    "start": 127.488,
+    "end": 128.028
    },
    {
     "word": "oh.",
-    "start": 114.708,
-    "end": 114.708
+    "start": 129.708,
+    "end": 129.708
    }
   ]
  },
  {
   "index": 39,
-  "text": "duh... oh... guh... dog!",
+  "text": "duh... oh... guh... - dog!",
   "line_index": 39,
-  "start": 117.228,
-  "end": 119.618,
+  "start": 132.228,
+  "end": 134.618,
   "duration": 2.39,
   "words": [
    {
     "word": "duh",
-    "start": 117.228,
-    "end": 117.498
+    "start": 132.228,
+    "end": 132.498
    },
    {
     "word": "oh",
-    "start": 117.848,
-    "end": 118.158
+    "start": 132.848,
+    "end": 133.158
    },
    {
     "word": "guh",
-    "start": 118.508,
-    "end": 118.728
+    "start": 133.508,
+    "end": 133.728
    },
    {
-    "word": "dog!",
-    "start": 119.178,
-    "end": 119.618
+    "word": "- dog!",
+    "start": 134.178,
+    "end": 134.618
    }
   ]
  },
  {
   "index": 40,
-  "text": "puh... oh... tuh... pot!",
+  "text": "puh... oh... tuh... - pot!",
   "line_index": 40,
-  "start": 120.168,
-  "end": 122.518,
+  "start": 136.168,
+  "end": 138.518,
   "duration": 2.35,
   "words": [
    {
     "word": "puh",
-    "start": 120.168,
-    "end": 120.388
+    "start": 136.168,
+    "end": 136.388
    },
    {
     "word": "oh",
-    "start": 120.738,
-    "end": 121.048
+    "start": 136.738,
+    "end": 137.048
    },
    {
     "word": "tuh",
-    "start": 121.398,
-    "end": 121.598
+    "start": 137.398,
+    "end": 137.598
    },
    {
-    "word": "pot!",
-    "start": 122.048,
-    "end": 122.518
+    "word": "- pot!",
+    "start": 138.048,
+    "end": 138.518
    }
   ]
  },
  {
   "index": 41,
-  "text": "huh... oh... tuh... hot!",
+  "text": "huh... oh... tuh... - hot!",
   "line_index": 41,
-  "start": 123.068,
-  "end": 125.438,
+  "start": 140.068,
+  "end": 142.438,
   "duration": 2.37,
   "words": [
    {
     "word": "huh",
-    "start": 123.068,
-    "end": 123.288
+    "start": 140.068,
+    "end": 140.288
    },
    {
     "word": "oh",
-    "start": 123.638,
-    "end": 123.948
+    "start": 140.638,
+    "end": 140.948
    },
    {
     "word": "tuh",
-    "start": 124.298,
-    "end": 124.498
+    "start": 141.298,
+    "end": 141.498
    },
    {
-    "word": "hot!",
-    "start": 124.948,
-    "end": 125.438
+    "word": "- hot!",
+    "start": 141.948,
+    "end": 142.438
    }
   ]
  },
  {
   "index": 42,
-  "text": "buh... oh... x... box!",
+  "text": "buh... oh... ks... - box!",
   "line_index": 42,
-  "start": 125.988,
-  "end": 128.538,
+  "start": 143.988,
+  "end": 146.538,
   "duration": 2.55,
   "words": [
    {
     "word": "buh",
-    "start": 125.988,
-    "end": 126.208
+    "start": 143.988,
+    "end": 144.208
    },
    {
     "word": "oh",
-    "start": 126.558,
-    "end": 126.868
+    "start": 144.558,
+    "end": 144.868
    },
    {
-    "word": "x",
-    "start": 127.218,
-    "end": 127.488
+    "word": "ks",
+    "start": 145.218,
+    "end": 145.488
    },
    {
-    "word": "box!",
-    "start": 127.938,
-    "end": 128.538
+    "word": "- box!",
+    "start": 145.938,
+    "end": 146.538
    }
   ]
  },
  {
   "index": 43,
-  "text": "f... oh... x... fox!",
+  "text": "fff... oh... ks... - fox!",
   "line_index": 43,
-  "start": 129.088,
-  "end": 131.738,
+  "start": 148.088,
+  "end": 150.738,
   "duration": 2.65,
   "words": [
    {
-    "word": "f",
-    "start": 129.088,
-    "end": 129.398
+    "word": "fff",
+    "start": 148.088,
+    "end": 148.398
    },
    {
     "word": "oh",
-    "start": 129.748,
-    "end": 130.058
+    "start": 148.748,
+    "end": 149.058
    },
    {
-    "word": "x",
-    "start": 130.408,
-    "end": 130.678
+    "word": "ks",
+    "start": 149.408,
+    "end": 149.678
    },
    {
-    "word": "fox!",
-    "start": 131.128,
-    "end": 131.738
+    "word": "- fox!",
+    "start": 150.128,
+    "end": 150.738
    }
   ]
  },
@@ -1293,49 +1293,49 @@
   "index": 44,
   "text": "Pot. Hot. Hear that? Just the front sound.",
   "line_index": 44,
-  "start": 132.402,
-  "end": 137.488,
+  "start": 152.402,
+  "end": 157.488,
   "duration": 5.086,
   "words": [
    {
     "word": "Pot.",
-    "start": 132.402,
-    "end": 132.782
+    "start": 152.402,
+    "end": 152.782
    },
    {
     "word": "Hot.",
-    "start": 133.762,
-    "end": 134.382
+    "start": 153.762,
+    "end": 154.382
    },
    {
     "word": "Hear",
-    "start": 135.032,
-    "end": 135.442
+    "start": 155.032,
+    "end": 155.442
    },
    {
     "word": "that?",
-    "start": 135.442,
-    "end": 135.762
+    "start": 155.442,
+    "end": 155.762
    },
    {
     "word": "Just",
-    "start": 136.362,
-    "end": 136.582
+    "start": 156.362,
+    "end": 156.582
    },
    {
     "word": "the",
-    "start": 136.582,
-    "end": 136.802
+    "start": 156.582,
+    "end": 156.802
    },
    {
     "word": "front",
-    "start": 136.802,
-    "end": 137.082
+    "start": 156.802,
+    "end": 157.082
    },
    {
     "word": "sound.",
-    "start": 137.082,
-    "end": 137.602
+    "start": 157.082,
+    "end": 157.602
    }
   ]
  },
@@ -1343,84 +1343,84 @@
   "index": 45,
   "text": "Last vowel. uh.",
   "line_index": 45,
-  "start": 138.813,
-  "end": 140.928,
+  "start": 158.813,
+  "end": 160.928,
   "duration": 2.115,
   "words": [
    {
     "word": "Last",
-    "start": 138.813,
-    "end": 139.033
+    "start": 158.813,
+    "end": 159.033
    },
    {
     "word": "vowel.",
-    "start": 139.033,
-    "end": 139.433
+    "start": 159.033,
+    "end": 159.433
    },
    {
     "word": "uh.",
-    "start": 140.373,
-    "end": 140.793
+    "start": 160.373,
+    "end": 160.793
    }
   ]
  },
  {
   "index": 46,
-  "text": "sss... uh... nuh... sun!",
+  "text": "sss... uh... nuh... - sun!",
   "line_index": 46,
-  "start": 142.138,
-  "end": 144.838,
+  "start": 162.138,
+  "end": 164.838,
   "duration": 2.7,
   "words": [
    {
     "word": "sss",
-    "start": 142.138,
-    "end": 142.608
+    "start": 162.138,
+    "end": 162.608
    },
    {
     "word": "uh",
-    "start": 142.958,
-    "end": 143.198
+    "start": 162.958,
+    "end": 163.198
    },
    {
     "word": "nuh",
-    "start": 143.548,
-    "end": 143.828
+    "start": 163.548,
+    "end": 163.828
    },
    {
-    "word": "sun!",
-    "start": 144.278,
-    "end": 144.838
+    "word": "- sun!",
+    "start": 164.278,
+    "end": 164.838
    }
   ]
  },
  {
   "index": 47,
-  "text": "buh... uh... guh... bug!",
+  "text": "buh... uh... guh... - bug!",
   "line_index": 47,
-  "start": 145.388,
-  "end": 147.698,
+  "start": 166.388,
+  "end": 168.698,
   "duration": 2.31,
   "words": [
    {
     "word": "buh",
-    "start": 145.388,
-    "end": 145.608
+    "start": 166.388,
+    "end": 166.608
    },
    {
     "word": "uh",
-    "start": 145.958,
-    "end": 146.198
+    "start": 166.958,
+    "end": 167.198
    },
    {
     "word": "guh",
-    "start": 146.548,
-    "end": 146.768
+    "start": 167.548,
+    "end": 167.768
    },
    {
-    "word": "bug!",
-    "start": 147.218,
-    "end": 147.698
+    "word": "- bug!",
+    "start": 168.218,
+    "end": 168.698
    }
   ]
  },
@@ -1428,69 +1428,69 @@
   "index": 48,
   "text": "This one's yours. Sound it out.",
   "line_index": 48,
-  "start": 148.445,
-  "end": 150.768,
+  "start": 170.445,
+  "end": 172.768,
   "duration": 2.323,
   "words": [
    {
     "word": "This",
-    "start": 148.445,
-    "end": 148.865
+    "start": 170.445,
+    "end": 170.865
    },
    {
     "word": "one's",
-    "start": 148.865,
-    "end": 149.285
+    "start": 170.865,
+    "end": 171.285
    },
    {
     "word": "yours.",
-    "start": 149.285,
-    "end": 149.485
+    "start": 171.285,
+    "end": 171.485
    },
    {
     "word": "Sound",
-    "start": 150.425,
-    "end": 150.485
+    "start": 172.425,
+    "end": 172.485
    },
    {
     "word": "it",
-    "start": 150.485,
-    "end": 150.685
+    "start": 172.485,
+    "end": 172.685
    },
    {
     "word": "out.",
-    "start": 150.685,
-    "end": 150.965
+    "start": 172.685,
+    "end": 172.965
    }
   ]
  },
  {
   "index": 49,
-  "text": "ruh... uh... nuh... run!",
+  "text": "ruh... uh... nuh... - run!",
   "line_index": 49,
-  "start": 153.688,
-  "end": 156.208,
+  "start": 175.688,
+  "end": 178.208,
   "duration": 2.52,
   "words": [
    {
     "word": "ruh",
-    "start": 153.688,
-    "end": 154.018
+    "start": 175.688,
+    "end": 176.018
    },
    {
     "word": "uh",
-    "start": 154.368,
-    "end": 154.608
+    "start": 176.368,
+    "end": 176.608
    },
    {
     "word": "nuh",
-    "start": 154.958,
-    "end": 155.238
+    "start": 176.958,
+    "end": 177.238
    },
    {
-    "word": "run!",
-    "start": 155.688,
-    "end": 156.208
+    "word": "- run!",
+    "start": 177.688,
+    "end": 178.208
    }
   ]
  },
@@ -1498,109 +1498,109 @@
   "index": 50,
   "text": "Did you get it? I bet you did.",
   "line_index": 50,
-  "start": 157.004,
-  "end": 159.358,
+  "start": 180.004,
+  "end": 182.358,
   "duration": 2.354,
   "words": [
    {
     "word": "Did",
-    "start": 157.004,
-    "end": 157.404
+    "start": 180.004,
+    "end": 180.404
    },
    {
     "word": "you",
-    "start": 157.404,
-    "end": 157.564
+    "start": 180.404,
+    "end": 180.564
    },
    {
     "word": "get",
-    "start": 157.564,
-    "end": 157.744
+    "start": 180.564,
+    "end": 180.744
    },
    {
     "word": "it?",
-    "start": 157.744,
-    "end": 158.044
+    "start": 180.744,
+    "end": 181.044
    },
    {
     "word": "I",
-    "start": 158.664,
-    "end": 158.784
+    "start": 181.664,
+    "end": 181.784
    },
    {
     "word": "bet",
-    "start": 158.784,
-    "end": 159.064
+    "start": 181.784,
+    "end": 182.064
    },
    {
     "word": "you",
-    "start": 159.064,
-    "end": 159.324
+    "start": 182.064,
+    "end": 182.324
    },
    {
     "word": "did.",
-    "start": 159.324,
-    "end": 159.604
+    "start": 182.324,
+    "end": 182.604
    }
   ]
  },
  {
   "index": 51,
-  "text": "kuh... uh... puh... cup!",
+  "text": "kuh... uh... puh... - cup!",
   "line_index": 51,
-  "start": 160.188,
-  "end": 162.428,
+  "start": 183.188,
+  "end": 185.428,
   "duration": 2.24,
   "words": [
    {
     "word": "kuh",
-    "start": 160.188,
-    "end": 160.398
+    "start": 183.188,
+    "end": 183.398
    },
    {
     "word": "uh",
-    "start": 160.748,
-    "end": 160.988
+    "start": 183.748,
+    "end": 183.988
    },
    {
     "word": "puh",
-    "start": 161.338,
-    "end": 161.558
+    "start": 184.338,
+    "end": 184.558
    },
    {
-    "word": "cup!",
-    "start": 162.008,
-    "end": 162.428
+    "word": "- cup!",
+    "start": 185.008,
+    "end": 185.428
    }
   ]
  },
  {
   "index": 52,
-  "text": "j... uh... guh... jug!",
+  "text": "juh... uh... guh... - jug!",
   "line_index": 52,
-  "start": 162.978,
-  "end": 165.338,
+  "start": 186.978,
+  "end": 189.338,
   "duration": 2.36,
   "words": [
    {
-    "word": "j",
-    "start": 162.978,
-    "end": 163.268
+    "word": "juh",
+    "start": 186.978,
+    "end": 187.268
    },
    {
     "word": "uh",
-    "start": 163.618,
-    "end": 163.858
+    "start": 187.618,
+    "end": 187.858
    },
    {
     "word": "guh",
-    "start": 164.208,
-    "end": 164.428
+    "start": 188.208,
+    "end": 188.428
    },
    {
-    "word": "jug!",
-    "start": 164.878,
-    "end": 165.338
+    "word": "- jug!",
+    "start": 188.878,
+    "end": 189.338
    }
   ]
  },
@@ -1608,19 +1608,19 @@
   "index": 53,
   "text": "Twenty five words.",
   "line_index": 53,
-  "start": 166.238,
-  "end": 167.278,
+  "start": 190.238,
+  "end": 191.278,
   "duration": 1.04,
   "words": [
    {
     "word": "Twenty",
-    "start": 166.238,
-    "end": 166.858
+    "start": 190.238,
+    "end": 190.858
    },
    {
     "word": "five",
-    "start": 166.858,
-    "end": 167.278
+    "start": 190.858,
+    "end": 191.278
    }
   ]
  },
@@ -1628,29 +1628,29 @@
   "index": 54,
   "text": "You read them all.",
   "line_index": 54,
-  "start": 168.498,
-  "end": 169.508,
+  "start": 192.498,
+  "end": 193.508,
   "duration": 1.01,
   "words": [
    {
     "word": "You",
-    "start": 168.498,
-    "end": 168.978
+    "start": 192.498,
+    "end": 192.978
    },
    {
     "word": "read",
-    "start": 168.978,
-    "end": 169.198
+    "start": 192.978,
+    "end": 193.198
    },
    {
     "word": "them",
-    "start": 169.198,
-    "end": 169.438
+    "start": 193.198,
+    "end": 193.438
    },
    {
     "word": "all.",
-    "start": 169.438,
-    "end": 169.818
+    "start": 193.438,
+    "end": 193.818
    }
   ]
  },
@@ -1658,49 +1658,49 @@
   "index": 55,
   "text": "One more. Something's missing.",
   "line_index": 55,
-  "start": 170.556,
-  "end": 172.388,
+  "start": 194.556,
+  "end": 196.388,
   "duration": 1.832,
   "words": [
    {
     "word": "One",
-    "start": 170.556,
-    "end": 170.856
+    "start": 194.556,
+    "end": 194.856
    },
    {
     "word": "more.",
-    "start": 170.856,
-    "end": 171.176
+    "start": 194.856,
+    "end": 195.176
    },
    {
     "word": "Something's",
-    "start": 171.756,
-    "end": 172.196
+    "start": 195.756,
+    "end": 196.196
    },
    {
     "word": "missing.",
-    "start": 172.196,
-    "end": 172.456
+    "start": 196.196,
+    "end": 196.456
    }
   ]
  },
  {
   "index": 56,
-  "text": "duh... ?... guh...",
+  "text": "duh... ___... guh...",
   "line_index": 56,
-  "start": 173.878,
-  "end": 175.268,
+  "start": 197.878,
+  "end": 199.268,
   "duration": 1.39,
   "words": [
    {
     "word": "duh",
-    "start": 173.878,
-    "end": 174.148
+    "start": 197.878,
+    "end": 198.148
    },
    {
     "word": "guh",
-    "start": 175.048,
-    "end": 175.268
+    "start": 199.048,
+    "end": 199.268
    }
   ]
  },
@@ -1708,59 +1708,59 @@
   "index": 57,
   "text": "Which vowel goes in the middle?",
   "line_index": 57,
-  "start": 176.044,
-  "end": 177.458,
+  "start": 201.044,
+  "end": 202.458,
   "duration": 1.414,
   "words": [
    {
     "word": "Which",
-    "start": 176.044,
-    "end": 176.484
+    "start": 201.044,
+    "end": 201.484
    },
    {
     "word": "vowel",
-    "start": 176.484,
-    "end": 176.824
+    "start": 201.484,
+    "end": 201.824
    },
    {
     "word": "goes",
-    "start": 176.824,
-    "end": 177.204
+    "start": 201.824,
+    "end": 202.204
    },
    {
     "word": "in",
-    "start": 177.204,
-    "end": 177.404
+    "start": 202.204,
+    "end": 202.404
    },
    {
     "word": "the",
-    "start": 177.404,
-    "end": 177.504
+    "start": 202.404,
+    "end": 202.504
    },
    {
     "word": "middle?",
-    "start": 177.504,
-    "end": 177.684
+    "start": 202.504,
+    "end": 202.684
    }
   ]
  },
  {
   "index": 58,
-  "text": "oh... dog!",
+  "text": "oh... - dog!",
   "line_index": 58,
-  "start": 180.938,
-  "end": 182.138,
+  "start": 205.938,
+  "end": 207.138,
   "duration": 1.2,
   "words": [
    {
     "word": "oh",
-    "start": 180.938,
-    "end": 181.248
+    "start": 205.938,
+    "end": 206.248
    },
    {
-    "word": "dog!",
-    "start": 181.698,
-    "end": 182.138
+    "word": "- dog!",
+    "start": 206.698,
+    "end": 207.138
    }
   ]
  },
@@ -1768,39 +1768,39 @@
   "index": 59,
   "text": "You found it. That's real reading.",
   "line_index": 59,
-  "start": 183.273,
-  "end": 185.678,
+  "start": 208.273,
+  "end": 210.678,
   "duration": 2.405,
   "words": [
    {
     "word": "You",
-    "start": 183.273,
-    "end": 183.673
+    "start": 208.273,
+    "end": 208.673
    },
    {
     "word": "found",
-    "start": 183.673,
-    "end": 183.973
+    "start": 208.673,
+    "end": 208.973
    },
    {
     "word": "it.",
-    "start": 183.973,
-    "end": 184.413
+    "start": 208.973,
+    "end": 209.413
    },
    {
     "word": "That's",
-    "start": 184.733,
-    "end": 185.253
+    "start": 209.733,
+    "end": 210.253
    },
    {
     "word": "real",
-    "start": 185.253,
-    "end": 185.413
+    "start": 210.253,
+    "end": 210.413
    },
    {
     "word": "reading.",
-    "start": 185.413,
-    "end": 185.913
+    "start": 210.413,
+    "end": 210.913
    }
   ]
  },
@@ -1808,114 +1808,114 @@
   "index": 60,
   "text": "Every word here is in the English Learning app \u2014 tap any word and watch it build itself. Free on both stores.",
   "line_index": 60,
-  "start": 186.918,
-  "end": 194.258,
+  "start": 211.918,
+  "end": 219.258,
   "duration": 7.34,
   "words": [
    {
     "word": "Every",
-    "start": 186.918,
-    "end": 187.238
+    "start": 211.918,
+    "end": 212.238
    },
    {
     "word": "word",
-    "start": 187.238,
-    "end": 187.518
+    "start": 212.238,
+    "end": 212.518
    },
    {
     "word": "here",
-    "start": 187.518,
-    "end": 187.878
+    "start": 212.518,
+    "end": 212.878
    },
    {
     "word": "is",
-    "start": 187.878,
-    "end": 188.138
+    "start": 212.878,
+    "end": 213.138
    },
    {
     "word": "in",
-    "start": 188.138,
-    "end": 188.298
+    "start": 213.138,
+    "end": 213.298
    },
    {
     "word": "the",
-    "start": 188.298,
-    "end": 188.418
+    "start": 213.298,
+    "end": 213.418
    },
    {
     "word": "English",
-    "start": 188.418,
-    "end": 188.818
+    "start": 213.418,
+    "end": 213.818
    },
    {
     "word": "Learning",
-    "start": 188.818,
-    "end": 189.178
+    "start": 213.818,
+    "end": 214.178
    },
    {
     "word": "app",
-    "start": 189.178,
-    "end": 189.618
+    "start": 214.178,
+    "end": 214.618
    },
    {
     "word": "tap",
-    "start": 190.218,
-    "end": 190.358
+    "start": 215.218,
+    "end": 215.358
    },
    {
     "word": "any",
-    "start": 190.358,
-    "end": 190.718
+    "start": 215.358,
+    "end": 215.718
    },
    {
     "word": "word",
-    "start": 190.718,
-    "end": 191.058
+    "start": 215.718,
+    "end": 216.058
    },
    {
     "word": "and",
-    "start": 191.058,
-    "end": 191.358
+    "start": 216.058,
+    "end": 216.358
    },
    {
     "word": "watch",
-    "start": 191.358,
-    "end": 191.638
+    "start": 216.358,
+    "end": 216.638
    },
    {
     "word": "it",
-    "start": 191.638,
-    "end": 191.858
+    "start": 216.638,
+    "end": 216.858
    },
    {
     "word": "build",
-    "start": 191.858,
-    "end": 192.038
+    "start": 216.858,
+    "end": 217.038
    },
    {
     "word": "itself.",
-    "start": 192.038,
-    "end": 192.518
+    "start": 217.038,
+    "end": 217.518
    },
    {
     "word": "Free",
-    "start": 192.998,
-    "end": 193.198
+    "start": 217.998,
+    "end": 218.198
    },
    {
     "word": "on",
-    "start": 193.198,
-    "end": 193.558
+    "start": 218.198,
+    "end": 218.558
    },
    {
     "word": "both",
-    "start": 193.558,
-    "end": 193.838
+    "start": 218.558,
+    "end": 218.838
    },
    {
     "word": "stores.",
-    "start": 193.838,
-    "end": 194.258
+    "start": 218.838,
+    "end": 219.258
    }
   ]
  }

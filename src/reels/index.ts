@@ -38,6 +38,7 @@ import { CVC_DURATION } from "../data/cvc";
 import { ThumbRecognition169, ThumbRecognition916 } from "../thumbs/recognition_thumb";
 import { ThumbBlending } from "../thumbs/blending_thumb";
 import { ThumbBlendingPortrait } from "../thumbs/blending_thumb_portrait";
+import { ThumbBlendingPortraitNew } from "../thumbs/blending_thumb_portrait_new";
 import { ThumbShortVowels } from "../thumbs/shortvowels_thumb";
 import { ThumbLettersPhonics } from "../thumbs/letters_phonics_thumb";
 import { ThumbShortVowelsPortrait } from "../thumbs/shortvowels_thumb_portrait";
@@ -156,6 +157,8 @@ export const REELS: ReelEntry[] = [
   { id: "thumb-letter-recognition-9x16", component: ThumbRecognition916, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-blending", component: ThumbBlending, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-blending-9x16", component: ThumbBlendingPortrait, durationInFrames: 1, width: 1080, height: 1920 },
+  // NEW 9:16 thumb wearing the Toy Workshop (matches the 16:9 thumb + 4:5 video theme).
+  { id: "thumb-blending-9x16-new", component: ThumbBlendingPortraitNew, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-phonics-a", component: ThumbPhonicsA, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-phonics-b", component: ThumbPhonicsB, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-phonics-c", component: ThumbPhonicsC, durationInFrames: 1, width: 1280, height: 720 },

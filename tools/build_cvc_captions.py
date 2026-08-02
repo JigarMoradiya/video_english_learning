@@ -52,9 +52,12 @@ RUN_TEXT: dict[str, list[str]] = {
            "Every word here is in the English Learning app — tap any word and watch it build itself. Free on both stores."],
 }
 
-SOUND_TOKEN = {"a": "aaa", "b": "buh", "c": "kuh", "d": "duh", "e": "eh", "g": "guh",
-               "h": "huh", "i": "ih", "m": "mmm", "n": "nuh", "o": "oh", "p": "puh",
-               "r": "ruh", "s": "sss", "t": "tuh", "u": "uh"}
+# the app's OWN tokens (letters.ts soundToken, post-fff). f/l/w/x/j were missing, so the
+# caption printed the bare letter — "f" for fff, "x" for ks — in every word that used them.
+SOUND_TOKEN = {"a": "aaa", "b": "buh", "c": "kuh", "d": "duh", "e": "eh", "f": "fff",
+               "g": "guh", "h": "huh", "i": "ih", "j": "juh", "l": "luh", "m": "mmm",
+               "n": "nuh", "o": "oh", "p": "puh", "r": "ruh", "s": "sss", "t": "tuh",
+               "u": "uh", "w": "wuh", "x": "ks"}
 
 
 def words_of(path: Path) -> list[tuple[str, float, float]]:
@@ -94,7 +97,7 @@ def main() -> int:
         toks, expect = [], 0
         for pc in pending:
             while pc["idx"] > expect:
-                toks.append("?")
+                toks.append("___")          # the missing middle: a blank, not a question mark
                 expect += 1
             toks.append(SOUND_TOKEN.get(pc["letter"], pc["letter"]))
             expect += 1
@@ -136,10 +139,10 @@ def main() -> int:
         elif c["kind"] == "word":
             # "kuh... aaa... tuh... cat!" as ONE caption line, each token timed to its clip
             toks = [SOUND_TOKEN.get(p["letter"], p["letter"]) for p in pending]
-            text = " ".join(f"{t}..." for t in toks) + f" {c['word']}!"
+            text = " ".join(f"{t}..." for t in toks) + f" - {c['word']}!"
             ws = [{"word": t, "start": p["start"], "end": round(p["start"] + p["dur"], 3)}
                   for t, p in zip(toks, pending)]
-            ws.append({"word": c["word"] + "!", "start": c["start"],
+            ws.append({"word": "- " + c["word"] + "!", "start": c["start"],
                        "end": round(c["start"] + c["dur"], 3)})
             st = pending[0]["start"] if pending else c["start"]
             push(text, st, c["start"] + c["dur"], ws)

@@ -27,7 +27,10 @@ OUT = Path("src/data/cvc.timeline.json")
 # ── THE GAP TABLE ────────────────────────────────────────────────────────────
 G_SOUND = 0.35    # between two sounds inside one sound-out: kuh → aaa
 G_WORD = 0.45     # last sound → the whole word: tuh → cat!
-G_AFTER_WORD = 0.55   # a word landing → whatever comes next
+G_AFTER_WORD = 1.55   # a word landing → whatever comes next. 0.55 was why every
+                      # mid-group picture was SKIPPED: the next build took the
+                      # screen before the image had a single frame — and why the
+                      # whole video felt rushed.
 G_LINE = 0.60     # between two teacher runs
 G_SECTION = 0.90  # across a section change
 PAUSE_HEAR = 1.0  # "Hear the middle?"      — child answers

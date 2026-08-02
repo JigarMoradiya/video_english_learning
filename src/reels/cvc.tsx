@@ -4,6 +4,9 @@ import {
   ALL_WORDS, AUDIO_SEC, Clip, CLIPS, CVC_DURATION, F, GROUP_WORDS, MARKS, OUTRO_FROM, PIC, run,
 } from "../data/cvc";
 import captionsJson from "../data/cvc.captions.json";
+// the store card rises ON the download line — before this it arrived only after ALL
+// audio, leaving the CTA sentence playing over leftover quiz visuals
+const DL_FROM = Math.round(((captionsJson as unknown as { start: number }[]).slice(-1)[0].start) * 30) - 6;
 import { bands, CONSONANT, GROUPS, LetterBoard, MergedSandwich, ShopWorld, VOWEL, WordPicture } from "../components/SandwichShop";
 import { Captions } from "../components/Captions";
 import { makeTrack, TPhrase } from "../lib/timing";
@@ -11,6 +14,7 @@ import { StoreOutro } from "../components/StoreOutro";
 import { Watermark } from "../components/Watermark";
 import { font, palette } from "../data/tokens";
 import { bob, pulse } from "../lib/motion";
+import { Confetti } from "../components/Confetti";
 
 // ── L4 · CVC Words — 16:9 ────────────────────────────────────────────────────
 // Driven entirely by src/data/cvc.timeline.json: every clip has an absolute start, so a
@@ -81,8 +85,11 @@ const Boards: React.FC = () => {
   const B = bands(width, height);
   const b = buildAt(frame);
   if (!b) return null;
-  // the idea section owns the frame between the hook's cat and the first Short-A build
+  // the idea section owns the frame between the hook's cat and the first Short-A build,
+  // and the WALL owns it between the last build (jug) and the quiz — without this the
+  // final pair sat on top of all twenty-five words
   if (frame >= P(2) - 10 && frame < P(14) - HOLD_IN) return null;
+  if (frame >= f(MARKS.wall) - 4 && frame < f(MARKS.quiz)) return null;
 
   const SIZE = inGroups(frame) ? 250 : 300;
   const isQuiz = !b.wordClip;
@@ -128,14 +135,17 @@ const Boards: React.FC = () => {
           const blank = isQuiz && i === 1;
           return (
             <div key={i} style={{ transform: `scale(${entrance(i)}) translateY(${bob(frame, fps, 4, 2.4, i)}px)` }}>
-              <LetterBoard
-                letter={ch}
-                vowel={vowel}
-                size={SIZE}
-                blank={blank}
-                lit={!blank && (liveIdx === i || (allSounded && !merged))}
-                dim={liveIdx >= 0 && liveIdx !== i}
-              />
+              <div style={{ transform: blank && frame >= f(run("14").start)
+                  ? `scale(${pulse(frame - f(run("14").start), fps, 0.1, 0.9)})` : undefined }}>
+                <LetterBoard
+                  letter={ch}
+                  vowel={vowel}
+                  size={SIZE}
+                  blank={blank}
+                  lit={!blank && (liveIdx === i || (allSounded && !merged))}
+                  dim={liveIdx >= 0 && liveIdx !== i}
+                />
+              </div>
             </div>
           );
         })}
@@ -165,7 +175,7 @@ const Boards: React.FC = () => {
             display: "flex", alignItems: "center", justifyContent: "center", gap: 64,
           }}
         >
-          <div style={{ transform: `scale(${interpolate(spring({ frame: frame - wordAt, fps, config: { damping: 11 } }), [0, 1], [1.35, 1])}) translateY(${bob(frame, fps, 4.4, 3)}px)` }}>
+          <div style={{ transform: `scale(${interpolate(spring({ frame: frame - wordAt, fps, config: { damping: 11 } }), [0, 1], [1.35, 1])}) translateY(${bob(frame, fps, 3.2, 11)}px) rotate(${Math.sin((frame / fps) * 1.6) * 1.4}deg)` }}>
             <MergedSandwich word={b.word} size={SIZE} lit={frame < wordAt + 26} />
           </div>
           <Picture build={b} />
@@ -179,11 +189,24 @@ const Boards: React.FC = () => {
 const Picture: React.FC<{ build: Build }> = ({ build }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const at = f(build.wordClip.start + build.wordClip.dur) - 6;
+  const at = f(build.wordClip.start) + 2;
   if (frame < at) return null;
   const s = spring({ frame: frame - at, fps, config: { damping: 10 } });
+  if (build.word === "big") {
+    // the word IS a comparison, so the picture is one: the big one holds focus
+    return (
+      <div style={{ display: "flex", alignItems: "flex-end", gap: 18, transform: `scale(${s})` }}>
+        <div style={{ transform: `scale(${pulse(frame - at, fps, 0.07, 0.9)})`, filter: "drop-shadow(0 0 18px rgba(255,212,102,0.9))" }}>
+          <WordPicture pic="🐘" size={260} />
+        </div>
+        <div style={{ opacity: 0.55 }}>
+          <WordPicture pic="🐘" size={92} />
+        </div>
+      </div>
+    );
+  }
   return (
-    <div style={{ transform: `scale(${s * pulse(frame - at, fps, 0.06, 0.8)}) rotate(${Math.sin((frame / fps) * 3) * 3}deg)` }}>
+    <div style={{ transform: `scale(${s * pulse(frame - at, fps, 0.07, 0.7)}) translateY(${bob(frame, fps, 3.6, 13, 1)}px) rotate(${Math.sin((frame / fps) * 2.4) * 6}deg)` }}>
       <WordPicture pic={PIC[build.word]} size={250} />
     </div>
   );
@@ -310,8 +333,8 @@ const WordList: React.FC = () => {
   return (
     <div
       style={{
-        position: "absolute", left: 48, top: B.stageTop - 36, width: LIST_W,
-        height: B.counterY - B.stageTop + 4,
+        position: "absolute", left: 48, top: B.stageTop + 26, width: LIST_W,
+        height: B.counterY - B.stageTop - 40,
         display: "flex", flexDirection: "column", justifyContent: "center", gap: 14,
         padding: "18px 24px", boxSizing: "border-box",
         // its own board, like the menu opposite — the chips were floating over the jar
@@ -338,7 +361,7 @@ const WordList: React.FC = () => {
             key={w}
             style={{
               display: "flex", alignItems: "center", gap: 14,
-              padding: "10px 22px", borderRadius: 18, width: LIST_W - 60,
+              padding: "7px 22px", borderRadius: 18, width: LIST_W - 60,
               background: isLive || namedPulse ? "#FFD466" : done ? "#FFF3D6" : "rgba(255,255,255,0.7)",
               border: `4px solid ${isLive || namedPulse ? "#E0A400" : done ? "#E8CFA0" : "#EADFC8"}`,
               boxShadow: isLive || namedPulse ? "0 10px 22px rgba(224,164,0,0.35)" : "0 6px 14px rgba(60,40,20,0.08)",
@@ -376,14 +399,15 @@ const Wall: React.FC = () => {
       }}
     >
       {Object.entries(GROUP_WORDS).map(([key, words], row) => (
-        <div key={key} style={{ display: "flex", gap: 14, alignItems: "center" }}>
-          <span style={{ fontSize: 46, width: 60, textAlign: "center" }}>{GROUPS[row].emoji}</span>
+        <div key={key} style={{ display: "grid", gridTemplateColumns: "64px repeat(5, 208px)",
+                                alignItems: "center", justifyItems: "center", columnGap: 8 }}>
+          <span style={{ fontSize: 44, textAlign: "center" }}>{GROUPS[row].emoji}</span>
           {words.map((w, i) => {
-            const k = row * 3 + i;
-            const s = spring({ frame: frame - from - k * 3, fps, config: { damping: 13 } });
+            const k = row * 5 + i;
+            const s = spring({ frame: frame - from - k * 2, fps, config: { damping: 13 } });
             return (
-              <div key={w} style={{ transform: `scale(${s}) translateY(${bob(frame, fps, 4, 2, k)}px)` }}>
-                <MergedSandwich word={w} size={104} />
+              <div key={w} style={{ transform: `scale(${s}) translateY(${bob(frame, fps, 3.4, 7, k)}px)` }}>
+                <MergedSandwich word={w} size={88} />
               </div>
             );
           })}
@@ -431,12 +455,30 @@ const QuizOptions: React.FC = () => {
   );
 };
 
+const FoundConfetti: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps, width } = useVideoConfig();
+  // "You found it." — paper pieces, from the answer word
+  const foundAt = f((captionsJson as unknown as TPhrase[]).slice(-2)[0].start);
+  if (frame < foundAt || frame > foundAt + 90) return null;
+  return (
+    <>
+      {[0, 12, 26].map((d, k) => (
+        <Confetti key={k} frame={frame - foundAt} fps={fps} burstFrame={d}
+                  origin={{ x: width / 2 + (k - 1) * 260, y: 420 }}
+                  colors={["#E64A4A", "#2979FF", "#FFD466", "#7FB069", "#8E7CC3"]}
+                  count={30} seed={k + 3} />
+      ))}
+    </>
+  );
+};
+
 export const CvcReel: React.FC = () => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
   const B = bands(width, height);
   const gi = groupIndexAt(frame);
-  const dim = interpolate(frame, [OUTRO_FROM, OUTRO_FROM + 20], [1, 0.3], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const dim = interpolate(frame, [DL_FROM, DL_FROM + 20], [1, 0.3], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFF6E6" }}>
@@ -449,7 +491,7 @@ export const CvcReel: React.FC = () => {
         </Sequence>
       ))}
 
-      <Sequence from={0} durationInFrames={OUTRO_FROM}>
+      <Sequence from={0} durationInFrames={DL_FROM}>
         <div
           style={{
             position: "absolute", left: 0, top: B.bannerTop, width, textAlign: "center",
@@ -466,12 +508,13 @@ export const CvcReel: React.FC = () => {
         <WordList />
         <Wall />
         <QuizOptions />
+        <FoundConfetti />
         <Captions track={CAPTIONS} fontSize={50} bottom={44} />
-        <Watermark corner="tl" widthFrac={0.09} opacity={0.45} />
+        <Watermark corner="tl" widthFrac={0.065} opacity={0.45} pad={26} />
       </Sequence>
 
-      <Sequence from={OUTRO_FROM}>
-        <StoreOutro silent compact total={CVC_DURATION - OUTRO_FROM} />
+      <Sequence from={DL_FROM}>
+        <StoreOutro silent compact total={CVC_DURATION - DL_FROM} />
       </Sequence>
     </AbsoluteFill>
   );

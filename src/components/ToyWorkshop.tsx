@@ -23,6 +23,15 @@ import { P, WRAP_FROM } from "../data/blending";
 //   4:5   lights 0…110 · stage 240…888 · bench 888…972 · floor …1150 · caption 1150…1350
 export const bands = (width: number, height: number) => {
   const portrait = height > width;
+  // 9:16 is much taller than 4:5, so the 4:5 bench/floor land mid-frame. A dedicated tall
+  // band set drops the bench + floor into the bottom third and stands the shelf on the
+  // floor. Only 9:16 (h/w≈1.78) hits this; 4:5 (1.25) and 16:9 keep their own bands.
+  const tall = height / width >= 1.7;
+  if (tall)
+    return { stageTop: 240, stageBot: 1330, benchY: 1330, floorY: 1560, captionTop: 1560,
+        // compact shelf (same rung spacing as 16:9); its feet land on the cover's base line
+        shelfX: 892, shelfW: 150, shelfTop: 960, shelfH: 430, boardX: 24, boardW: 190, bannerTop: 132,
+        contentL: 120, contentR: 960 };
   return portrait
     ? { stageTop: 240, stageBot: 888, benchY: 888, floorY: 1150, captionTop: 1150,
         shelfX: 946, shelfW: 118, shelfTop: 330, shelfH: 300, boardX: 18, boardW: 176, bannerTop: 132,
@@ -41,7 +50,7 @@ export const CONSONANT = "#2979CF";
 const WOOD = "#C99B66";
 const WOOD_D = "#A87B48";
 
-export const WorkshopWorld: React.FC<{ dim?: number }> = ({ dim = 1 }) => {
+export const WorkshopWorld: React.FC<{ dim?: number; bare?: boolean }> = ({ dim = 1, bare = false }) => {
   const frame = useCurrentFrame();
   const { width, height, fps } = useVideoConfig();
   const t = frame / fps;
@@ -86,21 +95,30 @@ export const WorkshopWorld: React.FC<{ dim?: number }> = ({ dim = 1 }) => {
             <rect key={n} x={B.shelfX - 8} y={B.shelfTop + (B.shelfH / 3) * n - 16} width={B.shelfW + 16} height={16} rx={6} fill={WOOD} />
           ))}
 
-          {/* THE BENCH — warm wood, full width */}
-          <rect x={0} y={B.benchY} width={width} height={84} fill={WOOD} />
-          <rect x={0} y={B.benchY} width={width} height={12} rx={6} fill="#E2BB8B" />
-          {Array.from({ length: 6 }, (_, i) => (
-            <path key={i} d={`M${i * 340 + 60} ${B.benchY + 34} q 90 ${8 + (i % 3) * 4} 200 0`} fill="none" stroke={WOOD_D} strokeWidth={3} opacity={0.4} />
-          ))}
-          {/* legs + floor */}
-          {[140, 690, 1240, 1790].map((lx) => (
-            <rect key={lx} x={lx - 22} y={B.benchY + 84} width={44} height={height - B.benchY - 84} fill={WOOD_D} opacity={0.85} />
-          ))}
-          <rect x={0} y={B.floorY} width={width} height={height - B.floorY} fill="#EED9B8" opacity={0.6} />
+          {/* THE BENCH + floor + legs. A `bare` cover drops all of them so the ground is a
+              clean gradient (like the 16:9 thumb) — no mid-frame bench line and no separate
+              coffee-coloured floor band. The lesson keeps them; they carry the tally + bear. */}
+          {!bare && (
+            <>
+              <rect x={0} y={B.benchY} width={width} height={84} fill={WOOD} />
+              <rect x={0} y={B.benchY} width={width} height={12} rx={6} fill="#E2BB8B" />
+              {Array.from({ length: 6 }, (_, i) => (
+                <path key={i} d={`M${i * 340 + 60} ${B.benchY + 34} q 90 ${8 + (i % 3) * 4} 200 0`} fill="none" stroke={WOOD_D} strokeWidth={3} opacity={0.4} />
+              ))}
+              {[140, 690, 1240, 1790].map((lx) => (
+                <rect key={lx} x={lx - 22} y={B.benchY + 84} width={44} height={height - B.benchY - 84} fill={WOOD_D} opacity={0.85} />
+              ))}
+              <rect x={0} y={B.floorY} width={width} height={height - B.floorY} fill="#EED9B8" opacity={0.6} />
+            </>
+          )}
 
-          {/* rug, bottom-left */}
-          <ellipse cx={portrait ? 200 : 300} cy={B.floorY + 28} rx={portrait ? 180 : 250} ry={44} fill="#F6C9A0" opacity={0.7} />
-          <ellipse cx={portrait ? 200 : 300} cy={B.floorY + 28} rx={portrait ? 130 : 190} ry={32} fill="#F2B98A" opacity={0.6} />
+          {/* rug, bottom-left — the bear stands on it, so a `bare` cover (no bear) drops it too */}
+          {!bare && (
+            <>
+              <ellipse cx={portrait ? 200 : 300} cy={B.floorY + 28} rx={portrait ? 180 : 250} ry={44} fill="#F6C9A0" opacity={0.7} />
+              <ellipse cx={portrait ? 200 : 300} cy={B.floorY + 28} rx={portrait ? 130 : 190} ry={32} fill="#F2B98A" opacity={0.6} />
+            </>
+          )}
         </svg>
 
         {/* toys on the shelf, each with its own idle bob */}
@@ -137,16 +155,19 @@ export const WorkshopWorld: React.FC<{ dim?: number }> = ({ dim = 1 }) => {
           );
         })}
 
-        {/* the bear, watching from beside the bench */}
-        <Img
-          src={staticFile("mascot.png")}
-          style={{
-            // centred on the rug (rug ellipse cx=300, cy=1010), feet on its middle
-            position: "absolute", left: (portrait ? 200 : 300) - (portrait ? 66 : 84),
-            top: B.floorY + 23 - (portrait ? 152 : 193) + bob(frame, fps, 6, 2.4),
-            width: portrait ? 132 : 168, transform: `rotate(${wiggle(frame, fps, 1.6, 3)}deg)`, transformOrigin: "bottom center",
-          }}
-        />
+        {/* the bear, watching from beside the bench (a cover hides it via `bare` and
+            carries ONE big mascot in the corner instead — no two mascots) */}
+        {!bare && (
+          <Img
+            src={staticFile("mascot.png")}
+            style={{
+              // centred on the rug (rug ellipse cx=300, cy=1010), feet on its middle
+              position: "absolute", left: (portrait ? 200 : 300) - (portrait ? 66 : 84),
+              top: B.floorY + 23 - (portrait ? 152 : 193) + bob(frame, fps, 6, 2.4),
+              width: portrait ? 132 : 168, transform: `rotate(${wiggle(frame, fps, 1.6, 3)}deg)`, transformOrigin: "bottom center",
+            }}
+          />
+        )}
 
         {/* THE LEGEND — a little wooden sign on the left: red = vowel, blue = consonant.
             Appears when the narration teaches it (phrase 10) and stays for the whole

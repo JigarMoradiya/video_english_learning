@@ -1,16 +1,16 @@
 {
- "total": 194.597,
+ "total": 219.597,
  "marks": {
   "hook": 0.0,
   "idea": 5.62,
   "shortA": 37.208,
-  "shortE": 64.598,
-  "shortI": 89.328,
-  "shortO": 116.328,
-  "shortU": 141.238,
-  "wall": 165.338,
-  "quiz": 172.978,
-  "wrap": 182.138
+  "shortE": 69.598,
+  "shortI": 99.328,
+  "shortO": 131.328,
+  "shortU": 161.238,
+  "wall": 189.338,
+  "quiz": 196.978,
+  "wrap": 207.138
  },
  "clips": [
   {
@@ -103,14 +103,14 @@
   },
   {
    "src": "audio/cvc/03.mp3",
-   "start": 41.208,
+   "start": 42.208,
    "dur": 2.27,
    "kind": "run",
    "id": "03"
   },
   {
    "src": "audio/cvc/snd/h.mp3",
-   "start": 44.078,
+   "start": 45.078,
    "dur": 0.22,
    "kind": "sound",
    "word": "hat",
@@ -120,7 +120,7 @@
   },
   {
    "src": "audio/cvc/snd/a.mp3",
-   "start": 44.648,
+   "start": 45.648,
    "dur": 0.53,
    "kind": "sound",
    "word": "hat",
@@ -130,7 +130,7 @@
   },
   {
    "src": "audio/cvc/snd/t.mp3",
-   "start": 45.528,
+   "start": 46.528,
    "dur": 0.2,
    "kind": "sound",
    "word": "hat",
@@ -140,21 +140,21 @@
   },
   {
    "src": "audio/cvc/word/hat.mp3",
-   "start": 46.178,
+   "start": 47.178,
    "dur": 0.53,
    "kind": "word",
    "word": "hat"
   },
   {
    "src": "audio/cvc/04.mp3",
-   "start": 47.258,
+   "start": 49.258,
    "dur": 1.15,
    "kind": "run",
    "id": "04"
   },
   {
    "src": "audio/cvc/snd/m.mp3",
-   "start": 49.008,
+   "start": 51.008,
    "dur": 0.69,
    "kind": "sound",
    "word": "map",
@@ -164,7 +164,7 @@
   },
   {
    "src": "audio/cvc/snd/a.mp3",
-   "start": 50.048,
+   "start": 52.048,
    "dur": 0.53,
    "kind": "sound",
    "word": "map",
@@ -174,7 +174,7 @@
   },
   {
    "src": "audio/cvc/snd/p.mp3",
-   "start": 50.928,
+   "start": 52.928,
    "dur": 0.22,
    "kind": "sound",
    "word": "map",
@@ -184,21 +184,21 @@
   },
   {
    "src": "audio/cvc/word/map.mp3",
-   "start": 51.598,
+   "start": 53.598,
    "dur": 0.54,
    "kind": "word",
    "word": "map"
   },
   {
    "src": "audio/cvc/05a.mp3",
-   "start": 52.688,
+   "start": 55.688,
    "dur": 2.4,
    "kind": "run",
    "id": "05a"
   },
   {
    "src": "audio/cvc/snd/f.mp3",
-   "start": 55.688,
+   "start": 58.688,
    "dur": 0.31,
    "kind": "sound",
    "word": "fan",
@@ -208,7 +208,7 @@
   },
   {
    "src": "audio/cvc/snd/a.mp3",
-   "start": 56.348,
+   "start": 59.348,
    "dur": 0.53,
    "kind": "sound",
    "word": "fan",
@@ -218,7 +218,7 @@
   },
   {
    "src": "audio/cvc/snd/n.mp3",
-   "start": 57.228,
+   "start": 60.228,
    "dur": 0.28,
    "kind": "sound",
    "word": "fan",
@@ -228,14 +228,14 @@
   },
   {
    "src": "audio/cvc/word/fan.mp3",
-   "start": 57.958,
+   "start": 60.958,
    "dur": 0.61,
    "kind": "word",
    "word": "fan"
   },
   {
    "src": "audio/cvc/snd/b.mp3",
-   "start": 59.118,
+   "start": 63.118,
    "dur": 0.22,
    "kind": "sound",
    "word": "bat",
@@ -245,7 +245,7 @@
   },
   {
    "src": "audio/cvc/snd/a.mp3",
-   "start": 59.688,
+   "start": 63.688,
    "dur": 0.53,
    "kind": "sound",
    "word": "bat",
@@ -255,7 +255,7 @@
   },
   {
    "src": "audio/cvc/snd/t.mp3",
-   "start": 60.568,
+   "start": 64.568,
    "dur": 0.2,
    "kind": "sound",
    "word": "bat",
@@ -265,21 +265,21 @@
   },
   {
    "src": "audio/cvc/word/bat.mp3",
-   "start": 61.218,
+   "start": 65.218,
    "dur": 0.43,
    "kind": "word",
    "word": "bat"
   },
   {
    "src": "audio/cvc/05b.mp3",
-   "start": 62.198,
+   "start": 67.198,
    "dur": 2.4,
    "kind": "run",
    "id": "05b"
   },
   {
    "src": "audio/cvc/snd/h.mp3",
-   "start": 65.498,
+   "start": 70.498,
    "dur": 0.22,
    "kind": "sound",
    "word": "hen",
@@ -289,7 +289,7 @@
   },
   {
    "src": "audio/cvc/snd/e.mp3",
-   "start": 66.068,
+   "start": 71.068,
    "dur": 0.24,
    "kind": "sound",
    "word": "hen",
@@ -299,7 +299,7 @@
   },
   {
    "src": "audio/cvc/snd/n.mp3",
-   "start": 66.658,
+   "start": 71.658,
    "dur": 0.28,
    "kind": "sound",
    "word": "hen",
@@ -309,14 +309,14 @@
   },
   {
    "src": "audio/cvc/word/hen.mp3",
-   "start": 67.388,
+   "start": 72.388,
    "dur": 0.5,
    "kind": "word",
    "word": "hen"
   },
   {
    "src": "audio/cvc/snd/p.mp3",
-   "start": 68.438,
+   "start": 74.438,
    "dur": 0.22,
    "kind": "sound",
    "word": "pen",
@@ -326,7 +326,7 @@
   },
   {
    "src": "audio/cvc/snd/e.mp3",
-   "start": 69.008,
+   "start": 75.008,
    "dur": 0.24,
    "kind": "sound",
    "word": "pen",
@@ -336,7 +336,7 @@
   },
   {
    "src": "audio/cvc/snd/n.mp3",
-   "start": 69.598,
+   "start": 75.598,
    "dur": 0.28,
    "kind": "sound",
    "word": "pen",
@@ -346,21 +346,21 @@
   },
   {
    "src": "audio/cvc/word/pen.mp3",
-   "start": 70.328,
+   "start": 76.328,
    "dur": 0.45,
    "kind": "word",
    "word": "pen"
   },
   {
    "src": "audio/cvc/06.mp3",
-   "start": 71.328,
+   "start": 78.328,
    "dur": 4.03,
    "kind": "run",
    "id": "06"
   },
   {
    "src": "audio/cvc/snd/b.mp3",
-   "start": 76.958,
+   "start": 83.958,
    "dur": 0.22,
    "kind": "sound",
    "word": "bed",
@@ -370,7 +370,7 @@
   },
   {
    "src": "audio/cvc/snd/e.mp3",
-   "start": 77.528,
+   "start": 84.528,
    "dur": 0.24,
    "kind": "sound",
    "word": "bed",
@@ -380,7 +380,7 @@
   },
   {
    "src": "audio/cvc/snd/d.mp3",
-   "start": 78.118,
+   "start": 85.118,
    "dur": 0.27,
    "kind": "sound",
    "word": "bed",
@@ -390,14 +390,14 @@
   },
   {
    "src": "audio/cvc/word/bed.mp3",
-   "start": 78.838,
+   "start": 85.838,
    "dur": 0.36,
    "kind": "word",
    "word": "bed"
   },
   {
    "src": "audio/cvc/snd/n.mp3",
-   "start": 79.748,
+   "start": 87.748,
    "dur": 0.28,
    "kind": "sound",
    "word": "net",
@@ -407,7 +407,7 @@
   },
   {
    "src": "audio/cvc/snd/e.mp3",
-   "start": 80.378,
+   "start": 88.378,
    "dur": 0.24,
    "kind": "sound",
    "word": "net",
@@ -417,7 +417,7 @@
   },
   {
    "src": "audio/cvc/snd/t.mp3",
-   "start": 80.968,
+   "start": 88.968,
    "dur": 0.2,
    "kind": "sound",
    "word": "net",
@@ -427,14 +427,14 @@
   },
   {
    "src": "audio/cvc/word/net.mp3",
-   "start": 81.618,
+   "start": 89.618,
    "dur": 0.48,
    "kind": "word",
    "word": "net"
   },
   {
    "src": "audio/cvc/snd/t.mp3",
-   "start": 82.648,
+   "start": 91.648,
    "dur": 0.2,
    "kind": "sound",
    "word": "ten",
@@ -444,7 +444,7 @@
   },
   {
    "src": "audio/cvc/snd/e.mp3",
-   "start": 83.198,
+   "start": 92.198,
    "dur": 0.24,
    "kind": "sound",
    "word": "ten",
@@ -454,7 +454,7 @@
   },
   {
    "src": "audio/cvc/snd/n.mp3",
-   "start": 83.788,
+   "start": 92.788,
    "dur": 0.28,
    "kind": "sound",
    "word": "ten",
@@ -464,21 +464,21 @@
   },
   {
    "src": "audio/cvc/word/ten.mp3",
-   "start": 84.518,
+   "start": 93.518,
    "dur": 0.54,
    "kind": "word",
    "word": "ten"
   },
   {
    "src": "audio/cvc/07.mp3",
-   "start": 85.608,
+   "start": 95.608,
    "dur": 3.72,
    "kind": "run",
    "id": "07"
   },
   {
    "src": "audio/cvc/snd/p.mp3",
-   "start": 90.228,
+   "start": 100.228,
    "dur": 0.22,
    "kind": "sound",
    "word": "pig",
@@ -488,7 +488,7 @@
   },
   {
    "src": "audio/cvc/snd/i.mp3",
-   "start": 90.798,
+   "start": 100.798,
    "dur": 0.25,
    "kind": "sound",
    "word": "pig",
@@ -498,7 +498,7 @@
   },
   {
    "src": "audio/cvc/snd/g.mp3",
-   "start": 91.398,
+   "start": 101.398,
    "dur": 0.22,
    "kind": "sound",
    "word": "pig",
@@ -508,14 +508,14 @@
   },
   {
    "src": "audio/cvc/word/pig.mp3",
-   "start": 92.068,
+   "start": 102.068,
    "dur": 0.5,
    "kind": "word",
    "word": "pig"
   },
   {
    "src": "audio/cvc/snd/b.mp3",
-   "start": 93.118,
+   "start": 104.118,
    "dur": 0.22,
    "kind": "sound",
    "word": "big",
@@ -525,7 +525,7 @@
   },
   {
    "src": "audio/cvc/snd/i.mp3",
-   "start": 93.688,
+   "start": 104.688,
    "dur": 0.25,
    "kind": "sound",
    "word": "big",
@@ -535,7 +535,7 @@
   },
   {
    "src": "audio/cvc/snd/g.mp3",
-   "start": 94.288,
+   "start": 105.288,
    "dur": 0.22,
    "kind": "sound",
    "word": "big",
@@ -545,21 +545,21 @@
   },
   {
    "src": "audio/cvc/word/big.mp3",
-   "start": 94.958,
+   "start": 105.958,
    "dur": 0.42,
    "kind": "word",
    "word": "big"
   },
   {
    "src": "audio/cvc/08.mp3",
-   "start": 95.928,
+   "start": 107.928,
    "dur": 5.04,
    "kind": "run",
    "id": "08"
   },
   {
    "src": "audio/cvc/snd/s.mp3",
-   "start": 101.568,
+   "start": 113.568,
    "dur": 0.47,
    "kind": "sound",
    "word": "six",
@@ -569,7 +569,7 @@
   },
   {
    "src": "audio/cvc/snd/i.mp3",
-   "start": 102.388,
+   "start": 114.388,
    "dur": 0.25,
    "kind": "sound",
    "word": "six",
@@ -579,7 +579,7 @@
   },
   {
    "src": "audio/cvc/snd/x.mp3",
-   "start": 102.988,
+   "start": 114.988,
    "dur": 0.27,
    "kind": "sound",
    "word": "six",
@@ -589,14 +589,14 @@
   },
   {
    "src": "audio/cvc/word/six.mp3",
-   "start": 103.708,
+   "start": 115.708,
    "dur": 0.53,
    "kind": "word",
    "word": "six"
   },
   {
    "src": "audio/cvc/snd/l.mp3",
-   "start": 104.788,
+   "start": 117.788,
    "dur": 0.36,
    "kind": "sound",
    "word": "lip",
@@ -606,7 +606,7 @@
   },
   {
    "src": "audio/cvc/snd/i.mp3",
-   "start": 105.498,
+   "start": 118.498,
    "dur": 0.25,
    "kind": "sound",
    "word": "lip",
@@ -616,7 +616,7 @@
   },
   {
    "src": "audio/cvc/snd/p.mp3",
-   "start": 106.098,
+   "start": 119.098,
    "dur": 0.22,
    "kind": "sound",
    "word": "lip",
@@ -626,14 +626,14 @@
   },
   {
    "src": "audio/cvc/word/lip.mp3",
-   "start": 106.768,
+   "start": 119.768,
    "dur": 0.4,
    "kind": "word",
    "word": "lip"
   },
   {
    "src": "audio/cvc/snd/w.mp3",
-   "start": 107.718,
+   "start": 121.718,
    "dur": 0.26,
    "kind": "sound",
    "word": "win",
@@ -643,7 +643,7 @@
   },
   {
    "src": "audio/cvc/snd/i.mp3",
-   "start": 108.328,
+   "start": 122.328,
    "dur": 0.25,
    "kind": "sound",
    "word": "win",
@@ -653,7 +653,7 @@
   },
   {
    "src": "audio/cvc/snd/n.mp3",
-   "start": 108.928,
+   "start": 122.928,
    "dur": 0.28,
    "kind": "sound",
    "word": "win",
@@ -663,21 +663,21 @@
   },
   {
    "src": "audio/cvc/word/win.mp3",
-   "start": 109.658,
+   "start": 123.658,
    "dur": 0.64,
    "kind": "word",
    "word": "win"
   },
   {
    "src": "audio/cvc/09.mp3",
-   "start": 110.848,
+   "start": 125.848,
    "dur": 5.48,
    "kind": "run",
    "id": "09"
   },
   {
    "src": "audio/cvc/snd/d.mp3",
-   "start": 117.228,
+   "start": 132.228,
    "dur": 0.27,
    "kind": "sound",
    "word": "dog",
@@ -687,7 +687,7 @@
   },
   {
    "src": "audio/cvc/snd/o.mp3",
-   "start": 117.848,
+   "start": 132.848,
    "dur": 0.31,
    "kind": "sound",
    "word": "dog",
@@ -697,7 +697,7 @@
   },
   {
    "src": "audio/cvc/snd/g.mp3",
-   "start": 118.508,
+   "start": 133.508,
    "dur": 0.22,
    "kind": "sound",
    "word": "dog",
@@ -707,14 +707,14 @@
   },
   {
    "src": "audio/cvc/word/dog.mp3",
-   "start": 119.178,
+   "start": 134.178,
    "dur": 0.44,
    "kind": "word",
    "word": "dog"
   },
   {
    "src": "audio/cvc/snd/p.mp3",
-   "start": 120.168,
+   "start": 136.168,
    "dur": 0.22,
    "kind": "sound",
    "word": "pot",
@@ -724,7 +724,7 @@
   },
   {
    "src": "audio/cvc/snd/o.mp3",
-   "start": 120.738,
+   "start": 136.738,
    "dur": 0.31,
    "kind": "sound",
    "word": "pot",
@@ -734,7 +734,7 @@
   },
   {
    "src": "audio/cvc/snd/t.mp3",
-   "start": 121.398,
+   "start": 137.398,
    "dur": 0.2,
    "kind": "sound",
    "word": "pot",
@@ -744,14 +744,14 @@
   },
   {
    "src": "audio/cvc/word/pot.mp3",
-   "start": 122.048,
+   "start": 138.048,
    "dur": 0.47,
    "kind": "word",
    "word": "pot"
   },
   {
    "src": "audio/cvc/snd/h.mp3",
-   "start": 123.068,
+   "start": 140.068,
    "dur": 0.22,
    "kind": "sound",
    "word": "hot",
@@ -761,7 +761,7 @@
   },
   {
    "src": "audio/cvc/snd/o.mp3",
-   "start": 123.638,
+   "start": 140.638,
    "dur": 0.31,
    "kind": "sound",
    "word": "hot",
@@ -771,7 +771,7 @@
   },
   {
    "src": "audio/cvc/snd/t.mp3",
-   "start": 124.298,
+   "start": 141.298,
    "dur": 0.2,
    "kind": "sound",
    "word": "hot",
@@ -781,14 +781,14 @@
   },
   {
    "src": "audio/cvc/word/hot.mp3",
-   "start": 124.948,
+   "start": 141.948,
    "dur": 0.49,
    "kind": "word",
    "word": "hot"
   },
   {
    "src": "audio/cvc/snd/b.mp3",
-   "start": 125.988,
+   "start": 143.988,
    "dur": 0.22,
    "kind": "sound",
    "word": "box",
@@ -798,7 +798,7 @@
   },
   {
    "src": "audio/cvc/snd/o.mp3",
-   "start": 126.558,
+   "start": 144.558,
    "dur": 0.31,
    "kind": "sound",
    "word": "box",
@@ -808,7 +808,7 @@
   },
   {
    "src": "audio/cvc/snd/x.mp3",
-   "start": 127.218,
+   "start": 145.218,
    "dur": 0.27,
    "kind": "sound",
    "word": "box",
@@ -818,14 +818,14 @@
   },
   {
    "src": "audio/cvc/word/box.mp3",
-   "start": 127.938,
+   "start": 145.938,
    "dur": 0.6,
    "kind": "word",
    "word": "box"
   },
   {
    "src": "audio/cvc/snd/f.mp3",
-   "start": 129.088,
+   "start": 148.088,
    "dur": 0.31,
    "kind": "sound",
    "word": "fox",
@@ -835,7 +835,7 @@
   },
   {
    "src": "audio/cvc/snd/o.mp3",
-   "start": 129.748,
+   "start": 148.748,
    "dur": 0.31,
    "kind": "sound",
    "word": "fox",
@@ -845,7 +845,7 @@
   },
   {
    "src": "audio/cvc/snd/x.mp3",
-   "start": 130.408,
+   "start": 149.408,
    "dur": 0.27,
    "kind": "sound",
    "word": "fox",
@@ -855,21 +855,21 @@
   },
   {
    "src": "audio/cvc/word/fox.mp3",
-   "start": 131.128,
+   "start": 150.128,
    "dur": 0.61,
    "kind": "word",
    "word": "fox"
   },
   {
    "src": "audio/cvc/10.mp3",
-   "start": 132.288,
+   "start": 152.288,
    "dur": 8.95,
    "kind": "run",
    "id": "10"
   },
   {
    "src": "audio/cvc/snd/s.mp3",
-   "start": 142.138,
+   "start": 162.138,
    "dur": 0.47,
    "kind": "sound",
    "word": "sun",
@@ -879,7 +879,7 @@
   },
   {
    "src": "audio/cvc/snd/u.mp3",
-   "start": 142.958,
+   "start": 162.958,
    "dur": 0.24,
    "kind": "sound",
    "word": "sun",
@@ -889,7 +889,7 @@
   },
   {
    "src": "audio/cvc/snd/n.mp3",
-   "start": 143.548,
+   "start": 163.548,
    "dur": 0.28,
    "kind": "sound",
    "word": "sun",
@@ -899,14 +899,14 @@
   },
   {
    "src": "audio/cvc/word/sun.mp3",
-   "start": 144.278,
+   "start": 164.278,
    "dur": 0.56,
    "kind": "word",
    "word": "sun"
   },
   {
    "src": "audio/cvc/snd/b.mp3",
-   "start": 145.388,
+   "start": 166.388,
    "dur": 0.22,
    "kind": "sound",
    "word": "bug",
@@ -916,7 +916,7 @@
   },
   {
    "src": "audio/cvc/snd/u.mp3",
-   "start": 145.958,
+   "start": 166.958,
    "dur": 0.24,
    "kind": "sound",
    "word": "bug",
@@ -926,7 +926,7 @@
   },
   {
    "src": "audio/cvc/snd/g.mp3",
-   "start": 146.548,
+   "start": 167.548,
    "dur": 0.22,
    "kind": "sound",
    "word": "bug",
@@ -936,21 +936,21 @@
   },
   {
    "src": "audio/cvc/word/bug.mp3",
-   "start": 147.218,
+   "start": 168.218,
    "dur": 0.48,
    "kind": "word",
    "word": "bug"
   },
   {
    "src": "audio/cvc/11.mp3",
-   "start": 148.248,
+   "start": 170.248,
    "dur": 2.84,
    "kind": "run",
    "id": "11"
   },
   {
    "src": "audio/cvc/snd/r.mp3",
-   "start": 153.688,
+   "start": 175.688,
    "dur": 0.33,
    "kind": "sound",
    "word": "run",
@@ -960,7 +960,7 @@
   },
   {
    "src": "audio/cvc/snd/u.mp3",
-   "start": 154.368,
+   "start": 176.368,
    "dur": 0.24,
    "kind": "sound",
    "word": "run",
@@ -970,7 +970,7 @@
   },
   {
    "src": "audio/cvc/snd/n.mp3",
-   "start": 154.958,
+   "start": 176.958,
    "dur": 0.28,
    "kind": "sound",
    "word": "run",
@@ -980,21 +980,21 @@
   },
   {
    "src": "audio/cvc/word/run.mp3",
-   "start": 155.688,
+   "start": 177.688,
    "dur": 0.52,
    "kind": "word",
    "word": "run"
   },
   {
    "src": "audio/cvc/12.mp3",
-   "start": 156.758,
+   "start": 179.758,
    "dur": 2.83,
    "kind": "run",
    "id": "12"
   },
   {
    "src": "audio/cvc/snd/c.mp3",
-   "start": 160.188,
+   "start": 183.188,
    "dur": 0.21,
    "kind": "sound",
    "word": "cup",
@@ -1004,7 +1004,7 @@
   },
   {
    "src": "audio/cvc/snd/u.mp3",
-   "start": 160.748,
+   "start": 183.748,
    "dur": 0.24,
    "kind": "sound",
    "word": "cup",
@@ -1014,7 +1014,7 @@
   },
   {
    "src": "audio/cvc/snd/p.mp3",
-   "start": 161.338,
+   "start": 184.338,
    "dur": 0.22,
    "kind": "sound",
    "word": "cup",
@@ -1024,14 +1024,14 @@
   },
   {
    "src": "audio/cvc/word/cup.mp3",
-   "start": 162.008,
+   "start": 185.008,
    "dur": 0.42,
    "kind": "word",
    "word": "cup"
   },
   {
    "src": "audio/cvc/snd/j.mp3",
-   "start": 162.978,
+   "start": 186.978,
    "dur": 0.29,
    "kind": "sound",
    "word": "jug",
@@ -1041,7 +1041,7 @@
   },
   {
    "src": "audio/cvc/snd/u.mp3",
-   "start": 163.618,
+   "start": 187.618,
    "dur": 0.24,
    "kind": "sound",
    "word": "jug",
@@ -1051,7 +1051,7 @@
   },
   {
    "src": "audio/cvc/snd/g.mp3",
-   "start": 164.208,
+   "start": 188.208,
    "dur": 0.22,
    "kind": "sound",
    "word": "jug",
@@ -1061,28 +1061,28 @@
   },
   {
    "src": "audio/cvc/word/jug.mp3",
-   "start": 164.878,
+   "start": 188.878,
    "dur": 0.46,
    "kind": "word",
    "word": "jug"
   },
   {
    "src": "audio/cvc/13a.mp3",
-   "start": 166.238,
+   "start": 190.238,
    "dur": 1.35,
    "kind": "run",
    "id": "13a"
   },
   {
    "src": "audio/cvc/13b.mp3",
-   "start": 168.188,
+   "start": 192.188,
    "dur": 4.79,
    "kind": "run",
    "id": "13b"
   },
   {
    "src": "audio/cvc/snd/d.mp3",
-   "start": 173.878,
+   "start": 197.878,
    "dur": 0.27,
    "kind": "sound",
    "word": "dog",
@@ -1092,7 +1092,7 @@
   },
   {
    "src": "audio/cvc/snd/g.mp3",
-   "start": 175.048,
+   "start": 199.048,
    "dur": 0.22,
    "kind": "sound",
    "word": "dog",
@@ -1102,14 +1102,14 @@
   },
   {
    "src": "audio/cvc/14.mp3",
-   "start": 175.818,
+   "start": 200.818,
    "dur": 2.02,
    "kind": "run",
    "id": "14"
   },
   {
    "src": "audio/cvc/snd/o.mp3",
-   "start": 180.938,
+   "start": 205.938,
    "dur": 0.31,
    "kind": "sound",
    "word": "dog",
@@ -1119,14 +1119,14 @@
   },
   {
    "src": "audio/cvc/word/dog.mp3",
-   "start": 181.698,
+   "start": 206.698,
    "dur": 0.44,
    "kind": "word",
    "word": "dog"
   },
   {
    "src": "audio/cvc/15.mp3",
-   "start": 183.038,
+   "start": 208.038,
    "dur": 11.559,
    "kind": "run",
    "id": "15"
