@@ -325,8 +325,10 @@ const IdeaScene: React.FC = () => {
   return (
     <div style={{ position: "absolute", left: 0, top: B.stageTop, width, height: B.stageBot - B.stageTop,
                   display: "flex", alignItems: "center", justifyContent: "center" }}>
-      {/* 2 · the sandwich they just read, pulsing */}
-      {!showBoards && (
+      {/* 2 · the sandwich they just read, pulsing. Keyed on line 3, NOT on showBoards:
+             when line 13 was handed to <VowelCard/> the boards went off, which switched
+             this back ON and put a bread slice behind the big red `a`. */}
+      {!at(3) && (
         <div style={{ transform: `scale(${pulse(since(2), fps, 0.06, 1.1)}) translateY(${bob(frame, fps, 4.4, 3)}px)` }}>
           <MergedSandwich word="cat" size={SIZE} lit />
         </div>
@@ -443,7 +445,10 @@ const VowelCard: React.FC = () => {
   // the group ~400px tall against the boards' 250–300, and that extra height pushed the
   // card down through the counter, over the sandwich plate and the cones standing on it.
   // The badge is an overlay now, so it costs no layout height.
-  const size = g ? 250 : 300;
+  // ONE size for all five. `a` is announced before the word list exists, so following the
+  // boards' own rule made it 300 against the others' 250 — five announcements that should
+  // be identical looked like two different cards.
+  const size = 264;
   return (
     <div style={{ position: "absolute", left: g ? 64 + LIST_W : 0, top: B.stageTop,
                   width: g ? B.menuX - (64 + LIST_W) : width, height: B.stageBot - B.stageTop,
