@@ -336,7 +336,7 @@ const WordList: React.FC = () => {
         position: "absolute", left: 48, top: B.stageTop + 26, width: LIST_W,
         height: B.counterY - B.stageTop - 40,
         display: "flex", flexDirection: "column", justifyContent: "center", gap: 14,
-        padding: "18px 24px", boxSizing: "border-box",
+        padding: "18px 24px 34px", boxSizing: "border-box",
         // its own board, like the menu opposite — the chips were floating over the jar
         // shelf and the bread basket
         background: "#FFFDF7", borderRadius: 22, border: "8px solid #C98A47",
@@ -510,7 +510,7 @@ export const CvcReel: React.FC = () => {
         <QuizOptions />
         <FoundConfetti />
         <Captions track={CAPTIONS} fontSize={50} bottom={44} />
-        <Watermark corner="tl" widthFrac={0.065} opacity={0.45} pad={26} />
+        <Watermark corner="br" widthFrac={0.075} opacity={0.5} pad={34} />
       </Sequence>
 
       <Sequence from={DL_FROM}>

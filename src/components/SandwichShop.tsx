@@ -97,32 +97,32 @@ export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroup
           ))}
           <rect x={0} y={B.floorY} width={width} height={height - B.floorY} fill="#E8D6BA" />
 
+          {/* Counter dressing. These used to be WALL furniture in the left margin — a jar
+              shelf and a basket at x40..240 — which is exactly the column the word list
+              occupies, so they poked out from behind its board. They sit ON the counter
+              now, below the list and clear of the caption. */}
           {!portrait && (
-            <>
-              {/* left shelf of jars — pickles, sauce, olives */}
-              <rect x={B.jarX - 8} y={392} width={196} height={10} rx={5} fill={WOOD_D} />
+            <g>
               {[
-                { x: 24, h: 96, c: "#7FB069", cap: "#4E7A3F" },
-                { x: 88, h: 78, c: "#E2574C", cap: "#B23A31" },
-                { x: 146, h: 88, c: "#8E7CC3", cap: "#5E4E8C" },
+                { x: width * 0.755, h: 54, c: "#7FB069", cap: "#4E7A3F" },
+                { x: width * 0.785, h: 44, c: "#E2574C", cap: "#B23A31" },
+                { x: width * 0.811, h: 50, c: "#8E7CC3", cap: "#5E4E8C" },
               ].map((j, i) => (
                 <g key={i}>
-                  <rect x={B.jarX + j.x} y={392 - j.h} width={44} height={j.h} rx={9} fill={j.c} opacity={0.85} />
-                  <rect x={B.jarX + j.x} y={392 - j.h} width={44} height={j.h} rx={9} fill="none" stroke="#FFFFFF" strokeWidth={3} opacity={0.5} />
-                  <rect x={B.jarX + j.x - 3} y={392 - j.h - 15} width={50} height={16} rx={5} fill={j.cap} />
+                  <rect x={j.x} y={B.counterY + 6 - j.h} width={30} height={j.h} rx={7} fill={j.c} opacity={0.9} />
+                  <rect x={j.x} y={B.counterY + 6 - j.h} width={30} height={j.h} rx={7} fill="none" stroke="#FFFFFF" strokeWidth={2.5} opacity={0.55} />
+                  <rect x={j.x - 2} y={B.counterY - 6 - j.h} width={34} height={12} rx={4} fill={j.cap} />
                 </g>
               ))}
-
-              {/* a bread basket on the counter, left */}
-              <g transform={`translate(${B.jarX + 46} ${B.counterY - 4})`}>
-                <path d="M-64 0 q 64 34 128 0 l -14 -44 l -100 0 z" fill="#C98A47" />
-                {[-38, -8, 22].map((dx, i) => (
-                  <ellipse key={i} cx={dx} cy={-52 + (i % 2) * 6} rx={30} ry={17}
-                           fill="#E8B96B" stroke="#C99A4B" strokeWidth={3}
-                           transform={`rotate(${i * 9 - 9} ${dx} ${-52})`} />
+              <g transform={`translate(${width * 0.42} ${B.counterY + 6})`}>
+                <path d="M-52 0 q 52 26 104 0 l -11 -34 l -82 0 z" fill="#C98A47" />
+                {[-30, -6, 18].map((dx, i) => (
+                  <ellipse key={i} cx={dx} cy={-40 + (i % 2) * 5} rx={24} ry={13}
+                           fill="#E8B96B" stroke="#C99A4B" strokeWidth={2.5}
+                           transform={`rotate(${i * 9 - 9} ${dx} ${-40})`} />
                 ))}
               </g>
-            </>
+            </g>
           )}
         </svg>
 
