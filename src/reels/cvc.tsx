@@ -235,22 +235,20 @@ const IdeaScene: React.FC = () => {
             const dim = (vowelOnly && !vowel) || (consOnly && vowel);
             return (
               <div key={i} style={{
-                display: "flex", flexDirection: "column", alignItems: "center", gap: 14,
+                display: "flex", flexDirection: "column", alignItems: "center", gap: 50,
                 transform: `scale(${s}) translateY(${(midLift && vowel ? -22 : 0) + bob(frame, fps, 4, 2.4, i)}px)`,
               }}>
-                {labels && (
-                  <div style={{ fontSize: 40, fontWeight: 800, color: vowel ? VOWEL : CONSONANT,
-                                opacity: interpolate(since(9) - i * 8, [0, 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
-                    {vowel ? "V" : "C"}
-                  </div>
-                )}
+                <div style={{ height: 52, fontSize: 46, fontWeight: 800, lineHeight: 1,
+                              color: vowel ? VOWEL : CONSONANT,
+                              opacity: labels ? interpolate(since(9) - i * 8, [0, 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0 }}>
+                  {vowel ? "V" : "C"}
+                </div>
                 <LetterBoard letter={ch} vowel={vowel} size={SIZE} lit={lit} dim={dim} />
-                {(vowelOnly || consOnly) && (
-                  <div style={{ fontSize: 30, fontWeight: 800, color: vowel ? VOWEL : CONSONANT,
-                                opacity: (vowelOnly && vowel) || (consOnly && !vowel) ? 1 : 0 }}>
-                    {vowel ? "vowel" : "consonant"}
-                  </div>
-                )}
+                <div style={{ height: 40, fontSize: 34, fontWeight: 800, lineHeight: 1,
+                              color: vowel ? VOWEL : CONSONANT,
+                              opacity: (vowelOnly && vowel) || (consOnly && !vowel) ? 1 : 0 }}>
+                  {vowel ? "vowel" : "consonant"}
+                </div>
               </div>
             );
           })}
