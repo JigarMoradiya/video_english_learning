@@ -41,6 +41,8 @@ import { ThumbBlendingPortrait } from "../thumbs/blending_thumb_portrait";
 import { ThumbBlendingPortraitNew } from "../thumbs/blending_thumb_portrait_new";
 import { ThumbShortVowels } from "../thumbs/shortvowels_thumb";
 import { ThumbLettersPhonics } from "../thumbs/letters_phonics_thumb";
+import { ThumbAlphabetPlaylist } from "../thumbs/alphabet_playlist_thumb";
+import { ThumbLearnToRead } from "../thumbs/learn_to_read_thumb";
 import { ThumbShortVowelsPortrait } from "../thumbs/shortvowels_thumb_portrait";
 import { ThumbLettersPhonicsPortrait } from "../thumbs/letters_phonics_thumb_portrait";
 import { PostQuizQ } from "../thumbs/quiz_post";
@@ -146,6 +148,10 @@ export const REELS: ReelEntry[] = [
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)
   { id: "thumb-short-vowels", component: ThumbShortVowels, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-letters-phonics", component: ThumbLettersPhonics, durationInFrames: 1, width: 1280, height: 720 },
+  // A–Z Letters PLAYLIST cover (collection: A·B·C…Z + 26-strip).
+  { id: "thumb-alphabet-az", component: ThumbAlphabetPlaylist, durationInFrames: 1, width: 1280, height: 720 },
+  // Curriculum-spine PLAYLIST cover ("Learn to Read — Step by Step": 5-step staircase).
+  { id: "thumb-learn-to-read", component: ThumbLearnToRead, durationInFrames: 1, width: 1280, height: 720 },
   // Facebook shows a portrait crop even for a landscape video, so the 16:9 thumbnail
   // loses the mascot and the logo at the edges. This is the tall version.
   { id: "thumb-short-vowels-9x16", component: ThumbShortVowelsPortrait, durationInFrames: 1, width: 1080, height: 1920 },

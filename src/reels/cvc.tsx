@@ -42,20 +42,42 @@ interface Build { word: string; sounds: Clip[]; wordClip: Clip; from: number; to
 const BUILDS: Build[] = (() => {
   const out: Build[] = [];
   let pending: Clip[] = [];
+  let prevEnd = 0;
+  let prevRunStart = 0;
   for (const c of CLIPS) {
     if (c.kind === "sound") pending.push(c);
     else if (c.kind === "word") {
+      const firstSound = pending[0]?.start ?? c.start;
+      // A build normally arrives HOLD_IN before its first sound. But where a LONG gap
+      // precedes it — the child's turn, "This one's yours. Sound it out." + 2s of silence
+      // — the boards must already be WAITING, or the child is asked to sound out a word
+      // that is not on screen yet and the previous word holds the frame instead.
+      const runway = firstSound - prevEnd;
       out.push({
         word: c.word!, sounds: pending, wordClip: c,
-        from: out.length === 0 ? 0 : f((pending[0]?.start ?? c.start)) - HOLD_IN,
+        from: out.length === 0 ? 0
+          // The child's turn — and ONLY that — pulls the boards back into the line before
+          // the silence, so they are up while the child is told to sound them out. Its
+          // runway is the 1.55s word gap PLUS a 2s pause; the threshold must sit above the
+          // word gap or EVERY build takes this branch and lands under the previous word's
+          // caption, which is exactly what put "p e n" on screen under "hen!".
+          : runway > 2.5 ? f(prevRunStart) + 20
+          : f(firstSound) - 12,
         to: f(c.start + c.dur),
       });
       pending = [];
-    } else if (c.kind === "run" && pending.length) {
-      // the quiz's two consonants, whose vowel never sounds
-      out.push({ word: pending[0].word!, sounds: pending, wordClip: null as unknown as Clip,
-                 from: f(pending[0].start - 0.5), to: f(pending[pending.length - 1].start + pending[pending.length - 1].dur) });
-      pending = [];
+      prevEnd = c.start + c.dur;
+    } else if (c.kind === "run") {
+      // the quiz's two consonants sound with no word after them — their build closes when
+      // the narrator's question arrives
+      if (pending.length) {
+        const last = pending[pending.length - 1];
+        out.push({ word: pending[0].word!, sounds: pending, wordClip: null as unknown as Clip,
+                   from: f(pending[0].start) - HOLD_IN, to: f(last.start + last.dur) });
+        pending = [];
+      }
+      prevEnd = c.start + c.dur;
+      prevRunStart = c.start;
     }
   }
   return out;
@@ -114,7 +136,8 @@ const Boards: React.FC = () => {
     : 0;
   const merged = hasWord && !quiz && frame >= wordAt;
 
-  const entrance = (i: number) => spring({ frame: frame - (b.from + 6 + i * 6), fps, config: { damping: 13 } });
+  const enterAt = (i: number) => spring({ frame: frame - (b.from + i * 4), fps, config: { damping: 13 } });
+  const entrance = (i: number) => 0.72 + 0.28 * enterAt(i);
 
   return (
     <>
@@ -263,7 +286,7 @@ const IdeaScene: React.FC = () => {
         <div style={{ display: "flex", alignItems: "center", gap, transition: "none" }}>
           {"cat".split("").map((ch, i) => {
             const vowel = i === 1;
-            const s = split ? spring({ frame: since(3) - i * 3, fps, config: { damping: 12 } }) : 1;
+            const s = split ? 0.72 + 0.28 * spring({ frame: since(3) - i * 3, fps, config: { damping: 12 } }) : 1;
             const lit = pip === i || (midLift && vowel) || (vowelOnly && vowel) || (consOnly && !vowel) || spokenIdx === i;
             const dim = (vowelOnly && !vowel) || (consOnly && vowel);
             return (
@@ -288,16 +311,37 @@ const IdeaScene: React.FC = () => {
         </div>
       )}
 
-      {/* 12 · fifteen empty slots flick past — the promise of the lesson */}
+      {/* 12 · the twenty-five plates we are about to fill — the shop's own golden
+          word-plates, five rows behind their vowel badge. Grey dashed "?" boxes read as
+          a broken layout rather than a promise. */}
       {grid && (
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 14 }}>
-          {Array.from({ length: 25 }, (_, k) => (
-            <div key={k} style={{ transform: `scale(${spring({ frame: since(12) - k * 1.5, fps, config: { damping: 13 } })}) translateY(${bob(frame, fps, 4, 2.6, k)}px)` }}>
-              <LetterBoard letter="" vowel={false} size={76} blank />
-            </div>
-          ))}
-        </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            {GROUPS.map((g, r) => (
+              <div key={g.key} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <span style={{ fontSize: 36, width: 46, textAlign: "center",
+                               opacity: interpolate(since(12) - r * 5, [0, 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                  {g.emoji}
+                </span>
+                {Array.from({ length: 5 }, (_, c) => {
+                  const k = r * 5 + c;
+                  const e = spring({ frame: since(12) - k * 1.4, fps, config: { damping: 13 } });
+                  return (
+                    <div
+                      key={c}
+                      style={{
+                        width: 128, height: 52, borderRadius: 26,
+                        background: "linear-gradient(180deg,#F3C97E 0%,#DFA45A 100%)",
+                        boxShadow: "0 6px 0 #B9803C",
+                        transform: `scale(${0.7 + 0.3 * e}) translateY(${bob(frame, fps, 3.6, 5, k)}px)`,
+                        opacity: e,
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
@@ -404,7 +448,7 @@ const Wall: React.FC = () => {
           <span style={{ fontSize: 44, textAlign: "center" }}>{GROUPS[row].emoji}</span>
           {words.map((w, i) => {
             const k = row * 5 + i;
-            const s = spring({ frame: frame - from - k * 2, fps, config: { damping: 13 } });
+            const s = 0.7 + 0.3 * spring({ frame: frame - from - k * 2, fps, config: { damping: 13 } });
             return (
               <div key={w} style={{ transform: `scale(${s}) translateY(${bob(frame, fps, 3.4, 7, k)}px)` }}>
                 <MergedSandwich word={w} size={88} />

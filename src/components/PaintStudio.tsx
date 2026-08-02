@@ -56,7 +56,7 @@ const Splash: React.FC<{ x: number; y: number; r: number; color: string; op?: nu
 /** The studio wall: canvas texture, splashes in the margins, and a drip that never stops.
  * `splats={false}` keeps the texture but drops the blobs — a cover's badge corner has no
  * room for them, and a still can't explain a lone blob the way motion can. */
-export const StudioWall: React.FC<{ splats?: boolean }> = ({ splats = true }) => {
+export const StudioWall: React.FC<{ splats?: boolean; drips?: boolean }> = ({ splats = true, drips = true }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
@@ -80,8 +80,9 @@ export const StudioWall: React.FC<{ splats?: boolean }> = ({ splats = true }) =>
           <Splash key={i} x={s.x} y={s.y} r={s.r} color={letterColorFor(LETTERS[s.li].letter, LETTERS[s.li].imageColor)} />
         ))}
 
-        {/* a drip running down the left margin, looping — the wall's own motion */}
-        {[0, 1].map((k) => {
+        {/* a drip running down the left margin, looping — the wall's own motion. A still
+            cover can freeze one right under a corner element, so `drips={false}` drops them. */}
+        {drips && [0, 1].map((k) => {
           const span = 260;
           const p = ((t * 0.06 + k * 0.5) % 1);
           const y0 = 300 + k * 380;

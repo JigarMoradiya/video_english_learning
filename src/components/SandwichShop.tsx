@@ -114,12 +114,36 @@ export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroup
                   <rect x={j.x - 2} y={B.counterY - 6 - j.h} width={34} height={12} rx={4} fill={j.cap} />
                 </g>
               ))}
-              <g transform={`translate(${width * 0.42} ${B.counterY + 6})`}>
-                <path d="M-52 0 q 52 26 104 0 l -11 -34 l -82 0 z" fill="#C98A47" />
-                {[-30, -6, 18].map((dx, i) => (
-                  <ellipse key={i} cx={dx} cy={-40 + (i % 2) * 5} rx={24} ry={13}
-                           fill="#E8B96B" stroke="#C99A4B" strokeWidth={2.5}
-                           transform={`rotate(${i * 9 - 9} ${dx} ${-40})`} />
+              {/* a made sandwich on a board — the old basket was a blob with three
+                  ellipses on it and read as a smudge at any size */}
+              {/* ice-cream side of the shop: a cone rack, a sundae glass and a scoop tub.
+                  🍦 is already the Short-I badge, so the counter should sell it. */}
+              <g transform={`translate(${width * 0.60} ${B.counterY + 6})`}>
+                {[0, 1, 2].map((k) => (
+                  <g key={k} transform={`translate(${k * 30 - 30} 0)`}>
+                    <path d="M-11 -26 l 11 26 l 11 -26 z" fill="#E3B778" stroke="#C79A5C" strokeWidth={2} />
+                    <circle cx={0} cy={-32} r={12} fill={["#F7C6D9", "#FFF1C4", "#C6E7D4"][k]} />
+                    <circle cx={-4} cy={-36} r={7} fill={["#FBD9E6", "#FFF8DC", "#DAF0E4"][k]} />
+                    <circle cx={3} cy={-42} r={3.5} fill="#E2574C" />
+                  </g>
+                ))}
+              </g>
+              <g transform={`translate(${width * 0.665} ${B.counterY + 6})`}>
+                <path d="M-14 -30 l 28 0 l -6 30 l -16 0 z" fill="#DCEBF5" stroke="#B9D3E4" strokeWidth={2} />
+                <circle cx={-5} cy={-32} r={9} fill="#F7C6D9" />
+                <circle cx={6} cy={-35} r={8} fill="#FFF1C4" />
+                <circle cx={0} cy={-42} r={4} fill="#E2574C" />
+              </g>
+              <g transform={`translate(${width * 0.40} ${B.counterY + 6})`}>
+                <rect x={-62} y={-10} width={124} height={12} rx={6} fill="#A9762F" />
+                <rect x={-58} y={-14} width={116} height={6} rx={3} fill="#C89B57" />
+                {[0, 1].map((k) => (
+                  <g key={k} transform={`translate(${k ? 26 : -30} ${-18 - k * 2}) rotate(${k ? 6 : -5})`}>
+                    <path d="M-26 0 l 26 -34 l 26 34 z" fill="#F0C87E" stroke="#D9A85B" strokeWidth={2.5} strokeLinejoin="round" />
+                    <path d="M-19 -4 l 19 -25 l 19 25 z" fill="#F7E4B4" />
+                    <path d="M-17 -6 q 17 8 34 0" stroke="#7FB069" strokeWidth={4} fill="none" strokeLinecap="round" />
+                    <path d="M-14 -12 q 14 7 28 0" stroke="#E2574C" strokeWidth={4} fill="none" strokeLinecap="round" />
+                  </g>
                 ))}
               </g>
             </g>
