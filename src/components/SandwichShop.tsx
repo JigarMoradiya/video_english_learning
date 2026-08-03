@@ -166,9 +166,9 @@ export const ShopWorld: React.FC<{
           {(
             <g>
               {[
-                { x: width * 0.755, h: 54, c: "#7FB069", cap: "#4E7A3F" },
-                { x: width * 0.785, h: 44, c: "#E2574C", cap: "#B23A31" },
-                { x: width * 0.811, h: 50, c: "#8E7CC3", cap: "#5E4E8C" },
+                { x: width * (portrait ? 0.845 : 0.755), h: 54, c: "#7FB069", cap: "#4E7A3F" },
+                { x: width * (portrait ? 0.875 : 0.785), h: 44, c: "#E2574C", cap: "#B23A31" },
+                { x: width * (portrait ? 0.901 : 0.811), h: 50, c: "#8E7CC3", cap: "#5E4E8C" },
               ].map((j, i) => (
                 <g key={i}>
                   <rect x={j.x} y={B.counterY + 6 - j.h} width={30} height={j.h} rx={7} fill={j.c} opacity={0.9} />
@@ -196,7 +196,9 @@ export const ShopWorld: React.FC<{
                 <circle cx={6} cy={-35} r={8} fill="#FFF1C4" />
                 <circle cx={0} cy={-42} r={4} fill="#E2574C" />
               </g>
-              <g transform={`translate(${width * 0.40} ${B.counterY + 6})`}>
+              {/* portrait leaves the left end of the counter to the shopkeeper, so the
+                  plate and everything beside it start further along */}
+              <g transform={`translate(${width * (portrait ? 0.52 : 0.40)} ${B.counterY + 6})`}>
                 <rect x={-62} y={-10} width={124} height={12} rx={6} fill="#A9762F" />
                 <rect x={-58} y={-14} width={116} height={6} rx={3} fill="#C89B57" />
                 {[0, 1].map((k) => (

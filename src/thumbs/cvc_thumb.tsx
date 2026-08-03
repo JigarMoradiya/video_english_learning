@@ -35,20 +35,22 @@ const HeroRow: React.FC<{ W: number; top: number; scale: number }> = ({ W, top, 
   </div>
 );
 
-/** 9:16 — the same idea STACKED. A tall frame laid out as one wide row leaves two thick
- *  empty bands above and below it; down the frame, the three sounds becoming one word is
- *  also the direction the eye already travels. */
+/** 9:16 — the same three-into-one, turned down the frame instead of across it. The LETTERS
+ *  stay in one row, which is how a word is read; it is the ARROW that goes vertical, so the
+ *  row and the word it becomes stack instead of running off a 1080-wide frame. */
 const HeroColumn: React.FC<{ W: number; top: number; s: number }> = ({ W, top, s }) => (
   <div style={{ position: "absolute", left: 0, top, width: W, display: "flex",
-                flexDirection: "column", alignItems: "center", gap: 14 * s }}>
-    {WORD.split("").map((ch) => (
-      <LetterBoard key={ch} letter={ch} vowel={"aeiou".includes(ch)} size={148 * s} lit />
-    ))}
+                flexDirection: "column", alignItems: "center", gap: 12 * s }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 14 * s }}>
+      {WORD.split("").map((ch) => (
+        <LetterBoard key={ch} letter={ch} vowel={"aeiou".includes(ch)} size={148 * s} lit />
+      ))}
+    </div>
     <span style={{ fontSize: 62 * s, fontWeight: 800, color: palette.ink, lineHeight: 0.9,
                    textShadow: "0 4px 0 #FFFFFF" }}>↓</span>
     <div style={{ display: "flex", alignItems: "center", gap: 18 * s }}>
-      <MergedSandwich word={WORD} size={184 * s} lit />
-      <WordPicture pic={PIC} size={152 * s} />
+      <MergedSandwich word={WORD} size={168 * s} lit />
+      <WordPicture pic={PIC} size={140 * s} />
     </div>
   </div>
 );
@@ -63,9 +65,13 @@ const Frame: React.FC<{ W: number; H: number; portrait: boolean }> = ({ W, H, po
   // The column's height at s=1, so the portrait cover can size it to the room it HAS —
   // between the headline and the mascot's head — instead of being left as a stamp in the
   // middle of a tall frame.
-  const COL_H = 3 * 148 + 2 * 14 + 62 + 14 + 184 * 1.12;
+  // one board row + arrow + the merged row, each at s=1
+  const COL_H = 148 * 1.12 + 12 + 62 * 0.9 + 12 + 168 * 1.12;
   const heroTop = portrait ? H * 0.25 : headBottom + 40;
-  const colS = portrait ? Math.min(1.6, (H * 0.70 - heroTop) / COL_H) : 1;
+  // capped on WIDTH too: three 148 boards and two gaps must fit 1080 with a margin
+  const colS = portrait
+    ? Math.min((W - 90) / (3 * 148 + 2 * 14), (H * 0.70 - heroTop) / COL_H)
+    : 1;
   const colBottom = heroTop + COL_H * colS;
 
   return (
