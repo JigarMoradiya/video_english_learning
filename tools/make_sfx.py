@@ -224,7 +224,40 @@ def make_tick():
     return bell(1318.5, 0.18, 0.5)
 
 
+def make_blend():
+    """~0.62s — three become one. A soft filtered-noise glide that RISES and closes into a
+    warm two-note bell. Used where a word's letters merge, so it has to duck under the
+    teacher rather than announce itself: gentle attack, no click, no transient snap.
+    Self-synthesised like everything else here — no sampled audio anywhere in this project.
+    """
+    dur = 0.62
+    n = int(SR * dur)
+    out = [0.0] * n
+    # the glide: band-passed noise whose centre sweeps up, fading as the bell arrives
+    lp1 = lp2 = 0.0
+    for i in range(n):
+        x = i / n
+        prev = random.uniform(-1, 1)
+        # one-pole low-pass, cutoff rising with x — a smooth "shhhwoo", never a hiss
+        a = 0.03 + 0.22 * x
+        lp1 += a * (prev - lp1)
+        lp2 += a * (lp1 - lp2)
+        # in and out on a raised cosine, so neither end has an edge
+        env = 0.5 - 0.5 * math.cos(2 * math.pi * min(1.0, x * 1.05))
+        out[i] += (lp1 - lp2) * env * 0.55
+
+    # the landing: a major third, struck softly at 62% and left to ring out
+    start = int(n * 0.62)
+    for freq, amp in ((659.25, 0.42), (830.61, 0.26), (1318.5, 0.12)):
+        for i in range(n - start):
+            k = i / SR
+            e = math.exp(-k * 5.2) * min(1.0, i / (SR * 0.012))   # 12ms attack = no click
+            out[start + i] += math.sin(2 * math.pi * freq * k) * amp * e
+    return out
+
+
 os.makedirs("public/sfx", exist_ok=True)
+write_wav("public/sfx/blend.wav", make_blend())
 write_wav("public/sfx/question.wav", make_question())
 write_wav("public/sfx/sparkle.wav", make_sparkle())
 write_wav("public/sfx/brave.wav", make_brave())

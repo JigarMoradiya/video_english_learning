@@ -760,6 +760,21 @@ const FoundConfetti: React.FC = () => {
   );
 };
 
+
+/** The letters becoming a word gets a sound in every aspect. It LEADS the landing — the
+ *  glide starts as the pieces begin to close and the bell resolves on the frame the word
+ *  is spoken — and it sits well under the teacher, who is the point. Self-synthesised
+ *  (tools/make_sfx.py), like every other sound in this project. */
+const BlendSfx: React.FC = () => (
+  <>
+    {CLIPS.filter((c) => c.kind === "word").map((c, i) => (
+      <Sequence key={i} from={f(c.start) - 17} durationInFrames={20}>
+        <Audio src={staticFile("sfx/blend.mp3")} volume={0.34} />
+      </Sequence>
+    ))}
+  </>
+);
+
 export const CvcReel: React.FC = () => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
@@ -788,6 +803,8 @@ export const CvcReel: React.FC = () => {
       />
 
       {/* every clip plays whole, at the frame the timeline put it */}
+      <BlendSfx />
+
       {CLIPS.map((c, i) => (
         <Sequence key={i} from={f(c.start)} durationInFrames={f(c.dur) + 2}>
           <Audio src={staticFile(c.src)} />

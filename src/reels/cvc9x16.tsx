@@ -32,7 +32,10 @@ const DL_FROM = DOWNLOAD_FROM;
 // "Ready? Let's do." then "First vowel — aaa." — the idea section must hand the stage to
 // <VowelCard/> on the SAME frame the card appears, not 20 frames earlier. That gap was
 // the misalignment: the grid left, and nothing arrived until the card sprang in.
-const IDEA_END = f(CAPS[13].start) - 6;
+// No lead-in here. The teacher says "Ready? Let's do. First vowel — aaa." in ONE breath —
+// there is no pause between "do" and "First" — so a card that arrives even six frames
+// early lands on the word "do", showing an `a` while the previous line is still being read.
+const IDEA_END = f(CAPS[13].start);
 
 interface Build { word: string; sounds: Clip[]; wordClip: Clip; from: number; to: number }
 const BUILDS: Build[] = (() => {
@@ -114,7 +117,7 @@ const vowelCardAt = (frame: number) => {
   for (const v of VOWEL_LINES) {
     const idx = CAPS.findIndex((c) => c.text.startsWith(v.say));
     if (idx < 0) continue;
-    const from = f(CAPS[idx].start) - 6;
+    const from = f(CAPS[idx].start);
     const next = BUILDS.find((b) => b.from > from);
     const to = next ? next.from : f(CAPS[idx].end) + 24;
     if (frame >= from && frame < to) return { v, from };
@@ -505,10 +508,13 @@ const Wall: React.FC = () => {
     <div style={{ position: "absolute", left: B.contentL, top: B.stageTop,
                   width: B.contentR - B.contentL, height: B.stageBot - B.stageTop,
                   display: "flex", flexDirection: "column", alignItems: "center",
-                  justifyContent: "center", gap: 18 }}>
+                  justifyContent: "center", gap: 16,
+                  // the five rows sat low enough to cross the blender's glass; the band has
+                  // the room above it
+                  transform: "translateY(-54px)" }}>
       {/* the logo belongs on the finished wall: this is the frame the child sees when the
           teacher says "you read them all", and it is the one worth remembering */}
-      <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 6,
+      <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 34,
                     transform: `scale(${spring({ frame: frame - from - 12, fps, config: { damping: 12 } })}) `
                                + `translateY(${bob(frame, fps, 4.2, 5)}px)` }}>
         <Img src={staticFile("app_icon.png")}
@@ -582,6 +588,21 @@ const FoundConfetti: React.FC = () => {
   );
 };
 
+
+/** The letters becoming a word gets a sound in every aspect. It LEADS the landing — the
+ *  glide starts as the pieces begin to close and the bell resolves on the frame the word
+ *  is spoken — and it sits well under the teacher, who is the point. Self-synthesised
+ *  (tools/make_sfx.py), like every other sound in this project. */
+const BlendSfx: React.FC = () => (
+  <>
+    {CLIPS.filter((c) => c.kind === "word").map((c, i) => (
+      <Sequence key={i} from={f(c.start) - 17} durationInFrames={20}>
+        <Audio src={staticFile("sfx/blend.mp3")} volume={0.34} />
+      </Sequence>
+    ))}
+  </>
+);
+
 // ── the reel ────────────────────────────────────────────────────────────────
 export const Cvc9x16Reel: React.FC = () => {
   const frame = useCurrentFrame();
@@ -596,6 +617,8 @@ export const Cvc9x16Reel: React.FC = () => {
         spin={frame < DL_FROM ? spinAt(frame) : 0}
         mascot={frame >= DL_FROM ? "off" : inGroups(frame) ? "floor" : "bar"}
       />
+
+      <BlendSfx />
 
       {CLIPS.map((c, i) => (
         <Sequence key={i} from={f(c.start)} durationInFrames={f(c.dur) + 2}>
