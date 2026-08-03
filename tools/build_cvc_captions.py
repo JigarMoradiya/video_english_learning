@@ -21,8 +21,10 @@ from pathlib import Path
 
 import whisper
 
-TIMELINE = json.load(open("src/data/cvc.timeline.json"))
-OUT = Path("src/data/cvc.captions.json")
+import sys
+VARIANT = sys.argv[1] if len(sys.argv) > 1 else ""
+TIMELINE = json.load(open(f"src/data/cvc{VARIANT}.timeline.json"))
+OUT = Path(f"src/data/cvc{VARIANT}.captions.json")
 AUDIO = Path("public")
 
 # what each recorded run actually says, sentence by sentence — the script is the truth,
@@ -45,6 +47,7 @@ RUN_TEXT: dict[str, list[str]] = {
     "10": ["Pot. Hot. Hear that? Just the front sound.", "Last vowel. uh."],
     "11": ["This one's yours. Sound it out."],
     "12": ["Did you get it? I bet you did."],
+    "13": ["Fifteen words.", "You read them all.", "One more. Something's missing."],
     "13a": ["Twenty five words."],
     "13b": ["You read them all.", "One more. Something's missing."],
     "14": ["Which vowel goes in the middle?"],
@@ -234,7 +237,7 @@ def snap(phrases: list[dict]) -> None:
     "Red is a vowel." A stamp is now seated on a real speech BURST — a run of sound with
     silence before it — so it can only ever land where someone starts speaking.
     """
-    bursts = bursts_of("public/audio/cvc/_mix.wav")
+    bursts = bursts_of(f"public/audio/cvc/_mix{VARIANT}.wav")
     moved = 0
     floor = 0.0
     for p in phrases:

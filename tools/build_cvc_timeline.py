@@ -21,18 +21,27 @@ import json
 import subprocess
 from pathlib import Path
 
+import sys
+
 AUDIO = Path("public/audio/cvc")
-OUT = Path("src/data/cvc.timeline.json")
+# "" = the 25-word 16:9/4:5 cut. "15" = the 9:16 cut: fifteen words, three per group, and
+# a slightly tighter gap table. Fifteen is not an arbitrary trim — the narration was
+# WRITTEN for three per group ("Three words. One vowel.") and 13.mp3 is the original take
+# that says "Fifteen words.", so the short cut needs no new recording.
+VARIANT = sys.argv[1] if len(sys.argv) > 1 else ""
+OUT = Path(f"src/data/cvc{VARIANT}.timeline.json")
 
 # ── THE GAP TABLE ────────────────────────────────────────────────────────────
 G_SOUND = 0.35    # between two sounds inside one sound-out: kuh → aaa
 G_WORD = 0.45     # last sound → the whole word: tuh → cat!
-G_AFTER_WORD = 1.55   # a word landing → whatever comes next. 0.55 was why every
+SHORT = VARIANT == "15"
+G_AFTER_WORD = 1.30 if SHORT else 1.55
+                  # a word landing → whatever comes next. 0.55 was why every
                       # mid-group picture was SKIPPED: the next build took the
                       # screen before the image had a single frame — and why the
                       # whole video felt rushed.
-G_LINE = 0.60     # between two teacher runs
-G_SECTION = 0.90  # across a section change
+G_LINE = (0.50 if SHORT else 0.60)   # between two teacher runs
+G_SECTION = (0.80 if SHORT else 0.90)  # across a section change
 PAUSE_HEAR = 1.0  # "Hear the middle?"      — child answers
 PAUSE_TRY = 2.0   # "Sound it out."         — child blends alone
 PAUSE_QUIZ = 2.5  # "Which vowel...?"       — child picks
@@ -122,6 +131,34 @@ SCRIPT: list[tuple] = [
 ]
 
 
+SCRIPT_15: list[tuple] = [
+    ("mark", "hook"),
+    ("run", "01"), ("gap", 0.5), ("build", "cat"),
+    ("mark", "idea"), ("run", "02"),
+    ("mark", "shortA"),
+    ("build", "cat"), ("run", "03"), ("build", "hat"), ("run", "04"), ("build", "map"),
+    ("run", "05a"),                      # "Three words. One vowel." — TRUE at exactly three
+    ("run", "05b"),
+    ("mark", "shortE"),
+    ("build", "hen"), ("build", "pen"), ("run", "06"), ("gap", PAUSE_HEAR),
+    ("build", "bed"), ("run", "07"),
+    ("mark", "shortI"),
+    ("build", "pig"), ("build", "big"), ("run", "08"), ("build", "six"), ("run", "09"),
+    ("mark", "shortO"),
+    ("build", "dog"), ("build", "pot"), ("build", "hot"), ("run", "10"),
+    ("mark", "shortU"),
+    ("build", "sun"), ("build", "bug"), ("run", "11"), ("gap", PAUSE_TRY),
+    ("build", "run"), ("run", "12"),
+    ("gap", 1.2),
+    ("mark", "wall"),
+    ("run", "13"),                       # the ORIGINAL take: "Fifteen words. You read them
+                                         # all. One more. Something's missing."
+    ("mark", "quiz"),
+    ("quizsounds", "dog"), ("run", "14"), ("gap", PAUSE_QUIZ), ("qword", "dog"),
+    ("mark", "wrap"), ("run", "15"),
+]
+
+
 def main() -> int:
     clips: list[dict] = []
     marks: dict[str, float] = {}
@@ -133,7 +170,7 @@ def main() -> int:
         clips.append({"src": src, "start": round(t, 3), "dur": round(d, 3), "kind": kind, **extra})
         t += d
 
-    for kind, val in SCRIPT:
+    for kind, val in (SCRIPT_15 if SHORT else SCRIPT):
         if kind == "mark":
             marks[val] = round(t, 3)
             prev = "mark"

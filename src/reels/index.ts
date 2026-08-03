@@ -31,11 +31,14 @@ import { BlendingReel, BLENDING_TOTAL } from "./blending";
 import { Blending916Reel, BLENDING916_TOTAL } from "./blending916";
 import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLASH_DURATION } from "./logo_intro";
 import { SoundRecapReel, SOUND_RECAP_DURATION } from "./sound_recap";
+import { AbacusPromoReel, ABACUS_PROMO_DURATION } from "./abacus_crosspromo";
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
 import { CvcReel } from "./cvc";
+import { Cvc9x16Reel } from "./cvc9x16";
 import { CVC_DURATION } from "../data/cvc";
+import { CVC15_DURATION } from "../data/cvc15";
 import { ThumbRecognition169, ThumbRecognition916 } from "../thumbs/recognition_thumb";
 import { ThumbBlending } from "../thumbs/blending_thumb";
 import { ThumbBlendingPortrait } from "../thumbs/blending_thumb_portrait";
@@ -68,6 +71,8 @@ export const REELS: ReelEntry[] = [
   { id: "logo-intro-flash-9x16", component: LogoIntroFlashReel, durationInFrames: LOGO_INTRO_FLASH_DURATION, width: 1080, height: 1920 },
   // Variety short — "Say the SOUND!" A–G recap (rotate between the daily letter shorts).
   { id: "sound-recap-9x16", component: SoundRecapReel, durationInFrames: SOUND_RECAP_DURATION, width: 1080, height: 1920 },
+  // Cross-promo — post on the ABACUS pages to introduce Kids English Learning.
+  { id: "abacus-promo-9x16", component: AbacusPromoReel, durationInFrames: ABACUS_PROMO_DURATION, width: 1080, height: 1920 },
   { id: "ai-ay", component: AiAyReel, durationInFrames: AI_AY_DURATION }, // L13 · Vowel Teams
   { id: "oi-oy", component: OiOyReel, durationInFrames: OI_OY_DURATION }, // L14 · Diphthongs
   { id: "oa-ow", component: OaOwReel, durationInFrames: OA_OW_DURATION }, // L13 · Vowel Teams
@@ -96,6 +101,8 @@ export const REELS: ReelEntry[] = [
   // A→Z Letter Recognition — 16:9 "game-board" video ("A says a"), grid fills up.
   { id: "l4-cvc", component: CvcReel, durationInFrames: CVC_DURATION, width: 1920, height: 1080 },
   { id: "l4-cvc-4x5", component: CvcReel, durationInFrames: CVC_DURATION, width: 1080, height: 1350 },
+  // 9:16 wears its OWN world (the Smoothie Bar) and its own fifteen-word cut
+  { id: "l4-cvc-9x16", component: Cvc9x16Reel, durationInFrames: CVC15_DURATION, width: 1080, height: 1920 },
   { id: "letter-recognition", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1920, height: 1080 },
   { id: "letter-recognition-4x5", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1080, height: 1350 },
   // L2 · Short Vowels — 16:9 lesson: learn (talking mouths) → practice → listen → download.

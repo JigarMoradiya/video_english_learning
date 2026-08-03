@@ -1,0 +1,229 @@
+import React from "react";
+import { AbsoluteFill, Audio, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { Confetti } from "../components/Confetti";
+import { font, palette, shade } from "../data/tokens";
+import { bob, wiggle, pulse } from "../lib/motion";
+
+// ══ CROSS-PROMO · post on the ABACUS pages to introduce Kids English Learning ═
+// The Abacus app (math, same team + same bear mascot) already has the audience.
+// Hook with that trust → reveal the new English app → free CTA. Text + music only
+// (no VO needed); bright announcement world, distinct from the teaching shorts.
+
+const FPS = 30;
+const W = 1080;
+const BAND = { top: 300, h: 1320, side: 80 };
+
+const B1 = 110; // abacus hook
+const B2 = 100; // bridge (math → letters morph)
+const B3 = 172; // english reveal
+const B4 = 96;  // features
+const B5 = 138; // cta
+export const ABACUS_PROMO_DURATION = B1 + B2 + B3 + B4 + B5;
+
+const HEAD_SHADOW = "0 6px 0 #FFFFFF, 0 12px 26px rgba(40,30,80,0.22)";
+const Head: React.FC<{ children: React.ReactNode; size?: number; color?: string }> = ({ children, size = 96, color = palette.ink }) => (
+  <div style={{ fontSize: size, fontWeight: 800, color, textAlign: "center", lineHeight: 1.05, textShadow: HEAD_SHADOW }}>{children}</div>
+);
+const Chip: React.FC<{ children: React.ReactNode; bg?: string; color?: string; size?: number }> = ({ children, bg = "#fff", color = palette.ink, size = 52 }) => (
+  <div style={{ background: bg, color, fontSize: size, fontWeight: 800, padding: "12px 40px", borderRadius: 999, boxShadow: "0 10px 0 rgba(40,30,80,0.14), 0 18px 30px rgba(40,30,80,0.22)" }}>{children}</div>
+);
+
+const Band: React.FC<{ children: React.ReactNode; gap?: number }> = ({ children, gap = 30 }) => (
+  <div style={{ position: "absolute", top: BAND.top, left: 0, width: W, height: BAND.h, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap, padding: `0 ${BAND.side}px`, boxSizing: "border-box" }}>{children}</div>
+);
+
+// IG · YouTube · Facebook, drawn (no assets needed)
+const SocialIcons: React.FC<{ size?: number }> = ({ size = 84 }) => {
+  const r = size * 0.26;
+  const box = { width: size, height: size, borderRadius: r, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 16px rgba(40,30,80,0.3)" } as React.CSSProperties;
+  return (
+    <div style={{ display: "flex", gap: 22 }}>
+      <div style={{ ...box, background: "linear-gradient(45deg,#F58529,#DD2A7B 52%,#8134AF)" }}>
+        <div style={{ width: size * 0.5, height: size * 0.5, borderRadius: size * 0.17, border: `${size * 0.08}px solid #fff`, position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: size * 0.2, height: size * 0.2, borderRadius: "50%", border: `${size * 0.07}px solid #fff` }} />
+          <div style={{ position: "absolute", top: size * 0.06, right: size * 0.06, width: size * 0.055, height: size * 0.055, borderRadius: "50%", background: "#fff" }} />
+        </div>
+      </div>
+      <div style={{ ...box, background: "#FF0000" }}>
+        <div style={{ width: 0, height: 0, borderLeft: `${size * 0.28}px solid #fff`, borderTop: `${size * 0.17}px solid transparent`, borderBottom: `${size * 0.17}px solid transparent`, marginLeft: size * 0.07 }} />
+      </div>
+      <div style={{ ...box, background: "#1877F2" }}>
+        <span style={{ fontSize: size * 0.72, fontWeight: 900, color: "#fff", fontFamily: "Georgia, 'Times New Roman', serif", lineHeight: 1, marginTop: -size * 0.05 }}>f</span>
+      </div>
+    </div>
+  );
+};
+
+// a little number/letter tile for the math→letters morph
+const MorphCard: React.FC<{ txt: string; color: string; scale: number; op?: number }> = ({ txt, color, scale, op = 1 }) => (
+  <div style={{ width: 116, height: 116, borderRadius: 24, background: "#fff", boxShadow: `0 8px 0 ${shade(color, 0.14)}`, display: "flex", alignItems: "center", justifyContent: "center", transform: `scale(${scale})`, opacity: op }}>
+    <span style={{ fontSize: 74, fontWeight: 800, color }}>{txt}</span>
+  </div>
+);
+
+// floating glyphs (math in the hook, letters in the reveal)
+const Floaters: React.FC<{ glyphs: string[]; color: string; opacity?: number }> = ({ glyphs, color, opacity = 0.5 }) => {
+  const frame = useCurrentFrame();
+  const { fps, width, height } = useVideoConfig();
+  const pos = [
+    { x: 0.1, y: 0.14, s: 92 }, { x: 0.86, y: 0.1, s: 108 }, { x: 0.14, y: 0.82, s: 84 },
+    { x: 0.88, y: 0.8, s: 96 }, { x: 0.06, y: 0.48, s: 70 }, { x: 0.92, y: 0.5, s: 78 },
+    { x: 0.3, y: 0.06, s: 66 }, { x: 0.72, y: 0.9, s: 72 },
+  ];
+  return (
+    <>
+      {pos.map((p, i) => (
+        <span key={i} style={{ position: "absolute", left: p.x * width, top: p.y * height, fontSize: p.s, fontWeight: 800, color, opacity, transform: `translateY(${bob(frame, fps, 16, 3, i)}px) rotate(${wiggle(frame, fps, 8, 4, i)}deg)` }}>
+          {glyphs[i % glyphs.length]}
+        </span>
+      ))}
+    </>
+  );
+};
+
+// ── beat 1 · you love Abacus (math) ──────────────────────────────────────────
+const B1Abacus: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const inn = spring({ frame, fps, config: { damping: 12 } });
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family }}>
+      <Floaters glyphs={["1", "+", "2", "×", "3", "−", "7", "÷"]} color="#2E77E6" opacity={0.45} />
+      <Band>
+        <Head size={70}>Your little one loves</Head>
+        <Img src={staticFile("abacus_icon.png")} style={{ width: 460, borderRadius: 96, boxShadow: "0 24px 50px rgba(40,30,80,0.3)", transform: `scale(${0.8 + 0.2 * inn}) rotate(${wiggle(frame, fps, 1.5, 3)}deg)` }} />
+        <Chip bg="#2E77E6" color="#fff" size={62}>Abacus · Math 🧮</Chip>
+      </Band>
+    </AbsoluteFill>
+  );
+};
+
+// ── beat 2 · from the same team ──────────────────────────────────────────────
+const B2Bridge: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const inn = spring({ frame, fps, config: { damping: 12 } });
+  const bear = spring({ frame: frame - 8, fps, config: { damping: 12 } });
+  const arrow = interpolate(frame, [24, 34], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family }}>
+      <Band gap={24}>
+        <div style={{ transform: `scale(${inn})` }}><Head size={82}>From the same makers 🎉</Head></div>
+        <div style={{ transform: `translateY(${bob(frame, fps, 10, 2.2)}px) scale(${bear})` }}>
+          <Img src={staticFile("mascot.png")} style={{ width: 300, height: "auto", filter: "drop-shadow(0 18px 30px rgba(40,30,80,0.28))" }} />
+        </div>
+        {/* 1 2 3  →  A B C */}
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          {["1", "2", "3"].map((n, i) => <MorphCard key={n} txt={n} color="#2E77E6" scale={spring({ frame: frame - i * 4, fps, config: { damping: 12 } })} />)}
+          <span style={{ fontSize: 66, opacity: arrow, transform: `scale(${arrow})` }}>➡️</span>
+          {["A", "B", "C"].map((n, i) => <MorphCard key={n} txt={n} color="#E8368F" scale={spring({ frame: frame - 30 - i * 5, fps, config: { damping: 12 } })} />)}
+        </div>
+        <div style={{ opacity: arrow }}><Head size={54} color={palette.inkSoft}>Same fun — now in English!</Head></div>
+      </Band>
+      <Confetti frame={frame} fps={fps} burstFrame={34} origin={{ x: 720, y: 1100 }} colors={["#E8368F", "#FFC24A", "#5B50D6", "#67E8F9"]} count={22} seed={5} />
+    </AbsoluteFill>
+  );
+};
+
+// ── beat 3 · English reveal ──────────────────────────────────────────────────
+const B3English: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const logo = spring({ frame: frame - 6, fps, config: { damping: 11, stiffness: 120 } });
+  const name = spring({ frame: frame - 40, fps, config: { damping: 12 } });
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family }}>
+      <Floaters glyphs={["A", "a", "B", "b", "C", "c", "D", "e"]} color="#E8368F" opacity={0.4} />
+      <Band gap={26}>
+        <Img src={staticFile("logo.png")} style={{ width: 760, height: "auto", transform: `scale(${interpolate(logo, [0, 1], [0.4, 1])}) translateY(${bob(frame, fps, 8, 2.8)}px)`, filter: "drop-shadow(0 20px 36px rgba(40,30,80,0.3))" }} />
+        <div style={{ opacity: name, transform: `translateY(${(1 - name) * 16}px)` }}>
+          <Head size={76}>Now learn <span style={{ color: "#E8368F" }}>ENGLISH!</span> 📚</Head>
+        </div>
+      </Band>
+      <Confetti frame={frame} fps={fps} burstFrame={8} origin={{ x: 540, y: 760 }} colors={["#FFC24A", "#FF8A5B", "#E8368F", "#5B50D6", "#67E8F9"]} count={40} seed={3} />
+    </AbsoluteFill>
+  );
+};
+
+// ── beat 4 · features ────────────────────────────────────────────────────────
+const FEATS = [
+  { e: "🔤", t: "Letter Sounds" },
+  { e: "✏️", t: "Tracing" },
+  { e: "📖", t: "First Words" },
+  { e: "🎨", t: "Colouring" },
+];
+const B4Features: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family }}>
+      <Band gap={26}>
+        <Head size={72}>Everything to start reading</Head>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 22 }}>
+          {FEATS.map((f, i) => {
+            const s = spring({ frame: frame - 6 - i * 6, fps, config: { damping: 12 } });
+            return (
+              <div key={f.t} style={{ background: "#fff", borderRadius: 32, padding: "26px 30px", display: "flex", alignItems: "center", gap: 18, width: 430, boxShadow: "0 12px 0 rgba(40,30,80,0.12), 0 20px 30px rgba(40,30,80,0.2)", transform: `scale(${s})` }}>
+                <span style={{ fontSize: 78 }}>{f.e}</span>
+                <span style={{ fontSize: 46, fontWeight: 800, color: palette.ink }}>{f.t}</span>
+              </div>
+            );
+          })}
+        </div>
+        <Chip bg="#5B50D6" color="#fff" size={48}>Ages 3–8 · 100% ad-free 💜</Chip>
+      </Band>
+    </AbsoluteFill>
+  );
+};
+
+// ── beat 5 · free CTA ────────────────────────────────────────────────────────
+const B5Cta: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const inn = spring({ frame, fps, config: { damping: 12 } });
+  const badge = spring({ frame: frame - 18, fps, config: { damping: 11 } });
+  const apple = spring({ frame: frame - 30, fps, config: { damping: 11 } });
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family }}>
+      <Band gap={22}>
+        <Img src={staticFile("app_icon.png")} style={{ width: 240, borderRadius: 52, boxShadow: "0 22px 44px rgba(40,30,80,0.3)", transform: `scale(${0.8 + 0.2 * inn}) translateY(${bob(frame, fps, 8, 2.6)}px)` }} />
+        <Head size={90}>Get it <span style={{ color: "#E8368F" }}>FREE!</span></Head>
+        <div style={{ display: "flex", gap: 24 }}>
+          <Img src={staticFile("appstore.png")} style={{ width: 320, height: "auto", transform: `scale(${apple})` }} />
+          <Img src={staticFile("playstore.png")} style={{ width: 320, height: "auto", transform: `scale(${badge})` }} />
+        </div>
+        {/* social icons + follow */}
+        <div style={{ opacity: badge, display: "flex", flexDirection: "column", alignItems: "center", gap: 16, marginTop: 6 }}>
+          <SocialIcons size={82} />
+          <div style={{ transform: `scale(${pulse(frame, fps, 0.03, 1.2)})` }}>
+            <Chip bg="#FFE14D" color={palette.ink} size={42}>Follow @kidsenglishlearning.vedaavi</Chip>
+          </div>
+        </div>
+      </Band>
+      <Confetti frame={frame} fps={fps} burstFrame={6} origin={{ x: 540, y: 700 }} colors={["#FFC24A", "#FF8A5B", "#E8368F", "#5B50D6", "#67E8F9"]} count={36} seed={9} />
+    </AbsoluteFill>
+  );
+};
+
+// ── reel ─────────────────────────────────────────────────────────────────────
+export const AbacusPromoReel: React.FC = () => {
+  const c1 = 0, c2 = B1, c3 = B1 + B2, c4 = B1 + B2 + B3, c5 = B1 + B2 + B3 + B4;
+  return (
+    <AbsoluteFill style={{ fontFamily: font.family, background: "#8FD3FF" }}>
+      <AbsoluteFill style={{ background: "linear-gradient(162deg,#9AD6FF 0%,#C3A6FF 48%,#FFCDE3 100%)" }} />
+      <AbsoluteFill style={{ background: "radial-gradient(760px 520px at 50% 12%, rgba(255,255,255,0.7), transparent 60%)" }} />
+
+      <Audio src={staticFile("music_bed.mp3")} loop volume={(f) => interpolate(f, [0, 20, ABACUS_PROMO_DURATION - 40, ABACUS_PROMO_DURATION], [0, 0.11, 0.11, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
+      <Sequence from={c2 - 4} durationInFrames={30}><Audio src={staticFile("sfx/swoosh_soft.mp3")} volume={0.4} /></Sequence>
+      <Sequence from={c3 + 2} durationInFrames={40}><Audio src={staticFile("sfx/sparkle.mp3")} volume={0.5} /></Sequence>
+      <Sequence from={c3 + 2} durationInFrames={40}><Audio src={staticFile("audio/common/woohoo.mp3")} volume={0.7} /></Sequence>
+      <Sequence from={c5 + 2} durationInFrames={40}><Audio src={staticFile("sfx/chime_soft.mp3")} volume={0.4} /></Sequence>
+
+      <Sequence from={c1} durationInFrames={B1}><B1Abacus /></Sequence>
+      <Sequence from={c2} durationInFrames={B2}><B2Bridge /></Sequence>
+      <Sequence from={c3} durationInFrames={B3}><B3English /></Sequence>
+      <Sequence from={c4} durationInFrames={B4}><B4Features /></Sequence>
+      <Sequence from={c5} durationInFrames={B5}><B5Cta /></Sequence>
+    </AbsoluteFill>
+  );
+};

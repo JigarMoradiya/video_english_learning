@@ -21,8 +21,10 @@ from pathlib import Path
 import numpy as np
 
 SR = 16000
-TIMELINE = json.load(open("src/data/cvc.timeline.json"))
-OUT = Path("public/audio/cvc/_mix.wav")
+import sys
+VARIANT = sys.argv[1] if len(sys.argv) > 1 else ""
+TIMELINE = json.load(open(f"src/data/cvc{VARIANT}.timeline.json"))
+OUT = Path(f"public/audio/cvc/_mix{VARIANT}.wav")
 
 
 def pcm(path: Path) -> np.ndarray:
