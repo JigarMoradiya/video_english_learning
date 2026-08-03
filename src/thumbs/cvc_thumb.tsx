@@ -112,11 +112,16 @@ const Frame: React.FC<{ W: number; H: number; portrait: boolean }> = ({ W, H, po
         <span style={{ color: VOWEL }}>1 word</span>
       </div>
 
-      {/* 4 · the mascot */}
+      {/* 4 · the mascot. A LOCAL trim at 16:9, not a change to cover.ts — that 184 is the
+             channel rule and every other landscape cover keeps it. This world is the
+             reason: the Sandwich Shop's counter line sits at 507 in a 720 frame, so at
+             184 the bear filled the wood band top to bottom and read bigger here than he
+             does on the other covers. Smaller, he stands IN the band like the others. */}
       <Img
         src={staticFile("mascot.png")}
         style={{ position: "absolute", left: c.mascot.left, bottom: c.mascot.bottom,
-                 width: c.mascot.width, height: c.mascot.width * c.mascot.aspect }}
+                 width: portrait ? c.mascot.width : 158,
+                 height: (portrait ? c.mascot.width : 158) * c.mascot.aspect }}
       />
 
       {/* 5 · the logo */}
