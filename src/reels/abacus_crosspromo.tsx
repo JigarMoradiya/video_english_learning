@@ -205,27 +205,41 @@ const PhonicsDemo: React.FC = () => {
   const { fps } = useVideoConfig();
   const accent = "#E8368F";
   const inn = spring({ frame, fps, config: { damping: 11 } });
+  const bat = spring({ frame: frame - 34, fps, config: { damping: 12 } });
   const waves = interpolate(frame, [14, 24, 78, 88], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
-    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 22 }}>
-      <Sequence from={16} durationInFrames={40}><Audio src={staticFile("audio/shorts/sound_B.mp3")} volume={0.7} /></Sequence>
-      <Chip bg={accent} color="#fff" size={50}>🔊 Hear every sound</Chip>
+    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18 }}>
+      <Sequence from={16} durationInFrames={40}><Audio src={staticFile("audio/shorts/sound_B.mp3")} volume={0.4} /></Sequence>
+      <Chip bg={accent} color="#fff" size={48}>🔊 Hear every sound</Chip>
       <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", transform: `scale(${0.85 + 0.15 * inn})` }}>
         <div style={{ position: "absolute", left: -160 }}><Waves side={-1} on={waves} color={accent} /></div>
         <div style={{ position: "absolute", right: -160 }}><Waves side={1} on={waves} color={accent} /></div>
-        <div style={{ width: 340, height: 340, borderRadius: 48, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, boxSizing: "border-box" }}>
-          <span style={{ fontSize: 220, fontWeight: 800, color: accent, lineHeight: 0.86 }}>B</span>
-          <span style={{ fontSize: 154, fontWeight: 800, color: shade(accent, 0.14), lineHeight: 0.86 }}>b</span>
+        <div style={{ width: 290, height: 290, borderRadius: 44, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", boxSizing: "border-box" }}>
+          {/* lowercase b sits on the SAME baseline (bottom) as the uppercase B */}
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 4 }}>
+            <span style={{ fontSize: 196, fontWeight: 800, color: accent, lineHeight: 0.8 }}>B</span>
+            <span style={{ fontSize: 138, fontWeight: 800, color: shade(accent, 0.14), lineHeight: 0.8 }}>b</span>
+          </div>
         </div>
       </div>
-      <Chip bg={accent} color="#fff" size={70}>buh 🔊</Chip>
+      {/* "B says" is plain text, sitting BEFORE and OUTSIDE the sound pill */}
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <span style={{ fontSize: 46, fontWeight: 800, color: palette.ink }}>B says</span>
+        <Chip bg={accent} color="#fff" size={54}>buh 🔊</Chip>
+      </div>
+      {/* lowercase example word + picture */}
+      <div style={{ display: "flex", alignItems: "center", gap: 16, transform: `scale(${bat})` }}>
+        <Img src={staticFile("letters/bat.png")} style={{ width: 84, height: 84, objectFit: "contain", filter: "drop-shadow(0 8px 14px rgba(40,30,80,0.22))" }} />
+        <div style={{ fontSize: 44, fontWeight: 800, color: palette.ink }}><span style={{ color: accent }}>b</span> for Bat</div>
+      </div>
     </AbsoluteFill>
   );
 };
 
 const FEATURES: [string, string][] = [
-  ["✏️", "Tracing"], ["🔊", "Phonics"], ["📖", "Reading"],
-  ["🎨", "Coloring"], ["🔤", "Words"], ["🎮", "Games"],
+  ["✏️", "Tracing"], ["🔊", "Phonics"], ["🔤", "Words"],
+  ["📝", "Sentences"], ["📖", "Reading"], ["🧩", "Grammar"],
+  ["🎨", "Coloring"], ["🎮", "Games"],
 ];
 
 const B4Features: React.FC = () => {
@@ -258,32 +272,43 @@ const B4Features: React.FC = () => {
   );
 };
 
-// ── beat 5 · free CTA + socials ──────────────────────────────────────────────
+// ── beat 5 · free CTA — the REAL store search + download demo ─────────────────
+// StoreFlow draws its phone at x 226..726 (centre 476) from its own top-left origin;
+// centre + scale it explicitly, and Freeze once the download reaches OPEN (STORE_HOLD).
+const PHONE_CX = 476, PHONE_Y0 = 88, PHONE_S = 0.82, PHONE_TOP = 292, STORE_HOLD = 276;
 const B5Cta: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const inn = spring({ frame, fps, config: { damping: 12 } });
-  const badge = spring({ frame: frame - 18, fps, config: { damping: 11 } });
-  const apple = spring({ frame: frame - 30, fps, config: { damping: 11 } });
-  const social = spring({ frame: frame - 44, fps, config: { damping: 12 } });
+  const head = spring({ frame, fps, config: { damping: 12 } });
+  const social = spring({ frame: frame - 22, fps, config: { damping: 12 } });
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
       <VO n={5} from={12} />
-      <Band gap={22}>
-        <Img src={staticFile("app_icon.png")} style={{ width: 240, borderRadius: 52, boxShadow: "0 22px 44px rgba(40,30,80,0.3)", transform: `scale(${0.8 + 0.2 * inn}) translateY(${bob(frame, fps, 8, 2.6)}px)` }} />
-        <Head size={90}>Get it <span style={{ color: "#E8368F" }}>FREE!</span></Head>
-        <div style={{ display: "flex", gap: 24 }}>
-          <Img src={staticFile("appstore.png")} style={{ width: 320, height: "auto", transform: `scale(${apple})` }} />
-          <Img src={staticFile("playstore.png")} style={{ width: 320, height: "auto", transform: `scale(${badge})` }} />
+      {/* headline */}
+      <div style={{ position: "absolute", top: 78, left: 0, width: W, display: "flex", flexDirection: "column", alignItems: "center", gap: 6, transform: `scale(${0.9 + 0.1 * head})` }}>
+        <Head size={84}>Get it <span style={{ color: "#E8368F" }}>FREE!</span> 📲</Head>
+        <div style={{ fontSize: 42, fontWeight: 700, color: palette.inkSoft }}>Free on App Store &amp; Google Play</div>
+      </div>
+      {/* real store mock: type the name → tap our app → detail page → GET → downloading → OPEN */}
+      <div
+        style={{
+          position: "absolute", inset: 0,
+          transform: `translate(${(540 - PHONE_CX * PHONE_S).toFixed(1)}px, ${(PHONE_TOP - PHONE_Y0 * PHONE_S).toFixed(1)}px) scale(${PHONE_S})`,
+          transformOrigin: "top left",
+        }}
+      >
+        <Freeze frame={Math.min(frame, STORE_HOLD)}>
+          <StoreFlow hideReviews />
+        </Freeze>
+      </div>
+      {/* socials + follow */}
+      <div style={{ position: "absolute", top: 1096, left: 0, width: W, display: "flex", flexDirection: "column", alignItems: "center", gap: 18, opacity: social, transform: `translateY(${(1 - social) * 16}px)` }}>
+        <SocialIcons size={82} />
+        <div style={{ transform: `scale(${pulse(frame, fps, 0.03, 1.2)})` }}>
+          <Chip bg="#FFE14D" color={palette.ink} size={42}>Follow @kidsenglishlearning.vedaavi</Chip>
         </div>
-        <div style={{ opacity: social, display: "flex", flexDirection: "column", alignItems: "center", gap: 16, marginTop: 6 }}>
-          <SocialIcons size={82} />
-          <div style={{ transform: `scale(${pulse(frame, fps, 0.03, 1.2)})` }}>
-            <Chip bg="#FFE14D" color={palette.ink} size={42}>Follow @kidsenglishlearning.vedaavi</Chip>
-          </div>
-        </div>
-      </Band>
-      <Confetti frame={frame} fps={fps} burstFrame={6} origin={{ x: 540, y: 700 }} colors={["#FFC24A", "#FF8A5B", "#E8368F", "#5B50D6", "#67E8F9"]} count={36} seed={9} />
+      </div>
+      <Confetti frame={frame} fps={fps} burstFrame={6} origin={{ x: 540, y: 250 }} colors={["#FFC24A", "#FF8A5B", "#E8368F", "#5B50D6", "#67E8F9"]} count={28} seed={9} />
     </AbsoluteFill>
   );
 };

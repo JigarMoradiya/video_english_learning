@@ -41,6 +41,8 @@ const HeroRow: React.FC<{ W: number; top: number; scale: number }> = ({ W, top, 
 const HeroColumn: React.FC<{ W: number; top: number; s: number; sub: React.ReactNode }> = ({ W, top, s, sub }) => (
   <div style={{ position: "absolute", left: 0, top, width: W, display: "flex",
                 flexDirection: "column", alignItems: "center", gap: 12 * s }}>
+    {/* the rule names the boards, so in portrait it introduces them from above */}
+    <div style={{ marginBottom: 6 * s }}>{sub}</div>
     <div style={{ display: "flex", alignItems: "center", gap: 14 * s }}>
       {WORD.split("").map((ch) => (
         <LetterBoard key={ch} letter={ch} vowel={"aeiou".includes(ch)} size={148 * s} lit />
@@ -52,24 +54,26 @@ const HeroColumn: React.FC<{ W: number; top: number; s: number; sub: React.React
       <MergedSandwich word={WORD} size={168 * s} lit />
       <WordPicture pic={PIC} size={140 * s} />
     </div>
-    {/* the promise rides WITH the column, so it is always directly under the word card —
-        the arithmetic version depended on COL_H matching what the parts actually render */}
-    <div style={{ marginTop: 10 * s }}>{sub}</div>
   </div>
 );
 
+/** The rule line, worded exactly as the video says it. "Consonant · Vowel · Consonant" is
+ *  28 characters against "3 sounds · 1 word"'s 17, so portrait takes a smaller size or the
+ *  line runs past 1080. Coloured initials, the same C/V/C the boards below it wear. */
 const Sub: React.FC<{ W: number; H: number; portrait: boolean; top?: number }> = ({ W, H, portrait, top }) => (
   <div
     style={{
-      // 16:9 — down ON the counter. Above it the line ran through the plates, cones and
-      // jars standing on the counter top and could not be read.
+      // 16:9 — down ON the counter, below the boards. Between them and it sit the plates,
+      // cones and jars standing on the counter top, which the line cannot be read across.
       ...(portrait ? {} : { position: "absolute" as const, left: 0, top, width: W }),
-      textAlign: "center", fontSize: portrait ? H * 0.033 : 46,
-      fontWeight: 800, color: palette.ink, textShadow: "0 4px 0 #FFFFFF",
+      textAlign: "center", fontSize: portrait ? H * 0.026 : 42,
+      fontWeight: 800, color: palette.ink, letterSpacing: 0.5,
+      textShadow: "0 4px 0 #FFFFFF",
     }}
   >
-    <span style={{ color: CONSONANT }}>3 sounds</span> ·{" "}
-    <span style={{ color: VOWEL }}>1 word</span>
+    <span style={{ color: CONSONANT }}>C</span>onsonant ·{" "}
+    <span style={{ color: VOWEL }}>V</span>owel ·{" "}
+    <span style={{ color: CONSONANT }}>C</span>onsonant
   </div>
 );
 

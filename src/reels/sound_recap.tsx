@@ -88,11 +88,14 @@ const LetterBeat: React.FC<{ it: LetterItem }> = ({ it }) => {
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
-      {/* letter-change swoosh, then the real sound, then a soft ding */}
-      <Sequence from={0} durationInFrames={16}><Audio src={staticFile("sfx/swoosh_soft.mp3")} volume={0.5} /></Sequence>
-      <Sequence from={4} durationInFrames={PAUSE}><Audio src={staticFile("sfx/tick.mp3")} volume={0.26} /></Sequence>
-      <Sequence from={revealF} durationInFrames={REVEAL}><Audio src={staticFile(`audio/shorts/sound_${it.letter}.mp3`)} /></Sequence>
-      <Sequence from={revealF} durationInFrames={26}><Audio src={staticFile("sfx/sparkle.mp3")} volume={0.4} /></Sequence>
+      {/* letter-change swoosh, then the real sound, then a soft ding.
+          SFX are kept well UNDER the phonics sound so it reads clearly — the
+          sparkle in particular fires on the same frame as sound_<L>, so it is
+          quietest of all. */}
+      <Sequence from={0} durationInFrames={16}><Audio src={staticFile("sfx/swoosh_soft.mp3")} volume={0.3} /></Sequence>
+      <Sequence from={4} durationInFrames={PAUSE}><Audio src={staticFile("sfx/tick.mp3")} volume={0.16} /></Sequence>
+      <Sequence from={revealF} durationInFrames={REVEAL}><Audio src={staticFile(`audio/shorts/sound_${it.letter}.mp3`)} volume={1} /></Sequence>
+      <Sequence from={revealF} durationInFrames={26}><Audio src={staticFile("sfx/sparkle.mp3")} volume={0.12} /></Sequence>
 
       <div style={{ position: "absolute", top: BAND_TOP, left: 0, width: 1080, height: BAND_H, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 30, padding: `0 ${SIDE}px`, boxSizing: "border-box" }}>
         {/* the letter on a bright stage tile, sound waves burst on reveal */}
@@ -217,7 +220,7 @@ export const SoundRecapReel: React.FC = () => {
     <AbsoluteFill style={{ fontFamily: font.family, background: "#4F86F0" }}>
       <SoundStage />
 
-      <Audio src={staticFile("music_bed.mp3")} loop volume={(f) => interpolate(f, [0, 20, SOUND_RECAP_DURATION - 40, SOUND_RECAP_DURATION], [0, 0.09, 0.09, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
+      <Audio src={staticFile("music_bed.mp3")} loop volume={(f) => interpolate(f, [0, 20, SOUND_RECAP_DURATION - 40, SOUND_RECAP_DURATION], [0, 0.055, 0.055, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
       <Sequence from={4} durationInFrames={40}><Audio src={staticFile("sfx/chime_soft.mp3")} volume={0.34} /></Sequence>
 
       {/* stage banner (its own look — not the paper title) */}
