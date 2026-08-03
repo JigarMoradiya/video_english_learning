@@ -473,11 +473,14 @@ const VowelCard: React.FC = () => {
 // During the teaching groups the frame splits like the app: the group's five words
 // listed on the left, the build animating on the right, the live word highlighted.
 const LIST_W = 380;
-/** lines that hold two words up against each other — both chips take turns pulsing */
+/** Lines that hold two words up against each other — both chips take turns pulsing.
+ *  Keyed on the SENTENCE, not the recording: run 10 holds "Pot. Hot. Hear that?" AND
+ *  "Last vowel. uh.", so pulsing for the length of the clip left pot and hot flashing
+ *  through the next vowel's introduction. */
 const COMPARE = [
-  { run: "06", words: ["hen", "pen"] },
-  { run: "08", words: ["pig", "big"] },
-  { run: "10", words: ["pot", "hot"] },
+  { say: "Hen. Pen.", words: ["hen", "pen"] },
+  { say: "Pig...", words: ["pig", "big"] },
+  { say: "Pot. Hot.", words: ["pot", "hot"] },
 ];
 const inGroups = (frame: number) => frame >= f(MARKS.shortA) && frame < f(MARKS.wall);
 
@@ -491,6 +494,9 @@ const WordList: React.FC = () => {
   const g = GROUPS[gi];
   const words = GROUP_WORDS[g.key];
   const live = buildAt(frame);
+  // A new vowel being introduced closes the group before it: no chip stays lit, and no
+  // pair keeps pulsing, while the next vowel is on the stage.
+  const announcing = Boolean(vowelCardAt(frame));
 
   return (
     <div
@@ -510,14 +516,17 @@ const WordList: React.FC = () => {
         <span style={{ fontSize: 48 }}>{g.emoji}</span>{g.label}
       </div>
       {words.map((w, i) => {
-        const isLive = live?.word === w && live?.wordClip;
+        const isLive = !announcing && live?.word === w && Boolean(live?.wordClip);
         // Every line that COMPARES two words makes those two chips take turns pulsing:
         //   06 "Hen. Pen. Hear the middle?"  08 "Pig... big..."  10 "Pot. Hot..."
         const pair = COMPARE.find((c) => c.words.includes(w));
-        const pr = pair ? CLIPS.find((c) => c.kind === "run" && c.id === pair.run) : undefined;
-        const asking = pr ? frame >= f(pr.start) && frame < f(pr.start + pr.dur) + 30 : false;
+        const pc = pair
+          ? (captionsJson as unknown as TPhrase[]).find((c) => c.text.startsWith(pair.say))
+          : undefined;
+        const asking = pc ? frame >= f(pc.start) && frame < f(pc.end) + 24 : false;
         const namedPulse = Boolean(
-          asking && pr && Math.floor((frame - f(pr.start)) / 14) % 2 === pair!.words.indexOf(w)
+          !announcing && asking && pc
+          && Math.floor((frame - f(pc.start)) / 14) % 2 === pair!.words.indexOf(w)
         );
         const done = BUILDS.some((b) => b.word === w && b.wordClip && frame >= b.to && b.from >= f(MARKS[g.key]));
         const s = spring({ frame: frame - f(MARKS[g.key]) - i * 4, fps, config: { damping: 13 } });
@@ -561,6 +570,9 @@ const Wall: React.FC = () => {
         position: "absolute", left: B.contentL, top: B.stageTop, width: B.contentR - B.contentL,
         height: B.stageBot - B.stageTop, display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center", gap: 12,
+        // five rows centred in the band put the bottom row down among the plates and
+        // cones standing on the counter; the band has the room above, so it rides higher
+        transform: "translateY(-66px)",
       }}
     >
       {Object.entries(GROUP_WORDS).map(([key, words], row) => (
