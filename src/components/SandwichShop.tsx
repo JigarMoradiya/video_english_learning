@@ -38,7 +38,7 @@ export const bands = (width: number, height: number) => {
   if (a === "9x16") {
     // the counter sits low: at 900 in a 1920 frame it was over half the cover in bare
     // wood, which reads as an unfinished image rather than as a shop
-    return { stageTop: 300, stageBot: 1300, counterY: 1300, floorY: height,
+    return { stageTop: 300, stageBot: 1520, counterY: 1520, floorY: height,
              menuX: 0, menuW: 0, jarX: 0, contentL: 90, contentR: width - 90,
              bannerTop: 150, listTop: 950, listBot: 1090, stripTop: 214 };
   }

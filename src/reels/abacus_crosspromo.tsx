@@ -99,7 +99,7 @@ const B1Abacus: React.FC = () => {
       <Floaters glyphs={["1", "+", "2", "×", "3", "−", "7", "÷"]} color="#2E77E6" opacity={0.45} />
       <Band>
         <Head size={70}>Your little one loves</Head>
-        <Img src={staticFile("abacus_icon.png")} style={{ width: 460, borderRadius: 96, boxShadow: "0 24px 50px rgba(40,30,80,0.3)", transform: `scale(${0.8 + 0.2 * inn}) rotate(${wiggle(frame, fps, 1.5, 3)}deg)` }} />
+        <Img src={staticFile("kids_abacus.png")} style={{ width: 500, height: "auto", filter: "drop-shadow(0 22px 34px rgba(40,30,80,0.28))", transform: `scale(${0.82 + 0.18 * inn}) translateY(${bob(frame, fps, 10, 2.4)}px) rotate(${wiggle(frame, fps, 1.2, 3)}deg)` }} />
         <Chip bg="#2E77E6" color="#fff" size={62}>Abacus · Math 🧮</Chip>
       </Band>
     </AbsoluteFill>
@@ -111,22 +111,20 @@ const B2Bridge: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const inn = spring({ frame, fps, config: { damping: 12 } });
-  const bear = spring({ frame: frame - 8, fps, config: { damping: 12 } });
+  const card = spring({ frame: frame - 4, fps, config: { damping: 13 } });
   const arrow = interpolate(frame, [24, 34], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
       <VO n={2} />
-      <Band gap={20}>
-        {/* graphic: "makers of Abacus" — the icon they already know, with sparkles */}
-        <div style={{ transform: `scale(${inn}) translateY(${bob(frame, fps, 7, 2.4)}px)`, display: "flex", alignItems: "center", gap: 18 }}>
-          <span style={{ fontSize: 58, transform: `rotate(${wiggle(frame, fps, 12, 3)}deg)` }}>✨</span>
-          <Img src={staticFile("abacus_icon.png")} style={{ width: 150, borderRadius: 34, boxShadow: "0 12px 26px rgba(40,30,80,0.32)", transform: `rotate(${wiggle(frame, fps, 2, 3.4)}deg)` }} />
-          <span style={{ fontSize: 58, transform: `rotate(${wiggle(frame, fps, 12, 3, 1)}deg)` }}>✨</span>
+      <Band gap={40}>
+        {/* the real people behind it — illustrated, warm; framed like a photo with the Abacus tag */}
+        <div style={{ position: "relative", transform: `scale(${card}) translateY(${bob(frame, fps, 7, 2.2)}px)` }}>
+          <div style={{ width: 440, height: 400, borderRadius: 40, overflow: "hidden", background: "#fff", padding: 12, boxSizing: "border-box", boxShadow: "0 18px 36px rgba(40,30,80,0.3)" }}>
+            <Img src={staticFile("makers_people.png")} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 22%", borderRadius: 30 }} />
+          </div>
+          <div style={{ position: "absolute", left: -12, bottom: -16, background: "#2E77E6", color: "#fff", fontSize: 34, fontWeight: 800, padding: "10px 24px", borderRadius: 999, boxShadow: "0 8px 18px rgba(40,30,80,0.32)", transform: `rotate(${wiggle(frame, fps, 2, 3)}deg)` }}>🧮 The Abacus team</div>
         </div>
-        <div style={{ transform: `scale(${inn})` }}><Head size={80}>From the same makers 🎉</Head></div>
-        <div style={{ transform: `translateY(${bob(frame, fps, 10, 2.2)}px) scale(${bear})` }}>
-          <Img src={staticFile("mascot.png")} style={{ width: 258, height: "auto", filter: "drop-shadow(0 18px 30px rgba(40,30,80,0.28))" }} />
-        </div>
+        <div style={{ transform: `scale(${inn})` }}><Head size={78}>From the same makers 🎉</Head></div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           {["1", "2", "3"].map((n, i) => <MorphCard key={n} txt={n} color="#2E77E6" scale={spring({ frame: frame - i * 4, fps, config: { damping: 12 } })} />)}
           <span style={{ fontSize: 66, opacity: arrow, transform: `scale(${arrow})` }}>➡️</span>

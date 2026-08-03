@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { CONSONANT, LetterBoard, MergedSandwich, ShopWorld, VOWEL, WordPicture } from "../components/SandwichShop";
+import { bands, CONSONANT, LetterBoard, MergedSandwich, ShopWorld, VOWEL, WordPicture } from "../components/SandwichShop";
 import { font, palette } from "../data/tokens";
 import { cover } from "./cover";
 
@@ -17,44 +17,56 @@ import { cover } from "./cover";
 const WORD = "cat";
 const PIC = "letters/cat.png";
 
-/** The hero row's real width at scale 1 — MEASURED off the rendered 16:9, not summed from
- *  the props. MergedSandwich draws wider than its `size` (it is a sandwich, not a square),
- *  so adding the numbers up gave 890 and both ends of the portrait row ran off the frame. */
+/** 16:9 — one row: c a t → cat 🐱. Its width is MEASURED off the render, not summed from
+ *  the props (MergedSandwich draws wider than its `size`, so the sum said 890 and both
+ *  ends of the portrait row ran off the frame). */
 const HERO_W = 1020;
 
-const Hero: React.FC<{ W: number; top: number; scale: number }> = ({ W, top, scale }) => {
-  const board = 150 * scale;
-  const gap = 16 * scale;
-  const arrow = 58 * scale;
-  const merged = 168 * scale;
-  const pic = 150 * scale;
-  return (
-    <div
-      style={{
-        position: "absolute", left: 0, top, width: W,
-        display: "flex", alignItems: "center", justifyContent: "center", gap,
-      }}
-    >
-      {WORD.split("").map((ch) => (
-        <LetterBoard key={ch} letter={ch} vowel={"aeiou".includes(ch)} size={board} lit />
-      ))}
-      <span style={{ fontSize: arrow, fontWeight: 800, color: palette.ink, lineHeight: 1,
-                     textShadow: "0 4px 0 #FFFFFF" }}>→</span>
-      <MergedSandwich word={WORD} size={merged} lit />
-      <WordPicture pic={PIC} size={pic} />
+const HeroRow: React.FC<{ W: number; top: number; scale: number }> = ({ W, top, scale }) => (
+  <div style={{ position: "absolute", left: 0, top, width: W, display: "flex",
+                alignItems: "center", justifyContent: "center", gap: 16 * scale }}>
+    {WORD.split("").map((ch) => (
+      <LetterBoard key={ch} letter={ch} vowel={"aeiou".includes(ch)} size={150 * scale} lit />
+    ))}
+    <span style={{ fontSize: 58 * scale, fontWeight: 800, color: palette.ink, lineHeight: 1,
+                   textShadow: "0 4px 0 #FFFFFF" }}>→</span>
+    <MergedSandwich word={WORD} size={168 * scale} lit />
+    <WordPicture pic={PIC} size={150 * scale} />
+  </div>
+);
+
+/** 9:16 — the same idea STACKED. A tall frame laid out as one wide row leaves two thick
+ *  empty bands above and below it; down the frame, the three sounds becoming one word is
+ *  also the direction the eye already travels. */
+const HeroColumn: React.FC<{ W: number; top: number; s: number }> = ({ W, top, s }) => (
+  <div style={{ position: "absolute", left: 0, top, width: W, display: "flex",
+                flexDirection: "column", alignItems: "center", gap: 14 * s }}>
+    {WORD.split("").map((ch) => (
+      <LetterBoard key={ch} letter={ch} vowel={"aeiou".includes(ch)} size={148 * s} lit />
+    ))}
+    <span style={{ fontSize: 62 * s, fontWeight: 800, color: palette.ink, lineHeight: 0.9,
+                   textShadow: "0 4px 0 #FFFFFF" }}>↓</span>
+    <div style={{ display: "flex", alignItems: "center", gap: 18 * s }}>
+      <MergedSandwich word={WORD} size={184 * s} lit />
+      <WordPicture pic={PIC} size={152 * s} />
     </div>
-  );
-};
+  </div>
+);
 
 const Frame: React.FC<{ W: number; H: number; portrait: boolean }> = ({ W, H, portrait }) => {
   const c = cover(W, H);
   const headSize = c.headSize("CVC WORDS".length);
-  const headBottom = c.head.top + headSize * c.head.lineHeight * (portrait ? 2 : 1);
+  const headBottom = c.head.top + headSize * c.head.lineHeight;
   // the hero clears the headline's last line by a real margin, never by luck
-  // SCALED TO FIT, not guessed: at 1.55 the portrait row was 1165px wide in a 1080 frame
-  // and both ends ran off the edge.
-  const heroScale = Math.min(1.0, (W - (portrait ? 76 : 150)) / HERO_W);
-  const heroTop = portrait ? H * 0.375 : headBottom + 40;
+  const B = bands(W, H);
+  const heroScale = Math.min(1.0, (W - 150) / HERO_W);
+  // The column's height at s=1, so the portrait cover can size it to the room it HAS —
+  // between the headline and the mascot's head — instead of being left as a stamp in the
+  // middle of a tall frame.
+  const COL_H = 3 * 148 + 2 * 14 + 62 + 14 + 184 * 1.12;
+  const heroTop = portrait ? H * 0.25 : headBottom + 40;
+  const colS = portrait ? Math.min(1.6, (H * 0.70 - heroTop) / COL_H) : 1;
+  const colBottom = heroTop + COL_H * colS;
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
@@ -76,17 +88,23 @@ const Frame: React.FC<{ W: number; H: number; portrait: boolean }> = ({ W, H, po
           textShadow: c.head.textShadow,
         }}
       >
-        {portrait ? (<>CVC<br />WORDS</>) : "CVC WORDS"}
+        {/* one line in both: two lines cost ~190px of the very room the column needs */}
+        CVC WORDS
       </div>
 
       {/* 3 · the one key visual */}
-      <Hero W={W} top={heroTop} scale={heroScale} />
+      {portrait
+        ? <HeroColumn W={W} top={heroTop} s={colS} />
+        : <HeroRow W={W} top={heroTop} scale={heroScale} />}
 
       {/* the promise under it, small — three sounds, one word */}
       <div
         style={{
-          position: "absolute", left: 0, top: heroTop + 200 * heroScale, width: W,
-          textAlign: "center", fontSize: (portrait ? H * 0.031 : 44),
+          // 16:9 — down ON the counter. Above it the line sat among the plates, cones and
+          // jars standing on the counter top and could not be read cleanly.
+          position: "absolute", left: 0, width: W,
+          top: portrait ? colBottom + 18 : B.counterY + 30,
+          textAlign: "center", fontSize: (portrait ? H * 0.033 : 46),
           fontWeight: 800, color: palette.ink, textShadow: "0 4px 0 #FFFFFF",
         }}
       >
