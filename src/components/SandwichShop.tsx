@@ -36,7 +36,9 @@ export const aspectOf = (width: number, height: number) =>
 export const bands = (width: number, height: number) => {
   const a = aspectOf(width, height);
   if (a === "9x16") {
-    return { stageTop: 300, stageBot: 900, counterY: 900, floorY: 1180,
+    // the counter sits low: at 900 in a 1920 frame it was over half the cover in bare
+    // wood, which reads as an unfinished image rather than as a shop
+    return { stageTop: 300, stageBot: 1300, counterY: 1300, floorY: height,
              menuX: 0, menuW: 0, jarX: 0, contentL: 90, contentR: width - 90,
              bannerTop: 150, listTop: 950, listBot: 1090, stripTop: 214 };
   }
@@ -52,9 +54,15 @@ export const bands = (width: number, height: number) => {
   // floorY = height: the counter runs to the bottom edge. It used to stop at 1000, leaving
   // an 80px pale strip under it — a second, lighter band across the footer that read as a
   // stray bar rather than as part of the shop. 4:5 already did this; 16:9 was the odd one.
-  return { stageTop: 250, stageBot: 760, counterY: 760, floorY: height,
-           menuX: width - 350, menuW: 292, jarX: 44, contentL: 320, contentR: width - 380,
-           bannerTop: 150, listTop: 0, listBot: 0, stripTop: 0 };
+  //
+  // The landscape numbers were tuned against a 1080-tall frame, so they scale with height:
+  // a 720-tall cover was putting the counter 40px BELOW the frame. k is exactly 1 for the
+  // video, so this changes nothing there.
+  const k = height / 1080;
+  return { stageTop: 250 * k, stageBot: 760 * k, counterY: 760 * k, floorY: height,
+           menuX: width - 350 * k, menuW: 292 * k, jarX: 44 * k,
+           contentL: 320 * k, contentR: width - 380 * k,
+           bannerTop: 150 * k, listTop: 0, listBot: 0, stripTop: 0 };
 };
 
 /** the five vowel groups, in the app's own order — also the menu board's five lines */
@@ -75,7 +83,10 @@ export const ShopWorld: React.FC<{
   //   "off"     — gone (the download beat)
   // He moves rather than disappearing, so the shop always has its keeper.
   mascot?: "counter" | "floor" | "off";
-}> = ({ dim = 1, activeGroup = -1, doneGroups = 0, leftFree = false, mascot = "off" }) => {
+  /** the chalkboard menu. Off for covers: its type is absolute, so at a 720-tall
+   *  frame the lines wrap and run off the board, and it crowds the key visual. */
+  menu?: boolean;
+}> = ({ dim = 1, activeGroup = -1, doneGroups = 0, leftFree = false, mascot = "off", menu = true }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
@@ -233,7 +244,7 @@ export const ShopWorld: React.FC<{
           );
         })()}
 
-        {!portrait && (
+        {!portrait && menu && (
           <div
             style={{
               position: "absolute", left: B.menuX, top: 150, width: B.menuW, padding: "24px 20px 28px",

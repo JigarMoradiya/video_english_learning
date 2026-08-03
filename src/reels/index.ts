@@ -40,6 +40,7 @@ import { Cvc9x16Reel } from "./cvc9x16";
 import { CVC_DURATION } from "../data/cvc";
 import { CVC15_DURATION } from "../data/cvc15";
 import { ThumbRecognition169, ThumbRecognition916 } from "../thumbs/recognition_thumb";
+import { ThumbCvc169, ThumbCvc916 } from "../thumbs/cvc_thumb";
 import { ThumbBlending } from "../thumbs/blending_thumb";
 import { ThumbBlendingPortrait } from "../thumbs/blending_thumb_portrait";
 import { ThumbBlendingPortraitNew } from "../thumbs/blending_thumb_portrait_new";
@@ -172,6 +173,8 @@ export const REELS: ReelEntry[] = [
   // L3 · 2-Sound Blending — each aspect wears the world its own video wears
   { id: "thumb-letter-recognition", component: ThumbRecognition169, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-letter-recognition-9x16", component: ThumbRecognition916, durationInFrames: 1, width: 1080, height: 1920 },
+  { id: "thumb-cvc", component: ThumbCvc169, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-cvc-9x16", component: ThumbCvc916, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-blending", component: ThumbBlending, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-blending-9x16", component: ThumbBlendingPortrait, durationInFrames: 1, width: 1080, height: 1920 },
   // NEW 9:16 thumb wearing the Toy Workshop (matches the 16:9 thumb + 4:5 video theme).
