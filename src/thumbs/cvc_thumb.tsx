@@ -107,10 +107,16 @@ const Frame: React.FC<{ W: number; H: number; portrait: boolean }> = ({ W, H, po
   // BOTH derived from the headline's bottom. Portrait was a fixed H*0.25 = 480 while the
   // headline ran to 496, so the row overlapped the title by construction — a fraction of
   // the frame cannot know where the type ends.
-  const heroTop = headBottom + (portrait ? H * 0.055 : 40);
+  // portrait sits higher under the headline: the column gained a second line at its
+  // foot, which pushed "3 sounds · 1 word" down onto the plates and cones
+  const heroTop = headBottom + (portrait ? H * 0.030 : 40);
   // capped on WIDTH too: three 148 boards and two gaps must fit 1080 with a margin
   const colS = portrait
-    ? Math.min((W - 190) / (3 * 148 + 2 * 14), (H * 0.72 - heroTop) / COL_H)
+    // the two text lines are drawn at a FIXED size while everything else scales by s, so
+    // the height they take has to come off the top before dividing — leaving them out is
+    // why lifting the column just made it grow and put the promise back on the cones
+    ? Math.min((W - 190) / (3 * 148 + 2 * 14),
+               (H * 0.70 - heroTop - (H * 0.026 + H * 0.032 + 46)) / COL_H)
     : 1;
   const colBottom = heroTop + COL_H * colS;
 
