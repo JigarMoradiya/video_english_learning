@@ -1,5 +1,7 @@
 import timeline from "./cvc.timeline.json";
-import { STORE_OUTRO_F } from "../components/StoreOutro";
+import captions from "./cvc.captions.json";
+// STORE_OUTRO_F is deliberately NOT imported: this video times its own ending — see
+// CVC_DURATION below.
 
 // ── L4 · CVC Words — the timeline ────────────────────────────────────────────
 // Built by tools/build_cvc_timeline.py. NOTHING IS CUT: every clip, the teacher's 15
@@ -65,4 +67,15 @@ export const PIC: Record<string, string> = {
 };
 
 export const OUTRO_FROM = F(AUDIO_SEC) + 24;
-export const CVC_DURATION = OUTRO_FROM + STORE_OUTRO_F;
+
+// The store card rises ON the CTA line, not after all the audio — see DL_FROM in the reel.
+// The length has to be measured from THAT start. Adding STORE_OUTRO_F to OUTRO_FROM instead
+// counted the beat twice and left 12.4s of finished video running after the last word.
+export const DOWNLOAD_FROM = Math.round(
+  (captions as { start: number }[])[(captions as unknown[]).length - 1].start * FPS
+) - 6;
+// Two seconds after the last word — long enough for the store badges to hold, short
+// enough that the video does not keep running over a finished frame. STORE_OUTRO_F is the
+// shared card's own length and is NOT the answer here: this beat starts on the CTA line,
+// well before the audio ends, so adding it lands 12s past the end.
+export const CVC_DURATION = F(AUDIO_SEC) + 60;

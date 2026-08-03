@@ -1,12 +1,13 @@
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import {
-  ALL_WORDS, AUDIO_SEC, Clip, CLIPS, CVC_DURATION, F, GROUP_WORDS, MARKS, OUTRO_FROM, PIC, run,
+  ALL_WORDS, AUDIO_SEC, Clip, CLIPS, CVC_DURATION, DOWNLOAD_FROM, F, GROUP_WORDS, MARKS, PIC, run,
 } from "../data/cvc";
 import captionsJson from "../data/cvc.captions.json";
 // the store card rises ON the download line — before this it arrived only after ALL
-// audio, leaving the CTA sentence playing over leftover quiz visuals
-const DL_FROM = Math.round(((captionsJson as unknown as { start: number }[]).slice(-1)[0].start) * 30) - 6;
+// audio, leaving the CTA sentence playing over leftover quiz visuals. The video's LENGTH
+// is measured from here too, so the two can never drift apart again.
+const DL_FROM = DOWNLOAD_FROM;
 import { bands, CONSONANT, GROUPS, LetterBoard, MergedSandwich, ShopWorld, VOWEL, WordPicture } from "../components/SandwichShop";
 import { Captions } from "../components/Captions";
 import { makeTrack, TPhrase } from "../lib/timing";
