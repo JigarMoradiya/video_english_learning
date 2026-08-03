@@ -770,19 +770,20 @@ export const CvcReel: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFF6E6" }}>
-      {/* The shopkeeper stands on the counter top. He is hidden wherever the layout needs
-          that strip: in 4:5 the word list occupies it through every group, and in 16:9 the
-          wall of twenty-five reaches across to his side. Never overlapped, never cropped. */}
+      {/* The shopkeeper lives down the left. He MOVES rather than disappearing: onto the
+          counter face when the word list takes the top-left, back up onto the counter top
+          when it goes. Never overlapped, never cropped. */}
       <ShopWorld
         dim={dim}
         activeGroup={frame < f(MARKS.wall) ? gi : -1}
         doneGroups={frame >= f(MARKS.wall) ? 5 : Math.max(0, gi)}
         leftFree={!inGroups(frame)}
         mascot={
-          frame < DL_FROM
-          && (SZ.p
-            ? !inGroups(frame)
-            : !(frame >= f(MARKS.wall) - 6 && frame < f(MARKS.quiz)))
+          frame >= DL_FROM ? "off"
+          // the word list owns the top-left through every group — in 16:9 as a column, in
+          // 4:5 as a row across it — so he steps down onto the counter face instead
+          : inGroups(frame) ? "floor"
+          : "counter"
         }
       />
 

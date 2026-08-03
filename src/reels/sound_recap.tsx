@@ -99,9 +99,11 @@ const LetterBeat: React.FC<{ it: LetterItem }> = ({ it }) => {
         <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", transform: `translateY(${bob(frame, fps, 8, 2.8)}px)` }}>
           <div style={{ position: "absolute", left: -150 }}><Waves side={-1} on={wavesOn} color={"#fff"} /></div>
           <div style={{ position: "absolute", right: -150 }}><Waves side={1} on={wavesOn} color={"#fff"} /></div>
-          <div style={{ width: 380, height: 380, borderRadius: 52, background: "#fff", boxShadow: `0 16px 0 ${shade(accent, 0.12)}, 0 30px 60px rgba(20,10,60,0.4)`, display: "flex", alignItems: "flex-end", justifyContent: "center", gap: 6, paddingBottom: 24, boxSizing: "border-box", transform: `scale(${0.72 + 0.28 * letterIn})` }}>
-            <span style={{ fontSize: 240, fontWeight: 800, color: accent, lineHeight: 0.9 }}>{it.letter}</span>
-            <span style={{ fontSize: 168, fontWeight: 800, color: shade(accent, 0.14), lineHeight: 0.9 }}>{it.letter.toLowerCase()}</span>
+          <div style={{ width: 380, height: 380, borderRadius: 52, background: "#fff", boxShadow: `0 16px 0 ${shade(accent, 0.12)}, 0 30px 60px rgba(20,10,60,0.4)`, display: "flex", alignItems: "center", justifyContent: "center", boxSizing: "border-box", transform: `scale(${0.72 + 0.28 * letterIn})` }}>
+            <div style={{ display: "flex", alignItems: "flex-end", gap: 6 }}>
+              <span style={{ fontSize: 236, fontWeight: 800, color: accent, lineHeight: 0.86 }}>{it.letter}</span>
+              <span style={{ fontSize: 166, fontWeight: 800, color: shade(accent, 0.14), lineHeight: 0.86 }}>{it.letter.toLowerCase()}</span>
+            </div>
           </div>
         </div>
 
@@ -164,22 +166,31 @@ const End: React.FC = () => {
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
       <Sequence from={6} durationInFrames={40}><Audio src={staticFile("audio/common/woohoo.mp3")} volume={0.9} /></Sequence>
-      <Sequence from={26} durationInFrames={70}><Audio src={staticFile("audio/shorts/vo_how_many.mp3")} /></Sequence>
-      <Sequence from={64} durationInFrames={50}><Audio src={staticFile("audio/shorts/vo_how_did_you_do.mp3")} /></Sequence>
+      <Sequence from={26} durationInFrames={66}><Audio src={staticFile("audio/shorts/vo_how_many.mp3")} /></Sequence>
+      <Sequence from={92} durationInFrames={70}><Audio src={staticFile("audio/shorts/vo_comment.mp3")} /></Sequence>
 
       <div style={{ position: "absolute", top: BAND_TOP, left: 0, width: 1080, height: BAND_H, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 30, padding: `0 ${SIDE}px`, boxSizing: "border-box" }}>
+        {/* icon above the title */}
+        <div style={{ fontSize: 116, lineHeight: 1, transform: `scale(${inn}) translateY(${bob(frame, fps, 10, 2.4)}px)` }}>🏆</div>
+
         <div style={{ fontSize: 84, fontWeight: 800, color: "#fff", textAlign: "center", transform: `scale(${inn})`, textShadow: HEAD_SHADOW }}>
-          How many did<br />they get? 🎉
+          How many did<br />they get?
         </div>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", maxWidth: 900, transform: `scale(${rowIn})` }}>
-          {RANGE.map((it) => {
-            const c = letterColorFor(it.letter, it.imageColor);
-            return (
-              <div key={it.letter} style={{ width: 118, height: 118, borderRadius: 22, background: "#fff", boxShadow: `0 8px 0 ${shade(c, 0.12)}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontSize: 72, fontWeight: 800, color: c }}>{it.letter}</span>
-              </div>
-            );
-          })}
+
+        {/* letters in balanced centered rows (A–D / E–G) */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 14, transform: `scale(${rowIn})` }}>
+          {[RANGE.slice(0, Math.ceil(RANGE.length / 2)), RANGE.slice(Math.ceil(RANGE.length / 2))].map((row, ri) => (
+            <div key={ri} style={{ display: "flex", justifyContent: "center", gap: 14 }}>
+              {row.map((it) => {
+                const c = letterColorFor(it.letter, it.imageColor);
+                return (
+                  <div key={it.letter} style={{ width: 118, height: 118, borderRadius: 22, background: "#fff", boxShadow: `0 8px 0 ${shade(c, 0.12)}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 72, fontWeight: 800, color: c }}>{it.letter}</span>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
         {/* the comment ask — big, pulsing */}
         <div style={{ opacity: ctaIn, transform: `scale(${ctaIn * pulse(frame, fps, 0.03, 1.1)})`, marginTop: 6 }}>
@@ -195,7 +206,7 @@ const End: React.FC = () => {
 
 // ── plan + reel ──────────────────────────────────────────────────────────────
 const HOOK_F = 96;
-const END_F = 150;
+const END_F = 180; // room for: woohoo → "how many?" → "comment below!"
 let _c = HOOK_F;
 const BEATS = RANGE.map((it) => { const from = _c; _c += BEAT; return { it, from }; });
 const END_FROM = _c;

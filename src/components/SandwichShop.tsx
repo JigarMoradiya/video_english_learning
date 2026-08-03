@@ -65,11 +65,14 @@ export const GROUPS = [
 
 export const ShopWorld: React.FC<{
   dim?: number; activeGroup?: number; doneGroups?: number; leftFree?: boolean;
-  // The shopkeeper. He STANDS ON THE COUNTER TOP, at the same level as the cones and
-  // jars — never floating in the wall behind the teaching. The caller hides him whenever
-  // the layout needs that strip, so he can never be the thing that overlaps the content.
-  mascot?: boolean;
-}> = ({ dim = 1, activeGroup = -1, doneGroups = 0, leftFree = false, mascot = false }) => {
+  // The shopkeeper, always down the LEFT.
+  //   "counter" — standing on the counter top, at the cones' and jars' level
+  //   "floor"   — down on the counter's wood face on a rounded base, for when the word
+  //               list holds the top-left corner
+  //   "off"     — gone (the download beat)
+  // He moves rather than disappearing, so the shop always has its keeper.
+  mascot?: "counter" | "floor" | "off";
+}> = ({ dim = 1, activeGroup = -1, doneGroups = 0, leftFree = false, mascot = "off" }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
@@ -197,25 +200,35 @@ export const ShopWorld: React.FC<{
 
         {/* THE MENU BOARD — the five vowel groups, ticking off as the video goes.
             The decor IS the progress bar, so the frame never needs a separate one. */}
-        {mascot && (
-          <Img
-            src={staticFile("mascot.png")}
-            style={{
-              position: "absolute",
-              // he is 923×1063 with ~7px of transparent padding under his feet, so the
-              // bottom sits ON the counter line rather than hovering above it
-              // 16:9 — RIGHT of the jars and clear of the widest board spread ("Sound
-              // them out..." throws them to x1610), tucked under the menu board, which
-              // ends ~280px above the counter. 4:5 — the free left end of the counter.
-              width: portrait ? 168 : 166,
-              left: portrait ? width * 0.10 : width * 0.855,
-              top: B.counterY - (portrait ? 168 : 166) * (1063 / 923) + 8,
-              opacity: dim,
-              transform: `translateY(${bob(frame, fps, 3.8, 6)}px) rotate(${Math.sin(t2 * 1.1) * 2.2}deg)`,
-              filter: "drop-shadow(0 10px 14px rgba(60,40,20,0.22))",
-            }}
-          />
-        )}
+        {mascot !== "off" && (() => {
+          const onFloor = mascot === "floor";
+          // the floor spot in 4:5 shares its band with the caption, and the longest line
+          // ("Pot. Hot. Hear that? Just the front sound.") reaches x176 — so he is sized
+          // and inset to clear it with room, not to touch it
+          const w = portrait ? (onFloor ? 128 : 168) : (onFloor ? 172 : 178);
+          const h = w * (1063 / 923);       // 923×1063, ~7px of padding under his feet
+          const left = width * (portrait ? (onFloor ? 0.022 : 0.035) : 0.045);
+          // counter: feet ON the counter line. floor: standing on the wood below it, high
+          // enough that the caption box never reaches him.
+          const top = onFloor ? B.counterY + (portrait ? 16 : 34) : B.counterY - h + 8;
+          return (
+            <div style={{ position: "absolute", left, top, width: w, opacity: dim,
+                          transform: `translateY(${bob(frame, fps, 3.8, 6)}px)` }}>
+              {onFloor && (
+                <div style={{ position: "absolute", left: -12, top: h - 26, width: w + 24, height: 34,
+                              borderRadius: "50%",
+                              background: "radial-gradient(ellipse at 50% 40%, #F0C87E 0%, #D9A85B 62%, #C08F45 100%)",
+                              boxShadow: "0 6px 0 rgba(140,95,40,0.45), 0 10px 20px rgba(60,40,20,0.28)" }} />
+              )}
+              <Img
+                src={staticFile("mascot.png")}
+                style={{ position: "relative", width: w, display: "block",
+                         transform: `rotate(${Math.sin(t2 * 1.1) * 2.2}deg)`,
+                         filter: "drop-shadow(0 10px 14px rgba(60,40,20,0.22))" }}
+              />
+            </div>
+          );
+        })()}
 
         {!portrait && (
           <div
