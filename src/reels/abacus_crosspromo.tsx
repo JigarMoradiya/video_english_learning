@@ -116,10 +116,16 @@ const B2Bridge: React.FC = () => {
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
       <VO n={2} />
-      <Band gap={24}>
-        <div style={{ transform: `scale(${inn})` }}><Head size={82}>From the same makers 🎉</Head></div>
+      <Band gap={20}>
+        {/* graphic: "makers of Abacus" — the icon they already know, with sparkles */}
+        <div style={{ transform: `scale(${inn}) translateY(${bob(frame, fps, 7, 2.4)}px)`, display: "flex", alignItems: "center", gap: 18 }}>
+          <span style={{ fontSize: 58, transform: `rotate(${wiggle(frame, fps, 12, 3)}deg)` }}>✨</span>
+          <Img src={staticFile("abacus_icon.png")} style={{ width: 150, borderRadius: 34, boxShadow: "0 12px 26px rgba(40,30,80,0.32)", transform: `rotate(${wiggle(frame, fps, 2, 3.4)}deg)` }} />
+          <span style={{ fontSize: 58, transform: `rotate(${wiggle(frame, fps, 12, 3, 1)}deg)` }}>✨</span>
+        </div>
+        <div style={{ transform: `scale(${inn})` }}><Head size={80}>From the same makers 🎉</Head></div>
         <div style={{ transform: `translateY(${bob(frame, fps, 10, 2.2)}px) scale(${bear})` }}>
-          <Img src={staticFile("mascot.png")} style={{ width: 300, height: "auto", filter: "drop-shadow(0 18px 30px rgba(40,30,80,0.28))" }} />
+          <Img src={staticFile("mascot.png")} style={{ width: 258, height: "auto", filter: "drop-shadow(0 18px 30px rgba(40,30,80,0.28))" }} />
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           {["1", "2", "3"].map((n, i) => <MorphCard key={n} txt={n} color="#2E77E6" scale={spring({ frame: frame - i * 4, fps, config: { damping: 12 } })} />)}
@@ -144,9 +150,21 @@ const B3English: React.FC = () => {
       <VO n={3} from={10} />
       <Floaters glyphs={["A", "a", "B", "b", "C", "c", "D", "e"]} color="#E8368F" opacity={0.4} />
       <Band gap={26}>
-        <Img src={staticFile("logo.png")} style={{ width: 760, height: "auto", transform: `scale(${interpolate(logo, [0, 1], [0.4, 1])}) translateY(${bob(frame, fps, 8, 2.8)}px)`, filter: "drop-shadow(0 20px 36px rgba(40,30,80,0.3))" }} />
+        <Img src={staticFile("logo.png")} style={{ width: 640, height: "auto", transform: `scale(${interpolate(logo, [0, 1], [0.4, 1])}) translateY(${bob(frame, fps, 8, 2.8)}px)`, filter: "drop-shadow(0 20px 36px rgba(40,30,80,0.3))" }} />
         <div style={{ opacity: name, transform: `translateY(${(1 - name) * 16}px)` }}>
-          <Head size={76}>Now learn <span style={{ color: "#E8368F" }}>ENGLISH!</span> 📚</Head>
+          <Head size={68}>Now learn <span style={{ color: "#E8368F" }}>ENGLISH!</span> 📚</Head>
+        </div>
+        {/* phonics · letters · reading — appear as the VO names them */}
+        <div style={{ display: "flex", gap: 18 }}>
+          {([["🔊", "Phonics"], ["🔤", "Letters"], ["📖", "Reading"]] as const).map(([e, t], i) => {
+            const cs = spring({ frame: frame - 66 - i * 24, fps, config: { damping: 12 } });
+            return (
+              <div key={t} style={{ background: "#fff", borderRadius: 26, padding: "20px 30px", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, boxShadow: "0 10px 0 rgba(40,30,80,0.12), 0 18px 28px rgba(40,30,80,0.2)", transform: `scale(${cs}) translateY(${bob(frame, fps, 6, 2.4, i)}px)` }}>
+                <span style={{ fontSize: 66 }}>{e}</span>
+                <span style={{ fontSize: 38, fontWeight: 800, color: palette.ink }}>{t}</span>
+              </div>
+            );
+          })}
         </div>
       </Band>
       <Confetti frame={frame} fps={fps} burstFrame={8} origin={{ x: 540, y: 760 }} colors={["#FFC24A", "#FF8A5B", "#E8368F", "#5B50D6", "#67E8F9"]} count={40} seed={3} />
@@ -161,18 +179,14 @@ const TracingDemo: React.FC = () => {
   const accent = "#2E77E6";
   const prog = interpolate(frame, [10, 74], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const inn = spring({ frame, fps, config: { damping: 12 } });
-  const penY = interpolate(prog, [0, 1], [-140, 150]);
   return (
     <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 30 }}>
       <Chip bg={accent} color="#fff" size={50}>✏️ Trace every letter</Chip>
       <div style={{ position: "relative", transform: `scale(${0.85 + 0.15 * inn})` }}>
-        <div style={{ width: 440, height: 440, borderRadius: 48, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
-          {/* faint guide + the stroke drawing itself */}
-          <div style={{ position: "absolute", opacity: 0.14 }}><TraceGlyph char="A" color={accent} box={360} progress={1} /></div>
-          <TraceGlyph char="A" color={accent} box={360} progress={prog} />
+        <div style={{ width: 440, height: 440, borderRadius: 48, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+          {/* the stroke draws itself with a fingertip touch riding the tip (aligned) */}
+          <TraceGlyph char="A" color={accent} box={360} progress={prog} touch />
         </div>
-        {/* the writing hand follows the stroke down */}
-        <span style={{ position: "absolute", left: 250, top: 210 + penY, fontSize: 132, transform: "rotate(8deg)", filter: "drop-shadow(0 8px 12px rgba(40,30,80,0.3))" }}>✍️</span>
       </div>
     </AbsoluteFill>
   );

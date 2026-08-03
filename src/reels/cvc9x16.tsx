@@ -32,10 +32,17 @@ const DL_FROM = DOWNLOAD_FROM;
 // "Ready? Let's do." then "First vowel — aaa." — the idea section must hand the stage to
 // <VowelCard/> on the SAME frame the card appears, not 20 frames earlier. That gap was
 // the misalignment: the grid left, and nothing arrived until the card sprang in.
-// No lead-in here. The teacher says "Ready? Let's do. First vowel — aaa." in ONE breath —
-// there is no pause between "do" and "First" — so a card that arrives even six frames
-// early lands on the word "do", showing an `a` while the previous line is still being read.
-const IDEA_END = f(CAPS[13].start);
+/** When the vowel card may appear.
+ *  NOT the caption start. "Ready? Let's do. First vowel — aaa." is one unbroken breath —
+ *  no pause between "do" and "First" — so the boundary between those two captions is
+ *  whisper's guess to within a tenth of a second, and any error puts an `a` on screen
+ *  while "do" is still being said. The SECOND word of the line is always safely inside it,
+ *  and for "Next — oh." it is the vowel sound itself.
+ */
+const vowelCardFrom = (c: { start: number; words: { start: number }[] }) =>
+  f(c.words.length > 1 ? c.words[1].start : c.start);
+
+const IDEA_END = vowelCardFrom(CAPS[13]);
 
 interface Build { word: string; sounds: Clip[]; wordClip: Clip; from: number; to: number }
 const BUILDS: Build[] = (() => {
@@ -117,7 +124,7 @@ const vowelCardAt = (frame: number) => {
   for (const v of VOWEL_LINES) {
     const idx = CAPS.findIndex((c) => c.text.startsWith(v.say));
     if (idx < 0) continue;
-    const from = f(CAPS[idx].start);
+    const from = vowelCardFrom(CAPS[idx]);
     const next = BUILDS.find((b) => b.from > from);
     const to = next ? next.from : f(CAPS[idx].end) + 24;
     if (frame >= from && frame < to) return { v, from };
@@ -318,7 +325,7 @@ const IdeaScene: React.FC = () => {
     : -1;
   const apart = at(10) && !at(11);
   const snap = at(11) && !at(12);
-  const grid = at(12);
+  const grid = at(12);   // holds until IDEA_END, i.e. until the card actually arrives
   const gap = apart ? 84 : snap ? 8 : 26;
 
   return (

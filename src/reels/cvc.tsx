@@ -317,7 +317,9 @@ const IdeaScene: React.FC = () => {
   // 8 blue are consonants    9 C V C                  10 sound them out
   // 11 blend them fast      12 ready, fifteen         13 first vowel aaa
   const split = at(3) && !at(4);                    // the sandwich comes apart again
-  const showBoards = at(3) && !at(13);
+  // ...and the boards hold until the CARD arrives, not until line 13 starts —
+  // otherwise the stage is bare for the seconds in between
+  const showBoards = at(3) && !vowelCardAt(frame);
   const pip = at(5) && !at(6) ? Math.min(2, Math.floor(since(5) / 26)) : -1;
   const midLift = at(6) && !at(9);
   const vowelOnly = at(7) && !at(8);
@@ -330,7 +332,7 @@ const IdeaScene: React.FC = () => {
     : -1;
   const apart = at(10) && !at(11);
   const snap = at(11) && !at(12);
-  const grid = at(12) && !at(13);
+  const grid = at(12) && !vowelCardAt(frame);
   const badge = at(13);
 
   // "Sound them out..." pulls the boards apart. 200 + three 262px boards is 1186px —
@@ -434,12 +436,22 @@ const VOWEL_LINES: { say: string; letter: string; badge: string }[] = [
 ];
 
 /** [fromFrame, toFrame, entry] for the vowel card live at this frame, or null */
+/** When the vowel card may appear.
+ *  NOT the caption start. "Ready? Let's do. First vowel — aaa." is one unbroken breath —
+ *  no pause between "do" and "First" — so the boundary between those two captions is
+ *  whisper's guess to within a tenth of a second, and any error puts an `a` on screen
+ *  while "do" is still being said. The SECOND word of the line is always safely inside it,
+ *  and for "Next — oh." it is the vowel sound itself.
+ */
+const vowelCardFrom = (c: { start: number; words: { start: number }[] }) =>
+  f(c.words.length > 1 ? c.words[1].start : c.start);
+
 const vowelCardAt = (frame: number) => {
   const caps = captionsJson as unknown as TPhrase[];
   for (const v of VOWEL_LINES) {
     const idx = caps.findIndex((c) => c.text.startsWith(v.say));
     if (idx < 0) continue;
-    const from = f(caps[idx].start) - 6;
+    const from = vowelCardFrom(caps[idx]);
     // it holds until the boards for the first word of that group come up, so the child
     // reads the vowel through the whole gap rather than for one syllable
     const next = BUILDS.find((b) => b.from > from);

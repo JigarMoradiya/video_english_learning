@@ -18,8 +18,9 @@ export const TraceGlyph: React.FC<{
   box: number; // square px size
   progress: number; // 0..1 across the whole letter
   showDot?: boolean;
+  touch?: boolean; // render the tip as a fingertip "touch" (glow ring + white core)
   pad?: number; // fraction of box kept as margin
-}> = ({ char, color, box, progress, showDot = true, pad = 0.12 }) => {
+}> = ({ char, color, box, progress, showDot = true, touch = false, pad = 0.12 }) => {
   const strokes = STROKES[char];
   if (!strokes || strokes.length === 0) return null;
 
@@ -76,7 +77,15 @@ export const TraceGlyph: React.FC<{
       {drawn.map((st, i) => st.length >= 2 && (
         <path key={`m${i}`} d={d(st)} fill="none" stroke={color} strokeWidth={main} strokeLinecap="round" strokeLinejoin="round" />
       ))}
-      {showDot && tip && <circle cx={tip[0]} cy={tip[1]} r={dotR} fill={color} />}
+      {showDot && tip && (touch ? (
+        <g>
+          <circle cx={tip[0]} cy={tip[1]} r={dotR * 2.2} fill={color} opacity={0.22} />
+          <circle cx={tip[0]} cy={tip[1]} r={dotR * 1.35} fill="#fff" />
+          <circle cx={tip[0]} cy={tip[1]} r={dotR * 0.82} fill={color} />
+        </g>
+      ) : (
+        <circle cx={tip[0]} cy={tip[1]} r={dotR} fill={color} />
+      ))}
     </svg>
   );
 };
