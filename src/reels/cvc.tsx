@@ -704,7 +704,10 @@ export const CvcReel: React.FC = () => {
       </Sequence>
 
       <Sequence from={DL_FROM}>
-        <StoreOutro silent compact total={CVC_DURATION - DL_FROM} />
+        {/* NOT compact. `compact` opens straight on the detail page and drops the store
+            SEARCH — the phone has to be seen finding the app, not already looking at it.
+            The full flow is ~306 frames and this beat is 604, so it fits. */}
+        <StoreOutro silent total={CVC_DURATION - DL_FROM} />
       </Sequence>
     </AbsoluteFill>
   );
