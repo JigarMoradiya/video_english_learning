@@ -1,6 +1,7 @@
 import React from "react";
-import { AbsoluteFill, Audio, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Freeze, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { Confetti } from "../components/Confetti";
+import { StoreFlow } from "../components/StoreFlow";
 import { TraceGlyph } from "../components/TraceGlyph";
 import { font, palette, shade, letterColorFor } from "../data/tokens";
 import { bob, wiggle, pulse } from "../lib/motion";
@@ -14,8 +15,9 @@ const FPS = 30;
 const W = 1080;
 const BAND = { top: 300, h: 1320, side: 80 };
 
-// beat lengths sized to each VO line (+lead/tail)
-const B1 = 116, B2 = 110, B3 = 206, B4 = 200, B5 = 208;
+// beat lengths sized to each VO line (+lead/tail). B5 is long so the store mock can
+// finish its search → tap → GET → downloading → OPEN cycle (StoreFlow needs ~276f).
+const B1 = 116, B2 = 110, B3 = 206, B4 = 200, B5 = 300;
 export const ABACUS_PROMO_DURATION = B1 + B2 + B3 + B4 + B5;
 
 const HEAD_SHADOW = "0 6px 0 #FFFFFF, 0 12px 26px rgba(40,30,80,0.22)";
@@ -152,10 +154,13 @@ const B3English: React.FC = () => {
         <div style={{ opacity: name, transform: `translateY(${(1 - name) * 16}px)` }}>
           <Head size={68}>Now learn <span style={{ color: "#E8368F" }}>ENGLISH!</span> 📚</Head>
         </div>
-        {/* phonics · letters · reading — appear as the VO names them */}
+        {/* phonics · letters · reading — each card pops exactly as the VO says the word.
+            vo_promo_3 onsets (from silencedetect): ~2.86s / ~3.62s / ~5.05s → frames below
+            (VO plays from f10, so f = 10 + onset*30, minus ~8f so the spring lands on the word). */}
         <div style={{ display: "flex", gap: 18 }}>
           {([["🔊", "Phonics"], ["🔤", "Letters"], ["📖", "Reading"]] as const).map(([e, t], i) => {
-            const cs = spring({ frame: frame - 66 - i * 24, fps, config: { damping: 12 } });
+            const at = [86, 109, 152][i];
+            const cs = spring({ frame: frame - at, fps, config: { damping: 12 } });
             return (
               <div key={t} style={{ background: "#fff", borderRadius: 26, padding: "20px 30px", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, boxShadow: "0 10px 0 rgba(40,30,80,0.12), 0 18px 28px rgba(40,30,80,0.2)", transform: `scale(${cs}) translateY(${bob(frame, fps, 6, 2.4, i)}px)` }}>
                 <span style={{ fontSize: 66 }}>{e}</span>
@@ -178,13 +183,18 @@ const TracingDemo: React.FC = () => {
   const prog = interpolate(frame, [10, 74], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const inn = spring({ frame, fps, config: { damping: 12 } });
   return (
-    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 26 }}>
+    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 24 }}>
       <Chip bg={accent} color="#fff" size={50}>✏️ Trace every letter</Chip>
       <div style={{ position: "relative", transform: `scale(${0.85 + 0.15 * inn})` }}>
-        <div style={{ width: 400, height: 400, borderRadius: 48, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+        <div style={{ width: 340, height: 340, borderRadius: 44, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
           {/* the stroke draws itself with a fingertip touch riding the tip (aligned) */}
-          <TraceGlyph char="A" color={accent} box={330} progress={prog} touch />
+          <TraceGlyph char="A" color={accent} box={288} progress={prog} touch />
         </div>
+      </div>
+      {/* A for Ant — the letter's key word + picture */}
+      <div style={{ display: "flex", alignItems: "center", gap: 16, transform: `scale(${0.9 + 0.1 * inn})` }}>
+        <Img src={staticFile("letters/ant.png")} style={{ width: 96, height: 96, objectFit: "contain", filter: "drop-shadow(0 8px 14px rgba(40,30,80,0.22))" }} />
+        <div style={{ fontSize: 48, fontWeight: 800, color: palette.ink }}><span style={{ color: accent }}>A</span> for Ant</div>
       </div>
     </AbsoluteFill>
   );

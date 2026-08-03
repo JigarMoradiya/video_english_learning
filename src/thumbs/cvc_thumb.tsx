@@ -38,7 +38,7 @@ const HeroRow: React.FC<{ W: number; top: number; scale: number }> = ({ W, top, 
 /** 9:16 — the same three-into-one, turned down the frame instead of across it. The LETTERS
  *  stay in one row, which is how a word is read; it is the ARROW that goes vertical, so the
  *  row and the word it becomes stack instead of running off a 1080-wide frame. */
-const HeroColumn: React.FC<{ W: number; top: number; s: number }> = ({ W, top, s }) => (
+const HeroColumn: React.FC<{ W: number; top: number; s: number; sub: React.ReactNode }> = ({ W, top, s, sub }) => (
   <div style={{ position: "absolute", left: 0, top, width: W, display: "flex",
                 flexDirection: "column", alignItems: "center", gap: 12 * s }}>
     <div style={{ display: "flex", alignItems: "center", gap: 14 * s }}>
@@ -52,6 +52,24 @@ const HeroColumn: React.FC<{ W: number; top: number; s: number }> = ({ W, top, s
       <MergedSandwich word={WORD} size={168 * s} lit />
       <WordPicture pic={PIC} size={140 * s} />
     </div>
+    {/* the promise rides WITH the column, so it is always directly under the word card —
+        the arithmetic version depended on COL_H matching what the parts actually render */}
+    <div style={{ marginTop: 10 * s }}>{sub}</div>
+  </div>
+);
+
+const Sub: React.FC<{ W: number; H: number; portrait: boolean; top?: number }> = ({ W, H, portrait, top }) => (
+  <div
+    style={{
+      // 16:9 — down ON the counter. Above it the line ran through the plates, cones and
+      // jars standing on the counter top and could not be read.
+      ...(portrait ? {} : { position: "absolute" as const, left: 0, top, width: W }),
+      textAlign: "center", fontSize: portrait ? H * 0.033 : 46,
+      fontWeight: 800, color: palette.ink, textShadow: "0 4px 0 #FFFFFF",
+    }}
+  >
+    <span style={{ color: CONSONANT }}>3 sounds</span> ·{" "}
+    <span style={{ color: VOWEL }}>1 word</span>
   </div>
 );
 
@@ -103,23 +121,10 @@ const Frame: React.FC<{ W: number; H: number; portrait: boolean }> = ({ W, H, po
 
       {/* 3 · the one key visual */}
       {portrait
-        ? <HeroColumn W={W} top={heroTop} s={colS} />
+        ? <HeroColumn W={W} top={heroTop} s={colS} sub={<Sub W={W} H={H} portrait />} />
         : <HeroRow W={W} top={heroTop} scale={heroScale} />}
 
-      {/* the promise under it, small — three sounds, one word */}
-      <div
-        style={{
-          // 16:9 — down ON the counter. Above it the line sat among the plates, cones and
-          // jars standing on the counter top and could not be read cleanly.
-          position: "absolute", left: 0, width: W,
-          top: portrait ? colBottom + 18 : B.counterY + 30,
-          textAlign: "center", fontSize: (portrait ? H * 0.033 : 46),
-          fontWeight: 800, color: palette.ink, textShadow: "0 4px 0 #FFFFFF",
-        }}
-      >
-        <span style={{ color: CONSONANT }}>3 sounds</span> ·{" "}
-        <span style={{ color: VOWEL }}>1 word</span>
-      </div>
+      {!portrait && <Sub W={W} H={H} portrait={false} top={B.counterY + 30} />}
 
       {/* 4 · the mascot. A LOCAL trim at 16:9, not a change to cover.ts — that 184 is the
              channel rule and every other landscape cover keeps it. This world is the
