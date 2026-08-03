@@ -49,7 +49,10 @@ export const bands = (width: number, height: number) => {
              menuX: width, menuW: 0, jarX: 0, contentL: 56, contentR: width - 56,
              bannerTop: 148, listTop: 892, listBot: 1008, stripTop: 214 };
   }
-  return { stageTop: 250, stageBot: 760, counterY: 760, floorY: 1000,
+  // floorY = height: the counter runs to the bottom edge. It used to stop at 1000, leaving
+  // an 80px pale strip under it — a second, lighter band across the footer that read as a
+  // stray bar rather than as part of the shop. 4:5 already did this; 16:9 was the odd one.
+  return { stageTop: 250, stageBot: 760, counterY: 760, floorY: height,
            menuX: width - 350, menuW: 292, jarX: 44, contentL: 320, contentR: width - 380,
            bannerTop: 150, listTop: 0, listBot: 0, stripTop: 0 };
 };
