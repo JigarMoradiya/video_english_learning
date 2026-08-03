@@ -178,12 +178,12 @@ const TracingDemo: React.FC = () => {
   const prog = interpolate(frame, [10, 74], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const inn = spring({ frame, fps, config: { damping: 12 } });
   return (
-    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 30 }}>
+    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 26 }}>
       <Chip bg={accent} color="#fff" size={50}>✏️ Trace every letter</Chip>
       <div style={{ position: "relative", transform: `scale(${0.85 + 0.15 * inn})` }}>
-        <div style={{ width: 440, height: 440, borderRadius: 48, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+        <div style={{ width: 400, height: 400, borderRadius: 48, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
           {/* the stroke draws itself with a fingertip touch riding the tip (aligned) */}
-          <TraceGlyph char="A" color={accent} box={360} progress={prog} touch />
+          <TraceGlyph char="A" color={accent} box={330} progress={prog} touch />
         </div>
       </div>
     </AbsoluteFill>
@@ -197,15 +197,15 @@ const PhonicsDemo: React.FC = () => {
   const inn = spring({ frame, fps, config: { damping: 11 } });
   const waves = interpolate(frame, [14, 24, 78, 88], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
-    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 30 }}>
-      <Sequence from={16} durationInFrames={40}><Audio src={staticFile("audio/shorts/sound_B.mp3")} /></Sequence>
+    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 22 }}>
+      <Sequence from={16} durationInFrames={40}><Audio src={staticFile("audio/shorts/sound_B.mp3")} volume={0.7} /></Sequence>
       <Chip bg={accent} color="#fff" size={50}>🔊 Hear every sound</Chip>
       <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", transform: `scale(${0.85 + 0.15 * inn})` }}>
         <div style={{ position: "absolute", left: -160 }}><Waves side={-1} on={waves} color={accent} /></div>
         <div style={{ position: "absolute", right: -160 }}><Waves side={1} on={waves} color={accent} /></div>
-        <div style={{ width: 380, height: 380, borderRadius: 48, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "flex-end", justifyContent: "center", gap: 6, paddingBottom: 30, boxSizing: "border-box" }}>
-          <span style={{ fontSize: 240, fontWeight: 800, color: accent, lineHeight: 0.86 }}>B</span>
-          <span style={{ fontSize: 168, fontWeight: 800, color: shade(accent, 0.14), lineHeight: 0.86 }}>b</span>
+        <div style={{ width: 340, height: 340, borderRadius: 48, background: "#fff", boxShadow: "0 18px 40px rgba(40,30,80,0.3)", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, boxSizing: "border-box" }}>
+          <span style={{ fontSize: 220, fontWeight: 800, color: accent, lineHeight: 0.86 }}>B</span>
+          <span style={{ fontSize: 154, fontWeight: 800, color: shade(accent, 0.14), lineHeight: 0.86 }}>b</span>
         </div>
       </div>
       <Chip bg={accent} color="#fff" size={70}>buh 🔊</Chip>
@@ -213,19 +213,37 @@ const PhonicsDemo: React.FC = () => {
   );
 };
 
+const FEATURES: [string, string][] = [
+  ["✏️", "Tracing"], ["🔊", "Phonics"], ["📖", "Reading"],
+  ["🎨", "Coloring"], ["🔤", "Words"], ["🎮", "Games"],
+];
+
 const B4Features: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
   return (
-    <AbsoluteFill style={{ fontFamily: font.family }}>
+    <AbsoluteFill style={{ fontFamily: font.family, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", padding: "140px 56px 118px", boxSizing: "border-box" }}>
       <VO n={4} />
-      <div style={{ position: "absolute", top: 210, width: W, display: "flex", justifyContent: "center" }}>
-        <Head size={64}>Everything to start reading!</Head>
+      <Floaters glyphs={["✏️", "🔊", "📖", "🎨", "A", "a", "★", "🔤"]} color="#5B50D6" opacity={0.2} />
+      <Head size={62}>Everything to start reading!</Head>
+      {/* live demo swaps: tracing → phonics, held in a fixed slot so nothing floats */}
+      <div style={{ position: "relative", width: "100%", height: 560 }}>
+        <Sequence from={0} durationInFrames={102}><TracingDemo /></Sequence>
+        <Sequence from={102} durationInFrames={98}><PhonicsDemo /></Sequence>
       </div>
-      {/* two demos, one after the other */}
-      <Sequence from={0} durationInFrames={102}><TracingDemo /></Sequence>
-      <Sequence from={102} durationInFrames={98}><PhonicsDemo /></Sequence>
-      <div style={{ position: "absolute", bottom: 210, width: W, display: "flex", justifyContent: "center" }}>
-        <Chip bg="#5B50D6" color="#fff" size={48}>Safe &amp; 100% ad-free 💜</Chip>
+      {/* everything the app includes — fills the frame + backs up the promise */}
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, maxWidth: 900 }}>
+        {FEATURES.map(([e, t], i) => {
+          const s = spring({ frame: frame - 16 - i * 5, fps, config: { damping: 12 } });
+          return (
+            <div key={t} style={{ width: 282, boxSizing: "border-box", background: "#fff", borderRadius: 26, padding: "16px 22px", display: "flex", alignItems: "center", gap: 14, boxShadow: "0 8px 0 rgba(40,30,80,0.1), 0 16px 24px rgba(40,30,80,0.16)", transform: `scale(${s}) translateY(${bob(frame, fps, 6, 2, i)}px)` }}>
+              <span style={{ fontSize: 46 }}>{e}</span>
+              <span style={{ fontSize: 38, fontWeight: 800, color: palette.ink }}>{t}</span>
+            </div>
+          );
+        })}
       </div>
+      <Chip bg="#5B50D6" color="#fff" size={48}>Safe &amp; 100% ad-free 💜</Chip>
     </AbsoluteFill>
   );
 };

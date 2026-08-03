@@ -125,7 +125,10 @@ const Frame: React.FC<{ W: number; H: number; portrait: boolean }> = ({ W, H, po
              does on the other covers. Smaller, he stands IN the band like the others. */}
       <Img
         src={staticFile("mascot.png")}
-        style={{ position: "absolute", left: c.mascot.left, bottom: c.mascot.bottom,
+        style={{ position: "absolute", left: c.mascot.left,
+                 // ...and lifted off the very bottom row at 16:9, part of the same local
+                 // exception: he stands ON this world's counter rather than on the frame edge
+                 bottom: portrait ? c.mascot.bottom : 30,
                  width: portrait ? c.mascot.width : 158,
                  height: (portrait ? c.mascot.width : 158) * c.mascot.aspect }}
       />
