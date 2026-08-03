@@ -67,10 +67,13 @@ const Frame: React.FC<{ W: number; H: number; portrait: boolean }> = ({ W, H, po
   // middle of a tall frame.
   // one board row + arrow + the merged row, each at s=1
   const COL_H = 148 * 1.12 + 12 + 62 * 0.9 + 12 + 168 * 1.12;
-  const heroTop = portrait ? H * 0.25 : headBottom + 40;
+  // BOTH derived from the headline's bottom. Portrait was a fixed H*0.25 = 480 while the
+  // headline ran to 496, so the row overlapped the title by construction — a fraction of
+  // the frame cannot know where the type ends.
+  const heroTop = headBottom + (portrait ? H * 0.055 : 40);
   // capped on WIDTH too: three 148 boards and two gaps must fit 1080 with a margin
   const colS = portrait
-    ? Math.min((W - 90) / (3 * 148 + 2 * 14), (H * 0.70 - heroTop) / COL_H)
+    ? Math.min((W - 190) / (3 * 148 + 2 * 14), (H * 0.72 - heroTop) / COL_H)
     : 1;
   const colBottom = heroTop + COL_H * colS;
 
