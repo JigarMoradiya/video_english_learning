@@ -30,6 +30,7 @@ import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
 import { BlendingReel, BLENDING_TOTAL } from "./blending";
 import { Blending916Reel, BLENDING916_TOTAL } from "./blending916";
 import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLASH_DURATION } from "./logo_intro";
+import { SoundRecapReel, SOUND_RECAP_DURATION } from "./sound_recap";
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
 import { ThumbPhonicsA, ThumbPhonicsB, ThumbPhonicsC } from "../thumbs/letters_thumb";
@@ -65,6 +66,8 @@ export const REELS: ReelEntry[] = [
   { id: "logo-intro-9x16", component: LogoIntroReel, durationInFrames: LOGO_INTRO_DURATION, width: 1080, height: 1920 },
   { id: "logo-intro-16x9", component: LogoIntroReel, durationInFrames: LOGO_INTRO_DURATION, width: 1920, height: 1080 },
   { id: "logo-intro-flash-9x16", component: LogoIntroFlashReel, durationInFrames: LOGO_INTRO_FLASH_DURATION, width: 1080, height: 1920 },
+  // Variety short — "Say the SOUND!" A–G recap (rotate between the daily letter shorts).
+  { id: "sound-recap-9x16", component: SoundRecapReel, durationInFrames: SOUND_RECAP_DURATION, width: 1080, height: 1920 },
   { id: "ai-ay", component: AiAyReel, durationInFrames: AI_AY_DURATION }, // L13 · Vowel Teams
   { id: "oi-oy", component: OiOyReel, durationInFrames: OI_OY_DURATION }, // L14 · Diphthongs
   { id: "oa-ow", component: OaOwReel, durationInFrames: OA_OW_DURATION }, // L13 · Vowel Teams
@@ -92,6 +95,7 @@ export const REELS: ReelEntry[] = [
   { id: "letters-phonics-4x5", component: LettersReel, durationInFrames: LETTERS_DURATION, width: 1080, height: 1350 },
   // A→Z Letter Recognition — 16:9 "game-board" video ("A says a"), grid fills up.
   { id: "l4-cvc", component: CvcReel, durationInFrames: CVC_DURATION, width: 1920, height: 1080 },
+  { id: "l4-cvc-4x5", component: CvcReel, durationInFrames: CVC_DURATION, width: 1080, height: 1350 },
   { id: "letter-recognition", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1920, height: 1080 },
   { id: "letter-recognition-4x5", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1080, height: 1350 },
   // L2 · Short Vowels — 16:9 lesson: learn (talking mouths) → practice → listen → download.

@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { font, palette } from "../data/tokens";
+import { bob } from "../lib/motion";
 
 // ── THE SANDWICH SHOP — L4 CVC Words' own world ──────────────────────────────
 // Every video wears its own world. CVC's one idea is that the VOWEL IS ALWAYS IN THE
@@ -26,14 +27,31 @@ const WOOD_D = "#A96C33";
 const AWN_R = "#E2574C";
 const BOARD = "#2F4F4A";
 
+/** "16x9" | "4x5" | "9x16" — 4:5 must NEVER inherit 9:16's numbers. They are both
+ *  `height > width`, and a table tuned for a 1920-tall frame puts the counter a third of
+ *  the way up a 1350-tall one. */
+export const aspectOf = (width: number, height: number) =>
+  height <= width ? "16x9" : height / width > 1.5 ? "9x16" : "4x5";
+
 export const bands = (width: number, height: number) => {
-  const portrait = height > width;
-  return portrait
-    ? { stageTop: 300, stageBot: 900, counterY: 900, floorY: 1180,
-        menuX: 0, menuW: 0, jarX: 0, contentL: 90, contentR: width - 90, bannerTop: 150 }
-    : { stageTop: 250, stageBot: 760, counterY: 760, floorY: 1000,
-        menuX: width - 350, menuW: 292, jarX: 44, contentL: 320, contentR: width - 380,
-        bannerTop: 150 };
+  const a = aspectOf(width, height);
+  if (a === "9x16") {
+    return { stageTop: 300, stageBot: 900, counterY: 900, floorY: 1180,
+             menuX: 0, menuW: 0, jarX: 0, contentL: 90, contentR: width - 90,
+             bannerTop: 150, listTop: 950, listBot: 1090, stripTop: 214 };
+  }
+  if (a === "4x5") {
+    // 1080×1350. There is no room for the menu board beside the stage, so the group
+    // tracker becomes a strip under the title and the word list a row under the stage.
+    // listBot is explicit, not derived: the counter's plates, cones and jars stand up to
+    // ~54px ABOVE counterY, so a list sized off counterY alone runs straight into them.
+    return { stageTop: 296, stageBot: 884, counterY: 1075, floorY: height,
+             menuX: width, menuW: 0, jarX: 0, contentL: 56, contentR: width - 56,
+             bannerTop: 148, listTop: 892, listBot: 1008, stripTop: 214 };
+  }
+  return { stageTop: 250, stageBot: 760, counterY: 760, floorY: 1000,
+           menuX: width - 350, menuW: 292, jarX: 44, contentL: 320, contentR: width - 380,
+           bannerTop: 150, listTop: 0, listBot: 0, stripTop: 0 };
 };
 
 /** the five vowel groups, in the app's own order — also the menu board's five lines */
@@ -45,12 +63,17 @@ export const GROUPS = [
   { key: "shortU", label: "Short U", emoji: "☂️", letter: "u" },
 ] as const;
 
-export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroups?: number; leftFree?: boolean }> = ({
-  dim = 1, activeGroup = -1, doneGroups = 0, leftFree = false,
-}) => {
+export const ShopWorld: React.FC<{
+  dim?: number; activeGroup?: number; doneGroups?: number; leftFree?: boolean;
+  // The shopkeeper. He STANDS ON THE COUNTER TOP, at the same level as the cones and
+  // jars — never floating in the wall behind the teaching. The caller hides him whenever
+  // the layout needs that strip, so he can never be the thing that overlaps the content.
+  mascot?: boolean;
+}> = ({ dim = 1, activeGroup = -1, doneGroups = 0, leftFree = false, mascot = false }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
+  const t2 = t;
   const B = bands(width, height);
   const portrait = height > width;
 
@@ -123,7 +146,7 @@ export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroup
               shelf and a basket at x40..240 — which is exactly the column the word list
               occupies, so they poked out from behind its board. They sit ON the counter
               now, below the list and clear of the caption. */}
-          {!portrait && (
+          {(
             <g>
               {[
                 { x: width * 0.755, h: 54, c: "#7FB069", cap: "#4E7A3F" },
@@ -174,6 +197,26 @@ export const ShopWorld: React.FC<{ dim?: number; activeGroup?: number; doneGroup
 
         {/* THE MENU BOARD — the five vowel groups, ticking off as the video goes.
             The decor IS the progress bar, so the frame never needs a separate one. */}
+        {mascot && (
+          <Img
+            src={staticFile("mascot.png")}
+            style={{
+              position: "absolute",
+              // he is 923×1063 with ~7px of transparent padding under his feet, so the
+              // bottom sits ON the counter line rather than hovering above it
+              // 16:9 — RIGHT of the jars and clear of the widest board spread ("Sound
+              // them out..." throws them to x1610), tucked under the menu board, which
+              // ends ~280px above the counter. 4:5 — the free left end of the counter.
+              width: portrait ? 168 : 166,
+              left: portrait ? width * 0.10 : width * 0.855,
+              top: B.counterY - (portrait ? 168 : 166) * (1063 / 923) + 8,
+              opacity: dim,
+              transform: `translateY(${bob(frame, fps, 3.8, 6)}px) rotate(${Math.sin(t2 * 1.1) * 2.2}deg)`,
+              filter: "drop-shadow(0 10px 14px rgba(60,40,20,0.22))",
+            }}
+          />
+        )}
+
         {!portrait && (
           <div
             style={{

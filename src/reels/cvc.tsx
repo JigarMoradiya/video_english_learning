@@ -8,7 +8,7 @@ import captionsJson from "../data/cvc.captions.json";
 // audio, leaving the CTA sentence playing over leftover quiz visuals. The video's LENGTH
 // is measured from here too, so the two can never drift apart again.
 const DL_FROM = DOWNLOAD_FROM;
-import { bands, CONSONANT, GROUPS, LetterBoard, MergedSandwich, ShopWorld, VOWEL, WordPicture } from "../components/SandwichShop";
+import { aspectOf, bands, CONSONANT, GROUPS, LetterBoard, MergedSandwich, ShopWorld, VOWEL, WordPicture } from "../components/SandwichShop";
 import { Captions } from "../components/Captions";
 import { makeTrack, TPhrase } from "../lib/timing";
 import { StoreOutro } from "../components/StoreOutro";
@@ -105,13 +105,26 @@ const groupIndexAt = (frame: number): number => {
  *  their answer travel to the word instead of it simply appearing there. Both ends of
  *  the path come from the option row's own layout below (three OPT tiles, OPT_GAP apart,
  *  centred, at counterY - 172), so moving that row moves the flight with it. */
-const OPT = 148, OPT_GAP = 26;
+const OPT_GAP = 26;
+
+/** Top of the quiz's three option tiles. In 16:9 they sit above the counter; in 4:5 the
+ *  counter is far below the lifted boards, so they hang directly under them instead — a
+ *  300px hole between the question and its answers reads as two unrelated things. Both
+ *  QuizOptions and the flight path read THIS, so they can never disagree. */
+const optTop = (width: number, height: number) => {
+  const B = bands(width, height);
+  const sz = S(width, height);
+  return sz.p
+    ? B.stageTop + (B.stageBot - B.stageTop) / 2 + sz.quizLift
+    : B.counterY - 172;
+};
 const flyIn = (frame: number, at: number, width: number, height: number, size: number) => {
   const B = bands(width, height);
+  const { opt: OPT, quizLift: QUIZ_LIFT } = S(width, height);
   const p = interpolate(frame, [at, at + 19], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const e = 1 - Math.pow(1 - p, 3);                       // arrives settling, not braking
   const fromX = (width - (3 * OPT + 2 * OPT_GAP)) / 2 + OPT / 2 - width / 2;
-  const fromY = B.counterY - 172 + OPT / 2 - (B.stageTop + (B.stageBot - B.stageTop) / 2 - QUIZ_LIFT);
+  const fromY = optTop(width, height) + OPT / 2 - (B.stageTop + (B.stageBot - B.stageTop) / 2 - QUIZ_LIFT);
   const arc = Math.sin(p * Math.PI) * -70;                // it lifts over, not straight through
   return `translate(${(1 - e) * fromX}px, ${(1 - e) * fromY + arc}px) `
     + `scale(${interpolate(e, [0, 1], [OPT / size, 1])}) `
@@ -132,7 +145,8 @@ const Boards: React.FC = () => {
   if (frame >= f(MARKS.wall) - 4 && frame < f(MARKS.quiz)) return null;
   if (vowelCardAt(frame)) return null;   // the vowel announcement owns the stage
 
-  const SIZE = inGroups(frame) ? 250 : inQuiz(frame) ? 232 : 300;
+  const sz = S(width, height);
+  const SIZE = inGroups(frame) ? sz.board : inQuiz(frame) ? sz.boardQuiz : sz.boardBig;
   const isQuiz = !b.wordClip;
   // the LAST build is the quiz answer: its middle stays a blank until "oh!" is said
   const isAnswer = b === BUILDS[BUILDS.length - 1];
@@ -172,9 +186,8 @@ const Boards: React.FC = () => {
       {/* the child's turn: three dots count the thinking time, so two seconds of silence
           is a beat the child can SEE rather than a frozen frame */}
       {waiting && (
-        <div style={{ position: "absolute", left: inGroups(frame) ? 64 + LIST_W : 0,
-                      top: B.stageTop, width: inGroups(frame) ? B.menuX - (64 + LIST_W) : width,
-                      height: B.stageBot - B.stageTop, display: "flex", alignItems: "flex-end",
+        <div style={{ position: "absolute", ...stage(frame, width, height),
+                      display: "flex", alignItems: "flex-end",
                       justifyContent: "center", gap: 22, paddingBottom: 6 }}>
           {[0, 1, 2].map((k) => {
             const a = 0.5 + 0.5 * Math.sin(frame / 6 - k * 1.1);
@@ -191,11 +204,10 @@ const Boards: React.FC = () => {
           During the group sections the stage is the band RIGHT of the word list. */}
       <div
         style={{
-          position: "absolute", left: inGroups(frame) ? 64 + LIST_W : 0, top: B.stageTop,
-          width: inGroups(frame) ? B.menuX - (64 + LIST_W) : width, height: B.stageBot - B.stageTop,
+          position: "absolute", ...stage(frame, width, height),
           display: "flex", alignItems: "center", justifyContent: "center",
-          gap: interpolate(press, [0, 1], [26, 2]),
-          transform: `translateY(${inQuiz(frame) ? -QUIZ_LIFT : 0}px)`,
+          gap: interpolate(press, [0, 1], [sz.p ? 18 : 26, 2]),
+          transform: `translateY(${inQuiz(frame) ? -sz.quizLift : 0}px)`,
           opacity: merged ? 0 : 1,
         }}
       >
@@ -231,8 +243,8 @@ const Boards: React.FC = () => {
         <div
           style={{
             position: "absolute",
-            left: (inGroups(frame) ? 64 + LIST_W + (B.menuX - 64 - LIST_W) / 2 : width / 2) - 260,
-            width: 520, height: 44,
+            left: (() => { const st = stage(frame, width, height); return st.left + st.width / 2 - (sz.p ? 190 : 260); })(),
+            width: sz.p ? 380 : 520, height: sz.p ? 34 : 44,
             top: B.stageTop + (B.stageBot - B.stageTop) / 2 - SIZE / 2 - 96 + press * 60,
             background: "linear-gradient(180deg,#C6CCD4 0%,#8E979F 100%)",
             borderRadius: 12, boxShadow: "0 10px 0 #6E767D, 0 16px 30px rgba(40,40,50,0.3)",
@@ -245,9 +257,8 @@ const Boards: React.FC = () => {
       {merged && (
         <div
           style={{
-            position: "absolute", left: inGroups(frame) ? 64 + LIST_W : 0, top: B.stageTop,
-            width: inGroups(frame) ? B.menuX - (64 + LIST_W) : width, height: B.stageBot - B.stageTop,
-            display: "flex", alignItems: "center", justifyContent: "center", gap: 64,
+            position: "absolute", ...stage(frame, width, height),
+            display: "flex", alignItems: "center", justifyContent: "center", gap: sz.mergeGap,
           }}
         >
           <div style={{ transform: `scale(${interpolate(spring({ frame: frame - wordAt, fps, config: { damping: 11 } }), [0, 1], [1.35, 1])}) translateY(${bob(frame, fps, 3.2, 11)}px) rotate(${Math.sin((frame / fps) * 1.6) * 1.4}deg)` }}>
@@ -263,7 +274,8 @@ const Boards: React.FC = () => {
 // ── the word's picture — bounces in beside the sandwich once the word is said ──
 const Picture: React.FC<{ build: Build }> = ({ build }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  const sz = S(width, height);
   const at = f(build.wordClip.start) + 2;
   if (frame < at) return null;
   const s = spring({ frame: frame - at, fps, config: { damping: 10 } });
@@ -272,17 +284,17 @@ const Picture: React.FC<{ build: Build }> = ({ build }) => {
     return (
       <div style={{ display: "flex", alignItems: "flex-end", gap: 18, transform: `scale(${s})` }}>
         <div style={{ transform: `scale(${pulse(frame - at, fps, 0.07, 0.9)})`, filter: "drop-shadow(0 0 18px rgba(255,212,102,0.9))" }}>
-          <WordPicture pic="🐘" size={260} />
+          <WordPicture pic="🐘" size={sz.picBig} />
         </div>
         <div style={{ opacity: 0.55 }}>
-          <WordPicture pic="🐘" size={92} />
+          <WordPicture pic="🐘" size={sz.picSmall} />
         </div>
       </div>
     );
   }
   return (
     <div style={{ transform: `scale(${s * pulse(frame - at, fps, 0.07, 0.7)}) translateY(${bob(frame, fps, 3.6, 13, 1)}px) rotate(${Math.sin((frame / fps) * 2.4) * 6}deg)` }}>
-      <WordPicture pic={PIC[build.word]} size={250} />
+      <WordPicture pic={PIC[build.word]} size={sz.pic} />
     </div>
   );
 };
@@ -321,7 +333,10 @@ const IdeaScene: React.FC = () => {
   const grid = at(12) && !at(13);
   const badge = at(13);
 
-  const gap = apart ? 200 : snap ? 6 : 26;
+  // "Sound them out..." pulls the boards apart. 200 + three 262px boards is 1186px —
+  // wider than a 1080 frame, so both outer cards ran off the sides.
+  const sz = S(width, height);
+  const gap = apart ? sz.apartGap : snap ? 6 : sz.p ? 18 : 26;
 
   return (
     <div style={{ position: "absolute", left: 0, top: B.stageTop, width, height: B.stageBot - B.stageTop,
@@ -336,7 +351,7 @@ const IdeaScene: React.FC = () => {
       )}
 
       {/* 3-13 · the three boards, each line changing what they do */}
-      {showBoards && !grid && (
+      {showBoards && (!grid || since(12) < 12) && (
         <div style={{ display: "flex", alignItems: "center", gap, transition: "none" }}>
           {"cat".split("").map((ch, i) => {
             const vowel = i === 1;
@@ -387,8 +402,8 @@ const IdeaScene: React.FC = () => {
                         width: 128, height: 52, borderRadius: 26,
                         background: "linear-gradient(180deg,#F3C97E 0%,#DFA45A 100%)",
                         boxShadow: "0 6px 0 #B9803C",
-                        transform: `scale(${0.7 + 0.3 * e}) translateY(${bob(frame, fps, 3.6, 5, k)}px)`,
-                        opacity: e,
+                        transform: `scale(${0.72 + 0.28 * e}) translateY(${bob(frame, fps, 3.6, 5, k)}px)`,
+                        opacity: 0.2 + 0.8 * e,
                       }}
                     />
                   );
@@ -441,7 +456,7 @@ const VowelCard: React.FC = () => {
   const hit = vowelCardAt(frame);
   if (!hit) return null;
   const s = spring({ frame: frame - hit.from, fps, config: { damping: 11 } });
-  const g = inGroups(frame);
+  const sz = S(width, height);
   // THE SAME FOOTPRINT AS THE BOARDS IT REPLACES. Stacking the badge above the card made
   // the group ~400px tall against the boards' 250–300, and that extra height pushed the
   // card down through the counter, over the sandwich plate and the cones standing on it.
@@ -449,10 +464,9 @@ const VowelCard: React.FC = () => {
   // ONE size for all five. `a` is announced before the word list exists, so following the
   // boards' own rule made it 300 against the others' 250 — five announcements that should
   // be identical looked like two different cards.
-  const size = 264;
+  const size = sz.vowelCard;
   return (
-    <div style={{ position: "absolute", left: g ? 64 + LIST_W : 0, top: B.stageTop,
-                  width: g ? B.menuX - (64 + LIST_W) : width, height: B.stageBot - B.stageTop,
+    <div style={{ position: "absolute", ...stage(frame, width, height),
                   display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ position: "relative",
                     transform: `scale(${(0.7 + 0.3 * s) * (1 + 0.035 * Math.sin((frame - hit.from) / 11))}) `
@@ -474,6 +488,36 @@ const VowelCard: React.FC = () => {
 // During the teaching groups the frame splits like the app: the group's five words
 // listed on the left, the build animating on the right, the live word highlighted.
 const LIST_W = 380;
+
+/** In 16:9 the word list takes the left third and the stage is the band beside it. In 4:5
+ *  there is no such band — the list sits UNDER the stage — so the stage is the full width.
+ *  Every element that has to line up with the boards asks this, rather than repeating the
+ *  offset: repeating it is how one of them gets missed. */
+const stage = (frame: number, width: number, height: number) => {
+  const B = bands(width, height);
+  const side = aspectOf(width, height) === "16x9" && inGroups(frame);
+  return {
+    left: side ? 64 + LIST_W : 0,
+    width: side ? B.menuX - (64 + LIST_W) : width,
+    top: B.stageTop,
+    height: B.stageBot - B.stageTop,
+  };
+};
+
+/** every size that has to shrink for a 1080-wide frame, in one place */
+const S = (width: number, height: number) => {
+  const p = aspectOf(width, height) !== "16x9";
+  return {
+    p,
+    board: p ? 230 : 250, boardQuiz: p ? 196 : 232, boardBig: p ? 262 : 300,
+    pic: p ? 190 : 250, picBig: p ? 196 : 260, picSmall: p ? 68 : 92,
+    mergeGap: p ? 28 : 64, apartGap: p ? 54 : 200,
+    opt: p ? 124 : 148, quizLift: p ? 110 : 120,
+    wallCard: p ? 106 : 88, wallCol: p ? 172 : 208, wallEmoji: p ? 46 : 64,
+    title: p ? 42 : 54, caption: p ? 40 : 50,
+    vowelCard: p ? 224 : 264,
+  };
+};
 /** Lines that hold two words up against each other — both chips take turns pulsing.
  *  Keyed on the SENTENCE, not the recording: run 10 holds "Pot. Hot. Hear that?" AND
  *  "Last vowel. uh.", so pulsing for the length of the clip left pot and hot flashing
@@ -498,23 +542,33 @@ const WordList: React.FC = () => {
   // A new vowel being introduced closes the group before it: no chip stays lit, and no
   // pair keeps pulsing, while the next vowel is on the stage.
   const announcing = Boolean(vowelCardAt(frame));
+  const sz = S(width, height);
 
   return (
     <div
       style={{
-        position: "absolute", left: 48, top: B.stageTop + 26, width: LIST_W,
-        height: B.counterY - B.stageTop - 40,
-        display: "flex", flexDirection: "column", justifyContent: "center", gap: 14,
-        padding: "18px 24px 34px", boxSizing: "border-box",
+        // 16:9 — a tall board down the left. 4:5 — a wide board UNDER the stage, because
+        // a 380px column beside three 206px boards does not fit in 1080.
+        position: "absolute",
+        ...(sz.p
+          ? { left: B.contentL, top: B.listTop, width: width - 2 * B.contentL,
+              height: B.listBot - B.listTop, flexDirection: "row" as const,
+              alignItems: "center", gap: 10, padding: "10px 18px" }
+          : { left: 48, top: B.stageTop + 26, width: LIST_W,
+              height: B.counterY - B.stageTop - 40, flexDirection: "column" as const,
+              justifyContent: "center", gap: 14, padding: "18px 24px 34px" }),
+        display: "flex", boxSizing: "border-box",
         // its own board, like the menu opposite — the chips were floating over the jar
         // shelf and the bread basket
         background: "#FFFDF7", borderRadius: 22, border: "8px solid #C98A47",
         boxShadow: "0 14px 30px rgba(60,40,20,0.22)",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 6,
-                    fontSize: 44, fontWeight: 800, color: palette.ink }}>
-        <span style={{ fontSize: 48 }}>{g.emoji}</span>{g.label}
+      <div style={{ display: "flex", alignItems: "center", gap: sz.p ? 6 : 12,
+                    marginBottom: sz.p ? 0 : 6, flexDirection: sz.p ? "column" : "row",
+                    fontSize: sz.p ? 24 : 44, fontWeight: 800, color: palette.ink,
+                    lineHeight: 1.1, textAlign: "center", flexShrink: 0 }}>
+        <span style={{ fontSize: sz.p ? 34 : 48 }}>{g.emoji}</span>{g.label}
       </div>
       {words.map((w, i) => {
         const isLive = !announcing && live?.word === w && Boolean(live?.wordClip);
@@ -542,21 +596,62 @@ const WordList: React.FC = () => {
           <div
             key={w}
             style={{
-              display: "flex", alignItems: "center", gap: 14,
-              padding: "7px 22px", borderRadius: 18, width: LIST_W - 60,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              gap: sz.p ? 3 : 14,
+              padding: sz.p ? "8px 6px" : "7px 22px", borderRadius: 18,
+              width: sz.p ? undefined : LIST_W - 60, flex: sz.p ? 1 : undefined,
               background: isLive || namedPulse ? "#FFD466" : done ? "#FFF3D6" : "rgba(255,255,255,0.7)",
               border: `4px solid ${isLive || namedPulse ? "#E0A400" : done ? "#E8CFA0" : "#EADFC8"}`,
               boxShadow: isLive || namedPulse ? "0 10px 22px rgba(224,164,0,0.35)" : "0 6px 14px rgba(60,40,20,0.08)",
-              transform: `scale(${s * (isLive || namedPulse ? 1.06 : 1)})`, transformOrigin: "left center",
+              transform: `scale(${s * (isLive || namedPulse ? 1.06 : 1)})`,
+              transformOrigin: sz.p ? "center" : "left center",
             }}
           >
             {w.split("").map((ch, k) => (
-              <span key={k} style={{ fontSize: 40, fontWeight: 800, lineHeight: 1,
+              <span key={k} style={{ fontSize: sz.p ? 30 : 40, fontWeight: 800, lineHeight: 1,
                                      color: "aeiou".includes(ch) ? VOWEL : CONSONANT }}>
                 {ch}
               </span>
             ))}
-            <span style={{ marginLeft: "auto", fontSize: 30, opacity: done ? 1 : 0 }}>✓</span>
+            <span style={{ marginLeft: sz.p ? 4 : "auto", fontSize: sz.p ? 20 : 30,
+                           opacity: done ? 1 : 0 }}>✓</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// ── the group tracker, for the aspects with no room for the menu board ──────
+// The chalkboard on the right IS the progress bar in 16:9. A 1080-wide frame has no
+// column for it, so the same five groups run as a strip under the title — the world keeps
+// its progress cue rather than silently losing it.
+const GroupStrip: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps, width, height } = useVideoConfig();
+  const B = bands(width, height);
+  const sz = S(width, height);
+  if (!sz.p) return null;
+  const gi = groupIndexAt(frame);
+  const done = frame >= f(MARKS.wall) ? 5 : Math.max(0, gi);
+  return (
+    <div style={{ position: "absolute", left: 0, top: B.stripTop, width,
+                  display: "flex", justifyContent: "center", gap: 10 }}>
+      {GROUPS.map((g, i) => {
+        const live = i === gi && frame < f(MARKS.wall);
+        const ok = i < done;
+        const s = spring({ frame: frame - f(MARKS[g.key] ?? 1e9), fps, config: { damping: 12 } });
+        return (
+          <div key={g.key}
+               style={{ display: "flex", alignItems: "center", gap: 7,
+                        padding: "7px 15px", borderRadius: 20,
+                        background: live ? "#FFD466" : ok ? "#FFF3D6" : "rgba(255,255,255,0.72)",
+                        border: `3px solid ${live ? "#E0A400" : ok ? "#E8CFA0" : "#EADFC8"}`,
+                        boxShadow: live ? "0 8px 18px rgba(224,164,0,0.32)" : "0 4px 10px rgba(60,40,20,0.08)",
+                        transform: `scale(${live ? 1 + 0.04 * s * Math.sin(frame / 9) : 1}) translateY(${bob(frame, fps, 4.2, 3, i)}px)`,
+                        fontSize: 21, fontWeight: 800, color: palette.ink }}>
+            <span style={{ fontSize: 24 }}>{g.emoji}</span>{g.label}
+            <span style={{ fontSize: 17, opacity: ok ? 1 : 0 }}>✓</span>
           </div>
         );
       })}
@@ -569,6 +664,7 @@ const Wall: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const B = bands(width, height);
+  const sz = S(width, height);
   const from = f(MARKS.wall);
   const to = f(MARKS.quiz);
   if (frame < from || frame >= to) return null;
@@ -577,16 +673,16 @@ const Wall: React.FC = () => {
       style={{
         position: "absolute", left: B.contentL, top: B.stageTop, width: B.contentR - B.contentL,
         height: B.stageBot - B.stageTop, display: "flex", flexDirection: "column",
-        alignItems: "center", justifyContent: "center", gap: 12,
+        alignItems: "center", justifyContent: "center", gap: sz.p ? 8 : 12,
         // five rows centred in the band put the bottom row down among the plates and
         // cones standing on the counter; the band has the room above, so it rides higher
-        transform: "translateY(-66px)",
+        transform: `translateY(${sz.p ? -20 : -66}px)`,
       }}
     >
       {Object.entries(GROUP_WORDS).map(([key, words], row) => (
-        <div key={key} style={{ display: "grid", gridTemplateColumns: "64px repeat(5, 208px)",
+        <div key={key} style={{ display: "grid", gridTemplateColumns: `${sz.wallEmoji}px repeat(5, ${sz.wallCol}px)`,
                                 alignItems: "center", justifyItems: "center", columnGap: 8 }}>
-          <span style={{ fontSize: 44, textAlign: "center" }}>{GROUPS[row].emoji}</span>
+          <span style={{ fontSize: sz.p ? 32 : 44, textAlign: "center" }}>{GROUPS[row].emoji}</span>
           {words.map((w, i) => {
             const k = row * 5 + i;
             const s = 0.7 + 0.3 * spring({ frame: frame - from - k * 2, fps, config: { damping: 13 } });
@@ -595,7 +691,7 @@ const Wall: React.FC = () => {
               // frozen frame however gently each one bobs on its own
               <div key={w} style={{ transform: `scale(${s * (1 + 0.05 * Math.sin((frame - from) / 9 - k * 0.5))}) `
                                                + `translateY(${bob(frame, fps, 3.4, 7, k) + 9 * Math.sin((frame - from) / 9 - k * 0.5)}px)` }}>
-                <MergedSandwich word={w} size={88} />
+                <MergedSandwich word={w} size={sz.wallCard} />
               </div>
             );
           })}
@@ -610,6 +706,7 @@ const QuizOptions: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const B = bands(width, height);
+  const sz = S(width, height);
   const from = f(MARKS.quiz);
   // the answer's vowel sounds first, THEN the whole word — the tiles bow out as the
   // boards fill in, or the two stack on top of each other
@@ -620,7 +717,7 @@ const QuizOptions: React.FC = () => {
   return (
     <div
       style={{
-        position: "absolute", left: 0, top: B.counterY - 172, width,
+        position: "absolute", left: 0, top: optTop(width, height), width,
         display: "flex", justifyContent: "center", gap: OPT_GAP,
       }}
     >
@@ -637,7 +734,7 @@ const QuizOptions: React.FC = () => {
               opacity: revealed ? (right ? 0 : 0.35) : 1,
             }}
           >
-            <LetterBoard letter={ch} vowel size={OPT} lit={revealed && right} />
+            <LetterBoard letter={ch} vowel size={sz.opt} lit={revealed && right} />
           </div>
         );
       })}
@@ -667,12 +764,27 @@ export const CvcReel: React.FC = () => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
   const B = bands(width, height);
+  const SZ = S(width, height);
   const gi = groupIndexAt(frame);
   const dim = interpolate(frame, [DL_FROM, DL_FROM + 20], [1, 0.3], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family, background: "#FFF6E6" }}>
-      <ShopWorld dim={dim} activeGroup={frame < f(MARKS.wall) ? gi : -1} doneGroups={frame >= f(MARKS.wall) ? 5 : Math.max(0, gi)} leftFree={!inGroups(frame)} />
+      {/* The shopkeeper stands on the counter top. He is hidden wherever the layout needs
+          that strip: in 4:5 the word list occupies it through every group, and in 16:9 the
+          wall of twenty-five reaches across to his side. Never overlapped, never cropped. */}
+      <ShopWorld
+        dim={dim}
+        activeGroup={frame < f(MARKS.wall) ? gi : -1}
+        doneGroups={frame >= f(MARKS.wall) ? 5 : Math.max(0, gi)}
+        leftFree={!inGroups(frame)}
+        mascot={
+          frame < DL_FROM
+          && (SZ.p
+            ? !inGroups(frame)
+            : !(frame >= f(MARKS.wall) - 6 && frame < f(MARKS.quiz)))
+        }
+      />
 
       {/* every clip plays whole, at the frame the timeline put it */}
       {CLIPS.map((c, i) => (
@@ -685,7 +797,7 @@ export const CvcReel: React.FC = () => {
         <div
           style={{
             position: "absolute", left: 0, top: B.bannerTop, width, textAlign: "center",
-            fontSize: 54, fontWeight: 800, color: palette.ink, letterSpacing: 1,
+            fontSize: SZ.title, fontWeight: 800, color: palette.ink, letterSpacing: 1,
           }}
         >
           <span style={{ color: CONSONANT }}>C</span>onsonant ·{" "}
@@ -693,6 +805,7 @@ export const CvcReel: React.FC = () => {
           <span style={{ color: CONSONANT }}>C</span>onsonant
         </div>
 
+        <GroupStrip />
         <Boards />
         <IdeaScene />
         <WordList />
@@ -700,7 +813,7 @@ export const CvcReel: React.FC = () => {
         <Wall />
         <QuizOptions />
         <FoundConfetti />
-        <Captions track={CAPTIONS} fontSize={50} bottom={44} />
+        <Captions track={CAPTIONS} fontSize={SZ.caption} bottom={SZ.p ? 40 : 44} />
         <Watermark corner="br" widthFrac={0.075} opacity={0.5} pad={34} />
       </Sequence>
 
