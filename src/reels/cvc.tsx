@@ -523,7 +523,14 @@ const WordList: React.FC = () => {
         const pc = pair
           ? (captionsJson as unknown as TPhrase[]).find((c) => c.text.startsWith(pair.say))
           : undefined;
-        const asking = pc ? frame >= f(pc.start) && frame < f(pc.end) + 24 : false;
+        // ...and it runs on through the pause the child answers in, stopping only when
+        // the teacher speaks again. Ending it with the sentence left "Hear the middle?"
+        // as a second of frozen frame — the exact beat the two chips exist for.
+        const caps = captionsJson as unknown as TPhrase[];
+        const nxt = pc ? caps[caps.indexOf(pc) + 1] : undefined;
+        const asking = pc
+          ? frame >= f(pc.start) && frame < (nxt ? f(nxt.start) : f(pc.end) + 24)
+          : false;
         const namedPulse = Boolean(
           !announcing && asking && pc
           && Math.floor((frame - f(pc.start)) / 14) % 2 === pair!.words.indexOf(w)
