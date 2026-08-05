@@ -38,7 +38,7 @@ const BOKEH = [
   { x: 0.9, y: 0.8, r: 320 }, { x: 0.5, y: 0.5, r: 420 },
 ];
 
-const SoundStage: React.FC = () => {
+export const SoundStage: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   return (

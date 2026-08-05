@@ -1,0 +1,902 @@
+[
+ {
+  "index": 0,
+  "text": "Some words are tiny.",
+  "line_index": 0,
+  "start": 0.13,
+  "end": 1.8,
+  "duration": 1.67,
+  "words": [
+   {
+    "word": "Some",
+    "start": 0.13,
+    "end": 0.13
+   },
+   {
+    "word": "words",
+    "start": 0.13,
+    "end": 0.51
+   },
+   {
+    "word": "are",
+    "start": 0.51,
+    "end": 0.85
+   },
+   {
+    "word": "tiny.",
+    "start": 0.85,
+    "end": 1.8
+   }
+  ]
+ },
+ {
+  "index": 1,
+  "text": "They turn up in almost every sentence.",
+  "line_index": 1,
+  "start": 2.75,
+  "end": 5.29,
+  "duration": 2.54,
+  "words": [
+   {
+    "word": "They",
+    "start": 2.75,
+    "end": 2.75
+   },
+   {
+    "word": "turn",
+    "start": 2.75,
+    "end": 3.09
+   },
+   {
+    "word": "up",
+    "start": 3.09,
+    "end": 3.33
+   },
+   {
+    "word": "in",
+    "start": 3.33,
+    "end": 3.45
+   },
+   {
+    "word": "almost",
+    "start": 3.45,
+    "end": 3.87
+   },
+   {
+    "word": "every",
+    "start": 3.87,
+    "end": 4.57
+   },
+   {
+    "word": "sentence.",
+    "start": 4.57,
+    "end": 5.29
+   }
+  ]
+ },
+ {
+  "index": 2,
+  "text": "Some you can sound out.",
+  "line_index": 2,
+  "start": 6.39,
+  "end": 7.53,
+  "duration": 1.14,
+  "words": [
+   {
+    "word": "Some",
+    "start": 6.39,
+    "end": 6.39
+   },
+   {
+    "word": "you",
+    "start": 6.39,
+    "end": 6.65
+   },
+   {
+    "word": "can",
+    "start": 6.65,
+    "end": 6.85
+   },
+   {
+    "word": "sound",
+    "start": 6.85,
+    "end": 7.13
+   },
+   {
+    "word": "out.",
+    "start": 7.13,
+    "end": 7.53
+   }
+  ]
+ },
+ {
+  "index": 3,
+  "text": "Some you can't.",
+  "line_index": 3,
+  "start": 9.43,
+  "end": 10.17,
+  "duration": 0.74,
+  "words": [
+   {
+    "word": "Some",
+    "start": 9.43,
+    "end": 9.43
+   },
+   {
+    "word": "you",
+    "start": 9.43,
+    "end": 9.79
+   },
+   {
+    "word": "can't.",
+    "start": 9.79,
+    "end": 10.17
+   }
+  ]
+ },
+ {
+  "index": 4,
+  "text": "You just learn them.",
+  "line_index": 4,
+  "start": 10.97,
+  "end": 12.59,
+  "duration": 1.62,
+  "words": [
+   {
+    "word": "You",
+    "start": 10.97,
+    "end": 11.07
+   },
+   {
+    "word": "just",
+    "start": 11.07,
+    "end": 11.39
+   },
+   {
+    "word": "learn",
+    "start": 11.39,
+    "end": 12.11
+   },
+   {
+    "word": "them.",
+    "start": 12.11,
+    "end": 12.59
+   }
+  ]
+ },
+ {
+  "index": 5,
+  "text": "Learn these eight and you can read a lot.",
+  "line_index": 5,
+  "start": 14.42,
+  "end": 17.98,
+  "duration": 3.56,
+  "words": [
+   {
+    "word": "Learn",
+    "start": 14.42,
+    "end": 14.62
+   },
+   {
+    "word": "these",
+    "start": 14.62,
+    "end": 15.06
+   },
+   {
+    "word": "eight",
+    "start": 15.06,
+    "end": 15.58
+   },
+   {
+    "word": "and",
+    "start": 15.58,
+    "end": 16.28
+   },
+   {
+    "word": "you",
+    "start": 16.28,
+    "end": 16.62
+   },
+   {
+    "word": "can",
+    "start": 16.62,
+    "end": 16.96
+   },
+   {
+    "word": "read",
+    "start": 16.96,
+    "end": 17.26
+   },
+   {
+    "word": "a",
+    "start": 17.26,
+    "end": 17.62
+   },
+   {
+    "word": "lot.",
+    "start": 17.62,
+    "end": 17.98
+   }
+  ]
+ },
+ {
+  "index": 6,
+  "text": "Nice work.",
+  "line_index": 6,
+  "start": 26.59,
+  "end": 27.61,
+  "duration": 1.02,
+  "words": [
+   {
+    "word": "Nice",
+    "start": 26.59,
+    "end": 26.59
+   },
+   {
+    "word": "work.",
+    "start": 26.59,
+    "end": 27.61
+   }
+  ]
+ },
+ {
+  "index": 7,
+  "text": "Let's build one.",
+  "line_index": 7,
+  "start": 27.77,
+  "end": 28.63,
+  "duration": 0.86,
+  "words": [
+   {
+    "word": "Let's",
+    "start": 27.77,
+    "end": 27.87
+   },
+   {
+    "word": "build",
+    "start": 27.87,
+    "end": 28.09
+   },
+   {
+    "word": "one.",
+    "start": 28.09,
+    "end": 28.63
+   }
+  ]
+ },
+ {
+  "index": 8,
+  "text": "Watch the words arrive.",
+  "line_index": 8,
+  "start": 29.98,
+  "end": 31.12,
+  "duration": 1.14,
+  "words": [
+   {
+    "word": "Watch",
+    "start": 29.98,
+    "end": 30.08
+   },
+   {
+    "word": "the",
+    "start": 30.08,
+    "end": 30.32
+   },
+   {
+    "word": "words",
+    "start": 30.32,
+    "end": 30.52
+   },
+   {
+    "word": "arrive.",
+    "start": 30.52,
+    "end": 31.12
+   }
+  ]
+ },
+ {
+  "index": 9,
+  "text": "Now read them together.",
+  "line_index": 9,
+  "start": 37.6,
+  "end": 38.88,
+  "duration": 1.28,
+  "words": [
+   {
+    "word": "Now",
+    "start": 37.6,
+    "end": 37.66
+   },
+   {
+    "word": "read",
+    "start": 37.66,
+    "end": 37.9
+   },
+   {
+    "word": "them",
+    "start": 37.9,
+    "end": 38.18
+   },
+   {
+    "word": "together.",
+    "start": 38.18,
+    "end": 38.88
+   }
+  ]
+ },
+ {
+  "index": 10,
+  "text": "The words made a picture in your head.",
+  "line_index": 10,
+  "start": 42.28,
+  "end": 44.14,
+  "duration": 1.86,
+  "words": [
+   {
+    "word": "The",
+    "start": 42.28,
+    "end": 42.38
+   },
+   {
+    "word": "words",
+    "start": 42.38,
+    "end": 42.64
+   },
+   {
+    "word": "made",
+    "start": 42.64,
+    "end": 42.94
+   },
+   {
+    "word": "a",
+    "start": 42.94,
+    "end": 43.06
+   },
+   {
+    "word": "picture",
+    "start": 43.06,
+    "end": 43.38
+   },
+   {
+    "word": "in",
+    "start": 43.38,
+    "end": 43.58
+   },
+   {
+    "word": "your",
+    "start": 43.58,
+    "end": 43.72
+   },
+   {
+    "word": "head.",
+    "start": 43.72,
+    "end": 44.14
+   }
+  ]
+ },
+ {
+  "index": 11,
+  "text": "That's reading.",
+  "line_index": 11,
+  "start": 44.99,
+  "end": 46.01,
+  "duration": 1.02,
+  "words": [
+   {
+    "word": "That's",
+    "start": 44.99,
+    "end": 45.25
+   },
+   {
+    "word": "reading.",
+    "start": 45.25,
+    "end": 46.01
+   }
+  ]
+ },
+ {
+  "index": 12,
+  "text": "This one is yours.",
+  "line_index": 12,
+  "start": 47.36,
+  "end": 48.56,
+  "duration": 1.2,
+  "words": [
+   {
+    "word": "This",
+    "start": 47.36,
+    "end": 47.64
+   },
+   {
+    "word": "one",
+    "start": 47.64,
+    "end": 47.86
+   },
+   {
+    "word": "is",
+    "start": 47.86,
+    "end": 48.06
+   },
+   {
+    "word": "yours.",
+    "start": 48.06,
+    "end": 48.56
+   }
+  ]
+ },
+ {
+  "index": 13,
+  "text": "Did you read it?",
+  "line_index": 13,
+  "start": 54.53,
+  "end": 55.19,
+  "duration": 0.66,
+  "words": [
+   {
+    "word": "Did",
+    "start": 54.53,
+    "end": 54.53
+   },
+   {
+    "word": "you",
+    "start": 54.53,
+    "end": 54.71
+   },
+   {
+    "word": "read",
+    "start": 54.71,
+    "end": 54.91
+   },
+   {
+    "word": "it?",
+    "start": 54.91,
+    "end": 55.19
+   }
+  ]
+ },
+ {
+  "index": 14,
+  "text": "I knew you could.",
+  "line_index": 14,
+  "start": 55.99,
+  "end": 57.16,
+  "duration": 1.17,
+  "words": [
+   {
+    "word": "I",
+    "start": 55.99,
+    "end": 55.99
+   },
+   {
+    "word": "knew",
+    "start": 55.99,
+    "end": 56.25
+   },
+   {
+    "word": "you",
+    "start": 56.25,
+    "end": 56.51
+   },
+   {
+    "word": "could.",
+    "start": 56.51,
+    "end": 57.16
+   }
+  ]
+ },
+ {
+  "index": 15,
+  "text": "Now show me what it means.",
+  "line_index": 15,
+  "start": 58.38,
+  "end": 59.86,
+  "duration": 1.48,
+  "words": [
+   {
+    "word": "Now",
+    "start": 58.38,
+    "end": 58.38
+   },
+   {
+    "word": "show",
+    "start": 58.38,
+    "end": 58.64
+   },
+   {
+    "word": "me",
+    "start": 58.64,
+    "end": 58.88
+   },
+   {
+    "word": "what",
+    "start": 58.88,
+    "end": 59.2
+   },
+   {
+    "word": "it",
+    "start": 59.2,
+    "end": 59.36
+   },
+   {
+    "word": "means.",
+    "start": 59.36,
+    "end": 59.86
+   }
+  ]
+ },
+ {
+  "index": 16,
+  "text": "Which picture is this?",
+  "line_index": 16,
+  "start": 63.78,
+  "end": 64.98,
+  "duration": 1.2,
+  "words": [
+   {
+    "word": "Which",
+    "start": 63.78,
+    "end": 63.94
+   },
+   {
+    "word": "picture",
+    "start": 63.94,
+    "end": 64.38
+   },
+   {
+    "word": "is",
+    "start": 64.38,
+    "end": 64.62
+   },
+   {
+    "word": "this?",
+    "start": 64.62,
+    "end": 64.98
+   }
+  ]
+ },
+ {
+  "index": 17,
+  "text": "This one.",
+  "line_index": 17,
+  "start": 68.48,
+  "end": 69.38,
+  "duration": 0.9,
+  "words": [
+   {
+    "word": "This",
+    "start": 68.48,
+    "end": 68.78
+   },
+   {
+    "word": "one.",
+    "start": 68.78,
+    "end": 69.38
+   }
+  ]
+ },
+ {
+  "index": 18,
+  "text": "You read it AND you understood it.",
+  "line_index": 18,
+  "start": 70.68,
+  "end": 73.3,
+  "duration": 2.62,
+  "words": [
+   {
+    "word": "You",
+    "start": 70.68,
+    "end": 70.76
+   },
+   {
+    "word": "read",
+    "start": 70.76,
+    "end": 71.02
+   },
+   {
+    "word": "it",
+    "start": 71.02,
+    "end": 71.24
+   },
+   {
+    "word": "AND",
+    "start": 71.72,
+    "end": 71.9
+   },
+   {
+    "word": "you",
+    "start": 71.9,
+    "end": 72.36
+   },
+   {
+    "word": "understood",
+    "start": 72.36,
+    "end": 72.9
+   },
+   {
+    "word": "it.",
+    "start": 72.9,
+    "end": 73.3
+   }
+  ]
+ },
+ {
+  "index": 19,
+  "text": "One more.",
+  "line_index": 19,
+  "start": 74.65,
+  "end": 75.25,
+  "duration": 0.6,
+  "words": [
+   {
+    "word": "One",
+    "start": 74.65,
+    "end": 74.71
+   },
+   {
+    "word": "more.",
+    "start": 74.71,
+    "end": 75.25
+   }
+  ]
+ },
+ {
+  "index": 20,
+  "text": "A word is missing.",
+  "line_index": 20,
+  "start": 75.87,
+  "end": 77.01,
+  "duration": 1.14,
+  "words": [
+   {
+    "word": "A",
+    "start": 75.87,
+    "end": 75.93
+   },
+   {
+    "word": "word",
+    "start": 75.93,
+    "end": 76.21
+   },
+   {
+    "word": "is",
+    "start": 76.21,
+    "end": 76.41
+   },
+   {
+    "word": "missing.",
+    "start": 76.41,
+    "end": 77.01
+   }
+  ]
+ },
+ {
+  "index": 21,
+  "text": "Which word fits?",
+  "line_index": 21,
+  "start": 78.11,
+  "end": 78.91,
+  "duration": 0.8,
+  "words": [
+   {
+    "word": "Which",
+    "start": 78.11,
+    "end": 78.11
+   },
+   {
+    "word": "word",
+    "start": 78.11,
+    "end": 78.47
+   },
+   {
+    "word": "fits?",
+    "start": 78.47,
+    "end": 78.91
+   }
+  ]
+ },
+ {
+  "index": 22,
+  "text": "You found it.",
+  "line_index": 22,
+  "start": 85.96,
+  "end": 86.8,
+  "duration": 0.84,
+  "words": [
+   {
+    "word": "You",
+    "start": 85.96,
+    "end": 86.08
+   },
+   {
+    "word": "found",
+    "start": 86.08,
+    "end": 86.42
+   },
+   {
+    "word": "it.",
+    "start": 86.42,
+    "end": 86.8
+   }
+  ]
+ },
+ {
+  "index": 23,
+  "text": "You just read your first sentences.",
+  "line_index": 23,
+  "start": 88.15,
+  "end": 90.58,
+  "duration": 2.43,
+  "words": [
+   {
+    "word": "You",
+    "start": 88.15,
+    "end": 88.25
+   },
+   {
+    "word": "just",
+    "start": 88.25,
+    "end": 88.59
+   },
+   {
+    "word": "read",
+    "start": 88.59,
+    "end": 88.87
+   },
+   {
+    "word": "your",
+    "start": 88.87,
+    "end": 89.13
+   },
+   {
+    "word": "first",
+    "start": 89.13,
+    "end": 89.73
+   },
+   {
+    "word": "sentences.",
+    "start": 89.73,
+    "end": 90.58
+   }
+  ]
+ },
+ {
+  "index": 24,
+  "text": "Thirty-five sentences like these are waiting in the English Learning app.",
+  "line_index": 24,
+  "start": 91.98,
+  "end": 96.46,
+  "duration": 4.48,
+  "words": [
+   {
+    "word": "Thirty-five",
+    "start": 91.98,
+    "end": 92.58
+   },
+   {
+    "word": "sentences",
+    "start": 92.58,
+    "end": 93.24
+   },
+   {
+    "word": "like",
+    "start": 93.24,
+    "end": 93.68
+   },
+   {
+    "word": "these",
+    "start": 93.68,
+    "end": 94.04
+   },
+   {
+    "word": "are",
+    "start": 94.04,
+    "end": 94.48
+   },
+   {
+    "word": "waiting",
+    "start": 94.48,
+    "end": 94.88
+   },
+   {
+    "word": "in",
+    "start": 94.98,
+    "end": 95.16
+   },
+   {
+    "word": "the",
+    "start": 95.16,
+    "end": 95.28
+   },
+   {
+    "word": "English",
+    "start": 95.28,
+    "end": 95.66
+   },
+   {
+    "word": "Learning",
+    "start": 95.66,
+    "end": 96.14
+   },
+   {
+    "word": "app.",
+    "start": 96.14,
+    "end": 96.46
+   }
+  ]
+ },
+ {
+  "index": 25,
+  "text": "Tap any word and it says itself.",
+  "line_index": 25,
+  "start": 97.36,
+  "end": 99.7,
+  "duration": 2.34,
+  "words": [
+   {
+    "word": "Tap",
+    "start": 97.36,
+    "end": 97.46
+   },
+   {
+    "word": "any",
+    "start": 97.46,
+    "end": 97.86
+   },
+   {
+    "word": "word",
+    "start": 97.86,
+    "end": 98.2
+   },
+   {
+    "word": "and",
+    "start": 98.2,
+    "end": 98.64
+   },
+   {
+    "word": "it",
+    "start": 98.64,
+    "end": 98.78
+   },
+   {
+    "word": "says",
+    "start": 98.78,
+    "end": 99.02
+   },
+   {
+    "word": "itself.",
+    "start": 99.02,
+    "end": 99.7
+   }
+  ]
+ },
+ {
+  "index": 26,
+  "text": "Free on both stores.",
+  "line_index": 26,
+  "start": 100.55,
+  "end": 102.12,
+  "duration": 1.57,
+  "words": [
+   {
+    "word": "Free",
+    "start": 100.55,
+    "end": 100.73
+   },
+   {
+    "word": "on",
+    "start": 100.73,
+    "end": 101.03
+   },
+   {
+    "word": "both",
+    "start": 101.03,
+    "end": 101.37
+   },
+   {
+    "word": "stores.",
+    "start": 101.37,
+    "end": 102.12
+   }
+  ]
+ }
+]

@@ -58,7 +58,12 @@ export interface Track {
 export const makeTrack = (
   phrases: TPhrase[] = phrasesJson as unknown as TPhrase[],
   audioSec = 139.08,
-  fps: number = FPS
+  fps: number = FPS,
+  // How long a caption may stay up after its line has finished. The default keeps every
+  // existing video exactly as it was — a caption holds until the next one. Videos with
+  // DELIBERATE silences pass a small value, because otherwise the question ("Which word
+  // fits?") is still on screen while the answer lands, which is the opposite of a pause.
+  maxHoldSec: number = Infinity
 ): Track => {
   const totalFrames = sec(audioSec, fps);
 
@@ -110,6 +115,7 @@ export const makeTrack = (
       else break; // phrases are in time order
     }
     if (!active) return null;
+    if (Number.isFinite(maxHoldSec) && frame > sec(active.end + maxHoldSec, fps)) return null;
     const starts = wordStartFrames(active);
     let wordIdx = -1;
     starts.forEach((s, i) => {

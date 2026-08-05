@@ -1,3 +1,4 @@
+import { FirstSentencesReel, FIRST_SENTENCES_DURATION } from "./first_sentences";
 import React from "react";
 import { AiAyReel, AI_AY_DURATION } from "./ai_ay";
 import { OiOyReel, OI_OY_DURATION } from "./oi_oy";
@@ -31,6 +32,8 @@ import { BlendingReel, BLENDING_TOTAL } from "./blending";
 import { Blending916Reel, BLENDING916_TOTAL } from "./blending916";
 import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLASH_DURATION } from "./logo_intro";
 import { SoundRecapReel, SOUND_RECAP_DURATION } from "./sound_recap";
+import { WhichLetterReel, WHICH_LETTER_DURATION } from "./which_letter";
+import { ParentTipReel, PARENT_TIP_DURATION } from "./parent_tip";
 import { AbacusPromoReel, ABACUS_PROMO_DURATION } from "./abacus_crosspromo";
 import { letterShortEntry } from "./letter_short";
 import { LETTERS } from "../data/letters";
@@ -41,6 +44,7 @@ import { CVC_DURATION } from "../data/cvc";
 import { CVC15_DURATION } from "../data/cvc15";
 import { ThumbRecognition169, ThumbRecognition916 } from "../thumbs/recognition_thumb";
 import { ThumbCvc169, ThumbCvc916 } from "../thumbs/cvc_thumb";
+import { ThumbFirstSentences169, ThumbFirstSentences916 } from "../thumbs/first_sentences_thumb";
 import { ThumbBlending } from "../thumbs/blending_thumb";
 import { ThumbBlendingPortrait } from "../thumbs/blending_thumb_portrait";
 import { ThumbBlendingPortraitNew } from "../thumbs/blending_thumb_portrait_new";
@@ -72,6 +76,10 @@ export const REELS: ReelEntry[] = [
   { id: "logo-intro-flash-9x16", component: LogoIntroFlashReel, durationInFrames: LOGO_INTRO_FLASH_DURATION, width: 1080, height: 1920 },
   // Variety short — "Say the SOUND!" A–G recap (rotate between the daily letter shorts).
   { id: "sound-recap-9x16", component: SoundRecapReel, durationInFrames: SOUND_RECAP_DURATION, width: 1080, height: 1920 },
+  // Variety short — "Which Letter?" quiz (same Sound Stage series).
+  { id: "which-letter-9x16", component: WhichLetterReel, durationInFrames: WHICH_LETTER_DURATION, width: 1080, height: 1920 },
+  // Variety short — Parent Tip: "Teach the sound, not the name" (its own green tip world).
+  { id: "parent-tip-9x16", component: ParentTipReel, durationInFrames: PARENT_TIP_DURATION, width: 1080, height: 1920 },
   // Cross-promo — post on the ABACUS pages to introduce Kids English Learning.
   { id: "abacus-promo-9x16", component: AbacusPromoReel, durationInFrames: ABACUS_PROMO_DURATION, width: 1080, height: 1920 },
   { id: "ai-ay", component: AiAyReel, durationInFrames: AI_AY_DURATION }, // L13 · Vowel Teams
@@ -103,6 +111,15 @@ export const REELS: ReelEntry[] = [
   { id: "l4-cvc", component: CvcReel, durationInFrames: CVC_DURATION, width: 1920, height: 1080 },
   { id: "l4-cvc-4x5", component: CvcReel, durationInFrames: CVC_DURATION, width: 1080, height: 1350 },
   // 9:16 wears its OWN world (the Smoothie Bar) and its own fifteen-word cut
+  // MILESTONE · Read Your First Sentences — 16:9. Wears The Stepping Stones: each word
+  // is a stone, you cross by reading left to right, and the picture waits on the far bank.
+  { id: "first-sentences-16x9", component: FirstSentencesReel, durationInFrames: FIRST_SENTENCES_DURATION, width: 1920, height: 1080 },
+  // 4:5 for Facebook — the SAME reel: identical timing, audio and SFX, laid out for a
+  // tall frame. Not a crop of the 16:9.
+  { id: "first-sentences-4x5", component: FirstSentencesReel, durationInFrames: FIRST_SENTENCES_DURATION, width: 1080, height: 1350 },
+  // 9:16 wears its OWN skin — The Lily Pond: the same crossing seen from above, words on
+  // lily pads, evening teal instead of noon blue. Same audio, same timing.
+  { id: "first-sentences-9x16", component: FirstSentencesReel, durationInFrames: FIRST_SENTENCES_DURATION, width: 1080, height: 1920 },
   { id: "l4-cvc-9x16", component: Cvc9x16Reel, durationInFrames: CVC15_DURATION, width: 1080, height: 1920 },
   { id: "letter-recognition", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1920, height: 1080 },
   { id: "letter-recognition-4x5", component: RecognitionReel, durationInFrames: RECOGNITION_DURATION, width: 1080, height: 1350 },
@@ -175,6 +192,10 @@ export const REELS: ReelEntry[] = [
   { id: "thumb-letter-recognition-9x16", component: ThumbRecognition916, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-cvc", component: ThumbCvc169, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-cvc-9x16", component: ThumbCvc916, durationInFrames: 1, width: 1080, height: 1920 },
+  // Read Your First Sentences — both covers wear The Stepping Stones, the LONG video's
+  // world, because the tile sells the lesson the long video teaches.
+  { id: "thumb-first-sentences", component: ThumbFirstSentences169, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-first-sentences-9x16", component: ThumbFirstSentences916, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-blending", component: ThumbBlending, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-blending-9x16", component: ThumbBlendingPortrait, durationInFrames: 1, width: 1080, height: 1920 },
   // NEW 9:16 thumb wearing the Toy Workshop (matches the 16:9 thumb + 4:5 video theme).

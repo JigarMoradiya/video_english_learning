@@ -1,0 +1,632 @@
+[
+  {
+    "word": "Some",
+    "start": 0.26,
+    "end": 0.26
+  },
+  {
+    "word": "words",
+    "start": 0.26,
+    "end": 0.64
+  },
+  {
+    "word": "are",
+    "start": 0.64,
+    "end": 0.98
+  },
+  {
+    "word": "tiny.",
+    "start": 0.98,
+    "end": 1.93
+  },
+  {
+    "word": "They",
+    "start": 2.52,
+    "end": 2.52
+  },
+  {
+    "word": "turn",
+    "start": 2.52,
+    "end": 2.86
+  },
+  {
+    "word": "up",
+    "start": 2.86,
+    "end": 3.1
+  },
+  {
+    "word": "in",
+    "start": 3.1,
+    "end": 3.22
+  },
+  {
+    "word": "almost",
+    "start": 3.22,
+    "end": 3.64
+  },
+  {
+    "word": "every",
+    "start": 3.64,
+    "end": 4.34
+  },
+  {
+    "word": "sentence.",
+    "start": 4.34,
+    "end": 5.06
+  },
+  {
+    "word": "Some",
+    "start": 6.02,
+    "end": 6.02
+  },
+  {
+    "word": "you",
+    "start": 6.02,
+    "end": 6.28
+  },
+  {
+    "word": "can",
+    "start": 6.28,
+    "end": 6.48
+  },
+  {
+    "word": "sound",
+    "start": 6.48,
+    "end": 6.76
+  },
+  {
+    "word": "out.",
+    "start": 6.76,
+    "end": 7.16
+  },
+  {
+    "word": "Some",
+    "start": 7.82,
+    "end": 7.82
+  },
+  {
+    "word": "you",
+    "start": 7.82,
+    "end": 8.18
+  },
+  {
+    "word": "can't.",
+    "start": 8.18,
+    "end": 8.56
+  },
+  {
+    "word": "You",
+    "start": 9.18,
+    "end": 9.28
+  },
+  {
+    "word": "just",
+    "start": 9.28,
+    "end": 9.6
+  },
+  {
+    "word": "learn",
+    "start": 9.6,
+    "end": 10.32
+  },
+  {
+    "word": "them.",
+    "start": 10.32,
+    "end": 10.8
+  },
+  {
+    "word": "Learn",
+    "start": 11.86,
+    "end": 12.06
+  },
+  {
+    "word": "these",
+    "start": 12.06,
+    "end": 12.5
+  },
+  {
+    "word": "eight",
+    "start": 12.5,
+    "end": 13.02
+  },
+  {
+    "word": "and",
+    "start": 13.02,
+    "end": 13.72
+  },
+  {
+    "word": "you",
+    "start": 13.72,
+    "end": 14.06
+  },
+  {
+    "word": "can",
+    "start": 14.06,
+    "end": 14.4
+  },
+  {
+    "word": "read",
+    "start": 14.4,
+    "end": 14.7
+  },
+  {
+    "word": "a",
+    "start": 14.7,
+    "end": 15.06
+  },
+  {
+    "word": "lot.",
+    "start": 15.06,
+    "end": 15.42
+  },
+  {
+    "word": "Nice",
+    "start": 16.9,
+    "end": 16.9
+  },
+  {
+    "word": "work.",
+    "start": 16.9,
+    "end": 17.92
+  },
+  {
+    "word": "Let's",
+    "start": 18.08,
+    "end": 18.18
+  },
+  {
+    "word": "build",
+    "start": 18.18,
+    "end": 18.4
+  },
+  {
+    "word": "one.",
+    "start": 18.4,
+    "end": 18.94
+  },
+  {
+    "word": "Watch",
+    "start": 19.9,
+    "end": 20.0
+  },
+  {
+    "word": "the",
+    "start": 20.0,
+    "end": 20.24
+  },
+  {
+    "word": "words",
+    "start": 20.24,
+    "end": 20.44
+  },
+  {
+    "word": "arrive.",
+    "start": 20.44,
+    "end": 21.04
+  },
+  {
+    "word": "Now",
+    "start": 21.44,
+    "end": 21.5
+  },
+  {
+    "word": "read",
+    "start": 21.5,
+    "end": 21.74
+  },
+  {
+    "word": "them",
+    "start": 21.74,
+    "end": 22.02
+  },
+  {
+    "word": "together.",
+    "start": 22.02,
+    "end": 22.72
+  },
+  {
+    "word": "The",
+    "start": 24.28,
+    "end": 24.38
+  },
+  {
+    "word": "words",
+    "start": 24.38,
+    "end": 24.64
+  },
+  {
+    "word": "made",
+    "start": 24.64,
+    "end": 24.94
+  },
+  {
+    "word": "a",
+    "start": 24.94,
+    "end": 25.06
+  },
+  {
+    "word": "picture",
+    "start": 25.06,
+    "end": 25.38
+  },
+  {
+    "word": "in",
+    "start": 25.38,
+    "end": 25.58
+  },
+  {
+    "word": "your",
+    "start": 25.58,
+    "end": 25.72
+  },
+  {
+    "word": "head.",
+    "start": 25.72,
+    "end": 26.14
+  },
+  {
+    "word": "That's",
+    "start": 26.74,
+    "end": 27.0
+  },
+  {
+    "word": "reading.",
+    "start": 27.0,
+    "end": 27.76
+  },
+  {
+    "word": "This",
+    "start": 28.74,
+    "end": 29.02
+  },
+  {
+    "word": "one",
+    "start": 29.02,
+    "end": 29.24
+  },
+  {
+    "word": "is",
+    "start": 29.24,
+    "end": 29.44
+  },
+  {
+    "word": "yours.",
+    "start": 29.44,
+    "end": 29.94
+  },
+  {
+    "word": "Did",
+    "start": 30.9,
+    "end": 30.9
+  },
+  {
+    "word": "you",
+    "start": 30.9,
+    "end": 31.08
+  },
+  {
+    "word": "read",
+    "start": 31.08,
+    "end": 31.28
+  },
+  {
+    "word": "it?",
+    "start": 31.28,
+    "end": 31.56
+  },
+  {
+    "word": "I",
+    "start": 32.74,
+    "end": 32.74
+  },
+  {
+    "word": "knew",
+    "start": 32.74,
+    "end": 33.0
+  },
+  {
+    "word": "you",
+    "start": 33.0,
+    "end": 33.26
+  },
+  {
+    "word": "could.",
+    "start": 33.26,
+    "end": 33.91
+  },
+  {
+    "word": "Now",
+    "start": 34.28,
+    "end": 34.28
+  },
+  {
+    "word": "show",
+    "start": 34.28,
+    "end": 34.54
+  },
+  {
+    "word": "me",
+    "start": 34.54,
+    "end": 34.78
+  },
+  {
+    "word": "what",
+    "start": 34.78,
+    "end": 35.1
+  },
+  {
+    "word": "it",
+    "start": 35.1,
+    "end": 35.26
+  },
+  {
+    "word": "means.",
+    "start": 35.26,
+    "end": 35.76
+  },
+  {
+    "word": "Which",
+    "start": 37.46,
+    "end": 37.62
+  },
+  {
+    "word": "picture",
+    "start": 37.62,
+    "end": 38.06
+  },
+  {
+    "word": "is",
+    "start": 38.06,
+    "end": 38.3
+  },
+  {
+    "word": "this?",
+    "start": 38.3,
+    "end": 38.66
+  },
+  {
+    "word": "This",
+    "start": 40.62,
+    "end": 40.92
+  },
+  {
+    "word": "one.",
+    "start": 40.92,
+    "end": 41.52
+  },
+  {
+    "word": "You",
+    "start": 42.16,
+    "end": 42.24
+  },
+  {
+    "word": "read",
+    "start": 42.24,
+    "end": 42.5
+  },
+  {
+    "word": "it",
+    "start": 42.5,
+    "end": 42.72
+  },
+  {
+    "word": "AND",
+    "start": 43.2,
+    "end": 43.38
+  },
+  {
+    "word": "you",
+    "start": 43.38,
+    "end": 43.84
+  },
+  {
+    "word": "understood",
+    "start": 43.84,
+    "end": 44.38
+  },
+  {
+    "word": "it.",
+    "start": 44.38,
+    "end": 44.78
+  },
+  {
+    "word": "One",
+    "start": 46.14,
+    "end": 46.2
+  },
+  {
+    "word": "more.",
+    "start": 46.2,
+    "end": 46.74
+  },
+  {
+    "word": "A",
+    "start": 47.06,
+    "end": 47.12
+  },
+  {
+    "word": "word",
+    "start": 47.12,
+    "end": 47.4
+  },
+  {
+    "word": "is",
+    "start": 47.4,
+    "end": 47.6
+  },
+  {
+    "word": "missing.",
+    "start": 47.6,
+    "end": 48.2
+  },
+  {
+    "word": "Which",
+    "start": 49.08,
+    "end": 49.08
+  },
+  {
+    "word": "word",
+    "start": 49.08,
+    "end": 49.44
+  },
+  {
+    "word": "fits?",
+    "start": 49.44,
+    "end": 49.88
+  },
+  {
+    "word": "You",
+    "start": 51.74,
+    "end": 51.86
+  },
+  {
+    "word": "found",
+    "start": 51.86,
+    "end": 52.2
+  },
+  {
+    "word": "it.",
+    "start": 52.2,
+    "end": 52.58
+  },
+  {
+    "word": "You",
+    "start": 53.12,
+    "end": 53.22
+  },
+  {
+    "word": "just",
+    "start": 53.22,
+    "end": 53.56
+  },
+  {
+    "word": "read",
+    "start": 53.56,
+    "end": 53.84
+  },
+  {
+    "word": "your",
+    "start": 53.84,
+    "end": 54.1
+  },
+  {
+    "word": "first",
+    "start": 54.1,
+    "end": 54.7
+  },
+  {
+    "word": "sentences.",
+    "start": 54.7,
+    "end": 55.55
+  },
+  {
+    "word": "Thirty-five",
+    "start": 57.06,
+    "end": 57.66
+  },
+  {
+    "word": "sentences",
+    "start": 57.66,
+    "end": 58.32
+  },
+  {
+    "word": "like",
+    "start": 58.32,
+    "end": 58.76
+  },
+  {
+    "word": "these",
+    "start": 58.76,
+    "end": 59.12
+  },
+  {
+    "word": "are",
+    "start": 59.12,
+    "end": 59.56
+  },
+  {
+    "word": "waiting",
+    "start": 59.56,
+    "end": 59.96
+  },
+  {
+    "word": "in",
+    "start": 60.06,
+    "end": 60.24
+  },
+  {
+    "word": "the",
+    "start": 60.24,
+    "end": 60.36
+  },
+  {
+    "word": "English",
+    "start": 60.36,
+    "end": 60.74
+  },
+  {
+    "word": "Learning",
+    "start": 60.74,
+    "end": 61.22
+  },
+  {
+    "word": "app.",
+    "start": 61.22,
+    "end": 61.54
+  },
+  {
+    "word": "Tap",
+    "start": 62.32,
+    "end": 62.42
+  },
+  {
+    "word": "any",
+    "start": 62.42,
+    "end": 62.82
+  },
+  {
+    "word": "word",
+    "start": 62.82,
+    "end": 63.16
+  },
+  {
+    "word": "and",
+    "start": 63.16,
+    "end": 63.6
+  },
+  {
+    "word": "it",
+    "start": 63.6,
+    "end": 63.74
+  },
+  {
+    "word": "says",
+    "start": 63.74,
+    "end": 63.98
+  },
+  {
+    "word": "itself.",
+    "start": 63.98,
+    "end": 64.66
+  },
+  {
+    "word": "Free",
+    "start": 65.52,
+    "end": 65.7
+  },
+  {
+    "word": "on",
+    "start": 65.7,
+    "end": 66.0
+  },
+  {
+    "word": "both",
+    "start": 66.0,
+    "end": 66.34
+  },
+  {
+    "word": "stores.",
+    "start": 66.34,
+    "end": 67.09
+  }
+]

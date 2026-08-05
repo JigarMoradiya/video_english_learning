@@ -34,24 +34,15 @@ const VO: React.FC<{ n: number; from?: number }> = ({ n, from = 8 }) => (
   <Sequence from={from} durationInFrames={220}><Audio src={staticFile(`audio/shorts/vo_promo_${n}.mp3`)} /></Sequence>
 );
 
-// IG · YouTube · Facebook, drawn
-const SocialIcons: React.FC<{ size?: number }> = ({ size = 84 }) => {
-  const r = size * 0.26;
-  const box = { width: size, height: size, borderRadius: r, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 16px rgba(40,30,80,0.3)" } as React.CSSProperties;
+// IG · YouTube · Facebook — the real brand icons (public/social/*.png, 512²),
+// used as-is with just a soft drop-shadow (no white disc behind them).
+export const SocialIcons: React.FC<{ size?: number }> = ({ size = 84 }) => {
+  const icon = { width: size, height: size, filter: "drop-shadow(0 8px 16px rgba(20,10,60,0.32))" } as React.CSSProperties;
   return (
-    <div style={{ display: "flex", gap: 22 }}>
-      <div style={{ ...box, background: "linear-gradient(45deg,#F58529,#DD2A7B 52%,#8134AF)" }}>
-        <div style={{ width: size * 0.5, height: size * 0.5, borderRadius: size * 0.17, border: `${size * 0.08}px solid #fff`, position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <div style={{ width: size * 0.2, height: size * 0.2, borderRadius: "50%", border: `${size * 0.07}px solid #fff` }} />
-          <div style={{ position: "absolute", top: size * 0.06, right: size * 0.06, width: size * 0.055, height: size * 0.055, borderRadius: "50%", background: "#fff" }} />
-        </div>
-      </div>
-      <div style={{ ...box, background: "#FF0000" }}>
-        <div style={{ width: 0, height: 0, borderLeft: `${size * 0.28}px solid #fff`, borderTop: `${size * 0.17}px solid transparent`, borderBottom: `${size * 0.17}px solid transparent`, marginLeft: size * 0.07 }} />
-      </div>
-      <div style={{ ...box, background: "#1877F2" }}>
-        <span style={{ fontSize: size * 0.72, fontWeight: 900, color: "#fff", fontFamily: "Georgia, 'Times New Roman', serif", lineHeight: 1, marginTop: -size * 0.05 }}>f</span>
-      </div>
+    <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
+      <Img src={staticFile("social/ig.png")} style={icon} />
+      <Img src={staticFile("social/yt.png")} style={icon} />
+      <Img src={staticFile("social/fb.png")} style={icon} />
     </div>
   );
 };
@@ -301,9 +292,13 @@ const B5Cta: React.FC = () => {
           <StoreFlow hideReviews />
         </Freeze>
       </div>
-      {/* socials + follow */}
-      <div style={{ position: "absolute", top: 1096, left: 0, width: W, display: "flex", flexDirection: "column", alignItems: "center", gap: 18, opacity: social, transform: `translateY(${(1 - social) * 16}px)` }}>
-        <SocialIcons size={82} />
+      {/* store badges + socials + follow */}
+      <div style={{ position: "absolute", top: 1058, left: 0, width: W, display: "flex", flexDirection: "column", alignItems: "center", gap: 20, opacity: social, transform: `translateY(${(1 - social) * 16}px)` }}>
+        <div style={{ display: "flex", gap: 24 }}>
+          <Img src={staticFile("appstore.png")} style={{ width: 300, height: "auto" }} />
+          <Img src={staticFile("playstore.png")} style={{ width: 300, height: "auto" }} />
+        </div>
+        <SocialIcons size={78} />
         <div style={{ transform: `scale(${pulse(frame, fps, 0.03, 1.2)})` }}>
           <Chip bg="#FFE14D" color={palette.ink} size={42}>Follow @kidsenglishlearning.vedaavi</Chip>
         </div>
