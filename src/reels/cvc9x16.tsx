@@ -625,6 +625,19 @@ export const Cvc9x16Reel: React.FC = () => {
         mascot={frame >= DL_FROM ? "off" : inGroups(frame) ? "floor" : "bar"}
       />
 
+      {/* the shared ambient bed — see the note in cvc.tsx; the 9:16 cut was missing it for the same
+          reason. Level matches the 16:9 cut at 0.05; needs its own duration for the fade */}
+      <Audio
+        src={staticFile("music_bed.mp3")}
+        loop
+        volume={(fr) =>
+          interpolate(fr, [0, 20, CVC15_DURATION - 40, CVC15_DURATION], [0, 0.05, 0.05, 0], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          })
+        }
+      />
+
       <BlendSfx />
 
       {CLIPS.map((c, i) => (

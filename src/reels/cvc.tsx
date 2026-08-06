@@ -814,6 +814,21 @@ export const CvcReel: React.FC = () => {
         }
       />
 
+      {/* The shared ambient bed. CVC shipped WITHOUT it while every other lesson mounts
+          one, so this video played on bare narration — audible as dead air in the gaps
+          between the 25 word builds. Set at 0.05 rather than the 0.09 the other lessons use: CVC is far denser in
+          narration, and at 0.09 the bed was still noticeable under the word builds. */}
+      <Audio
+        src={staticFile("music_bed.mp3")}
+        loop
+        volume={(fr) =>
+          interpolate(fr, [0, 20, CVC_DURATION - 40, CVC_DURATION], [0, 0.05, 0.05, 0], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          })
+        }
+      />
+
       {/* every clip plays whole, at the frame the timeline put it */}
       <BlendSfx />
 

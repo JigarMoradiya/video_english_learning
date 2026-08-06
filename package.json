@@ -14,6 +14,8 @@
     "render:letters_phonics": "sh tools/preflight.sh && sh tools/render.sh letters-phonics",
     "render:letter_recognition": "sh tools/preflight.sh && sh tools/render.sh letter-recognition",
     "render:short_vowels": "sh tools/preflight.sh && sh tools/render.sh short-vowels",
+    "render:cvc_music": "mkdir -p out/l4_cvc && npx remotion render l4-cvc out/l4_cvc/l4_cvc_16x9_music.mp4 && npx remotion render l4-cvc-4x5 out/l4_cvc/l4_cvc_4x5_music.mp4 && npx remotion render l4-cvc-9x16 out/l4_cvc/l4_cvc_9x16_music.mp4",
+    "render:thumbs_v2": "mkdir -p out/thumb_v2 && npx remotion still thumb-v2-letters-phonics out/thumb_v2/letters_phonics.png && npx remotion still thumb-v2-short-vowels out/thumb_v2/short_vowels.png && npx remotion still thumb-v2-blending out/thumb_v2/blending.png && npx remotion still thumb-v2-cvc out/thumb_v2/cvc.png",
     "render:poll_letters": "sh tools/preflight.sh && mkdir -p out/poll_letters && for L in A B C D E F G H I J K L M N O P Q R S T U V W X Y Z; do l=$(echo $L | tr A-Z a-z); npx remotion still poll-letter-$l out/poll_letters/$L.png; done",
     "render:short_vowels_9x16": "sh tools/preflight.sh && sh tools/render.sh short-vowels-9x16",
     "render:letters_p1_9x16": "sh tools/preflight.sh && sh tools/render.sh letters-p1-9x16",

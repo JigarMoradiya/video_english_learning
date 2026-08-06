@@ -1,4 +1,5 @@
 import { FirstSentencesReel, FIRST_SENTENCES_DURATION } from "./first_sentences";
+import { L5RulesP1Reel, L5_P1_DURATION, L5_P1_DURATION_TAIL } from "./l5_rules_p1";
 import React from "react";
 import { AiAyReel, AI_AY_DURATION } from "./ai_ay";
 import { OiOyReel, OI_OY_DURATION } from "./oi_oy";
@@ -57,6 +58,12 @@ import { ThumbLettersPhonicsPortrait } from "../thumbs/letters_phonics_thumb_por
 import { PostQuizQ } from "../thumbs/quiz_post";
 import { LETTER_TILE_ENTRIES } from "../thumbs/poll_options";
 import { MouthChart } from "../thumbs/mouth_chart";
+// Cover v2 — the CTR rebuild. Separate files and ids so the live v1 covers are untouched
+// and both sets can be rendered side by side. See src/thumbs/v2/coverV2.ts for the why.
+import { ThumbV2LettersPhonics } from "../thumbs/v2/letters_phonics_v2";
+import { ThumbV2ShortVowels } from "../thumbs/v2/short_vowels_v2";
+import { ThumbV2Blending } from "../thumbs/v2/blending_v2";
+import { ThumbV2Cvc } from "../thumbs/v2/cvc_v2";
 
 // Registry of all reels. Add a new card here (one line) after creating its
 // reel module in src/reels/<id>.tsx — each stays fully independent.
@@ -113,6 +120,12 @@ export const REELS: ReelEntry[] = [
   // 9:16 wears its OWN world (the Smoothie Bar) and its own fifteen-word cut
   // MILESTONE · Read Your First Sentences — 16:9. Wears The Stepping Stones: each word
   // is a stone, you cross by reading left to right, and the picture waits on the far bank.
+  // L5 · Spelling Rules, Part 1 (Floss + ck) — 10:33 of teaching, 253 lines, one
+  // visual change per line. Wears The Word Building Site.
+  // 4:5 for Facebook — the SAME lesson, audio and SFX; every size derives from uiScale()
+  // and every position from the per-aspect band table, so the wide cut is untouched.
+  { id: "l5-rules-p1-4x5", component: L5RulesP1Reel, durationInFrames: L5_P1_DURATION_TAIL, width: 1080, height: 1350 },
+  { id: "l5-rules-p1-16x9", component: L5RulesP1Reel, durationInFrames: L5_P1_DURATION, width: 1920, height: 1080 },
   { id: "first-sentences-16x9", component: FirstSentencesReel, durationInFrames: FIRST_SENTENCES_DURATION, width: 1920, height: 1080 },
   // 4:5 for Facebook — the SAME reel: identical timing, audio and SFX, laid out for a
   // tall frame. Not a crop of the 16:9.
@@ -177,6 +190,13 @@ export const REELS: ReelEntry[] = [
   // (for letters_phonics.mp4 — the A→Z Letter Sounds 16:9 video)
   { id: "thumb-short-vowels", component: ThumbShortVowels, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-letters-phonics", component: ThumbLettersPhonics, durationInFrames: 1, width: 1280, height: 720 },
+  // ── Cover v2 · deep ground, one giant subject, big mascot ──────────────────
+  //   npm run render:thumbs_v2   →   out/thumb_v2/*.png
+  // Rebuilt for click-through after v1 measured 1.4% CTR on 6.6k impressions.
+  { id: "thumb-v2-letters-phonics", component: ThumbV2LettersPhonics, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-v2-short-vowels", component: ThumbV2ShortVowels, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-v2-blending", component: ThumbV2Blending, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-v2-cvc", component: ThumbV2Cvc, durationInFrames: 1, width: 1280, height: 720 },
   // A–Z Letters PLAYLIST cover (collection: A·B·C…Z + 26-strip).
   { id: "thumb-alphabet-az", component: ThumbAlphabetPlaylist, durationInFrames: 1, width: 1280, height: 720 },
   // Curriculum-spine PLAYLIST cover ("Learn to Read — Step by Step": 5-step staircase).
