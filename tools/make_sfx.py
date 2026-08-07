@@ -134,6 +134,41 @@ def make_tick():
     return out
 
 
+def make_drop():
+    """Soft NON-TONAL 'landing' thump — warm low-passed noise, fast decay. For the
+    intro's letter drops (no pitch/melody → never fingerprint-matched)."""
+    dur = 0.16
+    n = int(dur * SR)
+    out = [0.0] * n
+    lp = 0.0
+    for i in range(n):
+        t = i / SR
+        lp += 0.05 * (random.uniform(-1, 1) - lp)   # heavy low-pass = warm thump, no pitch
+        env = math.exp(-40 * t) * min(1.0, t / 0.0015)
+        out[i] = lp * env
+    return out
+
+
+def make_riser():
+    """Smooth NON-TONAL riser/swell for a logo reveal — 2-pole low-passed noise whose
+    brightness opens and amplitude swells on a raised cosine, then eases off. Feels
+    cinematic + smooth, but has no pitch/melody (~1.8s) so it can't be fingerprinted."""
+    dur = 1.8
+    n = int(dur * SR)
+    out = [0.0] * n
+    l1 = l2 = 0.0
+    for i in range(n):
+        x = i / n
+        a = 0.006 + 0.10 * (x ** 1.5)             # filter opens over time (dark → airy)
+        w = random.uniform(-1, 1)
+        l1 += a * (w - l1); l2 += a * (l1 - l2)   # 2-pole = smooth, never hissy
+        env = 0.5 - 0.5 * math.cos(math.pi * min(1.0, x / 0.9))   # smooth swell up to 90%
+        if x > 0.9:
+            env *= 1.0 - (x - 0.9) / 0.1 * 0.55                   # gentle ease after the peak
+        out[i] = (l1 - l2) * env * 3.0
+    return out
+
+
 # ── tonal SFX kept for the long-form lesson videos (not the daily posts) ──────
 def make_question():
     dur = 0.5
@@ -283,4 +318,6 @@ emit("sparkle", make_sparkle(), target_dbfs=-14.1)
 emit("twinkle", make_twinkle(), target_dbfs=-12.3)
 emit("correct", make_correct(), target_dbfs=-13.6)
 emit("tick", make_tick(), target_dbfs=-8.8)
+emit("drop", make_drop(), target_dbfs=-15.0)  # non-tonal landing thump for the intro
+emit("riser", make_riser(), target_dbfs=-19.0)  # non-tonal smooth swell for the intro reveal
 print("(tonal question/brave/blend/pop/boing/drumroll/whoosh left untouched — long-form only)")

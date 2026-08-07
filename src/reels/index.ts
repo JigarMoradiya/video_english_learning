@@ -1,5 +1,10 @@
+import { createElement } from "react";
 import { FirstSentencesReel, FIRST_SENTENCES_DURATION } from "./first_sentences";
 import { L5RulesP1Reel, L5_P1_DURATION, L5_P1_DURATION_TAIL } from "./l5_rules_p1";
+import { RuleDoubleReel, RULE_DOUBLE_DURATION } from "./rule_double";
+import { RuleCkReel, RULE_CK_DURATION } from "./rule_ck";
+import { PairShort, PAIRS, PAIR_SHORT_DURATION } from "./pair_short";
+import { OoShort, OO_SHORT_DURATION } from "./oo_short";
 import React from "react";
 import { AiAyReel, AI_AY_DURATION } from "./ai_ay";
 import { OiOyReel, OI_OY_DURATION } from "./oi_oy";
@@ -32,6 +37,7 @@ import { CkCkPortraitReel, CK_PORTRAIT_DURATION } from "./c_k_ck_portrait";
 import { BlendingReel, BLENDING_TOTAL } from "./blending";
 import { Blending916Reel, BLENDING916_TOTAL } from "./blending916";
 import { LogoIntroReel, LogoIntroFlashReel, LOGO_INTRO_DURATION, LOGO_INTRO_FLASH_DURATION } from "./logo_intro";
+import { VedaaviIntroReel, VEDAAVI_INTRO_DURATION } from "./vedaavi_intro";
 import { SoundRecapReel, SOUND_RECAP_DURATION } from "./sound_recap";
 import { WhichLetterReel, WHICH_LETTER_DURATION } from "./which_letter";
 import { ParentTipReel, PARENT_TIP_DURATION } from "./parent_tip";
@@ -81,6 +87,10 @@ export const REELS: ReelEntry[] = [
   { id: "logo-intro-9x16", component: LogoIntroReel, durationInFrames: LOGO_INTRO_DURATION, width: 1080, height: 1920 },
   { id: "logo-intro-16x9", component: LogoIntroReel, durationInFrames: LOGO_INTRO_DURATION, width: 1920, height: 1080 },
   { id: "logo-intro-flash-9x16", component: LogoIntroFlashReel, durationInFrames: LOGO_INTRO_FLASH_DURATION, width: 1080, height: 1920 },
+  // VEDAAVI brand intro — the 3.6s sting prepended to every video (9:16 + 16:9).
+  { id: "vedaavi-intro-9x16", component: VedaaviIntroReel, durationInFrames: VEDAAVI_INTRO_DURATION, width: 1080, height: 1920 },
+  { id: "vedaavi-intro-16x9", component: VedaaviIntroReel, durationInFrames: VEDAAVI_INTRO_DURATION, width: 1920, height: 1080 },
+  { id: "vedaavi-intro-4x5", component: VedaaviIntroReel, durationInFrames: VEDAAVI_INTRO_DURATION, width: 1080, height: 1350 },
   // Variety short — "Say the SOUND!" A–G recap (rotate between the daily letter shorts).
   { id: "sound-recap-9x16", component: SoundRecapReel, durationInFrames: SOUND_RECAP_DURATION, width: 1080, height: 1920 },
   // Variety short — "Which Letter?" quiz (same Sound Stage series).
@@ -122,6 +132,21 @@ export const REELS: ReelEntry[] = [
   // is a stone, you cross by reading left to right, and the picture waits on the far bank.
   // L5 · Spelling Rules, Part 1 (Floss + ck) — 10:33 of teaching, 253 lines, one
   // visual change per line. Wears The Word Building Site.
+  // Silent 9:16 rule reels: no narration, music added afterwards. Their own worlds,
+  // one per reel, because they are watched muted and need to be read, not listened to.
+  { id: "rule-double-9x16", component: RuleDoubleReel, durationInFrames: RULE_DOUBLE_DURATION, width: 1080, height: 1920 },
+  { id: "rule-ck-9x16", component: RuleCkReel, durationInFrames: RULE_CK_DURATION, width: 1080, height: 1920 },
+
+  // the vowel-pair shorts: one engine, one theme each
+  ...PAIRS.map((spec) => ({
+    id: `${spec.id}-short-9x16`,
+    // index.ts is not a .tsx, so the wrapper is built with createElement
+    component: () => createElement(PairShort, { spec }),
+    durationInFrames: PAIR_SHORT_DURATION,
+    width: 1080, height: 1920,
+  })),
+  { id: "oo-short-9x16", component: OoShort, durationInFrames: OO_SHORT_DURATION, width: 1080, height: 1920 },
+
   // 4:5 for Facebook — the SAME lesson, audio and SFX; every size derives from uiScale()
   // and every position from the per-aspect band table, so the wide cut is untouched.
   { id: "l5-rules-p1-4x5", component: L5RulesP1Reel, durationInFrames: L5_P1_DURATION_TAIL, width: 1080, height: 1350 },
