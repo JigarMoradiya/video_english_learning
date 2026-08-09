@@ -407,10 +407,17 @@ const GroundProps: React.FC<{ b: B }> = ({ b }) => {
   );
 };
 
-export const SiteWorld: React.FC = () => {
+/** `bare` drops the working vehicles. The L5 Part 1 cover needs the site without them:
+ *  the dumper and the mixer sit on the ground band, which is exactly where the cover's
+ *  lesson goes, and a truck behind a row of letter tiles reads as clutter, not as world. */
+export const SiteWorld: React.FC<{ bare?: boolean; horizonFrac?: number }> = ({ bare = false, horizonFrac }) => {
   const { width, height, fps } = useVideoConfig();
   const b = bands(width, height);
   const frame = useCurrentFrame();
+  /** Covers may sit the horizon lower than the video does. In the 1080×1920 cover the
+   *  video's own horizon leaves the ground filling 66% of the frame, which is a wall of
+   *  orange behind a lesson that lives in the top half. */
+  const hz = horizonFrac === undefined ? b.horizon : Math.round(height * horizonFrac);
 
   // a real site: near blocks big, far blocks small, two of them still going up
   const blocks = [
@@ -426,9 +433,9 @@ export const SiteWorld: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: `linear-gradient(${SITE.sky} 0%, #E4F3FF 54%, #F7F0DE 100%)` }}>
       <Clouds b={b} />
-      <Birds b={b} />
+      {!bare && <Birds b={b} />}
 
-      <div style={{ position: "absolute", inset: 0, filter: "blur(4.5px) saturate(0.55)", opacity: 0.40 }}>
+      <div style={{ position: "absolute", inset: 0, filter: "blur(4.5px) saturate(0.55)", opacity: 0.40, display: bare ? "none" : undefined }}>
         {blocks.map((k, i) => (
           <Block
             key={i}
@@ -441,17 +448,17 @@ export const SiteWorld: React.FC = () => {
       </div>
 
       {/* ground: packed earth at the horizon, deepening to the foreground */}
-      <div style={{ position: "absolute", left: 0, top: b.horizon, width, height: height - b.horizon, background: `linear-gradient(#D8B481 0%, ${SITE.ground} 26%, ${SITE.groundDark} 100%)` }} />
-      <div style={{ position: "absolute", left: 0, top: b.horizon, width, height: 8, background: "rgba(255,255,255,0.40)" }} />
+      <div style={{ position: "absolute", left: 0, top: hz, width, height: height - hz, background: `linear-gradient(#D8B481 0%, ${SITE.ground} 26%, ${SITE.groundDark} 100%)` }} />
+      {!bare && <div style={{ position: "absolute", left: 0, top: b.horizon, width, height: 8, background: "rgba(255,255,255,0.40)" }} />}
 
       {/* the scrim pushes the SITE back — it must be painted BEFORE the vehicles, or the
           truck and mixer get washed out along with the scenery they sit in front of */}
-      <div style={{ position: "absolute", left: 0, top: 0, width, height: b.horizon + 8, background: "rgba(255,255,255,0.42)" }} />
-      <Dumper b={b} />
-      <GroundProps b={b} />
+      {!bare && <div style={{ position: "absolute", left: 0, top: 0, width, height: b.horizon + 8, background: "rgba(255,255,255,0.42)" }} />}
+      {!bare && <Dumper b={b} />}
+      {!bare && <GroundProps b={b} />}
 
       {/* the concrete pad the words are built on — this is what the word row stands on */}
-      <div
+      {!bare && (<div
         style={{
           position: "absolute", left: b.gutter * 0.72, top: b.padTop, width: width - b.gutter * 1.44, height: b.padH,
           borderRadius: 26,
@@ -479,15 +486,15 @@ export const SiteWorld: React.FC = () => {
         {Array.from({ length: 34 }).map((_, i) => (
           <div key={i} style={{ position: "absolute", left: `${((i * 149) % 97)}%`, top: `${((i * 71) % 88)}%`, width: 5, height: 4, borderRadius: "50%", background: "rgba(70,62,48,0.22)" }} />
         ))}
-      </div>
+      </div>)}
 
 
       {/* a flagpole of its own — the flag used to hang on the crane's mast, and floated
           unattached in every section that does not show the crane */}
-      <div style={{ position: "absolute", left: width * 0.036 + 20, top: height * 0.10, width: 7, height: b.horizon - height * 0.10, background: "#9E9E9E", borderRadius: 3 }} />
-      <div style={{ position: "absolute", left: width * 0.036 + 26, top: height * 0.10, width: 44, height: 26, background: SITE.red, borderRadius: 3, transformOrigin: "left center", transform: `rotate(${wiggle(frame, fps, 7, 1.7)}deg) scaleX(${0.9 + 0.1 * Math.sin(frame / 9)})` }} />
+      {!bare && (<><div style={{ position: "absolute", left: width * 0.036 + 20, top: height * 0.10, width: 7, height: b.horizon - height * 0.10, background: "#9E9E9E", borderRadius: 3 }} />
+      <div style={{ position: "absolute", left: width * 0.036 + 26, top: height * 0.10, width: 44, height: 26, background: SITE.red, borderRadius: 3, transformOrigin: "left center", transform: `rotate(${wiggle(frame, fps, 7, 1.7)}deg) scaleX(${0.9 + 0.1 * Math.sin(frame / 9)})` }} /></>)}
 
-      <Mixer b={b} />
+      {!bare && <Mixer b={b} />}
     </AbsoluteFill>
   );
 };

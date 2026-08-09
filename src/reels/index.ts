@@ -1,6 +1,8 @@
 import { createElement } from "react";
 import { FirstSentencesReel, FIRST_SENTENCES_DURATION } from "./first_sentences";
 import { L5RulesP1Reel, L5_P1_DURATION, L5_P1_DURATION_TAIL } from "./l5_rules_p1";
+import { L5RulesP2Reel, L5_P2_DURATION } from "./l5_rules_p2";
+import { L5RulesP3Reel, L5_P3_DURATION } from "./l5_rules_p3";
 import { RuleDoubleReel, RULE_DOUBLE_DURATION } from "./rule_double";
 import { RuleCkReel, RULE_CK_DURATION } from "./rule_ck";
 import { PairShort, PAIRS, PAIR_SHORT_DURATION } from "./pair_short";
@@ -70,6 +72,14 @@ import { ThumbV2LettersPhonics } from "../thumbs/v2/letters_phonics_v2";
 import { ThumbV2ShortVowels } from "../thumbs/v2/short_vowels_v2";
 import { ThumbV2Blending } from "../thumbs/v2/blending_v2";
 import { ThumbV2Cvc } from "../thumbs/v2/cvc_v2";
+import { ThumbV2L5P1 } from "../thumbs/v2/l5_p1_v2";
+import { ThumbV2L5P2 } from "../thumbs/v2/l5_p2_v2";
+import { ThumbV2L5P3 } from "../thumbs/v2/l5_p3_v2";
+import { ThumbV2FirstSentences } from "../thumbs/v2/first_sentences_v2";
+import {
+  ThumbL5P1, ThumbL5P2, ThumbL5P3,
+  ThumbL5P1Portrait, ThumbL5P2Portrait, ThumbL5P3Portrait,
+} from "../thumbs/l5_thumbs";
 
 // Registry of all reels. Add a new card here (one line) after creating its
 // reel module in src/reels/<id>.tsx — each stays fully independent.
@@ -151,6 +161,10 @@ export const REELS: ReelEntry[] = [
   // and every position from the per-aspect band table, so the wide cut is untouched.
   { id: "l5-rules-p1-4x5", component: L5RulesP1Reel, durationInFrames: L5_P1_DURATION_TAIL, width: 1080, height: 1350 },
   { id: "l5-rules-p1-16x9", component: L5RulesP1Reel, durationInFrames: L5_P1_DURATION, width: 1920, height: 1080 },
+  { id: "l5-rules-p2-4x5", component: L5RulesP2Reel, durationInFrames: L5_P2_DURATION, width: 1080, height: 1350 },
+  { id: "l5-rules-p2-16x9", component: L5RulesP2Reel, durationInFrames: L5_P2_DURATION, width: 1920, height: 1080 },
+  { id: "l5-rules-p3-4x5", component: L5RulesP3Reel, durationInFrames: L5_P3_DURATION, width: 1080, height: 1350 },
+  { id: "l5-rules-p3-16x9", component: L5RulesP3Reel, durationInFrames: L5_P3_DURATION, width: 1920, height: 1080 },
   { id: "first-sentences-16x9", component: FirstSentencesReel, durationInFrames: FIRST_SENTENCES_DURATION, width: 1920, height: 1080 },
   // 4:5 for Facebook — the SAME reel: identical timing, audio and SFX, laid out for a
   // tall frame. Not a crop of the 16:9.
@@ -222,6 +236,16 @@ export const REELS: ReelEntry[] = [
   { id: "thumb-v2-short-vowels", component: ThumbV2ShortVowels, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-v2-blending", component: ThumbV2Blending, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-v2-cvc", component: ThumbV2Cvc, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-v2-l5-p1", component: ThumbV2L5P1, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-v2-l5-p2", component: ThumbV2L5P2, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-v2-l5-p3", component: ThumbV2L5P3, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-v2-first-sentences", component: ThumbV2FirstSentences, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-l5-p1", component: ThumbL5P1, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-l5-p2", component: ThumbL5P2, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-l5-p3", component: ThumbL5P3, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-l5-p1-916", component: ThumbL5P1Portrait, durationInFrames: 1, width: 1080, height: 1920 },
+  { id: "thumb-l5-p2-916", component: ThumbL5P2Portrait, durationInFrames: 1, width: 1080, height: 1920 },
+  { id: "thumb-l5-p3-916", component: ThumbL5P3Portrait, durationInFrames: 1, width: 1080, height: 1920 },
   // A–Z Letters PLAYLIST cover (collection: A·B·C…Z + 26-strip).
   { id: "thumb-alphabet-az", component: ThumbAlphabetPlaylist, durationInFrames: 1, width: 1280, height: 720 },
   // Curriculum-spine PLAYLIST cover ("Learn to Read — Step by Step": 5-step staircase).
