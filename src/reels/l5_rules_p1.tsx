@@ -1,5 +1,6 @@
 import React from "react";
-import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { MUSIC_BED, MUSIC_FADE_IN, MUSIC_FADE_OUT } from "../data/mix";
 import phrasesJson from "../data/l5_rules_p1.captions.json";
 import { Captions } from "../components/Captions";
 import { makeTrack, TPhrase } from "../lib/timing";
@@ -1295,7 +1296,7 @@ const Scene: React.FC<{ idx: number; k: number; s: number; b: ReturnType<typeof 
 
 export const L5RulesP1Reel: React.FC = () => {
   const frame = useCurrentFrame();
-  const { width, height } = useVideoConfig();
+  const { width, height, durationInFrames: totalFrames } = useVideoConfig();
   const b = bands(width, height);
 
   const idx = phraseAt(frame);
@@ -1316,6 +1317,20 @@ export const L5RulesP1Reel: React.FC = () => {
       <Sequence from={0} durationInFrames={f(TOTAL) + 20}>
         <Audio src={staticFile("audio/l5_rules_p1_16x9/l5_rules_p1_16x9.mp3")} />
       </Sequence>
+
+      {/* The same bed Parts 2 and 3 carry, at the same 0.055. It lives in the REEL, not in
+          add_intro — one mechanism, so a part cannot silently ship without it.
+          The fade is measured against this composition's own length, because Part 1's wide
+          and portrait cuts are different lengths. */}
+      <Audio
+        src={staticFile("music_bed.mp3")}
+        loop
+        volume={(fr) =>
+          interpolate(fr, [0, MUSIC_FADE_IN, totalFrames - MUSIC_FADE_OUT, totalFrames], [0, MUSIC_BED, MUSIC_BED, 0], {
+            extrapolateLeft: "clamp", extrapolateRight: "clamp",
+          })
+        }
+      />
 
       {SFX.map((c, i) => (
         <Sequence key={`${c.file}-${c.i}-${i}`} from={c.frame} durationInFrames={45}>

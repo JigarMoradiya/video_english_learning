@@ -1,5 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { MUSIC_BED, MUSIC_FADE_IN, MUSIC_FADE_OUT } from "../data/mix";
 import phrasesJson from "../data/l5_rules_p3.captions.json";
 import { Captions } from "../components/Captions";
 import { makeTrack, TPhrase } from "../lib/timing";
@@ -482,7 +483,7 @@ export const L5RulesP3Reel: React.FC = () => {
         src={staticFile("music_bed.mp3")}
         loop
         volume={(fr) =>
-          interpolate(fr, [0, 40, L5_P3_DURATION - 70, L5_P3_DURATION], [0, 0.055, 0.055, 0], {
+          interpolate(fr, [0, MUSIC_FADE_IN, L5_P3_DURATION - MUSIC_FADE_OUT, L5_P3_DURATION], [0, MUSIC_BED, MUSIC_BED, 0], {
             extrapolateLeft: "clamp", extrapolateRight: "clamp",
           })
         }
