@@ -1,5 +1,6 @@
 import React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { picFor } from "../data/word_pics";
 import { font } from "../data/tokens";
 
 // ── THE STICKER BOARD ────────────────────────────────────────────────────────
@@ -62,12 +63,45 @@ export const Confetti: React.FC<{ n?: number }> = ({ n = 30 }) => {
   );
 };
 
-export const Board: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
-  <AbsoluteFill style={{ background: PAPER }}>
-    <Confetti />
-    {children}
-  </AbsoluteFill>
-);
+/**
+ * THE COMIC PAGE — rule_double's world.
+ *
+ * Was a flat cream page with confetti, which read as blank no matter what sat on it. A
+ * comic page is the same LIGHT ground (this reel's ink is dark and its tiles are white,
+ * so the ground has to stay pale) but it is a place: halftone dots, speed rays out of a
+ * corner, and a heavy border like a printed panel.
+ */
+export const Board: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+  const frame = useCurrentFrame();
+  return (
+    <AbsoluteFill style={{ background: "linear-gradient(150deg, #FFE9A8 0%, #FFF6E0 42%, #FFD8C2 100%)" }}>
+      {/* speed rays out of the top-left, the comic staple */}
+      {Array.from({ length: 16 }).map((_, i) => (
+        <div key={`r${i}`} style={{
+          position: "absolute", left: 120, top: -160, width: 74, height: 2400,
+          background: i % 2 ? "rgba(255,168,60,0.20)" : "rgba(255,255,255,0.42)",
+          transformOrigin: "50% 0%", transform: `rotate(${-52 + i * 7.4}deg)`,
+        }} />
+      ))}
+      {/* halftone, denser toward the bottom like real print */}
+      {Array.from({ length: 150 }).map((_, i) => {
+        const gx = i % 15, gy = Math.floor(i / 15);
+        const d = 5 + gy * 1.5;
+        return (
+          <div key={`d${i}`} style={{
+            position: "absolute", left: gx * 74 + (gy % 2 ? 37 : 0), top: 120 + gy * 176,
+            width: d, height: d, borderRadius: "50%", background: "rgba(226,96,40,0.20)",
+          }} />
+        );
+      })}
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(62% 44% at 50% 34%, rgba(255,255,255,0.72), rgba(255,255,255,0) 76%)" }} />
+      <div style={{ position: "absolute", inset: 0, border: "16px solid #141414", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(84% 62% at 50% 46%, rgba(0,0,0,0), rgba(60,30,10,0.16) 100%)" }} />
+      <Confetti />
+      {children}
+    </AbsoluteFill>
+  );
+};
 
 /**
  * A colour band across the frame, behind the hero word. A 1080x1920 canvas holding one
@@ -221,3 +255,27 @@ export const Beat: React.FC<{ from: number; to: number; children: React.ReactNod
 
 export const fadeIn = (frame: number, at: number, len = 8) =>
   interpolate(frame - at, [0, len], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
+/** A picture for a word, from the channel's one shared map: real app artwork where it
+ *  exists, an emoji otherwise. Returns null for a word with no picture, so a caller can
+ *  simply drop it in without guarding. */
+export const WordPic: React.FC<{ word: string; size?: number; at?: number; seed?: number }> = ({
+  word, size = 190, at = 0, seed = 0,
+}) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const src = picFor(word);
+  const p = pop(frame, fps, at, 12);
+  if (!src) return null;
+  return (
+    <div style={{
+      width: size, height: size, flex: "0 0 auto",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      transform: `scale(${p}) translateY(${Math.sin((frame + seed * 21) / 30) * 7}px) rotate(${Math.sin((frame + seed * 27) / 41) * 4}deg)`,
+    }}>
+      {src.startsWith("img/")
+        ? <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+        : <div style={{ fontSize: size * 0.86, lineHeight: 1 }}>{src}</div>}
+    </div>
+  );
+};

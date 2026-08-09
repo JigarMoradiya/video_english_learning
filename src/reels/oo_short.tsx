@@ -3,7 +3,7 @@ import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame, useVideoCon
 import { Watermark } from "../components/Watermark";
 import { EndCard } from "../components/EndCard";
 import {
-  Beat, Icon, Mark, Pill, Plate, RuleBadge, Stack, Tag, THEMES, Tile, Title, Word,
+  Beat, Depth, Icon, Mark, Pill, Plate, RuleBadge, Stack, Tag, THEMES, Tile, Title, Word, WordPic,
 } from "../components/Shorts";
 
 // ── SHORT · oo has TWO sounds · 9:16 ─────────────────────────────────────────
@@ -46,6 +46,7 @@ export const OoShort: React.FC = () => {
   return (
     <AbsoluteFill>
       <Bg />
+      <Depth />
       {CUES.map(([at, file, vol], i) => (
         <Sequence key={i} from={at} durationInFrames={40}>
           <Audio src={staticFile(`sfx/${file}.mp3`)} volume={vol} />
@@ -68,6 +69,7 @@ export const OoShort: React.FC = () => {
       {/* ② no rule — say so plainly */}
       <Beat from={S(4.0)} to={S(7.1)}>
         <Stack gap={40}>
+          <Icon glyph={"\u{2753}"} at={S(4.05)} size={132} />
           <Title text={"there is NO rule\nfor which one"} size={78} at={S(4.1)} color={t.ink} />
           <Pill text="so we TRY BOTH" color={t.a} size={60} at={S(5.0)} />
         </Stack>
@@ -76,12 +78,16 @@ export const OoShort: React.FC = () => {
       {/* ③ the long sound */}
       <Beat from={S(7.1)} to={S(14.2)}>
         <Stack gap={38}>
+          <Icon glyph={"\u{1F50A}"} at={S(7.1)} size={128} />
           <Tag t={t} text="SOUND 1" at={S(7.15)} />
           <Pill text={"long  oo   like  moon"} color={t.b} size={58} at={S(7.2)} />
           {li >= 0 && li < LONG.length && (
-            <Plate key={LONG[li]} t={t} at={S(7.3) + li * S(1.8)}>
-              <Word text={LONG[li]} target="oo" color={t.b} size={140} at={S(7.3) + li * S(1.8)} />
-            </Plate>
+            <React.Fragment key={LONG[li]}>
+              <WordPic word={LONG[li]} size={200} at={S(7.3) + li * S(1.8)} seed={li} />
+              <Plate t={t} at={S(7.3) + li * S(1.8)}>
+                <Word text={LONG[li]} target="oo" color={t.b} size={140} at={S(7.3) + li * S(1.8)} />
+              </Plate>
+            </React.Fragment>
           )}
         </Stack>
       </Beat>
@@ -89,12 +95,16 @@ export const OoShort: React.FC = () => {
       {/* ④ the short sound */}
       <Beat from={S(14.2)} to={S(22.2)}>
         <Stack gap={38}>
+          <Icon glyph={"\u{1F50A}"} at={S(14.2)} size={128} />
           <Tag t={t} text="SOUND 2" at={S(14.25)} />
           <Pill text={"short  oo   like  book"} color={t.a} size={58} at={S(14.3)} />
           {si >= 0 && si < SHORT.length && (
-            <Plate key={SHORT[si]} t={t} at={S(15.5) + si * S(1.8)}>
-              <Word text={SHORT[si]} target="oo" color={t.a} size={140} at={S(15.5) + si * S(1.8)} />
-            </Plate>
+            <React.Fragment key={SHORT[si]}>
+              <WordPic word={SHORT[si]} size={200} at={S(15.5) + si * S(1.8)} seed={si} />
+              <Plate t={t} at={S(15.5) + si * S(1.8)}>
+                <Word text={SHORT[si]} target="oo" color={t.a} size={140} at={S(15.5) + si * S(1.8)} />
+              </Plate>
+            </React.Fragment>
           )}
         </Stack>
       </Beat>
@@ -102,6 +112,7 @@ export const OoShort: React.FC = () => {
       {/* ⑤ the strategy — what a reader actually does */}
       <Beat from={S(22.2)} to={S(28.2)}>
         <Stack gap={30}>
+          <Icon glyph={"\u{1F4A1}"} at={S(22.25)} size={124} />
           <Tag t={t} text="HOW TO READ IT" at={S(22.3)} />
           <Plate t={t} at={S(22.5)}>
             <Word text="book" target="oo" color={t.b} size={116} at={S(22.5)} />

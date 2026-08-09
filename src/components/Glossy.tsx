@@ -1,5 +1,6 @@
 import React from "react";
-import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { picFor } from "../data/word_pics";
 import { font } from "../data/tokens";
 
 // ── GLOSSY BLOCKS ────────────────────────────────────────────────────────────
@@ -50,12 +51,34 @@ const Bubbles: React.FC = () => {
   );
 };
 
-export const Sky: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
-  <AbsoluteFill style={{ background: `linear-gradient(160deg, #CFE6FF 0%, #FFFFFF 46%, #FFD9E8 100%)` }}>
-    <Bubbles />
-    {children}
-  </AbsoluteFill>
-);
+/**
+ * THE CANDY SUNSET — rule_ck's world.
+ *
+ * Its blocks are glossy and extruded, so the ground has to be bright enough for their
+ * shadows to read. A pale three-stop gradient did that and nothing else; this keeps the
+ * brightness and adds a place — a low sun, banded sky, and soft hills behind the lesson.
+ */
+export const Sky: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+  const frame = useCurrentFrame();
+  return (
+    <AbsoluteFill style={{ background: "linear-gradient(#FFC9A6 0%, #FFE1B8 26%, #FFF4DA 52%, #D8E9FF 82%, #B9D6FF 100%)" }}>
+      <div style={{ position: "absolute", left: "50%", marginLeft: -230, top: 190, width: 460, height: 460, borderRadius: "50%", background: "radial-gradient(closest-side, #FFF3C0, #FFD98A 62%, rgba(255,217,138,0) 74%)" }} />
+      {[0, 1, 2, 3].map((i) => (
+        <div key={i} style={{
+          position: "absolute", left: -80, top: 300 + i * 96, width: "130%", height: 26,
+          background: "rgba(255,255,255,0.44)", borderRadius: 999,
+          transform: `translateX(${Math.sin((frame + i * 70) / 78) * 30}px)`,
+        }} />
+      ))}
+      {[{ c: "#F6B48A", t: 0.74 }, { c: "#E39A78", t: 0.86 }].map((h, i) => (
+        <div key={`h${i}`} style={{ position: "absolute", left: -100 + i * 60, top: `${h.t * 100}%`, width: "130%", height: "40%", background: h.c, borderRadius: "50% 50% 0 0" }} />
+      ))}
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(80% 58% at 50% 40%, rgba(0,0,0,0), rgba(90,50,20,0.15) 100%)" }} />
+      <Bubbles />
+      {children}
+    </AbsoluteFill>
+  );
+};
 
 /** an extruded block. The second copy behind it is the whole 3D trick. */
 export const Block: React.FC<{
@@ -116,9 +139,12 @@ export const Band: React.FC<{ color: string; at?: number; top: number; height: n
   const p = pop(frame, fps, at, 15);
   return (
     <div style={{
-      position: "absolute", left: -40, top, width: width + 80, height,
+      position: "absolute", left: 46, top, width: width - 92, height,
       borderRadius: 54, background: color,
-      boxShadow: "0 26px 0 rgba(42,36,64,0.16)",
+      // a 3D slab, like the sticker reel's panel: a hard dark edge under the face rather
+      // than a soft shadow, so the band reads as a printed object and not as a fill
+      boxShadow: "0 18px 0 rgba(28,22,48,0.42), 0 30px 0 rgba(28,22,48,0.18), 0 44px 60px rgba(28,22,48,0.28)",
+      border: "7px solid rgba(24,18,42,0.85)", boxSizing: "border-box",
       transform: `rotate(${tilt}deg) scaleY(${p})`,
     }} />
   );
@@ -276,8 +302,8 @@ export const Stack: React.FC<{ children: React.ReactNode; gap?: number }> = ({ c
   const { width, height } = useVideoConfig();
   return (
     <div style={{
-      position: "absolute", left: width * 0.06, top: height * 0.13,
-      width: width * 0.88, height: height * 0.74,
+      position: "absolute", left: width * 0.06, top: height * 0.145,
+      width: width * 0.88, height: height * 0.55,
       display: "flex", flexDirection: "column", alignItems: "center",
       justifyContent: "center", gap,
     }}>
@@ -290,4 +316,28 @@ export const Beat: React.FC<{ from: number; to: number; children: React.ReactNod
   const frame = useCurrentFrame();
   if (frame < from || frame >= to) return null;
   return <>{children}</>;
+};
+
+/** A picture for a word, from the channel's one shared map: real app artwork where it
+ *  exists, an emoji otherwise. Returns null for a word with no picture, so a caller can
+ *  simply drop it in without guarding. */
+export const WordPic: React.FC<{ word: string; size?: number; at?: number; seed?: number }> = ({
+  word, size = 190, at = 0, seed = 0,
+}) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const src = picFor(word);
+  const p = pop(frame, fps, at, 12);
+  if (!src) return null;
+  return (
+    <div style={{
+      width: size, height: size, flex: "0 0 auto",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      transform: `scale(${p}) translateY(${Math.sin((frame + seed * 21) / 30) * 7}px) rotate(${Math.sin((frame + seed * 27) / 41) * 4}deg)`,
+    }}>
+      {src.startsWith("img/")
+        ? <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+        : <div style={{ fontSize: size * 0.86, lineHeight: 1 }}>{src}</div>}
+    </div>
+  );
 };

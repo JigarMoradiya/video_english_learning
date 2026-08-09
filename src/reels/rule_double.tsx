@@ -3,7 +3,7 @@ import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame, useVideoCon
 import { Watermark } from "../components/Watermark";
 import { EndCard } from "../components/EndCard";
 import {
-  Beat, Board, Dots, Line, Panel, Stamp, Tile, Word, pop,
+  Beat, Board, Dots, Line, Panel, Stamp, Tile, Word, WordPic, pop,
   INK, ORANGE, BLUE, RED, GREEN, YELLOW,
 } from "../components/Sticker";
 
@@ -100,8 +100,8 @@ export const RuleDoubleReel: React.FC = () => {
           <div style={{
             // sized to CLEAR the corner logo: the first version was 38 characters at 50px,
             // which needs ~1144px in a 1080 frame — cut at both edges and under the logo
-            padding: "13px 26px", borderRadius: 999, background: INK, color: "#FFFFFF",
-            fontFamily: "inherit", fontWeight: 800, fontSize: 33, letterSpacing: 0.8,
+            padding: "18px 36px", borderRadius: 999, background: INK, color: "#FFFFFF",
+            fontFamily: "inherit", fontWeight: 800, fontSize: 46, letterSpacing: 0.6,
             transform: `translateY(${Math.sin(frame / 34) * 4}px)`, whiteSpace: "nowrap",
           }}>
             DOUBLE THE LAST LETTER
@@ -109,17 +109,21 @@ export const RuleDoubleReel: React.FC = () => {
         </div>
       )}
 
-      {/* ① HOOK — the rule happens before it is named */}
+      {/* Lifted off centre: in a feed the bottom of a 9:16 frame carries the
+          profile, caption and buttons, so content centred in the frame sits under
+          someone else's UI. ONE transform, so nothing shifts relative to anything else. */}
+      <AbsoluteFill style={{ transform: "translateY(-38px)" }}>
+        {/* ① HOOK — the rule happens before it is named */}
       <Beat from={0} to={S(3.5)}>
-        <Panel color={YELLOW} at={S(0.1)} top={height * 0.34} height={height * 0.30} skew={-3} />
-        <Hero y={0.375}>
+        <Panel color={YELLOW} at={S(0.1)} top={height * 0.285} height={height * 0.255} skew={-3} />
+        <Hero y={0.330}>
           <Tile ch="b" size={190} at={S(0.3)} />
           <Tile ch="e" size={190} at={S(0.5)} tone="yellow" />
           <Tile ch="l" size={190} at={S(0.7)} />
           {frame >= S(1.5) && <Tile ch="l" size={190} at={S(1.5)} tone="orange" shake={frame < S(2.0)} />}
         </Hero>
         {frame >= S(2.1) && (
-          <div style={{ position: "absolute", left: 0, top: height * 0.66, width: "100%", display: "flex", justifyContent: "center" }}>
+          <div style={{ position: "absolute", left: 0, top: height * 0.565, width: "100%", display: "flex", justifyContent: "center" }}>
             <Line text="bell" size={130} at={S(2.1)} tone={ORANGE} />
           </div>
         )}
@@ -127,8 +131,8 @@ export const RuleDoubleReel: React.FC = () => {
 
       {/* ② TITLE */}
       <Beat from={S(3.5)} to={S(6.3)}>
-        <Panel color={ORANGE} at={S(3.6)} top={height * 0.30} height={height * 0.34} skew={-4} />
-        <div style={{ position: "absolute", left: 0, top: height * 0.335, width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+        <Panel color={ORANGE} at={S(3.6)} top={height * 0.255} height={height * 0.285} skew={-4} />
+        <div style={{ position: "absolute", left: 0, top: height * 0.290, width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
           <Line text="DOUBLE" size={168} at={S(3.6)} tone="#FFFFFF" />
           <Line text="THE LAST LETTER" size={74} at={S(4.0)} tone="#FFFFFF" />
         </div>
@@ -169,50 +173,56 @@ export const RuleDoubleReel: React.FC = () => {
 
       {/* ④ EXAMPLES — the doubled ending owns the frame */}
       <Beat from={S(14.7)} to={S(23.9)}>
-        <Panel color={GREEN} at={S(14.8)} top={height * 0.355} height={height * 0.26} skew={-3} />
+        <Panel color={GREEN} at={S(14.8)} top={height * 0.295} height={height * 0.26} skew={-3} />
         <Label text="SO  DOUBLE  IT" color={ORANGE} at={S(14.8)} y={height * 0.17} />
         {exIdx >= 0 && exIdx < DOUBLES.length && (() => {
           const w = DOUBLES[exIdx];
           const at = S(14.9) + exIdx * S(1.8);
           const size = w.length >= 5 ? 168 : 200;
           return (
-            <Hero key={w} y={0.40}>
+            <Hero key={w} y={0.355}>
               <Word text={w} size={size} at={at} stagger={2}
                     tones={{ [w.length - 2]: "orange", [w.length - 1]: "orange" }} />
             </Hero>
           );
         })()}
-        <div style={{ position: "absolute", left: 0, top: height * 0.66, width: "100%", display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "absolute", left: 0, top: height * 0.560, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 44 }}>
+          {exIdx >= 0 && exIdx < DOUBLES.length && (
+            <WordPic key={DOUBLES[exIdx]} word={DOUBLES[exIdx]} size={165} at={S(14.9) + exIdx * S(1.8)} seed={exIdx} />
+          )}
           <Stamp kind="yes" at={S(15.3)} size={120} />
         </div>
-        <Dots total={DOUBLES.length} on={Math.max(0, Math.min(DOUBLES.length - 1, exIdx))} y={height * 0.78} />
+        <Dots total={DOUBLES.length} on={Math.max(0, Math.min(DOUBLES.length - 1, exIdx))} y={height * 0.665} />
       </Beat>
 
       {/* ⑤ NOT DOUBLED — the contrast that gives the rule meaning */}
       <Beat from={S(23.9)} to={S(30.0)}>
-        <Panel color={BLUE} at={S(24.0)} top={height * 0.355} height={height * 0.26} skew={3} />
+        <Panel color={BLUE} at={S(24.0)} top={height * 0.295} height={height * 0.26} skew={3} />
         <Label text="LONG  VOWEL  →  NO  DOUBLE" color={RED} at={S(24.0)} y={height * 0.17} />
         {sgIdx >= 0 && sgIdx < SINGLES.length && (() => {
           const w = SINGLES[sgIdx];
           const at = S(24.1) + sgIdx * S(1.8);
           return (
-            <Hero key={w} y={0.40}>
+            <Hero key={w} y={0.355}>
               <Word text={w} size={200} at={at} stagger={2} tones={{ 1: "yellow", 2: "yellow" }} />
             </Hero>
           );
         })()}
-        <div style={{ position: "absolute", left: 0, top: height * 0.66, width: "100%", display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "absolute", left: 0, top: height * 0.560, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 44 }}>
+          {sgIdx >= 0 && sgIdx < SINGLES.length && (
+            <WordPic key={SINGLES[sgIdx]} word={SINGLES[sgIdx]} size={165} at={S(24.1) + sgIdx * S(1.8)} seed={sgIdx} />
+          )}
           <Stamp kind="no" at={S(24.5)} size={120} />
         </div>
-        <Dots total={SINGLES.length} on={Math.max(0, Math.min(SINGLES.length - 1, sgIdx))} y={height * 0.78} />
+        <Dots total={SINGLES.length} on={Math.max(0, Math.min(SINGLES.length - 1, sgIdx))} y={height * 0.665} />
       </Beat>
 
       {/* ⑥ RECAP — the content box IS the panel box, so it is centred by construction
           rather than by a hand-tuned top offset */}
       <Beat from={RECAP} to={RECAP_END}>
-        <Panel color={ORANGE} at={RECAP + 3} top={height * 0.30} height={height * 0.36} skew={-3} />
+        <Panel color={ORANGE} at={RECAP + 3} top={height * 0.255} height={height * 0.36} skew={-3} />
         <div style={{
-          position: "absolute", left: 0, top: height * 0.30, width: "100%", height: height * 0.36,
+          position: "absolute", left: 0, top: height * 0.255, width: "100%", height: height * 0.36,
           display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18,
         }}>
           {/* the three conditions, one per line and numbered — they were run together on
@@ -234,6 +244,7 @@ export const RuleDoubleReel: React.FC = () => {
           <Line text="DOUBLE IT!" size={112} at={RECAP + 30} tone="#FFFFFF" />
         </div>
       </Beat>
+      </AbsoluteFill>
 
       {/* ⑦ DOWNLOAD — no separate strip behind it: the card's own padded background IS
           the strip, so the gap above and below its contents is equal by construction */}

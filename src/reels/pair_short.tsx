@@ -3,7 +3,7 @@ import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame, useVideoCon
 import { Watermark } from "../components/Watermark";
 import { EndCard } from "../components/EndCard";
 import {
-  Beat, Icon, Mark, Pill, Plate, RuleBadge, Stack, Tag, Theme, THEMES, Tile, Title, Word,
+  Beat, Depth, Icon, Mark, Pill, Plate, RuleBadge, Stack, Tag, Theme, THEMES, Tile, Title, Word, WordPic,
 } from "../components/Shorts";
 
 // ── VOWEL-PAIR SHORTS · 9:16 ─────────────────────────────────────────────────
@@ -60,6 +60,7 @@ export const PairShort: React.FC<{ spec: PairSpec }> = ({ spec }) => {
   return (
     <AbsoluteFill>
       <Bg />
+      <Depth />
       {CUES.map(([at, file, vol], i) => (
         <Sequence key={i} from={at} durationInFrames={40}>
           <Audio src={staticFile(`sfx/${file}.mp3`)} volume={vol} />
@@ -84,6 +85,7 @@ export const PairShort: React.FC<{ spec: PairSpec }> = ({ spec }) => {
       {/* ② TITLE — the rule, in one line */}
       <Beat from={S(4.0)} to={S(7.1)}>
         <Stack gap={40}>
+          <Icon glyph={"\u{1F50A}"} at={S(4.05)} size={132} />
           <Title text={"SAME SOUND\nTWO SPELLINGS"} size={92} at={S(4.1)} color={t.ink} />
           <Pill text="so WHICH one?" color={t.a} size={58} at={S(4.9)} />
         </Stack>
@@ -92,12 +94,16 @@ export const PairShort: React.FC<{ spec: PairSpec }> = ({ spec }) => {
       {/* ③ the FIRST spelling, in the middle */}
       <Beat from={S(7.1)} to={S(14.2)}>
         <Stack gap={38}>
+          <Icon glyph={"\u{1F440}"} at={S(7.1)} size={128} />
           <Tag t={t} text="RULE 1" at={S(7.15)} />
           <Pill text={`${spec.first}  in the  MIDDLE`} color={t.a} size={62} at={S(7.2)} />
           {mi >= 0 && mi < spec.mid.length && (
-            <Plate key={spec.mid[mi]} t={t} at={S(7.3) + mi * S(1.8)}>
-              <Word text={spec.mid[mi]} target={spec.first} color={t.a} size={136} at={S(7.3) + mi * S(1.8)} />
-            </Plate>
+            <React.Fragment key={spec.mid[mi]}>
+              <WordPic word={spec.mid[mi]} size={210} at={S(7.3) + mi * S(1.8)} seed={mi} />
+              <Plate t={t} at={S(7.3) + mi * S(1.8)}>
+                <Word text={spec.mid[mi]} target={spec.first} color={t.a} size={136} at={S(7.3) + mi * S(1.8)} />
+              </Plate>
+            </React.Fragment>
           )}
           <Mark kind="yes" at={S(7.7)} />
         </Stack>
@@ -106,12 +112,16 @@ export const PairShort: React.FC<{ spec: PairSpec }> = ({ spec }) => {
       {/* ④ the SECOND spelling, at the end */}
       <Beat from={S(14.2)} to={S(22.2)}>
         <Stack gap={38}>
+          <Icon glyph={"\u{1F440}"} at={S(14.2)} size={128} />
           <Tag t={t} text="RULE 2" at={S(14.25)} />
           <Pill text={`${spec.second}  at the  END`} color={t.b} size={62} at={S(14.3)} />
           {ei >= 0 && ei < spec.end.length && (
-            <Plate key={spec.end[ei]} t={t} at={S(15.5) + ei * S(1.8)}>
-              <Word text={spec.end[ei]} target={spec.second} color={t.b} size={136} at={S(15.5) + ei * S(1.8)} />
-            </Plate>
+            <React.Fragment key={spec.end[ei]}>
+              <WordPic word={spec.end[ei]} size={210} at={S(15.5) + ei * S(1.8)} seed={ei} />
+              <Plate t={t} at={S(15.5) + ei * S(1.8)}>
+                <Word text={spec.end[ei]} target={spec.second} color={t.b} size={136} at={S(15.5) + ei * S(1.8)} />
+              </Plate>
+            </React.Fragment>
           )}
           <Mark kind="yes" at={S(14.8)} />
         </Stack>
@@ -120,6 +130,7 @@ export const PairShort: React.FC<{ spec: PairSpec }> = ({ spec }) => {
       {/* ⑤ the contrast, side by side — or the caution, where the pair has two sounds */}
       <Beat from={S(22.2)} to={S(28.2)}>
         <Stack gap={34}>
+          <Icon glyph={spec.caution ? "\u{26A0}" : "\u{1F440}"} at={S(22.25)} size={128} />
           <Tag t={t} text={spec.caution ? "CAREFUL" : "SEE IT"} at={S(22.3)} />
           {spec.caution ? (
             <>

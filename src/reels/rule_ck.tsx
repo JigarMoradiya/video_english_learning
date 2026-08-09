@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { Watermark } from "../components/Watermark";
 import { EndCard } from "../components/EndCard";
-import { Band, Beat, Block, C, Dots, INK, Mark, Pill, Icon, Plate, Sky, Stack, Tag, Title, Word } from "../components/Glossy";
+import { Band, Beat, Block, C, Dots, INK, Mark, Pill, Icon, Plate, Sky, Stack, Tag, Title, Word, WordPic } from "../components/Glossy";
 
 // ── REEL · c / k / ck · 9:16 ─────────────────────────────────────────────────
 //
@@ -64,8 +64,8 @@ export const RuleCkReel: React.FC = () => {
           <div style={{
             // sized to CLEAR the corner logo: the first version was 38 characters at 50px,
             // which needs ~1144px in a 1080 frame — cut at both edges and under the logo
-            padding: "13px 26px", borderRadius: 999, background: INK, color: "#FFFFFF",
-            fontFamily: "inherit", fontWeight: 800, fontSize: 33, letterSpacing: 0.8,
+            padding: "18px 36px", borderRadius: 999, background: INK, color: "#FFFFFF",
+            fontFamily: "inherit", fontWeight: 800, fontSize: 46, letterSpacing: 0.6,
             transform: `translateY(${Math.sin(frame / 34) * 4}px)`, whiteSpace: "nowrap",
           }}>
             THE  C · K · CK  RULE
@@ -73,7 +73,11 @@ export const RuleCkReel: React.FC = () => {
         </div>
       )}
 
-      {/* ① HOOK — one sound, three spellings, which goes in the slot? */}
+      {/* Lifted off centre: in a feed the bottom of a 9:16 frame carries the
+          profile, caption and buttons, so content centred in the frame sits under
+          someone else's UI. ONE transform, so nothing shifts relative to anything else. */}
+      <AbsoluteFill style={{ transform: "translateY(-6px)" }}>
+        {/* ① HOOK — one sound, three spellings, which goes in the slot? */}
       <Beat from={0} to={S(3.6)}>
         <Stack gap={64}>
           <Title text="/k/" size={190} at={S(0.2)} color={C.ck} />
@@ -97,7 +101,7 @@ export const RuleCkReel: React.FC = () => {
 
       {/* ③ c before a o u */}
       <Beat from={S(6.0)} to={S(13.0)}>
-        <Band color={C.c} at={S(6.1)} top={height * 0.305} height={height * 0.35} />
+        <Band color={C.c} at={S(6.1)} top={height * 0.185} height={height * 0.47} />
         <Stack gap={54}>
           <Tag text="RULE 1" at={S(6.1)} />
           <Pill text="c  BEFORE  a · o · u" color={C.c} size={64} at={S(6.2)} onBand />
@@ -106,6 +110,7 @@ export const RuleCkReel: React.FC = () => {
             const at = S(6.2) + ci * S(1.8);
             return <Plate key={w} at={at}><Word text={w} size={182} at={at} colors={{ 0: C.c, 1: C.sun }} stagger={2} /></Plate>;
           })()}
+          {ci >= 0 && ci < C_WORDS.length && <WordPic key={C_WORDS[ci] + 'p'} word={C_WORDS[ci]} size={150} at={S(6.2) + ci * S(1.8)} seed={ci} />}
           <Mark kind="yes" at={S(6.7)} size={118} />
         </Stack>
         <Dots total={3} on={Math.max(0, Math.min(2, ci))} y={height * 0.80} color={C.c} />
@@ -113,7 +118,7 @@ export const RuleCkReel: React.FC = () => {
 
       {/* ④ k before e i */}
       <Beat from={S(13.0)} to={S(21.0)}>
-        <Band color={C.k} at={S(13.1)} top={height * 0.305} height={height * 0.35} tilt={2.5} />
+        <Band color={C.k} at={S(13.1)} top={height * 0.185} height={height * 0.47} tilt={2.5} />
         <Stack gap={54}>
           <Tag text="RULE 2" at={S(13.1)} />
           <Pill text="k  BEFORE  e · i" color={C.k} size={64} at={S(13.2)} onBand />
@@ -122,6 +127,7 @@ export const RuleCkReel: React.FC = () => {
             const at = S(14.4) + ki * S(1.8);
             return <Plate key={w} at={at}><Word text={w} size={182} at={at} colors={{ 0: C.k, 1: C.sun }} stagger={2} /></Plate>;
           })()}
+          {ki >= 0 && ki < K_WORDS.length && <WordPic key={K_WORDS[ki] + 'p'} word={K_WORDS[ki]} size={150} at={S(13.1) + ki * S(1.8)} seed={ki} />}
           <Mark kind="yes" at={S(13.6)} size={118} />
         </Stack>
         <Dots total={3} on={Math.max(0, Math.min(2, ki))} y={height * 0.80} color={C.k} />
@@ -129,7 +135,7 @@ export const RuleCkReel: React.FC = () => {
 
       {/* ⑤ ck at the end, after a short vowel */}
       <Beat from={S(21.0)} to={S(28.2)}>
-        <Band color={C.ck} at={S(21.1)} top={height * 0.295} height={height * 0.37} />
+        <Band color={C.ck} at={S(21.1)} top={height * 0.185} height={height * 0.47} />
         <Stack gap={50}>
           <Tag text="RULE 3" at={S(21.1)} />
           <Pill text="ck  at the  END" color={C.ck} size={64} at={S(21.2)} onBand />
@@ -147,6 +153,7 @@ export const RuleCkReel: React.FC = () => {
               </Plate>
             );
           })()}
+          {cki >= 0 && cki < CK_WORDS.length && <WordPic key={CK_WORDS[cki] + 'p'} word={CK_WORDS[cki]} size={150} at={S(21.4) + cki * S(1.8)} seed={cki} />}
           <Mark kind="yes" at={S(21.9)} size={118} />
         </Stack>
         <Dots total={3} on={Math.max(0, Math.min(2, cki))} y={height * 0.80} color={C.ck} />
@@ -154,7 +161,7 @@ export const RuleCkReel: React.FC = () => {
 
       {/* ⑥ never these */}
       <Beat from={S(28.2)} to={S(32.4)}>
-        <Band color={C.bad} at={S(28.3)} top={height * 0.295} height={height * 0.37} tilt={2.5} />
+        <Band color={C.bad} at={S(28.3)} top={height * 0.185} height={height * 0.47} tilt={2.5} />
         <Stack gap={54}>
           {/* white on the solid red band — as C.bad it was red text on red */}
           <Title text="NEVER" size={126} at={S(28.3)} color="#FFFFFF" />
@@ -170,8 +177,10 @@ export const RuleCkReel: React.FC = () => {
           })()}
         </Stack>
       </Beat>
+      </AbsoluteFill>
 
-      {/* ⑦ RECAP */}
+      <AbsoluteFill style={{ transform: "translateY(-6px)" }}>
+        {/* ⑦ RECAP */}
       <Beat from={S(32.4)} to={RECAP_END}>
         <Stack gap={40}>
           <Icon glyph={"\u{1F9E0}"} at={S(32.3)} size={150} />
@@ -181,6 +190,7 @@ export const RuleCkReel: React.FC = () => {
           <Pill text="ck  AFTER a short vowel,  at the END" color={C.ck} size={40} at={S(32.9)} />
         </Stack>
       </Beat>
+      </AbsoluteFill>
 
       {/* ⑧ DOWNLOAD */}
       <Beat from={END} to={RULE_CK_DURATION}>
