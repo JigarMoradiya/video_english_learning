@@ -47,6 +47,15 @@ export const GROUND = {
   // warm, and deliberately the only warm ground in the set — letters/vowels/blending are
   // all cool, so CVC separates from its own siblings in a subscriptions feed
   cvc: "linear-gradient(105deg, #45140A 0%, #97300F 46%, #D2571B 100%)",
+  // ── Level 5 · Spelling Rules, one ground per part ────────────────────────
+  // Each is a richer version of that part's own world, and each avoids the four above:
+  // letters/vowels are violet, blending is cyan, cvc is orange.
+  l5p1: "linear-gradient(105deg, #0A1C33 0%, #1B3F6E 46%, #2E6BB0 100%)",  // the building site, at dusk
+  l5p2: "linear-gradient(105deg, #06301F 0%, #0F5A38 46%, #1A8C51 100%)",  // the bell tower's green hills
+  l5p3: "linear-gradient(105deg, #300838 0%, #6A1160 46%, #A81C72 100%)",  // the magic stage's plum curtain
+  // the stepping-stones stream — green-leaning so it never reads as `blending`, which is
+  // the same family but blue-leaning
+  sentences: "linear-gradient(105deg, #042A2B 0%, #0A5A52 46%, #10897A 100%)",
 } as const;
 
 export const W = 1280;
