@@ -2,13 +2,14 @@ import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { font, shade } from "../data/tokens";
 
-// ══ VEDAAVI brand intro — a 3.6s sting prepended to every video/reel ══════════
-// Polished: glossy candy-gradient rainbow letters (own tilt/height, like the ref),
-// mascot FACE with a clear head-tilt, dimensional scattered elements (stars,
-// sparkles, hearts, notes), soft depth (vignette + bokeh + a shine sweep at the
-// settle). FIXED mint background. Responsive (16:9 side-by-side / 9:16 stacked).
-// Audio NON-TONAL only (landing thumps + shimmer) — a jingle would re-trigger
-// Meta's music-rights flag on EVERY video. See music_copyright_meta.
+// ══ VEDAAVI brand intro — a 3.7s sting prepended to every video/reel ══════════
+// Alive & premium: the mascot BLINKS, squash-bounces on landing, does an excited
+// wiggle at the reveal and a wink at the end; the VEDAAVI letters bounce in one by
+// one; a sparkle burst pops from behind the logo on the chime peak; a ground
+// shadow + sunburst glow + decor parallax add depth. FIXED mint background.
+// Responsive (16:9 side-by-side / 9:16 · 4:5 stacked).
+// Audio NON-TONAL/non-melodic only — a jingle would re-trigger Meta's music-rights
+// flag on EVERY video. See music_copyright_meta / tools/make_intro_audio.py.
 
 const FPS = 30;
 export const VEDAAVI_INTRO_DURATION = 112;
@@ -20,11 +21,13 @@ const lighten = (h: string, a: number) => { const [r, g, b] = hx(h); return toHe
 
 const NAME = "VEDAAVI".split("");
 const COLORS = ["#FF5A5A", "#FF9A1F", "#F2B705", "#3FD168", "#1FBFD4", "#4D8DFF", "#A66BFF"];
+// each letter flies in from its own off-screen spot (the approved look)
 const FROM = [
   { x: -680, y: -320, r: -40 }, { x: 40, y: -700, r: 24 }, { x: 680, y: -360, r: 40 },
   { x: -560, y: 620, r: -30 }, { x: 560, y: 640, r: 30 }, { x: -60, y: 760, r: -18 },
   { x: 700, y: 260, r: 46 },
 ];
+// per-letter playful resting tilt/height
 const REST = [
   { dy: 8, rot: -8 }, { dy: -18, rot: 6 }, { dy: 6, rot: -4 }, { dy: -14, rot: 7 },
   { dy: 4, rot: -6 }, { dy: -16, rot: 5 }, { dy: 12, rot: -6 },
@@ -51,8 +54,11 @@ const Decor: React.FC<D & { W: number; H: number; idx: number }> = ({ t, fx, fy,
   const inn = spring({ frame: frame - d, fps, config: { damping: 12 } });
   const yb = Math.sin(frame * 0.09 + fx * 22) * 9;
   const rot = Math.sin(frame * 0.06 + fx * 10) * 8;
+  // DEPTH PARALLAX: bigger element = "closer" → drifts more, on a slow cycle.
+  const par = Math.sin(frame * 0.02 + fx * 6) * (s * 0.06);
+  const parY = Math.cos(frame * 0.017 + fy * 5) * (s * 0.03);
   const gid = `ve-g${idx}`;
-  const style: React.CSSProperties = { position: "absolute", left: fx * W - s / 2, top: fy * H - s / 2, transform: `translateY(${(1 - inn) * -60 + yb}px) scale(${inn}) rotate(${rot}deg)`, filter: "drop-shadow(0 5px 7px rgba(60,90,40,0.22))" };
+  const style: React.CSSProperties = { position: "absolute", left: fx * W - s / 2, top: fy * H - s / 2, transform: `translate(${par}px, ${(1 - inn) * -60 + yb + parY}px) scale(${inn}) rotate(${rot}deg)`, filter: "drop-shadow(0 5px 7px rgba(60,90,40,0.22))" };
   const grad = (
     <radialGradient id={gid} cx="36%" cy="30%" r="75%">
       <stop offset="0%" stopColor={lighten(c, 0.5)} /><stop offset="55%" stopColor={c} /><stop offset="100%" stopColor={shade(c, 0.16)} />
@@ -79,7 +85,7 @@ const Decor: React.FC<D & { W: number; H: number; idx: number }> = ({ t, fx, fy,
   );
 };
 
-// ── glossy candy letter (own tilt + height) ───────────────────────────────────
+// ── glossy candy letter — flies in from its own off-screen spot (approved look) ──
 const Letter: React.FC<{ ch: string; color: string; size: number; i: number }> = ({ ch, color, size, i }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -104,23 +110,76 @@ const Letter: React.FC<{ ch: string; color: string; size: number; i: number }> =
   );
 };
 
+// ── sparkle burst that pops from behind the logo at the chime peak ─────────────
+const BURST = Array.from({ length: 16 }, (_, i) => ({
+  ang: (i / 16) * Math.PI * 2 + (i % 2) * 0.19,
+  dist: 0.85 + ((i * 37) % 55) / 100,
+  sz: 15 + ((i * 53) % 20),
+  c: ["#FF5A5A", "#FF9A1F", "#F2B705", "#3FD168", "#1FBFD4", "#4D8DFF", "#A66BFF", "#FF5A8A"][i % 8],
+  delay: (i % 3) * 2,
+}));
+const SparkleBurst: React.FC<{ size: number }> = ({ size }) => {
+  const frame = useCurrentFrame();
+  return (
+    <div style={{ position: "absolute", left: size / 2, top: size * 0.5, width: 0, height: 0 }}>
+      {BURST.map((p, i) => {
+        const t = interpolate(frame, [50 + p.delay, 82 + p.delay], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+        if (t <= 0 || t >= 1) return null;
+        const travel = t * p.dist * size * 0.95;
+        const x = Math.cos(p.ang) * travel, y = Math.sin(p.ang) * travel;
+        const sc = interpolate(t, [0, 0.3, 1], [0, 1, 0.55]);
+        const op = interpolate(t, [0, 0.15, 0.7, 1], [0, 1, 1, 0]);
+        return (
+          <svg key={i} width={p.sz} height={p.sz} viewBox="0 0 100 100"
+            style={{ position: "absolute", left: x - p.sz / 2, top: y - p.sz / 2, transform: `scale(${sc}) rotate(${t * 200}deg)`, opacity: op, filter: "drop-shadow(0 2px 3px rgba(60,90,40,0.25))" }}>
+            <path d={SPARK} fill={p.c} />
+            <ellipse cx="40" cy="32" rx="12" ry="8" fill="#fff" opacity="0.5" />
+          </svg>
+        );
+      })}
+    </div>
+  );
+};
+
 const MascotFace: React.FC<{ size: number }> = ({ size }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const inn = spring({ frame: frame - 4, fps, config: { damping: 10, stiffness: 110 } });
-  const bob = Math.sin(frame * 0.08) * 7;
+  const inn = spring({ frame: frame - 4, fps, config: { damping: 9, stiffness: 118, mass: 0.9 } });
+  const clamped = Math.min(1, inn);
+  const bob = Math.sin(frame * 0.08) * 7 * clamped;
   const sway = Math.sin(frame * 0.045) * 2.5;
-  const rot = (1 - inn) * -16 + Math.min(1, inn) * (-6 + sway);   // lands at a clear ~-6° tilt
+  // excited happy shimmy right at the reveal, then it calms down
+  const exc = frame >= 48 ? Math.sin((frame - 48) * 0.62) * 7 * Math.exp(-(frame - 48) * 0.05) : 0;
+  const baseRot = (1 - clamped) * -16 + clamped * (-6 + sway);
+  const rot = baseRot + exc;
+  // squash-and-stretch from the landing overshoot
+  const over = inn - 1;
+  const sx = inn + over * 0.6;
+  const sy = inn - over * 0.6;
+
+  // ground shadow breathes with the bob (up → smaller/lighter)
+  const shadowScaleX = 1 - (bob / size) * 1.2;
+  const shadowOp = interpolate(clamped, [0, 1], [0, 0.30]) * (1 - (bob / size) * 1.4);
+  // sunburst glow ramps in as the bear lands
+  const glowOp = interpolate(frame, [22, 52], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
   return (
-    <Img
-      src={staticFile("intro/mascot_face.png")}
-      style={{
-        width: size, height: "auto",
-        transform: `translateY(${bob}px) scale(${interpolate(inn, [0, 1], [0, 1])}) rotate(${rot}deg)`,
-        opacity: interpolate(frame, [3, 9], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
-        filter: "drop-shadow(0 18px 24px rgba(60,90,40,0.3))",
-      }}
-    />
+    <div style={{ position: "relative", width: size, height: size, display: "flex", alignItems: "center", justifyContent: "center", overflow: "visible" }}>
+      {/* sunburst glow + slow rays behind the bear */}
+      <div style={{ position: "absolute", left: size / 2 - size * 0.9, top: size * 0.5 - size * 0.9, width: size * 1.8, height: size * 1.8, borderRadius: "50%", opacity: glowOp, transform: `rotate(${frame * 0.5}deg)`, background: "repeating-conic-gradient(from 0deg, rgba(255,243,190,0.20) 0deg 6deg, transparent 6deg 24deg)", WebkitMaskImage: "radial-gradient(closest-side, #000 30%, transparent 68%)", maskImage: "radial-gradient(closest-side, #000 30%, transparent 68%)" }} />
+      <div style={{ position: "absolute", left: size / 2 - size * 0.8, top: size * 0.5 - size * 0.8, width: size * 1.6, height: size * 1.6, borderRadius: "50%", opacity: glowOp, background: "radial-gradient(closest-side, rgba(255,247,205,0.6), rgba(255,240,190,0.16) 46%, transparent 70%)" }} />
+
+      {/* ground shadow */}
+      <div style={{ position: "absolute", left: size / 2 - size * 0.3, top: size * 0.9, width: size * 0.6, height: size * 0.12, borderRadius: "50%", background: "radial-gradient(closest-side, rgba(45,75,25,0.5), transparent)", transform: `scaleX(${shadowScaleX})`, opacity: shadowOp, filter: "blur(3px)" }} />
+
+      {/* the animated bear (with eyelids that ride along) */}
+      <div style={{ position: "relative", width: size, height: size, transform: `translateY(${bob}px) rotate(${rot}deg) scale(${sx}, ${sy})`, transformOrigin: "50% 66%", opacity: interpolate(frame, [3, 9], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+        <Img src={staticFile("intro/mascot_face.png")} style={{ width: size, height: "auto", display: "block", filter: "drop-shadow(0 14px 18px rgba(60,90,40,0.28))" }} />
+      </div>
+
+      {/* reveal sparkle burst (paints over the bear) */}
+      <SparkleBurst size={size} />
+    </div>
   );
 };
 
@@ -162,16 +221,16 @@ export const VedaaviIntroReel: React.FC = () => {
       ))}
       <AbsoluteFill style={{ background: "radial-gradient(920px 920px at 50% 34%, rgba(255,255,255,0.55), transparent 62%)" }} />
 
-      {/* SMOOTH non-tonal reveal: a soft rising swell that builds as the logo forms,
-          then a gentle shimmer at the settle. No melody → safe for Meta on every video. */}
-      <Sequence from={6} durationInFrames={62}><Audio src={staticFile("sfx/riser.mp3")} volume={1} /></Sequence>
-      <Sequence from={58} durationInFrames={30}><Audio src={staticFile("sfx/sparkle.mp3")} volume={0.45} /></Sequence>
+      {/* WARM blooming reveal chime — soft xylophone/synth notes that swell in with
+          NO attack transient (no "hit on the ear"), rise to the settle, then land on a
+          warm root. Pentatonic + non-melodic → still safe for Meta on every video. */}
+      <Sequence from={4} durationInFrames={120}><Audio src={staticFile("sfx/intro_sting.mp3")} volume={1} /></Sequence>
 
       {DECOR.map((e, i) => <Decor key={i} {...e} W={W} H={H} idx={i} />)}
 
       {landscape ? (
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 30 }}>
-          <MascotFace size={430} />
+          <MascotFace size={470} />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}>
             <Name size={168} />
             <Tagline size={50} />
@@ -179,7 +238,7 @@ export const VedaaviIntroReel: React.FC = () => {
         </div>
       ) : (
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 40 }}>
-          <MascotFace size={430} />
+          <MascotFace size={510} />
           <Name size={150} />
           <Tagline size={46} />
         </div>
