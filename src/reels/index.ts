@@ -5,6 +5,7 @@ import { L5RulesP2Reel, L5_P2_DURATION } from "./l5_rules_p2";
 import { L5RulesP3Reel, L5_P3_DURATION } from "./l5_rules_p3";
 import { RuleDoubleReel, RULE_DOUBLE_DURATION } from "./rule_double";
 import { RuleCkReel, RULE_CK_DURATION } from "./rule_ck";
+import { RuleNgReel, RuleNkReel, RuleXReel, RuleWReel, RULE_SHORT_DURATION } from "./rule_shorts_l5";
 import { PairShort, PAIRS, PAIR_SHORT_DURATION } from "./pair_short";
 import { OoShort, OO_SHORT_DURATION } from "./oo_short";
 import React from "react";
@@ -146,6 +147,10 @@ export const REELS: ReelEntry[] = [
   // one per reel, because they are watched muted and need to be read, not listened to.
   { id: "rule-double-9x16", component: RuleDoubleReel, durationInFrames: RULE_DOUBLE_DURATION, width: 1080, height: 1920 },
   { id: "rule-ck-9x16", component: RuleCkReel, durationInFrames: RULE_CK_DURATION, width: 1080, height: 1920 },
+  { id: "rule-ng-9x16", component: RuleNgReel, durationInFrames: RULE_SHORT_DURATION, width: 1080, height: 1920 },
+  { id: "rule-nk-9x16", component: RuleNkReel, durationInFrames: RULE_SHORT_DURATION, width: 1080, height: 1920 },
+  { id: "rule-x-9x16",  component: RuleXReel,  durationInFrames: RULE_SHORT_DURATION, width: 1080, height: 1920 },
+  { id: "rule-w-9x16",  component: RuleWReel,  durationInFrames: RULE_SHORT_DURATION, width: 1080, height: 1920 },
 
   // the vowel-pair shorts: one engine, one theme each
   ...PAIRS.map((spec) => ({

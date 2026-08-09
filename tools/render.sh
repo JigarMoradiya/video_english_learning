@@ -37,7 +37,7 @@ BASE=$(printf '%s' "$ID" | sed -E 's/-(16x9|9x16|4x5|1x1)$//' | tr '-' '_')
 # A SERIES shares one folder. The rule shorts are one set of posts, not one video each,
 # so rule_double and rule_ck land together in out/rule_shorts/ and keep their own names.
 case "$BASE" in
-  rule_double|rule_ck|ai_ay_short|oa_ow_short|oi_oy_short|ou_ow_short|oo_short) DIR="out/rule_shorts" ;;
+  rule_double|rule_ck|rule_ng|rule_nk|rule_x|rule_w|ai_ay_short|oa_ow_short|oi_oy_short|ou_ow_short|oo_short) DIR="out/rule_shorts" ;;
   *)                   DIR="out/$BASE" ;;
 esac
 OUT="$DIR/${BASE}_${ASPECT}.mp4"
