@@ -16,7 +16,9 @@ import { PGRID } from "./LetterGridPortrait";
 // it stays balanced if the grid ever changes size).
 const BAND_TOP = PGRID.bottom, BAND_BOTTOM = 1800;
 const LETTER_H = 215, SAYS_H = 100, CARD = 372, WORD_H = 76;
-const G1 = 30, G2 = 34, G3 = 46; // letter→says, says→card, card→word
+const G1 = 30, G2 = 74, G3 = 46; // letter→says, says→card, card→word
+// G2 is wide on purpose: the says line now carries the IPA as well, so it needs air
+// before the picture card. The block re-centres itself from these gaps, so nothing else moves.
 const CONTENT_H = LETTER_H + G1 + SAYS_H + G2 + CARD + G3 + WORD_H;
 const ORIGIN = BAND_TOP + (BAND_BOTTOM - BAND_TOP - CONTENT_H) / 2;
 const P = {
@@ -77,9 +79,9 @@ export const RecognitionPanelPortrait: React.FC<{
       </div>
 
       {/* "says <sound>" */}
-      <div style={{ position: "absolute", left: P.cx, top: P.saysY, transform: "translateX(-50%)", display: "flex", gap: 26, alignItems: "baseline", fontFamily: font.family, opacity: cardIn }}>
+      <div style={{ position: "absolute", left: P.cx, top: P.saysY, transform: "translateX(-50%)", display: "flex", gap: 22, alignItems: "baseline", whiteSpace: "nowrap", fontFamily: font.family, opacity: cardIn }}>
         <span style={{ fontSize: 76, fontWeight: 800, color: litSays ? GOLD : "rgba(255,255,255,0.6)", transform: `scale(${litScale(A + sec(item.d0, fps), litSays)})`, display: "inline-block" }}>says</span>
-        <span style={{ fontSize: 84, fontWeight: 800, color: litSound ? GOLD : "rgba(255,255,255,0.6)", transform: `scale(${litScale(soundStart, litSound)})`, display: "inline-block" }}>{item.sound}</span>
+        <span style={{ fontSize: 84, fontWeight: 800, color: litSound ? GOLD : "rgba(255,255,255,0.6)", transform: `scale(${litScale(soundStart, litSound)})`, display: "inline-block" }}>{item.ipa} ({item.sound})</span>
       </div>
 
       {/* word image card */}

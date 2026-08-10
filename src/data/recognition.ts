@@ -18,12 +18,22 @@ const CLIP: Record<string, [number, number]> = {
   u: [0.59, 0.24], v: [0.5, 0.29], w: [0.72, 0.26], x: [0.6, 0.27], y: [0.6, 0.31], z: [0.53, 0.36],
 };
 
+/** The phonics sound in IPA, shown beside the spoken token: "/æ/ (aaa)".
+ *  The token alone tells a parent how to SAY it; the IPA tells them which sound it is. */
+const IPA: Record<string, string> = {
+  a: "/æ/", b: "/b/", c: "/k/", d: "/d/", e: "/\u025B/", f: "/f/", g: "/g/", h: "/h/",
+  i: "/\u026A/", j: "/d\u0292/", k: "/k/", l: "/l/", m: "/m/", n: "/n/", o: "/\u0252/",
+  p: "/p/", q: "/kw/", r: "/r/", s: "/s/", t: "/t/", u: "/\u028C/", v: "/v/", w: "/w/",
+  x: "/ks/", y: "/j/", z: "/z/",
+};
+
 export interface RecLetter {
   letter: string;
   word: string;
   image: string; // public/letters/<image>.png
   imageColor: string; // hex — word-image card stroke
   sound: string; // on-screen sound token, lowercased (e.g. "aaa")
+  ipa: string;   // the same sound in IPA (e.g. "/æ/"), shown beside it
   d0: number; // letter-name clip seconds
   d1: number; // "says" clip seconds (= SAYS_DUR)
   d2: number; // phonics-sound clip seconds
@@ -39,6 +49,7 @@ export const REC_LETTERS: RecLetter[] = LETTERS.map((l) => {
     image: l.image,
     imageColor: l.imageColor,
     sound: l.soundToken.toLowerCase(),
+    ipa: IPA[key],
     d0,
     d1: SAYS_DUR,
     d2,

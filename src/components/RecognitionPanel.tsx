@@ -19,8 +19,8 @@ const panelFor = (width: number, height: number) =>
   height > width
     ? // letter 595..785 · says 800..895 · card 915..1225 · word 1250..1315 — 15px+ gaps,
       // measured from the 190px letter (Y is its CENTRE) and the 82px says line (Y is TOP)
-      { letterX: width / 2, letterY: 690, saysY: 800, cardY: 915, cardSize: 310, wordY: 1250 }
-    : { letterX: 1430, letterY: 219, saysY: 324, cardY: 434, cardSize: 420, wordY: 872 };
+      { letterX: width / 2, letterY: 690, saysY: 800, cardY: 961, cardSize: 264, wordY: 1250 }
+    : { letterX: 1430, letterY: 219, saysY: 324, cardY: 480, cardSize: 374, wordY: 872 };
 const PURPLE = "#8E24AA";
 const MUTED = "rgba(30,36,56,0.4)";
 
@@ -67,9 +67,9 @@ export const RecognitionPanel: React.FC<{
       </div>
 
       {/* "says <sound>" row */}
-      <div style={{ position: "absolute", left: PANEL.letterX, top: PANEL.saysY, transform: "translateX(-50%)", display: "flex", gap: 26, alignItems: "baseline", fontFamily: font.family, opacity: cardIn }}>
+      <div style={{ position: "absolute", left: PANEL.letterX, top: PANEL.saysY, transform: "translateX(-50%)", display: "flex", gap: 22, alignItems: "baseline", whiteSpace: "nowrap", fontFamily: font.family, opacity: cardIn }}>
         <span style={{ fontSize: 74, fontWeight: 800, color: litSays ? PURPLE : MUTED, transform: `scale(${litScale(A + sec(item.d0, fps), litSays)})`, display: "inline-block" }}>says</span>
-        <span style={{ fontSize: 82, fontWeight: 800, color: litSound ? PURPLE : MUTED, transform: `scale(${litScale(soundStart, litSound)})`, display: "inline-block" }}>{item.sound}</span>
+        <span style={{ fontSize: 82, fontWeight: 800, color: litSound ? PURPLE : MUTED, transform: `scale(${litScale(soundStart, litSound)})`, display: "inline-block" }}>{item.ipa} ({item.sound})</span>
       </div>
 
       {/* word image card (own-colour border) */}
