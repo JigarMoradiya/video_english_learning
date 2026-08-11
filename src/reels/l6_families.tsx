@@ -7,6 +7,7 @@ import { Watermark } from "../components/Watermark";
 import { StoreOutro, STORE_OUTRO_F } from "../components/StoreOutro";
 import { MUSIC_BED, MUSIC_FADE_IN, MUSIC_FADE_OUT } from "../data/mix";
 import { picFor } from "../data/word_pics";
+import { Confetti } from "../components/Confetti";
 import {
   B, Banner, Content, Fixed, LANE, Lane, LevelSix, Line, Mo, Rail, Row, Tile, VowelStrip,
   WashingLine, WordLit, Zip, bands, pop,
@@ -86,6 +87,17 @@ const STYLE: Record<string, "build" | "rail"> = {
   og: "rail", ot: "build", op: "build", un: "rail", ug: "build", all: "build",
 };
 
+/** the sound pass (item 7): pop per word, chime per family arrival, sparkle+confetti on
+ *  praise, question/correct around the quiz */
+const PRAISE = [41, 69, 109, 149, 195, 206];
+const SFX: { at: number; file: string; vol: number }[] = [
+  ...Object.keys(WORD).map((i) => ({ at: at(Number(i)), file: "pop", vol: 0.30 })),
+  ...[22, 44, 59, 72, 79, 83, 90, 98, 112, 118, 126, 135, 142, 152, 174, 182, 190].map((i) => ({ at: at(i), file: "chime_soft", vol: 0.26 })),
+  ...PRAISE.map((i) => ({ at: at(i), file: "sparkle", vol: 0.34 })),
+  { at: at(185), file: "question", vol: 0.28 }, { at: at(192), file: "question", vol: 0.28 },
+  { at: at(188), file: "correct", vol: 0.32 }, { at: at(40), file: "correct", vol: 0.30 },
+];
+
 const STORE_FROM_IDX = 211;   // "And practise every one of these families…"
 export const L6_DURATION = Math.max(f(AUDIO_SEC) + 40, at(STORE_FROM_IDX) + STORE_OUTRO_F);
 
@@ -137,7 +149,7 @@ const Build: React.FC<{ b: B; rime: string; word: string; a: number; u: (n: numb
     <>
       <Pic word={word} size={u(210)} />
       <Row gap={u(14)}>
-        {front.split("").map((c, i) => <Tile key={i} ch={c} size={u(150)} at={a + i * 2} seed={i} hot />)}
+        {front.split("").map((c, i) => <Tile key={i} ch={c} size={u(150)} at={a + i * 3} seed={i} hot />)}
         <Tile ch={rime} size={u(150)} tone="ending" w={u(150) * (rime.length > 2 ? 1.5 : 1.2)} />
       </Row>
     </>
@@ -175,6 +187,21 @@ const Num: React.FC<{ n: string; a: number; u: (x: number) => number }> = ({ n, 
   <Tile ch={n} size={u(230)} tone="ending" at={a} />
 );
 
+/** the whole family on screen — every word with its picture, wrapped (item 6) */
+const FamilyAll: React.FC<{ rime: string; a: number; sp: (n: number) => number; u: (n: number) => number }> = ({ rime, a, sp, u }) => {
+  const words = FAMILIES[rime];
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: u(14), alignItems: "center", justifyContent: "center", maxWidth: "100%" }}>
+      {words.map((wd, i) => (
+        <div key={wd} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: u(6) }}>
+          <Pic word={wd} size={u(112)} />
+          <Tile ch={wd} size={u(54)} at={a + i * sp(words.length)} seed={i} w={u(54) * 2.2} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const L5_RULES = ["ff", "ck", "ng", "nk", "x", "w"];
 
 // ── THE SCENE TABLE — every line, by hand ───────────────────────────────────
@@ -182,6 +209,10 @@ const L5_RULES = ["ff", "ck", "ng", "nk", "x", "w"];
 const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
   const frameNow = useCurrentFrame();
   const a = at(idx);
+  // stagger n arrivals across the whole spoken line, so a long sentence BUILDS instead of
+  // freezing after its first frame (review round 1, item 4)
+  const dur = f(P[idx].end - P[idx].start);
+  const sp = (n: number) => Math.max(4, Math.floor(dur / Math.max(2, n + 1)));
   const u = (n: number) => Math.round(n * (b.wide ? 1 : 0.84));
   const w = WORD[idx];
 
@@ -200,8 +231,8 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 2: return (                                                                            // six spelling rules, ticked
       <Row gap={u(12)}>{L5_RULES.map((r, i) => (
         <div key={r} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: u(8) }}>
-          <Tile ch={r} size={u(100)} at={a + i * 3} seed={i} />
-          <Icon glyph={"✅"} size={u(46)} />
+          <Tile ch={r} size={u(150)} at={a + i * sp(6)} seed={i} />
+          <Icon glyph={"✅"} size={u(66)} />
         </div>))}
       </Row>);
     case 3: return <LevelSix b={b} at={a} />;                                                   // starting Level Six
@@ -216,21 +247,21 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 14: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // everything else stayed the same
     case 15: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // only the front changed
     case 16: return <Row gap={u(20)}><Icon glyph={"\u{1FA84}"} size={u(140)} /><Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={(n) => Math.round(u(n) * 0.7)} /></Row>; // that is the trick
-    case 17: return <Row gap={u(10)}>{[0, 1, 2, 3, 4, 5].map((i) => <Tile key={i} ch="" size={u(84)} at={a + i * 3} seed={i} />)}</Row>; // hundreds of words
+    case 17: return <Row gap={u(10)}>{[0, 1, 2, 3, 4, 5].map((i) => <Tile key={i} ch="" size={u(84)} at={a + i * sp(6)} seed={i} />)}</Row>; // hundreds of words
     case 18: return <WordLit word="cat" rime="at" size={u(160)} at={a} />;                      // look at the END
-    case 19: return <Row gap={u(14)}>{["c", "a", "t"].map((c, i) => <Tile key={i} ch={c} size={u(170)} at={a + i * 6} seed={i} />)}</Row>; // C-A-T
+    case 19: return <Row gap={u(14)}>{["c", "a", "t"].map((c, i) => <Tile key={i} ch={c} size={u(170)} at={a + i * sp(3)} seed={i} />)}</Row>; // C-A-T
     case 20: return <WordLit word="cat" rime="at" size={u(170)} at={a} />;                      // last two letters are a and t
     case 21: return <Row gap={u(20)}><Icon glyph={"\u{1F5E3}"} size={u(140)} /><Tile ch="at" size={u(180)} tone="ending" at={a} w={u(180) * 1.2} /></Row>; // say it with me
     case 22: return <Tile ch="at" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // At. (house arrives)
     case 23: return <Row gap={u(20)}><Icon glyph={"\u{1F4A1}"} size={u(140)} /><Tile ch="at" size={u(170)} tone="ending" w={u(170) * 1.2} /></Row>; // the important part
-    case 24: return <Row gap={u(22)}>{["cat", "bat", "hat"].map((word, i) => <WordLit key={word} word={word} rime="at" size={u(84)} at={a + i * 5} dimFront={false} />)}</Row>; // every word ending at says At
+    case 24: return <FamilyAll rime="at" a={a} sp={sp} u={u} />; // every word ending at says At
     case 25: return <Row gap={u(16)}><Tile ch="?" size={u(170)} tone="dim" at={a} hot /><Tile ch="at" size={u(170)} tone="ending" w={u(170) * 1.2} /></Row>; // a different letter in front
     case 26: return <Icon glyph={"\u{1F440}"} size={u(190)} />;                                 // watch
     case 27: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // keep At, change the front
-    case 36: return <Row gap={u(12)}><Num n="8" a={a} u={u} />{FAMILIES.at.map((wd, i) => <Tile key={wd} ch={wd[0]} size={u(80)} at={a + i * 2} seed={i} />)}</Row>; // eight words
+    case 36: return <Row gap={u(12)}><Num n="8" a={a} u={u} />{FAMILIES.at.map((wd, i) => <Tile key={wd} ch={wd[0]} size={u(80)} at={a + i * sp(8)} seed={i} />)}</Row>; // eight words
     case 37: return <Tile ch="at" size={u(230)} tone="ending" at={a} hot w={u(230) * 1.2} />;   // one ending
-    case 38: return <Row gap={u(18)}>{["cat", "bat", "hat"].map((wd) => <Pic key={wd} word={wd} size={u(150)} />)}</Row>; // a word FAMILY
-    case 39: return <Row gap={u(22)}>{["rat", "mat", "sat"].map((word, i) => <WordLit key={word} word={word} rime="at" size={u(84)} at={a + i * 5} dimFront={false} />)}</Row>; // all end the same way
+    case 38: return <FamilyAll rime="at" a={a} sp={sp} u={u} />; // a word FAMILY
+    case 39: return <FamilyAll rime="at" a={a} sp={sp} u={u} />; // all end the same way
     case 40: return <Row gap={u(16)}><Num n="8" a={a} u={u} /><Icon glyph={"\u{1F4D6}"} size={u(140)} /></Row>; // you read eight words
     case 41: return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(130)} />)}</Row>; // well done!
     // ── ‑an (house from 42) ──
@@ -258,19 +289,19 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 80: return <Row gap={u(14)}><Num n="5" a={a} u={u} /><Icon glyph={"\u{1FA84}"} size={u(130)} /></Row>; // five words, trick again
     // ── the i families (ig 81 · it 90 · in 98) ──
     case 81: return <Tile ch="i" size={u(230)} tone="ending" at={a} hot />;                     // now a short i
-    case 82: return <Row gap={u(16)}><Icon glyph={"\u{1F442}"} size={u(130)} />{[0, 1, 2].map((i) => <Tile key={i} ch="?" size={u(120)} tone="dim" at={a + i * 4} seed={i} />)}</Row>; // three families
+    case 82: return <Row gap={u(16)}><Icon glyph={"\u{1F442}"} size={u(130)} />{[0, 1, 2].map((i) => <Tile key={i} ch="?" size={u(120)} tone="dim" at={a + i * sp(3)} seed={i} />)}</Row>; // three families
     case 83: return <Tile ch="ig" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // First, Ig
     case 90: return <Tile ch="it" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // Next, It
     case 98: return <Tile ch="in" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // And In
     case 104: return <Icon glyph={"\u{1F914}"} size={u(190)} />;                                // did you notice?
-    case 105: return <Row gap={u(18)}>{["ig", "it", "in"].map((r, i) => <WordLit key={r} word={r} rime="i" size={u(120)} at={a + i * 5} dimFront={false} />)}</Row>; // same vowel in all three
+    case 105: return <Row gap={u(18)}>{["ig", "it", "in"].map((r, i) => <WordLit key={r} word={r} rime="i" size={u(120)} at={a + i * sp(3)} dimFront={false} />)}</Row>; // same vowel in all three
     case 106: return <Tile ch="i" size={u(240)} tone="ending" at={a} hot />;                    // i never changed
     case 107: return <HoldVowel vowel="i" tails={["g", "t", "n"]} a={a} frameNow={frameNow} u={u} />; // only the END letter did
     case 108: return <Num n="18" a={a} u={u} />;                                                // eighteen more
     case 109: return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(130)} />)}</Row>; // reading beautifully
     // ── the o families (og 110 · ot 118 · op 126) ──
     case 110: return <Tile ch="o" size={u(230)} tone="ending" at={a} hot />;                    // now a short o
-    case 111: return <Row gap={u(16)}>{[0, 1, 2].map((i) => <Tile key={i} ch="?" size={u(130)} tone="dim" at={a + i * 4} seed={i} />)}</Row>; // three families again
+    case 111: return <Row gap={u(16)}>{[0, 1, 2].map((i) => <Tile key={i} ch="?" size={u(130)} tone="dim" at={a + i * sp(3)} seed={i} />)}</Row>; // three families again
     case 112: return <Tile ch="og" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Og.
     case 118: return <Tile ch="ot" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Ot.
     case 126: return <Tile ch="op" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Op.
@@ -293,7 +324,7 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 166: return <Row gap={u(16)}><Tile ch="a" size={u(150)} tone="dim" /><Line text={"→"} size={u(84)} at={a} /><Icon glyph={"✨"} size={u(130)} /></Row>; // changed into something else
     case 167: return <Row gap={u(14)}>{["a", "l", "l"].map((c, i) => <Tile key={i} ch={c} size={u(140)} tone="dim" seed={i} />)}<Icon glyph={"❌"} size={u(110)} /></Row>; // don't sound it out
     case 168: return <Tile ch="all" size={u(240)} tone="ending" at={a} hot w={u(240) * 1.5} />; // ONE piece
-    case 169: return <Row gap={u(14)}>{["a", "l", "l"].map((c, i) => <Tile key={i} ch={c} size={u(130)} at={a + i * 4} seed={i} />)}<Line text={"→"} size={u(80)} at={a + 14} /><Tile ch="all" size={u(170)} tone="ending" at={a + 18} w={u(170) * 1.5} /></Row>; // a,l,l → All
+    case 169: return <Row gap={u(14)}>{["a", "l", "l"].map((c, i) => <Tile key={i} ch={c} size={u(130)} at={a + i * sp(3)} seed={i} />)}<Line text={"→"} size={u(80)} at={a + 14} /><Tile ch="all" size={u(170)} tone="ending" at={a + 18} w={u(170) * 1.5} /></Row>; // a,l,l → All
     case 173: return <Row gap={u(20)}><Icon glyph={"\u{1F5E3}"} size={u(140)} /><Tile ch="all" size={u(180)} tone="ending" at={a} w={u(180) * 1.5} /></Row>; // say it with me
     case 174: return <Tile ch="all" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.5} />; // All.
     case 175: return <WordLit word="ball" rime="all" size={u(150)} at={a} />;                   // look at the ending
@@ -318,12 +349,12 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 197: return <Row gap={u(16)}><Tile ch="at" size={u(170)} tone="ending" hot w={u(170) * 1.2} /><Line text={"→"} size={u(84)} at={a} /><Tile ch="?" size={u(150)} tone="dim" at={a + 5} /></Row>; // ending first, then the front
     // ── remember + close ──
     case 198: return <Icon glyph={"\u{1F9E0}"} size={u(190)} />;                                // what we learned
-    case 199: return <Row gap={u(22)}>{["cat", "bat", "hat"].map((word, i) => <WordLit key={word} word={word} rime="at" size={u(84)} at={a + i * 5} dimFront={false} />)}</Row>; // end the same way
+    case 199: return <FamilyAll rime="at" a={a} sp={sp} u={u} />; // end the same way
     case 200: return <Row gap={u(16)}><Tile ch="at" size={u(160)} tone="ending" hot w={u(160) * 1.2} /><Line text={"→"} size={u(80)} at={a} />{["c", "b", "h"].map((c, i) => <Tile key={c} ch={c} size={u(110)} at={a + 6 + i * 3} seed={i} />)}</Row>; // read the ending → read them all
     case 201: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;      // only change the front
     case 202: return <Row gap={u(20)}><Num n="13" a={a} u={u} /><Line text={"→"} size={u(84)} at={a + 6} /><Num n="81" a={a + 10} u={u} /></Row>; // 13 families, 81 words
     case 203: return <Num n="81" a={a} u={u} />;                                                // eighty-one
-    case 204: return <Row gap={u(10)}>{["at", "an", "ap", "en", "ig", "it"].map((r, i) => <Tile key={r} ch={r} size={u(96)} tone="ending" at={a + i * 3} seed={i} w={u(96) * 1.2} />)}</Row>; // from thirteen endings
+    case 204: return <Row gap={u(10)}>{["at", "an", "ap", "en", "ig", "it"].map((r, i) => <Tile key={r} ch={r} size={u(96)} tone="ending" at={a + i * sp(6)} seed={i} w={u(96) * 1.2} />)}</Row>; // from thirteen endings
     case 205: return <Icon glyph={"\u{1FA84}"} size={u(190)} />;                                // so useful
     case 206: return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(130)} />)}</Row>; // proud of you
     case 207: return <Icon glyph={"\u{1F4D6}"} size={u(190)} />;                                // turns sounding out into reading
@@ -353,6 +384,11 @@ export const L6FamiliesReel: React.FC = () => {
       <Sequence from={0} durationInFrames={f(AUDIO_SEC) + 8}>
         <Audio src={staticFile("audio/l6_families/l6.mp3")} />
       </Sequence>
+      {SFX.map((c, i) => (
+        <Sequence key={i} from={c.at} durationInFrames={45}>
+          <Audio src={staticFile(`sfx/${c.file}.mp3`)} volume={c.vol} />
+        </Sequence>
+      ))}
       <Audio src={staticFile("music_bed.mp3")} loop
         volume={(fr) => interpolate(fr, [0, MUSIC_FADE_IN, L6_DURATION - MUSIC_FADE_OUT, L6_DURATION],
           [0, MUSIC_BED, MUSIC_BED, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
@@ -364,6 +400,7 @@ export const L6FamiliesReel: React.FC = () => {
           {house && <VowelStrip b={b} lit={house === "all" ? undefined : house[0]} />}
           <Content b={house ? b : { ...b, contentR: b.contentRFull }}><Scene idx={idx} b={b} /></Content>
           <Fixed b={b}>
+            {PRAISE.map((i) => <Confetti key={i} frame={frame} fps={FPS} burstFrame={at(i)} origin={{ x: b.width / 2, y: b.height * 0.34 }} colors={[LANE.door, LANE.rose, LANE.sage, "#8FD3E8"]} count={26} seed={i} />)}
             <Mo b={b} />
             <Zip b={b} letter={zipLetter} at={WORD[idx] ? at(idx) : 0} />
           </Fixed>
