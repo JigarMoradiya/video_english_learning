@@ -41,8 +41,8 @@ export const bands = (width: number, height: number) => {
     bannerTop: Math.round(height * (wide ? 0.024 : 0.020)),
     bulbY: Math.round(height * (wide ? 0.095 : 0.075)),
     ticketY: Math.round(height * (wide ? 0.150 : 0.118)),
-    contentTop: Math.round(height * (wide ? 0.270 : 0.190)),
-    contentH: Math.round(height * (wide ? 0.430 : 0.430)),
+    contentTop: Math.round(height * (wide ? 0.295 : 0.205)),
+    contentH: Math.round(height * (wide ? 0.410 : 0.420)),
     contentL: Math.round(width * 0.035),
     contentR: Math.round(width * (wide ? 0.680 : 0.965)),
     contentRFull: Math.round(width * 0.965),
@@ -224,25 +224,38 @@ export const Prizes: React.FC<{ b: B }> = ({ b }) => {
 // ── the ticket line: every answered word, strung like bunting ───────────────
 export const Tickets: React.FC<{ b: B; words: string[] }> = ({ b, words }) => {
   const frame = useCurrentFrame();
-  const n = 14;
-  const span = b.width * 0.88, x0 = b.width * 0.06;
-  const cw = Math.min(span / n - 8, b.width * 0.062);
+  // CONSTANT pitch from the left (review: "keep same gap between words") — the gap never
+  // changes as tickets arrive — and each word wears its PICTURE above the card.
+  const cw = Math.min(b.width * 0.058, 104);
+  const gap = cw * 0.22;
+  const x0 = b.width * 0.055;
+  const picS = cw * 0.72;
   return (
-    <div style={{ position: "absolute", left: 0, top: b.ticketY, width: b.width, height: b.height * 0.085 }}>
-      <div style={{ position: "absolute", left: x0, top: 4, width: span, height: 4, borderRadius: 2, background: "rgba(255,246,216,0.4)" }} />
-      {words.map((w, i) => (
-        <div key={w} style={{
-          position: "absolute", left: x0 + (span / n) * i + (span / n - cw) / 2, top: 8,
-          width: cw, height: cw * 0.60, background: FAIR.cream,
-          border: `3px solid ${FAIR.ink}`, borderRadius: 6,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: font.family, fontWeight: 800, fontSize: cw * 0.28, color: FAIR.ink,
-          transform: `rotate(${Math.sin((frame + i * 30) / 40) * 3}deg)`, transformOrigin: "50% 0%",
-          boxShadow: "0 4px 0 rgba(0,0,0,0.3)",
-        }}>{w}</div>
-      ))}
+    <div style={{ position: "absolute", left: 0, top: b.ticketY, width: b.width, height: b.height * 0.115 }}>
+      <div style={{ position: "absolute", left: x0, top: picS + 8, width: 14 * (cw + gap), maxWidth: b.width * 0.86, height: 4, borderRadius: 2, background: "rgba(255,246,216,0.4)" }} />
+      {words.map((w, i) => {
+        const src = picFor(w);
+        return (
+          <div key={w} style={{ position: "absolute", left: x0 + i * (cw + gap), top: 0, width: cw,
+            display: "flex", flexDirection: "column", alignItems: "center", gap: 3,
+            transform: `rotate(${Math.sin((frame + i * 30) / 40) * 2.5}deg)`, transformOrigin: "50% 100%" }}>
+            <div style={{ width: picS, height: picS, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              {src && src.startsWith("img/")
+                ? <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                : <div style={{ fontSize: picS * 0.9, lineHeight: 1 }}>{src}</div>}
+            </div>
+            <div style={{
+              width: cw, height: cw * 0.52, background: FAIR.cream,
+              border: `3px solid ${FAIR.ink}`, borderRadius: 6, boxSizing: "border-box",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontFamily: font.family, fontWeight: 800, fontSize: cw * 0.30, color: FAIR.ink,
+              boxShadow: "0 3px 0 rgba(0,0,0,0.3)",
+            }}>{w}</div>
+          </div>
+        );
+      })}
       <div style={{
-        position: "absolute", right: b.width * 0.012, top: 4,
+        position: "absolute", right: b.width * 0.012, top: 6,
         fontFamily: font.family, fontWeight: 800, fontSize: b.height * 0.035, color: FAIR.gold,
         textShadow: "0 3px 0 rgba(0,0,0,0.45)",
       }}>⭐ {words.length} / 14</div>
