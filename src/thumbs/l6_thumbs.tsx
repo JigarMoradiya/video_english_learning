@@ -52,12 +52,12 @@ const Cover: React.FC<{ portrait: boolean }> = ({ portrait }) => {
   const LETTERS = ["c", "b", "h", "r"];
   const S = portrait ? 150 : 110;          // letter tile
   const GAP = portrait ? 26 : 18;
-  const AT = portrait ? 210 : 190;         // the ending card
+  const AT = portrait ? 195 : 190;         // the ending card
   const colX = portrait ? W * 0.10 : 150;
   const colH = LETTERS.length * S + (LETTERS.length - 1) * GAP;
-  const midY = portrait ? H * 0.47 : H * 0.50;
+  const midY = portrait ? H * 0.50 : H * 0.54;   // diagram slightly lower per review
   const colY = midY - colH / 2;
-  const atX = portrait ? W * 0.36 : 560;
+  const atX = portrait ? W * 0.335 : 560;
   const atY = midY - AT / 2;
   const atW = AT * 1.35;
   if (atX + atW > (portrait ? b.contentR : b.houseL) - 12) {

@@ -14,11 +14,23 @@ const LETTERS = ["c", "b", "h", "r"];
 const S = 116, GAP = 16, AT = 210;
 const COL_X = 420;
 const COL_H = LETTERS.length * S + (LETTERS.length - 1) * GAP;
-const MID_Y = 214 + (720 - 34 - 214) / 2;
+const MID_Y = 214 + (720 - 34 - 214) / 2 + 26;   // nudged down per review
 const COL_Y = MID_Y - COL_H / 2;
 const AT_X = 800, AT_W = AT * 1.35;
 assertInStage("letter column", COL_X, COL_X + S);
 assertInStage("at card", AT_X, AT_X + AT_W);
+
+const Tile: React.FC<{ ch: string; x: number; y: number; s: number; gold?: boolean }> =
+  ({ ch, x, y, s, gold = false }) => (
+    <div style={{
+      position: "absolute", left: x, top: y, width: s * (ch.length > 1 ? 1.35 : 1), height: s,
+      borderRadius: s * 0.2, background: gold ? "#F4C33F" : "#FFF8E9",
+      border: `${Math.max(5, s * 0.055)}px solid #142A18`, boxSizing: "border-box",
+      boxShadow: "0 14px 30px rgba(0,0,0,0.4)",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      fontFamily: font.family, fontWeight: 800, fontSize: s * 0.56, color: "#142A18",
+    }}>{ch}</div>
+  );
 
 const Join: React.FC<{ x1: number; y1: number; x2: number; y2: number }> = ({ x1, y1, x2, y2 }) => {
   const len = Math.hypot(x2 - x1, y2 - y1);
