@@ -64,10 +64,10 @@ const Cover: React.FC<{ portrait: boolean }> = ({ portrait }) => {
   const atX = W * 0.310;
   // landscape rake geometry
   const rowW = LETTERS.length * S + (LETTERS.length - 1) * GAP;
-  const rowX = (W - rowW) / 2;
+  const rowX = portrait ? 0 : (b.houseL - rowW) / 2;   // centred on the space LEFT of the house
   const rowY = 245;
   const atY2 = rowY + S + 70;
-  const atX2 = (W - atW) / 2;
+  const atX2 = portrait ? 0 : (b.houseL - atW) / 2;
   if (portrait && atX + atW > b.contentR - 12) throw new Error("l6 cover: portrait at-card overflows");
   if (!portrait && atY2 + AT > H - 40) throw new Error("l6 cover: landscape at-card overflows");
 
@@ -101,7 +101,7 @@ const Cover: React.FC<{ portrait: boolean }> = ({ portrait }) => {
       ) : (
         <>
           {LETTERS.map((_, i) => (
-            <Join key={i} x1={rowX + i * (S + GAP) + S / 2} y1={rowY + S} x2={W / 2} y2={atY2 + 6} w={7} />
+            <Join key={i} x1={rowX + i * (S + GAP) + S / 2} y1={rowY + S} x2={b.houseL / 2} y2={atY2 + 6} w={7} />
           ))}
           {LETTERS.map((ch, i) => <Tile key={ch} ch={ch} x={rowX + i * (S + GAP)} y={rowY} s={S} />)}
           <Tile ch="at" x={atX2} y={atY2} s={AT} gold />
