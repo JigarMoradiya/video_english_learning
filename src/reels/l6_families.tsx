@@ -234,7 +234,7 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 7: return <Tile ch="?" size={u(190)} tone="dim" at={a} />;                             // here is a word
     case 9: return <Swap rime="at" pair={["c", "c"]} a={a} frameNow={frameNow} u={u} />;        // watch — one letter
     case 10: return <Row gap={u(14)}><Tile ch="c" size={u(190)} at={a} hot /><Tile ch="at" size={u(150)} tone="dim" w={u(150) * 1.2} /></Row>; // the FIRST one
-    case 12: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // cat…bat
+    case 12: return <Build b={b} rime="at" word="bat" a={a} u={u} />;                          // "bat." — b-at immediately, the c→b demo lives on 14/15
     case 13: return <Row gap={u(30)}><Build b={b} rime="at" word="cat" a={a} u={(n) => Math.round(u(n) * 0.62)} /><Build b={b} rime="at" word="bat" a={a + 6} u={(n) => Math.round(u(n) * 0.62)} /></Row>; // did you see that?
     case 14: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // everything else stayed the same
     case 15: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // only the front changed

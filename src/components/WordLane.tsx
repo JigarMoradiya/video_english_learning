@@ -60,19 +60,23 @@ export const bands = (width: number, height: number) => {
   const wide = width > height;
   return {
     width, height, wide,
-    bannerTop: Math.round(height * 0.024),
-    horizon: Math.round(height * 0.585),
-    // the lesson lives in front of the house; the washing line hangs above it
-    lineY: Math.round(height * 0.125),   // clear of the roof: the house starts at 0.30H
-    contentTop: Math.round(height * 0.300),
-    contentH: Math.round(height * 0.375),
+    bannerTop: Math.round(height * (wide ? 0.024 : 0.020)),
+    horizon: Math.round(height * (wide ? 0.585 : 0.615)),
+    // the washing line, then the vowel strip, then the lesson column — top to bottom
+    lineY: Math.round(height * (wide ? 0.125 : 0.080)),
+    stripY: Math.round(height * (wide ? 0.235 : 0.135)),
+    contentTop: Math.round(height * (wide ? 0.300 : 0.175)),
+    contentH: Math.round(height * (wide ? 0.375 : 0.400)),
     contentL: Math.round(width * 0.035),
-    contentR: Math.round(width * (wide ? 0.670 : 0.965)),   // clears the house, which starts at 0.700W
-    contentRFull: Math.round(width * 0.965),                 // when there is no house yet
-    moX: Math.round(width * (wide ? 0.085 : 0.10)),
-    zipX: Math.round(width * (wide ? 0.845 : 0.78)),
-    charY: Math.round(height * 0.615),
-    charH: Math.round(height * 0.185),
+    // the column ends BEFORE the house in both ratios — overlap impossible by construction
+    contentR: Math.round(width * (wide ? 0.670 : 0.600)),
+    contentRFull: Math.round(width * 0.965),
+    houseL: Math.round(width * (wide ? 0.700 : 0.620)),
+    houseW: Math.round(width * (wide ? 0.200 : 0.340)),
+    moX: Math.round(width * (wide ? 0.085 : 0.070)),
+    zipX: Math.round(width * (wide ? 0.845 : 0.760)),
+    charY: Math.round(height * (wide ? 0.615 : 0.720)),
+    charH: Math.round(height * (wide ? 0.185 : 0.140)),
   };
 };
 export type B = ReturnType<typeof bands>;
@@ -126,7 +130,7 @@ export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: bool
       {!noHouse && (
         <>
           <div style={{
-            position: "absolute", left: W * 0.625, top: b.horizon - H * 0.135,
+            position: "absolute", left: b.houseL - b.width * 0.075, top: b.horizon - H * 0.135,
             fontSize: H * 0.115, lineHeight: 1,
             transform: `translateY(${Math.sin(frame / 34) * 5}px)`,
           }}>{set.mark}</div>
@@ -156,9 +160,9 @@ export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: bool
 /** the family's house, with the ending SCREWED to the door */
 const House: React.FC<{ b: B; rime: string }> = ({ b, rime }) => {
   const set = SETTINGS[rime] ?? SETTINGS.at;
-  const w = Math.round(b.width * (b.wide ? 0.20 : 0.30));
+  const w = b.houseW;
   const h = Math.round(w * 0.95);
-  const left = Math.round(b.width * (b.wide ? 0.700 : 0.55));
+  const left = b.houseL;
   const top = b.horizon - h;
   return (
     <div style={{ position: "absolute", left, top, width: w, height: h }}>
@@ -290,7 +294,7 @@ export const VowelStrip: React.FC<{ b: B; lit?: string }> = ({ b, lit }) => {
   const s = Math.round(b.height * 0.055);
   return (
     <div style={{
-      position: "absolute", left: b.width * 0.035, top: b.height * 0.235,
+      position: "absolute", left: b.width * 0.035, top: b.stripY,
       display: "flex", gap: s * 0.22, alignItems: "center",
     }}>
       {["a", "e", "i", "o", "u"].map((v) => {
