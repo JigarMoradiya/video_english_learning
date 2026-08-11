@@ -92,7 +92,7 @@ export const Fixed: React.FC<{ b: B; children: React.ReactNode }> = ({ b, childr
 
 /** The house for one family. Its colour, its props and its light all change with the
  *  family, so the frame is visibly a different place every time. */
-export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: boolean }> = ({ b, rime, dusk = false, noHouse = false }) => {
+export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: boolean; noMark?: boolean }> = ({ b, rime, dusk = false, noHouse = false, noMark = false }) => {
   const frame = useCurrentFrame();
   const set = SETTINGS[rime] ?? SETTINGS.at;
   const sky = dusk
@@ -129,13 +129,13 @@ export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: bool
           planted beside it, so a family change reads instantly (round 2, item 5) */}
       {!noHouse && (
         <>
-          <div style={{
+          {!noMark && <div style={{
             position: "absolute",
             left: b.wide ? b.houseL - b.width * 0.075 : b.houseL + b.width * 0.030,
             top: b.wide ? b.horizon - H * 0.135 : H * 0.155,
             fontSize: H * (b.wide ? 0.115 : 0.095), lineHeight: 1,
             transform: `translateY(${Math.sin(frame / 34) * 5}px)`,
-          }}>{set.mark}</div>
+          }}>{set.mark}</div>}
           <House b={b} rime={rime} />
         </>
       )}
