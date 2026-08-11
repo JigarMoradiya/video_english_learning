@@ -40,39 +40,43 @@ export const LANE = {
 };
 
 /** the thirteen places, one per family — the screen changes shape when the family does */
-export const SETTINGS: Record<string, { name: string; hue: string; accent: string }> = {
-  at:  { name: "garden gate", hue: "#CFE8C6", accent: "#7FBF6A" },
-  an:  { name: "duck pond",   hue: "#C3E4EE", accent: "#5FB4CF" },
-  ap:  { name: "bakery",      hue: "#F6DCC0", accent: "#E0A063" },
-  en:  { name: "hen coop",    hue: "#F3E3B8", accent: "#D9B441" },
-  ig:  { name: "hilltop",     hue: "#D6E9BE", accent: "#8CC05C" },
-  it:  { name: "toy shop",    hue: "#EBD5EF", accent: "#B274C4" },
-  in:  { name: "workshop",    hue: "#D9DFE9", accent: "#7C90AE" },
-  og:  { name: "kennel yard", hue: "#E3D6C2", accent: "#B08C63" },
-  ot:  { name: "kitchen",     hue: "#F7D6CE", accent: "#E0796A" },
-  op:  { name: "hill slope",  hue: "#CDE6DE", accent: "#63B39B" },
-  un:  { name: "sunny field", hue: "#FBE7B4", accent: "#EFB93C" },
-  ug:  { name: "bug garden",  hue: "#DCEBC4", accent: "#8FBF52" },
-  all: { name: "lantern lane", hue: "#C9CFE6", accent: "#7C86BE" },
+export const SETTINGS: Record<string, { name: string; hue: string; accent: string; sky: [string, string]; ground: [string, string]; mark: string }> = {
+  at:  { name: "garden gate", hue: "#CFE8C6", accent: "#7FBF6A", sky: ["#BFE3F2", "#E7F4DF"], ground: ["#8FC98A", "#5E9457"], mark: "\u{1F337}" },
+  an:  { name: "duck pond",   hue: "#A9D6EE", accent: "#4FA6CC", sky: ["#8FC5E6", "#CFE9F6"], ground: ["#5FA8C8", "#35708E"], mark: "\u{1F986}" },
+  ap:  { name: "bakery",      hue: "#F6DCC0", accent: "#E0A063", sky: ["#FBE3C8", "#FDF3E2"], ground: ["#D8AE7A", "#A87C4C"], mark: "\u{1F950}" },
+  en:  { name: "hen coop",    hue: "#F5DE8E", accent: "#D9A616", sky: ["#F4D96A", "#FBF0C2"], ground: ["#D2A828", "#9A7A10"], mark: "\u{1F414}" },
+  ig:  { name: "hilltop",     hue: "#D6E9BE", accent: "#8CC05C", sky: ["#CDE8F5", "#EAF6E4"], ground: ["#9CC46A", "#6E9440"], mark: "\u{26F0}" },
+  it:  { name: "toy shop",    hue: "#EBD5EF", accent: "#B274C4", sky: ["#E9D6F2", "#F8EEF8"], ground: ["#B58CC4", "#84589A"], mark: "\u{1F9F8}" },
+  in:  { name: "workshop",    hue: "#D9DFE9", accent: "#7C90AE", sky: ["#D3DCEA", "#EEF2F8"], ground: ["#93A5C0", "#66788F"], mark: "\u{1F528}" },
+  og:  { name: "kennel yard", hue: "#E3D6C2", accent: "#B08C63", sky: ["#E8DCC8", "#F7F0E2"], ground: ["#BE9C72", "#8C6E48"], mark: "\u{1F415}" },
+  ot:  { name: "kitchen",     hue: "#F2B8A6", accent: "#CE614A", sky: ["#EFAE96", "#FAE0D2"], ground: ["#C05E42", "#8C3E28"], mark: "\u{1F372}" },
+  op:  { name: "hill slope",  hue: "#CDE6DE", accent: "#63B39B", sky: ["#CBE9E0", "#EDF8F3"], ground: ["#7FBBA5", "#548A76"], mark: "\u{1FA81}" },
+  un:  { name: "sunny field", hue: "#FBE7B4", accent: "#EFB93C", sky: ["#FBEBBA", "#FEF8E0"], ground: ["#DFC060", "#AC9038"], mark: "\u{1F33B}" },
+  ug:  { name: "bug garden",  hue: "#DCEBC4", accent: "#8FBF52", sky: ["#D8EDC6", "#F1F9E6"], ground: ["#9FC768", "#6F953E"], mark: "\u{1F41E}" },
+  all: { name: "lantern lane", hue: "#C9CFE6", accent: "#7C86BE", sky: ["#CBD1EA", "#EDEFF8"], ground: ["#9299C4", "#666D96"], mark: "\u{1F3EE}" },
 };
 
 export const bands = (width: number, height: number) => {
   const wide = width > height;
   return {
     width, height, wide,
-    bannerTop: Math.round(height * 0.024),
-    horizon: Math.round(height * 0.585),
-    // the lesson lives in front of the house; the washing line hangs above it
-    lineY: Math.round(height * 0.125),   // clear of the roof: the house starts at 0.30H
-    contentTop: Math.round(height * 0.300),
-    contentH: Math.round(height * 0.375),
+    bannerTop: Math.round(height * (wide ? 0.024 : 0.020)),
+    horizon: Math.round(height * (wide ? 0.585 : 0.615)),
+    // the washing line, then the vowel strip, then the lesson column — top to bottom
+    lineY: Math.round(height * (wide ? 0.125 : 0.080)),
+    stripY: Math.round(height * (wide ? 0.235 : 0.135)),
+    contentTop: Math.round(height * (wide ? 0.300 : 0.175)),
+    contentH: Math.round(height * (wide ? 0.375 : 0.400)),
     contentL: Math.round(width * 0.035),
-    contentR: Math.round(width * (wide ? 0.670 : 0.965)),   // clears the house, which starts at 0.700W
-    contentRFull: Math.round(width * 0.965),                 // when there is no house yet
-    moX: Math.round(width * (wide ? 0.085 : 0.10)),
-    zipX: Math.round(width * (wide ? 0.845 : 0.78)),
-    charY: Math.round(height * 0.615),
-    charH: Math.round(height * 0.185),
+    // the column ends BEFORE the house in both ratios — overlap impossible by construction
+    contentR: Math.round(width * (wide ? 0.670 : 0.600)),
+    contentRFull: Math.round(width * 0.965),
+    houseL: Math.round(width * (wide ? 0.700 : 0.620)),
+    houseW: Math.round(width * (wide ? 0.200 : 0.340)),
+    moX: Math.round(width * (wide ? 0.085 : 0.070)),
+    zipX: Math.round(width * (wide ? 0.845 : 0.760)),
+    charY: Math.round(height * (wide ? 0.615 : 0.720)),
+    charH: Math.round(height * (wide ? 0.185 : 0.140)),
   };
 };
 export type B = ReturnType<typeof bands>;
@@ -88,12 +92,12 @@ export const Fixed: React.FC<{ b: B; children: React.ReactNode }> = ({ b, childr
 
 /** The house for one family. Its colour, its props and its light all change with the
  *  family, so the frame is visibly a different place every time. */
-export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: boolean }> = ({ b, rime, dusk = false, noHouse = false }) => {
+export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: boolean; noMark?: boolean }> = ({ b, rime, dusk = false, noHouse = false, noMark = false }) => {
   const frame = useCurrentFrame();
   const set = SETTINGS[rime] ?? SETTINGS.at;
   const sky = dusk
     ? `linear-gradient(${LANE.night} 0%, #4A5B7E 46%, #C98F73 100%)`
-    : `linear-gradient(${LANE.sky[0]} 0%, ${set.hue} 52%, ${LANE.sky[2]} 100%)`;
+    : `linear-gradient(${set.sky[0]} 0%, ${set.hue} 52%, ${set.sky[1]} 100%)`;
   const H = b.height, W = b.width;
   return (
     <AbsoluteFill style={{ background: sky }}>
@@ -121,12 +125,24 @@ export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: bool
         }} />
       ))}
 
-      {/* the house — only once a family is being taught */}
-      {!noHouse && <House b={b} rime={rime} />}
+      {/* the house — only once a family is being taught — with the family's landmark
+          planted beside it, so a family change reads instantly (round 2, item 5) */}
+      {!noHouse && (
+        <>
+          {!noMark && <div style={{
+            position: "absolute",
+            left: b.wide ? b.houseL - b.width * 0.075 : b.houseL + b.width * 0.030,
+            top: b.wide ? b.horizon - H * 0.135 : H * 0.155,
+            fontSize: H * (b.wide ? 0.115 : 0.095), lineHeight: 1,
+            transform: `translateY(${Math.sin(frame / 34) * 5}px)`,
+          }}>{set.mark}</div>}
+          <House b={b} rime={rime} />
+        </>
+      )}
 
       {/* ground and path */}
       <div style={{ position: "absolute", left: 0, top: b.horizon, width: W, height: H - b.horizon,
-        background: `linear-gradient(${set.accent}, ${LANE.sageDark})`, opacity: 0.9 }} />
+        background: `linear-gradient(${set.ground[0]}, ${set.ground[1]})`, opacity: 0.95 }} />
       <div style={{
         position: "absolute", left: 0, top: b.horizon + H * 0.075, width: W, height: H * 0.055,
         background: LANE.path, borderTop: `5px solid ${LANE.pathDark}`, borderBottom: `5px solid ${LANE.pathDark}`,
@@ -146,9 +162,9 @@ export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: bool
 /** the family's house, with the ending SCREWED to the door */
 const House: React.FC<{ b: B; rime: string }> = ({ b, rime }) => {
   const set = SETTINGS[rime] ?? SETTINGS.at;
-  const w = Math.round(b.width * (b.wide ? 0.20 : 0.30));
+  const w = b.houseW;
   const h = Math.round(w * 0.95);
-  const left = Math.round(b.width * (b.wide ? 0.700 : 0.55));
+  const left = b.houseL;
   const top = b.horizon - h;
   return (
     <div style={{ position: "absolute", left, top, width: w, height: h }}>
@@ -205,7 +221,7 @@ export const Mo: React.FC<{ b: B }> = ({ b }) => {
 };
 
 /** ZIP arrives at the door with a different letter each time. He is the FRONT. */
-export const Zip: React.FC<{ b: B; letter: string; at: number }> = ({ b, letter, at }) => {
+export const Zip: React.FC<{ b: B; letter?: string; at: number }> = ({ b, letter, at }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const p = pop(frame, fps, at, 15);
@@ -222,15 +238,15 @@ export const Zip: React.FC<{ b: B; letter: string; at: number }> = ({ b, letter,
       ))}
       <div style={{ position: "absolute", left: s * 0.30, top: s * 0.56, width: s * 0.16, height: s * 0.08,
         borderRadius: "0 0 50% 50%", background: "#3E7C8C" }} />
-      {/* the letter he is carrying — the whole point of him */}
-      <div style={{
+      {/* the letter he is carrying — none until the lesson starts (round 2, item 1) */}
+      {letter !== undefined && <div style={{
         position: "absolute", left: -s * 0.22, top: s * 0.36, width: s * 0.46, height: s * 0.46,
         background: LANE.cream, border: `6px solid ${LANE.ink}`, boxSizing: "border-box", borderRadius: 12,
         display: "flex", alignItems: "center", justifyContent: "center",
         fontFamily: font.family, fontWeight: 800, fontSize: s * 0.30, color: LANE.ink,
         transform: `rotate(${-8 + Math.sin(frame / 12) * 4}deg)`,
         boxShadow: `0 ${s * 0.03}px 0 ${LANE.ink}`,
-      }}>{letter}</div>
+      }}>{letter}</div>}
     </div>
   );
 };
@@ -280,7 +296,7 @@ export const VowelStrip: React.FC<{ b: B; lit?: string }> = ({ b, lit }) => {
   const s = Math.round(b.height * 0.055);
   return (
     <div style={{
-      position: "absolute", left: b.width * 0.035, top: b.height * 0.235,
+      position: "absolute", left: b.width * 0.035, top: b.stripY,
       display: "flex", gap: s * 0.22, alignItems: "center",
     }}>
       {["a", "e", "i", "o", "u"].map((v) => {
@@ -301,95 +317,114 @@ export const VowelStrip: React.FC<{ b: B; lit?: string }> = ({ b, lit }) => {
 };
 
 /**
- * HUB — the family's ending BIG in the middle, and each front letter on a spoke, joined
- * by a drawn connector. The word being read is the lit spoke: "an + c -> can" as a
- * picture, not a sentence.
+ * RAIL — the family, as the user specified it (2026-08-11):
+ * front letters in a vertical LIST on the left; a connector to the ending card in the
+ * middle; a connector onward to the completed word + picture on the right, arriving one
+ * word at a time. Each element pops ONCE on its own reveal — the circle version re-popped
+ * the whole diagram on every word, which read as blinking.
  */
-export const Hub: React.FC<{
-  b: B; rime: string; words: string[]; onWord: string | null; at?: number;
-}> = ({ b, rime, words, onWord, at = 0 }) => {
+export const Rail: React.FC<{
+  b: B; rime: string; words: string[]; k: number; wordAt: number;
+}> = ({ b, rime, words, k, wordAt }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const W = b.contentR - b.contentL;
-  const H = b.contentH;
-  const cx = W / 2, cy = H / 2;
-  const R = Math.min(W, H) * 0.40;
-  const hub = Math.min(W, H) * 0.30;
+  const W = b.contentR - b.contentL, H = b.contentH;
+  const n = words.length;
+  const cell = Math.min(H / n - 6, H * 0.155);
+  const cy = H / 2;
+  const midX = W * 0.42, wordX = W * 0.66;
+  const word = words[k];
+  const letter = word.slice(0, word.length - rime.length);
+  const arrive = pop(frame, fps, wordAt, 14);       // ONLY the changing pieces use this
+  const curY = (H - n * (cell + 6)) / 2 + k * (cell + 6) + cell / 2;
   return (
-    <div style={{ position: "relative", width: W, height: H }}>
+    <div style={{ position: "relative", width: W, height: H, fontFamily: font.family }}>
+      {/* the letter list — fixed; each row lit only when its word is on */}
       {words.map((w, i) => {
-        const ang = (-90 + (360 / words.length) * i) * (Math.PI / 180);
-        const x = cx + Math.cos(ang) * R, y = cy + Math.sin(ang) * R;
-        const on = w === onWord;
-        const letter = w.slice(0, w.length - rime.length);
-        const p = pop(frame, fps, at + i * 3, 15);
+        const l = w.slice(0, w.length - rime.length);
+        const y = (H - n * (cell + 6)) / 2 + i * (cell + 6);
+        const on = i === k, done = i < k;
         return (
-          <React.Fragment key={w}>
-            <div style={{
-              position: "absolute", left: cx, top: cy, width: R - hub * 0.55, height: on ? 7 : 4,
-              background: on ? LANE.door : "rgba(42,58,44,0.30)", borderRadius: 4,
-              transformOrigin: "0 50%", transform: `rotate(${(ang * 180) / Math.PI}deg) translateX(${hub * 0.55}px)`,
-            }} />
-            <div style={{
-              position: "absolute", left: x, top: y, transform: `translate(-50%,-50%) scale(${p * (on ? 1.25 : 1)})`,
-              width: hub * 0.52, height: hub * 0.52, borderRadius: hub * 0.12,
-              background: on ? LANE.door : LANE.cream, border: `5px solid ${LANE.ink}`, boxSizing: "border-box",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontFamily: font.family, fontWeight: 800, fontSize: hub * 0.26, color: LANE.ink,
-              boxShadow: on ? `0 0 0 ${hub * 0.06}px rgba(244,195,63,0.45)` : `0 4px 0 ${LANE.ink}`,
-            }}>{letter}</div>
-          </React.Fragment>
+          <div key={w} style={{
+            position: "absolute", left: 0, top: y, width: cell, height: cell,
+            borderRadius: cell * 0.2,
+            background: on ? LANE.door : done ? LANE.cream : "rgba(255,248,233,0.42)",
+            border: `4px solid ${LANE.ink}`, boxSizing: "border-box",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontWeight: 800, fontSize: cell * 0.5, color: done || on ? LANE.ink : "rgba(42,58,44,0.5)",
+            transform: on ? `scale(${0.9 + 0.2 * arrive})` : "scale(1)",
+            boxShadow: on ? `0 0 0 ${cell * 0.07}px rgba(244,195,63,0.45)` : "none",
+          }}>{l}</div>
         );
       })}
+      {/* connector: current letter -> ending. Only its VERTICAL attachment moves. */}
+      <div style={{ position: "absolute", left: cell + 4, top: curY - 3, width: midX - cell - 14, height: 6,
+        borderRadius: 3, background: LANE.doorDark, transform: `scaleX(${arrive})`, transformOrigin: "0 50%" }} />
+      {/* the ending card — mounted ONCE, never re-popped */}
       <div style={{
-        position: "absolute", left: cx, top: cy, transform: "translate(-50%,-50%)",
-        width: hub * 1.15, height: hub * 0.80, borderRadius: hub * 0.16,
-        background: LANE.door, border: `7px solid ${LANE.ink}`, boxSizing: "border-box",
+        position: "absolute", left: midX, top: cy - cell * 0.75, width: cell * 1.7, height: cell * 1.5,
+        borderRadius: cell * 0.22, background: LANE.door, border: `6px solid ${LANE.ink}`, boxSizing: "border-box",
         display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: font.family, fontWeight: 800, fontSize: hub * 0.38, color: LANE.ink,
-        boxShadow: `0 ${hub * 0.05}px 0 ${LANE.ink}`,
+        fontWeight: 800, fontSize: cell * 0.66, color: LANE.ink, boxShadow: `0 ${cell * 0.06}px 0 ${LANE.ink}`,
       }}>{rime}</div>
-      {onWord && (
+      {/* connector: ending -> the finished word */}
+      <div style={{ position: "absolute", left: midX + cell * 1.7 + 6, top: cy - 3, width: wordX - midX - cell * 1.7 - 16, height: 6,
+        borderRadius: 3, background: LANE.doorDark, transform: `scaleX(${arrive})`, transformOrigin: "0 50%" }} />
+      {/* the finished word + its picture, arriving */}
+      <div style={{
+        position: "absolute", left: wordX, top: cy - cell * 1.05,
+        display: "flex", flexDirection: "column", alignItems: "center", gap: cell * 0.14,
+        transform: `scale(${arrive})`, transformOrigin: "0 50%",
+      }}>
         <div style={{
-          position: "absolute", left: cx, top: H - hub * 0.30, transform: "translateX(-50%)",
-          fontFamily: font.family, fontWeight: 800, fontSize: hub * 0.34, color: LANE.ink,
-          textShadow: "0 3px 0 rgba(255,255,255,0.6)",
-        }}>{onWord}</div>
-      )}
+          padding: `${cell * 0.16}px ${cell * 0.3}px`, borderRadius: cell * 0.2,
+          background: LANE.cream, border: `5px solid ${LANE.ink}`, boxSizing: "border-box",
+          fontWeight: 800, fontSize: cell * 0.62, color: LANE.ink, boxShadow: `0 ${cell * 0.05}px 0 ${LANE.ink}`,
+        }}>
+          <span style={{ color: LANE.rose }}>{letter}</span>{rime}
+        </div>
+      </div>
     </div>
   );
 };
 
-/** TRAIN — the ending is the engine, each word a carriage that couples on */
-export const Train: React.FC<{ b: B; rime: string; word: string; k: number; at?: number }> = ({
-  b, rime, word, k, at = 0,
+/**
+ * WORD WITH ITS ENDING LIT — for the analysis lines ("Look at the end of the word",
+ * "the last two letters are a and t"): the WHOLE word stays, the front dims, and the
+ * ending grows and lights INSIDE it. Never the ending alone.
+ */
+export const WordLit: React.FC<{ word: string; rime: string; size?: number; at?: number; dimFront?: boolean }> = ({
+  word, rime, size = 170, at = 0, dimFront = true,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const p = pop(frame, fps, at, 14);
-  const s = Math.min(b.contentH, (b.contentR - b.contentL)) * 0.34;
-  const letter = word.slice(0, word.length - rime.length);
+  const front = word.slice(0, word.length - rime.length);
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: s * 0.10 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: size * 0.08 }}>
+      {front.split("").map((c, i) => (
+        <Tile key={i} ch={c} size={size} tone={dimFront ? "dim" : "front"} seed={i} />
+      ))}
+      <div style={{ transform: `scale(${1 + 0.22 * p})`, transformOrigin: "50% 100%" }}>
+        <Tile ch={rime} size={size} tone="ending" w={size * (rime.length > 2 ? 1.5 : 1.2)} hot />
+      </div>
+    </div>
+  );
+};
+
+/** LEVEL above a big 6 — the L5 covers' treatment, as asked */
+export const LevelSix: React.FC<{ b: B; at?: number }> = ({ b, at = 0 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const p = pop(frame, fps, at, 13);
+  const s = Math.round(b.contentH * 0.52);
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: s * 0.10, transform: `scale(${p})` }}>
       <div style={{
-        width: s * 1.3, height: s * 0.9, borderRadius: `${s * 0.16}px ${s * 0.4}px ${s * 0.1}px ${s * 0.1}px`,
-        background: LANE.sage, border: `6px solid ${LANE.ink}`, boxSizing: "border-box",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: font.family, fontWeight: 800, fontSize: s * 0.34, color: LANE.cream,
-      }}>{rime}</div>
-      <div style={{ width: s * 0.16, height: s * 0.10, background: LANE.ink, borderRadius: 4 }} />
-      <div style={{
-        width: s * 0.95, height: s * 0.9, borderRadius: s * 0.12,
-        background: LANE.door, border: `6px solid ${LANE.ink}`, boxSizing: "border-box",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: font.family, fontWeight: 800, fontSize: s * 0.4, color: LANE.ink,
-        transform: `translateX(${(1 - p) * s * 1.6}px) scale(${0.8 + 0.2 * p})`,
-        boxShadow: `0 ${s * 0.04}px 0 ${LANE.ink}`,
-      }}>{letter}</div>
-      <div style={{
-        fontFamily: font.family, fontWeight: 800, fontSize: s * 0.42, color: LANE.ink,
-        textShadow: "0 3px 0 rgba(255,255,255,0.6)", marginLeft: s * 0.14, opacity: p,
-      }}>= {word}</div>
+        padding: `${s * 0.05}px ${s * 0.18}px`, borderRadius: 999, background: LANE.sage, color: LANE.cream,
+        border: `5px solid ${LANE.ink}`, fontFamily: font.family, fontWeight: 800, fontSize: s * 0.17, letterSpacing: 2,
+      }}>LEVEL</div>
+      <Tile ch="6" size={s} tone="ending" />
     </div>
   );
 };
@@ -455,6 +490,34 @@ export const Banner: React.FC<{ b: B; text: string }> = ({ b, text }) => {
         fontFamily: font.family, fontWeight: 800, fontSize: Math.round(b.height * 0.034), letterSpacing: 1,
         transform: `translateY(${Math.sin(frame / 34) * 4}px)`, whiteSpace: "nowrap",
       }}>{text}</div>
+    </div>
+  );
+};
+
+/** an ear that is actually LISTENING: arcs sweep in and vanish into it, and it leans
+ *  toward the sound (round 2, item 3 — the L5 Part 2 treatment) */
+export const Ear: React.FC<{ at?: number; size?: number }> = ({ at = 0, size = 190 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const p = pop(frame, fps, at, 14);
+  return (
+    <div style={{ position: "relative", width: size * 1.7, height: size, flex: "0 0 auto",
+      display: "flex", alignItems: "center", justifyContent: "flex-end", transform: `scale(${p})` }}>
+      {[0, 1, 2].map((i) => {
+        const t = ((frame + i * 15) % 45) / 45;
+        const r = size * (0.9 - t * 0.42);
+        return (
+          <div key={i} style={{
+            position: "absolute", right: size * 0.34 - r, top: size * 0.5 - r,
+            width: r * 2, height: r * 2, borderRadius: "50%",
+            border: `${Math.max(4, size * 0.035)}px solid transparent`,
+            borderLeftColor: LANE.door, boxSizing: "border-box",
+            opacity: Math.sin(t * Math.PI) * 0.85,
+          }} />
+        );
+      })}
+      <div style={{ fontSize: size * 0.78, lineHeight: 1,
+        transform: `rotate(${Math.sin(frame / 16) * 7}deg) scale(${1 + 0.05 * Math.abs(Math.sin(frame / 11))})` }}>{"\u{1F442}"}</div>
     </div>
   );
 };
