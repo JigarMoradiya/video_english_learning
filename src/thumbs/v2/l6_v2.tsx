@@ -48,7 +48,7 @@ export const ThumbV2L6: React.FC = () => (
       background: "radial-gradient(closest-side, rgba(255,255,255,0.16), rgba(255,255,255,0))",
     }} />
     <div style={badge}>LEVEL 6<br /><span style={badgeSub}>81 WORDS</span></div>
-    <div style={{ ...head, top: 108, left: 40, fontSize: 118 }}>WORD FAMILIES</div>
+    <div style={{ ...head, top: 84, left: 40, fontSize: 118 }}>WORD FAMILIES</div>
 
     {LETTERS.map((_, i) => (
       <Join key={i} x1={ROW_X + i * (S + GAP) + S / 2} y1={ROW_Y + S} x2={stageCx} y2={AT_Y + 8} />
