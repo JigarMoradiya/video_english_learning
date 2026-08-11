@@ -9,7 +9,7 @@ import { MUSIC_BED, MUSIC_FADE_IN, MUSIC_FADE_OUT } from "../data/mix";
 import { picFor } from "../data/word_pics";
 import { Confetti } from "../components/Confetti";
 import {
-  B, Banner, Content, Fixed, LANE, Lane, LevelSix, Line, Mo, Rail, Row, Tile, VowelStrip,
+  B, Banner, Content, Ear, Fixed, LANE, Lane, LevelSix, Line, Mo, Row, Tile, VowelStrip,
   WashingLine, WordLit, Zip, bands, pop,
 } from "../components/WordLane";
 
@@ -80,12 +80,6 @@ W(8, "at", "cat"); W(11, "at", "cat");
 [153, 154, 155, 156, 157, 158, 159].forEach((i, k) => W(i, "all", FAMILIES.all[k]));
 W(163, "all", "ball"); W(170, "all", "ball"); W(171, "all", "tall"); W(172, "all", "wall");
 W(184, "en", "hen"); W(187, "en", "hen"); W(191, "ug", "bug"); W(194, "ug", "bug");
-
-/** presentation per family — rotated so houses feel different, all reading left→right */
-const STYLE: Record<string, "build" | "rail"> = {
-  at: "build", an: "rail", ap: "build", en: "build", ig: "rail", it: "build", in: "build",
-  og: "rail", ot: "build", op: "build", un: "rail", ug: "build", all: "build",
-};
 
 /** the sound pass (item 7): pop per word, chime per family arrival, sparkle+confetti on
  *  praise, question/correct around the quiz */
@@ -158,7 +152,9 @@ const Build: React.FC<{ b: B; rime: string; word: string; a: number; u: (n: numb
 
 /** the front letter swaps while the ending holds — "only the front changed" */
 const Swap: React.FC<{ rime: string; pair: [string, string]; a: number; frameNow: number; u: (n: number) => number }> = ({ rime, pair, a, frameNow, u }) => {
-  const k = Math.floor(Math.max(0, frameNow - a) / 24) % 2;
+  // ONE-SHOT (round 2, item 2): pair[0] shows briefly, then pair[1] lands and HOLDS —
+  // the looping version showed "c" while the caption said "bat".
+  const k = frameNow - a < 22 ? 0 : 1;
   return (
     <Row gap={u(16)}>
       <Tile ch={pair[k]} size={u(175)} at={a} hot seed={k} />
@@ -217,12 +213,8 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
   const w = WORD[idx];
 
   // any line that SPEAKS a family word shows that word (rule 3) — presentation by family
-  if (w) {
-    if (STYLE[w.rime] === "rail" && idx >= 28) {
-      return <Rail b={b} rime={w.rime} words={FAMILIES[w.rime]} k={w.k} wordAt={a} />;
-    }
-    return <Build b={b} rime={w.rime} word={w.word} a={a} u={u} />;
-  }
+  // ONE presentation for every family — the ‑at build (round 2, item 4)
+  if (w) return <Build b={b} rime={w.rime} word={w.word} a={a} u={u} />;
 
   switch (idx) {
     // ── welcome (banner: LEVEL 5 · WELL DONE!) ──
@@ -268,7 +260,7 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 42: return <Row gap={u(16)}><Tile ch="at" size={u(150)} tone="dim" w={u(150) * 1.2} /><Line text={"→"} size={u(90)} at={a} /><Tile ch="an" size={u(180)} tone="ending" at={a + 6} w={u(180) * 1.2} /></Row>; // same vowel, new ending
     case 43: return <Tile ch="?" size={u(200)} tone="dim" at={a} hot />;                        // here is our next family
     case 44: return <Tile ch="an" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // An.
-    case 45: return <Row gap={u(20)}><Icon glyph={"\u{1F442}"} size={u(150)} /><Tile ch="a" size={u(190)} tone="ending" at={a} hot /></Row>; // listen to the vowel
+    case 45: return <Row gap={u(20)}><Ear at={a} size={u(170)} /><Tile ch="a" size={u(190)} tone="ending" at={a} hot /></Row>; // listen to the vowel
     case 46: return <Row gap={u(20)}><WordLit word="at" rime="a" size={u(140)} at={a} dimFront={false} /><WordLit word="an" rime="a" size={u(140)} at={a + 6} dimFront={false} /></Row>; // still a short a
     case 47: return <HoldVowel vowel="a" tails={["t", "n"]} a={a} frameNow={frameNow} u={u} />; // only the LAST letter changed
     case 56: return <Num n="8" a={a} u={u} />;                                                  // eight more
@@ -289,7 +281,7 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 80: return <Row gap={u(14)}><Num n="5" a={a} u={u} /><Icon glyph={"\u{1FA84}"} size={u(130)} /></Row>; // five words, trick again
     // ── the i families (ig 81 · it 90 · in 98) ──
     case 81: return <Tile ch="i" size={u(230)} tone="ending" at={a} hot />;                     // now a short i
-    case 82: return <Row gap={u(16)}><Icon glyph={"\u{1F442}"} size={u(130)} />{[0, 1, 2].map((i) => <Tile key={i} ch="?" size={u(120)} tone="dim" at={a + i * sp(3)} seed={i} />)}</Row>; // three families
+    case 82: return <Row gap={u(16)}><Ear at={a} size={u(150)} />{[0, 1, 2].map((i) => <Tile key={i} ch="?" size={u(120)} tone="dim" at={a + i * sp(3)} seed={i} />)}</Row>; // three families
     case 83: return <Tile ch="ig" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // First, Ig
     case 90: return <Tile ch="it" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // Next, It
     case 98: return <Tile ch="in" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // And In
@@ -305,7 +297,7 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 112: return <Tile ch="og" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Og.
     case 118: return <Tile ch="ot" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Ot.
     case 126: return <Tile ch="op" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Op.
-    case 132: return <Row gap={u(14)}><Icon glyph={"\u{1F442}"} size={u(130)} /><Tile ch="t" size={u(140)} tone="dim" /><Tile ch="o" size={u(180)} tone="ending" hot at={a} /><Tile ch="p" size={u(140)} tone="dim" seed={1} /></Row>; // listen to the MIDDLE
+    case 132: return <Row gap={u(14)}><Ear at={a} size={u(150)} /><Tile ch="t" size={u(140)} tone="dim" /><Tile ch="o" size={u(180)} tone="ending" hot at={a} /><Tile ch="p" size={u(140)} tone="dim" seed={1} /></Row>; // listen to the MIDDLE
     case 133: return <Tile ch="o" size={u(240)} tone="ending" at={a} hot />;                    // same o every time
     // ── the u families (un 134 · ug 142) ──
     case 134: return <Tile ch="u" size={u(230)} tone="ending" at={a} hot />;                    // last short vowel: u
@@ -318,7 +310,7 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 152: return <Tile ch="all" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.5} />; // All.
     case 160: return <Swap rime="all" pair={["b", "t"]} a={a} frameNow={frameNow} u={u} />;     // the trick still works
     case 161: return <Swap rime="all" pair={["b", "t"]} a={a} frameNow={frameNow} u={u} />;     // change the front
-    case 162: return <Row gap={u(14)}><Icon glyph={"\u{1F442}"} size={u(130)} /><Tile ch="b" size={u(140)} tone="dim" /><Tile ch="a" size={u(180)} tone="ending" hot at={a} /><Tile ch="ll" size={u(140)} tone="dim" seed={1} w={u(140) * 1.2} /></Row>; // listen to the middle
+    case 162: return <Row gap={u(14)}><Ear at={a} size={u(150)} /><Tile ch="b" size={u(140)} tone="dim" /><Tile ch="a" size={u(180)} tone="ending" hot at={a} /><Tile ch="ll" size={u(140)} tone="dim" seed={1} w={u(140) * 1.2} /></Row>; // listen to the middle
     case 164: return <Row gap={u(20)}><Tile ch="a" size={u(180)} at={a} /><Icon glyph={"❌"} size={u(120)} /></Row>; // NOT a short a
     case 165: return <Row gap={u(20)}><WordLit word="cat" rime="a" size={u(120)} at={a} dimFront={false} /><Icon glyph={"❌"} size={u(110)} /></Row>; // not like cat
     case 166: return <Row gap={u(16)}><Tile ch="a" size={u(150)} tone="dim" /><Line text={"→"} size={u(84)} at={a} /><Icon glyph={"✨"} size={u(130)} /></Row>; // changed into something else
@@ -376,7 +368,11 @@ export const L6FamiliesReel: React.FC = () => {
   const shown = words.filter((wd) =>
     Object.entries(WORD).some(([i, c]) => c.rime === house && c.word === wd && Number(i) <= idx && Number(i) >= 28)
   ).length;
-  const zipLetter = WORD[idx] ? WORD[idx].word.slice(0, WORD[idx].word.length - WORD[idx].rime.length) || WORD[idx].word[0] : (house ?? "a")[0];
+  const zipLetter = WORD[idx]
+    ? WORD[idx].word.slice(0, WORD[idx].word.length - WORD[idx].rime.length) || WORD[idx].word[0]
+    : house
+      ? house[0]
+      : undefined;   // the intro: just the smiley, no card (round 2, item 1)
 
   return (
     <AbsoluteFill>

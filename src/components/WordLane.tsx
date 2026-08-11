@@ -40,20 +40,20 @@ export const LANE = {
 };
 
 /** the thirteen places, one per family — the screen changes shape when the family does */
-export const SETTINGS: Record<string, { name: string; hue: string; accent: string }> = {
-  at:  { name: "garden gate", hue: "#CFE8C6", accent: "#7FBF6A" },
-  an:  { name: "duck pond",   hue: "#C3E4EE", accent: "#5FB4CF" },
-  ap:  { name: "bakery",      hue: "#F6DCC0", accent: "#E0A063" },
-  en:  { name: "hen coop",    hue: "#F3E3B8", accent: "#D9B441" },
-  ig:  { name: "hilltop",     hue: "#D6E9BE", accent: "#8CC05C" },
-  it:  { name: "toy shop",    hue: "#EBD5EF", accent: "#B274C4" },
-  in:  { name: "workshop",    hue: "#D9DFE9", accent: "#7C90AE" },
-  og:  { name: "kennel yard", hue: "#E3D6C2", accent: "#B08C63" },
-  ot:  { name: "kitchen",     hue: "#F7D6CE", accent: "#E0796A" },
-  op:  { name: "hill slope",  hue: "#CDE6DE", accent: "#63B39B" },
-  un:  { name: "sunny field", hue: "#FBE7B4", accent: "#EFB93C" },
-  ug:  { name: "bug garden",  hue: "#DCEBC4", accent: "#8FBF52" },
-  all: { name: "lantern lane", hue: "#C9CFE6", accent: "#7C86BE" },
+export const SETTINGS: Record<string, { name: string; hue: string; accent: string; sky: [string, string]; ground: [string, string]; mark: string }> = {
+  at:  { name: "garden gate", hue: "#CFE8C6", accent: "#7FBF6A", sky: ["#BFE3F2", "#E7F4DF"], ground: ["#8FC98A", "#5E9457"], mark: "\u{1F337}" },
+  an:  { name: "duck pond",   hue: "#C3E4EE", accent: "#5FB4CF", sky: ["#AFD9EC", "#DDF0F6"], ground: ["#7FBFAB", "#4E8F7C"], mark: "\u{1F986}" },
+  ap:  { name: "bakery",      hue: "#F6DCC0", accent: "#E0A063", sky: ["#FBE3C8", "#FDF3E2"], ground: ["#D8AE7A", "#A87C4C"], mark: "\u{1F950}" },
+  en:  { name: "hen coop",    hue: "#F3E3B8", accent: "#D9B441", sky: ["#F7E9BE", "#FCF6DE"], ground: ["#CDB86A", "#9A8A3E"], mark: "\u{1F414}" },
+  ig:  { name: "hilltop",     hue: "#D6E9BE", accent: "#8CC05C", sky: ["#CDE8F5", "#EAF6E4"], ground: ["#9CC46A", "#6E9440"], mark: "\u{26F0}" },
+  it:  { name: "toy shop",    hue: "#EBD5EF", accent: "#B274C4", sky: ["#E9D6F2", "#F8EEF8"], ground: ["#B58CC4", "#84589A"], mark: "\u{1F9F8}" },
+  in:  { name: "workshop",    hue: "#D9DFE9", accent: "#7C90AE", sky: ["#D3DCEA", "#EEF2F8"], ground: ["#93A5C0", "#66788F"], mark: "\u{1F528}" },
+  og:  { name: "kennel yard", hue: "#E3D6C2", accent: "#B08C63", sky: ["#E8DCC8", "#F7F0E2"], ground: ["#BE9C72", "#8C6E48"], mark: "\u{1F415}" },
+  ot:  { name: "kitchen",     hue: "#F7D6CE", accent: "#E0796A", sky: ["#F9DED4", "#FDF1EA"], ground: ["#D89482", "#A66A58"], mark: "\u{1F372}" },
+  op:  { name: "hill slope",  hue: "#CDE6DE", accent: "#63B39B", sky: ["#CBE9E0", "#EDF8F3"], ground: ["#7FBBA5", "#548A76"], mark: "\u{1FA81}" },
+  un:  { name: "sunny field", hue: "#FBE7B4", accent: "#EFB93C", sky: ["#FBEBBA", "#FEF8E0"], ground: ["#DFC060", "#AC9038"], mark: "\u{1F33B}" },
+  ug:  { name: "bug garden",  hue: "#DCEBC4", accent: "#8FBF52", sky: ["#D8EDC6", "#F1F9E6"], ground: ["#9FC768", "#6F953E"], mark: "\u{1F41E}" },
+  all: { name: "lantern lane", hue: "#C9CFE6", accent: "#7C86BE", sky: ["#CBD1EA", "#EDEFF8"], ground: ["#9299C4", "#666D96"], mark: "\u{1F3EE}" },
 };
 
 export const bands = (width: number, height: number) => {
@@ -93,7 +93,7 @@ export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: bool
   const set = SETTINGS[rime] ?? SETTINGS.at;
   const sky = dusk
     ? `linear-gradient(${LANE.night} 0%, #4A5B7E 46%, #C98F73 100%)`
-    : `linear-gradient(${LANE.sky[0]} 0%, ${set.hue} 52%, ${LANE.sky[2]} 100%)`;
+    : `linear-gradient(${set.sky[0]} 0%, ${set.hue} 52%, ${set.sky[1]} 100%)`;
   const H = b.height, W = b.width;
   return (
     <AbsoluteFill style={{ background: sky }}>
@@ -121,12 +121,22 @@ export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: bool
         }} />
       ))}
 
-      {/* the house — only once a family is being taught */}
-      {!noHouse && <House b={b} rime={rime} />}
+      {/* the house — only once a family is being taught — with the family's landmark
+          planted beside it, so a family change reads instantly (round 2, item 5) */}
+      {!noHouse && (
+        <>
+          <div style={{
+            position: "absolute", left: W * 0.625, top: b.horizon - H * 0.135,
+            fontSize: H * 0.115, lineHeight: 1,
+            transform: `translateY(${Math.sin(frame / 34) * 5}px)`,
+          }}>{set.mark}</div>
+          <House b={b} rime={rime} />
+        </>
+      )}
 
       {/* ground and path */}
       <div style={{ position: "absolute", left: 0, top: b.horizon, width: W, height: H - b.horizon,
-        background: `linear-gradient(${set.accent}, ${LANE.sageDark})`, opacity: 0.9 }} />
+        background: `linear-gradient(${set.ground[0]}, ${set.ground[1]})`, opacity: 0.95 }} />
       <div style={{
         position: "absolute", left: 0, top: b.horizon + H * 0.075, width: W, height: H * 0.055,
         background: LANE.path, borderTop: `5px solid ${LANE.pathDark}`, borderBottom: `5px solid ${LANE.pathDark}`,
@@ -205,7 +215,7 @@ export const Mo: React.FC<{ b: B }> = ({ b }) => {
 };
 
 /** ZIP arrives at the door with a different letter each time. He is the FRONT. */
-export const Zip: React.FC<{ b: B; letter: string; at: number }> = ({ b, letter, at }) => {
+export const Zip: React.FC<{ b: B; letter?: string; at: number }> = ({ b, letter, at }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const p = pop(frame, fps, at, 15);
@@ -222,15 +232,15 @@ export const Zip: React.FC<{ b: B; letter: string; at: number }> = ({ b, letter,
       ))}
       <div style={{ position: "absolute", left: s * 0.30, top: s * 0.56, width: s * 0.16, height: s * 0.08,
         borderRadius: "0 0 50% 50%", background: "#3E7C8C" }} />
-      {/* the letter he is carrying — the whole point of him */}
-      <div style={{
+      {/* the letter he is carrying — none until the lesson starts (round 2, item 1) */}
+      {letter !== undefined && <div style={{
         position: "absolute", left: -s * 0.22, top: s * 0.36, width: s * 0.46, height: s * 0.46,
         background: LANE.cream, border: `6px solid ${LANE.ink}`, boxSizing: "border-box", borderRadius: 12,
         display: "flex", alignItems: "center", justifyContent: "center",
         fontFamily: font.family, fontWeight: 800, fontSize: s * 0.30, color: LANE.ink,
         transform: `rotate(${-8 + Math.sin(frame / 12) * 4}deg)`,
         boxShadow: `0 ${s * 0.03}px 0 ${LANE.ink}`,
-      }}>{letter}</div>
+      }}>{letter}</div>}
     </div>
   );
 };
@@ -474,6 +484,34 @@ export const Banner: React.FC<{ b: B; text: string }> = ({ b, text }) => {
         fontFamily: font.family, fontWeight: 800, fontSize: Math.round(b.height * 0.034), letterSpacing: 1,
         transform: `translateY(${Math.sin(frame / 34) * 4}px)`, whiteSpace: "nowrap",
       }}>{text}</div>
+    </div>
+  );
+};
+
+/** an ear that is actually LISTENING: arcs sweep in and vanish into it, and it leans
+ *  toward the sound (round 2, item 3 — the L5 Part 2 treatment) */
+export const Ear: React.FC<{ at?: number; size?: number }> = ({ at = 0, size = 190 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const p = pop(frame, fps, at, 14);
+  return (
+    <div style={{ position: "relative", width: size * 1.7, height: size, flex: "0 0 auto",
+      display: "flex", alignItems: "center", justifyContent: "flex-end", transform: `scale(${p})` }}>
+      {[0, 1, 2].map((i) => {
+        const t = ((frame + i * 15) % 45) / 45;
+        const r = size * (0.9 - t * 0.42);
+        return (
+          <div key={i} style={{
+            position: "absolute", right: size * 0.34 - r, top: size * 0.5 - r,
+            width: r * 2, height: r * 2, borderRadius: "50%",
+            border: `${Math.max(4, size * 0.035)}px solid transparent`,
+            borderLeftColor: LANE.door, boxSizing: "border-box",
+            opacity: Math.sin(t * Math.PI) * 0.85,
+          }} />
+        );
+      })}
+      <div style={{ fontSize: size * 0.78, lineHeight: 1,
+        transform: `rotate(${Math.sin(frame / 16) * 7}deg) scale(${1 + 0.05 * Math.abs(Math.sin(frame / 11))})` }}>{"\u{1F442}"}</div>
     </div>
   );
 };
