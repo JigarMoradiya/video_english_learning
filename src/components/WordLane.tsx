@@ -42,7 +42,7 @@ export const LANE = {
 /** the thirteen places, one per family — the screen changes shape when the family does */
 export const SETTINGS: Record<string, { name: string; hue: string; accent: string; sky: [string, string]; ground: [string, string]; mark: string }> = {
   at:  { name: "garden gate", hue: "#CFE8C6", accent: "#7FBF6A", sky: ["#BFE3F2", "#E7F4DF"], ground: ["#8FC98A", "#5E9457"], mark: "\u{1F337}" },
-  an:  { name: "duck pond",   hue: "#C3E4EE", accent: "#5FB4CF", sky: ["#AFD9EC", "#DDF0F6"], ground: ["#7FBFAB", "#4E8F7C"], mark: "\u{1F986}" },
+  an:  { name: "duck pond",   hue: "#A9D6EE", accent: "#4FA6CC", sky: ["#8FC5E6", "#CFE9F6"], ground: ["#5FA8C8", "#35708E"], mark: "\u{1F986}" },
   ap:  { name: "bakery",      hue: "#F6DCC0", accent: "#E0A063", sky: ["#FBE3C8", "#FDF3E2"], ground: ["#D8AE7A", "#A87C4C"], mark: "\u{1F950}" },
   en:  { name: "hen coop",    hue: "#F3E3B8", accent: "#D9B441", sky: ["#F7E9BE", "#FCF6DE"], ground: ["#CDB86A", "#9A8A3E"], mark: "\u{1F414}" },
   ig:  { name: "hilltop",     hue: "#D6E9BE", accent: "#8CC05C", sky: ["#CDE8F5", "#EAF6E4"], ground: ["#9CC46A", "#6E9440"], mark: "\u{26F0}" },
