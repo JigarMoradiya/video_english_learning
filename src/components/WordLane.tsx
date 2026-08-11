@@ -301,95 +301,114 @@ export const VowelStrip: React.FC<{ b: B; lit?: string }> = ({ b, lit }) => {
 };
 
 /**
- * HUB — the family's ending BIG in the middle, and each front letter on a spoke, joined
- * by a drawn connector. The word being read is the lit spoke: "an + c -> can" as a
- * picture, not a sentence.
+ * RAIL — the family, as the user specified it (2026-08-11):
+ * front letters in a vertical LIST on the left; a connector to the ending card in the
+ * middle; a connector onward to the completed word + picture on the right, arriving one
+ * word at a time. Each element pops ONCE on its own reveal — the circle version re-popped
+ * the whole diagram on every word, which read as blinking.
  */
-export const Hub: React.FC<{
-  b: B; rime: string; words: string[]; onWord: string | null; at?: number;
-}> = ({ b, rime, words, onWord, at = 0 }) => {
+export const Rail: React.FC<{
+  b: B; rime: string; words: string[]; k: number; wordAt: number;
+}> = ({ b, rime, words, k, wordAt }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const W = b.contentR - b.contentL;
-  const H = b.contentH;
-  const cx = W / 2, cy = H / 2;
-  const R = Math.min(W, H) * 0.40;
-  const hub = Math.min(W, H) * 0.30;
+  const W = b.contentR - b.contentL, H = b.contentH;
+  const n = words.length;
+  const cell = Math.min(H / n - 6, H * 0.155);
+  const cy = H / 2;
+  const midX = W * 0.42, wordX = W * 0.66;
+  const word = words[k];
+  const letter = word.slice(0, word.length - rime.length);
+  const arrive = pop(frame, fps, wordAt, 14);       // ONLY the changing pieces use this
+  const curY = (H - n * (cell + 6)) / 2 + k * (cell + 6) + cell / 2;
   return (
-    <div style={{ position: "relative", width: W, height: H }}>
+    <div style={{ position: "relative", width: W, height: H, fontFamily: font.family }}>
+      {/* the letter list — fixed; each row lit only when its word is on */}
       {words.map((w, i) => {
-        const ang = (-90 + (360 / words.length) * i) * (Math.PI / 180);
-        const x = cx + Math.cos(ang) * R, y = cy + Math.sin(ang) * R;
-        const on = w === onWord;
-        const letter = w.slice(0, w.length - rime.length);
-        const p = pop(frame, fps, at + i * 3, 15);
+        const l = w.slice(0, w.length - rime.length);
+        const y = (H - n * (cell + 6)) / 2 + i * (cell + 6);
+        const on = i === k, done = i < k;
         return (
-          <React.Fragment key={w}>
-            <div style={{
-              position: "absolute", left: cx, top: cy, width: R - hub * 0.55, height: on ? 7 : 4,
-              background: on ? LANE.door : "rgba(42,58,44,0.30)", borderRadius: 4,
-              transformOrigin: "0 50%", transform: `rotate(${(ang * 180) / Math.PI}deg) translateX(${hub * 0.55}px)`,
-            }} />
-            <div style={{
-              position: "absolute", left: x, top: y, transform: `translate(-50%,-50%) scale(${p * (on ? 1.25 : 1)})`,
-              width: hub * 0.52, height: hub * 0.52, borderRadius: hub * 0.12,
-              background: on ? LANE.door : LANE.cream, border: `5px solid ${LANE.ink}`, boxSizing: "border-box",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontFamily: font.family, fontWeight: 800, fontSize: hub * 0.26, color: LANE.ink,
-              boxShadow: on ? `0 0 0 ${hub * 0.06}px rgba(244,195,63,0.45)` : `0 4px 0 ${LANE.ink}`,
-            }}>{letter}</div>
-          </React.Fragment>
+          <div key={w} style={{
+            position: "absolute", left: 0, top: y, width: cell, height: cell,
+            borderRadius: cell * 0.2,
+            background: on ? LANE.door : done ? LANE.cream : "rgba(255,248,233,0.42)",
+            border: `4px solid ${LANE.ink}`, boxSizing: "border-box",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontWeight: 800, fontSize: cell * 0.5, color: done || on ? LANE.ink : "rgba(42,58,44,0.5)",
+            transform: on ? `scale(${0.9 + 0.2 * arrive})` : "scale(1)",
+            boxShadow: on ? `0 0 0 ${cell * 0.07}px rgba(244,195,63,0.45)` : "none",
+          }}>{l}</div>
         );
       })}
+      {/* connector: current letter -> ending. Only its VERTICAL attachment moves. */}
+      <div style={{ position: "absolute", left: cell + 4, top: curY - 3, width: midX - cell - 14, height: 6,
+        borderRadius: 3, background: LANE.doorDark, transform: `scaleX(${arrive})`, transformOrigin: "0 50%" }} />
+      {/* the ending card — mounted ONCE, never re-popped */}
       <div style={{
-        position: "absolute", left: cx, top: cy, transform: "translate(-50%,-50%)",
-        width: hub * 1.15, height: hub * 0.80, borderRadius: hub * 0.16,
-        background: LANE.door, border: `7px solid ${LANE.ink}`, boxSizing: "border-box",
+        position: "absolute", left: midX, top: cy - cell * 0.75, width: cell * 1.7, height: cell * 1.5,
+        borderRadius: cell * 0.22, background: LANE.door, border: `6px solid ${LANE.ink}`, boxSizing: "border-box",
         display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: font.family, fontWeight: 800, fontSize: hub * 0.38, color: LANE.ink,
-        boxShadow: `0 ${hub * 0.05}px 0 ${LANE.ink}`,
+        fontWeight: 800, fontSize: cell * 0.66, color: LANE.ink, boxShadow: `0 ${cell * 0.06}px 0 ${LANE.ink}`,
       }}>{rime}</div>
-      {onWord && (
+      {/* connector: ending -> the finished word */}
+      <div style={{ position: "absolute", left: midX + cell * 1.7 + 6, top: cy - 3, width: wordX - midX - cell * 1.7 - 16, height: 6,
+        borderRadius: 3, background: LANE.doorDark, transform: `scaleX(${arrive})`, transformOrigin: "0 50%" }} />
+      {/* the finished word + its picture, arriving */}
+      <div style={{
+        position: "absolute", left: wordX, top: cy - cell * 1.05,
+        display: "flex", flexDirection: "column", alignItems: "center", gap: cell * 0.14,
+        transform: `scale(${arrive})`, transformOrigin: "0 50%",
+      }}>
         <div style={{
-          position: "absolute", left: cx, top: H - hub * 0.30, transform: "translateX(-50%)",
-          fontFamily: font.family, fontWeight: 800, fontSize: hub * 0.34, color: LANE.ink,
-          textShadow: "0 3px 0 rgba(255,255,255,0.6)",
-        }}>{onWord}</div>
-      )}
+          padding: `${cell * 0.16}px ${cell * 0.3}px`, borderRadius: cell * 0.2,
+          background: LANE.cream, border: `5px solid ${LANE.ink}`, boxSizing: "border-box",
+          fontWeight: 800, fontSize: cell * 0.62, color: LANE.ink, boxShadow: `0 ${cell * 0.05}px 0 ${LANE.ink}`,
+        }}>
+          <span style={{ color: LANE.rose }}>{letter}</span>{rime}
+        </div>
+      </div>
     </div>
   );
 };
 
-/** TRAIN — the ending is the engine, each word a carriage that couples on */
-export const Train: React.FC<{ b: B; rime: string; word: string; k: number; at?: number }> = ({
-  b, rime, word, k, at = 0,
+/**
+ * WORD WITH ITS ENDING LIT — for the analysis lines ("Look at the end of the word",
+ * "the last two letters are a and t"): the WHOLE word stays, the front dims, and the
+ * ending grows and lights INSIDE it. Never the ending alone.
+ */
+export const WordLit: React.FC<{ word: string; rime: string; size?: number; at?: number; dimFront?: boolean }> = ({
+  word, rime, size = 170, at = 0, dimFront = true,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const p = pop(frame, fps, at, 14);
-  const s = Math.min(b.contentH, (b.contentR - b.contentL)) * 0.34;
-  const letter = word.slice(0, word.length - rime.length);
+  const front = word.slice(0, word.length - rime.length);
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: s * 0.10 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: size * 0.08 }}>
+      {front.split("").map((c, i) => (
+        <Tile key={i} ch={c} size={size} tone={dimFront ? "dim" : "front"} seed={i} />
+      ))}
+      <div style={{ transform: `scale(${1 + 0.22 * p})`, transformOrigin: "50% 100%" }}>
+        <Tile ch={rime} size={size} tone="ending" w={size * (rime.length > 2 ? 1.5 : 1.2)} hot />
+      </div>
+    </div>
+  );
+};
+
+/** LEVEL above a big 6 — the L5 covers' treatment, as asked */
+export const LevelSix: React.FC<{ b: B; at?: number }> = ({ b, at = 0 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const p = pop(frame, fps, at, 13);
+  const s = Math.round(b.contentH * 0.52);
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: s * 0.10, transform: `scale(${p})` }}>
       <div style={{
-        width: s * 1.3, height: s * 0.9, borderRadius: `${s * 0.16}px ${s * 0.4}px ${s * 0.1}px ${s * 0.1}px`,
-        background: LANE.sage, border: `6px solid ${LANE.ink}`, boxSizing: "border-box",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: font.family, fontWeight: 800, fontSize: s * 0.34, color: LANE.cream,
-      }}>{rime}</div>
-      <div style={{ width: s * 0.16, height: s * 0.10, background: LANE.ink, borderRadius: 4 }} />
-      <div style={{
-        width: s * 0.95, height: s * 0.9, borderRadius: s * 0.12,
-        background: LANE.door, border: `6px solid ${LANE.ink}`, boxSizing: "border-box",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: font.family, fontWeight: 800, fontSize: s * 0.4, color: LANE.ink,
-        transform: `translateX(${(1 - p) * s * 1.6}px) scale(${0.8 + 0.2 * p})`,
-        boxShadow: `0 ${s * 0.04}px 0 ${LANE.ink}`,
-      }}>{letter}</div>
-      <div style={{
-        fontFamily: font.family, fontWeight: 800, fontSize: s * 0.42, color: LANE.ink,
-        textShadow: "0 3px 0 rgba(255,255,255,0.6)", marginLeft: s * 0.14, opacity: p,
-      }}>= {word}</div>
+        padding: `${s * 0.05}px ${s * 0.18}px`, borderRadius: 999, background: LANE.sage, color: LANE.cream,
+        border: `5px solid ${LANE.ink}`, fontFamily: font.family, fontWeight: 800, fontSize: s * 0.17, letterSpacing: 2,
+      }}>LEVEL</div>
+      <Tile ch="6" size={s} tone="ending" />
     </div>
   );
 };

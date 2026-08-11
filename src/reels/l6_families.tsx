@@ -7,76 +7,86 @@ import { Watermark } from "../components/Watermark";
 import { StoreOutro, STORE_OUTRO_F } from "../components/StoreOutro";
 import { MUSIC_BED, MUSIC_FADE_IN, MUSIC_FADE_OUT } from "../data/mix";
 import { picFor } from "../data/word_pics";
-import { say } from "../lib/noEcho";
 import {
-  B, Banner, Content, Fixed, Hub, LANE, Lane, Line, Mo, Row, Tile, Train, VowelStrip, WashingLine, Zip, bands,
+  B, Banner, Content, Fixed, LANE, Lane, LevelSix, Line, Mo, Rail, Row, Tile, VowelStrip,
+  WashingLine, WordLit, Zip, bands, pop,
 } from "../components/WordLane";
 
-// ── L6 · WORD FAMILIES ──────────────────────────────────────────────────────
+// ── L6 · WORD FAMILIES — the HAND-AUTHORED cut ──────────────────────────────
 //
-// 214 lines, 9:03, thirteen families, eighty-one words. One mechanism repeated thirteen
-// times, so the payoff IS the repetition — which is why it is one video and not three.
-//
-// The first cut was rejected for two faults this one is built to make impossible:
-//   1. it printed each caption on screen as its own "visual" — every string a scene draws
-//      now goes through say(), which throws if it repeats the spoken line;
-//   2. it showed the same frame for nine minutes — the SETTING now changes with the
-//      family, and Mo, Zip, the doorplate and the washing line all change per line.
+// Two auto-classified cuts were rejected. This one is built the way L5 Part 1 was: every
+// line's visual chosen BY READING THE LINE, recorded in an explicit table. The nine rules
+// from the rejected rounds govern everything here:
+//   banner follows the script's own timeline · LEVEL above the 6 · every spoken family
+//   word shows that word built · analysis lines show the WHOLE word with its ending lit ·
+//   pictures are the app's own wherever the app has one · the family switches on its
+//   announcement line · the rail lists letters left-to-right · reading order is always
+//   left-to-right · matching is by hand, so "happening" can never read as "app".
 
 const FPS = 30;
 const P = phrasesJson as unknown as TPhrase[];
 const AUDIO_SEC = 542.67;
 const f = (s: number) => Math.round(s * FPS);
 const TRACK = makeTrack(P, P[P.length - 1].end, FPS, 1.0);
-
-const FAMILIES: { rime: string; words: string[] }[] = [
-  { rime: "at",  words: ["cat", "bat", "hat", "rat", "mat", "sat", "pat", "fat"] },
-  { rime: "an",  words: ["can", "man", "fan", "ran", "pan", "tan", "van", "ban"] },
-  { rime: "ap",  words: ["cap", "map", "nap", "tap", "lap", "gap"] },
-  { rime: "en",  words: ["hen", "ten", "pen", "men", "den"] },
-  { rime: "ig",  words: ["big", "pig", "dig", "wig", "jig", "fig"] },
-  { rime: "it",  words: ["sit", "bit", "hit", "fit", "kit", "pit", "wit"] },
-  { rime: "in",  words: ["pin", "win", "fin", "tin", "bin"] },
-  { rime: "og",  words: ["dog", "log", "fog", "hog", "jog"] },
-  { rime: "ot",  words: ["hot", "pot", "dot", "lot", "cot", "rot", "got"] },
-  { rime: "op",  words: ["top", "hop", "mop", "pop", "cop"] },
-  { rime: "un",  words: ["sun", "run", "fun", "bun", "gun", "pun"] },
-  { rime: "ug",  words: ["bug", "rug", "hug", "mug", "dug", "jug"] },
-  { rime: "all", words: ["ball", "tall", "wall", "fall", "call", "hall", "mall"] },
-];
-const clean = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "");
-
-/** which phrase reads which word — walked IN ORDER, so `pat` in the ‑at run cannot bind to
- *  the word `pat` spoken later in a sentence */
-type Cell = { rime: string; word: string; k: number };
-const CELL: Record<number, Cell> = {};
-const FIRST: Record<string, number> = {};
-(() => {
-  let cursor = 0;
-  for (const fam of FAMILIES) {
-    fam.words.forEach((w, k) => {
-      for (let i = cursor; i < P.length; i++) {
-        if (clean(P[i].text) === w) {
-          CELL[i] = { rime: fam.rime, word: w, k };
-          if (FIRST[fam.rime] === undefined) FIRST[fam.rime] = i;
-          cursor = i + 1;
-          return;
-        }
-      }
-    });
-  }
-})();
-
-/**
- * The first family is taught at 66.6s. Before that there is no house, no washing line and
- * no vowel strip — the intro was standing in the ‑at family's garden while the teacher
- * talked about Level Five, and the six rule cards ran into the front wall.
- */
-const FIRST_FAMILY_IDX = Math.min(...Object.values(FIRST));
-const inIntro = (idx: number) => idx < FIRST_FAMILY_IDX;
-
-const STORE_FROM_IDX = P.findIndex((p) => p.text.toLowerCase().includes("practise every one"));
 const at = (i: number) => f(P[i].start);
+
+const FAMILIES: Record<string, string[]> = {
+  at: ["cat", "bat", "hat", "rat", "mat", "sat", "pat", "fat"],
+  an: ["can", "man", "fan", "ran", "pan", "tan", "van", "ban"],
+  ap: ["cap", "map", "nap", "tap", "lap", "gap"],
+  en: ["hen", "ten", "pen", "men", "den"],
+  ig: ["big", "pig", "dig", "wig", "jig", "fig"],
+  it: ["sit", "bit", "hit", "fit", "kit", "pit", "wit"],
+  in: ["pin", "win", "fin", "tin", "bin"],
+  og: ["dog", "log", "fog", "hog", "jog"],
+  ot: ["hot", "pot", "dot", "lot", "cot", "rot", "got"],
+  op: ["top", "hop", "mop", "pop", "cop"],
+  un: ["sun", "run", "fun", "bun", "gun", "pun"],
+  ug: ["bug", "rug", "hug", "mug", "dug", "jug"],
+  all: ["ball", "tall", "wall", "fall", "call", "hall", "mall"],
+};
+
+/** which family's HOUSE is on screen, by hand from the line dump — each entry is the
+ *  line where that family's setting arrives (its lead-in/announcement), rule 6 */
+const HOUSE_FROM: [number, string][] = [
+  [22, "at"], [42, "an"], [58, "ap"], [70, "en"], [81, "ig"], [90, "it"], [98, "in"],
+  [110, "og"], [118, "ot"], [126, "op"], [134, "un"], [142, "ug"], [150, "all"],
+];
+const houseFor = (idx: number): string | null => {
+  let h: string | null = null;
+  for (const [from, r] of HOUSE_FROM) if (idx >= from) h = r;
+  return h;
+};
+
+/** every line that SPEAKS a family word, hand-written from the dump — including the
+ *  intro demo (8, 11), the ‑all repeat run (170-172) and the quiz answers (187, 194) */
+const WORD: Record<number, { rime: string; word: string; k: number }> = {};
+const W = (idx: number, rime: string, word: string) =>
+  (WORD[idx] = { rime, word, k: FAMILIES[rime].indexOf(word) });
+W(8, "at", "cat"); W(11, "at", "cat");
+[28, 29, 30, 31, 32, 33, 34, 35].forEach((i, k) => W(i, "at", FAMILIES.at[k]));
+[48, 49, 50, 51, 52, 53, 54, 55].forEach((i, k) => W(i, "an", FAMILIES.an[k]));
+[60, 61, 62, 63, 64, 65].forEach((i, k) => W(i, "ap", FAMILIES.ap[k]));
+[73, 74, 75, 76, 77].forEach((i, k) => W(i, "en", FAMILIES.en[k]));
+[84, 85, 86, 87, 88, 89].forEach((i, k) => W(i, "ig", FAMILIES.ig[k]));
+[91, 92, 93, 94, 95, 96, 97].forEach((i, k) => W(i, "it", FAMILIES.it[k]));
+[99, 100, 101, 102, 103].forEach((i, k) => W(i, "in", FAMILIES.in[k]));
+[113, 114, 115, 116, 117].forEach((i, k) => W(i, "og", FAMILIES.og[k]));
+[119, 120, 121, 122, 123, 124, 125].forEach((i, k) => W(i, "ot", FAMILIES.ot[k]));
+[127, 128, 129, 130, 131].forEach((i, k) => W(i, "op", FAMILIES.op[k]));
+[136, 137, 138, 139, 140, 141].forEach((i, k) => W(i, "un", FAMILIES.un[k]));
+[143, 144, 145, 146, 147, 148].forEach((i, k) => W(i, "ug", FAMILIES.ug[k]));
+[153, 154, 155, 156, 157, 158, 159].forEach((i, k) => W(i, "all", FAMILIES.all[k]));
+W(163, "all", "ball"); W(170, "all", "ball"); W(171, "all", "tall"); W(172, "all", "wall");
+W(184, "en", "hen"); W(187, "en", "hen"); W(191, "ug", "bug"); W(194, "ug", "bug");
+
+/** presentation per family — rotated so houses feel different, all reading left→right */
+const STYLE: Record<string, "build" | "rail"> = {
+  at: "build", an: "rail", ap: "build", en: "build", ig: "rail", it: "build", in: "build",
+  og: "rail", ot: "build", op: "build", un: "rail", ug: "build", all: "build",
+};
+
+const STORE_FROM_IDX = 211;   // "And practise every one of these families…"
 export const L6_DURATION = Math.max(f(AUDIO_SEC) + 40, at(STORE_FROM_IDX) + STORE_OUTRO_F);
 
 const phraseAt = (frame: number) => {
@@ -94,12 +104,17 @@ const BEAT_OF: number[] = (() => {
   return out;
 })();
 
-/** the family whose house we are standing outside */
-const famFor = (idx: number) => {
-  let cur = FAMILIES[0];
-  for (const fam of FAMILIES) if (FIRST[fam.rime] !== undefined && FIRST[fam.rime] <= idx) cur = fam;
-  return cur;
+/** the banner follows the script's own timeline (rule 1), by hand */
+const bannerFor = (idx: number): string => {
+  if (idx <= 2) return "LEVEL 5 · WELL DONE!";
+  if (idx <= 21) return "LEVEL 6 · WORD FAMILIES";
+  if (idx >= 198) return "LEVEL 6 · WORD FAMILIES";
+  if (idx >= 179) return "YOUR TURN!";
+  const h = houseFor(idx);
+  return h ? `THE  ${h}  FAMILY` : "LEVEL 6 · WORD FAMILIES";
 };
+
+// ── small scene helpers, all reading left → right ───────────────────────────
 
 const Pic: React.FC<{ word: string; size: number }> = ({ word, size }) => {
   const frame = useCurrentFrame();
@@ -107,7 +122,7 @@ const Pic: React.FC<{ word: string; size: number }> = ({ word, size }) => {
   if (!src) return null;
   return (
     <div style={{ width: size, height: size, flex: "0 0 auto", display: "flex", alignItems: "center", justifyContent: "center",
-      transform: `translateY(${Math.sin(frame / 30) * 7}px) rotate(${Math.sin(frame / 44) * 3}deg)` }}>
+      transform: `translateY(${Math.sin(frame / 30) * 6}px)` }}>
       {src.startsWith("img/")
         ? <img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
         : <div style={{ fontSize: size * 0.84, lineHeight: 1 }}>{src}</div>}
@@ -115,176 +130,207 @@ const Pic: React.FC<{ word: string; size: number }> = ({ word, size }) => {
   );
 };
 
-/**
- * KIND — what a line is ABOUT, read from the line itself.
- *
- * The first cut chose a visual by `idx % 4`, so "You learned six spelling rules" got the
- * vowel row because 14 mod 4 is 2, and that row alone fired ~30 times. A visual has to be
- * chosen by CONTENT or it is decoration.
- */
-type Kind = "WORD" | "SAME" | "RIME" | "RECAP_L5" | "LEVEL6" | "TRICK" | "FAMILY_IDEA" | "VOWEL"
-          | "QUIZ" | "COUNT" | "PRAISE" | "OUTRO" | "TALK";
+/** the doorstep build: picture above, then front letter(s) + ending, left to right */
+const Build: React.FC<{ b: B; rime: string; word: string; a: number; u: (n: number) => number }> = ({ b, rime, word, a, u }) => {
+  const front = word.slice(0, word.length - rime.length);
+  return (
+    <>
+      <Pic word={word} size={u(210)} />
+      <Row gap={u(14)}>
+        {front.split("").map((c, i) => <Tile key={i} ch={c} size={u(150)} at={a + i * 2} seed={i} hot />)}
+        <Tile ch={rime} size={u(150)} tone="ending" w={u(150) * (rime.length > 2 ? 1.5 : 1.2)} />
+      </Row>
+    </>
+  );
+};
 
-const KIND: Kind[] = P.map((p, i) => {
-  const c = clean(p.text), t = p.text.toLowerCase();
-  if (CELL[i]) return "WORD";
-  if (FAMILIES.some((f) => f.rime === c)) return "RIME";
-  if (t.includes("spelling rule") || t.includes("level five")) return "RECAP_L5";
-  if (t.includes("level six")) return "LEVEL6";
-  if (t.includes("trick")) return "TRICK";
-  if (t.includes("stayed the same") || t.includes("only the front")
-      || t.includes("last two letters") || t.includes("change just one")
-      || t.includes("brand new word")) return "SAME";
-  if (t.includes("family") || t.includes("families")) return "FAMILY_IDEA";
-  if (t.includes("vowel") || t.includes("short a") || t.includes("short e")
-      || t.includes("short i") || t.includes("short o") || t.includes("short u")) return "VOWEL";
-  if (t.includes("which letter") || t.includes("your turn") || t.includes("picture")) return "QUIZ";
-  if (t.includes("eighty") || t.includes("thirteen") || t.includes("eight words")
-      || t.includes("sixteen") || t.includes("five words") || t.includes("twelve more")
-      || t.includes("eighteen more")) return "COUNT";
-  if (t.includes("proud") || t.includes("well done") || t.includes("beautifully")
-      || t.includes("really well") || t.includes("excellent") || t.includes("that is right")) return "PRAISE";
-  if (t.includes("subscribe") || t.includes("app") || t.includes("store")
-      || t.includes("next time") || t.includes("miss it")) return "OUTRO";
-  return "TALK";
-});
+/** the front letter swaps while the ending holds — "only the front changed" */
+const Swap: React.FC<{ rime: string; pair: [string, string]; a: number; frameNow: number; u: (n: number) => number }> = ({ rime, pair, a, frameNow, u }) => {
+  const k = Math.floor(Math.max(0, frameNow - a) / 24) % 2;
+  return (
+    <Row gap={u(16)}>
+      <Tile ch={pair[k]} size={u(175)} at={a} hot seed={k} />
+      <Tile ch={rime} size={u(235)} tone="ending" w={u(235) * (rime.length > 2 ? 1.4 : 1.25)} />
+    </Row>
+  );
+};
 
-/** the six rules of Level 5, for the one line that recaps them */
+/** one letter bolted still while the letters AFTER it change — "the a stays put" */
+const HoldVowel: React.FC<{ vowel: string; tails: string[]; a: number; frameNow: number; u: (n: number) => number }> = ({ vowel, tails, a, frameNow, u }) => {
+  const k = Math.floor(Math.max(0, frameNow - a) / 22) % tails.length;
+  return (
+    <Row gap={u(16)}>
+      <Tile ch={vowel} size={u(220)} tone="ending" hot />
+      <Tile ch={tails[k]} size={u(160)} at={a} seed={k} />
+    </Row>
+  );
+};
+
+const Icon: React.FC<{ glyph: string; size: number }> = ({ glyph, size }) => {
+  const frame = useCurrentFrame();
+  return <div style={{ fontSize: size, lineHeight: 1, transform: `translateY(${Math.sin(frame / 26) * 6}px) rotate(${Math.sin(frame / 38) * 4}deg)` }}>{glyph}</div>;
+};
+
+const Num: React.FC<{ n: string; a: number; u: (x: number) => number }> = ({ n, a, u }) => (
+  <Tile ch={n} size={u(230)} tone="ending" at={a} />
+);
+
 const L5_RULES = ["ff", "ck", "ng", "nk", "x", "w"];
+
+// ── THE SCENE TABLE — every line, by hand ───────────────────────────────────
 
 const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
   const frameNow = useCurrentFrame();
   const a = at(idx);
   const u = (n: number) => Math.round(n * (b.wide ? 1 : 0.84));
-  const cell = CELL[idx];
-  const fam = famFor(idx);
-  const kind = KIND[idx];
+  const w = WORD[idx];
 
-  // ── a WORD beat. Three presentations, rotated BY FAMILY so each house feels different:
-  //    build   the letter tile lands in front of the bolted ending (families 1,4,7…)
-  //    hub     the ending big in the middle, every front letter on a spoke (2,5,8…)
-  //    train   the ending is the engine and the word couples on (3,6,9…)
-  if (cell) {
-    const famIdx = FAMILIES.findIndex((fm) => fm.rime === cell.rime);
-    const style = famIdx % 3;
-    if (style === 1) {
-      return <Hub b={b} rime={cell.rime} words={FAMILIES[famIdx].words} onWord={cell.word} at={a} />;
+  // any line that SPEAKS a family word shows that word (rule 3) — presentation by family
+  if (w) {
+    if (STYLE[w.rime] === "rail" && idx >= 28) {
+      return <Rail b={b} rime={w.rime} words={FAMILIES[w.rime]} k={w.k} wordAt={a} />;
     }
-    if (style === 2) {
-      return (
-        <>
-          <Pic word={cell.word} size={u(180)} />
-          <Train b={b} rime={cell.rime} word={cell.word} k={cell.k} at={a} />
-        </>
-      );
-    }
-    const front = cell.word.slice(0, cell.word.length - cell.rime.length);
-    return (
-      <>
-        <Pic word={cell.word} size={u(215)} />
-        <Row gap={u(14)}>
-          {front.split("").map((c, i) => (
-            <Tile key={i} ch={c} size={u(148)} at={a + i * 2} seed={i} hot />
-          ))}
-          <Tile ch={cell.rime} size={u(148)} tone="ending" w={u(148) * (cell.rime.length > 2 ? 1.5 : 1.2)} />
-        </Row>
-      </>
-    );
+    return <Build b={b} rime={w.rime} word={w.word} a={a} u={u} />;
   }
 
-  switch (kind) {
-    // the ending arriving: it is the thing that will not move all section
-    case "RIME":
-      return (
-        <Row gap={u(20)}>
-          <Tile ch="?" size={u(160)} tone="dim" at={a} />
-          <Tile ch={fam.rime} size={u(190)} tone="ending" at={a}
-                w={u(190) * (fam.rime.length > 2 ? 1.5 : 1.2)} />
-        </Row>
-      );
-
-    // six ticked cards — the level just finished
-    case "RECAP_L5":
-      return (
-        <Row gap={u(14)}>
-          {L5_RULES.map((r, i) => (
-            <div key={r} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: u(8) }}>
-              <Tile ch={r} size={u(110)} at={a + i * 3} seed={i} />
-              <div style={{ fontSize: u(52), lineHeight: 1 }}>{"\u2705"}</div>
-            </div>
-          ))}
-        </Row>
-      );
-
-    case "LEVEL6":
-      return <Row gap={u(18)}>{["L", "6"].map((c, i) => <Tile key={c} ch={c} size={u(200)} tone={i ? "ending" : "front"} at={a + i * 5} />)}</Row>;
-
-    // the whole video in one beat: one letter changes, the rest holds
-    case "TRICK":
-    case "SAME": {
-      // the ending is BIG and lit; only the front letter flips. This is the whole video.
-      const swap = Math.floor(Math.max(0, frameNow - a) / 24) % 2;
-      return (
-        <Row gap={u(16)}>
-          <Tile ch={swap ? "b" : "c"} size={u(180)} at={a} hot seed={swap ? 1 : 2} />
-          <Tile ch="at" size={u(240)} tone="ending" w={u(240) * 1.25} />
-        </Row>
-      );
-    }
-
-    // the family: members at the windows
-    case "FAMILY_IDEA":
-      return (
-        <Row gap={u(16)}>
-          {fam.words.slice(0, 5).map((w, i) => <Pic key={w} word={w} size={u(140)} />)}
-        </Row>
-      );
-
-    // the vowel lives on the fence; here we simply show the ending it sits inside
-    case "VOWEL":
-      return (
-        <Row gap={u(16)}>
-          <Tile ch={fam.rime[0]} size={u(190)} tone="ending" at={a} hot />
-          <Tile ch={fam.rime.slice(1)} size={u(150)} at={a + 4} />
-        </Row>
-      );
-
-    case "QUIZ":
-      return (
-        <Row gap={u(20)}>
-          <Tile ch="?" size={u(170)} tone="dim" at={a} hot />
-          <Tile ch={fam.rime} size={u(170)} tone="ending" w={u(170) * 1.2} />
-        </Row>
-      );
-
-    case "COUNT": {
-      const n = fam.words.length;
-      return (
-        <Row gap={u(10)}>
-          {Array.from({ length: n }).map((_, i) => (
-            <Tile key={i} ch={fam.words[i][0]} size={u(96)} at={a + i * 3} seed={i} />
-          ))}
-        </Row>
-      );
-    }
-
-    case "PRAISE":
-      return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Pic key={i} word="fun" size={u(150)} />)}</Row>;
-
-    case "OUTRO":
-      return <Row gap={u(20)}><Pic word="ball" size={u(170)} /><Tile ch="6" size={u(150)} tone="ending" at={a} /></Row>;
-
-    // connective lines: the family's own words, held, so the frame is never bare and never
-    // repeats the sentence
-    // connective lines hold the family's ENDING, lit, with the door it belongs to — never
-    // a gallery of pictures unrelated to what is being said
-    default:
-      return (
-        <Row gap={u(18)}>
-          <Tile ch={fam.rime} size={u(210)} tone="ending" at={a}
-                w={u(210) * (fam.rime.length > 2 ? 1.5 : 1.2)} />
-        </Row>
-      );
+  switch (idx) {
+    // ── welcome (banner: LEVEL 5 · WELL DONE!) ──
+    case 0: return <Icon glyph={"\u{1F44B}"} size={u(200)} />;                                  // Welcome back!
+    case 1: return <Row gap={u(18)}><Tile ch="5" size={u(200)} tone="ending" at={a} /><Icon glyph={"⭐"} size={u(120)} /></Row>; // finished Level Five
+    case 2: return (                                                                            // six spelling rules, ticked
+      <Row gap={u(12)}>{L5_RULES.map((r, i) => (
+        <div key={r} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: u(8) }}>
+          <Tile ch={r} size={u(100)} at={a + i * 3} seed={i} />
+          <Icon glyph={"✅"} size={u(46)} />
+        </div>))}
+      </Row>);
+    case 3: return <LevelSix b={b} at={a} />;                                                   // starting Level Six
+    case 4: return <Row gap={u(20)}><Tile ch="rule" size={u(130)} tone="dim" /><Icon glyph={"❌"} size={u(110)} /></Row>; // NOT a rule
+    case 5: return <Row gap={u(20)}><Icon glyph={"\u{1FA84}"} size={u(150)} />{[0, 1, 2].map((i) => <Tile key={i} ch="" size={u(90)} at={a + 6 + i * 4} seed={i} />)}</Row>; // a trick → a pile of cards
+    case 6: return <Icon glyph={"\u{1F440}"} size={u(190)} />;                                  // let me show you
+    case 7: return <Tile ch="?" size={u(190)} tone="dim" at={a} />;                             // here is a word
+    case 9: return <Swap rime="at" pair={["c", "c"]} a={a} frameNow={frameNow} u={u} />;        // watch — one letter
+    case 10: return <Row gap={u(14)}><Tile ch="c" size={u(190)} at={a} hot /><Tile ch="at" size={u(150)} tone="dim" w={u(150) * 1.2} /></Row>; // the FIRST one
+    case 12: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // cat…bat
+    case 13: return <Row gap={u(30)}><Build b={b} rime="at" word="cat" a={a} u={(n) => Math.round(u(n) * 0.62)} /><Build b={b} rime="at" word="bat" a={a + 6} u={(n) => Math.round(u(n) * 0.62)} /></Row>; // did you see that?
+    case 14: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // everything else stayed the same
+    case 15: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // only the front changed
+    case 16: return <Row gap={u(20)}><Icon glyph={"\u{1FA84}"} size={u(140)} /><Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={(n) => Math.round(u(n) * 0.7)} /></Row>; // that is the trick
+    case 17: return <Row gap={u(10)}>{[0, 1, 2, 3, 4, 5].map((i) => <Tile key={i} ch="" size={u(84)} at={a + i * 3} seed={i} />)}</Row>; // hundreds of words
+    case 18: return <WordLit word="cat" rime="at" size={u(160)} at={a} />;                      // look at the END
+    case 19: return <Row gap={u(14)}>{["c", "a", "t"].map((c, i) => <Tile key={i} ch={c} size={u(170)} at={a + i * 6} seed={i} />)}</Row>; // C-A-T
+    case 20: return <WordLit word="cat" rime="at" size={u(170)} at={a} />;                      // last two letters are a and t
+    case 21: return <Row gap={u(20)}><Icon glyph={"\u{1F5E3}"} size={u(140)} /><Tile ch="at" size={u(180)} tone="ending" at={a} w={u(180) * 1.2} /></Row>; // say it with me
+    case 22: return <Tile ch="at" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // At. (house arrives)
+    case 23: return <Row gap={u(20)}><Icon glyph={"\u{1F4A1}"} size={u(140)} /><Tile ch="at" size={u(170)} tone="ending" w={u(170) * 1.2} /></Row>; // the important part
+    case 24: return <Row gap={u(22)}>{["cat", "bat", "hat"].map((word, i) => <WordLit key={word} word={word} rime="at" size={u(84)} at={a + i * 5} dimFront={false} />)}</Row>; // every word ending at says At
+    case 25: return <Row gap={u(16)}><Tile ch="?" size={u(170)} tone="dim" at={a} hot /><Tile ch="at" size={u(170)} tone="ending" w={u(170) * 1.2} /></Row>; // a different letter in front
+    case 26: return <Icon glyph={"\u{1F440}"} size={u(190)} />;                                 // watch
+    case 27: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;       // keep At, change the front
+    case 36: return <Row gap={u(12)}><Num n="8" a={a} u={u} />{FAMILIES.at.map((wd, i) => <Tile key={wd} ch={wd[0]} size={u(80)} at={a + i * 2} seed={i} />)}</Row>; // eight words
+    case 37: return <Tile ch="at" size={u(230)} tone="ending" at={a} hot w={u(230) * 1.2} />;   // one ending
+    case 38: return <Row gap={u(18)}>{["cat", "bat", "hat"].map((wd) => <Pic key={wd} word={wd} size={u(150)} />)}</Row>; // a word FAMILY
+    case 39: return <Row gap={u(22)}>{["rat", "mat", "sat"].map((word, i) => <WordLit key={word} word={word} rime="at" size={u(84)} at={a + i * 5} dimFront={false} />)}</Row>; // all end the same way
+    case 40: return <Row gap={u(16)}><Num n="8" a={a} u={u} /><Icon glyph={"\u{1F4D6}"} size={u(140)} /></Row>; // you read eight words
+    case 41: return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(130)} />)}</Row>; // well done!
+    // ── ‑an (house from 42) ──
+    case 42: return <Row gap={u(16)}><Tile ch="at" size={u(150)} tone="dim" w={u(150) * 1.2} /><Line text={"→"} size={u(90)} at={a} /><Tile ch="an" size={u(180)} tone="ending" at={a + 6} w={u(180) * 1.2} /></Row>; // same vowel, new ending
+    case 43: return <Tile ch="?" size={u(200)} tone="dim" at={a} hot />;                        // here is our next family
+    case 44: return <Tile ch="an" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // An.
+    case 45: return <Row gap={u(20)}><Icon glyph={"\u{1F442}"} size={u(150)} /><Tile ch="a" size={u(190)} tone="ending" at={a} hot /></Row>; // listen to the vowel
+    case 46: return <Row gap={u(20)}><WordLit word="at" rime="a" size={u(140)} at={a} dimFront={false} /><WordLit word="an" rime="a" size={u(140)} at={a + 6} dimFront={false} /></Row>; // still a short a
+    case 47: return <HoldVowel vowel="a" tails={["t", "n"]} a={a} frameNow={frameNow} u={u} />; // only the LAST letter changed
+    case 56: return <Num n="8" a={a} u={u} />;                                                  // eight more
+    case 57: return <Num n="16" a={a} u={u} />;                                                 // sixteen already
+    // ── ‑ap (house from 58) ──
+    case 58: return <Row gap={u(16)}><Tile ch="a" size={u(170)} tone="ending" hot /><Tile ch="?" size={u(150)} tone="dim" at={a} /></Row>; // one more a family
+    case 59: return <Tile ch="ap" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // Ap.
+    case 66: return <Icon glyph={"\u{1F440}"} size={u(190)} />;                                 // look what is happening
+    case 67: return <HoldVowel vowel="a" tails={["t", "n", "p"]} a={a} frameNow={frameNow} u={u} />; // the a stays put
+    case 68: return <HoldVowel vowel="a" tails={["t", "n", "p"]} a={a} frameNow={frameNow} u={u} />; // letters around it move
+    case 69: return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(130)} />)}</Row>; // doing really well
+    // ── ‑en (house from 70) ──
+    case 70: return <Row gap={u(16)}><Tile ch="a" size={u(140)} tone="dim" /><Line text={"→"} size={u(84)} at={a} /><Tile ch="e" size={u(190)} tone="ending" at={a + 5} hot /></Row>; // change the vowel
+    case 71: return <Tile ch="e" size={u(230)} tone="ending" at={a} hot />;                     // a short e
+    case 72: return <Tile ch="en" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // our family is En
+    case 78: return <Row gap={u(20)}><Icon glyph={"\u{1F5E3}"} size={u(140)} /><Tile ch="en" size={u(180)} tone="ending" at={a} w={u(180) * 1.2} /></Row>; // say the ending
+    case 79: return <Tile ch="en" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // En.
+    case 80: return <Row gap={u(14)}><Num n="5" a={a} u={u} /><Icon glyph={"\u{1FA84}"} size={u(130)} /></Row>; // five words, trick again
+    // ── the i families (ig 81 · it 90 · in 98) ──
+    case 81: return <Tile ch="i" size={u(230)} tone="ending" at={a} hot />;                     // now a short i
+    case 82: return <Row gap={u(16)}><Icon glyph={"\u{1F442}"} size={u(130)} />{[0, 1, 2].map((i) => <Tile key={i} ch="?" size={u(120)} tone="dim" at={a + i * 4} seed={i} />)}</Row>; // three families
+    case 83: return <Tile ch="ig" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // First, Ig
+    case 90: return <Tile ch="it" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // Next, It
+    case 98: return <Tile ch="in" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;   // And In
+    case 104: return <Icon glyph={"\u{1F914}"} size={u(190)} />;                                // did you notice?
+    case 105: return <Row gap={u(18)}>{["ig", "it", "in"].map((r, i) => <WordLit key={r} word={r} rime="i" size={u(120)} at={a + i * 5} dimFront={false} />)}</Row>; // same vowel in all three
+    case 106: return <Tile ch="i" size={u(240)} tone="ending" at={a} hot />;                    // i never changed
+    case 107: return <HoldVowel vowel="i" tails={["g", "t", "n"]} a={a} frameNow={frameNow} u={u} />; // only the END letter did
+    case 108: return <Num n="18" a={a} u={u} />;                                                // eighteen more
+    case 109: return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(130)} />)}</Row>; // reading beautifully
+    // ── the o families (og 110 · ot 118 · op 126) ──
+    case 110: return <Tile ch="o" size={u(230)} tone="ending" at={a} hot />;                    // now a short o
+    case 111: return <Row gap={u(16)}>{[0, 1, 2].map((i) => <Tile key={i} ch="?" size={u(130)} tone="dim" at={a + i * 4} seed={i} />)}</Row>; // three families again
+    case 112: return <Tile ch="og" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Og.
+    case 118: return <Tile ch="ot" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Ot.
+    case 126: return <Tile ch="op" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Op.
+    case 132: return <Row gap={u(14)}><Icon glyph={"\u{1F442}"} size={u(130)} /><Tile ch="t" size={u(140)} tone="dim" /><Tile ch="o" size={u(180)} tone="ending" hot at={a} /><Tile ch="p" size={u(140)} tone="dim" seed={1} /></Row>; // listen to the MIDDLE
+    case 133: return <Tile ch="o" size={u(240)} tone="ending" at={a} hot />;                    // same o every time
+    // ── the u families (un 134 · ug 142) ──
+    case 134: return <Tile ch="u" size={u(230)} tone="ending" at={a} hot />;                    // last short vowel: u
+    case 135: return <Tile ch="un" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Un.
+    case 142: return <Tile ch="ug" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // Ug.
+    case 149: return <Row gap={u(14)}><Num n="12" a={a} u={u} /><Tile ch="un" size={u(120)} tone="ending" w={u(120) * 1.2} /><Tile ch="ug" size={u(120)} tone="ending" seed={1} w={u(120) * 1.2} /></Row>; // twelve from two
+    // ── ‑all, the honest one (house from 150) ──
+    case 150: return <Row gap={u(18)}><Tile ch="all" size={u(170)} tone="dim" at={a} w={u(170) * 1.5} /><Icon glyph={"❗"} size={u(130)} /></Row>; // I have to be honest
+    case 151: return <Tile ch="?" size={u(200)} tone="dim" at={a} hot />;                       // here it is
+    case 152: return <Tile ch="all" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.5} />; // All.
+    case 160: return <Swap rime="all" pair={["b", "t"]} a={a} frameNow={frameNow} u={u} />;     // the trick still works
+    case 161: return <Swap rime="all" pair={["b", "t"]} a={a} frameNow={frameNow} u={u} />;     // change the front
+    case 162: return <Row gap={u(14)}><Icon glyph={"\u{1F442}"} size={u(130)} /><Tile ch="b" size={u(140)} tone="dim" /><Tile ch="a" size={u(180)} tone="ending" hot at={a} /><Tile ch="ll" size={u(140)} tone="dim" seed={1} w={u(140) * 1.2} /></Row>; // listen to the middle
+    case 164: return <Row gap={u(20)}><Tile ch="a" size={u(180)} at={a} /><Icon glyph={"❌"} size={u(120)} /></Row>; // NOT a short a
+    case 165: return <Row gap={u(20)}><WordLit word="cat" rime="a" size={u(120)} at={a} dimFront={false} /><Icon glyph={"❌"} size={u(110)} /></Row>; // not like cat
+    case 166: return <Row gap={u(16)}><Tile ch="a" size={u(150)} tone="dim" /><Line text={"→"} size={u(84)} at={a} /><Icon glyph={"✨"} size={u(130)} /></Row>; // changed into something else
+    case 167: return <Row gap={u(14)}>{["a", "l", "l"].map((c, i) => <Tile key={i} ch={c} size={u(140)} tone="dim" seed={i} />)}<Icon glyph={"❌"} size={u(110)} /></Row>; // don't sound it out
+    case 168: return <Tile ch="all" size={u(240)} tone="ending" at={a} hot w={u(240) * 1.5} />; // ONE piece
+    case 169: return <Row gap={u(14)}>{["a", "l", "l"].map((c, i) => <Tile key={i} ch={c} size={u(130)} at={a + i * 4} seed={i} />)}<Line text={"→"} size={u(80)} at={a + 14} /><Tile ch="all" size={u(170)} tone="ending" at={a + 18} w={u(170) * 1.5} /></Row>; // a,l,l → All
+    case 173: return <Row gap={u(20)}><Icon glyph={"\u{1F5E3}"} size={u(140)} /><Tile ch="all" size={u(180)} tone="ending" at={a} w={u(180) * 1.5} /></Row>; // say it with me
+    case 174: return <Tile ch="all" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.5} />; // All.
+    case 175: return <WordLit word="ball" rime="all" size={u(150)} at={a} />;                   // look at the ending
+    case 176: return <Row gap={u(16)}><Tile ch="l" size={u(180)} at={a} hot /><Tile ch="l" size={u(180)} at={a + 5} seed={1} hot /></Row>; // two l's
+    case 177: return <Icon glyph={"\u{1F914}"} size={u(190)} />;                                // remember why?
+    case 178: return <Row gap={u(16)}><Tile ch="ff" size={u(130)} /><Tile ch="ll" size={u(150)} at={a} hot seed={1} /><Icon glyph={"✅"} size={u(100)} /></Row>; // the Floss rule
+    // ── your turn (banner: YOUR TURN!) ──
+    case 179: return <Icon glyph={"\u{1F3AF}"} size={u(190)} />;                                // now it is your turn
+    case 180: return <Row gap={u(16)}><Tile ch="?" size={u(160)} tone="dim" at={a} hot /><Tile ch="en" size={u(160)} tone="ending" w={u(160) * 1.2} /></Row>; // you tell me the front
+    case 181: return <Tile ch="?" size={u(180)} tone="dim" at={a} />;                           // here is the ending
+    case 182: return <Tile ch="en" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // En.
+    case 183: return <Icon glyph={"\u{1F5BC}"} size={u(180)} />;                                // here is the picture
+    case 185: return <Row gap={u(16)}><Pic word="hen" size={u(180)} /><Tile ch="?" size={u(150)} tone="dim" at={a} hot /><Tile ch="en" size={u(150)} tone="ending" w={u(150) * 1.2} /></Row>; // which letter starts it?
+    case 186: return <Tile ch="h" size={u(230)} at={a} hot />;                                  // H.
+    case 188: return <Row gap={u(20)}><Icon glyph={"✅"} size={u(140)} /><Icon glyph={"⭐"} size={u(120)} /></Row>; // that is right!
+    case 189: return <Icon glyph={"\u{1F449}"} size={u(180)} />;                                // one more
+    case 190: return <Tile ch="ug" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // the ending is Ug
+    case 192: return <Row gap={u(16)}><Pic word="bug" size={u(180)} /><Tile ch="?" size={u(150)} tone="dim" at={a} hot /><Tile ch="ug" size={u(150)} tone="ending" w={u(150) * 1.2} /></Row>; // which letter?
+    case 193: return <Tile ch="b" size={u(230)} at={a} hot />;                                  // B.
+    case 195: return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(130)} />)}</Row>; // excellent!
+    case 196: return <Icon glyph={"\u{1F4A1}"} size={u(190)} />;                                // the whole skill
+    case 197: return <Row gap={u(16)}><Tile ch="at" size={u(170)} tone="ending" hot w={u(170) * 1.2} /><Line text={"→"} size={u(84)} at={a} /><Tile ch="?" size={u(150)} tone="dim" at={a + 5} /></Row>; // ending first, then the front
+    // ── remember + close ──
+    case 198: return <Icon glyph={"\u{1F9E0}"} size={u(190)} />;                                // what we learned
+    case 199: return <Row gap={u(22)}>{["cat", "bat", "hat"].map((word, i) => <WordLit key={word} word={word} rime="at" size={u(84)} at={a + i * 5} dimFront={false} />)}</Row>; // end the same way
+    case 200: return <Row gap={u(16)}><Tile ch="at" size={u(160)} tone="ending" hot w={u(160) * 1.2} /><Line text={"→"} size={u(80)} at={a} />{["c", "b", "h"].map((c, i) => <Tile key={c} ch={c} size={u(110)} at={a + 6 + i * 3} seed={i} />)}</Row>; // read the ending → read them all
+    case 201: return <Swap rime="at" pair={["c", "b"]} a={a} frameNow={frameNow} u={u} />;      // only change the front
+    case 202: return <Row gap={u(20)}><Num n="13" a={a} u={u} /><Line text={"→"} size={u(84)} at={a + 6} /><Num n="81" a={a + 10} u={u} /></Row>; // 13 families, 81 words
+    case 203: return <Num n="81" a={a} u={u} />;                                                // eighty-one
+    case 204: return <Row gap={u(10)}>{["at", "an", "ap", "en", "ig", "it"].map((r, i) => <Tile key={r} ch={r} size={u(96)} tone="ending" at={a + i * 3} seed={i} w={u(96) * 1.2} />)}</Row>; // from thirteen endings
+    case 205: return <Icon glyph={"\u{1FA84}"} size={u(190)} />;                                // so useful
+    case 206: return <Row gap={u(24)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(130)} />)}</Row>; // proud of you
+    case 207: return <Icon glyph={"\u{1F4D6}"} size={u(190)} />;                                // turns sounding out into reading
+    case 208: return <LevelSix b={b} at={a} />;                                                 // next time, Level Six continues
+    case 209: return <Icon glyph={"❗"} size={u(190)} />;                                   // don't miss it
+    case 210: return <Row gap={u(24)}><Icon glyph={"\u{1F44D}"} size={u(150)} /><Icon glyph={"\u{1F514}"} size={u(150)} /></Row>; // like + subscribe
+    default: return <Tile ch={houseFor(idx) ?? "at"} size={u(200)} tone="ending" w={u(200) * 1.3} />;
   }
 };
 
@@ -294,19 +340,16 @@ export const L6FamiliesReel: React.FC = () => {
   const b = bands(width, height);
   const idx = BEAT_OF[phraseAt(frame)];
   const storeFrom = at(STORE_FROM_IDX);
-  const fam = famFor(idx);
-  const intro = inIntro(idx);
-  const cell = CELL[idx];
-  const shown = fam.words.filter((w, k) => {
-    const i = Object.entries(CELL).find(([, c]) => c.rime === fam.rime && c.word === w)?.[0];
-    return i !== undefined && Number(i) <= idx;
-  }).length;
-  const letter = cell ? cell.word.slice(0, cell.word.length - cell.rime.length) || cell.word[0] : fam.rime[0];
+  const house = houseFor(idx);
+  const words = house ? FAMILIES[house] : [];
+  const shown = words.filter((wd) =>
+    Object.entries(WORD).some(([i, c]) => c.rime === house && c.word === wd && Number(i) <= idx && Number(i) >= 28)
+  ).length;
+  const zipLetter = WORD[idx] ? WORD[idx].word.slice(0, WORD[idx].word.length - WORD[idx].rime.length) || WORD[idx].word[0] : (house ?? "a")[0];
 
   return (
     <AbsoluteFill>
-      <Lane b={b} rime={fam.rime} dusk={idx >= P.length - 14} noHouse={intro} />
-
+      <Lane b={b} rime={house ?? "at"} dusk={idx >= 206} noHouse={!house} />
       <Sequence from={0} durationInFrames={f(AUDIO_SEC) + 8}>
         <Audio src={staticFile("audio/l6_families/l6.mp3")} />
       </Sequence>
@@ -316,13 +359,13 @@ export const L6FamiliesReel: React.FC = () => {
 
       {frame < storeFrom && (
         <>
-          <Banner b={b} text={intro ? "LEVEL 6 · WORD FAMILIES" : `THE  ${fam.rime}  FAMILY`} />
-          {!intro && <WashingLine b={b} words={fam.words} shown={shown} rime={fam.rime} />}
-          {!intro && <VowelStrip b={b} lit={fam.rime[0]} />}
-          <Content b={intro ? { ...b, contentR: b.contentRFull } : b}><Scene idx={idx} b={b} /></Content>
+          <Banner b={b} text={bannerFor(idx)} />
+          {house && <WashingLine b={b} words={words} shown={shown} rime={house} />}
+          {house && <VowelStrip b={b} lit={house === "all" ? undefined : house[0]} />}
+          <Content b={house ? b : { ...b, contentR: b.contentRFull }}><Scene idx={idx} b={b} /></Content>
           <Fixed b={b}>
             <Mo b={b} />
-            <Zip b={b} letter={letter} at={cell ? at(idx) : 0} />
+            <Zip b={b} letter={zipLetter} at={WORD[idx] ? at(idx) : 0} />
           </Fixed>
           <Captions track={TRACK} maxWidth={b.wide ? 1180 : 900} />
           <Watermark corner="tr" widthFrac={b.wide ? 0.085 : 0.11} pad={b.wide ? 54 : 46} />
