@@ -79,7 +79,7 @@ W(8, "at", "cat"); W(11, "at", "cat");
 [143, 144, 145, 146, 147, 148].forEach((i, k) => W(i, "ug", FAMILIES.ug[k]));
 [153, 154, 155, 156, 157, 158, 159].forEach((i, k) => W(i, "all", FAMILIES.all[k]));
 W(163, "all", "ball"); W(170, "all", "ball"); W(171, "all", "tall"); W(172, "all", "wall");
-W(184, "en", "hen"); W(187, "en", "hen"); W(191, "ug", "bug"); W(194, "ug", "bug");
+W(187, "en", "hen"); W(194, "ug", "bug");   // 184/191 are picture-ONLY: spelling them would answer the quiz
 
 /** the sound pass (item 7): pop per word, chime per family arrival, sparkle+confetti on
  *  praise, question/correct around the quiz */
@@ -328,7 +328,9 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 180: return <Row gap={u(16)}><Tile ch="?" size={u(160)} tone="dim" at={a} hot /><Tile ch="en" size={u(160)} tone="ending" w={u(160) * 1.2} /></Row>; // you tell me the front
     case 181: return <Tile ch="?" size={u(180)} tone="dim" at={a} />;                           // here is the ending
     case 182: return <Tile ch="en" size={u(250)} tone="ending" at={a} hot w={u(250) * 1.2} />;  // En.
-    case 183: return <Icon glyph={"\u{1F5BC}"} size={u(180)} />;                                // here is the picture
+    case 183: return <Icon glyph={"\u{1F5BC}"} size={u(180)} />;
+    case 184: return <Pic word="hen" size={u(300)} />;                                     // A hen. — picture ONLY, no spelling
+    case 191: return <Pic word="bug" size={u(300)} />;                                     // …is a bug. — picture ONLY                                // here is the picture
     case 185: return <Row gap={u(16)}><Pic word="hen" size={u(180)} /><Tile ch="?" size={u(150)} tone="dim" at={a} hot /><Tile ch="en" size={u(150)} tone="ending" w={u(150) * 1.2} /></Row>; // which letter starts it?
     case 186: return <Tile ch="h" size={u(230)} at={a} hot />;                                  // H.
     case 188: return <Row gap={u(20)}><Icon glyph={"✅"} size={u(140)} /><Icon glyph={"⭐"} size={u(120)} /></Row>; // that is right!
