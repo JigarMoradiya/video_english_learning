@@ -6,6 +6,7 @@ import { L5RulesP3Reel, L5_P3_DURATION } from "./l5_rules_p3";
 import { RuleDoubleReel, RULE_DOUBLE_DURATION } from "./rule_double";
 import { RuleCkReel, RULE_CK_DURATION } from "./rule_ck";
 import { RuleNgReel, RuleNkReel, RuleXReel, RuleWReel, RULE_SHORT_DURATION } from "./rule_shorts_l5";
+import { L6FamiliesReel, L6_DURATION } from "./l6_families";
 import { PairShort, PAIRS, PAIR_SHORT_DURATION } from "./pair_short";
 import { OoShort, OO_SHORT_DURATION } from "./oo_short";
 import React from "react";
@@ -169,6 +170,8 @@ export const REELS: ReelEntry[] = [
   { id: "l5-rules-p2-4x5", component: L5RulesP2Reel, durationInFrames: L5_P2_DURATION, width: 1080, height: 1350 },
   { id: "l5-rules-p2-16x9", component: L5RulesP2Reel, durationInFrames: L5_P2_DURATION, width: 1920, height: 1080 },
   { id: "l5-rules-p3-4x5", component: L5RulesP3Reel, durationInFrames: L5_P3_DURATION, width: 1080, height: 1350 },
+  { id: "l6-families-16x9", component: L6FamiliesReel, durationInFrames: L6_DURATION, width: 1920, height: 1080 },
+  { id: "l6-families-4x5", component: L6FamiliesReel, durationInFrames: L6_DURATION, width: 1080, height: 1350 },
   { id: "l5-rules-p3-16x9", component: L5RulesP3Reel, durationInFrames: L5_P3_DURATION, width: 1920, height: 1080 },
   { id: "first-sentences-16x9", component: FirstSentencesReel, durationInFrames: FIRST_SENTENCES_DURATION, width: 1920, height: 1080 },
   // 4:5 for Facebook — the SAME reel: identical timing, audio and SFX, laid out for a

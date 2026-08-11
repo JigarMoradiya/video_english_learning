@@ -1,0 +1,5931 @@
+[
+  {
+    "index": 0,
+    "text": "Welcome back!",
+    "start": 0.28,
+    "end": 0.98,
+    "duration": 0.7,
+    "words": [
+      {
+        "word": "Welcome",
+        "start": 0.28,
+        "end": 0.58
+      },
+      {
+        "word": "back!",
+        "start": 0.58,
+        "end": 0.98
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Last time we finished level 5,",
+    "start": 1.64,
+    "end": 3.68,
+    "duration": 2.04,
+    "words": [
+      {
+        "word": "Last",
+        "start": 1.64,
+        "end": 1.82
+      },
+      {
+        "word": "time",
+        "start": 1.82,
+        "end": 2.16
+      },
+      {
+        "word": "we",
+        "start": 2.16,
+        "end": 2.42
+      },
+      {
+        "word": "finished",
+        "start": 2.42,
+        "end": 2.86
+      },
+      {
+        "word": "level",
+        "start": 2.86,
+        "end": 3.24
+      },
+      {
+        "word": "5,",
+        "start": 3.24,
+        "end": 3.68
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "you learned 6 spelling rules",
+    "start": 4.2,
+    "end": 6.28,
+    "duration": 2.08,
+    "words": [
+      {
+        "word": "you",
+        "start": 4.2,
+        "end": 4.4
+      },
+      {
+        "word": "learned",
+        "start": 4.4,
+        "end": 4.8
+      },
+      {
+        "word": "6",
+        "start": 4.8,
+        "end": 5.3
+      },
+      {
+        "word": "spelling",
+        "start": 5.7,
+        "end": 5.9
+      },
+      {
+        "word": "rules",
+        "start": 5.9,
+        "end": 6.28
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "and you learned them all.",
+    "start": 6.86,
+    "end": 8.56,
+    "duration": 1.7,
+    "words": [
+      {
+        "word": "and",
+        "start": 6.86,
+        "end": 7.04
+      },
+      {
+        "word": "you",
+        "start": 7.04,
+        "end": 7.18
+      },
+      {
+        "word": "learned",
+        "start": 7.18,
+        "end": 7.6
+      },
+      {
+        "word": "them",
+        "start": 7.6,
+        "end": 8.02
+      },
+      {
+        "word": "all.",
+        "start": 8.02,
+        "end": 8.56
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Today we are starting level 6",
+    "start": 9.5,
+    "end": 11.28,
+    "duration": 1.78,
+    "words": [
+      {
+        "word": "Today",
+        "start": 9.5,
+        "end": 9.72
+      },
+      {
+        "word": "we",
+        "start": 9.72,
+        "end": 10.04
+      },
+      {
+        "word": "are",
+        "start": 10.04,
+        "end": 10.16
+      },
+      {
+        "word": "starting",
+        "start": 10.16,
+        "end": 10.52
+      },
+      {
+        "word": "level",
+        "start": 10.52,
+        "end": 10.94
+      },
+      {
+        "word": "6",
+        "start": 10.94,
+        "end": 11.28
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "and this one is different.",
+    "start": 11.82,
+    "end": 13.18,
+    "duration": 1.36,
+    "words": [
+      {
+        "word": "and",
+        "start": 11.82,
+        "end": 11.98
+      },
+      {
+        "word": "this",
+        "start": 11.98,
+        "end": 12.26
+      },
+      {
+        "word": "one",
+        "start": 12.3,
+        "end": 12.5
+      },
+      {
+        "word": "is",
+        "start": 12.5,
+        "end": 12.82
+      },
+      {
+        "word": "different.",
+        "start": 12.82,
+        "end": 13.18
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Today you are not learning a rule.",
+    "start": 14.12,
+    "end": 16.24,
+    "duration": 2.12,
+    "words": [
+      {
+        "word": "Today",
+        "start": 14.12,
+        "end": 14.42
+      },
+      {
+        "word": "you",
+        "start": 14.42,
+        "end": 14.72
+      },
+      {
+        "word": "are",
+        "start": 14.72,
+        "end": 14.92
+      },
+      {
+        "word": "not",
+        "start": 14.92,
+        "end": 15.3
+      },
+      {
+        "word": "learning",
+        "start": 15.3,
+        "end": 15.78
+      },
+      {
+        "word": "a",
+        "start": 15.78,
+        "end": 15.96
+      },
+      {
+        "word": "rule.",
+        "start": 15.96,
+        "end": 16.24
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Today you are learning a trick.",
+    "start": 17.08,
+    "end": 18.84,
+    "duration": 1.76,
+    "words": [
+      {
+        "word": "Today",
+        "start": 17.08,
+        "end": 17.32
+      },
+      {
+        "word": "you",
+        "start": 17.32,
+        "end": 17.68
+      },
+      {
+        "word": "are",
+        "start": 17.68,
+        "end": 17.84
+      },
+      {
+        "word": "learning",
+        "start": 17.84,
+        "end": 18.16
+      },
+      {
+        "word": "a",
+        "start": 18.16,
+        "end": 18.54
+      },
+      {
+        "word": "trick.",
+        "start": 18.54,
+        "end": 18.84
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "A trick that lets you read a whole pile of words at once.",
+    "start": 19.62,
+    "end": 23.44,
+    "duration": 3.82,
+    "words": [
+      {
+        "word": "A",
+        "start": 19.62,
+        "end": 19.74
+      },
+      {
+        "word": "trick",
+        "start": 19.74,
+        "end": 20.0
+      },
+      {
+        "word": "that",
+        "start": 20.0,
+        "end": 20.26
+      },
+      {
+        "word": "lets",
+        "start": 20.26,
+        "end": 20.48
+      },
+      {
+        "word": "you",
+        "start": 20.48,
+        "end": 20.72
+      },
+      {
+        "word": "read",
+        "start": 20.72,
+        "end": 20.98
+      },
+      {
+        "word": "a",
+        "start": 20.98,
+        "end": 21.18
+      },
+      {
+        "word": "whole",
+        "start": 21.18,
+        "end": 21.62
+      },
+      {
+        "word": "pile",
+        "start": 21.62,
+        "end": 22.06
+      },
+      {
+        "word": "of",
+        "start": 22.06,
+        "end": 22.36
+      },
+      {
+        "word": "words",
+        "start": 22.36,
+        "end": 22.78
+      },
+      {
+        "word": "at",
+        "start": 22.78,
+        "end": 23.08
+      },
+      {
+        "word": "once.",
+        "start": 23.08,
+        "end": 23.44
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Let me show you what I mean.",
+    "start": 24.64,
+    "end": 25.9,
+    "duration": 1.26,
+    "words": [
+      {
+        "word": "Let",
+        "start": 24.64,
+        "end": 24.8
+      },
+      {
+        "word": "me",
+        "start": 24.8,
+        "end": 24.94
+      },
+      {
+        "word": "show",
+        "start": 24.94,
+        "end": 25.16
+      },
+      {
+        "word": "you",
+        "start": 25.16,
+        "end": 25.34
+      },
+      {
+        "word": "what",
+        "start": 25.34,
+        "end": 25.52
+      },
+      {
+        "word": "I",
+        "start": 25.52,
+        "end": 25.68
+      },
+      {
+        "word": "mean.",
+        "start": 25.68,
+        "end": 25.9
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Here is a word,",
+    "start": 26.94,
+    "end": 27.68,
+    "duration": 0.74,
+    "words": [
+      {
+        "word": "Here",
+        "start": 26.94,
+        "end": 27.08
+      },
+      {
+        "word": "is",
+        "start": 27.08,
+        "end": 27.28
+      },
+      {
+        "word": "a",
+        "start": 27.28,
+        "end": 27.42
+      },
+      {
+        "word": "word,",
+        "start": 27.42,
+        "end": 27.68
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "cat.",
+    "start": 28.38,
+    "end": 28.66,
+    "duration": 0.28,
+    "words": [
+      {
+        "word": "cat.",
+        "start": 28.38,
+        "end": 28.66
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Now watch what happens when I change just one letter.",
+    "start": 30.16,
+    "end": 33.84,
+    "duration": 3.68,
+    "words": [
+      {
+        "word": "Now",
+        "start": 30.16,
+        "end": 30.34
+      },
+      {
+        "word": "watch",
+        "start": 30.34,
+        "end": 30.7
+      },
+      {
+        "word": "what",
+        "start": 30.76,
+        "end": 30.88
+      },
+      {
+        "word": "happens",
+        "start": 30.88,
+        "end": 31.44
+      },
+      {
+        "word": "when",
+        "start": 31.44,
+        "end": 31.7
+      },
+      {
+        "word": "I",
+        "start": 31.7,
+        "end": 31.86
+      },
+      {
+        "word": "change",
+        "start": 31.86,
+        "end": 32.22
+      },
+      {
+        "word": "just",
+        "start": 32.22,
+        "end": 32.7
+      },
+      {
+        "word": "one",
+        "start": 32.7,
+        "end": 33.22
+      },
+      {
+        "word": "letter.",
+        "start": 33.22,
+        "end": 33.84
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "The first one.",
+    "start": 34.54,
+    "end": 35.32,
+    "duration": 0.78,
+    "words": [
+      {
+        "word": "The",
+        "start": 34.54,
+        "end": 34.64
+      },
+      {
+        "word": "first",
+        "start": 34.64,
+        "end": 35.02
+      },
+      {
+        "word": "one.",
+        "start": 35.02,
+        "end": 35.32
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Cat. Bat.",
+    "start": 36.52,
+    "end": 38.34,
+    "duration": 1.82,
+    "words": [
+      {
+        "word": "Cat.",
+        "start": 36.52,
+        "end": 36.78
+      },
+      {
+        "word": "Bat.",
+        "start": 37.7,
+        "end": 38.34
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Did you see that?",
+    "start": 39.7,
+    "end": 40.5,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "Did",
+        "start": 39.7,
+        "end": 39.8
+      },
+      {
+        "word": "you",
+        "start": 39.8,
+        "end": 39.96
+      },
+      {
+        "word": "see",
+        "start": 39.96,
+        "end": 40.2
+      },
+      {
+        "word": "that?",
+        "start": 40.2,
+        "end": 40.5
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Everything else stayed the same.",
+    "start": 41.24,
+    "end": 43.0,
+    "duration": 1.76,
+    "words": [
+      {
+        "word": "Everything",
+        "start": 41.24,
+        "end": 41.62
+      },
+      {
+        "word": "else",
+        "start": 41.62,
+        "end": 42.08
+      },
+      {
+        "word": "stayed",
+        "start": 42.08,
+        "end": 42.44
+      },
+      {
+        "word": "the",
+        "start": 42.44,
+        "end": 42.64
+      },
+      {
+        "word": "same.",
+        "start": 42.64,
+        "end": 43.0
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Only the front changed and it made a brand new word.",
+    "start": 43.68,
+    "end": 47.6,
+    "duration": 3.92,
+    "words": [
+      {
+        "word": "Only",
+        "start": 43.68,
+        "end": 43.98
+      },
+      {
+        "word": "the",
+        "start": 43.98,
+        "end": 44.18
+      },
+      {
+        "word": "front",
+        "start": 44.18,
+        "end": 44.5
+      },
+      {
+        "word": "changed",
+        "start": 44.5,
+        "end": 45.1
+      },
+      {
+        "word": "and",
+        "start": 45.1,
+        "end": 45.66
+      },
+      {
+        "word": "it",
+        "start": 45.66,
+        "end": 45.78
+      },
+      {
+        "word": "made",
+        "start": 45.78,
+        "end": 46.02
+      },
+      {
+        "word": "a",
+        "start": 46.02,
+        "end": 46.32
+      },
+      {
+        "word": "brand",
+        "start": 46.32,
+        "end": 46.64
+      },
+      {
+        "word": "new",
+        "start": 46.64,
+        "end": 47.14
+      },
+      {
+        "word": "word.",
+        "start": 47.14,
+        "end": 47.6
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "That is the trick.",
+    "start": 48.48,
+    "end": 49.56,
+    "duration": 1.08,
+    "words": [
+      {
+        "word": "That",
+        "start": 48.48,
+        "end": 48.8
+      },
+      {
+        "word": "is",
+        "start": 48.8,
+        "end": 49.14
+      },
+      {
+        "word": "the",
+        "start": 49.14,
+        "end": 49.3
+      },
+      {
+        "word": "trick.",
+        "start": 49.3,
+        "end": 49.56
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "And once you know it,",
+    "start": 50.48,
+    "end": 51.6,
+    "duration": 1.12,
+    "words": [
+      {
+        "word": "And",
+        "start": 50.48,
+        "end": 50.62
+      },
+      {
+        "word": "once",
+        "start": 50.62,
+        "end": 50.86
+      },
+      {
+        "word": "you",
+        "start": 50.86,
+        "end": 51.1
+      },
+      {
+        "word": "know",
+        "start": 51.1,
+        "end": 51.34
+      },
+      {
+        "word": "it,",
+        "start": 51.34,
+        "end": 51.6
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "you can read hundreds of words.",
+    "start": 52.0,
+    "end": 54.16,
+    "duration": 2.16,
+    "words": [
+      {
+        "word": "you",
+        "start": 52.0,
+        "end": 52.2
+      },
+      {
+        "word": "can",
+        "start": 52.2,
+        "end": 52.48
+      },
+      {
+        "word": "read",
+        "start": 52.48,
+        "end": 52.74
+      },
+      {
+        "word": "hundreds",
+        "start": 52.74,
+        "end": 53.4
+      },
+      {
+        "word": "of",
+        "start": 53.4,
+        "end": 53.78
+      },
+      {
+        "word": "words.",
+        "start": 53.78,
+        "end": 54.16
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "Look at the end of the word.",
+    "start": 55.52,
+    "end": 56.74,
+    "duration": 1.22,
+    "words": [
+      {
+        "word": "Look",
+        "start": 55.52,
+        "end": 55.64
+      },
+      {
+        "word": "at",
+        "start": 55.64,
+        "end": 55.8
+      },
+      {
+        "word": "the",
+        "start": 55.8,
+        "end": 55.92
+      },
+      {
+        "word": "end",
+        "start": 55.92,
+        "end": 56.22
+      },
+      {
+        "word": "of",
+        "start": 56.22,
+        "end": 56.36
+      },
+      {
+        "word": "the",
+        "start": 56.36,
+        "end": 56.48
+      },
+      {
+        "word": "word.",
+        "start": 56.48,
+        "end": 56.74
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "C A T. The last two letters are ʻ and ʿ.",
+    "start": 57.64,
+    "end": 63.5,
+    "duration": 5.86,
+    "words": [
+      {
+        "word": "C",
+        "start": 57.64,
+        "end": 57.8
+      },
+      {
+        "word": "A",
+        "start": 57.8,
+        "end": 58.6
+      },
+      {
+        "word": "T.",
+        "start": 58.6,
+        "end": 59.28
+      },
+      {
+        "word": "The",
+        "start": 60.24,
+        "end": 60.36
+      },
+      {
+        "word": "last",
+        "start": 60.36,
+        "end": 60.76
+      },
+      {
+        "word": "two",
+        "start": 60.76,
+        "end": 61.04
+      },
+      {
+        "word": "letters",
+        "start": 61.04,
+        "end": 61.36
+      },
+      {
+        "word": "are",
+        "start": 61.36,
+        "end": 61.72
+      },
+      {
+        "word": "ʻ",
+        "start": 61.72,
+        "end": 62.1
+      },
+      {
+        "word": "and",
+        "start": 62.1,
+        "end": 62.88
+      },
+      {
+        "word": "ʿ.",
+        "start": 62.88,
+        "end": 63.5
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "Say that ending with me.",
+    "start": 64.48,
+    "end": 65.72,
+    "duration": 1.24,
+    "words": [
+      {
+        "word": "Say",
+        "start": 64.48,
+        "end": 64.6
+      },
+      {
+        "word": "that",
+        "start": 64.6,
+        "end": 64.82
+      },
+      {
+        "word": "ending",
+        "start": 64.82,
+        "end": 65.16
+      },
+      {
+        "word": "with",
+        "start": 65.16,
+        "end": 65.48
+      },
+      {
+        "word": "me.",
+        "start": 65.48,
+        "end": 65.72
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "At. Now here is the important part.",
+    "start": 66.48,
+    "end": 69.88,
+    "duration": 3.4,
+    "words": [
+      {
+        "word": "At.",
+        "start": 66.48,
+        "end": 66.8
+      },
+      {
+        "word": "Now",
+        "start": 68.22,
+        "end": 68.4
+      },
+      {
+        "word": "here",
+        "start": 68.4,
+        "end": 68.72
+      },
+      {
+        "word": "is",
+        "start": 68.72,
+        "end": 68.94
+      },
+      {
+        "word": "the",
+        "start": 68.94,
+        "end": 69.08
+      },
+      {
+        "word": "important",
+        "start": 69.08,
+        "end": 69.52
+      },
+      {
+        "word": "part.",
+        "start": 69.52,
+        "end": 69.88
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "Every word that ends in those two letters says at.",
+    "start": 70.66,
+    "end": 74.88,
+    "duration": 4.22,
+    "words": [
+      {
+        "word": "Every",
+        "start": 70.66,
+        "end": 71.0
+      },
+      {
+        "word": "word",
+        "start": 71.0,
+        "end": 71.42
+      },
+      {
+        "word": "that",
+        "start": 71.42,
+        "end": 71.62
+      },
+      {
+        "word": "ends",
+        "start": 71.62,
+        "end": 71.98
+      },
+      {
+        "word": "in",
+        "start": 71.98,
+        "end": 72.22
+      },
+      {
+        "word": "those",
+        "start": 72.22,
+        "end": 72.6
+      },
+      {
+        "word": "two",
+        "start": 72.6,
+        "end": 72.92
+      },
+      {
+        "word": "letters",
+        "start": 72.92,
+        "end": 73.34
+      },
+      {
+        "word": "says",
+        "start": 73.34,
+        "end": 74.08
+      },
+      {
+        "word": "at.",
+        "start": 74.08,
+        "end": 74.88
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "So all I have to do is put a different letter",
+    "start": 75.98,
+    "end": 78.86,
+    "duration": 2.88,
+    "words": [
+      {
+        "word": "So",
+        "start": 75.98,
+        "end": 76.08
+      },
+      {
+        "word": "all",
+        "start": 76.08,
+        "end": 76.36
+      },
+      {
+        "word": "I",
+        "start": 76.36,
+        "end": 76.74
+      },
+      {
+        "word": "have",
+        "start": 76.74,
+        "end": 77.02
+      },
+      {
+        "word": "to",
+        "start": 77.02,
+        "end": 77.2
+      },
+      {
+        "word": "do",
+        "start": 77.2,
+        "end": 77.44
+      },
+      {
+        "word": "is",
+        "start": 77.44,
+        "end": 77.7
+      },
+      {
+        "word": "put",
+        "start": 77.7,
+        "end": 77.88
+      },
+      {
+        "word": "a",
+        "start": 77.88,
+        "end": 78.1
+      },
+      {
+        "word": "different",
+        "start": 78.1,
+        "end": 78.48
+      },
+      {
+        "word": "letter",
+        "start": 78.48,
+        "end": 78.86
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "in front and I get another word I can read.",
+    "start": 78.88,
+    "end": 82.18,
+    "duration": 3.3,
+    "words": [
+      {
+        "word": "in",
+        "start": 78.88,
+        "end": 79.12
+      },
+      {
+        "word": "front",
+        "start": 79.12,
+        "end": 79.4
+      },
+      {
+        "word": "and",
+        "start": 79.4,
+        "end": 80.04
+      },
+      {
+        "word": "I",
+        "start": 80.04,
+        "end": 80.28
+      },
+      {
+        "word": "get",
+        "start": 80.28,
+        "end": 80.48
+      },
+      {
+        "word": "another",
+        "start": 80.48,
+        "end": 80.92
+      },
+      {
+        "word": "word",
+        "start": 80.92,
+        "end": 81.36
+      },
+      {
+        "word": "I",
+        "start": 81.36,
+        "end": 81.62
+      },
+      {
+        "word": "can",
+        "start": 81.62,
+        "end": 81.84
+      },
+      {
+        "word": "read.",
+        "start": 81.84,
+        "end": 82.18
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Watch.",
+    "start": 83.1,
+    "end": 83.52,
+    "duration": 0.42,
+    "words": [
+      {
+        "word": "Watch.",
+        "start": 83.1,
+        "end": 83.52
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "I will keep at and change only the front.",
+    "start": 84.16,
+    "end": 87.22,
+    "duration": 3.06,
+    "words": [
+      {
+        "word": "I",
+        "start": 84.16,
+        "end": 84.3
+      },
+      {
+        "word": "will",
+        "start": 84.3,
+        "end": 84.48
+      },
+      {
+        "word": "keep",
+        "start": 84.48,
+        "end": 84.76
+      },
+      {
+        "word": "at",
+        "start": 84.76,
+        "end": 85.22
+      },
+      {
+        "word": "and",
+        "start": 85.72,
+        "end": 85.82
+      },
+      {
+        "word": "change",
+        "start": 85.82,
+        "end": 86.22
+      },
+      {
+        "word": "only",
+        "start": 86.22,
+        "end": 86.74
+      },
+      {
+        "word": "the",
+        "start": 86.74,
+        "end": 87.0
+      },
+      {
+        "word": "front.",
+        "start": 87.0,
+        "end": 87.22
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Cat. Bat. Hat. Rat. Mat. Sat. Pat. Fat. Eight",
+    "start": 87.32,
+    "end": 100.36,
+    "duration": 13.04,
+    "words": [
+      {
+        "word": "Cat.",
+        "start": 87.32,
+        "end": 87.42
+      },
+      {
+        "word": "Bat.",
+        "start": 89.36,
+        "end": 89.94
+      },
+      {
+        "word": "Hat.",
+        "start": 90.98,
+        "end": 91.28
+      },
+      {
+        "word": "Rat.",
+        "start": 92.24,
+        "end": 92.78
+      },
+      {
+        "word": "Mat.",
+        "start": 93.76,
+        "end": 94.2
+      },
+      {
+        "word": "Sat.",
+        "start": 95.46,
+        "end": 95.9
+      },
+      {
+        "word": "Pat.",
+        "start": 96.8,
+        "end": 97.26
+      },
+      {
+        "word": "Fat.",
+        "start": 98.54,
+        "end": 98.72
+      },
+      {
+        "word": "Eight",
+        "start": 100.14,
+        "end": 100.36
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "words and you only had to learn one ending.",
+    "start": 100.36,
+    "end": 104.08,
+    "duration": 3.72,
+    "words": [
+      {
+        "word": "words",
+        "start": 100.36,
+        "end": 100.86
+      },
+      {
+        "word": "and",
+        "start": 100.86,
+        "end": 101.7
+      },
+      {
+        "word": "you",
+        "start": 101.7,
+        "end": 101.84
+      },
+      {
+        "word": "only",
+        "start": 101.84,
+        "end": 102.22
+      },
+      {
+        "word": "had",
+        "start": 102.22,
+        "end": 102.46
+      },
+      {
+        "word": "to",
+        "start": 102.46,
+        "end": 102.66
+      },
+      {
+        "word": "learn",
+        "start": 102.66,
+        "end": 102.98
+      },
+      {
+        "word": "one",
+        "start": 102.98,
+        "end": 103.48
+      },
+      {
+        "word": "ending.",
+        "start": 103.48,
+        "end": 104.08
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "That is called a word family.",
+    "start": 105.14,
+    "end": 107.26,
+    "duration": 2.12,
+    "words": [
+      {
+        "word": "That",
+        "start": 105.14,
+        "end": 105.44
+      },
+      {
+        "word": "is",
+        "start": 105.44,
+        "end": 105.74
+      },
+      {
+        "word": "called",
+        "start": 105.74,
+        "end": 106.08
+      },
+      {
+        "word": "a",
+        "start": 106.08,
+        "end": 106.32
+      },
+      {
+        "word": "word",
+        "start": 106.32,
+        "end": 106.72
+      },
+      {
+        "word": "family.",
+        "start": 106.72,
+        "end": 107.26
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "All those words are in the at family because they all end the",
+    "start": 108.26,
+    "end": 112.74,
+    "duration": 4.48,
+    "words": [
+      {
+        "word": "All",
+        "start": 108.26,
+        "end": 108.54
+      },
+      {
+        "word": "those",
+        "start": 108.54,
+        "end": 108.84
+      },
+      {
+        "word": "words",
+        "start": 108.84,
+        "end": 109.22
+      },
+      {
+        "word": "are",
+        "start": 109.22,
+        "end": 109.48
+      },
+      {
+        "word": "in",
+        "start": 109.48,
+        "end": 109.68
+      },
+      {
+        "word": "the",
+        "start": 109.68,
+        "end": 109.86
+      },
+      {
+        "word": "at",
+        "start": 109.86,
+        "end": 110.38
+      },
+      {
+        "word": "family",
+        "start": 110.38,
+        "end": 110.9
+      },
+      {
+        "word": "because",
+        "start": 110.9,
+        "end": 111.56
+      },
+      {
+        "word": "they",
+        "start": 111.56,
+        "end": 111.84
+      },
+      {
+        "word": "all",
+        "start": 111.84,
+        "end": 112.24
+      },
+      {
+        "word": "end",
+        "start": 112.24,
+        "end": 112.58
+      },
+      {
+        "word": "the",
+        "start": 112.58,
+        "end": 112.74
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "same way.",
+    "start": 112.96,
+    "end": 113.58,
+    "duration": 0.62,
+    "words": [
+      {
+        "word": "same",
+        "start": 112.96,
+        "end": 113.16
+      },
+      {
+        "word": "way.",
+        "start": 113.16,
+        "end": 113.58
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "You just read eight words.",
+    "start": 114.72,
+    "end": 116.36,
+    "duration": 1.64,
+    "words": [
+      {
+        "word": "You",
+        "start": 114.72,
+        "end": 114.88
+      },
+      {
+        "word": "just",
+        "start": 114.88,
+        "end": 115.18
+      },
+      {
+        "word": "read",
+        "start": 115.18,
+        "end": 115.44
+      },
+      {
+        "word": "eight",
+        "start": 115.44,
+        "end": 115.88
+      },
+      {
+        "word": "words.",
+        "start": 115.88,
+        "end": 116.36
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "Well done.",
+    "start": 116.76,
+    "end": 117.42,
+    "duration": 0.66,
+    "words": [
+      {
+        "word": "Well",
+        "start": 116.76,
+        "end": 117.08
+      },
+      {
+        "word": "done.",
+        "start": 117.08,
+        "end": 117.42
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Let's keep the same vowel and change the",
+    "start": 118.88,
+    "end": 121.34,
+    "duration": 2.46,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 118.88,
+        "end": 119.22
+      },
+      {
+        "word": "keep",
+        "start": 119.28,
+        "end": 119.4
+      },
+      {
+        "word": "the",
+        "start": 119.4,
+        "end": 119.6
+      },
+      {
+        "word": "same",
+        "start": 119.6,
+        "end": 119.98
+      },
+      {
+        "word": "vowel",
+        "start": 119.98,
+        "end": 120.36
+      },
+      {
+        "word": "and",
+        "start": 120.36,
+        "end": 120.72
+      },
+      {
+        "word": "change",
+        "start": 120.72,
+        "end": 121.12
+      },
+      {
+        "word": "the",
+        "start": 121.12,
+        "end": 121.34
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "ending.",
+    "start": 121.52,
+    "end": 121.72,
+    "duration": 0.2,
+    "words": [
+      {
+        "word": "ending.",
+        "start": 121.52,
+        "end": 121.72
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "Here is our next family.",
+    "start": 122.72,
+    "end": 123.62,
+    "duration": 0.9,
+    "words": [
+      {
+        "word": "Here",
+        "start": 122.72,
+        "end": 122.9
+      },
+      {
+        "word": "is",
+        "start": 122.9,
+        "end": 123.1
+      },
+      {
+        "word": "our",
+        "start": 123.1,
+        "end": 123.24
+      },
+      {
+        "word": "next",
+        "start": 123.24,
+        "end": 123.52
+      },
+      {
+        "word": "family.",
+        "start": 123.52,
+        "end": 123.62
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "An. Listen to the vowel.",
+    "start": 124.92,
+    "end": 127.34,
+    "duration": 2.42,
+    "words": [
+      {
+        "word": "An.",
+        "start": 124.92,
+        "end": 125.2
+      },
+      {
+        "word": "Listen",
+        "start": 126.38,
+        "end": 126.62
+      },
+      {
+        "word": "to",
+        "start": 126.62,
+        "end": 126.88
+      },
+      {
+        "word": "the",
+        "start": 126.88,
+        "end": 127.02
+      },
+      {
+        "word": "vowel.",
+        "start": 127.02,
+        "end": 127.34
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "It is still a short a just like",
+    "start": 127.94,
+    "end": 130.6,
+    "duration": 2.66,
+    "words": [
+      {
+        "word": "It",
+        "start": 127.94,
+        "end": 128.1
+      },
+      {
+        "word": "is",
+        "start": 128.1,
+        "end": 128.26
+      },
+      {
+        "word": "still",
+        "start": 128.26,
+        "end": 128.62
+      },
+      {
+        "word": "a",
+        "start": 128.62,
+        "end": 128.88
+      },
+      {
+        "word": "short",
+        "start": 128.88,
+        "end": 129.24
+      },
+      {
+        "word": "a",
+        "start": 129.24,
+        "end": 129.64
+      },
+      {
+        "word": "just",
+        "start": 129.64,
+        "end": 130.26
+      },
+      {
+        "word": "like",
+        "start": 130.26,
+        "end": 130.6
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "at.",
+    "start": 130.74,
+    "end": 130.84,
+    "duration": 0.1,
+    "words": [
+      {
+        "word": "at.",
+        "start": 130.74,
+        "end": 130.84
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "Only the last letter changed.",
+    "start": 131.82,
+    "end": 133.82,
+    "duration": 2.0,
+    "words": [
+      {
+        "word": "Only",
+        "start": 131.82,
+        "end": 132.12
+      },
+      {
+        "word": "the",
+        "start": 132.12,
+        "end": 132.36
+      },
+      {
+        "word": "last",
+        "start": 132.36,
+        "end": 132.84
+      },
+      {
+        "word": "letter",
+        "start": 132.84,
+        "end": 133.18
+      },
+      {
+        "word": "changed.",
+        "start": 133.18,
+        "end": 133.82
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "Can. Man. Fan. Ran. Pan. Tan. Van. Ban. Eight more.",
+    "start": 134.98,
+    "end": 148.5,
+    "duration": 13.52,
+    "words": [
+      {
+        "word": "Can.",
+        "start": 134.98,
+        "end": 135.42
+      },
+      {
+        "word": "Man.",
+        "start": 136.06,
+        "end": 136.98
+      },
+      {
+        "word": "Fan.",
+        "start": 138.06,
+        "end": 138.62
+      },
+      {
+        "word": "Ran.",
+        "start": 139.68,
+        "end": 140.18
+      },
+      {
+        "word": "Pan.",
+        "start": 141.22,
+        "end": 141.78
+      },
+      {
+        "word": "Tan.",
+        "start": 142.94,
+        "end": 143.38
+      },
+      {
+        "word": "Van.",
+        "start": 144.42,
+        "end": 144.94
+      },
+      {
+        "word": "Ban.",
+        "start": 145.96,
+        "end": 146.52
+      },
+      {
+        "word": "Eight",
+        "start": 147.96,
+        "end": 148.14
+      },
+      {
+        "word": "more.",
+        "start": 148.14,
+        "end": 148.5
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "That is 16 words already.",
+    "start": 149.52,
+    "end": 151.72,
+    "duration": 2.2,
+    "words": [
+      {
+        "word": "That",
+        "start": 149.52,
+        "end": 149.74
+      },
+      {
+        "word": "is",
+        "start": 149.74,
+        "end": 149.98
+      },
+      {
+        "word": "16",
+        "start": 149.98,
+        "end": 150.56
+      },
+      {
+        "word": "words",
+        "start": 150.56,
+        "end": 151.14
+      },
+      {
+        "word": "already.",
+        "start": 151.14,
+        "end": 151.72
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "And one more a family.",
+    "start": 153.06,
+    "end": 154.64,
+    "duration": 1.58,
+    "words": [
+      {
+        "word": "And",
+        "start": 153.06,
+        "end": 153.12
+      },
+      {
+        "word": "one",
+        "start": 153.12,
+        "end": 153.44
+      },
+      {
+        "word": "more",
+        "start": 153.44,
+        "end": 153.84
+      },
+      {
+        "word": "a",
+        "start": 153.84,
+        "end": 154.18
+      },
+      {
+        "word": "family.",
+        "start": 154.18,
+        "end": 154.64
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "App. Cap. Map. Nap. Tap. Lap. Gap.",
+    "start": 155.66,
+    "end": 165.34,
+    "duration": 9.68,
+    "words": [
+      {
+        "word": "App.",
+        "start": 155.66,
+        "end": 156.08
+      },
+      {
+        "word": "Cap.",
+        "start": 156.86,
+        "end": 157.44
+      },
+      {
+        "word": "Map.",
+        "start": 158.64,
+        "end": 159.06
+      },
+      {
+        "word": "Nap.",
+        "start": 160.2,
+        "end": 160.58
+      },
+      {
+        "word": "Tap.",
+        "start": 161.66,
+        "end": 162.14
+      },
+      {
+        "word": "Lap.",
+        "start": 163.24,
+        "end": 163.72
+      },
+      {
+        "word": "Gap.",
+        "start": 164.9,
+        "end": 165.34
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "Look at what is happening.",
+    "start": 166.72,
+    "end": 167.76,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "Look",
+        "start": 166.72,
+        "end": 166.88
+      },
+      {
+        "word": "at",
+        "start": 166.88,
+        "end": 167.06
+      },
+      {
+        "word": "what",
+        "start": 167.06,
+        "end": 167.22
+      },
+      {
+        "word": "is",
+        "start": 167.22,
+        "end": 167.42
+      },
+      {
+        "word": "happening.",
+        "start": 167.42,
+        "end": 167.76
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "The a stays put every single time.",
+    "start": 168.5,
+    "end": 171.36,
+    "duration": 2.86,
+    "words": [
+      {
+        "word": "The",
+        "start": 168.5,
+        "end": 168.64
+      },
+      {
+        "word": "a",
+        "start": 168.64,
+        "end": 169.0
+      },
+      {
+        "word": "stays",
+        "start": 169.0,
+        "end": 169.32
+      },
+      {
+        "word": "put",
+        "start": 169.32,
+        "end": 169.72
+      },
+      {
+        "word": "every",
+        "start": 169.72,
+        "end": 170.4
+      },
+      {
+        "word": "single",
+        "start": 170.4,
+        "end": 170.88
+      },
+      {
+        "word": "time.",
+        "start": 170.88,
+        "end": 171.36
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "It is only the letters",
+    "start": 172.06,
+    "end": 173.22,
+    "duration": 1.16,
+    "words": [
+      {
+        "word": "It",
+        "start": 172.06,
+        "end": 172.18
+      },
+      {
+        "word": "is",
+        "start": 172.18,
+        "end": 172.32
+      },
+      {
+        "word": "only",
+        "start": 172.38,
+        "end": 172.68
+      },
+      {
+        "word": "the",
+        "start": 172.68,
+        "end": 172.9
+      },
+      {
+        "word": "letters",
+        "start": 172.9,
+        "end": 173.22
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "around it that move.",
+    "start": 173.68,
+    "end": 174.76,
+    "duration": 1.08,
+    "words": [
+      {
+        "word": "around",
+        "start": 173.68,
+        "end": 173.82
+      },
+      {
+        "word": "it",
+        "start": 173.82,
+        "end": 174.14
+      },
+      {
+        "word": "that",
+        "start": 174.14,
+        "end": 174.4
+      },
+      {
+        "word": "move.",
+        "start": 174.4,
+        "end": 174.76
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "text": "You are doing really well.",
+    "start": 175.76,
+    "end": 177.54,
+    "duration": 1.78,
+    "words": [
+      {
+        "word": "You",
+        "start": 175.76,
+        "end": 175.98
+      },
+      {
+        "word": "are",
+        "start": 175.98,
+        "end": 176.14
+      },
+      {
+        "word": "doing",
+        "start": 176.14,
+        "end": 176.42
+      },
+      {
+        "word": "really",
+        "start": 176.42,
+        "end": 176.98
+      },
+      {
+        "word": "well.",
+        "start": 176.98,
+        "end": 177.54
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "text": "Now we change the vowel.",
+    "start": 178.86,
+    "end": 180.18,
+    "duration": 1.32,
+    "words": [
+      {
+        "word": "Now",
+        "start": 178.86,
+        "end": 178.98
+      },
+      {
+        "word": "we",
+        "start": 178.98,
+        "end": 179.12
+      },
+      {
+        "word": "change",
+        "start": 179.12,
+        "end": 179.5
+      },
+      {
+        "word": "the",
+        "start": 179.5,
+        "end": 179.82
+      },
+      {
+        "word": "vowel.",
+        "start": 179.82,
+        "end": 180.18
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "text": "This time it is a short e.",
+    "start": 181.08,
+    "end": 182.96,
+    "duration": 1.88,
+    "words": [
+      {
+        "word": "This",
+        "start": 181.08,
+        "end": 181.2
+      },
+      {
+        "word": "time",
+        "start": 181.2,
+        "end": 181.58
+      },
+      {
+        "word": "it",
+        "start": 181.58,
+        "end": 181.84
+      },
+      {
+        "word": "is",
+        "start": 181.84,
+        "end": 181.98
+      },
+      {
+        "word": "a",
+        "start": 181.98,
+        "end": 182.08
+      },
+      {
+        "word": "short",
+        "start": 182.08,
+        "end": 182.48
+      },
+      {
+        "word": "e.",
+        "start": 182.48,
+        "end": 182.96
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "text": "Our family is an.",
+    "start": 183.84,
+    "end": 185.68,
+    "duration": 1.84,
+    "words": [
+      {
+        "word": "Our",
+        "start": 183.84,
+        "end": 183.98
+      },
+      {
+        "word": "family",
+        "start": 183.98,
+        "end": 184.48
+      },
+      {
+        "word": "is",
+        "start": 184.48,
+        "end": 184.94
+      },
+      {
+        "word": "an.",
+        "start": 184.94,
+        "end": 185.68
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "text": "Hen. Tan. Pan. Man.",
+    "start": 186.62,
+    "end": 192.34,
+    "duration": 5.72,
+    "words": [
+      {
+        "word": "Hen.",
+        "start": 186.62,
+        "end": 187.42
+      },
+      {
+        "word": "Tan.",
+        "start": 188.32,
+        "end": 188.84
+      },
+      {
+        "word": "Pan.",
+        "start": 189.84,
+        "end": 190.54
+      },
+      {
+        "word": "Man.",
+        "start": 191.76,
+        "end": 192.34
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "text": "Den. Say the ending with me.",
+    "start": 193.76,
+    "end": 196.46,
+    "duration": 2.7,
+    "words": [
+      {
+        "word": "Den.",
+        "start": 193.76,
+        "end": 194.08
+      },
+      {
+        "word": "Say",
+        "start": 195.46,
+        "end": 195.58
+      },
+      {
+        "word": "the",
+        "start": 195.58,
+        "end": 195.76
+      },
+      {
+        "word": "ending",
+        "start": 195.76,
+        "end": 196.06
+      },
+      {
+        "word": "with",
+        "start": 196.06,
+        "end": 196.36
+      },
+      {
+        "word": "me.",
+        "start": 196.36,
+        "end": 196.46
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "text": "An. Five words and the same trick worked again.",
+    "start": 197.34,
+    "end": 201.92,
+    "duration": 4.58,
+    "words": [
+      {
+        "word": "An.",
+        "start": 197.34,
+        "end": 197.7
+      },
+      {
+        "word": "Five",
+        "start": 199.16,
+        "end": 199.38
+      },
+      {
+        "word": "words",
+        "start": 199.38,
+        "end": 199.9
+      },
+      {
+        "word": "and",
+        "start": 199.9,
+        "end": 200.18
+      },
+      {
+        "word": "the",
+        "start": 200.18,
+        "end": 200.34
+      },
+      {
+        "word": "same",
+        "start": 200.34,
+        "end": 200.72
+      },
+      {
+        "word": "trick",
+        "start": 200.72,
+        "end": 201.04
+      },
+      {
+        "word": "worked",
+        "start": 201.04,
+        "end": 201.42
+      },
+      {
+        "word": "again.",
+        "start": 201.42,
+        "end": 201.92
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "text": "Now a short",
+    "start": 203.38,
+    "end": 204.2,
+    "duration": 0.82,
+    "words": [
+      {
+        "word": "Now",
+        "start": 203.38,
+        "end": 203.64
+      },
+      {
+        "word": "a",
+        "start": 203.64,
+        "end": 203.9
+      },
+      {
+        "word": "short",
+        "start": 203.9,
+        "end": 204.2
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "text": "i.",
+    "start": 204.5,
+    "end": 204.84,
+    "duration": 0.34,
+    "words": [
+      {
+        "word": "i.",
+        "start": 204.5,
+        "end": 204.84
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "text": "We have three families here.",
+    "start": 205.58,
+    "end": 207.16,
+    "duration": 1.58,
+    "words": [
+      {
+        "word": "We",
+        "start": 205.58,
+        "end": 205.72
+      },
+      {
+        "word": "have",
+        "start": 205.72,
+        "end": 205.98
+      },
+      {
+        "word": "three",
+        "start": 205.98,
+        "end": 206.32
+      },
+      {
+        "word": "families",
+        "start": 206.32,
+        "end": 206.8
+      },
+      {
+        "word": "here.",
+        "start": 206.8,
+        "end": 207.16
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "text": "So listen carefully to the ending each time.",
+    "start": 207.72,
+    "end": 210.42,
+    "duration": 2.7,
+    "words": [
+      {
+        "word": "So",
+        "start": 207.72,
+        "end": 207.82
+      },
+      {
+        "word": "listen",
+        "start": 207.82,
+        "end": 208.14
+      },
+      {
+        "word": "carefully",
+        "start": 208.14,
+        "end": 208.66
+      },
+      {
+        "word": "to",
+        "start": 208.66,
+        "end": 209.0
+      },
+      {
+        "word": "the",
+        "start": 209.0,
+        "end": 209.14
+      },
+      {
+        "word": "ending",
+        "start": 209.14,
+        "end": 209.58
+      },
+      {
+        "word": "each",
+        "start": 209.58,
+        "end": 210.02
+      },
+      {
+        "word": "time.",
+        "start": 210.02,
+        "end": 210.42
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "text": "First.",
+    "start": 211.34,
+    "end": 211.92,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "First.",
+        "start": 211.34,
+        "end": 211.92
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "text": "Ig. Big. Pig. Dig. Wig. Jig. Fig. Next.",
+    "start": 212.84,
+    "end": 224.04,
+    "duration": 11.2,
+    "words": [
+      {
+        "word": "Ig.",
+        "start": 212.84,
+        "end": 213.0
+      },
+      {
+        "word": "Big.",
+        "start": 213.98,
+        "end": 214.48
+      },
+      {
+        "word": "Pig.",
+        "start": 215.24,
+        "end": 215.88
+      },
+      {
+        "word": "Dig.",
+        "start": 216.94,
+        "end": 217.38
+      },
+      {
+        "word": "Wig.",
+        "start": 218.6,
+        "end": 219.14
+      },
+      {
+        "word": "Jig.",
+        "start": 220.24,
+        "end": 220.8
+      },
+      {
+        "word": "Fig.",
+        "start": 221.98,
+        "end": 222.36
+      },
+      {
+        "word": "Next.",
+        "start": 223.32,
+        "end": 224.04
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "text": "It. Sit. Bit. Hit. Fit. Kit.",
+    "start": 224.68,
+    "end": 232.92,
+    "duration": 8.24,
+    "words": [
+      {
+        "word": "It.",
+        "start": 224.68,
+        "end": 224.86
+      },
+      {
+        "word": "Sit.",
+        "start": 225.9,
+        "end": 226.56
+      },
+      {
+        "word": "Bit.",
+        "start": 227.64,
+        "end": 228.06
+      },
+      {
+        "word": "Hit.",
+        "start": 229.26,
+        "end": 229.68
+      },
+      {
+        "word": "Fit.",
+        "start": 230.68,
+        "end": 231.24
+      },
+      {
+        "word": "Kit.",
+        "start": 232.44,
+        "end": 232.92
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "text": "Pit. Wit. An. Inn. Pin. Win. Finn.",
+    "start": 234.42,
+    "end": 243.56,
+    "duration": 9.14,
+    "words": [
+      {
+        "word": "Pit.",
+        "start": 234.42,
+        "end": 234.52
+      },
+      {
+        "word": "Wit.",
+        "start": 235.34,
+        "end": 236.22
+      },
+      {
+        "word": "An.",
+        "start": 237.34,
+        "end": 237.88
+      },
+      {
+        "word": "Inn.",
+        "start": 238.34,
+        "end": 238.56
+      },
+      {
+        "word": "Pin.",
+        "start": 239.84,
+        "end": 240.18
+      },
+      {
+        "word": "Win.",
+        "start": 241.32,
+        "end": 241.76
+      },
+      {
+        "word": "Finn.",
+        "start": 243.0,
+        "end": 243.56
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "text": "Tin. Bin. Did you notice something?",
+    "start": 244.76,
+    "end": 249.46,
+    "duration": 4.7,
+    "words": [
+      {
+        "word": "Tin.",
+        "start": 244.76,
+        "end": 245.22
+      },
+      {
+        "word": "Bin.",
+        "start": 246.62,
+        "end": 247.0
+      },
+      {
+        "word": "Did",
+        "start": 248.38,
+        "end": 248.48
+      },
+      {
+        "word": "you",
+        "start": 248.48,
+        "end": 248.66
+      },
+      {
+        "word": "notice",
+        "start": 248.66,
+        "end": 249.0
+      },
+      {
+        "word": "something?",
+        "start": 249.0,
+        "end": 249.46
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "text": "All three of those families",
+    "start": 250.42,
+    "end": 251.98,
+    "duration": 1.56,
+    "words": [
+      {
+        "word": "All",
+        "start": 250.42,
+        "end": 250.72
+      },
+      {
+        "word": "three",
+        "start": 250.72,
+        "end": 251.06
+      },
+      {
+        "word": "of",
+        "start": 251.06,
+        "end": 251.26
+      },
+      {
+        "word": "those",
+        "start": 251.26,
+        "end": 251.5
+      },
+      {
+        "word": "families",
+        "start": 251.5,
+        "end": 251.98
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "text": "have the same vowel.",
+    "start": 251.98,
+    "end": 253.3,
+    "duration": 1.32,
+    "words": [
+      {
+        "word": "have",
+        "start": 251.98,
+        "end": 252.28
+      },
+      {
+        "word": "the",
+        "start": 252.28,
+        "end": 252.44
+      },
+      {
+        "word": "same",
+        "start": 252.44,
+        "end": 252.86
+      },
+      {
+        "word": "vowel.",
+        "start": 252.86,
+        "end": 253.3
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "text": "The i sound never changed.",
+    "start": 254.24,
+    "end": 256.3,
+    "duration": 2.06,
+    "words": [
+      {
+        "word": "The",
+        "start": 254.24,
+        "end": 254.42
+      },
+      {
+        "word": "i",
+        "start": 254.42,
+        "end": 254.86
+      },
+      {
+        "word": "sound",
+        "start": 254.86,
+        "end": 255.26
+      },
+      {
+        "word": "never",
+        "start": 255.26,
+        "end": 255.8
+      },
+      {
+        "word": "changed.",
+        "start": 255.8,
+        "end": 256.3
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "text": "Only the letter at the end did.",
+    "start": 257.08,
+    "end": 259.04,
+    "duration": 1.96,
+    "words": [
+      {
+        "word": "Only",
+        "start": 257.08,
+        "end": 257.38
+      },
+      {
+        "word": "the",
+        "start": 257.38,
+        "end": 257.6
+      },
+      {
+        "word": "letter",
+        "start": 257.6,
+        "end": 257.9
+      },
+      {
+        "word": "at",
+        "start": 257.9,
+        "end": 258.2
+      },
+      {
+        "word": "the",
+        "start": 258.2,
+        "end": 258.32
+      },
+      {
+        "word": "end",
+        "start": 258.32,
+        "end": 258.74
+      },
+      {
+        "word": "did.",
+        "start": 258.74,
+        "end": 259.04
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "text": "That is 18",
+    "start": 259.9,
+    "end": 260.42,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "That",
+        "start": 259.9,
+        "end": 260.08
+      },
+      {
+        "word": "is",
+        "start": 260.08,
+        "end": 260.32
+      },
+      {
+        "word": "18",
+        "start": 260.32,
+        "end": 260.42
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "text": "more words.",
+    "start": 261.22,
+    "end": 262.1,
+    "duration": 0.88,
+    "words": [
+      {
+        "word": "more",
+        "start": 261.22,
+        "end": 261.5
+      },
+      {
+        "word": "words.",
+        "start": 261.5,
+        "end": 262.1
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "text": "You are reading beautifully.",
+    "start": 262.88,
+    "end": 264.38,
+    "duration": 1.5,
+    "words": [
+      {
+        "word": "You",
+        "start": 262.88,
+        "end": 263.1
+      },
+      {
+        "word": "are",
+        "start": 263.1,
+        "end": 263.32
+      },
+      {
+        "word": "reading",
+        "start": 263.32,
+        "end": 263.72
+      },
+      {
+        "word": "beautifully.",
+        "start": 263.72,
+        "end": 264.38
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "text": "Now a short o.",
+    "start": 265.82,
+    "end": 267.32,
+    "duration": 1.5,
+    "words": [
+      {
+        "word": "Now",
+        "start": 265.82,
+        "end": 266.14
+      },
+      {
+        "word": "a",
+        "start": 266.14,
+        "end": 266.48
+      },
+      {
+        "word": "short",
+        "start": 266.48,
+        "end": 266.82
+      },
+      {
+        "word": "o.",
+        "start": 266.82,
+        "end": 267.32
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "text": "Three families again.",
+    "start": 268.24,
+    "end": 269.28,
+    "duration": 1.04,
+    "words": [
+      {
+        "word": "Three",
+        "start": 268.24,
+        "end": 268.44
+      },
+      {
+        "word": "families",
+        "start": 268.44,
+        "end": 268.88
+      },
+      {
+        "word": "again.",
+        "start": 268.88,
+        "end": 269.28
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "text": "Og. Dog. Log.",
+    "start": 270.38,
+    "end": 274.04,
+    "duration": 3.66,
+    "words": [
+      {
+        "word": "Og.",
+        "start": 270.38,
+        "end": 270.8
+      },
+      {
+        "word": "Dog.",
+        "start": 271.92,
+        "end": 272.42
+      },
+      {
+        "word": "Log.",
+        "start": 273.56,
+        "end": 274.04
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "text": "Fog. Hog. Jog.",
+    "start": 275.7,
+    "end": 279.64,
+    "duration": 3.94,
+    "words": [
+      {
+        "word": "Fog.",
+        "start": 275.7,
+        "end": 276.06
+      },
+      {
+        "word": "Hog.",
+        "start": 276.48,
+        "end": 277.7
+      },
+      {
+        "word": "Jog.",
+        "start": 278.96,
+        "end": 279.64
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "text": "Ot. Hot. Pot. Dot. Lot.",
+    "start": 280.96,
+    "end": 288.46,
+    "duration": 7.5,
+    "words": [
+      {
+        "word": "Ot.",
+        "start": 280.96,
+        "end": 281.18
+      },
+      {
+        "word": "Hot.",
+        "start": 282.36,
+        "end": 282.88
+      },
+      {
+        "word": "Pot.",
+        "start": 284.02,
+        "end": 284.66
+      },
+      {
+        "word": "Dot.",
+        "start": 285.9,
+        "end": 286.54
+      },
+      {
+        "word": "Lot.",
+        "start": 287.92,
+        "end": 288.46
+      }
+    ]
+  },
+  {
+    "index": 80,
+    "text": "Cot. Rot. Got. Up. Top. Hop.",
+    "start": 290.24,
+    "end": 299.64,
+    "duration": 9.4,
+    "words": [
+      {
+        "word": "Cot.",
+        "start": 290.24,
+        "end": 290.5
+      },
+      {
+        "word": "Rot.",
+        "start": 291.78,
+        "end": 292.28
+      },
+      {
+        "word": "Got.",
+        "start": 293.56,
+        "end": 294.08
+      },
+      {
+        "word": "Up.",
+        "start": 295.4,
+        "end": 295.86
+      },
+      {
+        "word": "Top.",
+        "start": 297.3,
+        "end": 297.72
+      },
+      {
+        "word": "Hop.",
+        "start": 299.1,
+        "end": 299.64
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "text": "Mop. Pop. Cop. Listen to the middle of every one of those words.",
+    "start": 301.34,
+    "end": 309.58,
+    "duration": 8.24,
+    "words": [
+      {
+        "word": "Mop.",
+        "start": 301.34,
+        "end": 301.6
+      },
+      {
+        "word": "Pop.",
+        "start": 302.34,
+        "end": 303.38
+      },
+      {
+        "word": "Cop.",
+        "start": 304.98,
+        "end": 305.14
+      },
+      {
+        "word": "Listen",
+        "start": 306.62,
+        "end": 306.9
+      },
+      {
+        "word": "to",
+        "start": 306.9,
+        "end": 307.16
+      },
+      {
+        "word": "the",
+        "start": 307.16,
+        "end": 307.3
+      },
+      {
+        "word": "middle",
+        "start": 307.3,
+        "end": 307.62
+      },
+      {
+        "word": "of",
+        "start": 307.62,
+        "end": 307.96
+      },
+      {
+        "word": "every",
+        "start": 308.08,
+        "end": 308.46
+      },
+      {
+        "word": "one",
+        "start": 308.46,
+        "end": 308.82
+      },
+      {
+        "word": "of",
+        "start": 308.82,
+        "end": 308.98
+      },
+      {
+        "word": "those",
+        "start": 308.98,
+        "end": 309.16
+      },
+      {
+        "word": "words.",
+        "start": 309.16,
+        "end": 309.58
+      }
+    ]
+  },
+  {
+    "index": 82,
+    "text": "It is the same o sound every time.",
+    "start": 310.4,
+    "end": 313.28,
+    "duration": 2.88,
+    "words": [
+      {
+        "word": "It",
+        "start": 310.4,
+        "end": 310.56
+      },
+      {
+        "word": "is",
+        "start": 310.56,
+        "end": 310.7
+      },
+      {
+        "word": "the",
+        "start": 310.7,
+        "end": 310.88
+      },
+      {
+        "word": "same",
+        "start": 310.88,
+        "end": 311.32
+      },
+      {
+        "word": "o",
+        "start": 311.32,
+        "end": 311.78
+      },
+      {
+        "word": "sound",
+        "start": 311.78,
+        "end": 312.28
+      },
+      {
+        "word": "every",
+        "start": 312.28,
+        "end": 312.84
+      },
+      {
+        "word": "time.",
+        "start": 312.84,
+        "end": 313.28
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "text": "Our last short vowel is u.",
+    "start": 314.74,
+    "end": 317.42,
+    "duration": 2.68,
+    "words": [
+      {
+        "word": "Our",
+        "start": 314.74,
+        "end": 314.92
+      },
+      {
+        "word": "last",
+        "start": 314.92,
+        "end": 315.34
+      },
+      {
+        "word": "short",
+        "start": 315.34,
+        "end": 315.74
+      },
+      {
+        "word": "vowel",
+        "start": 315.74,
+        "end": 316.16
+      },
+      {
+        "word": "is",
+        "start": 316.16,
+        "end": 316.58
+      },
+      {
+        "word": "u.",
+        "start": 316.58,
+        "end": 317.42
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "text": "An. Sun. Run. Fun. Bun. Gun. Pan.",
+    "start": 318.52,
+    "end": 329.68,
+    "duration": 11.16,
+    "words": [
+      {
+        "word": "An.",
+        "start": 318.52,
+        "end": 318.98
+      },
+      {
+        "word": "Sun.",
+        "start": 319.9,
+        "end": 320.58
+      },
+      {
+        "word": "Run.",
+        "start": 321.8,
+        "end": 322.3
+      },
+      {
+        "word": "Fun.",
+        "start": 323.62,
+        "end": 324.1
+      },
+      {
+        "word": "Bun.",
+        "start": 325.32,
+        "end": 326.06
+      },
+      {
+        "word": "Gun.",
+        "start": 327.34,
+        "end": 328.02
+      },
+      {
+        "word": "Pan.",
+        "start": 329.22,
+        "end": 329.68
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "text": "Ugg. Bug. Rug. Hug. Mug. Dug. Jug. That is 12 more words from two endings.",
+    "start": 331.66,
+    "end": 346.8,
+    "duration": 15.14,
+    "words": [
+      {
+        "word": "Ugg.",
+        "start": 331.66,
+        "end": 331.86
+      },
+      {
+        "word": "Bug.",
+        "start": 332.7,
+        "end": 333.36
+      },
+      {
+        "word": "Rug.",
+        "start": 334.66,
+        "end": 335.16
+      },
+      {
+        "word": "Hug.",
+        "start": 336.24,
+        "end": 337.06
+      },
+      {
+        "word": "Mug.",
+        "start": 338.34,
+        "end": 338.88
+      },
+      {
+        "word": "Dug.",
+        "start": 340.12,
+        "end": 340.78
+      },
+      {
+        "word": "Jug.",
+        "start": 342.1,
+        "end": 342.46
+      },
+      {
+        "word": "That",
+        "start": 343.86,
+        "end": 344.0
+      },
+      {
+        "word": "is",
+        "start": 344.0,
+        "end": 344.22
+      },
+      {
+        "word": "12",
+        "start": 344.44,
+        "end": 344.6
+      },
+      {
+        "word": "more",
+        "start": 344.6,
+        "end": 345.16
+      },
+      {
+        "word": "words",
+        "start": 345.16,
+        "end": 345.68
+      },
+      {
+        "word": "from",
+        "start": 345.68,
+        "end": 345.94
+      },
+      {
+        "word": "two",
+        "start": 345.94,
+        "end": 346.32
+      },
+      {
+        "word": "endings.",
+        "start": 346.32,
+        "end": 346.8
+      }
+    ]
+  },
+  {
+    "index": 86,
+    "text": "Now I want to",
+    "start": 348.02,
+    "end": 348.94,
+    "duration": 0.92,
+    "words": [
+      {
+        "word": "Now",
+        "start": 348.02,
+        "end": 348.22
+      },
+      {
+        "word": "I",
+        "start": 348.22,
+        "end": 348.52
+      },
+      {
+        "word": "want",
+        "start": 348.52,
+        "end": 348.74
+      },
+      {
+        "word": "to",
+        "start": 348.74,
+        "end": 348.94
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "text": "show you one more family.",
+    "start": 349.02,
+    "end": 350.58,
+    "duration": 1.56,
+    "words": [
+      {
+        "word": "show",
+        "start": 349.02,
+        "end": 349.16
+      },
+      {
+        "word": "you",
+        "start": 349.16,
+        "end": 349.38
+      },
+      {
+        "word": "one",
+        "start": 349.38,
+        "end": 349.76
+      },
+      {
+        "word": "more",
+        "start": 349.76,
+        "end": 350.12
+      },
+      {
+        "word": "family.",
+        "start": 350.12,
+        "end": 350.58
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "text": "But I have to be honest with you about it.",
+    "start": 351.18,
+    "end": 353.46,
+    "duration": 2.28,
+    "words": [
+      {
+        "word": "But",
+        "start": 351.18,
+        "end": 351.3
+      },
+      {
+        "word": "I",
+        "start": 351.3,
+        "end": 351.48
+      },
+      {
+        "word": "have",
+        "start": 351.48,
+        "end": 351.72
+      },
+      {
+        "word": "to",
+        "start": 351.72,
+        "end": 351.88
+      },
+      {
+        "word": "be",
+        "start": 351.88,
+        "end": 352.04
+      },
+      {
+        "word": "honest",
+        "start": 352.04,
+        "end": 352.38
+      },
+      {
+        "word": "with",
+        "start": 352.38,
+        "end": 352.72
+      },
+      {
+        "word": "you",
+        "start": 352.72,
+        "end": 352.9
+      },
+      {
+        "word": "about",
+        "start": 352.9,
+        "end": 353.14
+      },
+      {
+        "word": "it.",
+        "start": 353.14,
+        "end": 353.46
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "text": "Because it does not",
+    "start": 353.92,
+    "end": 354.92,
+    "duration": 1.0,
+    "words": [
+      {
+        "word": "Because",
+        "start": 353.92,
+        "end": 354.18
+      },
+      {
+        "word": "it",
+        "start": 354.18,
+        "end": 354.42
+      },
+      {
+        "word": "does",
+        "start": 354.42,
+        "end": 354.68
+      },
+      {
+        "word": "not",
+        "start": 354.68,
+        "end": 354.92
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "text": "work quite the same way.",
+    "start": 355.0,
+    "end": 356.62,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "work",
+        "start": 355.0,
+        "end": 355.34
+      },
+      {
+        "word": "quite",
+        "start": 355.56,
+        "end": 355.76
+      },
+      {
+        "word": "the",
+        "start": 355.76,
+        "end": 356.02
+      },
+      {
+        "word": "same",
+        "start": 356.02,
+        "end": 356.26
+      },
+      {
+        "word": "way.",
+        "start": 356.26,
+        "end": 356.62
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "text": "Here it is.",
+    "start": 357.48,
+    "end": 358.16,
+    "duration": 0.68,
+    "words": [
+      {
+        "word": "Here",
+        "start": 357.48,
+        "end": 357.62
+      },
+      {
+        "word": "it",
+        "start": 357.62,
+        "end": 357.82
+      },
+      {
+        "word": "is.",
+        "start": 357.82,
+        "end": 358.16
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "text": "All. Ball.",
+    "start": 359.26,
+    "end": 361.44,
+    "duration": 2.18,
+    "words": [
+      {
+        "word": "All.",
+        "start": 359.26,
+        "end": 359.64
+      },
+      {
+        "word": "Ball.",
+        "start": 360.46,
+        "end": 361.44
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "text": "Tall.",
+    "start": 362.8,
+    "end": 363.28,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Tall.",
+        "start": 362.8,
+        "end": 363.28
+      }
+    ]
+  },
+  {
+    "index": 94,
+    "text": "Wall.",
+    "start": 364.48,
+    "end": 365.2,
+    "duration": 0.72,
+    "words": [
+      {
+        "word": "Wall.",
+        "start": 364.48,
+        "end": 365.2
+      }
+    ]
+  },
+  {
+    "index": 95,
+    "text": "Fall.",
+    "start": 366.68,
+    "end": 367.18,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Fall.",
+        "start": 366.68,
+        "end": 367.18
+      }
+    ]
+  },
+  {
+    "index": 96,
+    "text": "Call.",
+    "start": 368.6,
+    "end": 369.34,
+    "duration": 0.74,
+    "words": [
+      {
+        "word": "Call.",
+        "start": 368.6,
+        "end": 369.34
+      }
+    ]
+  },
+  {
+    "index": 97,
+    "text": "Hall.",
+    "start": 370.8,
+    "end": 371.52,
+    "duration": 0.72,
+    "words": [
+      {
+        "word": "Hall.",
+        "start": 370.8,
+        "end": 371.52
+      }
+    ]
+  },
+  {
+    "index": 98,
+    "text": "Mall.",
+    "start": 372.96,
+    "end": 373.56,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "Mall.",
+        "start": 372.96,
+        "end": 373.56
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "text": "The trick",
+    "start": 375.22,
+    "end": 375.68,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "The",
+        "start": 375.22,
+        "end": 375.36
+      },
+      {
+        "word": "trick",
+        "start": 375.36,
+        "end": 375.68
+      }
+    ]
+  },
+  {
+    "index": 100,
+    "text": "still works.",
+    "start": 375.9,
+    "end": 376.54,
+    "duration": 0.64,
+    "words": [
+      {
+        "word": "still",
+        "start": 375.9,
+        "end": 376.04
+      },
+      {
+        "word": "works.",
+        "start": 376.04,
+        "end": 376.54
+      }
+    ]
+  },
+  {
+    "index": 101,
+    "text": "Change the front letter.",
+    "start": 377.26,
+    "end": 378.36,
+    "duration": 1.1,
+    "words": [
+      {
+        "word": "Change",
+        "start": 377.26,
+        "end": 377.42
+      },
+      {
+        "word": "the",
+        "start": 377.42,
+        "end": 377.7
+      },
+      {
+        "word": "front",
+        "start": 377.7,
+        "end": 377.96
+      },
+      {
+        "word": "letter.",
+        "start": 377.96,
+        "end": 378.36
+      }
+    ]
+  },
+  {
+    "index": 102,
+    "text": "Get a new word.",
+    "start": 378.84,
+    "end": 379.7,
+    "duration": 0.86,
+    "words": [
+      {
+        "word": "Get",
+        "start": 378.84,
+        "end": 378.96
+      },
+      {
+        "word": "a",
+        "start": 378.96,
+        "end": 379.2
+      },
+      {
+        "word": "new",
+        "start": 379.2,
+        "end": 379.34
+      },
+      {
+        "word": "word.",
+        "start": 379.34,
+        "end": 379.7
+      }
+    ]
+  },
+  {
+    "index": 103,
+    "text": "But listen to the middle.",
+    "start": 380.64,
+    "end": 381.82,
+    "duration": 1.18,
+    "words": [
+      {
+        "word": "But",
+        "start": 380.64,
+        "end": 380.8
+      },
+      {
+        "word": "listen",
+        "start": 380.8,
+        "end": 381.12
+      },
+      {
+        "word": "to",
+        "start": 381.12,
+        "end": 381.42
+      },
+      {
+        "word": "the",
+        "start": 381.42,
+        "end": 381.58
+      },
+      {
+        "word": "middle.",
+        "start": 381.58,
+        "end": 381.82
+      }
+    ]
+  },
+  {
+    "index": 104,
+    "text": "Ball.",
+    "start": 383.02,
+    "end": 383.52,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "Ball.",
+        "start": 383.02,
+        "end": 383.52
+      }
+    ]
+  },
+  {
+    "index": 105,
+    "text": "That is not a short a.",
+    "start": 384.58,
+    "end": 385.9,
+    "duration": 1.32,
+    "words": [
+      {
+        "word": "That",
+        "start": 384.58,
+        "end": 384.58
+      },
+      {
+        "word": "is",
+        "start": 384.58,
+        "end": 384.74
+      },
+      {
+        "word": "not",
+        "start": 384.74,
+        "end": 385.06
+      },
+      {
+        "word": "a",
+        "start": 385.06,
+        "end": 385.32
+      },
+      {
+        "word": "short",
+        "start": 385.32,
+        "end": 385.54
+      },
+      {
+        "word": "a.",
+        "start": 385.54,
+        "end": 385.9
+      }
+    ]
+  },
+  {
+    "index": 106,
+    "text": "It does not say the short a sound like cat.",
+    "start": 386.54,
+    "end": 389.76,
+    "duration": 3.22,
+    "words": [
+      {
+        "word": "It",
+        "start": 386.54,
+        "end": 386.66
+      },
+      {
+        "word": "does",
+        "start": 386.66,
+        "end": 386.86
+      },
+      {
+        "word": "not",
+        "start": 386.86,
+        "end": 387.12
+      },
+      {
+        "word": "say",
+        "start": 387.12,
+        "end": 387.5
+      },
+      {
+        "word": "the",
+        "start": 387.5,
+        "end": 387.7
+      },
+      {
+        "word": "short",
+        "start": 387.7,
+        "end": 388.02
+      },
+      {
+        "word": "a",
+        "start": 388.02,
+        "end": 388.4
+      },
+      {
+        "word": "sound",
+        "start": 388.4,
+        "end": 388.9
+      },
+      {
+        "word": "like",
+        "start": 388.9,
+        "end": 389.32
+      },
+      {
+        "word": "cat.",
+        "start": 389.32,
+        "end": 389.76
+      }
+    ]
+  },
+  {
+    "index": 107,
+    "text": "It has changed into",
+    "start": 390.54,
+    "end": 391.7,
+    "duration": 1.16,
+    "words": [
+      {
+        "word": "It",
+        "start": 390.54,
+        "end": 390.68
+      },
+      {
+        "word": "has",
+        "start": 390.68,
+        "end": 390.9
+      },
+      {
+        "word": "changed",
+        "start": 390.9,
+        "end": 391.38
+      },
+      {
+        "word": "into",
+        "start": 391.38,
+        "end": 391.7
+      }
+    ]
+  },
+  {
+    "index": 108,
+    "text": "something else.",
+    "start": 391.7,
+    "end": 392.62,
+    "duration": 0.92,
+    "words": [
+      {
+        "word": "something",
+        "start": 391.7,
+        "end": 392.1
+      },
+      {
+        "word": "else.",
+        "start": 392.1,
+        "end": 392.62
+      }
+    ]
+  },
+  {
+    "index": 109,
+    "text": "So we do not sound this family out letter by letter.",
+    "start": 393.46,
+    "end": 396.58,
+    "duration": 3.12,
+    "words": [
+      {
+        "word": "So",
+        "start": 393.46,
+        "end": 393.56
+      },
+      {
+        "word": "we",
+        "start": 393.56,
+        "end": 393.76
+      },
+      {
+        "word": "do",
+        "start": 393.76,
+        "end": 393.94
+      },
+      {
+        "word": "not",
+        "start": 393.94,
+        "end": 394.16
+      },
+      {
+        "word": "sound",
+        "start": 394.16,
+        "end": 394.58
+      },
+      {
+        "word": "this",
+        "start": 394.58,
+        "end": 394.84
+      },
+      {
+        "word": "family",
+        "start": 394.84,
+        "end": 395.26
+      },
+      {
+        "word": "out",
+        "start": 395.26,
+        "end": 395.62
+      },
+      {
+        "word": "letter",
+        "start": 395.62,
+        "end": 396.04
+      },
+      {
+        "word": "by",
+        "start": 396.04,
+        "end": 396.32
+      },
+      {
+        "word": "letter.",
+        "start": 396.32,
+        "end": 396.58
+      }
+    ]
+  },
+  {
+    "index": 110,
+    "text": "We learn the whole ending",
+    "start": 397.36,
+    "end": 399.08,
+    "duration": 1.72,
+    "words": [
+      {
+        "word": "We",
+        "start": 397.36,
+        "end": 397.5
+      },
+      {
+        "word": "learn",
+        "start": 397.5,
+        "end": 397.8
+      },
+      {
+        "word": "the",
+        "start": 397.8,
+        "end": 398.02
+      },
+      {
+        "word": "whole",
+        "start": 398.02,
+        "end": 398.52
+      },
+      {
+        "word": "ending",
+        "start": 398.52,
+        "end": 399.08
+      }
+    ]
+  },
+  {
+    "index": 111,
+    "text": "in one piece.",
+    "start": 399.08,
+    "end": 400.28,
+    "duration": 1.2,
+    "words": [
+      {
+        "word": "in",
+        "start": 399.08,
+        "end": 399.48
+      },
+      {
+        "word": "one",
+        "start": 399.48,
+        "end": 399.8
+      },
+      {
+        "word": "piece.",
+        "start": 399.8,
+        "end": 400.28
+      }
+    ]
+  },
+  {
+    "index": 112,
+    "text": "When you see those three letters together.",
+    "start": 401.3,
+    "end": 403.54,
+    "duration": 2.24,
+    "words": [
+      {
+        "word": "When",
+        "start": 401.3,
+        "end": 401.46
+      },
+      {
+        "word": "you",
+        "start": 401.46,
+        "end": 401.64
+      },
+      {
+        "word": "see",
+        "start": 401.64,
+        "end": 401.88
+      },
+      {
+        "word": "those",
+        "start": 401.88,
+        "end": 402.3
+      },
+      {
+        "word": "three",
+        "start": 402.3,
+        "end": 402.66
+      },
+      {
+        "word": "letters",
+        "start": 402.66,
+        "end": 403.0
+      },
+      {
+        "word": "together.",
+        "start": 403.0,
+        "end": 403.54
+      }
+    ]
+  },
+  {
+    "index": 113,
+    "text": "A. Le. Le. You say all.",
+    "start": 404.38,
+    "end": 408.07,
+    "duration": 3.69,
+    "words": [
+      {
+        "word": "A.",
+        "start": 404.38,
+        "end": 404.56
+      },
+      {
+        "word": "Le.",
+        "start": 404.96,
+        "end": 405.3
+      },
+      {
+        "word": "Le.",
+        "start": 405.7,
+        "end": 405.98
+      },
+      {
+        "word": "You",
+        "start": 406.66,
+        "end": 406.82
+      },
+      {
+        "word": "say",
+        "start": 406.82,
+        "end": 407.22
+      },
+      {
+        "word": "all.",
+        "start": 407.22,
+        "end": 408.07
+      }
+    ]
+  },
+  {
+    "index": 114,
+    "text": "Ball.",
+    "start": 409.38,
+    "end": 410.22,
+    "duration": 0.84,
+    "words": [
+      {
+        "word": "Ball.",
+        "start": 409.38,
+        "end": 410.22
+      }
+    ]
+  },
+  {
+    "index": 115,
+    "text": "Tall.",
+    "start": 411.38,
+    "end": 411.86,
+    "duration": 0.48,
+    "words": [
+      {
+        "word": "Tall.",
+        "start": 411.38,
+        "end": 411.86
+      }
+    ]
+  },
+  {
+    "index": 116,
+    "text": "Wall.",
+    "start": 413.46,
+    "end": 413.98,
+    "duration": 0.52,
+    "words": [
+      {
+        "word": "Wall.",
+        "start": 413.46,
+        "end": 413.98
+      }
+    ]
+  },
+  {
+    "index": 117,
+    "text": "Say the ending with me.",
+    "start": 415.3,
+    "end": 416.28,
+    "duration": 0.98,
+    "words": [
+      {
+        "word": "Say",
+        "start": 415.3,
+        "end": 415.44
+      },
+      {
+        "word": "the",
+        "start": 415.44,
+        "end": 415.62
+      },
+      {
+        "word": "ending",
+        "start": 415.62,
+        "end": 415.9
+      },
+      {
+        "word": "with",
+        "start": 415.9,
+        "end": 416.18
+      },
+      {
+        "word": "me.",
+        "start": 416.18,
+        "end": 416.28
+      }
+    ]
+  },
+  {
+    "index": 118,
+    "text": "All. And look at the ending.",
+    "start": 417.26,
+    "end": 419.88,
+    "duration": 2.62,
+    "words": [
+      {
+        "word": "All.",
+        "start": 417.26,
+        "end": 417.66
+      },
+      {
+        "word": "And",
+        "start": 418.96,
+        "end": 419.08
+      },
+      {
+        "word": "look",
+        "start": 419.08,
+        "end": 419.26
+      },
+      {
+        "word": "at",
+        "start": 419.26,
+        "end": 419.44
+      },
+      {
+        "word": "the",
+        "start": 419.44,
+        "end": 419.56
+      },
+      {
+        "word": "ending.",
+        "start": 419.56,
+        "end": 419.88
+      }
+    ]
+  },
+  {
+    "index": 119,
+    "text": "Two L's. Do you remember why?",
+    "start": 420.62,
+    "end": 423.28,
+    "duration": 2.66,
+    "words": [
+      {
+        "word": "Two",
+        "start": 420.62,
+        "end": 420.9
+      },
+      {
+        "word": "L's.",
+        "start": 420.9,
+        "end": 421.6
+      },
+      {
+        "word": "Do",
+        "start": 422.22,
+        "end": 422.32
+      },
+      {
+        "word": "you",
+        "start": 422.32,
+        "end": 422.52
+      },
+      {
+        "word": "remember",
+        "start": 422.52,
+        "end": 422.86
+      },
+      {
+        "word": "why?",
+        "start": 422.86,
+        "end": 423.28
+      }
+    ]
+  },
+  {
+    "index": 120,
+    "text": "That",
+    "start": 424.2,
+    "end": 424.5,
+    "duration": 0.3,
+    "words": [
+      {
+        "word": "That",
+        "start": 424.2,
+        "end": 424.5
+      }
+    ]
+  },
+  {
+    "index": 121,
+    "text": "is the floss rule from level five.",
+    "start": 424.5,
+    "end": 426.96,
+    "duration": 2.46,
+    "words": [
+      {
+        "word": "is",
+        "start": 424.5,
+        "end": 424.74
+      },
+      {
+        "word": "the",
+        "start": 424.74,
+        "end": 424.88
+      },
+      {
+        "word": "floss",
+        "start": 424.88,
+        "end": 425.22
+      },
+      {
+        "word": "rule",
+        "start": 425.22,
+        "end": 425.76
+      },
+      {
+        "word": "from",
+        "start": 425.76,
+        "end": 426.1
+      },
+      {
+        "word": "level",
+        "start": 426.1,
+        "end": 426.42
+      },
+      {
+        "word": "five.",
+        "start": 426.42,
+        "end": 426.96
+      }
+    ]
+  },
+  {
+    "index": 122,
+    "text": "One clap.",
+    "start": 427.66,
+    "end": 428.26,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "One",
+        "start": 427.66,
+        "end": 427.9
+      },
+      {
+        "word": "clap.",
+        "start": 427.9,
+        "end": 428.26
+      }
+    ]
+  },
+  {
+    "index": 123,
+    "text": "Short vowel.",
+    "start": 428.94,
+    "end": 429.72,
+    "duration": 0.78,
+    "words": [
+      {
+        "word": "Short",
+        "start": 428.94,
+        "end": 429.26
+      },
+      {
+        "word": "vowel.",
+        "start": 429.26,
+        "end": 429.72
+      }
+    ]
+  },
+  {
+    "index": 124,
+    "text": "Ends in L. So we double it.",
+    "start": 430.46,
+    "end": 432.82,
+    "duration": 2.36,
+    "words": [
+      {
+        "word": "Ends",
+        "start": 430.46,
+        "end": 430.9
+      },
+      {
+        "word": "in",
+        "start": 430.9,
+        "end": 431.04
+      },
+      {
+        "word": "L.",
+        "start": 431.04,
+        "end": 431.46
+      },
+      {
+        "word": "So",
+        "start": 431.94,
+        "end": 432.06
+      },
+      {
+        "word": "we",
+        "start": 432.06,
+        "end": 432.28
+      },
+      {
+        "word": "double",
+        "start": 432.28,
+        "end": 432.54
+      },
+      {
+        "word": "it.",
+        "start": 432.54,
+        "end": 432.82
+      }
+    ]
+  },
+  {
+    "index": 125,
+    "text": "Now",
+    "start": 433.52,
+    "end": 434.08,
+    "duration": 0.56,
+    "words": [
+      {
+        "word": "Now",
+        "start": 433.52,
+        "end": 434.08
+      }
+    ]
+  },
+  {
+    "index": 126,
+    "text": "it is your turn.",
+    "start": 434.08,
+    "end": 435.1,
+    "duration": 1.02,
+    "words": [
+      {
+        "word": "it",
+        "start": 434.08,
+        "end": 434.28
+      },
+      {
+        "word": "is",
+        "start": 434.28,
+        "end": 434.42
+      },
+      {
+        "word": "your",
+        "start": 434.42,
+        "end": 434.7
+      },
+      {
+        "word": "turn.",
+        "start": 434.7,
+        "end": 435.1
+      }
+    ]
+  },
+  {
+    "index": 127,
+    "text": "And this is exactly what the app will ask you.",
+    "start": 435.58,
+    "end": 438.44,
+    "duration": 2.86,
+    "words": [
+      {
+        "word": "And",
+        "start": 435.58,
+        "end": 435.72
+      },
+      {
+        "word": "this",
+        "start": 435.72,
+        "end": 435.98
+      },
+      {
+        "word": "is",
+        "start": 435.98,
+        "end": 436.18
+      },
+      {
+        "word": "exactly",
+        "start": 436.18,
+        "end": 436.8
+      },
+      {
+        "word": "what",
+        "start": 436.8,
+        "end": 437.14
+      },
+      {
+        "word": "the",
+        "start": 437.14,
+        "end": 437.34
+      },
+      {
+        "word": "app",
+        "start": 437.34,
+        "end": 437.62
+      },
+      {
+        "word": "will",
+        "start": 437.62,
+        "end": 437.8
+      },
+      {
+        "word": "ask",
+        "start": 437.8,
+        "end": 438.16
+      },
+      {
+        "word": "you.",
+        "start": 438.16,
+        "end": 438.44
+      }
+    ]
+  },
+  {
+    "index": 128,
+    "text": "I am going to show you a",
+    "start": 439.1,
+    "end": 440.28,
+    "duration": 1.18,
+    "words": [
+      {
+        "word": "I",
+        "start": 439.1,
+        "end": 439.26
+      },
+      {
+        "word": "am",
+        "start": 439.26,
+        "end": 439.38
+      },
+      {
+        "word": "going",
+        "start": 439.38,
+        "end": 439.58
+      },
+      {
+        "word": "to",
+        "start": 439.58,
+        "end": 439.8
+      },
+      {
+        "word": "show",
+        "start": 439.8,
+        "end": 440.04
+      },
+      {
+        "word": "you",
+        "start": 440.04,
+        "end": 440.22
+      },
+      {
+        "word": "a",
+        "start": 440.22,
+        "end": 440.28
+      }
+    ]
+  },
+  {
+    "index": 129,
+    "text": "word and you tell me which letter goes at the front.",
+    "start": 440.3,
+    "end": 443.98,
+    "duration": 3.68,
+    "words": [
+      {
+        "word": "word",
+        "start": 440.3,
+        "end": 440.7
+      },
+      {
+        "word": "and",
+        "start": 440.7,
+        "end": 441.36
+      },
+      {
+        "word": "you",
+        "start": 441.36,
+        "end": 441.62
+      },
+      {
+        "word": "tell",
+        "start": 441.62,
+        "end": 441.94
+      },
+      {
+        "word": "me",
+        "start": 441.94,
+        "end": 442.18
+      },
+      {
+        "word": "which",
+        "start": 442.18,
+        "end": 442.48
+      },
+      {
+        "word": "letter",
+        "start": 442.48,
+        "end": 442.92
+      },
+      {
+        "word": "goes",
+        "start": 442.92,
+        "end": 443.24
+      },
+      {
+        "word": "at",
+        "start": 443.24,
+        "end": 443.56
+      },
+      {
+        "word": "the",
+        "start": 443.56,
+        "end": 443.68
+      },
+      {
+        "word": "front.",
+        "start": 443.68,
+        "end": 443.98
+      }
+    ]
+  },
+  {
+    "index": 130,
+    "text": "Here is the ending.",
+    "start": 445.06,
+    "end": 445.9,
+    "duration": 0.84,
+    "words": [
+      {
+        "word": "Here",
+        "start": 445.06,
+        "end": 445.22
+      },
+      {
+        "word": "is",
+        "start": 445.22,
+        "end": 445.44
+      },
+      {
+        "word": "the",
+        "start": 445.44,
+        "end": 445.58
+      },
+      {
+        "word": "ending.",
+        "start": 445.58,
+        "end": 445.9
+      }
+    ]
+  },
+  {
+    "index": 131,
+    "text": "N. And here is",
+    "start": 446.94,
+    "end": 449.16,
+    "duration": 2.22,
+    "words": [
+      {
+        "word": "N.",
+        "start": 446.94,
+        "end": 447.24
+      },
+      {
+        "word": "And",
+        "start": 448.38,
+        "end": 448.52
+      },
+      {
+        "word": "here",
+        "start": 448.52,
+        "end": 448.86
+      },
+      {
+        "word": "is",
+        "start": 448.86,
+        "end": 449.16
+      }
+    ]
+  },
+  {
+    "index": 132,
+    "text": "the picture.",
+    "start": 449.16,
+    "end": 449.62,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "the",
+        "start": 449.16,
+        "end": 449.3
+      },
+      {
+        "word": "picture.",
+        "start": 449.3,
+        "end": 449.62
+      }
+    ]
+  },
+  {
+    "index": 133,
+    "text": "A hen.",
+    "start": 451.08,
+    "end": 451.58,
+    "duration": 0.5,
+    "words": [
+      {
+        "word": "A",
+        "start": 451.08,
+        "end": 451.22
+      },
+      {
+        "word": "hen.",
+        "start": 451.22,
+        "end": 451.58
+      }
+    ]
+  },
+  {
+    "index": 134,
+    "text": "Which letter starts it?",
+    "start": 452.84,
+    "end": 454.14,
+    "duration": 1.3,
+    "words": [
+      {
+        "word": "Which",
+        "start": 452.84,
+        "end": 453.04
+      },
+      {
+        "word": "letter",
+        "start": 453.04,
+        "end": 453.4
+      },
+      {
+        "word": "starts",
+        "start": 453.4,
+        "end": 453.7
+      },
+      {
+        "word": "it?",
+        "start": 453.7,
+        "end": 454.14
+      }
+    ]
+  },
+  {
+    "index": 135,
+    "text": "H. Hen. That is right.",
+    "start": 456.17,
+    "end": 460.14,
+    "duration": 3.97,
+    "words": [
+      {
+        "word": "H.",
+        "start": 456.17,
+        "end": 456.92
+      },
+      {
+        "word": "Hen.",
+        "start": 457.78,
+        "end": 458.26
+      },
+      {
+        "word": "That",
+        "start": 459.48,
+        "end": 459.68
+      },
+      {
+        "word": "is",
+        "start": 459.68,
+        "end": 459.84
+      },
+      {
+        "word": "right.",
+        "start": 459.84,
+        "end": 460.14
+      }
+    ]
+  },
+  {
+    "index": 136,
+    "text": "Let's do one more.",
+    "start": 460.74,
+    "end": 461.9,
+    "duration": 1.16,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 460.74,
+        "end": 461.06
+      },
+      {
+        "word": "do",
+        "start": 461.1,
+        "end": 461.26
+      },
+      {
+        "word": "one",
+        "start": 461.26,
+        "end": 461.58
+      },
+      {
+        "word": "more.",
+        "start": 461.58,
+        "end": 461.9
+      }
+    ]
+  },
+  {
+    "index": 137,
+    "text": "The",
+    "start": 462.48,
+    "end": 462.7,
+    "duration": 0.22,
+    "words": [
+      {
+        "word": "The",
+        "start": 462.48,
+        "end": 462.7
+      }
+    ]
+  },
+  {
+    "index": 138,
+    "text": "ending is.",
+    "start": 462.72,
+    "end": 463.52,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "ending",
+        "start": 462.72,
+        "end": 463.1
+      },
+      {
+        "word": "is.",
+        "start": 463.1,
+        "end": 463.52
+      }
+    ]
+  },
+  {
+    "index": 139,
+    "text": "And",
+    "start": 464.42,
+    "end": 464.42,
+    "duration": 0.0,
+    "words": [
+      {
+        "word": "And",
+        "start": 464.42,
+        "end": 464.42
+      }
+    ]
+  },
+  {
+    "index": 140,
+    "text": "the picture is.",
+    "start": 465.2,
+    "end": 466.32,
+    "duration": 1.12,
+    "words": [
+      {
+        "word": "the",
+        "start": 465.2,
+        "end": 465.46
+      },
+      {
+        "word": "picture",
+        "start": 465.46,
+        "end": 465.88
+      },
+      {
+        "word": "is.",
+        "start": 465.88,
+        "end": 466.32
+      }
+    ]
+  },
+  {
+    "index": 141,
+    "text": "Which",
+    "start": 467.48,
+    "end": 467.74,
+    "duration": 0.26,
+    "words": [
+      {
+        "word": "Which",
+        "start": 467.48,
+        "end": 467.74
+      }
+    ]
+  },
+  {
+    "index": 142,
+    "text": "letter starts it?",
+    "start": 468.48,
+    "end": 469.76,
+    "duration": 1.28,
+    "words": [
+      {
+        "word": "letter",
+        "start": 468.48,
+        "end": 469.06
+      },
+      {
+        "word": "starts",
+        "start": 469.06,
+        "end": 469.4
+      },
+      {
+        "word": "it?",
+        "start": 469.4,
+        "end": 469.76
+      }
+    ]
+  },
+  {
+    "index": 143,
+    "text": "B. Excellent.",
+    "start": 471.18,
+    "end": 474.6,
+    "duration": 3.42,
+    "words": [
+      {
+        "word": "B.",
+        "start": 471.18,
+        "end": 471.5
+      },
+      {
+        "word": "Excellent.",
+        "start": 473.48,
+        "end": 474.6
+      }
+    ]
+  },
+  {
+    "index": 144,
+    "text": "That is the whole",
+    "start": 475.62,
+    "end": 476.52,
+    "duration": 0.9,
+    "words": [
+      {
+        "word": "That",
+        "start": 475.62,
+        "end": 475.68
+      },
+      {
+        "word": "is",
+        "start": 475.68,
+        "end": 475.9
+      },
+      {
+        "word": "the",
+        "start": 475.9,
+        "end": 476.06
+      },
+      {
+        "word": "whole",
+        "start": 476.06,
+        "end": 476.52
+      }
+    ]
+  },
+  {
+    "index": 145,
+    "text": "skill.",
+    "start": 476.52,
+    "end": 476.98,
+    "duration": 0.46,
+    "words": [
+      {
+        "word": "skill.",
+        "start": 476.52,
+        "end": 476.98
+      }
+    ]
+  },
+  {
+    "index": 146,
+    "text": "Find the ending you know.",
+    "start": 477.88,
+    "end": 479.12,
+    "duration": 1.24,
+    "words": [
+      {
+        "word": "Find",
+        "start": 477.88,
+        "end": 478.04
+      },
+      {
+        "word": "the",
+        "start": 478.04,
+        "end": 478.26
+      },
+      {
+        "word": "ending",
+        "start": 478.26,
+        "end": 478.58
+      },
+      {
+        "word": "you",
+        "start": 478.58,
+        "end": 478.8
+      },
+      {
+        "word": "know.",
+        "start": 478.8,
+        "end": 479.12
+      }
+    ]
+  },
+  {
+    "index": 147,
+    "text": "Then work out the front.",
+    "start": 479.62,
+    "end": 480.84,
+    "duration": 1.22,
+    "words": [
+      {
+        "word": "Then",
+        "start": 479.62,
+        "end": 479.9
+      },
+      {
+        "word": "work",
+        "start": 479.9,
+        "end": 480.2
+      },
+      {
+        "word": "out",
+        "start": 480.2,
+        "end": 480.4
+      },
+      {
+        "word": "the",
+        "start": 480.4,
+        "end": 480.56
+      },
+      {
+        "word": "front.",
+        "start": 480.56,
+        "end": 480.84
+      }
+    ]
+  },
+  {
+    "index": 148,
+    "text": "Let's say what we learned today.",
+    "start": 482.04,
+    "end": 483.66,
+    "duration": 1.62,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 482.04,
+        "end": 482.36
+      },
+      {
+        "word": "say",
+        "start": 482.4,
+        "end": 482.56
+      },
+      {
+        "word": "what",
+        "start": 482.56,
+        "end": 482.78
+      },
+      {
+        "word": "we",
+        "start": 482.78,
+        "end": 482.98
+      },
+      {
+        "word": "learned",
+        "start": 482.98,
+        "end": 483.3
+      },
+      {
+        "word": "today.",
+        "start": 483.3,
+        "end": 483.66
+      }
+    ]
+  },
+  {
+    "index": 149,
+    "text": "A word family is a group of words that all end the same way.",
+    "start": 484.6,
+    "end": 488.68,
+    "duration": 4.08,
+    "words": [
+      {
+        "word": "A",
+        "start": 484.6,
+        "end": 484.7
+      },
+      {
+        "word": "word",
+        "start": 484.7,
+        "end": 484.94
+      },
+      {
+        "word": "family",
+        "start": 484.94,
+        "end": 485.4
+      },
+      {
+        "word": "is",
+        "start": 485.4,
+        "end": 485.7
+      },
+      {
+        "word": "a",
+        "start": 485.7,
+        "end": 485.86
+      },
+      {
+        "word": "group",
+        "start": 485.86,
+        "end": 486.04
+      },
+      {
+        "word": "of",
+        "start": 486.04,
+        "end": 486.28
+      },
+      {
+        "word": "words",
+        "start": 486.28,
+        "end": 486.66
+      },
+      {
+        "word": "that",
+        "start": 486.66,
+        "end": 486.92
+      },
+      {
+        "word": "all",
+        "start": 486.92,
+        "end": 487.34
+      },
+      {
+        "word": "end",
+        "start": 487.34,
+        "end": 487.7
+      },
+      {
+        "word": "the",
+        "start": 487.7,
+        "end": 487.9
+      },
+      {
+        "word": "same",
+        "start": 487.9,
+        "end": 488.32
+      },
+      {
+        "word": "way.",
+        "start": 488.32,
+        "end": 488.68
+      }
+    ]
+  },
+  {
+    "index": 150,
+    "text": "If you can read the ending.",
+    "start": 489.26,
+    "end": 490.5,
+    "duration": 1.24,
+    "words": [
+      {
+        "word": "If",
+        "start": 489.26,
+        "end": 489.4
+      },
+      {
+        "word": "you",
+        "start": 489.4,
+        "end": 489.5
+      },
+      {
+        "word": "can",
+        "start": 489.5,
+        "end": 489.7
+      },
+      {
+        "word": "read",
+        "start": 489.7,
+        "end": 489.96
+      },
+      {
+        "word": "the",
+        "start": 489.96,
+        "end": 490.18
+      },
+      {
+        "word": "ending.",
+        "start": 490.18,
+        "end": 490.5
+      }
+    ]
+  },
+  {
+    "index": 151,
+    "text": "You can read every word in the family.",
+    "start": 491.18,
+    "end": 493.52,
+    "duration": 2.34,
+    "words": [
+      {
+        "word": "You",
+        "start": 491.18,
+        "end": 491.26
+      },
+      {
+        "word": "can",
+        "start": 491.26,
+        "end": 491.4
+      },
+      {
+        "word": "read",
+        "start": 491.4,
+        "end": 491.72
+      },
+      {
+        "word": "every",
+        "start": 491.72,
+        "end": 492.28
+      },
+      {
+        "word": "word",
+        "start": 492.28,
+        "end": 492.74
+      },
+      {
+        "word": "in",
+        "start": 492.74,
+        "end": 492.98
+      },
+      {
+        "word": "the",
+        "start": 492.98,
+        "end": 493.12
+      },
+      {
+        "word": "family.",
+        "start": 493.12,
+        "end": 493.52
+      }
+    ]
+  },
+  {
+    "index": 152,
+    "text": "You only have to change the letter at the front.",
+    "start": 494.06,
+    "end": 496.76,
+    "duration": 2.7,
+    "words": [
+      {
+        "word": "You",
+        "start": 494.06,
+        "end": 494.22
+      },
+      {
+        "word": "only",
+        "start": 494.22,
+        "end": 494.58
+      },
+      {
+        "word": "have",
+        "start": 494.58,
+        "end": 494.88
+      },
+      {
+        "word": "to",
+        "start": 494.88,
+        "end": 495.06
+      },
+      {
+        "word": "change",
+        "start": 495.06,
+        "end": 495.38
+      },
+      {
+        "word": "the",
+        "start": 495.38,
+        "end": 495.66
+      },
+      {
+        "word": "letter",
+        "start": 495.66,
+        "end": 495.96
+      },
+      {
+        "word": "at",
+        "start": 495.96,
+        "end": 496.28
+      },
+      {
+        "word": "the",
+        "start": 496.28,
+        "end": 496.42
+      },
+      {
+        "word": "front.",
+        "start": 496.42,
+        "end": 496.76
+      }
+    ]
+  },
+  {
+    "index": 153,
+    "text": "Today you kept 13 families and you read 81 words.",
+    "start": 497.82,
+    "end": 502.9,
+    "duration": 5.08,
+    "words": [
+      {
+        "word": "Today",
+        "start": 497.82,
+        "end": 498.06
+      },
+      {
+        "word": "you",
+        "start": 498.06,
+        "end": 498.34
+      },
+      {
+        "word": "kept",
+        "start": 498.34,
+        "end": 498.64
+      },
+      {
+        "word": "13",
+        "start": 498.64,
+        "end": 499.32
+      },
+      {
+        "word": "families",
+        "start": 499.32,
+        "end": 499.94
+      },
+      {
+        "word": "and",
+        "start": 499.94,
+        "end": 500.76
+      },
+      {
+        "word": "you",
+        "start": 500.76,
+        "end": 501.0
+      },
+      {
+        "word": "read",
+        "start": 501.0,
+        "end": 501.32
+      },
+      {
+        "word": "81",
+        "start": 501.32,
+        "end": 502.22
+      },
+      {
+        "word": "words.",
+        "start": 502.22,
+        "end": 502.9
+      }
+    ]
+  },
+  {
+    "index": 154,
+    "text": "81 from thought endings.",
+    "start": 503.78,
+    "end": 506.58,
+    "duration": 2.8,
+    "words": [
+      {
+        "word": "81",
+        "start": 503.78,
+        "end": 504.3
+      },
+      {
+        "word": "from",
+        "start": 504.3,
+        "end": 505.58
+      },
+      {
+        "word": "thought",
+        "start": 505.58,
+        "end": 506.06
+      },
+      {
+        "word": "endings.",
+        "start": 506.06,
+        "end": 506.58
+      }
+    ]
+  },
+  {
+    "index": 155,
+    "text": "That is what",
+    "start": 507.52,
+    "end": 508.32,
+    "duration": 0.8,
+    "words": [
+      {
+        "word": "That",
+        "start": 507.52,
+        "end": 507.84
+      },
+      {
+        "word": "is",
+        "start": 507.84,
+        "end": 508.1
+      },
+      {
+        "word": "what",
+        "start": 508.1,
+        "end": 508.32
+      }
+    ]
+  },
+  {
+    "index": 156,
+    "text": "makes this trick so useful.",
+    "start": 508.54,
+    "end": 510.26,
+    "duration": 1.72,
+    "words": [
+      {
+        "word": "makes",
+        "start": 508.54,
+        "end": 508.66
+      },
+      {
+        "word": "this",
+        "start": 508.76,
+        "end": 508.92
+      },
+      {
+        "word": "trick",
+        "start": 508.92,
+        "end": 509.24
+      },
+      {
+        "word": "so",
+        "start": 509.24,
+        "end": 509.74
+      },
+      {
+        "word": "useful.",
+        "start": 509.74,
+        "end": 510.26
+      }
+    ]
+  },
+  {
+    "index": 157,
+    "text": "I am really proud of you.",
+    "start": 511.82,
+    "end": 513.52,
+    "duration": 1.7,
+    "words": [
+      {
+        "word": "I",
+        "start": 511.82,
+        "end": 511.98
+      },
+      {
+        "word": "am",
+        "start": 511.98,
+        "end": 512.16
+      },
+      {
+        "word": "really",
+        "start": 512.16,
+        "end": 512.58
+      },
+      {
+        "word": "proud",
+        "start": 512.58,
+        "end": 513.02
+      },
+      {
+        "word": "of",
+        "start": 513.02,
+        "end": 513.28
+      },
+      {
+        "word": "you.",
+        "start": 513.28,
+        "end": 513.52
+      }
+    ]
+  },
+  {
+    "index": 158,
+    "text": "This is the skill that turns sounding",
+    "start": 514.02,
+    "end": 516.66,
+    "duration": 2.64,
+    "words": [
+      {
+        "word": "This",
+        "start": 514.02,
+        "end": 514.28
+      },
+      {
+        "word": "is",
+        "start": 514.28,
+        "end": 514.48
+      },
+      {
+        "word": "the",
+        "start": 514.48,
+        "end": 514.64
+      },
+      {
+        "word": "skill",
+        "start": 514.64,
+        "end": 515.06
+      },
+      {
+        "word": "that",
+        "start": 515.06,
+        "end": 515.64
+      },
+      {
+        "word": "turns",
+        "start": 515.64,
+        "end": 516.1
+      },
+      {
+        "word": "sounding",
+        "start": 516.1,
+        "end": 516.66
+      }
+    ]
+  },
+  {
+    "index": 159,
+    "text": "out into reading.",
+    "start": 516.92,
+    "end": 518.16,
+    "duration": 1.24,
+    "words": [
+      {
+        "word": "out",
+        "start": 516.92,
+        "end": 517.2
+      },
+      {
+        "word": "into",
+        "start": 517.2,
+        "end": 517.74
+      },
+      {
+        "word": "reading.",
+        "start": 517.74,
+        "end": 518.16
+      }
+    ]
+  },
+  {
+    "index": 160,
+    "text": "Next time we will keep going with level six",
+    "start": 519.1,
+    "end": 522.18,
+    "duration": 3.08,
+    "words": [
+      {
+        "word": "Next",
+        "start": 519.1,
+        "end": 519.36
+      },
+      {
+        "word": "time",
+        "start": 519.5,
+        "end": 519.78
+      },
+      {
+        "word": "we",
+        "start": 519.78,
+        "end": 520.26
+      },
+      {
+        "word": "will",
+        "start": 520.26,
+        "end": 520.44
+      },
+      {
+        "word": "keep",
+        "start": 520.44,
+        "end": 520.68
+      },
+      {
+        "word": "going",
+        "start": 520.68,
+        "end": 521.1
+      },
+      {
+        "word": "with",
+        "start": 521.1,
+        "end": 521.5
+      },
+      {
+        "word": "level",
+        "start": 521.5,
+        "end": 521.74
+      },
+      {
+        "word": "six",
+        "start": 521.74,
+        "end": 522.18
+      }
+    ]
+  },
+  {
+    "index": 161,
+    "text": "and practice these families",
+    "start": 522.76,
+    "end": 524.1,
+    "duration": 1.34,
+    "words": [
+      {
+        "word": "and",
+        "start": 522.76,
+        "end": 522.88
+      },
+      {
+        "word": "practice",
+        "start": 522.88,
+        "end": 523.26
+      },
+      {
+        "word": "these",
+        "start": 523.26,
+        "end": 523.6
+      },
+      {
+        "word": "families",
+        "start": 523.6,
+        "end": 524.1
+      }
+    ]
+  },
+  {
+    "index": 162,
+    "text": "until they are easy.",
+    "start": 524.5,
+    "end": 525.56,
+    "duration": 1.06,
+    "words": [
+      {
+        "word": "until",
+        "start": 524.5,
+        "end": 524.68
+      },
+      {
+        "word": "they",
+        "start": 524.68,
+        "end": 525.08
+      },
+      {
+        "word": "are",
+        "start": 525.08,
+        "end": 525.18
+      },
+      {
+        "word": "easy.",
+        "start": 525.18,
+        "end": 525.56
+      }
+    ]
+  },
+  {
+    "index": 163,
+    "text": "Don't miss it.",
+    "start": 526.44,
+    "end": 527.02,
+    "duration": 0.58,
+    "words": [
+      {
+        "word": "Don't",
+        "start": 526.44,
+        "end": 526.7
+      },
+      {
+        "word": "miss",
+        "start": 526.7,
+        "end": 526.92
+      },
+      {
+        "word": "it.",
+        "start": 526.92,
+        "end": 527.02
+      }
+    ]
+  },
+  {
+    "index": 164,
+    "text": "If you enjoyed this lesson,",
+    "start": 527.74,
+    "end": 529.2,
+    "duration": 1.46,
+    "words": [
+      {
+        "word": "If",
+        "start": 527.74,
+        "end": 527.9
+      },
+      {
+        "word": "you",
+        "start": 527.9,
+        "end": 528.04
+      },
+      {
+        "word": "enjoyed",
+        "start": 528.04,
+        "end": 528.46
+      },
+      {
+        "word": "this",
+        "start": 528.46,
+        "end": 528.72
+      },
+      {
+        "word": "lesson,",
+        "start": 528.72,
+        "end": 529.2
+      }
+    ]
+  },
+  {
+    "index": 165,
+    "text": "please like this video",
+    "start": 529.84,
+    "end": 530.96,
+    "duration": 1.12,
+    "words": [
+      {
+        "word": "please",
+        "start": 529.84,
+        "end": 529.96
+      },
+      {
+        "word": "like",
+        "start": 529.96,
+        "end": 530.34
+      },
+      {
+        "word": "this",
+        "start": 530.34,
+        "end": 530.6
+      },
+      {
+        "word": "video",
+        "start": 530.6,
+        "end": 530.96
+      }
+    ]
+  },
+  {
+    "index": 166,
+    "text": "and subscribe.",
+    "start": 530.96,
+    "end": 531.56,
+    "duration": 0.6,
+    "words": [
+      {
+        "word": "and",
+        "start": 530.96,
+        "end": 531.3
+      },
+      {
+        "word": "subscribe.",
+        "start": 531.3,
+        "end": 531.56
+      }
+    ]
+  },
+  {
+    "index": 167,
+    "text": "And practice every one of these families in the English learning app.",
+    "start": 532.72,
+    "end": 536.76,
+    "duration": 4.04,
+    "words": [
+      {
+        "word": "And",
+        "start": 532.72,
+        "end": 532.86
+      },
+      {
+        "word": "practice",
+        "start": 532.86,
+        "end": 533.22
+      },
+      {
+        "word": "every",
+        "start": 533.22,
+        "end": 533.76
+      },
+      {
+        "word": "one",
+        "start": 533.76,
+        "end": 534.12
+      },
+      {
+        "word": "of",
+        "start": 534.12,
+        "end": 534.26
+      },
+      {
+        "word": "these",
+        "start": 534.26,
+        "end": 534.44
+      },
+      {
+        "word": "families",
+        "start": 534.44,
+        "end": 534.9
+      },
+      {
+        "word": "in",
+        "start": 534.9,
+        "end": 535.38
+      },
+      {
+        "word": "the",
+        "start": 535.38,
+        "end": 535.5
+      },
+      {
+        "word": "English",
+        "start": 535.5,
+        "end": 535.88
+      },
+      {
+        "word": "learning",
+        "start": 535.88,
+        "end": 536.34
+      },
+      {
+        "word": "app.",
+        "start": 536.34,
+        "end": 536.76
+      }
+    ]
+  },
+  {
+    "index": 168,
+    "text": "It's",
+    "start": 537.44,
+    "end": 537.62,
+    "duration": 0.18,
+    "words": [
+      {
+        "word": "It's",
+        "start": 537.44,
+        "end": 537.62
+      }
+    ]
+  },
+  {
+    "index": 169,
+    "text": "free on the Apple App Store and Google Play.",
+    "start": 537.8,
+    "end": 540.64,
+    "duration": 2.84,
+    "words": [
+      {
+        "word": "free",
+        "start": 537.8,
+        "end": 537.98
+      },
+      {
+        "word": "on",
+        "start": 537.98,
+        "end": 538.22
+      },
+      {
+        "word": "the",
+        "start": 538.22,
+        "end": 538.38
+      },
+      {
+        "word": "Apple",
+        "start": 538.38,
+        "end": 538.7
+      },
+      {
+        "word": "App",
+        "start": 538.7,
+        "end": 538.98
+      },
+      {
+        "word": "Store",
+        "start": 538.98,
+        "end": 539.32
+      },
+      {
+        "word": "and",
+        "start": 539.32,
+        "end": 539.82
+      },
+      {
+        "word": "Google",
+        "start": 539.82,
+        "end": 540.16
+      },
+      {
+        "word": "Play.",
+        "start": 540.16,
+        "end": 540.64
+      }
+    ]
+  },
+  {
+    "index": 170,
+    "text": "See you next time.",
+    "start": 541.64,
+    "end": 542.48,
+    "duration": 0.84,
+    "words": [
+      {
+        "word": "See",
+        "start": 541.64,
+        "end": 541.74
+      },
+      {
+        "word": "you",
+        "start": 541.74,
+        "end": 541.88
+      },
+      {
+        "word": "next",
+        "start": 541.88,
+        "end": 542.06
+      },
+      {
+        "word": "time.",
+        "start": 542.06,
+        "end": 542.48
+      }
+    ]
+  }
+]

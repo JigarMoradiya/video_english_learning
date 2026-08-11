@@ -1,0 +1,855 @@
+1
+00:00:00,580 --> 00:00:01,060
+Welcome back!
+
+2
+00:00:01,800 --> 00:00:03,800
+Last time we finished Level Five.
+
+3
+00:00:04,200 --> 00:00:08,700
+You learned six spelling rules, and you learned them all.
+
+4
+00:00:09,500 --> 00:00:13,300
+Today we are starting Level Six, and this one is different.
+
+5
+00:00:14,120 --> 00:00:16,460
+Today you are not learning a rule.
+
+6
+00:00:17,080 --> 00:00:23,480
+Today you are learning a trick — a trick that lets you read a whole pile of words at once.
+
+7
+00:00:24,640 --> 00:00:26,080
+Let me show you what I mean.
+
+8
+00:00:26,940 --> 00:00:27,840
+Here is a word.
+
+9
+00:00:28,460 --> 00:00:28,760
+Cat.
+
+10
+00:00:29,220 --> 00:00:34,190
+Now watch what happens when I change just ONE letter.
+
+11
+00:00:34,620 --> 00:00:35,100
+The first one.
+
+12
+00:00:36,580 --> 00:00:36,940
+Cat...
+
+13
+00:00:38,340 --> 00:00:38,480
+bat.
+
+14
+00:00:39,740 --> 00:00:40,600
+Did you see that?
+
+15
+00:00:41,240 --> 00:00:43,240
+Everything else stayed the same.
+
+16
+00:00:43,700 --> 00:00:47,760
+Only the front changed, and it made a brand new word.
+
+17
+00:00:48,480 --> 00:00:49,600
+That is the trick.
+
+18
+00:00:50,480 --> 00:00:54,240
+And once you know it, you can read hundreds of words.
+
+19
+00:00:55,520 --> 00:00:56,880
+Look at the end of the word.
+
+20
+00:00:58,570 --> 00:00:59,520
+C-A-T.
+
+21
+00:01:00,360 --> 00:01:03,520
+The last two letters are a and t.
+
+22
+00:01:04,600 --> 00:01:05,820
+Say that ending with me.
+
+23
+00:01:06,560 --> 00:01:07,040
+At.
+
+24
+00:01:08,220 --> 00:01:09,980
+Now here is the important part.
+
+25
+00:01:10,700 --> 00:01:14,900
+Every word that ends in those two letters says At.
+
+26
+00:01:15,980 --> 00:01:22,360
+So all I have to do is put a different letter in front, and I get another word I can read.
+
+27
+00:01:23,240 --> 00:01:23,540
+Watch.
+
+28
+00:01:24,160 --> 00:01:27,420
+I will keep At and change only the front.
+
+29
+00:01:28,300 --> 00:01:28,860
+Cat.
+
+30
+00:01:29,660 --> 00:01:30,080
+Bat.
+
+31
+00:01:31,060 --> 00:01:31,300
+Hat.
+
+32
+00:01:32,520 --> 00:01:32,900
+Rat.
+
+33
+00:01:33,980 --> 00:01:34,260
+Mat.
+
+34
+00:01:35,660 --> 00:01:36,080
+Sat.
+
+35
+00:01:37,060 --> 00:01:37,440
+Pat.
+
+36
+00:01:38,500 --> 00:01:38,820
+Fat.
+
+37
+00:01:40,160 --> 00:01:41,100
+Eight words.
+
+38
+00:01:41,720 --> 00:01:44,260
+And you only had to learn one ending.
+
+39
+00:01:45,140 --> 00:01:47,480
+That is called a word family.
+
+40
+00:01:48,260 --> 00:01:53,780
+All those words are in the At family, because they all end the same way.
+
+41
+00:01:54,720 --> 00:01:56,480
+You just read eight words.
+
+42
+00:01:56,860 --> 00:01:57,780
+Well done!
+
+43
+00:01:59,040 --> 00:02:01,940
+Let's keep the same vowel and change the ending.
+
+44
+00:02:02,900 --> 00:02:04,020
+Here is our next family.
+
+45
+00:02:04,920 --> 00:02:05,500
+An.
+
+46
+00:02:06,380 --> 00:02:07,560
+Listen to the vowel.
+
+47
+00:02:07,960 --> 00:02:11,060
+It is still a short a, just like At.
+
+48
+00:02:11,840 --> 00:02:13,840
+Only the last letter changed.
+
+49
+00:02:15,000 --> 00:02:15,700
+Can.
+
+50
+00:02:16,420 --> 00:02:17,280
+Man.
+
+51
+00:02:18,340 --> 00:02:18,980
+Fan.
+
+52
+00:02:19,900 --> 00:02:20,540
+Ran.
+
+53
+00:02:21,440 --> 00:02:22,180
+Pan.
+
+54
+00:02:23,100 --> 00:02:23,780
+Tan.
+
+55
+00:02:24,680 --> 00:02:25,340
+Van.
+
+56
+00:02:26,240 --> 00:02:26,900
+Ban.
+
+57
+00:02:28,080 --> 00:02:28,740
+Eight more.
+
+58
+00:02:29,740 --> 00:02:32,040
+That is sixteen words already.
+
+59
+00:02:32,960 --> 00:02:34,840
+And one more a family.
+
+60
+00:02:35,860 --> 00:02:36,100
+Ap.
+
+61
+00:02:37,100 --> 00:02:37,580
+Cap.
+
+62
+00:02:38,800 --> 00:02:39,200
+Map.
+
+63
+00:02:40,300 --> 00:02:40,740
+Nap.
+
+64
+00:02:41,920 --> 00:02:42,300
+Tap.
+
+65
+00:02:43,420 --> 00:02:43,880
+Lap.
+
+66
+00:02:45,120 --> 00:02:45,440
+Gap.
+
+67
+00:02:46,740 --> 00:02:48,370
+Look at what is happening.
+
+68
+00:02:48,520 --> 00:02:51,620
+The a stays put every single time.
+
+69
+00:02:52,080 --> 00:02:54,940
+It is only the letters around it that move.
+
+70
+00:02:55,780 --> 00:02:57,720
+You are doing really well.
+
+71
+00:02:58,920 --> 00:03:00,400
+Now we change the vowel.
+
+72
+00:03:01,180 --> 00:03:03,200
+This time it is a short e.
+
+73
+00:03:03,820 --> 00:03:05,980
+Our family is En.
+
+74
+00:03:06,980 --> 00:03:07,640
+Hen.
+
+75
+00:03:08,780 --> 00:03:09,200
+Ten.
+
+76
+00:03:10,220 --> 00:03:10,860
+Pen.
+
+77
+00:03:12,120 --> 00:03:12,720
+Men.
+
+78
+00:03:13,860 --> 00:03:14,420
+Den.
+
+79
+00:03:15,460 --> 00:03:16,740
+Say the ending with me.
+
+80
+00:03:17,420 --> 00:03:18,000
+En.
+
+81
+00:03:19,160 --> 00:03:22,260
+Five words, and the same trick worked again.
+
+82
+00:03:23,360 --> 00:03:25,080
+Now a short i.
+
+83
+00:03:25,580 --> 00:03:30,600
+We have three families here, so listen carefully to the ending each time.
+
+84
+00:03:31,920 --> 00:03:33,200
+First, Ig.
+
+85
+00:03:34,320 --> 00:03:34,700
+Big.
+
+86
+00:03:35,660 --> 00:03:36,180
+Pig.
+
+87
+00:03:37,160 --> 00:03:37,560
+Dig.
+
+88
+00:03:38,920 --> 00:03:39,320
+Wig.
+
+89
+00:03:40,560 --> 00:03:40,940
+Jig.
+
+90
+00:03:42,260 --> 00:03:42,580
+Fig.
+
+91
+00:03:43,800 --> 00:03:44,880
+Next, It.
+
+92
+00:03:46,360 --> 00:03:46,620
+Sit.
+
+93
+00:03:47,880 --> 00:03:48,160
+Bit.
+
+94
+00:03:49,480 --> 00:03:49,760
+Hit.
+
+95
+00:03:51,080 --> 00:03:51,380
+Fit.
+
+96
+00:03:52,720 --> 00:03:53,000
+Kit.
+
+97
+00:03:54,440 --> 00:03:54,720
+Pit.
+
+98
+00:03:56,080 --> 00:03:56,260
+Wit.
+
+99
+00:03:57,800 --> 00:03:58,820
+And In.
+
+100
+00:04:00,180 --> 00:04:00,440
+Pin.
+
+101
+00:04:01,560 --> 00:04:02,140
+Win.
+
+102
+00:04:03,340 --> 00:04:03,860
+Fin.
+
+103
+00:04:05,020 --> 00:04:05,600
+Tin.
+
+104
+00:04:06,800 --> 00:04:07,340
+Bin.
+
+105
+00:04:08,480 --> 00:04:09,660
+Did you notice something?
+
+106
+00:04:10,420 --> 00:04:13,600
+All three of those families have the same vowel.
+
+107
+00:04:14,260 --> 00:04:16,480
+The i sound never changed.
+
+108
+00:04:17,060 --> 00:04:19,080
+Only the letter at the end did.
+
+109
+00:04:19,940 --> 00:04:22,120
+That is eighteen more words.
+
+110
+00:04:22,900 --> 00:04:24,700
+You are reading beautifully.
+
+111
+00:04:26,160 --> 00:04:27,540
+Now a short o.
+
+112
+00:04:28,240 --> 00:04:29,580
+Three families again.
+
+113
+00:04:30,720 --> 00:04:30,960
+Og.
+
+114
+00:04:31,940 --> 00:04:32,620
+Dog.
+
+115
+00:04:33,840 --> 00:04:34,300
+Log.
+
+116
+00:04:35,580 --> 00:04:36,080
+Fog.
+
+117
+00:04:37,360 --> 00:04:37,940
+Hog.
+
+118
+00:04:39,200 --> 00:04:39,780
+Jog.
+
+119
+00:04:41,000 --> 00:04:41,200
+Ot.
+
+120
+00:04:42,620 --> 00:04:42,960
+Hot.
+
+121
+00:04:44,400 --> 00:04:44,760
+Pot.
+
+122
+00:04:46,320 --> 00:04:46,660
+Dot.
+
+123
+00:04:48,240 --> 00:04:48,760
+Lot.
+
+124
+00:04:50,200 --> 00:04:50,580
+Cot.
+
+125
+00:04:52,060 --> 00:04:52,420
+Rot.
+
+126
+00:04:53,880 --> 00:04:54,240
+Got.
+
+127
+00:04:55,760 --> 00:04:55,860
+Op.
+
+128
+00:04:57,500 --> 00:04:57,840
+Top.
+
+129
+00:04:59,440 --> 00:04:59,740
+Hop.
+
+130
+00:05:01,260 --> 00:05:01,580
+Mop.
+
+131
+00:05:03,120 --> 00:05:03,480
+Pop.
+
+132
+00:05:04,960 --> 00:05:05,240
+Cop.
+
+133
+00:05:06,880 --> 00:05:09,600
+Listen to the middle of every one of those words.
+
+134
+00:05:10,540 --> 00:05:13,560
+It is the same o sound every time.
+
+135
+00:05:14,760 --> 00:05:17,620
+Our last short vowel is u.
+
+136
+00:05:18,600 --> 00:05:19,180
+Un.
+
+137
+00:05:20,380 --> 00:05:20,920
+Sun.
+
+138
+00:05:22,060 --> 00:05:22,680
+Run.
+
+139
+00:05:23,900 --> 00:05:24,520
+Fun.
+
+140
+00:05:26,140 --> 00:05:26,400
+Bun.
+
+141
+00:05:27,840 --> 00:05:28,380
+Gun.
+
+142
+00:05:29,720 --> 00:05:30,220
+Pun.
+
+143
+00:05:31,480 --> 00:05:31,860
+Ug.
+
+144
+00:05:33,200 --> 00:05:33,600
+Bug.
+
+145
+00:05:34,880 --> 00:05:35,400
+Rug.
+
+146
+00:05:36,820 --> 00:05:37,240
+Hug.
+
+147
+00:05:38,600 --> 00:05:39,020
+Mug.
+
+148
+00:05:40,460 --> 00:05:40,840
+Dug.
+
+149
+00:05:42,260 --> 00:05:42,660
+Jug.
+
+150
+00:05:44,000 --> 00:05:47,100
+That is twelve more words from two endings.
+
+151
+00:05:48,220 --> 00:05:56,740
+Now I want to show you one more family, but I have to be honest with you about it, because it does not work quite the same way.
+
+152
+00:05:57,600 --> 00:05:58,160
+Here it is.
+
+153
+00:05:59,620 --> 00:05:59,880
+All.
+
+154
+00:06:01,000 --> 00:06:01,720
+Ball.
+
+155
+00:06:02,980 --> 00:06:03,620
+Tall.
+
+156
+00:06:04,840 --> 00:06:05,540
+Wall.
+
+157
+00:06:06,940 --> 00:06:07,560
+Fall.
+
+158
+00:06:09,000 --> 00:06:09,760
+Call.
+
+159
+00:06:11,140 --> 00:06:11,880
+Hall.
+
+160
+00:06:13,240 --> 00:06:13,980
+Mall.
+
+161
+00:06:15,360 --> 00:06:16,560
+The trick still works.
+
+162
+00:06:17,180 --> 00:06:19,840
+Change the front letter, get a new word.
+
+163
+00:06:20,660 --> 00:06:22,100
+But listen to the middle.
+
+164
+00:06:23,560 --> 00:06:23,860
+Ball.
+
+165
+00:06:24,540 --> 00:06:26,080
+That is not a short a.
+
+166
+00:06:26,640 --> 00:06:29,840
+It does not say the short a sound like Cat.
+
+167
+00:06:30,560 --> 00:06:32,720
+It has changed into something else.
+
+168
+00:06:33,460 --> 00:06:36,880
+So we do not sound this family out letter by letter.
+
+169
+00:06:37,360 --> 00:06:40,380
+We learn the whole ending in one piece.
+
+170
+00:06:41,280 --> 00:06:48,580
+When you see those three letters together, a, l, l, you say All.
+
+171
+00:06:49,800 --> 00:06:50,540
+Ball.
+
+172
+00:06:51,620 --> 00:06:52,360
+Tall.
+
+173
+00:06:53,520 --> 00:06:54,220
+Wall.
+
+174
+00:06:55,420 --> 00:06:56,520
+Say the ending with me.
+
+175
+00:06:57,570 --> 00:06:58,020
+All.
+
+176
+00:06:59,020 --> 00:07:00,010
+And look at the ending.
+
+177
+00:07:00,680 --> 00:07:01,580
+Two l's.
+
+178
+00:07:02,240 --> 00:07:03,460
+Do you remember why?
+
+179
+00:07:04,300 --> 00:07:12,860
+That is the Floss rule from Level Five — one clap, short vowel, ends in l, so we double it.
+
+180
+00:07:13,820 --> 00:07:18,600
+Now it is your turn, and this is exactly what the app will ask you.
+
+181
+00:07:19,100 --> 00:07:24,100
+I am going to show you a word, and you tell me which letter goes at the front.
+
+182
+00:07:25,220 --> 00:07:26,130
+Here is the ending.
+
+183
+00:07:26,960 --> 00:07:27,580
+En.
+
+184
+00:07:28,380 --> 00:07:29,940
+And here is the picture.
+
+185
+00:07:31,060 --> 00:07:31,880
+A hen.
+
+186
+00:07:32,840 --> 00:07:34,180
+Which letter starts it?
+
+187
+00:07:36,640 --> 00:07:37,200
+H.
+
+188
+00:07:37,940 --> 00:07:38,600
+Hen.
+
+189
+00:07:39,480 --> 00:07:40,260
+That is right!
+
+190
+00:07:40,740 --> 00:07:42,080
+Let's do one more.
+
+191
+00:07:42,640 --> 00:07:44,360
+The ending is Ug.
+
+192
+00:07:45,240 --> 00:07:47,440
+And the picture is a bug.
+
+193
+00:07:48,540 --> 00:07:49,820
+Which letter starts it?
+
+194
+00:07:51,460 --> 00:07:51,920
+B.
+
+195
+00:07:52,620 --> 00:07:53,280
+Bug.
+
+196
+00:07:54,360 --> 00:07:55,160
+Excellent!
+
+197
+00:07:55,680 --> 00:07:57,000
+That is the whole skill.
+
+198
+00:07:57,820 --> 00:08:01,060
+Find the ending you know, then work out the front.
+
+199
+00:08:02,040 --> 00:08:03,880
+Let's say what we learned today.
+
+200
+00:08:04,560 --> 00:08:08,860
+A word family is a group of words that all end the same way.
+
+201
+00:08:09,260 --> 00:08:13,760
+If you can read the ending, you can read every word in the family.
+
+202
+00:08:14,080 --> 00:08:16,820
+You only have to change the letter at the front.
+
+203
+00:08:17,840 --> 00:08:23,000
+Today you met thirteen families, and you read eighty-one words.
+
+204
+00:08:23,920 --> 00:08:24,840
+Eighty-one.
+
+205
+00:08:25,420 --> 00:08:26,900
+From thirteen endings.
+
+206
+00:08:27,580 --> 00:08:30,390
+That is what makes this trick so useful.
+
+207
+00:08:31,820 --> 00:08:33,680
+I am really proud of you.
+
+208
+00:08:34,000 --> 00:08:38,460
+This is the skill that turns sounding out into reading.
+
+209
+00:08:39,120 --> 00:08:45,840
+Next time we will keep going with Level Six and practise these families until they are easy.
+
+210
+00:08:46,420 --> 00:08:47,180
+Don't miss it!
+
+211
+00:08:47,760 --> 00:08:52,250
+If you enjoyed this lesson, please like this video and subscribe.
+
+212
+00:08:52,820 --> 00:08:56,760
+And practise every one of these families in the English Learning app.
+
+213
+00:08:57,440 --> 00:09:00,820
+It's free on the Apple App Store and Google Play.
+
+214
+00:09:01,640 --> 00:09:02,180
+See you next time!
