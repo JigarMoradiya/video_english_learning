@@ -28,36 +28,54 @@ const Tile: React.FC<{ ch: string; x: number; y: number; s: number; gold?: boole
     }}>{ch}</div>
   );
 
+/** a line from a letter card to the ending card — the join the user drew */
+const Join: React.FC<{ x1: number; y1: number; x2: number; y2: number; w?: number }> = ({ x1, y1, x2, y2, w = 7 }) => {
+  const len = Math.hypot(x2 - x1, y2 - y1);
+  const ang = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI;
+  return (
+    <div style={{
+      position: "absolute", left: x1, top: y1 - w / 2, width: len, height: w,
+      borderRadius: w, background: LANE.doorDark,
+      transformOrigin: "0 50%", transform: `rotate(${ang}deg)`,
+    }} />
+  );
+};
+
 const Cover: React.FC<{ portrait: boolean }> = ({ portrait }) => {
   const W = portrait ? 1080 : 1280;
   const H = portrait ? 1920 : 720;
   const c = cover(W, H);
   const b = bands(W, H);
 
-  // the key visual, centred in the space LEFT of the house (which bands puts at houseL)
-  const S = portrait ? 190 : 150;
-  const cx = portrait ? (b.contentL + b.contentR) / 2 : b.houseL / 2 + 30;
-  const rowY = portrait ? H * 0.435 : H * 0.44;
-  const rowW = S + 14 + S * 1.5;
-  const queue = portrait ? S * 0.72 : S * 0.62;
-  const queueY = rowY - queue - (portrait ? 40 : 26);
-  const queueW = queue * 3 + 24;
+  // THE WORD-FAMILY DIAGRAM (user's paper sketch): a column of front letters on the left,
+  // ONE ending card centred on the right, every letter JOINED to it by a line.
+  const LETTERS = ["c", "b", "h", "r"];
+  const S = portrait ? 150 : 110;          // letter tile
+  const GAP = portrait ? 26 : 18;
+  const AT = portrait ? 210 : 190;         // the ending card
+  const colX = portrait ? W * 0.10 : 150;
+  const colH = LETTERS.length * S + (LETTERS.length - 1) * GAP;
+  const midY = portrait ? H * 0.47 : H * 0.50;
+  const colY = midY - colH / 2;
+  const atX = portrait ? W * 0.36 : 560;
+  const atY = midY - AT / 2;
+  const atW = AT * 1.35;
+  if (atX + atW > (portrait ? b.contentR : b.houseL) - 12) {
+    throw new Error(`l6 cover: at-card ends ${atX + atW}, must clear ${portrait ? b.contentR : b.houseL}`);
+  }
 
   return (
     <AbsoluteFill style={{ fontFamily: font.family }}>
       <Lane b={b} rime="at" />
-
-      {/* headline band gets a soft lift so the ink always reads on the sky */}
       <div style={{
-        position: "absolute", left: 0, top: c.head.top - (portrait ? 40 : 30), width: W,
-        height: portrait ? H * 0.30 : H * 0.36,
-        background: "radial-gradient(closest-side, rgba(255,255,255,0.55), rgba(255,255,255,0))",
+        position: "absolute", left: 0, top: colY - 60, width: portrait ? W : b.houseL,
+        height: colH + 120,
+        background: "radial-gradient(closest-side, rgba(255,255,255,0.6), rgba(255,255,255,0))",
       }} />
 
       <div style={{ position: "absolute", ...c.badge, color: palette.ink }}>
         LEVEL 6<br /><span style={c.badgeSub}>81 WORDS</span>
       </div>
-
       <div style={{
         position: "absolute", left: 0, top: portrait ? c.head.top : 40, width: W, textAlign: "center",
         fontSize: portrait ? c.headSize("FAMILIES".length) : c.headSize("WORD FAMILIES".length),
@@ -65,12 +83,16 @@ const Cover: React.FC<{ portrait: boolean }> = ({ portrait }) => {
         letterSpacing: c.head.letterSpacing, textShadow: c.head.textShadow, color: palette.ink,
       }}>{portrait ? "WORD\nFAMILIES" : "WORD FAMILIES"}</div>
 
-      {/* the queue of fronts, then the built word: change the front, keep the ending */}
-      {["b", "h", "r"].map((ch, i) => (
-        <Tile key={ch} ch={ch} x={cx - queueW / 2 + i * (queue + 12)} y={queueY} s={queue} dim />
+      {/* joins first, so cards sit on top of the lines */}
+      {LETTERS.map((_, i) => (
+        <Join key={i}
+          x1={colX + S} y1={colY + i * (S + GAP) + S / 2}
+          x2={atX + 6} y2={midY} w={portrait ? 9 : 7} />
       ))}
-      <Tile ch="c" x={cx - rowW / 2} y={rowY} s={S} />
-      <Tile ch="at" x={cx - rowW / 2 + S + 14} y={rowY} s={S} gold />
+      {LETTERS.map((ch, i) => (
+        <Tile key={ch} ch={ch} x={colX} y={colY + i * (S + GAP)} s={S} />
+      ))}
+      <Tile ch="at" x={atX} y={atY} s={AT} gold />
 
       <Img src={staticFile("mascot.png")} style={{
         position: "absolute", left: c.mascot.left, bottom: c.mascot.bottom, width: c.mascot.width, height: "auto",
