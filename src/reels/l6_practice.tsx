@@ -7,6 +7,7 @@ import { Watermark } from "../components/Watermark";
 import { StoreOutro, STORE_OUTRO_F } from "../components/StoreOutro";
 import { MUSIC_BED, MUSIC_FADE_IN, MUSIC_FADE_OUT } from "../data/mix";
 import { Confetti } from "../components/Confetti";
+import { picFor } from "../data/word_pics";
 import { AppPractice } from "../components/AppPractice";
 import {
   B, Banner, Board, Booth, Content, FAIR, FairWorld, Fixed, Line, Mo, Prizes, PraiseStars, Row, Tickets, Zip, bands, pop,
@@ -142,7 +143,28 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
 
   switch (idx) {
     case 0: return <Row gap={u(20)}><Icon glyph={"\u{1F44B}"} size={u(150)} /><Line text="LEVEL 6" size={u(96)} at={a} color={FAIR.gold} /></Row>;
-    case 1: return <Row gap={u(18)}>{["cat", "sun", "dog", "ball"].map((w, i) => <Line key={w} text={w} size={u(56)} at={a + i * 9} />)}<Line text="× 81" size={u(76)} at={a + 40} color={FAIR.gold} /></Row>;
+    case 1: return (
+      // fixed-width cards at one pitch, each word wearing its picture (review rule)
+      <Row gap={u(26)}>
+        {["cat", "sun", "dog", "ball"].map((w, i) => {
+          const src = picFor(w);
+          return (
+            <div key={w} style={{ width: u(150), display: "flex", flexDirection: "column", alignItems: "center", gap: u(8) }}>
+              <div style={{ width: u(110), height: u(110), display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {src && src.startsWith("img/")
+                  ? <img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                  : <div style={{ fontSize: u(96), lineHeight: 1 }}>{src}</div>}
+              </div>
+              <div style={{ width: u(150), padding: `${u(8)}px 0`, background: FAIR.cream, border: `4px solid ${FAIR.ink}`,
+                borderRadius: u(14), boxSizing: "border-box", textAlign: "center",
+                fontFamily: "inherit", fontWeight: 800, fontSize: u(44), color: FAIR.ink,
+                boxShadow: `0 ${u(5)}px 0 ${FAIR.ink}` }}>{w}</div>
+            </div>
+          );
+        })}
+        <Line text="× 81" size={u(84)} at={a + 40} color={FAIR.gold} />
+      </Row>
+    );
     case 2: case 3: return <Row gap={u(18)}><Icon glyph={"\u{1F914}"} size={u(140)} /><Line text={"?"} size={u(140)} at={a} color={FAIR.gold} /></Row>;
     case 4: return <Row gap={u(14)}><Line text="?" size={u(110)} at={a} color={FAIR.cream} /><Line text="+" size={u(70)} at={a + 4} /><Line text="at" size={u(110)} at={a + 8} color={FAIR.gold} /></Row>;
     case 5: return <Row gap={u(20)}><Icon glyph={"\u{1F4F1}"} size={u(140)} /><Icon glyph={"\u{1F3AE}"} size={u(140)} /></Row>;
@@ -175,7 +197,16 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 123: return <Line text="14 / 14" size={u(150)} at={a} color={FAIR.good} />;
     case 124: return <Icon glyph={"\u{1F914}"} size={u(160)} />;
     case 125: return <Row gap={u(16)}><Line text="14" size={u(110)} at={a} color={FAIR.cream} /><Icon glyph={"\u{274C}"} size={u(90)} /></Row>;
-    case 126: return <Line text="at  an  en  og" size={u(84)} at={a} color={FAIR.gold} />;
+    case 126: return (
+      <Row gap={u(26)}>
+        {["at", "an", "en", "og"].map((r, i) => (
+          <div key={r} style={{ width: u(140), padding: `${u(14)}px 0`, background: FAIR.gold, border: `5px solid ${FAIR.ink}`,
+            borderRadius: u(16), boxSizing: "border-box", textAlign: "center",
+            fontFamily: "inherit", fontWeight: 800, fontSize: u(60), color: FAIR.ink,
+            boxShadow: `0 ${u(6)}px 0 ${FAIR.ink}` }}>{r}</div>
+        ))}
+      </Row>
+    );
     case 127: case 128: return <Row gap={u(14)}><Line text="?" size={u(100)} at={a} /><Line text="→" size={u(70)} at={a + 4} /><Line text="c" size={u(100)} at={a + 8} color={FAIR.good} /></Row>;
     case 129: return <Row gap={u(14)}>{[0, 1, 2].map((i) => <Icon key={i} glyph={"⭐"} size={u(110)} />)}</Row>;
     case 130: return <Row gap={u(18)}><Icon glyph={"\u{1F31F}"} size={u(150)} /><Icon glyph={"\u{1F4AA}"} size={u(130)} /></Row>;
