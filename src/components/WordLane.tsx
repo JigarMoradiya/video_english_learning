@@ -130,8 +130,10 @@ export const Lane: React.FC<{ b: B; rime: string; dusk?: boolean; noHouse?: bool
       {!noHouse && (
         <>
           <div style={{
-            position: "absolute", left: b.houseL - b.width * 0.075, top: b.horizon - H * 0.135,
-            fontSize: H * 0.115, lineHeight: 1,
+            position: "absolute",
+            left: b.wide ? b.houseL - b.width * 0.075 : b.houseL + b.width * 0.030,
+            top: b.wide ? b.horizon - H * 0.135 : H * 0.155,
+            fontSize: H * (b.wide ? 0.115 : 0.095), lineHeight: 1,
             transform: `translateY(${Math.sin(frame / 34) * 5}px)`,
           }}>{set.mark}</div>
           <House b={b} rime={rime} />
