@@ -99,6 +99,36 @@ export const FairWorld: React.FC<{ b: B; fireworks?: boolean }> = ({ b, firework
             transformOrigin: "0 50%", transform: `rotate(${i * 60}deg)` }} />
         ))}
       </div>
+      {/* a moon, high right */}
+      <div style={{ position: "absolute", left: W * 0.905, top: H * 0.135, width: H * 0.075, height: H * 0.075,
+        borderRadius: "50%", background: "#FFF6D8", boxShadow: "0 0 44px 14px rgba(255,246,216,0.35)" }} />
+      <div style={{ position: "absolute", left: W * 0.918, top: H * 0.138, width: H * 0.062, height: H * 0.062,
+        borderRadius: "50%", background: FAIR.skyMid }} />
+      {/* a striped circus tent, far right silhouette */}
+      <div style={{ position: "absolute", left: W * 0.78, top: b.counterY - H * 0.22, width: W * 0.20, height: H * 0.20, overflow: "hidden" }}>
+        <div style={{ position: "absolute", left: "10%", bottom: 0, width: "80%", height: "72%",
+          background: `repeating-linear-gradient(90deg, rgba(233,86,78,0.5) 0 22px, rgba(255,243,220,0.35) 22px 44px)`,
+          borderRadius: "10px 10px 0 0" }} />
+        <div style={{ position: "absolute", left: 0, bottom: "68%", width: 0, height: 0,
+          borderLeft: `${W * 0.10}px solid transparent`, borderRight: `${W * 0.10}px solid transparent`,
+          borderBottom: `${H * 0.075}px solid rgba(233,86,78,0.55)` }} />
+        <div style={{ position: "absolute", left: "48%", bottom: "92%", width: 4, height: H * 0.02, background: "rgba(255,243,220,0.5)" }} />
+      </div>
+      {/* drifting balloons, behind everything, fading out below the banner */}
+      {[0, 1, 2, 3].map((i) => {
+        const speed = 1.1 + (i % 3) * 0.4;
+        const span = H + 300;
+        const y = H + 120 - ((frame * speed + i * 260) % span);
+        const clear = Math.max(0, Math.min(1, (y - H * 0.16) / 160));
+        const x = ((i * 263) % 92 + 4) / 100 * W + Math.sin((frame + i * 55) / 52) * 24;
+        return (
+          <div key={`bl${i}`} style={{ position: "absolute", left: x, top: y, opacity: clear * 0.7 }}>
+            <div style={{ width: 42, height: 52, borderRadius: "50% 50% 46% 46%",
+              background: ["#E9808A", "#8FD3E8", "#F4C33F", "#9FDE9A"][i], border: `3px solid ${FAIR.ink}` }} />
+            <div style={{ width: 2, height: 34, background: "rgba(255,246,216,0.5)", marginLeft: 20 }} />
+          </div>
+        );
+      })}
       {/* ground + the booth counter */}
       <div style={{ position: "absolute", left: 0, top: b.counterY, width: W, height: H - b.counterY,
         background: `linear-gradient(#3A2B4E, #241A2E)` }} />
@@ -127,6 +157,67 @@ export const FairWorld: React.FC<{ b: B; fireworks?: boolean }> = ({ b, firework
         );
       })}
     </AbsoluteFill>
+  );
+};
+
+/** THE BOOTH — posts, beam and a small awning built AROUND the content column, so the
+ *  board hangs in a real structure instead of floating in the sky. */
+export const Booth: React.FC<{ b: B }> = ({ b }) => {
+  const frame = useCurrentFrame();
+  const L = b.contentL - b.width * 0.014, R = b.contentR + b.width * 0.014;
+  const beamY = b.contentTop - b.height * 0.052;
+  const postW = b.width * 0.016;
+  return (
+    <>
+      {[L, R - postW].map((x, i) => (
+        <div key={i} style={{ position: "absolute", left: x, top: beamY, width: postW, height: b.counterY - beamY,
+          background: `repeating-linear-gradient(180deg, ${FAIR.booth} 0 44px, ${FAIR.boothDark} 44px 88px)`,
+          border: `4px solid ${FAIR.ink}`, boxSizing: "border-box" }} />
+      ))}
+      <div style={{ position: "absolute", left: L - 10, top: beamY, width: R - L + 20, height: b.height * 0.030,
+        background: FAIR.booth, border: `5px solid ${FAIR.ink}`, boxSizing: "border-box", borderRadius: 8 }} />
+      {/* scalloped awning off the beam */}
+      <div style={{ position: "absolute", left: L - 10, top: beamY + b.height * 0.028, width: R - L + 20, display: "flex" }}>
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div key={i} style={{ flex: 1, height: b.height * 0.024,
+            background: i % 2 ? FAIR.awningB : FAIR.awningA,
+            borderRadius: "0 0 50% 50%", border: `3px solid ${FAIR.ink}`, borderTop: "none", boxSizing: "border-box" }} />
+        ))}
+      </div>
+      {/* the booth sign, swinging gently from the beam */}
+      <div style={{ position: "absolute", left: (L + R) / 2 - b.width * 0.065, top: beamY - b.height * 0.012,
+        transform: `rotate(${Math.sin(frame / 38) * 2}deg)`, transformOrigin: "50% 0%" }}>
+        <div style={{ padding: `${b.height * 0.006}px ${b.width * 0.014}px`, background: FAIR.gold,
+          border: `4px solid ${FAIR.ink}`, borderRadius: 10, fontFamily: font.family, fontWeight: 800,
+          fontSize: b.height * 0.024, color: FAIR.ink, whiteSpace: "nowrap" }}>WORD FAMILY QUIZ</div>
+      </div>
+    </>
+  );
+};
+
+/** the prize shelf — what a fair booth is FOR. Fills the right column above the players. */
+export const Prizes: React.FC<{ b: B }> = ({ b }) => {
+  const frame = useCurrentFrame();
+  if (!b.wide) return null;
+  const X = b.width * 0.715, W2 = b.width * 0.255;
+  const rows = [
+    { y: b.height * 0.295, items: ["\u{1F9F8}", "\u{1F986}", "\u{1F3C6}"] },
+    { y: b.height * 0.435, items: ["\u{1F388}", "\u{1F9AB}", "\u{1F381}"] },
+  ];
+  return (
+    <>
+      {rows.map((r, ri) => (
+        <div key={ri}>
+          <div style={{ position: "absolute", left: X, top: r.y + b.height * 0.062, width: W2, height: b.height * 0.016,
+            background: FAIR.counter, border: `4px solid ${FAIR.ink}`, boxSizing: "border-box", borderRadius: 6 }} />
+          {r.items.map((g, i) => (
+            <div key={i} style={{ position: "absolute", left: X + W2 * (0.12 + i * 0.33), top: r.y,
+              fontSize: b.height * 0.058, lineHeight: 1,
+              transform: `rotate(${Math.sin((frame + i * 30 + ri * 50) / 40) * 6}deg)`, transformOrigin: "50% 100%" }}>{g}</div>
+          ))}
+        </div>
+      ))}
+    </>
   );
 };
 
@@ -191,39 +282,31 @@ export const Board: React.FC<{
       {/* the picture, hung on the booth */}
       {src && (
         <div style={{
-          width: u(190), height: u(190), background: FAIR.cream, borderRadius: u(22),
+          width: u(230), height: u(230), background: FAIR.cream, borderRadius: u(22),
           border: `6px solid ${FAIR.ink}`, boxSizing: "border-box", boxShadow: `0 ${u(8)}px 0 ${FAIR.ink}`,
           display: "flex", alignItems: "center", justifyContent: "center",
           transform: lookPic ? `translateY(${-Math.abs(Math.sin(frame / 6)) * u(14)}px) rotate(${Math.sin(frame / 8) * 4}deg)` : undefined,
         }}>
           {src.startsWith("img/")
             ? <Img src={staticFile(src)} style={{ width: "84%", height: "84%", objectFit: "contain" }} />
-            : <div style={{ fontSize: u(140), lineHeight: 1 }}>{src}</div>}
-        </div>
-      )}
-      {celebrate && (
-        <div style={{ position: "absolute", top: -u(8), left: 0, width: "100%", display: "flex", justifyContent: "center", gap: u(18) }}>
-          {[0, 1, 2].map((i) => (
-            <div key={i} style={{ fontSize: u(64), lineHeight: 1,
-              transform: `translateY(${-Math.abs(Math.sin((frame + i * 9) / 7)) * u(16)}px)` }}>⭐</div>
-          ))}
+            : <div style={{ fontSize: u(170), lineHeight: 1 }}>{src}</div>}
         </div>
       )}
       {/* the word slot: ? + ending — never the spelled answer before its time */}
       {showSlot && <div style={{ display: "flex", gap: u(12), alignItems: "center" }}>
         <div style={{
-          width: u(120), height: u(120), borderRadius: u(20),
+          width: u(140), height: u(140), borderRadius: u(22),
           background: filled ? FAIR.cream : "rgba(255,246,228,0.25)",
           border: `${u(6)}px ${filled ? "solid" : "dashed"} ${filled ? FAIR.ink : "rgba(255,246,228,0.8)"}`,
           boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: font.family, fontWeight: 800, fontSize: u(70), color: FAIR.ink,
+          fontFamily: font.family, fontWeight: 800, fontSize: u(82), color: FAIR.ink,
           transform: filled ? `scale(${1 + 0.1 * Math.sin(frame / 9)})` : undefined,
         }}>{filled ?? "?"}</div>
         <div style={{
-          minWidth: u(150), height: u(120), padding: `0 ${u(18)}px`, borderRadius: u(20),
+          minWidth: u(175), height: u(140), padding: `0 ${u(18)}px`, borderRadius: u(20),
           background: FAIR.gold, border: `${u(6)}px solid ${FAIR.ink}`, boxSizing: "border-box",
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: font.family, fontWeight: 800, fontSize: u(66), color: FAIR.ink,
+          fontFamily: font.family, fontWeight: 800, fontSize: u(78), color: FAIR.ink,
           boxShadow: endingHot ? `0 ${u(6)}px 0 ${FAIR.ink}, 0 0 0 ${u(7)}px rgba(244,195,63,0.5)` : `0 ${u(6)}px 0 ${FAIR.ink}`,
           transform: endingHot ? `scale(${1.06 + 0.05 * Math.sin(frame / 7)})` : undefined,
         }}>{rime}</div>
@@ -237,11 +320,11 @@ export const Board: React.FC<{
             return (
               <div key={o} style={{ display: "flex", flexDirection: "column", alignItems: "center", transform: `scale(${pp})` }}>
                 <div style={{
-                  width: u(104), height: u(104), borderRadius: "50%",
+                  width: u(118), height: u(118), borderRadius: "50%",
                   background: isLit ? FAIR.good : isWrong ? FAIR.bad : FAIR.paddle,
                   border: `${u(6)}px solid ${FAIR.ink}`, boxSizing: "border-box",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: font.family, fontWeight: 800, fontSize: u(56),
+                  fontFamily: font.family, fontWeight: 800, fontSize: u(64),
                   color: isLit || isWrong ? "#FFFFFF" : FAIR.ink,
                   boxShadow: isLit ? `0 0 0 ${u(7)}px rgba(63,191,127,0.45)` : `0 ${u(5)}px 0 ${FAIR.ink}`,
                   transform: isLit ? `translateY(${-u(8)}px)` : celebrate ? `translateY(${-Math.abs(Math.sin((frame + i * 8) / 7)) * u(10)}px)` : undefined,
@@ -291,6 +374,25 @@ export const Zip: React.FC<{ b: B; cheer?: boolean }> = ({ b, cheer = false }) =
       ))}
       <div style={{ position: "absolute", left: s * 0.30, top: s * 0.56, width: s * 0.16, height: s * 0.08, borderRadius: "0 0 50% 50%", background: "#3E7C8C" }} />
     </div>
+  );
+};
+
+/** praise stars — in the FRAME layer, above the characters on the right, so they can
+ *  never be clipped by the content column (they were) */
+export const PraiseStars: React.FC<{ b: B }> = ({ b }) => {
+  const frame = useCurrentFrame();
+  const x0 = b.wide ? b.width * 0.745 : b.width * 0.60;
+  const y0 = b.charY - b.height * 0.115;
+  return (
+    <>
+      {[0, 1, 2].map((i) => (
+        <div key={i} style={{
+          position: "absolute", left: x0 + i * b.width * 0.055, top: y0,
+          fontSize: b.height * 0.062, lineHeight: 1,
+          transform: `translateY(${-Math.abs(Math.sin((frame + i * 9) / 7)) * b.height * 0.020}px) rotate(${Math.sin((frame + i * 14) / 10) * 10}deg)`,
+        }}>⭐</div>
+      ))}
+    </>
   );
 };
 

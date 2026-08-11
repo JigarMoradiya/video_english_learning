@@ -9,7 +9,7 @@ import { MUSIC_BED, MUSIC_FADE_IN, MUSIC_FADE_OUT } from "../data/mix";
 import { Confetti } from "../components/Confetti";
 import { AppPractice } from "../components/AppPractice";
 import {
-  B, Banner, Board, Content, FAIR, FairWorld, Fixed, Line, Mo, Row, Tickets, Zip, bands, pop,
+  B, Banner, Board, Booth, Content, FAIR, FairWorld, Fixed, Line, Mo, Prizes, PraiseStars, Row, Tickets, Zip, bands, pop,
 } from "../components/QuizFair";
 
 // ── L6 · PART 2 · PRACTICE — the Quiz Fair ──────────────────────────────────
@@ -81,6 +81,9 @@ const BEAT_OF: number[] = (() => {
   return out;
 })();
 
+/** lines whose caption would SPELL the picture's word — suppressed (user rule) */
+const CAPTION_OFF = new Set(QS.flatMap((q) => [q.picAt, q.wordAt]));
+
 const bannerFor = (idx: number): string => {
   if (idx <= 14) return "LEVEL 6 · PRACTICE TIME";
   if (idx <= 53) return "ROUND 1 · WARM-UP";
@@ -133,7 +136,6 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
               : wrongTry && idx >= 80 ? "d" : undefined}
         endingHot={answered && idx < q.wordAt}
         lookPic={q.word === "pen" && (idx === 81 || idx === 82)}
-        celebrate={PRAISE.includes(idx)}
       />
     );
   }
@@ -207,15 +209,18 @@ export const L6PracticeReel: React.FC = () => {
       {frame < storeFrom && (
         <>
           <Banner b={b} text={bannerFor(idx)} />
+          {!inApp && <Booth b={b} />}
+          {!inApp && <Prizes b={b} />}
           {!inApp && <Tickets b={b} words={done} />}
           {!inApp && <Content b={b}><Scene idx={idx} b={b} /></Content>}
           {inApp && <AppPractice b={b} from={appFrom} />}
           <Fixed b={b}>
             {PRAISE.map((i) => <Confetti key={i} frame={frame} fps={FPS} burstFrame={at(i)} origin={{ x: b.width / 2, y: b.height * 0.30 }} colors={[FAIR.gold, FAIR.awningA, "#8FD3E8", FAIR.good]} count={24} seed={i} />)}
+            {!inApp && PRAISE.includes(idx) && <PraiseStars b={b} />}
             {!inApp && <Mo b={b} />}
             {!inApp && <Zip b={b} cheer={zipCheers} />}
           </Fixed>
-          <Captions track={TRACK} maxWidth={b.wide ? 1180 : 900} />
+          {!CAPTION_OFF.has(idx) && <Captions track={TRACK} maxWidth={b.wide ? 1180 : 900} />}
           <Watermark corner="tr" widthFrac={b.wide ? 0.085 : 0.11} pad={b.wide ? 54 : 46} />
         </>
       )}
