@@ -100,9 +100,9 @@ export const FairWorld: React.FC<{ b: B; fireworks?: boolean }> = ({ b, firework
         ))}
       </div>
       {/* a moon, high right */}
-      <div style={{ position: "absolute", left: W * 0.905, top: H * 0.135, width: H * 0.075, height: H * 0.075,
+      <div style={{ position: "absolute", left: W * 0.845, top: H * 0.105, width: H * 0.062, height: H * 0.062,
         borderRadius: "50%", background: "#FFF6D8", boxShadow: "0 0 44px 14px rgba(255,246,216,0.35)" }} />
-      <div style={{ position: "absolute", left: W * 0.918, top: H * 0.138, width: H * 0.062, height: H * 0.062,
+      <div style={{ position: "absolute", left: W * 0.856, top: H * 0.108, width: H * 0.050, height: H * 0.050,
         borderRadius: "50%", background: FAIR.skyMid }} />
       {/* a striped circus tent, far right silhouette */}
       <div style={{ position: "absolute", left: W * 0.78, top: b.counterY - H * 0.22, width: W * 0.20, height: H * 0.20, overflow: "hidden" }}>
@@ -286,23 +286,32 @@ export const Board: React.FC<{
   const W = b.contentR - b.contentL, H = b.contentH;
   const u = (n: number) => Math.round(n * (b.wide ? 1 : 0.84));
   const src = pic ? picFor(pic) : null;
+  // when the paddles arrive the pic+slot column slides LEFT (sprung), and the paddles
+  // stand in a horizontal row beside it — stacked, they overflowed the clipped column
+  const shift = opts ? pop(frame, fps, optAt, 14) : 0;
   return (
     <div style={{
-      position: "relative", width: Math.min(W, u(760)), height: H,
-      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-      gap: u(18), transform: `scale(${0.94 + 0.06 * p})`,
+      position: "relative", width: Math.min(W, u(900)), height: H,
+      display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center",
+      gap: u(40), transform: `scale(${0.94 + 0.06 * p})`,
+    }}>
+    <div style={{
+      display: "flex", flexDirection: "column", alignItems: "center", gap: u(16),
+      transform: `translateX(${-shift * u(60)}px)`,
     }}>
       {/* the picture, hung on the booth */}
       {src && (
         <div style={{
-          width: u(230), height: u(230), background: FAIR.cream, borderRadius: u(22),
+          width: u(205), height: u(205), background: FAIR.cream, borderRadius: u(22),
           border: `6px solid ${FAIR.ink}`, boxSizing: "border-box", boxShadow: `0 ${u(8)}px 0 ${FAIR.ink}`,
           display: "flex", alignItems: "center", justifyContent: "center",
-          transform: lookPic ? `translateY(${-Math.abs(Math.sin(frame / 6)) * u(14)}px) rotate(${Math.sin(frame / 8) * 4}deg)` : undefined,
+          transform: lookPic
+            ? `translateY(${-Math.abs(Math.sin(frame / 6)) * u(14)}px) rotate(${Math.sin(frame / 8) * 4}deg)`
+            : `scale(${1 + 0.035 * Math.sin(frame / 16)})`,
         }}>
           {src.startsWith("img/")
             ? <Img src={staticFile(src)} style={{ width: "84%", height: "84%", objectFit: "contain" }} />
-            : <div style={{ fontSize: u(170), lineHeight: 1 }}>{src}</div>}
+            : <div style={{ fontSize: u(150), lineHeight: 1 }}>{src}</div>}
         </div>
       )}
       {/* the word slot: ? + ending — never the spelled answer before its time */}
@@ -324,9 +333,10 @@ export const Board: React.FC<{
           transform: endingHot ? `scale(${1.06 + 0.05 * Math.sin(frame / 7)})` : undefined,
         }}>{rime}</div>
       </div>}
-      {/* the three paddles — the app's own choices */}
+    </div>
+      {/* the three paddles — beside the column, never under it */}
       {opts && (
-        <div style={{ display: "flex", gap: u(26), marginTop: u(6) }}>
+        <div style={{ display: "flex", gap: u(24), transform: `translateX(${(1 - shift) * u(80)}px)`, opacity: shift }}>
           {opts.map((o, i) => {
             const pp = pop(frame, fps, optAt + i * 5, 12);
             const isLit = lit === i, isWrong = wrong === i;

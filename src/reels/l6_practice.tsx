@@ -146,7 +146,12 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 2: case 3: return <Row gap={u(18)}><Icon glyph={"\u{1F914}"} size={u(140)} /><Line text={"?"} size={u(140)} at={a} color={FAIR.gold} /></Row>;
     case 4: return <Row gap={u(14)}><Line text="?" size={u(110)} at={a} color={FAIR.cream} /><Line text="+" size={u(70)} at={a + 4} /><Line text="at" size={u(110)} at={a + 8} color={FAIR.gold} /></Row>;
     case 5: return <Row gap={u(20)}><Icon glyph={"\u{1F4F1}"} size={u(140)} /><Icon glyph={"\u{1F3AE}"} size={u(140)} /></Row>;
-    case 6: case 7: return <Line text={"FIND THE\nFIRST LETTER"} size={u(84)} at={a} color={FAIR.gold} />;
+    case 6: case 7: return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: u(14) }}>
+        <Icon glyph={"\u{1F50D}"} size={u(120)} />
+        <Line text={"FIND THE\nFIRST LETTER"} size={u(84)} at={a} color={FAIR.gold} />
+      </div>
+    );
     case 8: return <Icon glyph={"\u{1F440}"} size={u(170)} />;
     case 9: return <Board b={b} at={a} pic="hen" rime="en" />;
     case 10: return <Board b={b} at={a} pic="hen" rime="en" opts={["p", "h", "t"]} optAt={a} />;
@@ -221,7 +226,7 @@ export const L6PracticeReel: React.FC = () => {
             {!inApp && <Zip b={b} cheer={zipCheers} />}
           </Fixed>
           {!CAPTION_OFF.has(idx) && <Captions track={TRACK} maxWidth={b.wide ? 1180 : 900} />}
-          <Watermark corner="tr" widthFrac={b.wide ? 0.085 : 0.11} pad={b.wide ? 54 : 46} />
+          <Watermark corner="tl" widthFrac={b.wide ? 0.085 : 0.11} pad={b.wide ? 54 : 46} />
         </>
       )}
 
