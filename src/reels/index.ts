@@ -10,6 +10,8 @@ import { L6FamiliesReel, L6_DURATION } from "./l6_families";
 import { L6PracticeReel, L6_PRACTICE_DURATION } from "./l6_practice";
 import { ThumbL6, ThumbL6Portrait } from "../thumbs/l6_thumbs";
 import { ThumbV2L6 } from "../thumbs/v2/l6_v2";
+import { ThumbL6Practice, ThumbL6PracticePortrait } from "../thumbs/l6_practice_thumbs";
+import { ThumbV2L6Practice } from "../thumbs/v2/l6_practice_v2";
 import { PairShort, PAIRS, PAIR_SHORT_DURATION } from "./pair_short";
 import { OoShort, OO_SHORT_DURATION } from "./oo_short";
 import React from "react";
@@ -259,6 +261,9 @@ export const REELS: ReelEntry[] = [
   { id: "thumb-l6", component: ThumbL6, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-l6-916", component: ThumbL6Portrait, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-v2-l6", component: ThumbV2L6, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-l6-practice", component: ThumbL6Practice, durationInFrames: 1, width: 1280, height: 720 },
+  { id: "thumb-l6-practice-916", component: ThumbL6PracticePortrait, durationInFrames: 1, width: 1080, height: 1920 },
+  { id: "thumb-v2-l6-practice", component: ThumbV2L6Practice, durationInFrames: 1, width: 1280, height: 720 },
   { id: "thumb-l5-p1-916", component: ThumbL5P1Portrait, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-l5-p2-916", component: ThumbL5P2Portrait, durationInFrames: 1, width: 1080, height: 1920 },
   { id: "thumb-l5-p3-916", component: ThumbL5P3Portrait, durationInFrames: 1, width: 1080, height: 1920 },
