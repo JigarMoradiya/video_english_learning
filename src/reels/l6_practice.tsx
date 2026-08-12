@@ -105,6 +105,54 @@ const SFX: { at: number; file: string; vol: number }[] = [
   { at: at(122), file: "sparkle", vol: 0.36 },
 ];
 
+/** two words compared: the shared ending lit the SAME in both, the fronts in DIFFERENT
+ *  colours — for lines that say "only the front changed" instead of introducing a word */
+const Compare: React.FC<{ a: string; b: string; pics?: boolean; u: (n: number) => number }> = ({ a: wa, b: wb, pics = true, u }) => {
+  const rime = wa.slice(1);
+  const fa = wa[0], fb = wb[0];
+  const Word: React.FC<{ front: string; word: string; color: string }> = ({ front, word, color }) => (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: u(10) }}>
+      {pics && <Board_Pic word={word} size={u(96)} />}
+      <div style={{ display: "flex", gap: u(6) }}>
+        <div style={{
+          width: u(84), height: u(84), borderRadius: u(14), background: color,
+          border: `4px solid ${FAIR.ink}`, boxSizing: "border-box",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontFamily: "inherit", fontWeight: 800, fontSize: u(48), color: "#FFFFFF",
+          boxShadow: `0 ${u(4)}px 0 ${FAIR.ink}`,
+        }}>{front}</div>
+        <div style={{
+          minWidth: u(84), padding: `0 ${u(10)}px`, height: u(84), borderRadius: u(14), background: FAIR.gold,
+          border: `4px solid ${FAIR.ink}`, boxSizing: "border-box",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontFamily: "inherit", fontWeight: 800, fontSize: u(44), color: FAIR.ink,
+          boxShadow: `0 ${u(4)}px 0 ${FAIR.ink}`,
+        }}>{rime}</div>
+      </div>
+    </div>
+  );
+  return (
+    <Row gap={u(30)}>
+      <Word front={fa} word={wa} color={FAIR.awningA} />
+      <Line text="only this changed" size={u(30)} color="rgba(255,246,216,0.7)" />
+      <Word front={fb} word={wb} color="#5FB4CF" />
+    </Row>
+  );
+};
+
+const Board_Pic: React.FC<{ word: string; size: number }> = ({ word, size }) => {
+  const src = picFor(word);
+  if (!src) return null;
+  return (
+    <div style={{ width: size, height: size, background: FAIR.cream, borderRadius: size * 0.16,
+      border: `3px solid ${FAIR.ink}`, boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      {src.startsWith("img/")
+        ? <img src={staticFile(src)} style={{ width: "78%", height: "78%", objectFit: "contain" }} />
+        : <div style={{ fontSize: size * 0.6, lineHeight: 1 }}>{src}</div>}
+    </div>
+  );
+};
+
 const Icon: React.FC<{ glyph: string; size: number }> = ({ glyph, size }) => {
   const frame = useCurrentFrame();
   return <div style={{ fontSize: size, lineHeight: 1, transform: `translateY(${Math.sin(frame / 26) * 6}px) rotate(${Math.sin(frame / 38) * 4}deg)` }}>{glyph}</div>;
@@ -117,6 +165,10 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
   const q = qFor(idx);
 
   // ── inside a question: the board walks pic → paddles → answer → word ──
+  // "Fan and van — only the front changed." — a live comparison, not the previous
+  // question's board left standing (that is what showed before).
+  if (idx === 67) return <Compare a="fan" b="van" u={u} />;
+
   if (q) {
     const answered = idx >= q.hitAt;
     const wrongTry = q.word === "pen" && idx >= 77 && idx < 83;   // the "good try" beat
