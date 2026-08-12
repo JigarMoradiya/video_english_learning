@@ -41,7 +41,7 @@ const Stars: React.FC<{ w: number; h: number }> = ({ w, h }) => {
       {pts.map(([x, y, s], i) => (
         <div key={i} style={{
           position: "absolute", left: w * x, top: h * y + Math.sin(frame / 30 + i) * 4,
-          fontSize: h * (s as number) * 1.4, lineHeight: 1, opacity: 0.35, color: "#E64A19",
+          fontSize: h * (s as number) * 1.4, lineHeight: 1, opacity: 0.18, color: "#FFFFFF",
         }}>★</div>
       ))}
     </>
@@ -131,8 +131,8 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
         <Stars w={SW} h={SH} />
         {/* LEFT 45% */}
         <div style={{ width: "45%", height: "100%", boxSizing: "border-box", padding: u(16),
-          display: "flex", flexDirection: "column", justifyContent: "center", gap: u(12) }}>
-          <div style={{ fontFamily: font.family, fontWeight: 700, fontSize: u(11), color: A.sub }}>Question 3 of 14</div>
+          display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: u(12) }}>
+          <div style={{ fontFamily: font.family, fontWeight: 700, fontSize: u(16), color: A.sub, textAlign: "center" }}>Question 3 of 14</div>
           <div style={{ width: "100%", height: u(8), borderRadius: 4, background: "rgba(255,255,255,0.4)" }}>
             <div style={{ width: `${progress * 100}%`, height: "100%", borderRadius: 4,
               background: `linear-gradient(90deg, ${A.blueLo}, ${A.blueHi})` }} />
@@ -141,18 +141,18 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
             <div style={{ fontFamily: font.family, fontWeight: 800, fontSize: u(19), color: A.titleInk }}>Find the First Letter</div>
             <div style={{ fontFamily: font.family, fontWeight: 600, fontSize: u(12), color: A.sub, marginTop: u(4) }}>Which letter starts this word?</div>
           </GlassCard>
-          <GlassCard style={{ padding: `${u(8)}px ${u(14)}px`, display: "flex", alignSelf: "flex-start", alignItems: "baseline", gap: u(4) }}>
+          <GlassCard style={{ padding: `${u(10)}px ${u(18)}px`, display: "flex", alignSelf: "center", alignItems: "baseline", gap: u(6) }}>
             <div style={{
-              minWidth: u(46), padding: `${u(2)}px ${u(8)}px`, borderRadius: u(8),
+              minWidth: u(58), padding: `${u(3)}px ${u(10)}px`, borderRadius: u(10),
               background: answered ? A.okBg : "#ECEFF1", textAlign: "center",
-              fontFamily: font.family, fontWeight: 800, fontSize: u(30),
+              fontFamily: font.family, fontWeight: 800, fontSize: u(38),
               color: answered ? A.ok : "#90A4AE",
-            }}>{answered ? "p" : "_"}</div>
-            <div style={{ fontFamily: font.family, fontWeight: 800, fontSize: u(30), color: A.ink }}>en</div>
+            }}>{answered ? "h" : "_"}</div>
+            <div style={{ fontFamily: font.family, fontWeight: 800, fontSize: u(38), color: A.ink }}>en</div>
           </GlassCard>
-          <GlassCard style={{ padding: `${u(6)}px ${u(14)}px`, display: "flex", alignSelf: "flex-start", alignItems: "center", gap: u(6) }}>
-            <span style={{ color: A.star, fontSize: u(16) }}>★</span>
-            <div style={{ fontFamily: font.family, fontWeight: 800, fontSize: u(15), color: A.titleInk }}>Score: {answered ? 3 : 2}</div>
+          <GlassCard style={{ padding: `${u(9)}px ${u(18)}px`, display: "flex", alignSelf: "center", alignItems: "center", gap: u(8) }}>
+            <span style={{ color: A.star, fontSize: u(22) }}>★</span>
+            <div style={{ fontFamily: font.family, fontWeight: 800, fontSize: u(20), color: A.titleInk }}>Score: {answered ? 3 : 2}</div>
           </GlassCard>
         </div>
         {/* RIGHT 55%: the picture alone, then the three buttons in a row */}
@@ -164,7 +164,7 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
               : <div style={{ fontSize: u(110) }}>{hen}</div>}
           </div>
           <div style={{ display: "flex", gap: u(12), width: "100%", position: "relative" }}>
-            {["d", "p", "h"].map((o, i) => {
+            {["p", "h", "t"].map((o, i) => {
               const selected = answered && i === 1;
               const isCorrect = i === 1;
               const fill = !answered ? "rgba(255,255,255,0.55)" : selected && isCorrect ? A.okBg : "rgba(255,255,255,0.6)";
