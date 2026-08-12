@@ -112,6 +112,22 @@ const RoadNode: React.FC<{
   );
 };
 
+/** a small billboard for a neighbouring (non-hero) level — dim, title-only, real app data */
+const MiniCard: React.FC<{ x: number; y: number; title: string; emoji: string; color: string; u: (n: number) => number; dir: "right" | "left"; width: number }> = ({ x, y, title, emoji, color, u, dir, width }) => {
+  const left = dir === "right" ? x + u(26) : x - u(26) - width;
+  return (
+    <div style={{
+      position: "absolute", left, top: y - u(17), width, opacity: 0.68, boxSizing: "border-box",
+      background: "rgba(255,255,255,0.82)", border: `1.4px solid ${rgba(color, 0.42)}`, borderRadius: u(10),
+      padding: `${u(6)}px ${u(10)}px`, display: "flex", alignItems: "center", gap: u(7),
+      boxShadow: `0 2px 6px ${rgba(color, 0.16)}`,
+    }}>
+      <span style={{ fontSize: u(16) }}>{emoji}</span>
+      <span style={{ fontFamily: font.family, fontWeight: 700, fontSize: u(12), color, lineHeight: 1.15 }}>{title}</span>
+    </div>
+  );
+};
+
 /** the 13-family grid, coloured exactly as WordFamiliesIntroView's tiles array */
 const RIME_TILES: [string, string][] = [
   ["-at","#E53935"],["-an","#F57C00"],["-og","#388E3C"],["-en","#0097A7"],
@@ -142,12 +158,13 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
     if (step === 0) {
       const colFrac = 0.64;
       const roadW = SW * colFrac, roadH = SH;
-      const nodeDefs: { level: number; xf: number; yf: number; color: string; emoji: string; state: "done" | "active" | "locked" }[] = [
-        { level: 4, xf: 0.18, yf: 0.09, color: "#1565C0", emoji: "🧩", state: "done" },
-        { level: 5, xf: 0.80, yf: 0.28, color: "#1565C0", emoji: "🧩", state: "done" },
-        { level: 6, xf: 0.32, yf: 0.52, color: "#E91E63", emoji: "🏠", state: "active" },
-        { level: 7, xf: 0.80, yf: 0.75, color: "#4527A0", emoji: "🎨", state: "locked" },
-        { level: 8, xf: 0.18, yf: 0.93, color: "#4527A0", emoji: "🎨", state: "locked" },
+      // real per-level data — PhonicsReadingLevelsView.swift's phonicsLevelItems array
+      const nodeDefs: { level: number; xf: number; yf: number; color: string; emoji: string; title: string; state: "done" | "active" | "locked" }[] = [
+        { level: 4, xf: 0.18, yf: 0.09, color: "#AD1457", emoji: "🐱", title: "CVC Words", state: "done" },
+        { level: 5, xf: 0.80, yf: 0.28, color: "#00695C", emoji: "📏", title: "Short Vowel Rules", state: "done" },
+        { level: 6, xf: 0.32, yf: 0.52, color: "#E91E63", emoji: "🏠", title: "Word Families", state: "active" },
+        { level: 7, xf: 0.80, yf: 0.75, color: "#D32F2F", emoji: "🌟", title: "Beginning Blends", state: "locked" },
+        { level: 8, xf: 0.18, yf: 0.93, color: "#4527A0", emoji: "🎯", title: "Ending Blends", state: "locked" },
       ];
       const pts = nodeDefs.map((n) => ({ x: n.xf * roadW, y: n.yf * roadH }));
       let path = `M ${pts[0].x} ${pts[0].y} `;
@@ -187,9 +204,11 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
               <path d={path} stroke="rgba(255,255,255,0.85)" strokeWidth={u(12)} fill="none" strokeLinecap="round" />
               <path d={path} stroke="#FFB74D" strokeWidth={u(3.4)} strokeDasharray={`${u(7)} ${u(9)}`} fill="none" strokeLinecap="round" />
             </svg>
-            <RoadNode x={pts[0].x} y={pts[0].y} emoji="🧩" level={4} color="#1565C0" u={u} size={34} state="done" />
-            <RoadNode x={pts[1].x} y={pts[1].y} emoji="🧩" level={5} color="#1565C0" u={u} size={34} state="done" />
-            <div style={{ position: "absolute", left: hero.x - u(72), top: hero.y - u(114), padding: `${u(7)}px ${u(16)}px`, borderRadius: 999,
+            <RoadNode x={pts[0].x} y={pts[0].y} emoji={nodeDefs[0].emoji} level={4} color={nodeDefs[0].color} u={u} size={34} state="done" />
+            <MiniCard x={pts[0].x} y={pts[0].y} title={nodeDefs[0].title} emoji={nodeDefs[0].emoji} color={nodeDefs[0].color} u={u} dir="right" width={roadW * 0.30} />
+            <RoadNode x={pts[1].x} y={pts[1].y} emoji={nodeDefs[1].emoji} level={5} color={nodeDefs[1].color} u={u} size={34} state="done" />
+            <MiniCard x={pts[1].x} y={pts[1].y} title={nodeDefs[1].title} emoji={nodeDefs[1].emoji} color={nodeDefs[1].color} u={u} dir="left" width={roadW * 0.30} />
+            <div style={{ position: "absolute", left: hero.x, top: hero.y - u(92), transform: "translateX(-50%)", padding: `${u(7)}px ${u(16)}px`, borderRadius: 999,
               background: "linear-gradient(90deg, #E91E63, rgba(233,30,99,0.75))", boxShadow: "0 2px 6px rgba(233,30,99,0.4)",
               display: "flex", alignItems: "center", gap: u(7), whiteSpace: "nowrap" }}>
               <span style={{ fontSize: u(16) }}>🏠</span>
@@ -203,14 +222,16 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
                 <div style={{ fontFamily: font.family, fontWeight: 800, fontSize: u(19), color: "#E91E63" }}>Word Families</div>
                 <div style={{ fontFamily: font.family, fontWeight: 600, fontSize: u(12), color: "#E91E63", background: "rgba(233,30,99,0.12)", borderRadius: 999, padding: `1px ${u(7)}px` }}>Age 5-6</div>
               </div>
-              <div style={{ fontFamily: font.family, fontWeight: 600, fontSize: u(13), color: "rgba(0,0,0,0.55)", marginTop: u(4) }}>-at bat, cat · -en hen, ten · -ig big, pig</div>
+              <div style={{ fontFamily: font.family, fontWeight: 600, fontSize: u(13), color: "rgba(0,0,0,0.55)", marginTop: u(4) }}>-at bat, cat · -en hen, ten<br />-ig big, pig · -og log, dog · -un sun, run</div>
               <div style={{ display: "flex", alignItems: "center", gap: u(7), marginTop: u(7) }}>
                 {[0,1,2].map((i) => <span key={i} style={{ color: i<2 ? "#FFC107" : "rgba(189,189,189,0.6)", fontSize: u(15) }}>★</span>)}
                 <div style={{ fontFamily: font.family, fontWeight: 700, fontSize: u(12), color: "#EF6C00", background: "rgba(239,108,0,0.12)", borderRadius: 999, padding: `1px ${u(7)}px` }}>Keep going ▶</div>
               </div>
             </GlassCard>
-            <RoadNode x={pts[3].x} y={pts[3].y} emoji="🎨" level={7} color="#4527A0" u={u} size={34} state="locked" />
-            <RoadNode x={pts[4].x} y={pts[4].y} emoji="🎨" level={8} color="#4527A0" u={u} size={34} state="locked" />
+            <RoadNode x={pts[3].x} y={pts[3].y} emoji={nodeDefs[3].emoji} level={7} color={nodeDefs[3].color} u={u} size={34} state="locked" />
+            <MiniCard x={pts[3].x} y={pts[3].y} title={nodeDefs[3].title} emoji={nodeDefs[3].emoji} color={nodeDefs[3].color} u={u} dir="left" width={roadW * 0.30} />
+            <RoadNode x={pts[4].x} y={pts[4].y} emoji={nodeDefs[4].emoji} level={8} color={nodeDefs[4].color} u={u} size={34} state="locked" />
+            <MiniCard x={pts[4].x} y={pts[4].y} title={nodeDefs[4].title} emoji={nodeDefs[4].emoji} color={nodeDefs[4].color} u={u} dir="right" width={roadW * 0.30} />
             {/* click Level 6 → the intro page opens */}
             {tapProg > 0 && (
               <div style={{ position: "absolute", left: hero.x + u(16), top: hero.y - u(96) + tapProg * u(80), fontSize: u(58), lineHeight: 1,
@@ -226,11 +247,10 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
       return (
         <div style={{ width: "100%", height: "100%", position: "relative", overflow: "hidden", display: "flex",
           background: `linear-gradient(135deg, ${MEADOW[0]}, ${MEADOW[1]})` }}>
-          <BackHeader title="Level 6" u={u} />
-          <div style={{ width: "54%", height: "100%", boxSizing: "border-box", padding: `${u(20)}px ${u(22)}px`, display: "flex", flexDirection: "column", justifyContent: "center", gap: u(13) }}>
-            <div style={{ fontFamily: font.family, fontWeight: 800, fontSize: u(28), color: "#1B5E20" }}>Word Families</div>
-            {[RIME_TILES.slice(0,4), RIME_TILES.slice(4,8), RIME_TILES.slice(8,13)].map((row, ri) => (
-              <div key={ri} style={{ display: "flex", gap: u(10) }}>
+          <BackHeader title="Word Families" u={u} />
+          <div style={{ width: "54%", height: "100%", boxSizing: "border-box", padding: `${u(20)}px ${u(22)}px`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: u(13) }}>
+            {[RIME_TILES.slice(0,7), RIME_TILES.slice(7,13)].map((row, ri) => (
+              <div key={ri} style={{ display: "flex", justifyContent: "center", gap: u(10) }}>
                 {row.map(([rime, color]) => (
                   <div key={rime} style={{
                     padding: `${u(6)}px ${u(13)}px`, borderRadius: u(11), background: `${color}26`,
@@ -239,7 +259,7 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
                 ))}
               </div>
             ))}
-            <div style={{ display: "flex", flexDirection: "column", gap: u(8), marginTop: u(6) }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: u(8), marginTop: u(6) }}>
               {[["📚","13 word families to explore"],["🔤","Change the first letter to build new words"],
                 ["🔊","Hear each sound: onset + rime = word"],["💡","Once you know -at, you can read cat, bat, hat, rat!"]].map(([icon,text],i) => (
                 <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: u(10) }}>
@@ -248,7 +268,7 @@ export const AppPractice: React.FC<{ b: { width: number; height: number; wide: b
                 </div>
               ))}
             </div>
-            <GlassCard u={u} stroke="#388E3C" style={{ marginTop: u(6), padding: `${u(10)}px ${u(15)}px`, display: "flex", alignItems: "center", gap: u(10), alignSelf: "flex-start" }}>
+            <GlassCard u={u} stroke="#388E3C" style={{ marginTop: u(6), padding: `${u(10)}px ${u(15)}px`, display: "flex", alignItems: "center", gap: u(10) }}>
               <div style={{ padding: `${u(5)}px ${u(11)}px`, borderRadius: u(7), background: "#1E88E5", fontFamily: font.family, fontWeight: 800, fontSize: u(19), color: "#FFF" }}>c</div>
               <div style={{ fontFamily: font.family, fontWeight: 800, fontSize: u(21), color: "#999" }}>+</div>
               <div style={{ padding: `${u(5)}px ${u(11)}px`, borderRadius: u(7), background: "#E53935", fontFamily: font.family, fontWeight: 800, fontSize: u(19), color: "#FFF" }}>-at</div>
