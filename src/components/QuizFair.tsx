@@ -208,12 +208,12 @@ export const Tickets: React.FC<{ b: B; words: string[]; final?: boolean }> = ({ 
     const pitch = gridW / perRow;
     const slot = pitch * 0.82;
     const gridLeft = (b.width - gridW) / 2 + (pitch - slot) / 2;
-    const gridTop = b.height * 0.125;
+    const gridTop = b.height * 0.150;
     const rowPitch = slot * 1.18 + b.height * 0.020;
     return (
       <>
         <div style={{
-          position: "absolute", left: 0, top: gridTop - b.height * 0.055, width: b.width, textAlign: "center",
+          position: "absolute", left: 0, top: gridTop - b.height * 0.050, width: b.width, textAlign: "center",
           fontFamily: font.family, fontWeight: 800, fontSize: b.height * 0.030, color: FAIR.gold,
           textShadow: "0 3px 0 rgba(0,0,0,0.45)",
         }}>⭐ {words.length} / 14</div>
