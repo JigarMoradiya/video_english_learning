@@ -10,7 +10,7 @@ import { Confetti } from "../components/Confetti";
 import { picFor } from "../data/word_pics";
 import { AppPractice } from "../components/AppPractice";
 import {
-  B, Banner, Board, Booth, Content, FAIR, FairWorld, Fixed, Line, Mo, Prizes, PraiseStars, Row, Tickets, Zip, bands, pop,
+  B, Banner, Board, Booth, Content, FAIR, FairWorld, Fixed, Line, Mo, PraiseStars, Row, Tickets, Zip, bands, pop,
 } from "../components/QuizFair";
 
 // ── L6 · PART 2 · PRACTICE — the Quiz Fair ──────────────────────────────────
@@ -124,6 +124,11 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     // paddles on the ask, the letter the moment it is answered, pulse during sound-outs
     const slotFrom = q.word === "cat" ? 19 : q.word === "bat" ? 31 : q.picAt;
     const optFrom = q.word === "cat" ? 22 : q.word === "bat" ? 33 : q.optAt;
+    const optWords = (P[q.optAt] as any).words ?? [];
+    const optTimes = q.opts.map((o, i) => {
+      const hit = optWords.find((w: any) => w.word.toLowerCase().replace(/[^a-z]/g, "") === o);
+      return hit ? f(hit.start) : at(q.optAt) + i * 12;
+    });
     return (
       <Board b={b} at={at(q.picAt)}
         pic={q.word}
@@ -131,6 +136,7 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
         showSlot={idx >= slotFrom}
         opts={idx >= optFrom ? q.opts : undefined}
         optAt={at(optFrom)}
+        optTimes={idx >= optFrom ? optTimes : undefined}
         lit={answered ? q.ans : undefined}
         wrong={wrongTry ? 0 : undefined}
         filled={answered ? q.word.slice(0, q.word.length - q.rime.length)
@@ -177,7 +183,12 @@ const Scene: React.FC<{ idx: number; b: B }> = ({ idx, b }) => {
     case 8: return <Icon glyph={"\u{1F440}"} size={u(170)} />;
     case 9: return <Board b={b} at={a} pic="hen" rime="en" />;
     case 10: return <Board b={b} at={a} pic="hen" rime="en" opts={["p", "h", "t"]} optAt={a} />;
-    case 11: return <Row gap={u(20)}><Line text="1" size={u(120)} at={a} color={FAIR.good} /><Line text="of 3" size={u(64)} at={a + 6} /></Row>;
+    case 11: return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: u(12) }}>
+        <Icon glyph={"\u{2705}"} size={u(110)} />
+        <Row gap={u(20)}><Line text="1" size={u(120)} at={a} color={FAIR.good} /><Line text="of 3" size={u(64)} at={a + 6} /></Row>
+      </div>
+    );
     case 12: return <Row gap={u(20)}><Icon glyph={"\u{1F5E3}"} size={u(150)} /><Icon glyph={"\u{1F4E2}"} size={u(130)} /></Row>;
     case 13: case 14: return <Line text="READY?" size={u(130)} at={a} color={FAIR.gold} />;
     case 15: case 16: return <Row gap={u(16)}><Icon glyph={"\u{1F3E0}"} size={u(130)} /><Line text="at" size={u(120)} at={a} color={FAIR.gold} /></Row>;
@@ -246,7 +257,6 @@ export const L6PracticeReel: React.FC = () => {
         <>
           <Banner b={b} text={bannerFor(idx)} />
           {!inApp && <Booth b={b} />}
-          {!inApp && <Prizes b={b} />}
           {!inApp && <Tickets b={b} words={done} />}
           {!inApp && <Content b={b}><Scene idx={idx} b={b} /></Content>}
           {inApp && <AppPractice b={b} from={appFrom} />}

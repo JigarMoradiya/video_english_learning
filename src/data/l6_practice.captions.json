@@ -931,14 +931,14 @@
  },
  {
   "index": 24,
-  "text": "C!",
+  "text": "c!",
   "line_index": 23,
   "start": 75.08,
   "end": 75.7,
   "duration": 0.62,
   "words": [
    {
-    "word": "C!",
+    "word": "c!",
     "start": 75.08,
     "end": 75.7
    }
@@ -946,14 +946,14 @@
  },
  {
   "index": 25,
-  "text": "C\u2026",
+  "text": "c\u2026",
   "line_index": 24,
   "start": 76.44,
   "end": 77.14,
   "duration": 0.7,
   "words": [
    {
-    "word": "C\u2026",
+    "word": "c\u2026",
     "start": 76.44,
     "end": 77.14
    }
@@ -1116,14 +1116,14 @@
  },
  {
   "index": 34,
-  "text": "B, c, or r?",
+  "text": "b, c, or r?",
   "line_index": 31,
   "start": 93.02,
   "end": 95.76,
   "duration": 2.74,
   "words": [
    {
-    "word": "B,",
+    "word": "b,",
     "start": 93.02,
     "end": 93.32
    },
@@ -1146,14 +1146,14 @@
  },
  {
   "index": 35,
-  "text": "B!",
+  "text": "b!",
   "line_index": 32,
   "start": 98.06,
   "end": 98.68,
   "duration": 0.62,
   "words": [
    {
-    "word": "B!",
+    "word": "b!",
     "start": 98.06,
     "end": 98.68
    }
@@ -1161,14 +1161,14 @@
  },
  {
   "index": 36,
-  "text": "B\u2026",
+  "text": "b\u2026",
   "line_index": 33,
   "start": 99.56,
   "end": 100.44,
   "duration": 0.88,
   "words": [
    {
-    "word": "B\u2026",
+    "word": "b\u2026",
     "start": 99.56,
     "end": 100.44
    }
@@ -1306,14 +1306,14 @@
  },
  {
   "index": 42,
-  "text": "H!",
+  "text": "h!",
   "line_index": 38,
   "start": 114.98,
   "end": 115.54,
   "duration": 0.56,
   "words": [
    {
-    "word": "H!",
+    "word": "h!",
     "start": 114.98,
     "end": 115.54
    }
@@ -1466,14 +1466,14 @@
  },
  {
   "index": 48,
-  "text": "R!",
+  "text": "r!",
   "line_index": 44,
   "start": 132.1,
   "end": 132.66,
   "duration": 0.56,
   "words": [
    {
-    "word": "R!",
+    "word": "r!",
     "start": 132.1,
     "end": 132.66
    }
@@ -1851,14 +1851,14 @@
  },
  {
   "index": 60,
-  "text": "F!",
+  "text": "f!",
   "line_index": 55,
   "start": 167.8,
   "end": 168.1,
   "duration": 0.3,
   "words": [
    {
-    "word": "F!",
+    "word": "f!",
     "start": 167.8,
     "end": 168.1
    }
@@ -1976,14 +1976,14 @@
  },
  {
   "index": 65,
-  "text": "V!",
+  "text": "v!",
   "line_index": 60,
   "start": 181.62,
   "end": 182.5,
   "duration": 0.88,
   "words": [
    {
-    "word": "V!",
+    "word": "v!",
     "start": 181.62,
     "end": 182.5
    }
@@ -2186,14 +2186,14 @@
  },
  {
   "index": 72,
-  "text": "H!",
+  "text": "h!",
   "line_index": 67,
   "start": 202.56,
   "end": 203.08,
   "duration": 0.52,
   "words": [
    {
-    "word": "H!",
+    "word": "h!",
     "start": 202.56,
     "end": 203.08
    }
@@ -2336,14 +2336,14 @@
  },
  {
   "index": 78,
-  "text": "D\u2026",
+  "text": "d\u2026",
   "line_index": 73,
   "start": 217.12,
   "end": 217.88,
   "duration": 0.76,
   "words": [
    {
-    "word": "D\u2026",
+    "word": "d\u2026",
     "start": 217.12,
     "end": 217.88
    }
@@ -2501,14 +2501,14 @@
  },
  {
   "index": 84,
-  "text": "P\u2026",
+  "text": "p\u2026",
   "line_index": 78,
   "start": 229.86,
   "end": 230.64,
   "duration": 0.78,
   "words": [
    {
-    "word": "P\u2026",
+    "word": "p\u2026",
     "start": 229.86,
     "end": 230.64
    }
@@ -2911,14 +2911,14 @@
  },
  {
   "index": 97,
-  "text": "L, f, or d?",
+  "text": "l, f, or d?",
   "line_index": 90,
   "start": 259.12,
   "end": 262.26,
   "duration": 3.14,
   "words": [
    {
-    "word": "L,",
+    "word": "l,",
     "start": 259.12,
     "end": 259.74
    },
@@ -2941,14 +2941,14 @@
  },
  {
   "index": 98,
-  "text": "D!",
+  "text": "d!",
   "line_index": 91,
   "start": 263.78,
   "end": 264.4,
   "duration": 0.62,
   "words": [
    {
-    "word": "D!",
+    "word": "d!",
     "start": 263.78,
     "end": 264.4
    }
@@ -2991,14 +2991,14 @@
  },
  {
   "index": 101,
-  "text": "P, b, or d?",
+  "text": "p, b, or d?",
   "line_index": 94,
   "start": 267.98,
   "end": 271.06,
   "duration": 3.08,
   "words": [
    {
-    "word": "P,",
+    "word": "p,",
     "start": 267.98,
     "end": 268.52
    },
@@ -3021,14 +3021,14 @@
  },
  {
   "index": 102,
-  "text": "P!",
+  "text": "p!",
   "line_index": 95,
   "start": 272.86,
   "end": 273.46,
   "duration": 0.6,
   "words": [
    {
-    "word": "P!",
+    "word": "p!",
     "start": 272.86,
     "end": 273.46
    }
@@ -3071,14 +3071,14 @@
  },
  {
   "index": 105,
-  "text": "H, p, or d?",
+  "text": "h, p, or d?",
   "line_index": 98,
   "start": 277.02,
   "end": 280.06,
   "duration": 3.04,
   "words": [
    {
-    "word": "H,",
+    "word": "h,",
     "start": 277.02,
     "end": 277.52
    },
@@ -3101,14 +3101,14 @@
  },
  {
   "index": 106,
-  "text": "P!",
+  "text": "p!",
   "line_index": 99,
   "start": 281.64,
   "end": 282.22,
   "duration": 0.58,
   "words": [
    {
-    "word": "P!",
+    "word": "p!",
     "start": 281.64,
     "end": 282.22
    }
@@ -3151,14 +3151,14 @@
  },
  {
   "index": 109,
-  "text": "R, f, or s?",
+  "text": "r, f, or s?",
   "line_index": 102,
   "start": 286.2,
   "end": 288.9,
   "duration": 2.7,
   "words": [
    {
-    "word": "R,",
+    "word": "r,",
     "start": 286.2,
     "end": 286.72
    },
@@ -3181,14 +3181,14 @@
  },
  {
   "index": 110,
-  "text": "S!",
+  "text": "s!",
   "line_index": 103,
   "start": 291.04,
   "end": 291.34,
   "duration": 0.3,
   "words": [
    {
-    "word": "S!",
+    "word": "s!",
     "start": 291.04,
     "end": 291.34
    }
@@ -3231,14 +3231,14 @@
  },
  {
   "index": 113,
-  "text": "M, c, or n?",
+  "text": "m, c, or n?",
   "line_index": 106,
   "start": 295.58,
   "end": 298.76,
   "duration": 3.18,
   "words": [
    {
-    "word": "M,",
+    "word": "m,",
     "start": 295.58,
     "end": 295.78
    },
@@ -3261,14 +3261,14 @@
  },
  {
   "index": 114,
-  "text": "M!",
+  "text": "m!",
   "line_index": 107,
   "start": 299.94,
   "end": 300.6,
   "duration": 0.66,
   "words": [
    {
-    "word": "M!",
+    "word": "m!",
     "start": 299.94,
     "end": 300.6
    }
@@ -3331,14 +3331,14 @@
  },
  {
   "index": 118,
-  "text": "B, j, or r?",
+  "text": "b, j, or r?",
   "line_index": 111,
   "start": 306.0,
   "end": 309.22,
   "duration": 3.22,
   "words": [
    {
-    "word": "B,",
+    "word": "b,",
     "start": 306.0,
     "end": 306.66
    },
@@ -3361,14 +3361,14 @@
  },
  {
   "index": 119,
-  "text": "J!",
+  "text": "j!",
   "line_index": 112,
   "start": 310.9,
   "end": 311.52,
   "duration": 0.62,
   "words": [
    {
-    "word": "J!",
+    "word": "j!",
     "start": 310.9,
     "end": 311.52
    }
