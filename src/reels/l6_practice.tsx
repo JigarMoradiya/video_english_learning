@@ -289,6 +289,12 @@ export const L6PracticeReel: React.FC = () => {
   const inApp = frame >= appFrom && frame < storeFrom;
   const done = QS.filter((q) => idx >= q.wordAt).map((q) => q.word);
   const zipCheers = PRAISE.some((i) => idx === i);
+  // portrait finale — "Look at your score" (122) through "I am so proud of you" (130):
+  // all 14 word cards across the top, everything else pushed below them
+  const recapPortrait = !b.wide && idx >= 122 && idx <= 130;
+  // the ground counter bar sits at ~0.652–0.712H (FairWorld, drawn from the unmodified
+  // `b`) — the lowered band must clear it, not just clear the grid above
+  const bLow: B = recapPortrait ? { ...b, contentTop: b.height * 0.722, contentH: b.height * 0.111, charY: b.height * 0.841, charH: b.height * 0.115 } : b;
 
   return (
     <AbsoluteFill>
@@ -308,15 +314,15 @@ export const L6PracticeReel: React.FC = () => {
       {frame < storeFrom && (
         <>
           <Banner b={b} text={bannerFor(idx)} />
-          {!inApp && <Booth b={b} />}
-          {!inApp && <Tickets b={b} words={done} />}
-          {!inApp && <Content b={b}><Scene idx={idx} b={b} /></Content>}
+          {!inApp && !recapPortrait && <Booth b={b} />}
+          {!inApp && <Tickets b={b} words={done} final={recapPortrait} />}
+          {!inApp && <Content b={bLow}><Scene idx={idx} b={b} /></Content>}
           {inApp && <AppPractice b={b} from={appFrom} />}
           <Fixed b={b}>
             {PRAISE.map((i) => <Confetti key={i} frame={frame} fps={FPS} burstFrame={at(i)} origin={{ x: b.width / 2, y: b.height * 0.30 }} colors={[FAIR.gold, FAIR.awningA, "#8FD3E8", FAIR.good]} count={24} seed={i} />)}
-            {!inApp && PRAISE.includes(idx) && <PraiseStars b={b} />}
-            {!inApp && <Mo b={b} />}
-            {!inApp && <Zip b={b} cheer={zipCheers} />}
+            {!inApp && PRAISE.includes(idx) && <PraiseStars b={bLow} />}
+            {!inApp && <Mo b={bLow} />}
+            {!inApp && <Zip b={bLow} cheer={zipCheers} />}
           </Fixed>
           {!CAPTION_OFF.has(idx) && <Captions track={TRACK} maxWidth={b.wide ? 1180 : 900} />}
           <Watermark corner="tl" widthFrac={b.wide ? 0.085 : 0.11} pad={b.wide ? 54 : 46} />

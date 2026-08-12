@@ -196,9 +196,65 @@ export const Booth: React.FC<{ b: B }> = ({ b }) => {
 };
 
 // ── the ticket line: every answered word, strung like bunting ───────────────
-export const Tickets: React.FC<{ b: B; words: string[] }> = ({ b, words }) => {
+export const Tickets: React.FC<{ b: B; words: string[]; final?: boolean }> = ({ b, words, final = false }) => {
   const frame = useCurrentFrame();
-  if (!b.wide) return null;                          // portrait layout comes with the 4:5 pass
+  if (!b.wide) {
+    // portrait has no room for a running shelf beside the board — it only appears for
+    // the final recap ("Look at your score" → "I am so proud of you"), all 14 at once,
+    // across the top of the frame, with everything else pushed below it.
+    if (!final) return null;
+    const perRow = 5, rows = 3;
+    const gridW = b.width * 0.92;
+    const pitch = gridW / perRow;
+    const slot = pitch * 0.82;
+    const gridLeft = (b.width - gridW) / 2 + (pitch - slot) / 2;
+    const gridTop = b.height * 0.125;
+    const rowPitch = slot * 1.18 + b.height * 0.020;
+    return (
+      <>
+        <div style={{
+          position: "absolute", left: 0, top: gridTop - b.height * 0.055, width: b.width, textAlign: "center",
+          fontFamily: font.family, fontWeight: 800, fontSize: b.height * 0.030, color: FAIR.gold,
+          textShadow: "0 3px 0 rgba(0,0,0,0.45)",
+        }}>⭐ {words.length} / 14</div>
+        {Array.from({ length: 14 }).map((_, i) => {
+          const r = Math.floor(i / perRow), c = i % perRow;
+          const x = gridLeft + c * pitch, y = gridTop + r * rowPitch;
+          const w = words[i];
+          const src = w ? picFor(w) : null;
+          return (
+            <div key={i} style={{ position: "absolute", left: x, top: y, width: slot, height: slot * 1.18 }}>
+              <div style={{
+                position: "absolute", inset: 0, borderRadius: 10,
+                border: `3px dashed rgba(255,246,216,${w ? 0 : 0.5})`,
+                background: w ? "transparent" : "rgba(255,246,216,0.07)",
+              }} />
+              {!w && <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: slot * 0.36, opacity: 0.45 }}>⭐</div>}
+              {w && (
+                <div style={{
+                  position: "absolute", inset: 0, background: FAIR.cream,
+                  border: `4px solid ${FAIR.ink}`, borderRadius: 10, boxSizing: "border-box",
+                  boxShadow: `0 4px 0 ${FAIR.ink}`,
+                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between",
+                  padding: slot * 0.06,
+                  transform: `rotate(${Math.sin((frame + i * 30) / 46) * 2}deg)`,
+                }}>
+                  <div style={{ width: slot * 0.66, height: slot * 0.60, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {src && src.startsWith("img/")
+                      ? <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                      : <div style={{ fontSize: slot * 0.52, lineHeight: 1 }}>{src}</div>}
+                  </div>
+                  <div style={{ width: "100%", background: FAIR.gold, borderRadius: 5, textAlign: "center",
+                    fontFamily: font.family, fontWeight: 800, fontSize: slot * 0.26, color: FAIR.ink }}>{w}</div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </>
+    );
+  }
   const X = b.width * 0.715, W2 = b.width * 0.250;
   const perRow = 5, rows = 3;
   const pitch = W2 / perRow;
